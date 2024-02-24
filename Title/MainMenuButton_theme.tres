@@ -1,0 +1,197 @@
+[gd_resource type="Theme" load_steps=24 format=3 uid="uid://cwbdqmvx07r3k"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bxqty"]
+content_margin_left = 25.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.6, 0.6, 0.6, 0)
+corner_detail = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_evgx3"]
+content_margin_left = 25.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_bottom = 5
+border_color = Color(0.74902, 0.74902, 0.74902, 0.247059)
+corner_detail = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8o506"]
+content_margin_left = 25.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0, 0, 0, 0.247059)
+corner_detail = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v23q3"]
+content_margin_left = 25.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.6, 0.6, 0.6, 0)
+corner_detail = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ov023"]
+content_margin_left = 25.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0, 0, 0, 0.247059)
+corner_detail = 1
+
+[sub_resource type="Gradient" id="Gradient_fap28"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.5, 0.8)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_yxs3v"]
+gradient = SubResource("Gradient_fap28")
+width = 20
+height = 20
+fill = 2
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 1)
+
+[sub_resource type="Gradient" id="Gradient_67vsk"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.5, 0.8)
+colors = PackedColorArray(0.498039, 0.498039, 0.498039, 1, 0, 0, 0, 0, 0.498039, 0.498039, 0.498039, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_6gh3e"]
+gradient = SubResource("Gradient_67vsk")
+width = 20
+height = 20
+fill = 2
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 1)
+
+[sub_resource type="Gradient" id="Gradient_4gtja"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.8)
+colors = PackedColorArray(0, 0, 0, 0, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_f4tjt"]
+gradient = SubResource("Gradient_4gtja")
+width = 20
+height = 20
+fill = 2
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 1)
+
+[sub_resource type="Gradient" id="Gradient_ykxj6"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.8)
+colors = PackedColorArray(0, 0, 0, 0, 0.498039, 0.498039, 0.498039, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_qqg4c"]
+gradient = SubResource("Gradient_ykxj6")
+width = 20
+height = 20
+fill = 2
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mpt83"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.74902, 0.74902, 0.74902, 0.247059)
+corner_detail = 1
+expand_margin_left = 7.0
+expand_margin_right = 7.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g46u2"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_17pvn"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.6, 0.6, 0.6, 0)
+corner_detail = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3hfmr"]
+content_margin_left = 8.0
+content_margin_top = 4.0
+content_margin_right = 21.0
+content_margin_bottom = 4.0
+bg_color = Color(0.225, 0.225, 0.225, 0.6)
+corner_detail = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_238m0"]
+content_margin_left = 8.0
+content_margin_top = 4.0
+content_margin_right = 21.0
+content_margin_bottom = 4.0
+bg_color = Color(0.1, 0.1, 0.1, 0.6)
+corner_detail = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_585gv"]
+content_margin_left = 8.0
+content_margin_top = 4.0
+content_margin_right = 21.0
+content_margin_bottom = 4.0
+bg_color = Color(0, 0, 0, 0.6)
+corner_detail = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hi43w"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.1, 0.1, 0.1, 0.6)
+corner_detail = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eoa1f"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.1, 0.1, 0.1, 0.6)
+corner_detail = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jjk4h"]
+content_margin_left = 25.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_top = 5
+border_color = Color(0.74902, 0.74902, 0.74902, 0.247059)
+corner_detail = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_88xu6"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.247059, 0.247059, 0.247059, 0.498039)
+
+[resource]
+Button/colors/font_hover_color = Color(1, 1, 0.74902, 1)
+Button/font_sizes/font_size = 20
+Button/styles/disabled = SubResource("StyleBoxFlat_bxqty")
+Button/styles/focus = SubResource("StyleBoxFlat_evgx3")
+Button/styles/hover = SubResource("StyleBoxFlat_8o506")
+Button/styles/normal = SubResource("StyleBoxFlat_v23q3")
+Button/styles/pressed = SubResource("StyleBoxFlat_ov023")
+CheckBox/icons/checked = SubResource("GradientTexture2D_yxs3v")
+CheckBox/icons/checked_disabled = SubResource("GradientTexture2D_6gh3e")
+CheckBox/icons/unchecked = SubResource("GradientTexture2D_f4tjt")
+CheckBox/icons/unchecked_disabled = SubResource("GradientTexture2D_qqg4c")
+CheckBox/styles/focus = SubResource("StyleBoxFlat_mpt83")
+CheckBox/styles/normal = SubResource("StyleBoxEmpty_g46u2")
+Label/font_sizes/font_size = 20
+Label/styles/normal = SubResource("StyleBoxFlat_17pvn")
+OptionButton/styles/hover = SubResource("StyleBoxFlat_3hfmr")
+OptionButton/styles/normal = SubResource("StyleBoxFlat_238m0")
+OptionButton/styles/pressed = SubResource("StyleBoxFlat_585gv")
+Panel/styles/panel = SubResource("StyleBoxFlat_hi43w")
+TabContainer/styles/panel = SubResource("StyleBoxFlat_eoa1f")
+TabContainer/styles/tab_focus = SubResource("StyleBoxFlat_jjk4h")
+TooltipPanel/styles/panel = SubResource("StyleBoxFlat_88xu6")

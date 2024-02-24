@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://du3y1dtmby6wt"
+path="res://.godot/imported/Twig3.obj-48140399b48cfac57d5ba2d9b914a982.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Twig3.obj-48140399b48cfac57d5ba2d9b914a982.mesh"]
+
+source_file="res://Resources/Object/Tree/Twig3.obj"
+dest_files=["res://.godot/imported/Twig3.obj-48140399b48cfac57d5ba2d9b914a982.mesh", "res://.godot/imported/Twig3.obj-48140399b48cfac57d5ba2d9b914a982.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

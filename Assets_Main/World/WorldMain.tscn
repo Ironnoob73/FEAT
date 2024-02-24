@@ -1,0 +1,92 @@
+[gd_scene load_steps=10 format=3 uid="uid://c0hvltjdip61f"]
+
+[ext_resource type="PackedScene" uid="uid://bk6ihg1vf71uf" path="res://Assets_Main/Character/Player.tscn" id="1_ur16q"]
+[ext_resource type="PackedScene" uid="uid://bcp40gisqlrka" path="res://Assets_Main/World/Location/_Falord/CentralSquare.tscn" id="2_5adnp"]
+[ext_resource type="Material" uid="uid://dcwav4237d0l3" path="res://Resources/Material/GrassGround.tres" id="2_kqn3o"]
+[ext_resource type="Material" uid="uid://4hlgj1u74iny" path="res://Resources/Material/ConcreteBricks.tres" id="3_0x273"]
+[ext_resource type="PackedScene" uid="uid://pyr60lcofnft" path="res://Resources/Object/Tree/tree_scene.tscn" id="4_4sw5e"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_77ny8"]
+
+[sub_resource type="Sky" id="Sky_540gf"]
+sky_material = SubResource("ProceduralSkyMaterial_77ny8")
+
+[sub_resource type="Environment" id="Environment_kprkk"]
+background_mode = 2
+sky = SubResource("Sky_540gf")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_svlta"]
+size = Vector2(80, 80)
+
+[node name="World" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_kprkk")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment"]
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433012, 0, 0, 0)
+shadow_enabled = true
+
+[node name="CentralSquare" parent="." instance=ExtResource("2_5adnp")]
+
+[node name="GrassGround" type="CSGMesh3D" parent="CentralSquare"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, 0)
+use_collision = true
+mesh = SubResource("PlaneMesh_svlta")
+material = ExtResource("2_kqn3o")
+
+[node name="Road-north" type="CSGBox3D" parent="CentralSquare/GrassGround"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0.05, 0)
+size = Vector3(20, 0.1, 10)
+material = ExtResource("3_0x273")
+
+[node name="Road-south" type="CSGBox3D" parent="CentralSquare/GrassGround"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 0.05, 0)
+size = Vector3(20, 0.1, 10)
+material = ExtResource("3_0x273")
+
+[node name="Road-west" type="CSGBox3D" parent="CentralSquare/GrassGround"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, -30)
+size = Vector3(10, 0.1, 20)
+material = ExtResource("3_0x273")
+
+[node name="Road-east" type="CSGBox3D" parent="CentralSquare/GrassGround"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 30)
+size = Vector3(10, 0.1, 20)
+material = ExtResource("3_0x273")
+
+[node name="Tree0" parent="CentralSquare" instance=ExtResource("4_4sw5e")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -32, 0.25, 11)
+
+[node name="Tree1" parent="CentralSquare" instance=ExtResource("4_4sw5e")]
+transform = Transform3D(-0.113206, 0, -0.2229, 0, 0.25, 0, 0.2229, 0, -0.113206, -28.5239, 0.184373, 15.3617)
+
+[node name="Tree2" parent="CentralSquare" instance=ExtResource("4_4sw5e")]
+transform = Transform3D(-0.194829, 0, 0.156658, 0, 0.25, 0, -0.156658, 0, -0.194829, -22.2085, -0.409839, 17.3914)
+
+[node name="Tree3" parent="CentralSquare" instance=ExtResource("4_4sw5e")]
+transform = Transform3D(0.169988, 0, 0.183314, 0, 0.25, 0, -0.183314, 0, 0.169988, -18.7624, 0.392512, 21.092)
+
+[node name="Tree4" parent="CentralSquare" instance=ExtResource("4_4sw5e")]
+transform = Transform3D(0.0928014, 0, 0.232138, 0, 0.25, 0, -0.232138, 0, 0.0928014, -15.877, 0.117771, 25.3228)
+
+[node name="Tree5" parent="CentralSquare" instance=ExtResource("4_4sw5e")]
+transform = Transform3D(0.247918, 0, -0.0321946, 0, 0.25, 0, 0.0321946, 0, 0.247918, -13.3827, 0.338526, 29.276)
+
+[node name="Tree6" parent="CentralSquare" instance=ExtResource("4_4sw5e")]
+transform = Transform3D(0.0672216, 0, 0.240793, 0, 0.25, 0, -0.240793, 0, 0.0672216, -25.9401, 0.142009, 19.6835)
+
+[node name="Tree7" parent="CentralSquare" instance=ExtResource("4_4sw5e")]
+transform = Transform3D(0.24889, 0, 0.0235358, 0, 0.25, 0, -0.0235358, 0, 0.24889, -25.8231, 0, 25.5091)
+
+[node name="Tree8" parent="CentralSquare" instance=ExtResource("4_4sw5e")]
+transform = Transform3D(0.110885, 0, -0.224064, 0, 0.25, 0, 0.224064, 0, 0.110885, -21.4467, 0.30428, 25.2329)
+
+[node name="Tree9" parent="CentralSquare" instance=ExtResource("4_4sw5e")]
+transform = Transform3D(0.220474, 0, 0.117861, 0, 0.25, 0, -0.117861, 0, 0.220474, -19.4395, -0.216402, 29.8794)
+
+[node name="Tree10" parent="CentralSquare" instance=ExtResource("4_4sw5e")]
+transform = Transform3D(0.202521, 0, -0.146579, 0, 0.25, 0, 0.146579, 0, 0.202521, -16.5491, -0.216402, 33.8493)
+
+[node name="Player" parent="." instance=ExtResource("1_ur16q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)

@@ -1,0 +1,85 @@
+[gd_scene load_steps=9 format=3 uid="uid://nxxw5gbtnejd"]
+
+[sub_resource type="Gradient" id="Gradient_vct1s"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.5, 0.6)
+colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_m82og"]
+gradient = SubResource("Gradient_vct1s")
+width = 10
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_qm30k"]
+panorama = SubResource("GradientTexture1D_m82og")
+
+[sub_resource type="Sky" id="Sky_d8ugg"]
+sky_material = SubResource("PanoramaSkyMaterial_qm30k")
+
+[sub_resource type="Environment" id="Environment_a57gj"]
+background_mode = 2
+background_energy_multiplier = 3.0
+sky = SubResource("Sky_d8ugg")
+glow_enabled = true
+glow_strength = 0.5
+glow_bloom = 0.5
+glow_blend_mode = 1
+
+[sub_resource type="Animation" id="Animation_28ylg"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Mesh:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_h1djh"]
+resource_name = "rotation"
+length = 5.0
+loop_mode = 2
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Mesh:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(-2, 1),
+"update": 0,
+"values": [Vector3(0, -0.785398, 0), Vector3(0, 3.92699, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8jyh6"]
+_data = {
+"RESET": SubResource("Animation_28ylg"),
+"rotation": SubResource("Animation_h1djh")
+}
+
+[node name="MeshView2d" type="Node3D"]
+
+[node name="Camera" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.894934, 0.446198, 0, -0.446198, 0.894934, 0, 1, 0)
+cull_mask = 8
+environment = SubResource("Environment_a57gj")
+projection = 1
+size = 1.75
+near = 0.001
+far = 4.0
+
+[node name="Mesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
+layers = 8
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_8jyh6")
+}
+autoplay = "rotation"

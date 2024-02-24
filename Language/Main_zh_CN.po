@@ -1,0 +1,209 @@
+# LD_Anvil, 2024.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Experience of Falord Gully - Main Translation\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: zh_CN\n"
+
+#----------Title screen----------#
+#Main
+msgid "title.line0"
+msgstr "纭碌实践"
+
+msgid "title.press_to_start"
+msgstr "——点击任意键继续——"
+
+msgid "title.menu.start"
+msgstr "开始"
+
+msgid "title.menu.continue"
+msgstr "继续"
+
+msgid "title.menu.online"
+msgstr "在线"
+
+msgid "title.menu.options"
+msgstr "选项"
+
+msgid "title.menu.exit"
+msgstr "退出"
+
+#Options
+msgid "#options_game#"
+msgstr "游戏"
+
+msgid "options.game.language"
+msgstr "语言"
+
+msgid "options.game.data"
+msgstr "存档路径"
+
+msgid "#options_video#"
+msgstr "视频"
+
+msgid "options.game.fullscreen"
+msgstr "全屏"
+
+msgid "options.game.scale"
+msgstr "缩放"
+
+msgid "#options_audio#"
+msgstr "音频"
+
+msgid "options.audio.master"
+msgstr "主音量"
+
+msgid "options.audio.bgm"
+msgstr "音乐音量"
+
+msgid "options.audio.sfx"
+msgstr "音效音量"
+
+msgid "#options_control#"
+msgstr "控制"
+
+msgid "options.control.mouse_sen"
+msgstr "鼠标灵敏度"
+
+#Beginning
+msgid "beginning.title"
+msgstr " 选择一个开始..."
+
+msgid "beginning.demo"
+msgstr "演示"
+
+msgid "beginning.demo.tutorial"
+msgstr " 教程"
+
+msgid "beginning.original"
+msgstr "原版故事"
+
+msgid "beginning.original.spare_time"
+msgstr " 闲暇时光"
+
+msgid "beginning.original.body_of_metal"
+msgstr " 金属之躯"
+
+#Beginning launch
+msgid "beginning.launch"
+msgstr "启动"
+
+#Saves
+msgid "save.title"
+msgstr "选择存档"
+
+msgid "save.refresh"
+msgstr "刷新"
+
+msgid "save.unselect"
+msgstr "请选择一个文件"
+
+#Online(Not avaliable)
+msgid "online.na"
+msgstr "敬请期待"
+
+#Exit
+msgid "exit.ask"
+msgstr "你确定退出吗？"
+
+msgid "exit.save"
+msgstr "未保存的内容将会丢失！"
+
+#----------In game----------#
+#Pause menu
+msgid "pause.title"
+msgstr "游戏暂停了"
+
+msgid "pause.resume"
+msgstr "继续"
+
+#Inventory
+msgid "inventory.title"
+msgstr " 背包"
+
+msgid "inventory.item.t"
+msgstr " 物品"
+
+msgid "inventory.item"
+msgstr "\n\n\n物品"
+
+msgid "inventory.item.item"
+msgstr "物品"
+
+msgid "inventory.item.block"
+msgstr "方块"
+
+msgid "inventory.item.left"
+msgstr "剩余"
+
+msgid "inventory.equipment.t"
+msgstr " 装备"
+
+msgid "inventory.equipment"
+msgstr "\n\n\n装备"
+
+msgid "inventory.equipment.tool"
+msgstr "工具"
+
+msgid "inventory.equipment.weapon"
+msgstr "武器"
+
+msgid "inventory.equipment.armor"
+msgstr "护甲"
+
+msgid "inventory.special.t"
+msgstr " 特殊"
+
+msgid "inventory.special"
+msgstr "\n\n\n特殊"
+
+msgid "inventory.collection.t"
+msgstr " 收藏"
+
+msgid "inventory.collection"
+msgstr "\n\n\n收藏"
+
+msgid "inventory.status.t"
+msgstr " 状态"
+
+####----------Commonly----------####
+#----------Option----------#
+msgid "button.back"
+msgstr "返回"
+
+msgid "button.confirm"
+msgstr "确认"
+
+msgid "button.cancel"
+msgstr "取消"
+
+msgid "file.open_directory"
+msgstr "选择文件夹"
+
+#----------In game----------#
+msgid "list.name"
+msgstr "名称"
+
+msgid "list.count"
+msgstr "数量"
+
+msgid "list.performance"
+msgstr "性能"
+
+msgid "equipment.durability"
+msgstr "耐久"
+
+msgid "hotbar.unequip"
+msgstr "卸下"
+
+msgid "hotbar.empty"
+msgstr "空"
+
+#Terrain
+msgid "terrain.blocky"
+msgstr "方块"
+
+msgid "terrain.smooth"
+msgstr "平滑"

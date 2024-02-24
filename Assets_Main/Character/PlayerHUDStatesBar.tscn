@@ -1,0 +1,87 @@
+[gd_scene load_steps=7 format=3 uid="uid://v2j546pk6a4k"]
+
+[ext_resource type="Texture2D" uid="uid://b4soesc0r8cwl" path="res://Resources/Image/hp_type/hp_t0.svg" id="1_gcjl0"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i0115"]
+bg_color = Color(0.247059, 0.247059, 0.247059, 0.498039)
+corner_radius_bottom_right = 20
+corner_detail = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vj0r3"]
+bg_color = Color(0.498039, 0.247059, 0.247059, 0.498039)
+
+[sub_resource type="Gradient" id="Gradient_125rg"]
+colors = PackedColorArray(0, 0.74902, 0, 1, 0, 1, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_654ha"]
+gradient = SubResource("Gradient_125rg")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bbrfp"]
+texture = SubResource("GradientTexture1D_654ha")
+
+[node name="PlayerHudStatesBar" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="Background" type="PanelContainer" parent="."]
+layout_mode = 1
+offset_right = 570.0
+offset_bottom = 50.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_i0115")
+
+[node name="HBox" type="HBoxContainer" parent="Background"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="Background/HBox"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 10
+
+[node name="Type" type="TextureRect" parent="Background/HBox/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_stretch_ratio = 0.0
+texture = ExtResource("1_gcjl0")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="Bar" type="ProgressBar" parent="Background/HBox"]
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_styles/background = SubResource("StyleBoxFlat_vj0r3")
+theme_override_styles/fill = SubResource("StyleBoxTexture_bbrfp")
+value = 100.0
+show_percentage = false
+
+[node name="Info" type="HBoxContainer" parent="Background/HBox/Bar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Remain" type="Label" parent="Background/HBox/Bar/Info"]
+layout_mode = 2
+size_flags_horizontal = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 25
+text = "999/999"
+
+[node name="Progress" type="Label" parent="Background/HBox/Bar/Info"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 25
+text = "100%"
+
+[node name="Empty" type="Control" parent="Background/HBox"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2

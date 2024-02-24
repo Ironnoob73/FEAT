@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 26.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.2" baseProfile="tiny" id="图层_1"
+	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 30 30"
+	 overflow="visible" xml:space="preserve">
+<path d="M15,2c7.17,0,13,5.83,13,13s-5.83,13-13,13S2,22.17,2,15S7.83,2,15,2 M15,1C7.27,1,1,7.27,1,15s6.27,14,14,14s14-6.27,14-14
+	S22.73,1,15,1L15,1z"/>
+<path d="M15,5c5.51,0,10,4.49,10,10s-4.49,10-10,10S5,20.51,5,15S9.49,5,15,5 M15,4C8.92,4,4,8.92,4,15s4.92,11,11,11s11-4.92,11-11
+	S21.08,4,15,4L15,4z"/>
+<line fill="none" stroke="#000000" stroke-miterlimit="10" x1="9.5" y1="6.5" x2="23" y2="22"/>
+<line fill="none" stroke="#000000" stroke-miterlimit="10" x1="6.5" y1="7.5" x2="20.5" y2="23.5"/>
+<path fill="#FF0000" d="M15,4c6.07,0,11,4.93,11,11s-4.93,11-11,11S4,21.07,4,15S8.93,4,15,4 M15,2C7.82,2,2,7.82,2,15
+	s5.82,13,13,13s13-5.82,13-13S22.18,2,15,2L15,2z"/>
+<line fill="none" stroke="#FF0000" stroke-width="2" stroke-miterlimit="10" x1="7.5" y1="6.5" x2="22.5" y2="23.5"/>
+</svg>

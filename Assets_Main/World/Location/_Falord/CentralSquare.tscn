@@ -1,0 +1,124 @@
+[gd_scene load_steps=20 format=3 uid="uid://bcp40gisqlrka"]
+
+[ext_resource type="ArrayMesh" uid="uid://dx4eb8v6beyws" path="res://Assets_Main/World/Location/_Falord/giant_obelisk.obj" id="2_m1l6f"]
+[ext_resource type="Texture2D" uid="uid://cs5xvs7ci4sff" path="res://Assets_Main/World/Location/_Falord/giant_obelisk_top.png" id="3_o3arb"]
+[ext_resource type="Texture2D" uid="uid://bjj0wqxpoi3t1" path="res://Assets_Main/World/Location/_Falord/giant_obelisk_top_normal.png" id="4_ky10a"]
+[ext_resource type="Texture2D" uid="uid://cpvin22byugni" path="res://Assets_Main/World/Location/_Falord/giant_obelisk_roughness.png" id="4_rv3bm"]
+[ext_resource type="Texture2D" uid="uid://sauqmefxxhuj" path="res://Assets_Main/World/Location/_Falord/giant_obelisk_base.png" id="5_mc3hn"]
+[ext_resource type="Material" uid="uid://cur0jmwbk5e0p" path="res://Resources/Material/YellowStoneBricks.tres" id="5_vcbrp"]
+[ext_resource type="Texture2D" uid="uid://ka5257ndcg8g" path="res://Assets_Main/World/Location/_Falord/giant_obelisk_base_normal.png" id="6_g844r"]
+[ext_resource type="Material" uid="uid://dcwav4237d0l3" path="res://Resources/Material/GrassGround.tres" id="9_7ejq8"]
+[ext_resource type="Material" uid="uid://bfkoreool5vno" path="res://Resources/Material/Water.tres" id="10_m28ra"]
+[ext_resource type="ArrayMesh" uid="uid://ch2hj3f1jkv86" path="res://Assets_Main/World/Location/_Falord/CentralSquareGround.obj" id="11_cnm4k"]
+[ext_resource type="Texture2D" uid="uid://bpwnl4y4ypxpn" path="res://Assets_Main/World/Location/_Falord/CentralSquareGround_normal.png" id="12_6egqc"]
+[ext_resource type="Texture2D" uid="uid://uqbqydf3wncq" path="res://Assets_Main/World/Location/_Falord/CentralSquareGround.png" id="12_g1vcu"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lya67"]
+albedo_texture = ExtResource("3_o3arb")
+roughness_texture = ExtResource("4_rv3bm")
+normal_enabled = true
+normal_texture = ExtResource("4_ky10a")
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_71pdq"]
+albedo_texture = ExtResource("5_mc3hn")
+roughness_texture = ExtResource("4_rv3bm")
+normal_enabled = true
+normal_texture = ExtResource("6_g844r")
+texture_filter = 0
+
+[sub_resource type="Shader" id="Shader_vv8jc"]
+code = "// NOTE: Shader automatically converted from Godot Engine 4.2.1.stable's StandardMaterial3D.
+
+shader_type spatial;
+render_mode blend_mix,depth_draw_opaque,cull_back,diffuse_burley,specular_schlick_ggx;
+uniform vec4 albedo : source_color;
+uniform sampler2D texture_albedo : source_color,filter_nearest,repeat_enable;
+uniform float roughness : hint_range(0,1);
+uniform sampler2D texture_roughness : hint_roughness_g,filter_nearest,repeat_enable;
+uniform sampler2D texture_normal : hint_roughness_normal,filter_nearest,repeat_enable;
+uniform float normal_scale : hint_range(-16,16);
+
+varying vec3 world_pos;
+
+void vertex() {
+	world_pos = (MODEL_MATRIX * vec4(VERTEX, 1.0)).xyz;
+}
+
+void fragment() {
+	vec2 base_uv = UV;
+	vec4 albedo_tex = texture(texture_albedo,base_uv);
+	ALBEDO = albedo.rgb * albedo_tex.rgb;
+	vec4 roughness_texture_channel = vec4(0.0,1.0,0.0,0.0);
+	float roughness_tex = dot(texture(texture_roughness,world_pos.xz * 0.1),roughness_texture_channel);
+	ROUGHNESS = roughness_tex * roughness;
+	NORMAL_MAP = texture(texture_normal,base_uv).rgb;
+	NORMAL_MAP_DEPTH = normal_scale;
+}
+"
+
+[sub_resource type="Gradient" id="Gradient_rvcmh"]
+colors = PackedColorArray(0.247059, 0.247059, 0.247059, 1, 0.74902, 0.74902, 0.74902, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_qgn7n"]
+frequency = 0.025
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_q5nek"]
+width = 128
+height = 128
+seamless = true
+seamless_blend_skirt = 1.0
+color_ramp = SubResource("Gradient_rvcmh")
+noise = SubResource("FastNoiseLite_qgn7n")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_oxum2"]
+render_priority = 0
+shader = SubResource("Shader_vv8jc")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/roughness = 1.0
+shader_parameter/normal_scale = 1.0
+shader_parameter/texture_albedo = ExtResource("12_g1vcu")
+shader_parameter/texture_roughness = SubResource("NoiseTexture2D_q5nek")
+shader_parameter/texture_normal = ExtResource("12_6egqc")
+
+[node name="Town" type="Node3D"]
+
+[node name="Obelisk" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
+mesh = ExtResource("2_m1l6f")
+surface_material_override/0 = SubResource("StandardMaterial3D_lya67")
+surface_material_override/1 = SubResource("StandardMaterial3D_71pdq")
+
+[node name="Parterre" type="CSGBox3D" parent="Obelisk"]
+transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 0, -3, 0)
+use_collision = true
+size = Vector3(7, 2, 7)
+material = ExtResource("5_vcbrp")
+
+[node name="ParterreTop" type="CSGTorus3D" parent="Obelisk"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
+use_collision = true
+inner_radius = 4.0
+outer_radius = 5.0
+sides = 4
+ring_sides = 4
+smooth_faces = false
+material = ExtResource("5_vcbrp")
+
+[node name="Grass" type="CSGBox3D" parent="Obelisk"]
+transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 0, -2, 0)
+size = Vector3(6, 0.5, 6)
+material = ExtResource("9_7ejq8")
+
+[node name="Water" type="CSGCylinder3D" parent="Obelisk"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.5, 0)
+radius = 6.5
+height = 0.5
+sides = 20
+material = ExtResource("10_m28ra")
+
+[node name="Ground" type="CSGMesh3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+use_collision = true
+mesh = ExtResource("11_cnm4k")
+material = SubResource("ShaderMaterial_oxum2")

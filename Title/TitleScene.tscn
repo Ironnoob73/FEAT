@@ -1,0 +1,1008 @@
+[gd_scene load_steps=16 format=3 uid="uid://bp6c7x4dytetk"]
+
+[ext_resource type="Script" path="res://Title/TitleScene.gd" id="1_eqpau"]
+[ext_resource type="Theme" uid="uid://cwbdqmvx07r3k" path="res://Title/MainMenuButton_theme.tres" id="2_l7ppy"]
+[ext_resource type="Script" path="res://Title/Options.gd" id="3_5wo52"]
+[ext_resource type="Theme" uid="uid://bitmw3ij7201m" path="res://Resources/os/fatal_window/fw_theme.tres" id="4_7kevj"]
+
+[sub_resource type="Gradient" id="Gradient_6pyre"]
+colors = PackedColorArray(0, 0.74902, 0.498039, 1, 0, 0.74902, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_01b20"]
+gradient = SubResource("Gradient_6pyre")
+fill_from = Vector2(1, 1)
+fill_to = Vector2(0, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x5a4b"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.101961, 0.101961, 0.101961, 0.6)
+corner_detail = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_17pvn"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.6, 0.6, 0.6, 0)
+corner_detail = 1
+
+[sub_resource type="InputEventAction" id="InputEventAction_8q5da"]
+action = &"pause"
+
+[sub_resource type="Shortcut" id="Shortcut_elb6v"]
+events = [SubResource("InputEventAction_8q5da")]
+
+[sub_resource type="Animation" id="Animation_epoy7"]
+resource_name = "Exit"
+length = 0.25
+step = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Main/Panel/Control/MainMenu:anchor_left")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(2, 1),
+"update": 0,
+"values": [0.0, -0.5]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Main/Panel/Control/MainMenu:anchor_right")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(2, 1),
+"update": 0,
+"values": [1.0, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Main/Panel/Control/ExitConfirm:anchor_left")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [1.0, 0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Main/Panel/Control/ExitConfirm:anchor_right")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [1.5, 1.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Main/Panel/Control/ExitConfirm:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.001),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Main/Panel/Control/MainMenu:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.249, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Main:anchor_top")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(-2, 1),
+"update": 0,
+"values": [0.3, 0.375]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Main:anchor_bottom")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(-2, 1),
+"update": 0,
+"values": [0.7, 0.625]
+}
+
+[sub_resource type="Animation" id="Animation_joimf"]
+resource_name = "Options"
+length = 0.25
+step = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Main/Panel/Control/MainMenu:anchor_left")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(2, 1),
+"update": 0,
+"values": [0.0, -0.5]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Main/Panel/Control/MainMenu:anchor_right")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(2, 1),
+"update": 0,
+"values": [1.0, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Main/Panel/Control/MainMenu:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.249, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Main/Panel/Control/Options:anchor_left")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [1.0, 0.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Main/Panel/Control/Options:anchor_right")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [1.5, 1.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Main/Panel/Control/Options:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.001),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Main:anchor_top")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(-2, 1),
+"update": 0,
+"values": [0.3, 0.15]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Main:anchor_bottom")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(-2, 1),
+"update": 0,
+"values": [0.7, 0.85]
+}
+
+[sub_resource type="Animation" id="Animation_4qau0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PressAnyTip:theme_override_colors/font_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PressAnyTip:theme_override_colors/font_shadow_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PressAnyTip:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Main/Panel/Control/MainMenu:anchor_left")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Main/Panel/Control/MainMenu:anchor_right")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Main/Panel/Control/ExitConfirm:anchor_left")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Main/Panel/Control/ExitConfirm:anchor_right")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Main/Panel/Control/ExitConfirm:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Main/Panel/Control/MainMenu:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Main/Panel/Control/Options:anchor_left")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Main/Panel/Control/Options:anchor_right")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.5]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Main/Panel/Control/Options:visible")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("Main:anchor_top")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.5]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("Main:anchor_bottom")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.5]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("Main/Panel:theme_override_styles/panel:bg_color")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.101961, 0.101961, 0.101961, 0.6)]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("Main/Panel:custom_minimum_size")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ie4jr"]
+resource_name = "ToMainMenu"
+length = 0.25
+step = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PressAnyTip:theme_override_colors/font_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PressAnyTip:theme_override_colors/font_shadow_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.05),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PressAnyTip:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.05, 0.06),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Main/Panel/Control/MainMenu:anchor_left")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [-0.5, 0.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Main/Panel/Control/MainMenu:anchor_right")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Main:anchor_top")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(-2, 1),
+"update": 0,
+"values": [0.45, 0.3]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Main:anchor_bottom")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(-2, 1),
+"update": 0,
+"values": [0.55, 0.7]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Main/Panel:theme_override_styles/panel:bg_color")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.05),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.101961, 0.101961, 0.101961, 0), Color(0.101961, 0.101961, 0.101961, 0.6)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Main/Panel/Control/MainMenu:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 0.001),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Main/Panel:custom_minimum_size")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0.249, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 150)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pqf80"]
+_data = {
+"Exit": SubResource("Animation_epoy7"),
+"Options": SubResource("Animation_joimf"),
+"RESET": SubResource("Animation_4qau0"),
+"ToMainMenu": SubResource("Animation_ie4jr")
+}
+
+[node name="TitleScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_eqpau")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_01b20")
+
+[node name="Main" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_l7ppy")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Main"]
+layout_mode = 2
+
+[node name="TitleText" type="Label" parent="Main/HBoxContainer"]
+layout_direction = 2
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 50
+text = "title.line0"
+horizontal_alignment = 1
+clip_text = true
+
+[node name="Timer" type="Timer" parent="Main/HBoxContainer"]
+process_callback = 0
+wait_time = 30.0
+
+[node name="Panel" type="PanelContainer" parent="Main"]
+clip_contents = true
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_x5a4b")
+
+[node name="Control" type="Control" parent="Main/Panel"]
+layout_mode = 2
+
+[node name="MainMenu" type="ScrollContainer" parent="Main/Panel/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MainMenu" type="VBoxContainer" parent="Main/Panel/Control/MainMenu"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Empty" type="Control" parent="Main/Panel/Control/MainMenu/MainMenu"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="StartButton" type="Button" parent="Main/Panel/Control/MainMenu/MainMenu"]
+layout_mode = 2
+text = "title.menu.start"
+alignment = 0
+
+[node name="ContinueButton" type="Button" parent="Main/Panel/Control/MainMenu/MainMenu"]
+layout_mode = 2
+text = "title.menu.continue"
+alignment = 0
+
+[node name="OptionsButton" type="Button" parent="Main/Panel/Control/MainMenu/MainMenu"]
+layout_mode = 2
+text = "title.menu.options"
+alignment = 0
+
+[node name="ExitButton" type="Button" parent="Main/Panel/Control/MainMenu/MainMenu"]
+layout_mode = 2
+text = "title.menu.exit"
+alignment = 0
+
+[node name="Options" type="VBoxContainer" parent="Main/Panel/Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_right = 1.5
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_5wo52")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Main/Panel/Control/Options"]
+layout_mode = 2
+
+[node name="EmptyL" type="Control" parent="Main/Panel/Control/Options/HBoxContainer"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+
+[node name="OptionsTitle" type="Label" parent="Main/Panel/Control/Options/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_17pvn")
+text = "title.menu.options"
+
+[node name="Options" type="TabContainer" parent="Main/Panel/Control/Options"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="#options_game#" type="TabBar" parent="Main/Panel/Control/Options/Options"]
+layout_mode = 2
+
+[node name="GameSetting" type="ScrollContainer" parent="Main/Panel/Control/Options/Options/#options_game#"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VSpilt" type="VBoxContainer" parent="Main/Panel/Control/Options/Options/#options_game#/GameSetting"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Language" type="HBoxContainer" parent="Main/Panel/Control/Options/Options/#options_game#/GameSetting/VSpilt"]
+layout_mode = 2
+
+[node name="EmptyL" type="Control" parent="Main/Panel/Control/Options/Options/#options_game#/GameSetting/VSpilt/Language"]
+custom_minimum_size = Vector2(15, 0)
+layout_mode = 2
+
+[node name="language_text" type="Label" parent="Main/Panel/Control/Options/Options/#options_game#/GameSetting/VSpilt/Language"]
+layout_mode = 2
+text = "options.game.language"
+
+[node name="language_button" type="OptionButton" parent="Main/Panel/Control/Options/Options/#options_game#/GameSetting/VSpilt/Language"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 10
+item_count = 2
+selected = 0
+popup/item_0/text = "English"
+popup/item_0/id = 0
+popup/item_1/text = "中文"
+popup/item_1/id = 1
+
+[node name="EmptyR" type="Control" parent="Main/Panel/Control/Options/Options/#options_game#/GameSetting/VSpilt/Language"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="#options_video#" type="TabBar" parent="Main/Panel/Control/Options/Options"]
+visible = false
+layout_mode = 2
+
+[node name="VideoSetting" type="ScrollContainer" parent="Main/Panel/Control/Options/Options/#options_video#"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VSpilt" type="VBoxContainer" parent="Main/Panel/Control/Options/Options/#options_video#/VideoSetting"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Fullscreen" type="HBoxContainer" parent="Main/Panel/Control/Options/Options/#options_video#/VideoSetting/VSpilt"]
+layout_mode = 2
+
+[node name="EmptyL" type="Control" parent="Main/Panel/Control/Options/Options/#options_video#/VideoSetting/VSpilt/Fullscreen"]
+custom_minimum_size = Vector2(15, 0)
+layout_mode = 2
+
+[node name="fullscreen_text" type="Label" parent="Main/Panel/Control/Options/Options/#options_video#/VideoSetting/VSpilt/Fullscreen"]
+layout_mode = 2
+text = "options.game.fullscreen"
+
+[node name="fullscreen_button" type="CheckBox" parent="Main/Panel/Control/Options/Options/#options_video#/VideoSetting/VSpilt/Fullscreen"]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 10
+flat = true
+
+[node name="fullscreen_warn" type="AcceptDialog" parent="Main/Panel/Control/Options/Options/#options_video#/VideoSetting/VSpilt/Fullscreen/fullscreen_button"]
+title = ""
+initial_position = 2
+size = Vector2i(500, 250)
+unresizable = true
+theme = ExtResource("4_7kevj")
+ok_button_text = "button.confirm"
+dialog_text = "fatal_window.fullscreen_warning"
+dialog_autowrap = true
+
+[node name="EmptyR" type="Control" parent="Main/Panel/Control/Options/Options/#options_video#/VideoSetting/VSpilt/Fullscreen"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="Scale" type="HBoxContainer" parent="Main/Panel/Control/Options/Options/#options_video#/VideoSetting/VSpilt"]
+layout_mode = 2
+
+[node name="EmptyL" type="Control" parent="Main/Panel/Control/Options/Options/#options_video#/VideoSetting/VSpilt/Scale"]
+custom_minimum_size = Vector2(15, 0)
+layout_mode = 2
+
+[node name="scale_text" type="Label" parent="Main/Panel/Control/Options/Options/#options_video#/VideoSetting/VSpilt/Scale"]
+layout_mode = 2
+text = "options.game.scale"
+
+[node name="scale_button" type="SpinBox" parent="Main/Panel/Control/Options/Options/#options_video#/VideoSetting/VSpilt/Scale"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 10
+step = 0.1
+value = 1.0
+
+[node name="EmptyR" type="Control" parent="Main/Panel/Control/Options/Options/#options_video#/VideoSetting/VSpilt/Scale"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="#options_audio#" type="TabBar" parent="Main/Panel/Control/Options/Options"]
+visible = false
+layout_mode = 2
+
+[node name="AudioSetting" type="ScrollContainer" parent="Main/Panel/Control/Options/Options/#options_audio#"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VSpilt" type="VBoxContainer" parent="Main/Panel/Control/Options/Options/#options_audio#/AudioSetting"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Master" type="HBoxContainer" parent="Main/Panel/Control/Options/Options/#options_audio#/AudioSetting/VSpilt"]
+layout_mode = 2
+
+[node name="EmptyL" type="Control" parent="Main/Panel/Control/Options/Options/#options_audio#/AudioSetting/VSpilt/Master"]
+custom_minimum_size = Vector2(15, 0)
+layout_mode = 2
+
+[node name="master_text" type="Label" parent="Main/Panel/Control/Options/Options/#options_audio#/AudioSetting/VSpilt/Master"]
+layout_mode = 2
+text = "options.audio.master"
+
+[node name="master_button" type="HSlider" parent="Main/Panel/Control/Options/Options/#options_audio#/AudioSetting/VSpilt/Master"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 1
+max_value = 1.0
+step = 0.01
+value = 1.0
+
+[node name="EmptyR" type="Control" parent="Main/Panel/Control/Options/Options/#options_audio#/AudioSetting/VSpilt/Master"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="Music" type="HBoxContainer" parent="Main/Panel/Control/Options/Options/#options_audio#/AudioSetting/VSpilt"]
+layout_mode = 2
+
+[node name="EmptyL" type="Control" parent="Main/Panel/Control/Options/Options/#options_audio#/AudioSetting/VSpilt/Music"]
+custom_minimum_size = Vector2(15, 0)
+layout_mode = 2
+
+[node name="music_text" type="Label" parent="Main/Panel/Control/Options/Options/#options_audio#/AudioSetting/VSpilt/Music"]
+layout_mode = 2
+text = "options.audio.bgm"
+
+[node name="music_button" type="HSlider" parent="Main/Panel/Control/Options/Options/#options_audio#/AudioSetting/VSpilt/Music"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 1
+max_value = 1.0
+step = 0.01
+value = 1.0
+
+[node name="EmptyR" type="Control" parent="Main/Panel/Control/Options/Options/#options_audio#/AudioSetting/VSpilt/Music"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="SFX" type="HBoxContainer" parent="Main/Panel/Control/Options/Options/#options_audio#/AudioSetting/VSpilt"]
+layout_mode = 2
+
+[node name="EmptyL" type="Control" parent="Main/Panel/Control/Options/Options/#options_audio#/AudioSetting/VSpilt/SFX"]
+custom_minimum_size = Vector2(15, 0)
+layout_mode = 2
+
+[node name="sfx_text" type="Label" parent="Main/Panel/Control/Options/Options/#options_audio#/AudioSetting/VSpilt/SFX"]
+layout_mode = 2
+text = "options.audio.sfx"
+
+[node name="sfx_button" type="HSlider" parent="Main/Panel/Control/Options/Options/#options_audio#/AudioSetting/VSpilt/SFX"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 1
+max_value = 1.0
+step = 0.01
+value = 1.0
+
+[node name="EmptyR" type="Control" parent="Main/Panel/Control/Options/Options/#options_audio#/AudioSetting/VSpilt/SFX"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="#options_control#" type="TabBar" parent="Main/Panel/Control/Options/Options"]
+visible = false
+layout_mode = 2
+
+[node name="ControlSetting" type="ScrollContainer" parent="Main/Panel/Control/Options/Options/#options_control#"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VSpilt" type="VBoxContainer" parent="Main/Panel/Control/Options/Options/#options_control#/ControlSetting"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="MouseSen" type="HBoxContainer" parent="Main/Panel/Control/Options/Options/#options_control#/ControlSetting/VSpilt"]
+layout_mode = 2
+
+[node name="EmptyL" type="Control" parent="Main/Panel/Control/Options/Options/#options_control#/ControlSetting/VSpilt/MouseSen"]
+custom_minimum_size = Vector2(15, 0)
+layout_mode = 2
+
+[node name="mouse_text" type="Label" parent="Main/Panel/Control/Options/Options/#options_control#/ControlSetting/VSpilt/MouseSen"]
+layout_mode = 2
+text = "options.control.mouse_sen"
+
+[node name="mouse_button" type="HSlider" parent="Main/Panel/Control/Options/Options/#options_control#/ControlSetting/VSpilt/MouseSen"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 1
+max_value = 1.0
+step = 0.1
+value = 0.4
+
+[node name="EmptyR" type="Control" parent="Main/Panel/Control/Options/Options/#options_control#/ControlSetting/VSpilt/MouseSen"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="BackButton" type="Button" parent="Main/Panel/Control/Options"]
+layout_mode = 2
+shortcut = SubResource("Shortcut_elb6v")
+text = "button.back"
+alignment = 0
+
+[node name="Empty" type="Control" parent="Main/Panel/Control/Options"]
+custom_minimum_size = Vector2(0, 5)
+layout_mode = 2
+
+[node name="ExitConfirm" type="VBoxContainer" parent="Main/Panel/Control"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Empty" type="Control" parent="Main/Panel/Control/ExitConfirm"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Main/Panel/Control/ExitConfirm"]
+layout_mode = 2
+
+[node name="EmptyL" type="Control" parent="Main/Panel/Control/ExitConfirm/HBoxContainer"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+
+[node name="Info" type="Label" parent="Main/Panel/Control/ExitConfirm/HBoxContainer"]
+layout_mode = 2
+text = "exit.ask"
+
+[node name="ConfirmButton" type="Button" parent="Main/Panel/Control/ExitConfirm"]
+layout_mode = 2
+text = "button.confirm"
+alignment = 0
+
+[node name="CancelButton" type="Button" parent="Main/Panel/Control/ExitConfirm"]
+layout_mode = 2
+shortcut = SubResource("Shortcut_elb6v")
+text = "button.cancel"
+alignment = 0
+
+[node name="PressAnyTip" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.55
+anchor_right = 0.5
+anchor_bottom = 0.55
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+text = "title.press_to_start"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_pqf80")
+}
+
+[connection signal="timeout" from="Main/HBoxContainer/Timer" to="." method="_on_timer_timeout"]
+[connection signal="pressed" from="Main/Panel/Control/MainMenu/MainMenu/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="Main/Panel/Control/MainMenu/MainMenu/OptionsButton" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="Main/Panel/Control/MainMenu/MainMenu/ExitButton" to="." method="_on_exit_button_pressed"]
+[connection signal="item_selected" from="Main/Panel/Control/Options/Options/#options_game#/GameSetting/VSpilt/Language/language_button" to="Main/Panel/Control/Options" method="_on_language_button_item_selected"]
+[connection signal="toggled" from="Main/Panel/Control/Options/Options/#options_video#/VideoSetting/VSpilt/Fullscreen/fullscreen_button" to="Main/Panel/Control/Options" method="_on_fullscreen_button_toggled"]
+[connection signal="close_requested" from="Main/Panel/Control/Options/Options/#options_video#/VideoSetting/VSpilt/Fullscreen/fullscreen_button/fullscreen_warn" to="Main/Panel/Control/Options" method="_on_fullscreen_warn_close_requested"]
+[connection signal="value_changed" from="Main/Panel/Control/Options/Options/#options_video#/VideoSetting/VSpilt/Scale/scale_button" to="Main/Panel/Control/Options" method="_on_scale_button_value_changed"]
+[connection signal="value_changed" from="Main/Panel/Control/Options/Options/#options_audio#/AudioSetting/VSpilt/Master/master_button" to="Main/Panel/Control/Options" method="_on_master_button_value_changed"]
+[connection signal="value_changed" from="Main/Panel/Control/Options/Options/#options_audio#/AudioSetting/VSpilt/Music/music_button" to="Main/Panel/Control/Options" method="_on_music_button_value_changed"]
+[connection signal="value_changed" from="Main/Panel/Control/Options/Options/#options_audio#/AudioSetting/VSpilt/SFX/sfx_button" to="Main/Panel/Control/Options" method="_on_sfx_button_value_changed"]
+[connection signal="value_changed" from="Main/Panel/Control/Options/Options/#options_control#/ControlSetting/VSpilt/MouseSen/mouse_button" to="Main/Panel/Control/Options" method="_on_mouse_button_value_changed"]
+[connection signal="pressed" from="Main/Panel/Control/Options/BackButton" to="." method="_on_options_back_button_pressed"]
+[connection signal="pressed" from="Main/Panel/Control/ExitConfirm/ConfirmButton" to="." method="_on_confirm_button_pressed"]
+[connection signal="pressed" from="Main/Panel/Control/ExitConfirm/CancelButton" to="." method="_on_cancel_button_pressed"]

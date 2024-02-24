@@ -1,0 +1,12 @@
+# LD_Anvil, 2024.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Experience of Falord Gully - Long text\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: en_US\n"
+
+#----------Fatal Window----------#
+msgid "fatal_window.fullscreen_warning"
+msgstr "It is strictly forbidden to enable full-screen mode when the window is maximized."

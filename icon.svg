@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 26.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.2" baseProfile="tiny" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+	 y="0px" viewBox="0 0 50 50" overflow="visible" xml:space="preserve">
+<g id="Circle">
+	<circle fill="#FFFFFF" stroke="#00FF7F" stroke-miterlimit="10" cx="25.5" cy="21.5" r="20"/>
+</g>
+<g id="Base">
+	<polygon fill="#FFFFFF" stroke="#00FF7F" stroke-miterlimit="10" points="45.5,25.5 45.5,39.5 25.5,48.5 5.5,39.46 5.5,27.5 
+		25.5,16.5 	"/>
+	<line fill="none" stroke="#00FF7F" stroke-miterlimit="10" x1="5.5" y1="27.5" x2="25.5" y2="35.5"/>
+	<line fill="none" stroke="#00FF7F" stroke-miterlimit="10" x1="25.5" y1="35" x2="25.5" y2="48"/>
+	<line fill="none" stroke="#00FF7F" stroke-miterlimit="10" x1="25.5" y1="35.5" x2="45.5" y2="25.5"/>
+</g>
+<g id="Mountain">
+	<polygon fill="#FFFFFF" stroke="#00FF7F" stroke-miterlimit="10" points="27.5,11.5 23.5,20.5 27.5,22.5 31.5,20.5 	"/>
+	<polygon fill="#FFFFFF" stroke="#00FF7F" stroke-miterlimit="10" points="35.5,6.5 28.5,24.5 35.5,27.5 42.5,24.5 	"/>
+	<line fill="none" stroke="#00FF7F" stroke-miterlimit="10" x1="35.5" y1="8" x2="35.5" y2="27"/>
+	<line fill="none" stroke="#00FF7F" stroke-miterlimit="10" x1="27.5" y1="12.5" x2="27.5" y2="22"/>
+</g>
+<g id="Square">
+	<polygon fill="#FFFFFF" stroke="#00FF7F" stroke-miterlimit="10" points="10.5,21.5 7.5,22.5 7.5,26.5 10.5,27.5 13.5,26.5 
+		13.5,22.5 	"/>
+	<line fill="none" stroke="#00FF7F" stroke-miterlimit="10" x1="10.5" y1="27" x2="10.5" y2="23"/>
+	<line fill="none" stroke="#00FF7F" stroke-miterlimit="10" x1="7.5" y1="22.5" x2="10.5" y2="23.5"/>
+	<line fill="none" stroke="#00FF7F" stroke-miterlimit="10" x1="13.5" y1="22.5" x2="10.5" y2="23.5"/>
+	<polygon fill="#FFFFFF" stroke="#00FF7F" stroke-miterlimit="10" points="14.5,24.5 12.5,25.5 12.5,28.5 14.5,29.5 16.5,28.5 
+		16.5,25.5 	"/>
+	<line fill="none" stroke="#00FF7F" stroke-miterlimit="10" x1="12.5" y1="25.5" x2="14.5" y2="26.5"/>
+	<line fill="none" stroke="#00FF7F" stroke-miterlimit="10" x1="16.5" y1="25.5" x2="14.5" y2="26.5"/>
+	<line fill="none" stroke="#00FF7F" stroke-miterlimit="10" x1="14.5" y1="29.5" x2="14.5" y2="26.5"/>
+</g>
+</svg>

@@ -1,0 +1,2 @@
+extends ThingClass
+class_name ItemClass

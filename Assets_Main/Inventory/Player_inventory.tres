@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="CInventoryClass" load_steps=2 format=3 uid="uid://dnyk7pm4cqskj"]
+
+[ext_resource type="Script" path="res://Assets_Main/Inventory/CInventoryClass.gd" id="1_aqmrr"]
+
+[resource]
+script = ExtResource("1_aqmrr")
+ToolHotbar = Array[Resource("res://Assets_Main/Inventory/Class/Equipment/EqMetaClass.gd")]([null, null, null, null, null])
+ItemHotbar = Array[Resource("res://Assets_Main/Inventory/Class/Item/ItemClass.gd")]([null, null, null, null, null])
+itemStack = Array[Resource("res://Assets_Main/Inventory/Class/Item/ItemStackClass.gd")]([])
+eqMeta = Array[Resource("res://Assets_Main/Inventory/Class/Equipment/EqMetaClass.gd")]([])
