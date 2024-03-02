@@ -1,11 +1,13 @@
-[gd_scene load_steps=12 format=3 uid="uid://c0hvltjdip61f"]
+[gd_scene load_steps=14 format=3 uid="uid://c0hvltjdip61f"]
 
 [ext_resource type="PackedScene" uid="uid://bk6ihg1vf71uf" path="res://Assets_Main/Character/Player.tscn" id="1_ur16q"]
-[ext_resource type="PackedScene" uid="uid://bcp40gisqlrka" path="res://Assets_Main/World/Location/_Falord/CentralSquare.tscn" id="2_5adnp"]
+[ext_resource type="PackedScene" uid="uid://bcp40gisqlrka" path="res://Assets_Main/World/Location/_Falord/CentralSquareObelisk.tscn" id="2_5adnp"]
 [ext_resource type="Material" uid="uid://dcwav4237d0l3" path="res://Resources/Material/GrassGround.tres" id="2_kqn3o"]
 [ext_resource type="Material" uid="uid://4hlgj1u74iny" path="res://Resources/Material/ConcreteBricks.tres" id="3_0x273"]
 [ext_resource type="PackedScene" uid="uid://pyr60lcofnft" path="res://Resources/Object/Tree/tree_scene.tscn" id="4_4sw5e"]
 [ext_resource type="Material" uid="uid://lwjkvikmw3dm" path="res://Resources/Material/Asphalt.tres" id="5_wqfwf"]
+[ext_resource type="Material" uid="uid://cjpmx8tyalvu6" path="res://Resources/Material/RedSidewalkBricks.tres" id="6_wl4m8"]
+[ext_resource type="Material" uid="uid://d2aru44blbpby" path="res://Resources/Material/SlateBricks.tres" id="7_n5ky3"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_77ny8"]
 
@@ -32,77 +34,161 @@ environment = SubResource("Environment_kprkk")
 transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433012, 0, 0, 0)
 shadow_enabled = true
 
-[node name="CentralSquare" parent="." instance=ExtResource("2_5adnp")]
+[node name="Falord" type="Node3D" parent="."]
 
-[node name="GrassGround" type="CSGMesh3D" parent="CentralSquare"]
+[node name="CentralSquare" parent="Falord" instance=ExtResource("2_5adnp")]
+
+[node name="GrassGround" type="CSGMesh3D" parent="Falord/CentralSquare"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, 0)
 use_collision = true
 mesh = SubResource("PlaneMesh_svlta")
 material = ExtResource("2_kqn3o")
 
-[node name="Road-north" type="CSGBox3D" parent="CentralSquare/GrassGround"]
+[node name="Road-north" type="CSGBox3D" parent="Falord/CentralSquare/GrassGround"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0.05, 0)
 size = Vector3(20, 0.1, 10)
 material = ExtResource("3_0x273")
 
-[node name="Road-south" type="CSGBox3D" parent="CentralSquare/GrassGround"]
+[node name="Road-south" type="CSGBox3D" parent="Falord/CentralSquare/GrassGround"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 0.05, 0)
 size = Vector3(20, 0.1, 10)
 material = ExtResource("3_0x273")
 
-[node name="Road-west" type="CSGBox3D" parent="CentralSquare/GrassGround"]
+[node name="Road-west" type="CSGBox3D" parent="Falord/CentralSquare/GrassGround"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, -30)
 size = Vector3(10, 0.1, 20)
 material = ExtResource("3_0x273")
 
-[node name="Road-east" type="CSGBox3D" parent="CentralSquare/GrassGround"]
+[node name="Road-east" type="CSGBox3D" parent="Falord/CentralSquare/GrassGround"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 30)
 size = Vector3(10, 0.1, 20)
 material = ExtResource("3_0x273")
 
-[node name="Tree0" parent="CentralSquare" instance=ExtResource("4_4sw5e")]
+[node name="Tree0" parent="Falord/CentralSquare" instance=ExtResource("4_4sw5e")]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -32, 0.25, 11)
 
-[node name="Tree1" parent="CentralSquare" instance=ExtResource("4_4sw5e")]
+[node name="Tree1" parent="Falord/CentralSquare" instance=ExtResource("4_4sw5e")]
 transform = Transform3D(-0.113206, 0, -0.2229, 0, 0.25, 0, 0.2229, 0, -0.113206, -28.5239, 0.184373, 15.3617)
 
-[node name="Tree2" parent="CentralSquare" instance=ExtResource("4_4sw5e")]
+[node name="Tree2" parent="Falord/CentralSquare" instance=ExtResource("4_4sw5e")]
 transform = Transform3D(-0.194829, 0, 0.156658, 0, 0.25, 0, -0.156658, 0, -0.194829, -22.2085, -0.409839, 17.3914)
 
-[node name="Tree3" parent="CentralSquare" instance=ExtResource("4_4sw5e")]
+[node name="Tree3" parent="Falord/CentralSquare" instance=ExtResource("4_4sw5e")]
 transform = Transform3D(0.169988, 0, 0.183314, 0, 0.25, 0, -0.183314, 0, 0.169988, -18.7624, 0.392512, 21.092)
 
-[node name="Tree4" parent="CentralSquare" instance=ExtResource("4_4sw5e")]
+[node name="Tree4" parent="Falord/CentralSquare" instance=ExtResource("4_4sw5e")]
 transform = Transform3D(0.0928014, 0, 0.232138, 0, 0.25, 0, -0.232138, 0, 0.0928014, -15.877, 0.117771, 25.3228)
 
-[node name="Tree5" parent="CentralSquare" instance=ExtResource("4_4sw5e")]
+[node name="Tree5" parent="Falord/CentralSquare" instance=ExtResource("4_4sw5e")]
 transform = Transform3D(0.247918, 0, -0.0321946, 0, 0.25, 0, 0.0321946, 0, 0.247918, -13.3827, 0.338526, 29.276)
 
-[node name="Tree6" parent="CentralSquare" instance=ExtResource("4_4sw5e")]
+[node name="Tree6" parent="Falord/CentralSquare" instance=ExtResource("4_4sw5e")]
 transform = Transform3D(0.0672216, 0, 0.240793, 0, 0.25, 0, -0.240793, 0, 0.0672216, -25.9401, 0.142009, 19.6835)
 
-[node name="Tree7" parent="CentralSquare" instance=ExtResource("4_4sw5e")]
+[node name="Tree7" parent="Falord/CentralSquare" instance=ExtResource("4_4sw5e")]
 transform = Transform3D(0.24889, 0, 0.0235358, 0, 0.25, 0, -0.0235358, 0, 0.24889, -25.8231, 0, 25.5091)
 
-[node name="Tree8" parent="CentralSquare" instance=ExtResource("4_4sw5e")]
+[node name="Tree8" parent="Falord/CentralSquare" instance=ExtResource("4_4sw5e")]
 transform = Transform3D(0.110885, 0, -0.224064, 0, 0.25, 0, 0.224064, 0, 0.110885, -21.4467, 0.30428, 25.2329)
 
-[node name="Tree9" parent="CentralSquare" instance=ExtResource("4_4sw5e")]
+[node name="Tree9" parent="Falord/CentralSquare" instance=ExtResource("4_4sw5e")]
 transform = Transform3D(0.220474, 0, 0.117861, 0, 0.25, 0, -0.117861, 0, 0.220474, -19.4395, -0.216402, 29.8794)
 
-[node name="Tree10" parent="CentralSquare" instance=ExtResource("4_4sw5e")]
+[node name="Tree10" parent="Falord/CentralSquare" instance=ExtResource("4_4sw5e")]
 transform = Transform3D(0.202521, 0, -0.146579, 0, 0.25, 0, 0.146579, 0, 0.202521, -16.5491, -0.216402, 33.8493)
 
-[node name="NorthRoad" type="CSGBox3D" parent="."]
+[node name="NorthRoad0" type="CSGBox3D" parent="Falord"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -52)
 use_collision = true
 size = Vector3(15, 0.25, 24)
 material = ExtResource("5_wqfwf")
 
-[node name="Slope" type="CSGMesh3D" parent="NorthRoad"]
+[node name="Slope" type="CSGMesh3D" parent="Falord/NorthRoad0"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 12.125)
 mesh = SubResource("PrismMesh_036g1")
 material = ExtResource("5_wqfwf")
+
+[node name="NorthRoad1" type="Node3D" parent="Falord"]
+
+[node name="MainRoad" type="CSGBox3D" parent="Falord/NorthRoad1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -128)
+use_collision = true
+size = Vector3(15, 0.25, 128)
+material = ExtResource("5_wqfwf")
+
+[node name="NWsidewalk" type="CSGCombiner3D" parent="Falord/NorthRoad1/MainRoad"]
+
+[node name="Eside" type="CSGBox3D" parent="Falord/NorthRoad1/MainRoad/NWsidewalk"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 0, -4.25)
+size = Vector3(32, 1, 119.5)
+material = ExtResource("6_wl4m8")
+
+[node name="Sside" type="CSGBox3D" parent="Falord/NorthRoad1/MainRoad/NWsidewalk"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28, 0, 59.5)
+size = Vector3(24, 1, 8)
+material = ExtResource("6_wl4m8")
+
+[node name="SEside" type="CSGBox3D" parent="Falord/NorthRoad1/MainRoad/NWsidewalk"]
+transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -14.05, 0, 57.5)
+size = Vector3(5.5, 1, 11.25)
+material = ExtResource("6_wl4m8")
+
+[node name="Negative" type="CSGBox3D" parent="Falord/NorthRoad1/MainRoad/NWsidewalk"]
+transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -11.75, 0, 59.75)
+operation = 2
+size = Vector3(1, 1.1, 12)
+
+[node name="NWsidewalk_Scurb" type="CSGPolygon3D" parent="Falord/NorthRoad1"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -40, -0.5, -64.5)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 0, 1, 0.25, 1, 0.5, 0.75, 0.5, 0)
+depth = 24.0
+smooth_faces = true
+material = ExtResource("7_n5ky3")
+
+[node name="Negative" type="CSGBox3D" parent="Falord/NorthRoad1/NWsidewalk_Scurb"]
+transform = Transform3D(0.923879, 0, 0.382683, 0, 1, 0, -0.382683, 0, 0.923879, 0.25, 0.5, -24.05)
+operation = 2
+size = Vector3(0.75, 1.1, 0.25)
+
+[node name="NWsidewalk_SEcurb" type="CSGPolygon3D" parent="Falord/NorthRoad1"]
+transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -16, -0.5, -64)
+use_collision = true
+polygon = PackedVector2Array(-0.5, 0, -0.5, 1, -0.25, 1, 0, 0.75, 0, 0)
+depth = 12.05
+smooth_faces = true
+material = ExtResource("7_n5ky3")
+
+[node name="Negative0" type="CSGBox3D" parent="Falord/NorthRoad1/NWsidewalk_SEcurb"]
+transform = Transform3D(0.92388, 0, -0.382683, 0, 1, 0, 0.382683, 0, 0.92388, -0.25, 0.5, 0.025)
+operation = 2
+size = Vector3(0.75, 1.1, 0.25)
+
+[node name="Negative1" type="CSGBox3D" parent="Falord/NorthRoad1/NWsidewalk_SEcurb"]
+transform = Transform3D(0.92388, 0, 0.382683, 0, 1, 0, -0.382683, 0, 0.92388, -0.25, 0.5, -12.05)
+operation = 2
+size = Vector3(0.75, 1.1, 0.25)
+
+[node name="NWsidewalk_Ecurb" type="CSGPolygon3D" parent="Falord/NorthRoad1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, -0.5, -72.5)
+use_collision = true
+polygon = PackedVector2Array(-0.5, 0, -0.5, 1, -0.25, 1, 0, 0.75, 0, 0)
+depth = 119.5
+smooth_faces = true
+material = ExtResource("7_n5ky3")
+
+[node name="Negative" type="CSGBox3D" parent="Falord/NorthRoad1/NWsidewalk_Ecurb"]
+transform = Transform3D(0.923879, 0, -0.382683, 0, 1, 0, 0.382683, 0, 0.923879, -0.275, 0.5, 0.025)
+operation = 2
+size = Vector3(0.75, 1.1, 0.25)
+
+[node name="NWsidewalk_curb" type="CSGPolygon3D" parent="Falord/NorthRoad1"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -40, -0.5, -64.5)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 0, 1, 0.25, 1, 0.5, 0.75, 0.5, 0)
+depth = 24.0
+smooth_faces = true
+material = ExtResource("7_n5ky3")
 
 [node name="Player" parent="." instance=ExtResource("1_ur16q")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
