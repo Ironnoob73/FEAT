@@ -145,3 +145,12 @@ hotbar_tool_4={
 [internationalization]
 
 locale/translations=PackedStringArray("res://Language/Main_en_US.po", "res://Language/Main_zh_CN.po", "res://Language/Long_en_US.po", "res://Language/Long_zh_CN.po")
+
+[layer_names]
+
+3d_render/layer_1="Building"
+3d_render/layer_2="Decorate"
+3d_render/layer_3="Character"
+3d_physics/layer_1="Building"
+3d_physics/layer_2="Decorate"
+3d_physics/layer_3="Character"

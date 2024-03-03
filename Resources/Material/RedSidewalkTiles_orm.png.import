@@ -2,20 +2,21 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c1g3wllobqc8p"
-path="res://.godot/imported/ban.svg-5459fb94113b9034896f81e27544fb05.ctex"
+uid="uid://bnn76lfcvqx3h"
+path.s3tc="res://.godot/imported/RedSidewalkTiles_orm.png-6675ceb918e249b6f9b92f2a064f95bb.s3tc.ctex"
 metadata={
-"vram_texture": false
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
 }
 
 [deps]
 
-source_file="res://Resources/Image/ban.svg"
-dest_files=["res://.godot/imported/ban.svg-5459fb94113b9034896f81e27544fb05.ctex"]
+source_file="res://Resources/Material/RedSidewalkTiles_orm.png"
+dest_files=["res://.godot/imported/RedSidewalkTiles_orm.png-6675ceb918e249b6f9b92f2a064f95bb.s3tc.ctex"]
 
 [params]
 
-compress/mode=4
+compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
@@ -32,6 +33,3 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=0
-svg/scale=1.0
-editor/scale_with_editor_scale=false
-editor/convert_colors_with_editor_theme=false
