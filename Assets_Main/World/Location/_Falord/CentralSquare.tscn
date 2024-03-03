@@ -1,0 +1,387 @@
+[gd_scene load_steps=28 format=3 uid="uid://bcp40gisqlrka"]
+
+[ext_resource type="Material" uid="uid://4hlgj1u74iny" path="res://Resources/Material/ConcreteBricks.tres" id="2_pjbdn"]
+[ext_resource type="ArrayMesh" uid="uid://ch2hj3f1jkv86" path="res://Assets_Main/World/Location/_Falord/Sources/CentralPark/CentralSquareGround.obj" id="3_h8amg"]
+[ext_resource type="Texture2D" uid="uid://uqbqydf3wncq" path="res://Assets_Main/World/Location/_Falord/Sources/CentralPark/CentralSquareGround.png" id="4_ko76m"]
+[ext_resource type="Texture2D" uid="uid://bpwnl4y4ypxpn" path="res://Assets_Main/World/Location/_Falord/Sources/CentralPark/CentralSquareGround_normal.png" id="5_rrqoc"]
+[ext_resource type="Material" uid="uid://cur0jmwbk5e0p" path="res://Resources/Material/YellowStoneBricks.tres" id="5_vcbrp"]
+[ext_resource type="ArrayMesh" uid="uid://dx4eb8v6beyws" path="res://Assets_Main/World/Location/_Falord/Sources/CentralPark/giant_obelisk.obj" id="6_unmh6"]
+[ext_resource type="Material" uid="uid://c88w6y6onry0f" path="res://Assets_Main/World/Location/_Falord/Sources/CentralPark/giant_obelisk_top.tres" id="7_uiwr5"]
+[ext_resource type="Material" uid="uid://bxlhdyu5wuth" path="res://Assets_Main/World/Location/_Falord/Sources/CentralPark/giant_obelisk_base.tres" id="8_0wcl5"]
+[ext_resource type="Material" uid="uid://dcwav4237d0l3" path="res://Resources/Material/GrassGround.tres" id="9_7ejq8"]
+[ext_resource type="Material" uid="uid://bfkoreool5vno" path="res://Resources/Material/Water.tres" id="10_m28ra"]
+[ext_resource type="ArrayMesh" uid="uid://c2vdl14mctiih" path="res://Resources/Object/Tree/Leaves.obj" id="14_xalwj"]
+[ext_resource type="Shader" path="res://Resources/Object/Tree/foliage.gdshader" id="15_q7hif"]
+[ext_resource type="Texture2D" uid="uid://cn4wfkcsxkg3c" path="res://Resources/Object/Tree/Leaves.png" id="16_j54v7"]
+[ext_resource type="PackedScene" uid="uid://pyr60lcofnft" path="res://Resources/Object/Tree/tree_scene.tscn" id="17_j50i0"]
+[ext_resource type="Material" uid="uid://lwjkvikmw3dm" path="res://Resources/Material/Asphalt.tres" id="18_pfwmm"]
+[ext_resource type="Material" uid="uid://d26s3k3ybdmt7" path="res://Resources/Material/RedSidewalkTiles.tres" id="19_co3y2"]
+[ext_resource type="Material" uid="uid://drhehwdeyc38b" path="res://Resources/Material/Concrete.tres" id="20_bsqhj"]
+[ext_resource type="Material" uid="uid://d2aru44blbpby" path="res://Resources/Material/SlateBricks.tres" id="21_tl18v"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_1ldni"]
+size = Vector2(80, 80)
+
+[sub_resource type="Shader" id="Shader_vv8jc"]
+code = "// NOTE: Shader automatically converted from Godot Engine 4.2.1.stable's StandardMaterial3D.
+
+shader_type spatial;
+render_mode blend_mix,depth_draw_opaque,cull_back,diffuse_burley,specular_schlick_ggx;
+uniform vec4 albedo : source_color;
+uniform sampler2D texture_albedo : source_color,filter_nearest,repeat_enable;
+uniform float roughness : hint_range(0,1);
+uniform sampler2D texture_roughness : hint_roughness_g,filter_nearest,repeat_enable;
+uniform sampler2D texture_normal : hint_roughness_normal,filter_nearest,repeat_enable;
+uniform float normal_scale : hint_range(-16,16);
+
+varying vec3 world_pos;
+
+void vertex() {
+	world_pos = (MODEL_MATRIX * vec4(VERTEX, 1.0)).xyz;
+}
+
+void fragment() {
+	vec2 base_uv = UV;
+	vec4 albedo_tex = texture(texture_albedo,base_uv);
+	ALBEDO = albedo.rgb * albedo_tex.rgb;
+	vec4 roughness_texture_channel = vec4(0.0,1.0,0.0,0.0);
+	float roughness_tex = dot(texture(texture_roughness,world_pos.xz * 0.1),roughness_texture_channel);
+	ROUGHNESS = roughness_tex * roughness;
+	NORMAL_MAP = texture(texture_normal,base_uv).rgb;
+	NORMAL_MAP_DEPTH = normal_scale;
+}
+"
+
+[sub_resource type="Gradient" id="Gradient_rvcmh"]
+colors = PackedColorArray(0.247059, 0.247059, 0.247059, 1, 0.74902, 0.74902, 0.74902, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_qgn7n"]
+frequency = 0.025
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_q5nek"]
+width = 128
+height = 128
+seamless = true
+seamless_blend_skirt = 1.0
+color_ramp = SubResource("Gradient_rvcmh")
+noise = SubResource("FastNoiseLite_qgn7n")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_oxum2"]
+render_priority = 0
+shader = SubResource("Shader_vv8jc")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/roughness = 1.0
+shader_parameter/normal_scale = 1.0
+shader_parameter/texture_albedo = ExtResource("4_ko76m")
+shader_parameter/texture_roughness = SubResource("NoiseTexture2D_q5nek")
+shader_parameter/texture_normal = ExtResource("5_rrqoc")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jdumc"]
+render_priority = 0
+shader = ExtResource("15_q7hif")
+shader_parameter/TopColor = Color(0.24, 0.47, 0.27, 1)
+shader_parameter/BottomColor = Color(0.13, 0.33, 0.25, 1)
+shader_parameter/FresnelColor = Color(0.58, 0.65, 0.33, 1)
+shader_parameter/WindScale = 1.0
+shader_parameter/WindSpeed = 10.0
+shader_parameter/WindStrength = 8.0
+shader_parameter/WindDensity = 10.0
+shader_parameter/ClampTop = 1.0
+shader_parameter/ClampBtm = -1.0
+shader_parameter/MeshScale = 0.5
+shader_parameter/ColorRamp = 5.0
+shader_parameter/FaceRoationVariation = 1.0
+shader_parameter/FresnelStrength = 0.5
+shader_parameter/FresnelBlend = 1.0
+shader_parameter/DeactivateGlobalVariation = false
+shader_parameter/WiggleFrequency = 3.0
+shader_parameter/WiggleStrength = 0.1
+shader_parameter/WiggleSpeed = 1.0
+shader_parameter/WiggleScale = 3.0
+shader_parameter/DistanceScale = 0.5
+shader_parameter/DistanceStart = 0.0
+shader_parameter/DistanceScaleRange = 70.0
+shader_parameter/Alpha = ExtResource("16_j54v7")
+
+[sub_resource type="PrismMesh" id="PrismMesh_d2exg"]
+left_to_right = 0.0
+size = Vector3(0.25, 0.25, 15)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_lty7t"]
+size = Vector2(24, 80)
+
+[node name="Town" type="Node3D"]
+
+[node name="GrassGround" type="CSGMesh3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, 0)
+use_collision = true
+mesh = SubResource("PlaneMesh_1ldni")
+material = ExtResource("9_7ejq8")
+
+[node name="Road-north" type="CSGBox3D" parent="GrassGround"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0.05, 0)
+size = Vector3(20, 0.1, 10)
+material = ExtResource("2_pjbdn")
+
+[node name="Road-south" type="CSGBox3D" parent="GrassGround"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 0.05, 0)
+size = Vector3(20, 0.1, 10)
+material = ExtResource("2_pjbdn")
+
+[node name="Road-west" type="CSGBox3D" parent="GrassGround"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, -30)
+size = Vector3(10, 0.1, 20)
+material = ExtResource("2_pjbdn")
+
+[node name="Road-east" type="CSGBox3D" parent="GrassGround"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 30)
+size = Vector3(10, 0.1, 20)
+material = ExtResource("2_pjbdn")
+
+[node name="Ground" type="CSGMesh3D" parent="GrassGround"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.55, 0)
+use_collision = true
+mesh = ExtResource("3_h8amg")
+material = SubResource("ShaderMaterial_oxum2")
+
+[node name="Obelisk" type="MeshInstance3D" parent="GrassGround/Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.5, 0)
+mesh = ExtResource("6_unmh6")
+skeleton = NodePath("../../..")
+surface_material_override/0 = ExtResource("7_uiwr5")
+surface_material_override/1 = ExtResource("8_0wcl5")
+
+[node name="Parterre" type="CSGBox3D" parent="GrassGround/Ground/Obelisk"]
+transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 0, -3, 0)
+use_collision = true
+size = Vector3(7, 2, 7)
+material = ExtResource("5_vcbrp")
+
+[node name="ParterreTop" type="CSGTorus3D" parent="GrassGround/Ground/Obelisk"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
+use_collision = true
+inner_radius = 4.0
+outer_radius = 5.0
+sides = 4
+ring_sides = 4
+smooth_faces = false
+material = ExtResource("5_vcbrp")
+
+[node name="Grass" type="CSGBox3D" parent="GrassGround/Ground/Obelisk"]
+transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 0, -2, 0)
+size = Vector3(6, 0.5, 6)
+material = ExtResource("9_7ejq8")
+
+[node name="Water" type="CSGCylinder3D" parent="GrassGround/Ground/Obelisk"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.5, 0)
+radius = 6.5
+height = 0.5
+sides = 20
+material = ExtResource("10_m28ra")
+
+[node name="NW" type="Node3D" parent="GrassGround"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0)
+
+[node name="Leaves0" type="MeshInstance3D" parent="GrassGround/NW"]
+transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, -8.86582, 0, -38.5757)
+mesh = ExtResource("14_xalwj")
+skeleton = NodePath("../../../../..")
+surface_material_override/0 = SubResource("ShaderMaterial_jdumc")
+
+[node name="Leaves1" type="MeshInstance3D" parent="GrassGround/NW"]
+transform = Transform3D(0.818932, 0, -0.573891, 0, 1, 0, 0.573891, 0, 0.818932, -11.0618, 0, -38.6288)
+mesh = ExtResource("14_xalwj")
+skeleton = NodePath("../../../../..")
+surface_material_override/0 = SubResource("ShaderMaterial_jdumc")
+
+[node name="Leaves2" type="MeshInstance3D" parent="GrassGround/NW"]
+transform = Transform3D(0.863167, 0, 0.504919, 0, 1, 0, -0.504919, 0, 0.863167, -13, 0, -39)
+mesh = ExtResource("14_xalwj")
+skeleton = NodePath("../../../../..")
+surface_material_override/0 = SubResource("ShaderMaterial_jdumc")
+
+[node name="Leaves3" type="MeshInstance3D" parent="GrassGround/NW"]
+transform = Transform3D(0.93824, 0, -0.345986, 0, 1, 0, 0.345986, 0, 0.93824, -15, 0, -38.4538)
+mesh = ExtResource("14_xalwj")
+skeleton = NodePath("../../../../..")
+surface_material_override/0 = SubResource("ShaderMaterial_jdumc")
+
+[node name="Leaves4" type="MeshInstance3D" parent="GrassGround/NW"]
+transform = Transform3D(0.970876, 0, 0.239584, 0, 1, 0, -0.239584, 0, 0.970876, -16.7214, 0.0169001, -38.958)
+mesh = ExtResource("14_xalwj")
+skeleton = NodePath("../../../../..")
+surface_material_override/0 = SubResource("ShaderMaterial_jdumc")
+
+[node name="Leaves5" type="MeshInstance3D" parent="GrassGround/NW"]
+transform = Transform3D(0.908012, 0, -0.418945, 0, 1, 0, 0.418945, 0, 0.908012, -19, 0, -39)
+mesh = ExtResource("14_xalwj")
+skeleton = NodePath("../../../../..")
+surface_material_override/0 = SubResource("ShaderMaterial_jdumc")
+
+[node name="SW" type="Node3D" parent="GrassGround"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0)
+
+[node name="Tree0" parent="GrassGround/SW" instance=ExtResource("17_j50i0")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -32, 0.25, 11)
+
+[node name="Tree1" parent="GrassGround/SW" instance=ExtResource("17_j50i0")]
+transform = Transform3D(-0.113206, 0, -0.2229, 0, 0.25, 0, 0.2229, 0, -0.113206, -28.5239, 0.184373, 15.3617)
+
+[node name="Tree2" parent="GrassGround/SW" instance=ExtResource("17_j50i0")]
+transform = Transform3D(-0.194829, 0, 0.156658, 0, 0.25, 0, -0.156658, 0, -0.194829, -22.2085, -0.409839, 17.3914)
+
+[node name="Tree3" parent="GrassGround/SW" instance=ExtResource("17_j50i0")]
+transform = Transform3D(0.169988, 0, 0.183314, 0, 0.25, 0, -0.183314, 0, 0.169988, -18.7624, 0.392512, 21.092)
+
+[node name="Tree4" parent="GrassGround/SW" instance=ExtResource("17_j50i0")]
+transform = Transform3D(0.0928014, 0, 0.232138, 0, 0.25, 0, -0.232138, 0, 0.0928014, -15.877, 0.117771, 25.3228)
+
+[node name="Tree5" parent="GrassGround/SW" instance=ExtResource("17_j50i0")]
+transform = Transform3D(0.247918, 0, -0.0321946, 0, 0.25, 0, 0.0321946, 0, 0.247918, -13.3827, 0.338526, 29.276)
+
+[node name="Tree6" parent="GrassGround/SW" instance=ExtResource("17_j50i0")]
+transform = Transform3D(0.0672216, 0, 0.240793, 0, 0.25, 0, -0.240793, 0, 0.0672216, -25.9401, 0.142009, 19.6835)
+
+[node name="Tree7" parent="GrassGround/SW" instance=ExtResource("17_j50i0")]
+transform = Transform3D(0.24889, 0, 0.0235358, 0, 0.25, 0, -0.0235358, 0, 0.24889, -25.8231, 0, 25.5091)
+
+[node name="Tree8" parent="GrassGround/SW" instance=ExtResource("17_j50i0")]
+transform = Transform3D(0.110885, 0, -0.224064, 0, 0.25, 0, 0.224064, 0, 0.110885, -21.4467, 0.30428, 25.2329)
+
+[node name="Tree9" parent="GrassGround/SW" instance=ExtResource("17_j50i0")]
+transform = Transform3D(0.220474, 0, 0.117861, 0, 0.25, 0, -0.117861, 0, 0.220474, -19.4395, -0.216402, 29.8794)
+
+[node name="Tree10" parent="GrassGround/SW" instance=ExtResource("17_j50i0")]
+transform = Transform3D(0.202521, 0, -0.146579, 0, 0.25, 0, 0.146579, 0, 0.202521, -16.5491, -0.216402, 33.8493)
+
+[node name="NorthRoad" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -50)
+
+[node name="MainRoad" type="CSGBox3D" parent="NorthRoad"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
+use_collision = true
+size = Vector3(15, 0.25, 24)
+material = ExtResource("18_pfwmm")
+
+[node name="Slope" type="CSGMesh3D" parent="NorthRoad/MainRoad"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 12.125)
+mesh = SubResource("PrismMesh_d2exg")
+material = ExtResource("18_pfwmm")
+
+[node name="NWroad" type="CSGBox3D" parent="NorthRoad/MainRoad"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.75, 0, -4.5)
+size = Vector3(56.5, 0.25, 15)
+material = ExtResource("18_pfwmm")
+
+[node name="WSsidewalk" type="CSGBox3D" parent="NorthRoad/MainRoad"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 0, 7.5)
+size = Vector3(32, 1, 8)
+material = ExtResource("19_co3y2")
+
+[node name="ConcreteSquare" type="CSGBox3D" parent="NorthRoad/MainRoad"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36, 0, -0.25)
+size = Vector3(56, 0.25, 23.5)
+material = ExtResource("20_bsqhj")
+
+[node name="ConcreteSquare_Wcurb" type="CSGBox3D" parent="NorthRoad/MainRoad/ConcreteSquare"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.25, 0, 0.25)
+size = Vector3(0.5, 0.25, 24)
+material = ExtResource("21_tl18v")
+
+[node name="ConcreteSquare_Scurb" type="CSGBox3D" parent="NorthRoad/MainRoad/ConcreteSquare"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 12)
+size = Vector3(56, 0.25, 0.5)
+material = ExtResource("21_tl18v")
+
+[node name="NWsidewalk_Scurb" type="CSGPolygon3D" parent="NorthRoad"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -40, -0.5, 9.5)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 0, 1, 0.25, 1, 0.5, 0.75, 0.5, 0)
+depth = 32.5
+smooth_faces = true
+material = ExtResource("21_tl18v")
+
+[node name="Negative" type="CSGPolygon3D" parent="NorthRoad/NWsidewalk_Scurb"]
+transform = Transform3D(0.707106, 0, 0.707106, 0, 1, 0, -0.707106, 0, 0.707106, 0.5, 1, -32.5)
+operation = 2
+polygon = PackedVector2Array(0, 0, 0, -1, -1, -1, -1, 0)
+
+[node name="NWsidewalk_Ecurb" type="CSGPolygon3D" parent="NorthRoad"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, -0.5, 10)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 0, 1, 0.25, 1, 0.5, 0.75, 0.5, 0)
+depth = 9.0
+smooth_faces = true
+material = ExtResource("21_tl18v")
+
+[node name="Negative0" type="CSGPolygon3D" parent="NorthRoad/NWsidewalk_Ecurb"]
+transform = Transform3D(0.707106, 0, 0.707106, 0, 1, 0, -0.707106, 0, 0.707106, 0.5, 1, 0)
+operation = 2
+polygon = PackedVector2Array(0, 0, 0, -1, -1, -1, -1, 0)
+
+[node name="Negative1" type="CSGPolygon3D" parent="NorthRoad/NWsidewalk_Ecurb"]
+transform = Transform3D(0.707106, 0, 0.707106, 0, 1, 0, -0.707106, 0, 0.707106, 0.5, 1, -9)
+operation = 2
+polygon = PackedVector2Array(0, 0, 0, -1, -1, -1, -1, 0)
+
+[node name="NWsidewalk_Ncurb" type="CSGPolygon3D" parent="NorthRoad"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -7.5, -0.5, 1.5)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 0, 1, 0.25, 1, 0.5, 0.75, 0.5, 0)
+depth = 32.5
+smooth_faces = true
+material = ExtResource("21_tl18v")
+
+[node name="Negative" type="CSGPolygon3D" parent="NorthRoad/NWsidewalk_Ncurb"]
+transform = Transform3D(0.707106, 0, 0.707106, 0, 1, 0, -0.707106, 0, 0.707106, 0.5, 1, 0)
+operation = 2
+polygon = PackedVector2Array(0, 0, 0, -1, -1, -1, -1, 0)
+
+[node name="EastRoad" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 52, 0, 0)
+
+[node name="MainRoad" type="CSGBox3D" parent="EastRoad"]
+use_collision = true
+size = Vector3(24, 0.1, 10)
+material = ExtResource("20_bsqhj")
+
+[node name="Ncurb" type="CSGBox3D" parent="EastRoad/MainRoad"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5.25)
+size = Vector3(24, 0.1, 0.5)
+material = ExtResource("21_tl18v")
+
+[node name="Nsidewalk_S" type="CSGBox3D" parent="EastRoad/MainRoad"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6.5)
+size = Vector3(24, 0.1, 2)
+material = ExtResource("5_vcbrp")
+
+[node name="Nsidewalk_N" type="CSGBox3D" parent="EastRoad/MainRoad"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -39)
+size = Vector3(24, 0.1, 2)
+material = ExtResource("5_vcbrp")
+
+[node name="Scurb" type="CSGBox3D" parent="EastRoad/MainRoad"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5.25)
+size = Vector3(24, 0.1, 0.5)
+material = ExtResource("21_tl18v")
+
+[node name="GrassGround" type="CSGMesh3D" parent="EastRoad/MainRoad"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, 0)
+use_collision = true
+mesh = SubResource("PlaneMesh_lty7t")
+material = ExtResource("9_7ejq8")
+
+[node name="Nsidewalk0" type="CSGBox3D" parent="EastRoad/MainRoad"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 0, -22.75)
+size = Vector3(2, 0.1, 30.5)
+material = ExtResource("5_vcbrp")
+
+[node name="Nsidewalk1" type="CSGBox3D" parent="EastRoad/MainRoad"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -22.75)
+size = Vector3(2, 0.1, 30.5)
+material = ExtResource("5_vcbrp")
+
+[node name="Nsidewalk2" type="CSGBox3D" parent="EastRoad/MainRoad"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0, -22.75)
+size = Vector3(2, 0.1, 30.5)
+material = ExtResource("5_vcbrp")
