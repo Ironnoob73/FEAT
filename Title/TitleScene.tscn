@@ -993,6 +993,7 @@ libraries = {
 
 [connection signal="timeout" from="Main/HBoxContainer/Timer" to="." method="_on_timer_timeout"]
 [connection signal="pressed" from="Main/Panel/Control/MainMenu/MainMenu/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="Main/Panel/Control/MainMenu/MainMenu/ContinueButton" to="." method="_on_continue_button_pressed"]
 [connection signal="pressed" from="Main/Panel/Control/MainMenu/MainMenu/OptionsButton" to="." method="_on_options_button_pressed"]
 [connection signal="pressed" from="Main/Panel/Control/MainMenu/MainMenu/ExitButton" to="." method="_on_exit_button_pressed"]
 [connection signal="item_selected" from="Main/Panel/Control/Options/Options/#options_game#/GameSetting/VSpilt/Language/language_button" to="Main/Panel/Control/Options" method="_on_language_button_item_selected"]

@@ -40,3 +40,16 @@ func _on_confirm_button_pressed():
 #World
 func _on_start_button_pressed():
 	get_tree().change_scene_to_file("res://Assets_Main/World/WorldMain.tscn")
+
+#Uncomplete
+func _on_continue_button_pressed():
+	# One-time steps.
+	# Pick a voice. Here, we arbitrarily pick the first English voice.
+	var voices = DisplayServer.tts_get_voices_for_language("zh")
+	var voice_id = voices[0]
+
+	# Say "Hello, world!".
+	DisplayServer.tts_speak("Hello, world!", voice_id)
+
+	#DisplayServer.tts_stop()
+	DisplayServer.tts_speak("Goodbye!", voice_id)
