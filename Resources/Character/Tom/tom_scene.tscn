@@ -1,0 +1,131 @@
+[gd_scene load_steps=15 format=3 uid="uid://c3mhx4rgcj41a"]
+
+[ext_resource type="ArrayMesh" uid="uid://dfrrq6tdtisaj" path="res://Resources/Character/Tom/MainHead.obj" id="1_wpgvx"]
+[ext_resource type="Material" uid="uid://bkekwgbk7sndy" path="res://Resources/Character/Tom/tom_material.tres" id="2_mp3j2"]
+[ext_resource type="Material" uid="uid://boilwqj0qf2j1" path="res://Resources/Material/BlueEmissive.tres" id="3_1c1fw"]
+
+[sub_resource type="Curve" id="Curve_tvy65"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -3.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_43565"]
+curve = SubResource("Curve_tvy65")
+
+[sub_resource type="Gradient" id="Gradient_dh2pm"]
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_8x1v6"]
+gradient = SubResource("Gradient_dh2pm")
+
+[sub_resource type="Curve" id="Curve_dvail"]
+_data = [Vector2(0, 1.25), 0.0, 0.0, 0, 0, Vector2(1, 0.5), -2.5, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_hmcs1"]
+curve = SubResource("Curve_dvail")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ag62u"]
+direction = Vector3(0.5, 0, 0)
+gravity = Vector3(0, -0.1, 0)
+scale_curve = SubResource("CurveTexture_hmcs1")
+color = Color(0, 0.498039, 1, 1)
+color_ramp = SubResource("GradientTexture1D_8x1v6")
+alpha_curve = SubResource("CurveTexture_43565")
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_ntc3q"]
+material = ExtResource("3_1c1fw")
+top_radius = 0.1
+bottom_radius = 0.0
+height = 0.001
+radial_segments = 8
+
+[sub_resource type="Animation" id="Animation_0uxs2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MainHead:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MainHead:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_43j4b"]
+resource_name = "idle"
+length = 5.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MainHead:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.5),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0.05, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MainHead:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_edfrw"]
+_data = {
+"RESET": SubResource("Animation_0uxs2"),
+"idle": SubResource("Animation_43j4b")
+}
+
+[node name="Node3D" type="Node3D"]
+
+[node name="MainHead" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
+mesh = ExtResource("1_wpgvx")
+surface_material_override/0 = ExtResource("2_mp3j2")
+
+[node name="Trail" type="GPUParticles3D" parent="MainHead"]
+transform = Transform3D(3.69552, 0, 1.53073, 0, 4, 0, -1.53073, 0, 3.69552, 0, -1, 0)
+amount = 5
+lifetime = 2.0
+process_material = SubResource("ParticleProcessMaterial_ag62u")
+draw_pass_1 = SubResource("CylinderMesh_ntc3q")
+
+[node name="Eye" type="CSGBox3D" parent="MainHead"]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0.75)
+size = Vector3(0.1, 0.1, 0.05)
+material = ExtResource("3_1c1fw")
+
+[node name="Eyebrow" type="CSGBox3D" parent="MainHead"]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0.5, 1)
+size = Vector3(0.25, 0.05, 0.05)
+material = ExtResource("3_1c1fw")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_edfrw")
+}
+autoplay = "idle"

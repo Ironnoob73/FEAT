@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://bcp40gisqlrka"]
+[gd_scene load_steps=34 format=3 uid="uid://bcp40gisqlrka"]
 
 [ext_resource type="Material" uid="uid://4hlgj1u74iny" path="res://Resources/Material/ConcreteBricks.tres" id="2_pjbdn"]
 [ext_resource type="ArrayMesh" uid="uid://ch2hj3f1jkv86" path="res://Assets_Main/World/Location/_Falord/Sources/CentralPark/CentralSquareGround.obj" id="3_h8amg"]
@@ -16,8 +16,12 @@
 [ext_resource type="PackedScene" uid="uid://pyr60lcofnft" path="res://Resources/Object/Tree/tree_scene.tscn" id="17_j50i0"]
 [ext_resource type="Material" uid="uid://lwjkvikmw3dm" path="res://Resources/Material/Asphalt.tres" id="18_pfwmm"]
 [ext_resource type="Material" uid="uid://d26s3k3ybdmt7" path="res://Resources/Material/RedSidewalkTiles.tres" id="19_co3y2"]
+[ext_resource type="Shader" path="res://Resources/Object/Grass/Grass.gdshader" id="19_jogoo"]
+[ext_resource type="Texture2D" uid="uid://cw26uquoixpus" path="res://Resources/Object/Grass/grass_texture.png" id="20_2rrlu"]
+[ext_resource type="Texture2D" uid="uid://c8jfo0h8hctjg" path="res://Resources/Material/Sources/GrassGround_albedo.png" id="20_a4gnq"]
 [ext_resource type="Material" uid="uid://drhehwdeyc38b" path="res://Resources/Material/Concrete.tres" id="20_bsqhj"]
 [ext_resource type="Material" uid="uid://d2aru44blbpby" path="res://Resources/Material/SlateBricks.tres" id="21_tl18v"]
+[ext_resource type="Texture2D" uid="uid://cqfqoo1c5tcw0" path="res://Resources/Object/Grass/grass_texture-150x150.png" id="22_bjd06"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_1ldni"]
 size = Vector2(80, 80)
@@ -109,6 +113,20 @@ size = Vector3(0.25, 0.25, 15)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_lty7t"]
 size = Vector2(24, 80)
+
+[sub_resource type="QuadMesh" id="QuadMesh_rh6on"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_radax"]
+render_priority = 0
+shader = ExtResource("19_jogoo")
+shader_parameter/enable_details = true
+shader_parameter/billboard_y = true
+shader_parameter/detail_color = Color(0.2, 0.2, 0.2, 1)
+shader_parameter/world_size = Vector2(10, 10)
+shader_parameter/world_position = Vector2(0, 0)
+shader_parameter/grass_color = ExtResource("20_2rrlu")
+shader_parameter/terrain_color = ExtResource("20_a4gnq")
+shader_parameter/variants = Array[Texture2D]([ExtResource("22_bjd06")])
 
 [node name="Town" type="Node3D"]
 
@@ -385,3 +403,8 @@ material = ExtResource("5_vcbrp")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0, -22.75)
 size = Vector3(2, 0.1, 30.5)
 material = ExtResource("5_vcbrp")
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="EastRoad"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 8)
+mesh = SubResource("QuadMesh_rh6on")
+material = SubResource("ShaderMaterial_radax")

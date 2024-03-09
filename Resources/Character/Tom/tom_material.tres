@@ -1,0 +1,13 @@
+[gd_resource type="ShaderMaterial" load_steps=5 format=3 uid="uid://bkekwgbk7sndy"]
+
+[ext_resource type="Shader" path="res://Resources/Item/ModelTexture.gdshader" id="1_wvr6k"]
+[ext_resource type="Texture2D" uid="uid://cf5rt028anyka" path="res://Resources/Character/Tom/tom.png" id="2_igf4t"]
+[ext_resource type="Texture2D" uid="uid://da22iy0ksw8o2" path="res://Resources/Character/Tom/tom_emissive.png" id="3_3fcux"]
+[ext_resource type="Texture2D" uid="uid://cceo3n2ppafg4" path="res://Resources/Character/Tom/tom_mrh.png" id="4_cr8ot"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_wvr6k")
+shader_parameter/texture_albedo = ExtResource("2_igf4t")
+shader_parameter/texture_mrh = ExtResource("4_cr8ot")
+shader_parameter/texture_emission = ExtResource("3_3fcux")

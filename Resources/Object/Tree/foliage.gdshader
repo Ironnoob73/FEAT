@@ -1,4 +1,6 @@
 shader_type spatial;
+
+//from : https://github.com/FaRu85/Godot-Foliage/blob/main/Shader/foliage.gdshader
 render_mode depth_draw_opaque, specular_schlick_ggx, depth_prepass_alpha ;
 //render_mode blend_mix, cull_disabled, depth_draw_opaque, specular_disabled;
 

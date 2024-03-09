@@ -4,7 +4,7 @@ shader_type spatial;
 render_mode blend_mix,depth_draw_opaque,cull_back,diffuse_burley,specular_schlick_ggx;
 
 uniform sampler2D texture_albedo : source_color,filter_nearest_mipmap,repeat_enable;
-uniform sampler2D texture_mrh : repeat_enable;
+uniform sampler2D texture_mrh : repeat_enable,filter_nearest_mipmap;
 uniform sampler2D texture_emission : source_color, hint_default_black,filter_nearest_mipmap,repeat_enable;
 uniform sampler2D texture_normal : hint_roughness_normal,filter_nearest_mipmap,repeat_enable;
 

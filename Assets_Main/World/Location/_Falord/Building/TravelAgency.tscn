@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://d1shg6ftbiypx"]
+[gd_scene load_steps=6 format=3 uid="uid://d1shg6ftbiypx"]
 
 [ext_resource type="Material" uid="uid://d2p56x5nsap2h" path="res://Resources/Material/Bricks.tres" id="1_e7n8m"]
 [ext_resource type="Material" uid="uid://d0ykvcp4rnf2h" path="res://Resources/Material/WhiteWall.tres" id="2_2lxxy"]
 [ext_resource type="Material" uid="uid://drhehwdeyc38b" path="res://Resources/Material/Concrete.tres" id="2_nq4rd"]
 [ext_resource type="Material" uid="uid://b860lbxbd3ed6" path="res://Resources/Material/GrayMaterial.tres" id="3_0wawp"]
+[ext_resource type="PackedScene" uid="uid://c3mhx4rgcj41a" path="res://Resources/Character/Tom/tom_scene.tscn" id="5_elncb"]
 
 [node name="TravelAgency" type="Node3D"]
 
@@ -45,3 +46,6 @@ material = ExtResource("3_0wawp")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5, 0)
 size = Vector3(8.1, 0.25, 10.1)
 material = ExtResource("2_nq4rd")
+
+[node name="Tom" parent="." instance=ExtResource("5_elncb")]
+transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 0, 2, 0)
