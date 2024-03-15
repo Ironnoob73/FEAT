@@ -1,8 +1,11 @@
-[gd_scene load_steps=15 format=3 uid="uid://c3mhx4rgcj41a"]
+[gd_scene load_steps=18 format=3 uid="uid://c3mhx4rgcj41a"]
 
 [ext_resource type="ArrayMesh" uid="uid://dfrrq6tdtisaj" path="res://Resources/Character/Tom/MainHead.obj" id="1_wpgvx"]
-[ext_resource type="Material" uid="uid://bkekwgbk7sndy" path="res://Resources/Character/Tom/tom_material.tres" id="2_mp3j2"]
+[ext_resource type="Material" uid="uid://bkekwgbk7sndy" path="res://Resources/Character/Tom/tom_material.tres" id="2_juyvc"]
 [ext_resource type="Material" uid="uid://boilwqj0qf2j1" path="res://Resources/Material/BlueEmissive.tres" id="3_1c1fw"]
+[ext_resource type="ArrayMesh" uid="uid://d3nurxfple24u" path="res://Resources/Character/Tom/Arm.obj" id="3_4osiu"]
+[ext_resource type="ArrayMesh" uid="uid://dkkua0qcdquo3" path="res://Resources/Character/Tom/Hand.obj" id="5_ut541"]
+[ext_resource type="ArrayMesh" uid="uid://dgo1aatjiql4g" path="res://Resources/Character/Tom/Hat.obj" id="6_8xf8m"]
 
 [sub_resource type="Curve" id="Curve_tvy65"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -3.0, 0.0, 0, 0]
@@ -105,7 +108,7 @@ _data = {
 [node name="MainHead" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
 mesh = ExtResource("1_wpgvx")
-surface_material_override/0 = ExtResource("2_mp3j2")
+surface_material_override/0 = ExtResource("2_juyvc")
 
 [node name="Trail" type="GPUParticles3D" parent="MainHead"]
 transform = Transform3D(3.69552, 0, 1.53073, 0, 4, 0, -1.53073, 0, 3.69552, 0, -1, 0)
@@ -122,6 +125,39 @@ material = ExtResource("3_1c1fw")
 [node name="Eyebrow" type="CSGBox3D" parent="MainHead"]
 transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0.5, 1)
 size = Vector3(0.25, 0.05, 0.05)
+material = ExtResource("3_1c1fw")
+
+[node name="LeftArm" type="MeshInstance3D" parent="MainHead"]
+transform = Transform3D(-1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 1, -0.5, 0)
+mesh = ExtResource("3_4osiu")
+skeleton = NodePath(".")
+surface_material_override/0 = ExtResource("2_juyvc")
+
+[node name="LeftHand" type="MeshInstance3D" parent="MainHead/LeftArm"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1, 0, 1.2)
+mesh = ExtResource("5_ut541")
+skeleton = NodePath("../../..")
+
+[node name="RightArm" type="MeshInstance3D" parent="MainHead"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -1, -0.5, 0)
+mesh = ExtResource("3_4osiu")
+surface_material_override/0 = ExtResource("2_juyvc")
+
+[node name="RightHand" type="MeshInstance3D" parent="MainHead/RightArm"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1, 0, 1.2)
+mesh = ExtResource("5_ut541")
+skeleton = NodePath("../../..")
+
+[node name="Hat" type="MeshInstance3D" parent="MainHead"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = ExtResource("6_8xf8m")
+skeleton = NodePath("../..")
+surface_material_override/0 = ExtResource("2_juyvc")
+
+[node name="T" type="CSGPolygon3D" parent="MainHead/Hat"]
+transform = Transform3D(2.1567, -0.862618, -3.25646, 1.48547, 3.71394, 0, 3.02358, -1.20935, 2.32281, -1.13228, 0.835, 0.311059)
+polygon = PackedVector2Array(0, 0, 0, 0.05, 0.15, 0.05, 0.15, 0, 0.1, 0, 0.1, -0.15, 0.05, -0.15, 0.05, 0)
+depth = 0.05
 material = ExtResource("3_1c1fw")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

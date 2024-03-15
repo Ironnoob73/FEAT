@@ -19,7 +19,7 @@ uniform sampler2D terrain_color:source_color,filter_linear_mipmap,repeat_disable
 
 // This must be in gray scale. Usually a GradientTexture2D but can be anything you want, even empty for plain color
 uniform sampler2D gradient_mask:source_color,filter_linear_mipmap,repeat_disable,hint_default_black;
-uniform sampler2D variants[TOTAL_GRASS_VARIANTS];
+uniform sampler2D variants[TOTAL_GRASS_VARIANTS]:filter_nearest_mipmap;
 
 // 'instance' keyword is only for Vulkan rendering drivers and allows multiple grass variants with the same material
 instance uniform int variant_index;
