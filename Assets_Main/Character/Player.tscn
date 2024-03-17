@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://bk6ihg1vf71uf"]
+[gd_scene load_steps=23 format=3 uid="uid://bk6ihg1vf71uf"]
 
 [ext_resource type="Script" path="res://Assets_Main/Character/Player.gd" id="1_twfth"]
 [ext_resource type="Script" path="res://Assets_Main/Character/Player_interact.gd" id="2_fls23"]
@@ -39,6 +39,9 @@ height = 1.8
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_stt28"]
 size = Vector3(0.5, 0.5, 0.5)
+
+[sub_resource type="SeparationRayShape3D" id="SeparationRayShape3D_danfw"]
+length = 0.9
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_co7mu"]
 
@@ -123,6 +126,34 @@ script = ExtResource("2_fls23")
 [node name="StandingDetected" type="ShapeCast3D" parent="."]
 shape = SubResource("BoxShape3D_stt28")
 target_position = Vector3(0, 0.65, 0)
+
+[node name="StepUpSeparationRay_F" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, -0.4)
+shape = SubResource("SeparationRayShape3D_danfw")
+
+[node name="RayCast3D" type="RayCast3D" parent="StepUpSeparationRay_F"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+target_position = Vector3(0, 0.95, 0)
+
+[node name="StepUpSeparationRay_L" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0.4, -0.4)
+shape = SubResource("SeparationRayShape3D_danfw")
+
+[node name="RayCast3D" type="RayCast3D" parent="StepUpSeparationRay_L"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+target_position = Vector3(0, 0.95, 0)
+
+[node name="StepUpSeparationRay_R" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, -0.4)
+shape = SubResource("SeparationRayShape3D_danfw")
+
+[node name="RayCast3D" type="RayCast3D" parent="StepUpSeparationRay_R"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+target_position = Vector3(0, 0.95, 0)
+
+[node name="StairsBelowRayCast3D" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.9, 0)
+target_position = Vector3(0, -0.5, 0)
 
 [node name="HudHotbar" parent="." instance=ExtResource("3_fnuc4")]
 mouse_filter = 1
