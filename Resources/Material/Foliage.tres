@@ -1,7 +1,7 @@
 [gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://cd5yiswprfdyd"]
 
-[ext_resource type="Shader" path="res://Resources/Object/Tree/foliage.gdshader" id="1_cdy8u"]
-[ext_resource type="Texture2D" uid="uid://cn4wfkcsxkg3c" path="res://Resources/Object/Tree/Leaves.png" id="2_0ogxr"]
+[ext_resource type="Shader" path="res://Resources/Object/Nature/Tree/foliage.gdshader" id="1_cdy8u"]
+[ext_resource type="Texture2D" uid="uid://cn4wfkcsxkg3c" path="res://Resources/Object/Nature/Tree/Leaves.png" id="2_0ogxr"]
 
 [resource]
 render_priority = 0

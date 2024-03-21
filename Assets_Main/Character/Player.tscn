@@ -67,8 +67,8 @@ shader_parameter/color = Color(1, 1, 1, 1)
 shader_parameter/albedo = SubResource("GradientTexture2D_f0825")
 
 [node name="Player" type="CharacterBody3D"]
-collision_layer = 3
-collision_mask = 11
+collision_layer = 4
+collision_mask = 15
 script = ExtResource("1_twfth")
 Inventory = SubResource("Resource_5kp7r")
 
@@ -136,7 +136,7 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 
 target_position = Vector3(0, 0.95, 0)
 
 [node name="StepUpSeparationRay_L" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0.4, -0.4)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, -0.4)
 shape = SubResource("SeparationRayShape3D_danfw")
 
 [node name="RayCast3D" type="RayCast3D" parent="StepUpSeparationRay_L"]
@@ -166,6 +166,7 @@ mouse_filter = 1
 
 [node name="Cursor" type="CSGMesh3D" parent="."]
 top_level = true
+visible = false
 layers = 6
 mesh = SubResource("BoxMesh_33j34")
 material = SubResource("ShaderMaterial_yjrry")

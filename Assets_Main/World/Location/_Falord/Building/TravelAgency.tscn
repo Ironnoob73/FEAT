@@ -1,10 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://d1shg6ftbiypx"]
+[gd_scene load_steps=9 format=3 uid="uid://d1shg6ftbiypx"]
 
 [ext_resource type="Material" uid="uid://d2p56x5nsap2h" path="res://Resources/Material/Bricks.tres" id="1_e7n8m"]
 [ext_resource type="Material" uid="uid://d0ykvcp4rnf2h" path="res://Resources/Material/WhiteWall.tres" id="2_2lxxy"]
 [ext_resource type="Material" uid="uid://drhehwdeyc38b" path="res://Resources/Material/Concrete.tres" id="2_nq4rd"]
 [ext_resource type="Material" uid="uid://b860lbxbd3ed6" path="res://Resources/Material/GrayMaterial.tres" id="3_0wawp"]
 [ext_resource type="PackedScene" uid="uid://c3mhx4rgcj41a" path="res://Resources/Character/Tom/tom_scene.tscn" id="5_elncb"]
+[ext_resource type="Material" uid="uid://c86my2g6uobvs" path="res://Resources/Material/BrownTiles.tres" id="5_u6b7n"]
+[ext_resource type="PackedScene" uid="uid://gi76rr5sims" path="res://Resources/Object/Furniture/Counter/counter_scene.tscn" id="7_0vjqs"]
+[ext_resource type="PackedScene" uid="uid://lpmasy302bvb" path="res://Resources/Object/Furniture/WoodenTable/table_scene.tscn" id="8_fbhxl"]
 
 [node name="TravelAgency" type="Node3D"]
 
@@ -37,15 +40,26 @@ size = Vector3(3, 2, 0.5)
 material = ExtResource("3_0wawp")
 
 [node name="Sdoor0" type="CSGBox3D" parent="Wall"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, -3.625, 4.875)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, -3.65, 4.875)
 operation = 2
 size = Vector3(1.5, 2.5, 0.5)
 material = ExtResource("3_0wawp")
 
-[node name="floor0" type="CSGBox3D" parent="Wall"]
+[node name="Base0" type="CSGBox3D" parent="Wall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5, 0)
 size = Vector3(8.1, 0.25, 10.1)
 material = ExtResource("2_nq4rd")
 
+[node name="Floor0" type="CSGBox3D" parent="Wall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.875, 0)
+size = Vector3(7.5, 0.025, 9.5)
+material = ExtResource("5_u6b7n")
+
 [node name="Tom" parent="." instance=ExtResource("5_elncb")]
-transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 0, 2, 0)
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, -2, 2, 1)
+
+[node name="counter_scene" parent="." instance=ExtResource("7_0vjqs")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1, 0.64, 1)
+
+[node name="table" parent="." instance=ExtResource("8_fbhxl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.25, 0.65, 4)

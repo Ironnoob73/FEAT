@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://2kj375hjecnv"
-path="res://.godot/imported/Grass_128x.png-f24e8f3ceb56ae8a8ee1e4272a3250ac.ctex"
+uid="uid://g4p1ccvtxgkj"
+path="res://.godot/imported/Wood_albedo.png-0bb84fc00e96863fce7f667678c47c4d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Resources/Object/Grass/Grass_128x.png"
-dest_files=["res://.godot/imported/Grass_128x.png-f24e8f3ceb56ae8a8ee1e4272a3250ac.ctex"]
+source_file="res://Resources/Material/Sources/Wood_albedo.png"
+dest_files=["res://.godot/imported/Wood_albedo.png-0bb84fc00e96863fce7f667678c47c4d.ctex"]
 
 [params]
 
@@ -21,7 +21,7 @@ compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=false
+mipmaps/generate=true
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
@@ -31,4 +31,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=1
+detect_3d/compress_to=0

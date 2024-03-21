@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://c2vdl14mctiih"
+path="res://.godot/imported/Leaves.obj-8b34fe87d451382a962ad39f0b54e86d.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Leaves.obj-8b34fe87d451382a962ad39f0b54e86d.mesh"]
+
+source_file="res://Resources/Object/Nature/Tree/Leaves.obj"
+dest_files=["res://.godot/imported/Leaves.obj-8b34fe87d451382a962ad39f0b54e86d.mesh", "res://.godot/imported/Leaves.obj-8b34fe87d451382a962ad39f0b54e86d.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

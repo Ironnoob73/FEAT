@@ -1,16 +1,16 @@
 [gd_scene load_steps=13 format=3 uid="uid://pyr60lcofnft"]
 
-[ext_resource type="ArrayMesh" uid="uid://beyl3hc135ott" path="res://Resources/Object/Tree/Root.obj" id="1_0o221"]
-[ext_resource type="Material" uid="uid://dw4v6vmu4m735" path="res://Resources/Material/Tree.tres" id="2_yv26m"]
-[ext_resource type="ArrayMesh" uid="uid://8cxfg245efex" path="res://Resources/Object/Tree/Trunk.obj" id="3_26u2h"]
-[ext_resource type="Material" uid="uid://kyerwyytohgp" path="res://Resources/Material/TreeCenter.tres" id="3_sk4ge"]
-[ext_resource type="ArrayMesh" uid="uid://1mpt2w2oh023" path="res://Resources/Object/Tree/Top.obj" id="4_hw53d"]
-[ext_resource type="ArrayMesh" uid="uid://dlbnxmbcycf0a" path="res://Resources/Object/Tree/Twig0.obj" id="5_c054j"]
-[ext_resource type="ArrayMesh" uid="uid://r7fqhjjyvn7q" path="res://Resources/Object/Tree/Twig1.obj" id="6_uw34b"]
-[ext_resource type="ArrayMesh" uid="uid://c2vdl14mctiih" path="res://Resources/Object/Tree/Leaves.obj" id="6_y7iqy"]
-[ext_resource type="Material" uid="uid://cd5yiswprfdyd" path="res://Resources/Material/Foliage.tres" id="7_h4kat"]
-[ext_resource type="ArrayMesh" uid="uid://bhhdg80efew0k" path="res://Resources/Object/Tree/Twig2.obj" id="7_psvfa"]
-[ext_resource type="ArrayMesh" uid="uid://du3y1dtmby6wt" path="res://Resources/Object/Tree/Twig3.obj" id="8_2iyln"]
+[ext_resource type="ArrayMesh" uid="uid://beyl3hc135ott" path="res://Resources/Object/Nature/Tree/Root.obj" id="1_hk7gt"]
+[ext_resource type="Material" uid="uid://dw4v6vmu4m735" path="res://Resources/Object/Nature/Tree/Tree.tres" id="2_7ro24"]
+[ext_resource type="Material" uid="uid://kyerwyytohgp" path="res://Resources/Material/TreeCenter.tres" id="3_00gqy"]
+[ext_resource type="ArrayMesh" uid="uid://8cxfg245efex" path="res://Resources/Object/Nature/Tree/Trunk.obj" id="4_gkdgs"]
+[ext_resource type="ArrayMesh" uid="uid://1mpt2w2oh023" path="res://Resources/Object/Nature/Tree/Top.obj" id="5_pww8a"]
+[ext_resource type="ArrayMesh" uid="uid://c2vdl14mctiih" path="res://Resources/Object/Nature/Tree/Leaves.obj" id="6_dtg84"]
+[ext_resource type="Material" uid="uid://cd5yiswprfdyd" path="res://Resources/Material/Foliage.tres" id="7_gxk8j"]
+[ext_resource type="ArrayMesh" uid="uid://dlbnxmbcycf0a" path="res://Resources/Object/Nature/Tree/Twig0.obj" id="8_3ydvc"]
+[ext_resource type="ArrayMesh" uid="uid://r7fqhjjyvn7q" path="res://Resources/Object/Nature/Tree/Twig1.obj" id="9_1khrl"]
+[ext_resource type="ArrayMesh" uid="uid://bhhdg80efew0k" path="res://Resources/Object/Nature/Tree/Twig2.obj" id="10_up65k"]
+[ext_resource type="ArrayMesh" uid="uid://du3y1dtmby6wt" path="res://Resources/Object/Nature/Tree/Twig3.obj" id="11_tjcry"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_vjv8b"]
 height = 30.0
@@ -20,104 +20,104 @@ radius = 1.0
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
 
 [node name="Root" type="MeshInstance3D" parent="."]
-mesh = ExtResource("1_0o221")
-surface_material_override/0 = ExtResource("2_yv26m")
-surface_material_override/1 = ExtResource("3_sk4ge")
+mesh = ExtResource("1_hk7gt")
+surface_material_override/0 = ExtResource("2_7ro24")
+surface_material_override/1 = ExtResource("3_00gqy")
 
 [node name="Trunk" type="MeshInstance3D" parent="Root"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-mesh = ExtResource("3_26u2h")
+mesh = ExtResource("4_gkdgs")
 skeleton = NodePath("../..")
-surface_material_override/0 = ExtResource("2_yv26m")
-surface_material_override/1 = ExtResource("3_sk4ge")
+surface_material_override/0 = ExtResource("2_7ro24")
+surface_material_override/1 = ExtResource("3_00gqy")
 
 [node name="Top" type="MeshInstance3D" parent="Root/Trunk"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 29, 0)
-mesh = ExtResource("4_hw53d")
-surface_material_override/0 = ExtResource("2_yv26m")
-surface_material_override/1 = ExtResource("3_sk4ge")
+mesh = ExtResource("5_pww8a")
+surface_material_override/0 = ExtResource("2_7ro24")
+surface_material_override/1 = ExtResource("3_00gqy")
 
 [node name="Leaves0" type="MeshInstance3D" parent="Root/Trunk/Top"]
 transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -2.3648, -0.547794, -3)
-mesh = ExtResource("6_y7iqy")
+mesh = ExtResource("6_dtg84")
 skeleton = NodePath("../../../..")
-surface_material_override/0 = ExtResource("7_h4kat")
+surface_material_override/0 = ExtResource("7_gxk8j")
 
 [node name="Leaves1" type="MeshInstance3D" parent="Root/Trunk/Top"]
 transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 1, 1.39325, 2.95224)
-mesh = ExtResource("6_y7iqy")
+mesh = ExtResource("6_dtg84")
 skeleton = NodePath("../../../..")
-surface_material_override/0 = ExtResource("7_h4kat")
+surface_material_override/0 = ExtResource("7_gxk8j")
 
 [node name="Twig0" type="MeshInstance3D" parent="Root/Trunk"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 16, 0)
-mesh = ExtResource("5_c054j")
+mesh = ExtResource("8_3ydvc")
 skeleton = NodePath("../../..")
-surface_material_override/0 = ExtResource("2_yv26m")
-surface_material_override/1 = ExtResource("3_sk4ge")
+surface_material_override/0 = ExtResource("2_7ro24")
+surface_material_override/1 = ExtResource("3_00gqy")
 
 [node name="Leaves0" type="MeshInstance3D" parent="Root/Trunk/Twig0"]
 transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 4.12884, 2, 0)
-mesh = ExtResource("6_y7iqy")
+mesh = ExtResource("6_dtg84")
 skeleton = NodePath("../../../..")
-surface_material_override/0 = ExtResource("7_h4kat")
+surface_material_override/0 = ExtResource("7_gxk8j")
 
 [node name="Leaves1" type="MeshInstance3D" parent="Root/Trunk/Twig0"]
 transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 4.08404, 5, 2.62634)
-mesh = ExtResource("6_y7iqy")
+mesh = ExtResource("6_dtg84")
 skeleton = NodePath("../../../..")
-surface_material_override/0 = ExtResource("7_h4kat")
+surface_material_override/0 = ExtResource("7_gxk8j")
 
 [node name="Twig1" type="MeshInstance3D" parent="Root/Trunk"]
 transform = Transform3D(-0.438371, 0, 0.898794, 0, 1, 0, -0.898794, 0, -0.438371, 0.5, 18, 0.25)
-mesh = ExtResource("6_uw34b")
+mesh = ExtResource("9_1khrl")
 skeleton = NodePath("../../..")
-surface_material_override/0 = ExtResource("2_yv26m")
-surface_material_override/1 = ExtResource("3_sk4ge")
+surface_material_override/0 = ExtResource("2_7ro24")
+surface_material_override/1 = ExtResource("3_00gqy")
 
 [node name="Leaves0" type="MeshInstance3D" parent="Root/Trunk/Twig1"]
 transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 8.02521, 4, -0.475439)
-mesh = ExtResource("6_y7iqy")
+mesh = ExtResource("6_dtg84")
 skeleton = NodePath("../../../..")
-surface_material_override/0 = ExtResource("7_h4kat")
+surface_material_override/0 = ExtResource("7_gxk8j")
 
 [node name="Leaves1" type="MeshInstance3D" parent="Root/Trunk/Twig1"]
 transform = Transform3D(4, 0, -1.19209e-07, 0, 4, 0, 1.19209e-07, 0, 4, 3.75977, 0.580559, -4.09264)
-mesh = ExtResource("6_y7iqy")
+mesh = ExtResource("6_dtg84")
 skeleton = NodePath("../..")
-surface_material_override/0 = ExtResource("7_h4kat")
+surface_material_override/0 = ExtResource("7_gxk8j")
 
 [node name="Twig2" type="MeshInstance3D" parent="Root/Trunk"]
 transform = Transform3D(-0.573576, 0, -0.819152, 0, 1, 0, 0.819152, 0, -0.573576, 0.5, 20, -0.5)
-mesh = ExtResource("7_psvfa")
+mesh = ExtResource("10_up65k")
 skeleton = NodePath("../../..")
-surface_material_override/0 = ExtResource("2_yv26m")
-surface_material_override/1 = ExtResource("3_sk4ge")
+surface_material_override/0 = ExtResource("2_7ro24")
+surface_material_override/1 = ExtResource("3_00gqy")
 
 [node name="Leaves0" type="MeshInstance3D" parent="Root/Trunk/Twig2"]
 transform = Transform3D(4, 0, 1.90735e-07, 0, 4, 0, -1.90735e-07, 0, 4, 7, 3, 0)
-mesh = ExtResource("6_y7iqy")
+mesh = ExtResource("6_dtg84")
 skeleton = NodePath("../../../..")
-surface_material_override/0 = ExtResource("7_h4kat")
+surface_material_override/0 = ExtResource("7_gxk8j")
 
 [node name="Twig3" type="MeshInstance3D" parent="Root/Trunk"]
 transform = Transform3D(0.5, 0, 0.866025, 0, 1, 0, -0.866025, 0, 0.5, 0, 24, 0)
-mesh = ExtResource("8_2iyln")
+mesh = ExtResource("11_tjcry")
 skeleton = NodePath("../../..")
-surface_material_override/0 = ExtResource("2_yv26m")
-surface_material_override/1 = ExtResource("3_sk4ge")
+surface_material_override/0 = ExtResource("2_7ro24")
+surface_material_override/1 = ExtResource("3_00gqy")
 
 [node name="Leaves0" type="MeshInstance3D" parent="Root/Trunk/Twig3"]
 transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 7.37772, -1.29662, -1.55921)
-mesh = ExtResource("6_y7iqy")
+mesh = ExtResource("6_dtg84")
 skeleton = NodePath("../../../..")
-surface_material_override/0 = ExtResource("7_h4kat")
+surface_material_override/0 = ExtResource("7_gxk8j")
 
 [node name="Leaves1" type="MeshInstance3D" parent="Root/Trunk/Twig3"]
 transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 5, 4, 0)
-mesh = ExtResource("6_y7iqy")
+mesh = ExtResource("6_dtg84")
 skeleton = NodePath("../../../..")
-surface_material_override/0 = ExtResource("7_h4kat")
+surface_material_override/0 = ExtResource("7_gxk8j")
 
 [node name="TreeColl" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 15, 0)

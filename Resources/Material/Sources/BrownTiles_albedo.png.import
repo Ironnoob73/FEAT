@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c2v4meklxdsi7"
-path.s3tc="res://.godot/imported/Grass_32x.png-a223621a78d63e9052be18b6b1d2e08f.s3tc.ctex"
+uid="uid://b37mfyypqms2j"
+path.s3tc="res://.godot/imported/BrownTiles_albedo.png-a1cfe51792df4e47608ed4ed3d6ec754.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Resources/Object/Grass/Grass_32x.png"
-dest_files=["res://.godot/imported/Grass_32x.png-a223621a78d63e9052be18b6b1d2e08f.s3tc.ctex"]
+source_file="res://Resources/Material/Sources/BrownTiles_albedo.png"
+dest_files=["res://.godot/imported/BrownTiles_albedo.png-a1cfe51792df4e47608ed4ed3d6ec754.s3tc.ctex"]
 
 [params]
 
