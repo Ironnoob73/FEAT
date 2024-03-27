@@ -28,6 +28,7 @@ general/text_to_speech=true
 
 Global="*res://global.gd"
 AllItems="*res://Resources/Item/AllItems.gd"
+LoadManager="*res://Assets_Main/LoadingScreen/LoadManager.gd"
 
 [display]
 

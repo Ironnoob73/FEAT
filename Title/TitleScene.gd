@@ -39,7 +39,7 @@ func _on_confirm_button_pressed():
 
 #World
 func _on_start_button_pressed():
-	get_tree().change_scene_to_file("res://Assets_Main/World/WorldMain.tscn")
+	LoadManager.load_scene("res://Assets_Main/World/WorldMain.tscn")
 
 #Uncomplete
 func _on_continue_button_pressed():

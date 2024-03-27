@@ -42,4 +42,4 @@ func load_config():
 
 #Back to title
 func back_to_title():
-	get_tree().change_scene_to_file("res://Title/TitleScene.tscn")
+	LoadManager.load_scene("res://Title/TitleScene.tscn")
