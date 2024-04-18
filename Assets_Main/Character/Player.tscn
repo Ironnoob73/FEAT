@@ -162,6 +162,7 @@ mouse_filter = 1
 [node name="HudStatesBar" parent="." instance=ExtResource("6_b8jq2")]
 
 [node name="VirtualJoypad" parent="." instance=ExtResource("8_ox0si")]
+visible = false
 
 [node name="Inventory" parent="." instance=ExtResource("3_grckl")]
 
