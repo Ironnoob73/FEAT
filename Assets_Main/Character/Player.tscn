@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://bk6ihg1vf71uf"]
+[gd_scene load_steps=24 format=3 uid="uid://bk6ihg1vf71uf"]
 
 [ext_resource type="Script" path="res://Assets_Main/Character/Player.gd" id="1_twfth"]
 [ext_resource type="Script" path="res://Assets_Main/Character/Player_interact.gd" id="2_fls23"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" path="res://Assets_Main/Character/Player_FPCinteract.gd" id="4_750b5"]
 [ext_resource type="Shader" path="res://Assets_Main/Character/Cursor.gdshader" id="5_u5uvm"]
 [ext_resource type="PackedScene" uid="uid://v2j546pk6a4k" path="res://Assets_Main/Character/PlayerHUDStatesBar.tscn" id="6_b8jq2"]
+[ext_resource type="PackedScene" uid="uid://tnlamai5w4yx" path="res://Assets_Main/Character/VirtualJoypad/VirtualJoypad.tscn" id="8_ox0si"]
 
 [sub_resource type="Resource" id="Resource_5kp7r"]
 script = ExtResource("2_jbrrd")
@@ -159,6 +160,8 @@ target_position = Vector3(0, -0.5, 0)
 mouse_filter = 1
 
 [node name="HudStatesBar" parent="." instance=ExtResource("6_b8jq2")]
+
+[node name="VirtualJoypad" parent="." instance=ExtResource("8_ox0si")]
 
 [node name="Inventory" parent="." instance=ExtResource("3_grckl")]
 
