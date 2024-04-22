@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://bcp40gisqlrka"]
+[gd_scene load_steps=31 format=3 uid="uid://bcp40gisqlrka"]
 
 [ext_resource type="Material" uid="uid://4hlgj1u74iny" path="res://Resources/Material/ConcreteBricks.tres" id="2_pjbdn"]
 [ext_resource type="ArrayMesh" uid="uid://ch2hj3f1jkv86" path="res://Assets_Main/World/Location/_Falord/Sources/CentralPark/CentralSquareGround.obj" id="3_h8amg"]
@@ -17,6 +17,7 @@
 [ext_resource type="Material" uid="uid://d26s3k3ybdmt7" path="res://Resources/Material/RedSidewalkTiles.tres" id="19_co3y2"]
 [ext_resource type="Material" uid="uid://c4otco3kww8jo" path="res://Resources/Material/YellowPaintedWall.tres" id="19_dg1fs"]
 [ext_resource type="Material" uid="uid://fmupa14licja" path="res://Resources/Material/Grass.tres" id="19_ivdkp"]
+[ext_resource type="Material" uid="uid://btm3w7ckienog" path="res://Resources/Material/YellowPaintedBricks.tres" id="20_7fp57"]
 [ext_resource type="Material" uid="uid://drhehwdeyc38b" path="res://Resources/Material/Concrete.tres" id="20_bsqhj"]
 [ext_resource type="Material" uid="uid://d2aru44blbpby" path="res://Resources/Material/SlateBricks.tres" id="21_tl18v"]
 
@@ -251,8 +252,8 @@ size = Vector3(56.5, 0.25, 15)
 material = ExtResource("18_pfwmm")
 
 [node name="WSsidewalk" type="CSGBox3D" parent="NorthRoad/MainRoad"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 0, 7.5)
-size = Vector3(32, 1, 8)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36, 0, 7.5)
+size = Vector3(56, 1, 8)
 material = ExtResource("19_co3y2")
 
 [node name="ConcreteSquare" type="CSGBox3D" parent="NorthRoad/MainRoad"]
@@ -269,6 +270,11 @@ material = ExtResource("21_tl18v")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 12)
 size = Vector3(56, 0.25, 0.5)
 material = ExtResource("21_tl18v")
+
+[node name="NWSideWalk_SFill" type="CSGBox3D" parent="NorthRoad/MainRoad"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -52, 0, 11.75)
+size = Vector3(24, 1, 0.5)
+material = ExtResource("2_pjbdn")
 
 [node name="NWsidewalk_Scurb" type="CSGPolygon3D" parent="NorthRoad"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -40, -0.5, 9.5)
@@ -305,7 +311,7 @@ polygon = PackedVector2Array(0, 0, 0, -1, -1, -1, -1, 0)
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -7.5, -0.5, 1.5)
 use_collision = true
 polygon = PackedVector2Array(0, 0, 0, 1, 0.25, 1, 0.5, 0.75, 0.5, 0)
-depth = 32.5
+depth = 56.5
 smooth_faces = true
 material = ExtResource("21_tl18v")
 
@@ -394,10 +400,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -6.025, 0)
 size = Vector3(16, 0.05, 80)
 material = ExtResource("20_bsqhj")
 
+[node name="InnerSpace" type="CSGBox3D" parent="WestWall/Main"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+operation = 2
+size = Vector3(12, 11, 78)
+material = ExtResource("19_dg1fs")
+
 [node name="CorridorDown" type="CSGBox3D" parent="WestWall/Main"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.5, 0)
 operation = 2
 size = Vector3(16, 3, 9)
+material = ExtResource("20_bsqhj")
 
 [node name="CorridorUp" type="CSGCylinder3D" parent="WestWall/Main"]
 transform = Transform3D(-5.96046e-08, 1, 0, -1, -5.96046e-08, 0, 0, 0, 1, 0, -3, 0)
@@ -405,28 +418,46 @@ operation = 2
 radius = 4.5
 height = 16.0
 sides = 16
+material = ExtResource("20_bsqhj")
 
 [node name="CorridorCutDown" type="CSGBox3D" parent="WestWall/Main/CorridorUp"]
 transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 3, 0, 0)
 operation = 2
 size = Vector3(16, 1, 9)
 
-[node name="Arch" type="Node3D" parent="WestWall"]
+[node name="Arch" type="Node3D" parent="WestWall/Main"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, -6, 0)
 
-[node name="ArchPillarLeft" type="CSGBox3D" parent="WestWall/Arch"]
+[node name="ArchPillarLeft" type="CSGBox3D" parent="WestWall/Main/Arch"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 4.5)
 size = Vector3(1, 3, 1)
 material = ExtResource("5_vcbrp")
 
-[node name="ArchPillarRight" type="CSGBox3D" parent="WestWall/Arch"]
+[node name="ArchPillarRight" type="CSGBox3D" parent="WestWall/Main/Arch"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, -4.5)
 size = Vector3(1, 3, 1)
 material = ExtResource("5_vcbrp")
 
-[node name="CSGPolygon3D" type="CSGPolygon3D" parent="WestWall/Arch"]
+[node name="ArchTop" type="CSGPolygon3D" parent="WestWall/Main/Arch"]
 transform = Transform3D(-8.74228e-08, -1, 4.37114e-08, 4.37114e-08, -4.37114e-08, -1, 1, -8.74228e-08, 4.37114e-08, 0.5, 3, 0)
 polygon = PackedVector2Array(4, 0, 4, 1, 5, 1, 5, 0)
 mode = 1
 spin_degrees = 180.0
 spin_sides = 8
 material = ExtResource("5_vcbrp")
+
+[node name="WallEdgeE" type="CSGPolygon3D" parent="WestWall/Main"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 5.5, 40)
+polygon = PackedVector2Array(0, -0.5, 0, 0.5, 0.5, 0.5, 0.5, 0)
+depth = 80.0
+material = ExtResource("21_tl18v")
+
+[node name="Pillar1" type="CSGBox3D" parent="WestWall/Main/WallEdgeE"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.125, -6, -33.5)
+size = Vector3(0.25, 12, 1)
+material = ExtResource("20_7fp57")
+
+[node name="Pillar2" type="CSGBox3D" parent="WestWall/Main/WallEdgeE"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.125, -6, -46.5)
+size = Vector3(0.25, 12, 1)
+material = ExtResource("20_7fp57")
