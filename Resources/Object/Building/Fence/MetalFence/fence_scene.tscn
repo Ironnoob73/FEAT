@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://6ubkkpxp1sn5"]
+
+[ext_resource type="ArrayMesh" uid="uid://cbpeutytjb2r7" path="res://Resources/Object/Building/Fence/MetalFence/Fence.obj" id="1_yyg3k"]
+[ext_resource type="Material" uid="uid://rnxv6hl1w5ul" path="res://Resources/Material/DarkMaterial.tres" id="2_ktedj"]
+
+[node name="FenceScene" type="CSGMesh3D"]
+use_collision = true
+collision_mask = 0
+mesh = ExtResource("1_yyg3k")
+material = ExtResource("2_ktedj")
