@@ -106,6 +106,7 @@ size = Vector2(56, 16)
 [node name="GrassGround" type="CSGMesh3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, 0)
 use_collision = true
+collision_layer = 3
 mesh = SubResource("PlaneMesh_1ldni")
 material = ExtResource("9_7ejq8")
 
@@ -151,12 +152,14 @@ surface_material_override/1 = ExtResource("8_0wcl5")
 [node name="Parterre" type="CSGBox3D" parent="GrassGround/Ground/Obelisk"]
 transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 0, -3, 0)
 use_collision = true
+collision_layer = 3
 size = Vector3(7, 2, 7)
 material = ExtResource("5_vcbrp")
 
 [node name="ParterreTop" type="CSGTorus3D" parent="GrassGround/Ground/Obelisk"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
 use_collision = true
+collision_layer = 3
 inner_radius = 4.0
 outer_radius = 5.0
 sides = 4
@@ -166,6 +169,7 @@ material = ExtResource("5_vcbrp")
 
 [node name="Grass" type="CSGBox3D" parent="GrassGround/Ground/Obelisk"]
 transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 0, -2, 0)
+layers = 3
 size = Vector3(6, 0.5, 6)
 material = ExtResource("9_7ejq8")
 
@@ -213,37 +217,37 @@ surface_material_override/0 = ExtResource("12_5nuw8")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0)
 
 [node name="Tree0" parent="GrassGround/SW" instance=ExtResource("17_j50i0")]
-transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -32, 0.25, 11)
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -32.5, 0.25, 11.5)
 
 [node name="Tree1" parent="GrassGround/SW" instance=ExtResource("17_j50i0")]
-transform = Transform3D(-0.113206, 0, -0.2229, 0, 0.25, 0, 0.2229, 0, -0.113206, -28.5239, 0.184373, 15.3617)
+transform = Transform3D(-0.113206, 0, -0.2229, 0, 0.25, 0, 0.2229, 0, -0.113206, -28.5, 0.184, 15.5)
 
 [node name="Tree2" parent="GrassGround/SW" instance=ExtResource("17_j50i0")]
-transform = Transform3D(-0.194829, 0, 0.156658, 0, 0.25, 0, -0.156658, 0, -0.194829, -22.2085, -0.409839, 17.3914)
+transform = Transform3D(-0.194829, 0, 0.156658, 0, 0.25, 0, -0.156658, 0, -0.194829, -22.5, -0.41, 17.5)
 
 [node name="Tree3" parent="GrassGround/SW" instance=ExtResource("17_j50i0")]
-transform = Transform3D(0.169988, 0, 0.183314, 0, 0.25, 0, -0.183314, 0, 0.169988, -18.7624, 0.392512, 21.092)
+transform = Transform3D(0.169988, 0, 0.183314, 0, 0.25, 0, -0.183314, 0, 0.169988, -18.5, 0.393, 21.5)
 
 [node name="Tree4" parent="GrassGround/SW" instance=ExtResource("17_j50i0")]
-transform = Transform3D(0.0928014, 0, 0.232138, 0, 0.25, 0, -0.232138, 0, 0.0928014, -15.877, 0.117771, 25.3228)
+transform = Transform3D(0.0928014, 0, 0.232138, 0, 0.25, 0, -0.232138, 0, 0.0928014, -15.5, 0.118, 25.5)
 
 [node name="Tree5" parent="GrassGround/SW" instance=ExtResource("17_j50i0")]
-transform = Transform3D(0.247918, 0, -0.0321946, 0, 0.25, 0, 0.0321946, 0, 0.247918, -13.3827, 0.338526, 29.276)
+transform = Transform3D(0.247918, 0, -0.0321946, 0, 0.25, 0, 0.0321946, 0, 0.247918, -13.5, 0.339, 29.5)
 
 [node name="Tree6" parent="GrassGround/SW" instance=ExtResource("17_j50i0")]
-transform = Transform3D(0.0672216, 0, 0.240793, 0, 0.25, 0, -0.240793, 0, 0.0672216, -25.9401, 0.142009, 19.6835)
+transform = Transform3D(0.0672216, 0, 0.240793, 0, 0.25, 0, -0.240793, 0, 0.0672216, -26.5, 0.142, 20.5)
 
 [node name="Tree7" parent="GrassGround/SW" instance=ExtResource("17_j50i0")]
-transform = Transform3D(0.24889, 0, 0.0235358, 0, 0.25, 0, -0.0235358, 0, 0.24889, -25.8231, 0, 25.5091)
+transform = Transform3D(0.24889, 0, 0.0235358, 0, 0.25, 0, -0.0235358, 0, 0.24889, -25.5, 0, 26.5)
 
 [node name="Tree8" parent="GrassGround/SW" instance=ExtResource("17_j50i0")]
-transform = Transform3D(0.110885, 0, -0.224064, 0, 0.25, 0, 0.224064, 0, 0.110885, -21.4467, 0.30428, 25.2329)
+transform = Transform3D(0.110885, 0, -0.224064, 0, 0.25, 0, 0.224064, 0, 0.110885, -20.5, 0.304, 25.5)
 
 [node name="Tree9" parent="GrassGround/SW" instance=ExtResource("17_j50i0")]
-transform = Transform3D(0.220474, 0, 0.117861, 0, 0.25, 0, -0.117861, 0, 0.220474, -19.4395, -0.216402, 29.8794)
+transform = Transform3D(0.220474, 0, 0.117861, 0, 0.25, 0, -0.117861, 0, 0.220474, -18.5, -0.216, 30.5)
 
 [node name="Tree10" parent="GrassGround/SW" instance=ExtResource("17_j50i0")]
-transform = Transform3D(0.202521, 0, -0.146579, 0, 0.25, 0, 0.146579, 0, 0.202521, -16.5491, -0.216402, 33.8493)
+transform = Transform3D(0.202521, 0, -0.146579, 0, 0.25, 0, 0.146579, 0, 0.202521, -16.5, -0.216, 34.5)
 
 [node name="NorthRoad" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -50)
@@ -251,6 +255,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -50)
 [node name="MainRoad" type="CSGBox3D" parent="NorthRoad"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
 use_collision = true
+collision_layer = 3
 size = Vector3(15, 0.25, 24)
 material = ExtResource("18_pfwmm")
 
@@ -292,6 +297,7 @@ material = ExtResource("21_tl18v")
 [node name="NWsidewalk_Scurb" type="CSGPolygon3D" parent="NorthRoad"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -40, -0.5, 9.5)
 use_collision = true
+collision_layer = 3
 polygon = PackedVector2Array(0, 0, 0, 1, 0.25, 1, 0.5, 0.75, 0.5, 0)
 depth = 32.5
 smooth_faces = true
@@ -305,6 +311,7 @@ polygon = PackedVector2Array(0, 0, 0, -1, -1, -1, -1, 0)
 [node name="NWsidewalk_Ecurb" type="CSGPolygon3D" parent="NorthRoad"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, -0.5, 10)
 use_collision = true
+collision_layer = 3
 polygon = PackedVector2Array(0, 0, 0, 1, 0.25, 1, 0.5, 0.75, 0.5, 0)
 depth = 9.0
 smooth_faces = true
@@ -323,6 +330,7 @@ polygon = PackedVector2Array(0, 0, 0, -1, -1, -1, -1, 0)
 [node name="NWsidewalk_Ncurb" type="CSGPolygon3D" parent="NorthRoad"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -7.5, -0.5, 1.5)
 use_collision = true
+collision_layer = 3
 polygon = PackedVector2Array(0, 0, 0, 1, 0.25, 1, 0.5, 0.75, 0.5, 0)
 depth = 56.5
 smooth_faces = true
@@ -338,6 +346,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 52, 0, 0)
 
 [node name="MainRoad" type="CSGBox3D" parent="EastGround"]
 use_collision = true
+collision_layer = 3
 size = Vector3(24, 0.1, 10)
 material = ExtResource("20_bsqhj")
 
@@ -404,7 +413,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40, 0, 0)
 [node name="Main" type="CSGBox3D" parent="WestWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 5, 0)
 use_collision = true
-collision_mask = 0
+collision_layer = 3
 size = Vector3(16, 10, 80)
 material = ExtResource("19_dg1fs")
 
@@ -469,6 +478,7 @@ material = ExtResource("5_vcbrp")
 [node name="WallEdgeE" type="CSGPolygon3D" parent="WestWall/Main/WallEdge"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 5, 40)
 use_collision = true
+collision_layer = 3
 polygon = PackedVector2Array(0, -0.5, 0, 0.5, 0.5, 0.5, 0.5, 0)
 depth = 80.5
 material = ExtResource("21_tl18v")
@@ -510,6 +520,7 @@ material = ExtResource("20_7fp57")
 [node name="WallEdgeW" type="CSGPolygon3D" parent="WestWall/Main/WallEdge"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 5, 40)
 use_collision = true
+collision_layer = 3
 polygon = PackedVector2Array(0, -0.5, 0, 0.5, -0.5, 0.5, -0.5, 0)
 depth = 80.5
 material = ExtResource("21_tl18v")
@@ -551,6 +562,7 @@ material = ExtResource("20_7fp57")
 [node name="WallEdgeN" type="CSGPolygon3D" parent="WestWall/Main/WallEdge"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -8.5, 5, -40)
 use_collision = true
+collision_layer = 3
 polygon = PackedVector2Array(0, -0.5, 0, 0.5, -0.5, 0.5, -0.5, 0)
 depth = 17.0
 material = ExtResource("21_tl18v")
@@ -583,7 +595,7 @@ material = ExtResource("19_dg1fs")
 [node name="WestGround" type="CSGBox3D" parent="WestWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, 0)
 use_collision = true
-collision_mask = 0
+collision_layer = 3
 size = Vector3(8, 0.1, 80)
 material = ExtResource("2_pjbdn")
 
@@ -607,6 +619,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28, -0.025, 44)
 [node name="SouthBase" type="CSGBox3D" parent="SouthEntrance"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, 0)
 use_collision = true
+collision_layer = 3
 size = Vector3(56, 0.05, 8.5)
 material = ExtResource("20_bsqhj")
 
@@ -639,6 +652,7 @@ material = ExtResource("21_tl18v")
 [node name="SouthWallW" type="CSGBox3D" parent="SouthEntrance"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 2, -3.5)
 use_collision = true
+collision_layer = 3
 size = Vector3(32, 4, 1)
 material = ExtResource("19_dg1fs")
 
@@ -651,6 +665,7 @@ material = ExtResource("21_tl18v")
 [node name="SouthWallE" type="CSGBox3D" parent="SouthEntrance"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44, 2, -3.5)
 use_collision = true
+collision_layer = 3
 size = Vector3(16, 4, 1)
 material = ExtResource("19_dg1fs")
 

@@ -1,73 +1,43 @@
-[gd_scene load_steps=7 format=3 uid="uid://gi76rr5sims"]
+[gd_scene load_steps=8 format=3 uid="uid://gi76rr5sims"]
 
+[ext_resource type="ArrayMesh" uid="uid://bia8lb6n2uap1" path="res://Resources/Object/Furniture/Counter/counter.obj" id="1_431sg"]
 [ext_resource type="Material" uid="uid://do55163v32q4u" path="res://Resources/Material/Wood.tres" id="1_ps0ui"]
 [ext_resource type="Material" uid="uid://rnxv6hl1w5ul" path="res://Resources/Material/DarkMaterial.tres" id="1_s2nj2"]
 [ext_resource type="Material" uid="uid://b860lbxbd3ed6" path="res://Resources/Material/GrayMaterial.tres" id="2_1bvx0"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_3d40h"]
-size = Vector3(3, 0.125, 1)
+size = Vector3(3, 0.100098, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_olf7f"]
-size = Vector3(2.975, 0.875, 0.118)
+size = Vector3(2.94, 0.9, 0.1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_v0fpk"]
-size = Vector3(0.113, 0.875, 0.858)
+size = Vector3(0.0996611, 0.9, 0.87)
 
 [node name="counter" type="RigidBody3D"]
 collision_layer = 8
-collision_mask = 3
+collision_mask = 15
 collision_priority = 3.0
 sleeping = true
 
-[node name="Base" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.438, 0)
-collision_layer = 2
-collision_mask = 0
-size = Vector3(2.975, 0.875, 0.975)
-material = ExtResource("1_s2nj2")
-
-[node name="Top" type="CSGBox3D" parent="Base"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.499398, 0)
-use_collision = true
-size = Vector3(3, 0.125, 1)
-material = ExtResource("1_ps0ui")
-
-[node name="FrontMid" type="CSGBox3D" parent="Base"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.45)
-operation = 2
-size = Vector3(1.75, 0.8, 0.1)
-material = ExtResource("2_1bvx0")
-
-[node name="FrontLeft" type="CSGBox3D" parent="Base"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.175, 0, 0.45)
-operation = 2
-size = Vector3(0.5, 0.8, 0.1)
-material = ExtResource("2_1bvx0")
-
-[node name="FrontRight" type="CSGBox3D" parent="Base"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.175, 0, 0.45)
-operation = 2
-size = Vector3(0.5, 0.8, 0.1)
-material = ExtResource("2_1bvx0")
-
-[node name="Inner" type="CSGBox3D" parent="Base"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.045, -0.08)
-operation = 2
-size = Vector3(2.75, 0.8, 0.9)
-material = ExtResource("2_1bvx0")
+[node name="Counter" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_431sg")
+surface_material_override/0 = ExtResource("1_s2nj2")
+surface_material_override/1 = ExtResource("1_ps0ui")
+surface_material_override/2 = ExtResource("2_1bvx0")
 
 [node name="Collision_top" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.938, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.950451, 0)
 shape = SubResource("BoxShape3D_3d40h")
 
 [node name="Collision_front" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.438, 0.429)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.21593e-05, 0.450268, 0.429)
 shape = SubResource("BoxShape3D_olf7f")
 
 [node name="Collision_left" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.431, 0.438, -0.059)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.42, 0.45, -0.055)
 shape = SubResource("BoxShape3D_v0fpk")
 
 [node name="Collision_right" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.431, 0.438, -0.059)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4198, 0.450146, -0.0550469)
 shape = SubResource("BoxShape3D_v0fpk")

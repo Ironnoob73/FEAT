@@ -121,7 +121,7 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.45, 
 
 [node name="InteractRay" type="RayCast3D" parent="PlayerCam"]
 target_position = Vector3(0, 0, -20)
-collision_mask = 56
+collision_mask = 2
 script = ExtResource("2_fls23")
 
 [node name="StandingDetected" type="ShapeCast3D" parent="."]
@@ -170,7 +170,6 @@ visible = false
 
 [node name="Cursor" type="CSGMesh3D" parent="."]
 top_level = true
-visible = false
 layers = 6
 mesh = SubResource("BoxMesh_33j34")
 material = SubResource("ShaderMaterial_yjrry")
