@@ -91,16 +91,16 @@ operation = 2
 polygon = PackedVector2Array(0, 0, 0, -1, 1, -1, 1, 0)
 
 [node name="TravelAgency" parent="." instance=ExtResource("4_tkr4o")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17, 0.5, 49)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17, 1, 49)
 
 [node name="Tom2" parent="TravelAgency" instance=ExtResource("5_f8vrt")]
-transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, -2.5, 1.5, 1.5)
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, -2.5, 0.9, 1.5)
 
 [node name="counter_scene2" parent="TravelAgency" instance=ExtResource("6_vgnfv")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.5, 0.2, 1.5)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.5, -0.5, 1.5)
 
 [node name="table2" parent="TravelAgency" instance=ExtResource("7_b8bem")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.25, 0.2, 4)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, -0.5, 4.5)
 
 [node name="FlowerBed" type="CSGMesh3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17, 0.55, 56)

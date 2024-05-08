@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://bk6ihg1vf71uf"]
+[gd_scene load_steps=25 format=3 uid="uid://bk6ihg1vf71uf"]
 
 [ext_resource type="Script" path="res://Assets_Main/Character/Player.gd" id="1_twfth"]
 [ext_resource type="Script" path="res://Assets_Main/Character/Player_interact.gd" id="2_fls23"]
@@ -48,7 +48,7 @@ length = 0.55
 
 [sub_resource type="BoxMesh" id="BoxMesh_33j34"]
 material = SubResource("StandardMaterial3D_co7mu")
-size = Vector3(1.01, 1.01, 1.01)
+size = Vector3(1.01, 0.51, 1.01)
 
 [sub_resource type="Gradient" id="Gradient_gpkj0"]
 offsets = PackedFloat32Array(0.9, 1)
@@ -57,7 +57,7 @@ colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1)
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_f0825"]
 gradient = SubResource("Gradient_gpkj0")
 width = 32
-height = 32
+height = 16
 fill = 2
 fill_from = Vector2(0.5, 0.5)
 
@@ -66,6 +66,10 @@ render_priority = 0
 shader = ExtResource("5_u5uvm")
 shader_parameter/color = Color(1, 1, 1, 1)
 shader_parameter/albedo = SubResource("GradientTexture2D_f0825")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_j771c"]
+margin = 0.0
+size = Vector3(0.79, 0.19, 0.79)
 
 [node name="Player" type="CharacterBody3D"]
 collision_layer = 4
@@ -173,5 +177,11 @@ top_level = true
 layers = 6
 mesh = SubResource("BoxMesh_33j34")
 material = SubResource("ShaderMaterial_yjrry")
+
+[node name="DetectionArea" type="Area3D" parent="Cursor"]
+collision_mask = 2
+
+[node name="CollisionShape" type="CollisionShape3D" parent="Cursor/DetectionArea"]
+shape = SubResource("BoxShape3D_j771c")
 
 [editable path="HudHotbar"]

@@ -14,12 +14,12 @@ func _input(event):
 				get_selection()
 			
 func set_mouse_position():
-	var worldspace = get_world_3d().direct_space_state
+	var _worldspace = get_world_3d().direct_space_state
 	var end = project_position(mouse_pos,1)
 	hand_held.get_child(0).move_event(end)
 	
 func get_selection():
-	var worldspace = get_world_3d().direct_space_state
+	var _worldspace = get_world_3d().direct_space_state
 	#var start = project_ray_origin(mouse_pos)
 	var end = project_position(mouse_pos,1)
 	#var ray = PhysicsRayQueryParameters3D.create(start,end)

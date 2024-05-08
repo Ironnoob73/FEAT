@@ -5,7 +5,7 @@
 
 [node name="FenceScene" type="Node3D"]
 
-[node name="CSGMesh3D" type="CSGMesh3D" parent="."]
+[node name="Collection" type="CSGMesh3D" parent="."]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 use_collision = true
 collision_layer = 9
