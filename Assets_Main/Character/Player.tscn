@@ -57,7 +57,7 @@ colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1)
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_f0825"]
 gradient = SubResource("Gradient_gpkj0")
 width = 32
-height = 16
+height = 32
 fill = 2
 fill_from = Vector2(0.5, 0.5)
 
@@ -73,7 +73,7 @@ size = Vector3(0.79, 0.19, 0.79)
 
 [node name="Player" type="CharacterBody3D"]
 collision_layer = 4
-collision_mask = 15
+collision_mask = 31
 script = ExtResource("1_twfth")
 Inventory = SubResource("Resource_5kp7r")
 
@@ -95,6 +95,12 @@ grow_vertical = 2
 texture = SubResource("GradientTexture2D_vsdsi")
 
 [node name="PlayerColl" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_a500n")
+
+[node name="ClimbArea" type="Area3D" parent="PlayerColl"]
+collision_mask = 15
+
+[node name="Coll" type="CollisionShape3D" parent="PlayerColl/ClimbArea"]
 shape = SubResource("CapsuleShape3D_a500n")
 
 [node name="PlayerCam" type="Camera3D" parent="."]
@@ -179,9 +185,12 @@ mesh = SubResource("BoxMesh_33j34")
 material = SubResource("ShaderMaterial_yjrry")
 
 [node name="DetectionArea" type="Area3D" parent="Cursor"]
-collision_mask = 2
+collision_mask = 10
 
 [node name="CollisionShape" type="CollisionShape3D" parent="Cursor/DetectionArea"]
 shape = SubResource("BoxShape3D_j771c")
+
+[connection signal="area_entered" from="PlayerColl/ClimbArea" to="." method="_on_climb_area_area_entered"]
+[connection signal="area_exited" from="PlayerColl/ClimbArea" to="." method="_on_climb_area_area_exited"]
 
 [editable path="HudHotbar"]

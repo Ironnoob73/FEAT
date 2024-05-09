@@ -16,9 +16,8 @@ func _physics_process(_delta):
 		hit_point.x = floor(get_collision_point().x)
 		hit_point.y = floor(get_collision_point().y) + 0.5 * int(get_collision_point().y - floor(get_collision_point().y) >= 0.49)
 		hit_point.z = floor(get_collision_point().z)
-		if _detection_area.has_overlapping_bodies() :
+		if _detection_area.has_overlapping_bodies() or _detection_area.has_overlapping_areas():
 			_cursor.material.set_shader_parameter("color",Vector3(1,0,0))
-			print(_detection_area.get_overlapping_bodies())
 		else:
 			_cursor.material.set_shader_parameter("color",Vector3(0,1,0))
 		
@@ -39,5 +38,4 @@ func can_place_voxel_at(pos: Vector3i):
 	shape.extents = Vector3(0.39, 0.1, 0.39)
 	params.set_shape(shape)
 	var hits = space_state.intersect_shape(params)
-	print(hits)
 	return hits.size() == 0

@@ -182,3 +182,4 @@ locale/translations=PackedStringArray("res://Language/Main_en_US.po", "res://Lan
 3d_physics/layer_2="Building"
 3d_physics/layer_3="Character"
 3d_physics/layer_4="Decorate"
+3d_physics/layer_5="ClimbAble"

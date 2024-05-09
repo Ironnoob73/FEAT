@@ -9,6 +9,10 @@ const JUMP_VELOCITY = 8
 const ACCELERATION = 0.1
 const FRICTION = 0.3
 
+var isDash = 0
+var isCrouch = 0
+var isClimb : bool = false
+
 @onready var player_collision = $PlayerColl
 @onready var player_camera = $PlayerCam
 @onready var standing_detected= $StandingDetected
@@ -19,6 +23,8 @@ const FRICTION = 0.3
 @onready var hand_held = $PlayerCam/FirstPersonHandled/SubViewport/FirstPersonCam/HandHeld
 
 @onready var interact_ray = $PlayerCam/InteractRay
+
+@onready var _climb_area = $PlayerColl/ClimbArea
 
 var INERTIA:Vector2 = Vector2.ZERO
 
@@ -99,7 +105,7 @@ var _was_on_floor_last_frame = false
 var _snapped_to_stairs_last_frame = false
 func _snap_down_to_stairs_check():
 	var did_snap = false
-	if not is_on_floor() and velocity.y <= 0 and (_was_on_floor_last_frame or _snapped_to_stairs_last_frame) and $StairsBelowRayCast3D.is_colliding():
+	if not ( is_on_floor() or isClimb ) and velocity.y <= 0 and (_was_on_floor_last_frame or _snapped_to_stairs_last_frame) and $StairsBelowRayCast3D.is_colliding():
 		var body_test_result = PhysicsTestMotionResult3D.new()
 		var params = PhysicsTestMotionParameters3D.new()
 		var max_step_down = -0.5
@@ -111,7 +117,7 @@ func _snap_down_to_stairs_check():
 			apply_floor_snap()
 			did_snap = true
 
-	_was_on_floor_last_frame = is_on_floor()
+	_was_on_floor_last_frame = is_on_floor() or isClimb
 	_snapped_to_stairs_last_frame = did_snap
 	
 @onready var _initial_separation_ray_dist = abs($StepUpSeparationRay_F.position.z)
@@ -160,7 +166,7 @@ var _last_frame_was_on_floor = -_jump_frame_grace - 1
 			
 func _physics_process(_delta):
 	# Record Inerita & Add the gravity.
-	if is_on_floor():
+	if is_on_floor() or isClimb:
 		INERTIA.x = velocity.x
 		INERTIA.y = velocity.z
 	else:
@@ -168,7 +174,7 @@ func _physics_process(_delta):
 
 	# Handle Jump.
 	_cur_frame += 1
-	if is_on_floor():
+	if is_on_floor() :
 		_last_frame_was_on_floor = _cur_frame
 	if Input.is_action_just_pressed("ui_accept") and (is_on_floor() or _cur_frame - _last_frame_was_on_floor <= _jump_frame_grace):
 		velocity.y = JUMP_VELOCITY
@@ -179,9 +185,7 @@ func _physics_process(_delta):
 	input_vec.z = Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
 	input_vec = (transform.basis * Vector3(input_vec.x,0,input_vec.z)).normalized()
 	
-	var isDash = 0
 	isDash = Input.get_action_strength("shift")
-	var isCrouch = 0
 	isCrouch = Input.get_action_strength("crouch")
 	
 	# Move.
@@ -189,14 +193,14 @@ func _physics_process(_delta):
 	velocity.z = lerp(velocity.z,input_vec.z * (SPEED + isDash * DASH * (1 - isCrouch) - isCrouch * CROUCH ) , ACCELERATION)
 	# Stop.
 	if velocity.x * input_vec.x <= 0 and velocity.x!=0:
-		if is_on_floor():	velocity.x = lerp(velocity.x,0.0,FRICTION)
-		else:				velocity.x = lerp(INERTIA.x,0.0,FRICTION)
+		if is_on_floor() or isClimb:	velocity.x = lerp(velocity.x,0.0,FRICTION)
+		else:							velocity.x = lerp(INERTIA.x,0.0,FRICTION)
 	if velocity.z * input_vec.z <= 0 and velocity.z!=0:
-		if is_on_floor():	velocity.z = lerp(velocity.z,0.0,FRICTION)
-		else:				velocity.z = lerp(INERTIA.y,0.0,FRICTION)
+		if is_on_floor() or isClimb:	velocity.z = lerp(velocity.z,0.0,FRICTION)
+		else:							velocity.z = lerp(INERTIA.y,0.0,FRICTION)
 	
 	# Crouch.
-	if Input.is_action_pressed("crouch"):
+	if Input.is_action_pressed("crouch") and !isClimb:
 		player_collision.shape.height = lerp(player_collision.shape.height,1.8 * CROUCH_depth,0.5)
 		player_camera.position.y = lerp(player_camera.position.y,0.5 * CROUCH_depth,0.5)
 		$StepUpSeparationRay_F.shape.length = lerp($StepUpSeparationRay_F.shape.length,0.0,0.5)
@@ -208,7 +212,13 @@ func _physics_process(_delta):
 		$StepUpSeparationRay_F.shape.length = lerp($StepUpSeparationRay_F.shape.length,0.55,0.1)
 		$StepUpSeparationRay_L.shape.length = lerp($StepUpSeparationRay_L.shape.length,0.55,0.1)
 		$StepUpSeparationRay_R.shape.length = lerp($StepUpSeparationRay_R.shape.length,0.55,0.1)
-	
+	# Climb
+	if isClimb:
+		input_vec.y = Input.get_action_strength("ui_accept") - Input.get_action_strength("crouch")
+		velocity.y = lerp(velocity.y,input_vec.y * SPEED , ACCELERATION)
+	if velocity.y * input_vec.y <= 0 and velocity.y!=0 and isClimb:
+		velocity.y = lerp(velocity.y,0.0,FRICTION)
+		
 	_rotate_step_up_separation_ray()
 	move_and_slide()
 	_snap_down_to_stairs_check()
@@ -223,7 +233,7 @@ func _physics_process(_delta):
 			if current_hotbar > 0 :	current_hotbar -= 1
 			else :	current_hotbar = 4
 			refresh_handheld(current_hotbar)
-		
+	
 func _process(_delta):
 	first_person_cam.global_transform = player_camera.global_transform
 	
@@ -251,3 +261,14 @@ func refresh_handheld_info():
 		handheld_tool.equipment.name0,\
 		handheld_tool.equipment.icon,\
 		((handheld_tool.equipment.durability - handheld_tool.damage)/handheld_tool.equipment.durability)*100)
+
+# Climb Detection
+func _on_climb_area_area_entered(area):
+	if area.is_in_group("ClimbAble"):
+		isClimb = true
+func _on_climb_area_area_exited(area):
+	if area.is_in_group("ClimbAble"):
+		isClimb = false
+		for i in _climb_area.get_overlapping_areas():
+			if i.is_in_group("ClimbAble"):
+				isClimb = true

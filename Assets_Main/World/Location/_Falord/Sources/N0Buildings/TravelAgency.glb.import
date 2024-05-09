@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://bp0s053ote8ac"
-path="res://.godot/imported/TravelAgency.glb-e6863fd29d8e05f7d3faf09ae8948403.scn"
+path="res://.godot/imported/TravelAgency.glb-14a28cb3567a6cc4a1b5e21b5a118001.scn"
 
 [deps]
 
-source_file="res://Assets_Main/World/Location/_Falord/Building/TravelAgency.glb"
-dest_files=["res://.godot/imported/TravelAgency.glb-e6863fd29d8e05f7d3faf09ae8948403.scn"]
+source_file="res://Assets_Main/World/Location/_Falord/Sources/N0Buildings/TravelAgency.glb"
+dest_files=["res://.godot/imported/TravelAgency.glb-14a28cb3567a6cc4a1b5e21b5a118001.scn"]
 
 [params]
 

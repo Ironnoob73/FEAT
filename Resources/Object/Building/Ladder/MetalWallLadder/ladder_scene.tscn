@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://b40pj5rwujily"]
+
+[ext_resource type="ArrayMesh" uid="uid://bdl2crqeu4kik" path="res://Resources/Object/Building/Ladder/MetalWallLadder/MetalWallLadder.obj" id="1_nl7v7"]
+[ext_resource type="Material" uid="uid://c2hs74g2f7lxv" path="res://Resources/Material/RustedMetal.tres" id="2_bkqyt"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mesxt"]
+size = Vector3(0.8, 1, 0.8)
+
+[node name="LadderScene" type="Area3D" groups=["ClimbAble"]]
+collision_layer = 9
+
+[node name="model" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_nl7v7")
+surface_material_override/0 = ExtResource("2_bkqyt")
+
+[node name="CollisionShape" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_mesxt")
