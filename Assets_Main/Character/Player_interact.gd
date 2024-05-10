@@ -10,7 +10,7 @@ var hit_point : Vector3
 @onready var Player = get_node("/root/World/Player")
 	
 func _physics_process(_delta):
-	#Get hit point & Change cursor color
+	# Get hit point & Change cursor color
 	if is_colliding() :
 		_cursor.material.get_shader_parameter("albedo").set_fill(2)
 		hit_point.x = floor(get_collision_point().x)
@@ -21,13 +21,19 @@ func _physics_process(_delta):
 		else:
 			_cursor.material.set_shader_parameter("color",Vector3(0,1,0))
 		
-	#Move cursor
+	# Move cursor
 	if !is_colliding() :	_cursor.hide()
 	elif _cursor.visible == true:
 		_cursor.set_global_position(lerp(_cursor.global_position,Vector3(hit_point)+Vector3(0.5,0.25,0.5),0.5))
 	else:
 		_cursor.show()
 		_cursor.set_global_position(Vector3(hit_point)+Vector3(0.5,0.25,0.5))
+	# Interact
+	if is_colliding() and get_collider().is_in_group("Interactive"):
+		#$PlayerCam/Hud/Tip.visible = true
+		if Input.is_action_just_pressed("interact"):
+			get_collider().interact()
+	#else:	$PlayerCam/Hud/Tip.visible = false
 		
 func can_place_voxel_at(pos: Vector3i):
 	var space_state = get_viewport().get_world_3d().get_direct_space_state()

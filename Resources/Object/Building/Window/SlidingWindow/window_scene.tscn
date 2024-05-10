@@ -1,0 +1,64 @@
+[gd_scene load_steps=10 format=3 uid="uid://dgamoawgoj1oe"]
+
+[ext_resource type="ArrayMesh" uid="uid://cr666vlwdrkv4" path="res://Resources/Object/Building/Window/SlidingWindow/SlidingWindowFrame.obj" id="1_dgoto"]
+[ext_resource type="Material" uid="uid://bi2qrop8jfbsf" path="res://Resources/Material/Tree.tres" id="1_v1nl8"]
+[ext_resource type="ArrayMesh" uid="uid://mql4jc5dsg7" path="res://Resources/Object/Building/Window/SlidingWindow/SlidingWindow.obj" id="2_8xc2f"]
+[ext_resource type="Script" path="res://Resources/Object/Building/Window/SlidingWindow/WindowInteraction.gd" id="3_pja0v"]
+[ext_resource type="Material" uid="uid://do55163v32q4u" path="res://Resources/Material/Wood.tres" id="4_7ppsy"]
+[ext_resource type="Material" uid="uid://d2kh2k5stcerf" path="res://Resources/Material/Glass.tres" id="6_kxcot"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_1wjhv"]
+data = PackedVector3Array(-1.5, 2, -0.1, 1.5, 2, -0.1, -1.5, 2, 0.1, -1.5, 2, 0.1, 1.5, 2, -0.1, 1.5, 2, 0.1, 1.4, 0.1, 0.1, 1.4, 0.1, -0.1, 1.4, 1.9, 0.1, 1.4, 1.9, 0.1, 1.4, 0.1, -0.1, 1.4, 1.9, -0.1, -1.5, 2, 0.1, -1.5, 0, 0.1, -1.5, 2, -0.1, -1.5, 2, -0.1, -1.5, 0, 0.1, -1.5, 0, -0.1, 1.5, 0, -0.1, -1.5, 0, -0.1, 1.5, 0, 0.1, 1.5, 0, 0.1, -1.5, 0, -0.1, -1.5, 0, 0.1, 1.5, 2, -0.1, 1.5, 0, -0.1, 1.5, 2, 0.1, 1.5, 2, 0.1, 1.5, 0, -0.1, 1.5, 0, 0.1, -1.4, 0.1, -0.1, 1.4, 0.1, -0.1, -1.4, 0.1, 0.1, -1.4, 0.1, 0.1, 1.4, 0.1, -0.1, 1.4, 0.1, 0.1, 1.4, 0.1, -0.1, -1.4, 0.1, -0.1, 1.5, 0, -0.1, 1.5, 0, -0.1, -1.4, 0.1, -0.1, -1.5, 0, -0.1, 1.4, 1.9, -0.1, 1.4, 0.1, -0.1, 1.5, 2, -0.1, 1.5, 2, -0.1, 1.4, 0.1, -0.1, 1.5, 0, -0.1, -1.4, 1.9, 0.1, -1.4, 0.1, 0.1, -1.5, 2, 0.1, -1.5, 2, 0.1, -1.4, 0.1, 0.1, -1.5, 0, 0.1, 1.4, 0.1, 0.1, 1.4, 1.9, 0.1, 1.5, 0, 0.1, 1.5, 0, 0.1, 1.4, 1.9, 0.1, 1.5, 2, 0.1, -1.4, 0.1, -0.1, -1.4, 1.9, -0.1, -1.5, 0, -0.1, -1.5, 0, -0.1, -1.4, 1.9, -0.1, -1.5, 2, -0.1, 1.4, 1.9, 0.1, -1.4, 1.9, 0.1, 1.5, 2, 0.1, 1.5, 2, 0.1, -1.4, 1.9, 0.1, -1.5, 2, 0.1, -1.4, 0.1, 0.1, 1.4, 0.1, 0.1, -1.5, 0, 0.1, -1.5, 0, 0.1, 1.4, 0.1, 0.1, 1.5, 0, 0.1, -1.4, 1.9, -0.1, 1.4, 1.9, -0.1, -1.5, 2, -0.1, -1.5, 2, -0.1, 1.4, 1.9, -0.1, 1.5, 2, -0.1, -1.4, 1.9, 0.1, 1.4, 1.9, 0.1, -1.4, 1.9, -0.1, -1.4, 1.9, -0.1, 1.4, 1.9, 0.1, 1.4, 1.9, -0.1, -1.4, 0.1, -0.1, -1.4, 0.1, 0.1, -1.4, 1.9, -0.1, -1.4, 1.9, -0.1, -1.4, 0.1, 0.1, -1.4, 1.9, 0.1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_iodqi"]
+size = Vector3(1.4, 1.8, 0.1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_vnwig"]
+size = Vector3(1.2, 1.6, 0)
+
+[node name="SlidingWindowScene" type="StaticBody3D"]
+collision_layer = 3
+
+[node name="Frame" type="MeshInstance3D" parent="."]
+material_override = ExtResource("1_v1nl8")
+mesh = ExtResource("1_dgoto")
+
+[node name="CollisionShape" type="CollisionShape3D" parent="."]
+shape = SubResource("ConcavePolygonShape3D_1wjhv")
+
+[node name="LeftWindow" type="AnimatableBody3D" parent="." groups=["Interactive"]]
+collision_layer = 9
+script = ExtResource("3_pja0v")
+
+[node name="SlidingWindow" type="MeshInstance3D" parent="LeftWindow"]
+material_override = ExtResource("4_7ppsy")
+mesh = ExtResource("2_8xc2f")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape" type="CollisionShape3D" parent="LeftWindow"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.7, 1, 0.05)
+shape = SubResource("BoxShape3D_iodqi")
+
+[node name="Glass" type="MeshInstance3D" parent="LeftWindow"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.7, 1, 0.05)
+material_override = ExtResource("6_kxcot")
+mesh = SubResource("BoxMesh_vnwig")
+
+[node name="RightWindow" type="AnimatableBody3D" parent="." groups=["Interactive"]]
+collision_layer = 9
+script = ExtResource("3_pja0v")
+
+[node name="SlidingWindow" type="MeshInstance3D" parent="RightWindow"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4, 0, -0.1)
+material_override = ExtResource("4_7ppsy")
+mesh = ExtResource("2_8xc2f")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape" type="CollisionShape3D" parent="RightWindow"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7, 1, -0.05)
+shape = SubResource("BoxShape3D_iodqi")
+
+[node name="Glass" type="MeshInstance3D" parent="RightWindow"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7, 1, -0.05)
+material_override = ExtResource("6_kxcot")
+mesh = SubResource("BoxMesh_vnwig")

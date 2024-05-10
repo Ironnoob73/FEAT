@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://lixd4xll3bl0"]
+
+[ext_resource type="Material" uid="uid://b860lbxbd3ed6" path="res://Resources/Material/GrayMaterial.tres" id="1_fullj"]
+[ext_resource type="Material" uid="uid://d2kh2k5stcerf" path="res://Resources/Material/Glass.tres" id="2_4v2hw"]
+
+[node name="GlassScene" type="CSGBox3D"]
+use_collision = true
+collision_layer = 3
+size = Vector3(3, 2, 0.2)
+material = ExtResource("1_fullj")
+
+[node name="Negative" type="CSGBox3D" parent="."]
+operation = 2
+size = Vector3(2.8, 1.8, 0.5)
+material = ExtResource("1_fullj")
+
+[node name="Glass" type="Node3D" parent="."]
+
+[node name="Glass" type="CSGBox3D" parent="Glass"]
+use_collision = true
+collision_layer = 9
+size = Vector3(2.8, 1.8, 0.1)
+material = ExtResource("2_4v2hw")

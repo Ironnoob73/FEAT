@@ -73,7 +73,7 @@ size = Vector3(0.79, 0.19, 0.79)
 
 [node name="Player" type="CharacterBody3D"]
 collision_layer = 4
-collision_mask = 31
+collision_mask = 15
 script = ExtResource("1_twfth")
 Inventory = SubResource("Resource_5kp7r")
 
@@ -131,7 +131,7 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.45, 
 
 [node name="InteractRay" type="RayCast3D" parent="PlayerCam"]
 target_position = Vector3(0, 0, -20)
-collision_mask = 2
+collision_mask = 10
 script = ExtResource("2_fls23")
 
 [node name="StandingDetected" type="ShapeCast3D" parent="."]
