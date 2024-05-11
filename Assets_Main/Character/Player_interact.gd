@@ -32,7 +32,7 @@ func _physics_process(_delta):
 	if is_colliding() and get_collider().is_in_group("Interactive"):
 		#$PlayerCam/Hud/Tip.visible = true
 		if Input.is_action_just_pressed("interact"):
-			get_collider().interact()
+			get_collider().interact(Player)
 	#else:	$PlayerCam/Hud/Tip.visible = false
 		
 func can_place_voxel_at(pos: Vector3i):

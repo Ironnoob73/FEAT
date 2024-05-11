@@ -12,6 +12,7 @@ const FRICTION = 0.3
 var isDash = 0
 var isCrouch = 0
 var isClimb : bool = false
+var isSit : bool = false
 
 @onready var player_collision = $PlayerColl
 @onready var player_camera = $PlayerCam
@@ -81,7 +82,7 @@ func _unhandled_input(_event):
 				current_menu = "Inventory"
 				Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 				inventory_menu.open_inventory()
-	#Hotbar
+	# Hotbar
 	if !Input.is_action_pressed("tool_function_switch") and current_menu == "HUD":
 		if Input.is_action_just_pressed("hotbar_tool_0") :
 			current_hotbar = 0
@@ -98,7 +99,9 @@ func _unhandled_input(_event):
 		if Input.is_action_just_pressed("hotbar_tool_4") :
 			current_hotbar = 4
 			refresh_handheld(current_hotbar)
-			
+	# UnSit
+	if isSit and ( Input.is_action_pressed("ui_accept") or Input.is_action_pressed("crouch")) :
+		isSit = false
 
 #from : https://github.com/majikayogames/godot-character-controller-stairs/blob/main/entities/Player/Player.gd
 var _was_on_floor_last_frame = false
@@ -200,13 +203,13 @@ func _physics_process(_delta):
 		else:							velocity.z = lerp(INERTIA.y,0.0,FRICTION)
 	
 	# Crouch.
-	if Input.is_action_pressed("crouch") and !isClimb:
+	if Input.is_action_pressed("crouch") and !isClimb and !isSit :
 		player_collision.shape.height = lerp(player_collision.shape.height,1.8 * CROUCH_depth,0.5)
 		player_camera.position.y = lerp(player_camera.position.y,0.5 * CROUCH_depth,0.5)
 		$StepUpSeparationRay_F.shape.length = lerp($StepUpSeparationRay_F.shape.length,0.0,0.5)
 		$StepUpSeparationRay_L.shape.length = lerp($StepUpSeparationRay_L.shape.length,0.0,0.5)
 		$StepUpSeparationRay_R.shape.length = lerp($StepUpSeparationRay_R.shape.length,0.0,0.5)
-	elif !standing_detected.is_colliding():
+	elif !standing_detected.is_colliding() :
 		player_collision.shape.height = lerp(player_collision.shape.height,1.8,0.5)
 		player_camera.position.y = lerp(player_camera.position.y,0.5,0.5)
 		$StepUpSeparationRay_F.shape.length = lerp($StepUpSeparationRay_F.shape.length,0.55,0.1)
@@ -220,7 +223,7 @@ func _physics_process(_delta):
 		velocity.y = lerp(velocity.y,0.0,FRICTION)
 		
 	_rotate_step_up_separation_ray()
-	move_and_slide()
+	if !isSit : move_and_slide()
 	_snap_down_to_stairs_check()
 
 	#Scroll hotbar
@@ -272,3 +275,12 @@ func _on_climb_area_area_exited(area):
 		for i in _climb_area.get_overlapping_areas():
 			if i.is_in_group("ClimbAble"):
 				isClimb = true
+#Sit
+func sit( chair_position, chair_rotation):
+	if !isSit :
+		var tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUART).set_parallel(true)
+		tween.tween_property(self, "position", chair_position, 0.5)
+		tween.tween_property(self, "rotation:y", chair_rotation.y - deg_to_rad(180), 0.5)
+		tween.tween_property(player_camera, "rotation:x", chair_rotation.x, 0.5)
+		isSit = true
+	else : isSit = false
