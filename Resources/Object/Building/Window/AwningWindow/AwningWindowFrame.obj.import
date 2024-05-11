@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dv7fq1atyhl74"
+path="res://.godot/imported/AwningWindowFrame.obj-4f741556b3f3c1aab6ec0e5889d2beef.mesh"
+
+[deps]
+
+files=["res://.godot/imported/AwningWindowFrame.obj-4f741556b3f3c1aab6ec0e5889d2beef.mesh"]
+
+source_file="res://Resources/Object/Building/Window/AwningWindow/AwningWindowFrame.obj"
+dest_files=["res://.godot/imported/AwningWindowFrame.obj-4f741556b3f3c1aab6ec0e5889d2beef.mesh", "res://.godot/imported/AwningWindowFrame.obj-4f741556b3f3c1aab6ec0e5889d2beef.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

@@ -1,0 +1,47 @@
+[gd_scene load_steps=10 format=3 uid="uid://bj6k2kwnojef7"]
+
+[ext_resource type="Material" uid="uid://rnxv6hl1w5ul" path="res://Resources/Material/DarkMaterial.tres" id="1_o8jl8"]
+[ext_resource type="ArrayMesh" uid="uid://dv7fq1atyhl74" path="res://Resources/Object/Building/Window/AwningWindow/AwningWindowFrame.obj" id="2_iq4me"]
+[ext_resource type="Script" path="res://Resources/Object/Building/Window/AwningWindow/WindowInteraction.gd" id="3_qg5mr"]
+[ext_resource type="Material" uid="uid://b860lbxbd3ed6" path="res://Resources/Material/GrayMaterial.tres" id="4_hnfnj"]
+[ext_resource type="ArrayMesh" uid="uid://ctvcf54ty3uxv" path="res://Resources/Object/Building/Window/AwningWindow/AwningWindow.obj" id="5_u6gxv"]
+[ext_resource type="Material" uid="uid://d2kh2k5stcerf" path="res://Resources/Material/Glass.tres" id="6_kiqyf"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_dpwrd"]
+data = PackedVector3Array(-0.5, 1, -0.1, 1, 1, -0.1, -0.5, 1, 0.1, -0.5, 1, 0.1, 1, 1, -0.1, 1, 1, 0.1, 0.9, 0.1, 0.1, 0.9, 0.1, -0.1, 0.9, 0.9, 0.1, 0.9, 0.9, 0.1, 0.9, 0.1, -0.1, 0.9, 0.9, -0.1, -0.5, 1, 0.1, -0.5, 0, 0.1, -0.5, 1, -0.1, -0.5, 1, -0.1, -0.5, 0, 0.1, -0.5, 0, -0.1, 1, 0, -0.1, -0.5, 0, -0.1, 1, 0, 0.1, 1, 0, 0.1, -0.5, 0, -0.1, -0.5, 0, 0.1, 1, 1, -0.1, 1, 0, -0.1, 1, 1, 0.1, 1, 1, 0.1, 1, 0, -0.1, 1, 0, 0.1, -0.4, 0.1, -0.1, 0.9, 0.1, -0.1, -0.4, 0.1, 0.1, -0.4, 0.1, 0.1, 0.9, 0.1, -0.1, 0.9, 0.1, 0.1, 0.9, 0.1, -0.1, -0.4, 0.1, -0.1, 1, 0, -0.1, 1, 0, -0.1, -0.4, 0.1, -0.1, -0.5, 0, -0.1, 0.9, 0.9, -0.1, 0.9, 0.1, -0.1, 1, 1, -0.1, 1, 1, -0.1, 0.9, 0.1, -0.1, 1, 0, -0.1, -0.4, 0.9, 0.1, -0.4, 0.1, 0.1, -0.5, 1, 0.1, -0.5, 1, 0.1, -0.4, 0.1, 0.1, -0.5, 0, 0.1, 0.9, 0.1, 0.1, 0.9, 0.9, 0.1, 1, 0, 0.1, 1, 0, 0.1, 0.9, 0.9, 0.1, 1, 1, 0.1, -0.4, 0.1, -0.1, -0.4, 0.9, -0.1, -0.5, 0, -0.1, -0.5, 0, -0.1, -0.4, 0.9, -0.1, -0.5, 1, -0.1, 0.9, 0.9, 0.1, -0.4, 0.9, 0.1, 1, 1, 0.1, 1, 1, 0.1, -0.4, 0.9, 0.1, -0.5, 1, 0.1, -0.4, 0.1, 0.1, 0.9, 0.1, 0.1, -0.5, 0, 0.1, -0.5, 0, 0.1, 0.9, 0.1, 0.1, 1, 0, 0.1, -0.4, 0.9, -0.1, 0.9, 0.9, -0.1, -0.5, 1, -0.1, -0.5, 1, -0.1, 0.9, 0.9, -0.1, 1, 1, -0.1, -0.4, 0.9, 0.1, 0.9, 0.9, 0.1, -0.4, 0.9, -0.1, -0.4, 0.9, -0.1, 0.9, 0.9, 0.1, 0.9, 0.9, -0.1, -0.4, 0.1, -0.1, -0.4, 0.1, 0.1, -0.4, 0.9, -0.1, -0.4, 0.9, -0.1, -0.4, 0.1, 0.1, -0.4, 0.9, 0.1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_c2jvx"]
+size = Vector3(1.3, 0.8, 0.1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_38kp1"]
+size = Vector3(1.1, 0.6, 0)
+
+[node name="AwningWindowScene" type="StaticBody3D"]
+collision_layer = 3
+
+[node name="Frame" type="MeshInstance3D" parent="."]
+material_override = ExtResource("1_o8jl8")
+mesh = ExtResource("2_iq4me")
+
+[node name="CollisionShape" type="CollisionShape3D" parent="."]
+shape = SubResource("ConcavePolygonShape3D_dpwrd")
+
+[node name="AnimatableBody3D" type="AnimatableBody3D" parent="." groups=["Interactive"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+collision_layer = 9
+script = ExtResource("3_qg5mr")
+
+[node name="Mesh" type="MeshInstance3D" parent="AnimatableBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.9, 0.05)
+material_override = ExtResource("4_hnfnj")
+mesh = ExtResource("5_u6gxv")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AnimatableBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25, -0.4, 0)
+shape = SubResource("BoxShape3D_c2jvx")
+
+[node name="Glass" type="MeshInstance3D" parent="AnimatableBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25, -0.4, 0)
+material_override = ExtResource("6_kiqyf")
+mesh = SubResource("BoxMesh_38kp1")
