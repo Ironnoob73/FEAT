@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://b2qd8baf3wfdv"]
+
+[ext_resource type="Material" uid="uid://fmupa14licja" path="res://Resources/Material/Grass.tres" id="1_500ci"]
+[ext_resource type="Script" path="res://Resources/Object/Nature/Grass/RandomGrass.gd" id="1_bgcm0"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_v7arj"]
+material = ExtResource("1_500ci")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_o3dce"]
+
+[node name="GrassGround" type="Area3D"]
+collision_layer = 9
+
+[node name="MultiMesh" type="MultiMeshInstance3D" parent="."]
+script = ExtResource("1_bgcm0")
+
+[node name="Grass" type="MeshInstance3D" parent="MultiMesh"]
+mesh = SubResource("QuadMesh_v7arj")
+
+[node name="CollisionShape" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_o3dce")

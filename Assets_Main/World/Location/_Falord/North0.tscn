@@ -127,8 +127,11 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.5, 
 [node name="WoodenTableScene" parent="TravelAgency" instance=ExtResource("7_b8bem")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, -0.5, 4.5)
 
-[node name="WoodenChairScene" parent="TravelAgency" instance=ExtResource("8_xw1wx")]
+[node name="WoodenChairScene1" parent="TravelAgency" instance=ExtResource("8_xw1wx")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.5, -0.5, 4.5)
+
+[node name="WoodenChairScene2" parent="TravelAgency" instance=ExtResource("8_xw1wx")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.5, -0.5, 4.5)
 
 [node name="GlassScene" parent="TravelAgency" instance=ExtResource("9_smlrj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 1, 5)
