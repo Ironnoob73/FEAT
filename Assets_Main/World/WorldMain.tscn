@@ -18,7 +18,7 @@ ambient_light_source = 1
 ssil_radius = 16.0
 sdfgi_use_occlusion = true
 glow_enabled = true
-glow_strength = 1.5
+glow_strength = 2.0
 
 [sub_resource type="QuadMesh" id="QuadMesh_d8kjj"]
 size = Vector2(2, 2)

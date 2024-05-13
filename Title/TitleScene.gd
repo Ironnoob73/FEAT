@@ -4,6 +4,8 @@ var current_menu : String = "Ready"
 @onready var animation = $AnimationPlayer
 @onready var timer = $Main/HBoxContainer/Timer
 
+#@onready var tooltip = $DynamicTooltip
+
 func _input(event):
 	if current_menu == "Ready" and (event is InputEventKey or event is InputEventMouseButton):
 		animation.play("ToMainMenu")
@@ -54,3 +56,7 @@ func _on_continue_button_pressed():
 
 	#DisplayServer.tts_stop()
 	DisplayServer.tts_speak("Goodbye!", voice_id)
+
+# Tooltip
+#func _process(_delta):
+#	tooltip.position = lerp(Vector2(tooltip.position),get_global_mouse_position() + Vector2(20,20),0.5)

@@ -3,7 +3,7 @@ extends Node
 const CONFIG_PATH = "user://settings.cfg"
 var DATA_PATH : String = "user://"
 var Sdfgi : bool = false
-#In game control
+# In game control
 var mouse_sens = 0.4
 
 var isInGame : bool = false

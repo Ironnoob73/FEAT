@@ -4,6 +4,7 @@ var hit_point : Vector3
 
 @onready var _cursor = $"../../Cursor"
 @onready var _detection_area : Area3D = $"../../Cursor/DetectionArea"
+@onready var tooltip = $"../../CrossHair/InteractionTip"
 
 @onready var inventory = preload("res://Assets_Main/Inventory/Player_inventory.tres")
 #@onready var HandHeldItem = $"../FirstPersonHandled/SubViewport/FirstPersonCam/HandHeld".get_child(0)
@@ -30,10 +31,14 @@ func _physics_process(_delta):
 		_cursor.set_global_position(Vector3(hit_point)+Vector3(0.5,0.25,0.5))
 	# Interact
 	if is_colliding() and get_collider().is_in_group("Interactive"):
-		#$PlayerCam/Hud/Tip.visible = true
+		var key_array : Array
+		for i in InputMap.action_get_events("interact"):
+			key_array.append(i.as_text().rsplit(" ", true, 1)[0])
+		tooltip.text = str(key_array).replacen("\"","")
+		tooltip.visible = true
 		if Input.is_action_just_pressed("interact"):
 			get_collider().interact(Player)
-	#else:	$PlayerCam/Hud/Tip.visible = false
+	else:	tooltip.visible = false
 		
 func can_place_voxel_at(pos: Vector3i):
 	var space_state = get_viewport().get_world_3d().get_direct_space_state()
