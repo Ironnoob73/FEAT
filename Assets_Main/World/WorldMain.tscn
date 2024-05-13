@@ -1,8 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://c0hvltjdip61f"]
+[gd_scene load_steps=11 format=3 uid="uid://c0hvltjdip61f"]
 
+[ext_resource type="Script" path="res://Assets_Main/World/WorldMain.gd" id="1_4lhai"]
 [ext_resource type="PackedScene" uid="uid://bk6ihg1vf71uf" path="res://Assets_Main/Character/Player.tscn" id="1_ur16q"]
 [ext_resource type="PackedScene" uid="uid://bcp40gisqlrka" path="res://Assets_Main/World/Location/_Falord/CentralSquare.tscn" id="2_5adnp"]
 [ext_resource type="PackedScene" uid="uid://bwtcv55j8d0nw" path="res://Assets_Main/World/Location/_Falord/North0.tscn" id="2_qe5ad"]
+[ext_resource type="Shader" path="res://Resources/Shader/depth.gdshader" id="4_drrf1"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_77ny8"]
 
@@ -12,8 +14,21 @@ sky_material = SubResource("ProceduralSkyMaterial_77ny8")
 [sub_resource type="Environment" id="Environment_kprkk"]
 background_mode = 2
 sky = SubResource("Sky_540gf")
+ambient_light_source = 1
+ssil_radius = 16.0
+sdfgi_use_occlusion = true
+glow_enabled = true
+glow_strength = 1.5
+
+[sub_resource type="QuadMesh" id="QuadMesh_d8kjj"]
+size = Vector2(2, 2)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ft81l"]
+render_priority = 0
+shader = ExtResource("4_drrf1")
 
 [node name="World" type="Node3D"]
+script = ExtResource("1_4lhai")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_kprkk")
@@ -31,3 +46,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -128)
 
 [node name="Player" parent="." instance=ExtResource("1_ur16q")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.965854, 0, -0.259089, 0, 1, 0, 0.259089, 0, 0.965854, -4.85208, 2.08748, -12.4719)
+mesh = SubResource("QuadMesh_d8kjj")
+surface_material_override/0 = SubResource("ShaderMaterial_ft81l")
+
+[connection signal="SetSdfgi" from="Player/Pause_menu/Options" to="." method="_on_options_set_sdfgi"]
+
+[editable path="Player"]
+[editable path="Player/HudHotbar"]
+[editable path="Player/Pause_menu"]
+[editable path="Player/Pause_menu/Options"]

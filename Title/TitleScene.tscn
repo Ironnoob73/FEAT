@@ -794,6 +794,34 @@ value = 1.0
 custom_minimum_size = Vector2(20, 0)
 layout_mode = 2
 
+[node name="SDFGI" type="HBoxContainer" parent="Main/Panel/Control/Options/Options/#options_video#/VideoSetting/VSpilt"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="EmptyL" type="Control" parent="Main/Panel/Control/Options/Options/#options_video#/VideoSetting/VSpilt/SDFGI"]
+custom_minimum_size = Vector2(15, 0)
+layout_mode = 2
+
+[node name="sdfgi_text" type="Label" parent="Main/Panel/Control/Options/Options/#options_video#/VideoSetting/VSpilt/SDFGI"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "options.game.sdfgi"
+
+[node name="sdfgi_button" type="CheckBox" parent="Main/Panel/Control/Options/Options/#options_video#/VideoSetting/VSpilt/SDFGI"]
+layout_mode = 2
+size_flags_horizontal = 10
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath("../../../..")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath(".")
+focus_next = NodePath(".")
+focus_previous = NodePath(".")
+flat = true
+
+[node name="EmptyR" type="Control" parent="Main/Panel/Control/Options/Options/#options_video#/VideoSetting/VSpilt/SDFGI"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
 [node name="#options_audio#" type="TabBar" parent="Main/Panel/Control/Options/Options"]
 visible = false
 layout_mode = 2
@@ -1000,6 +1028,7 @@ libraries = {
 [connection signal="toggled" from="Main/Panel/Control/Options/Options/#options_video#/VideoSetting/VSpilt/Fullscreen/fullscreen_button" to="Main/Panel/Control/Options" method="_on_fullscreen_button_toggled"]
 [connection signal="close_requested" from="Main/Panel/Control/Options/Options/#options_video#/VideoSetting/VSpilt/Fullscreen/fullscreen_button/fullscreen_warn" to="Main/Panel/Control/Options" method="_on_fullscreen_warn_close_requested"]
 [connection signal="value_changed" from="Main/Panel/Control/Options/Options/#options_video#/VideoSetting/VSpilt/Scale/scale_button" to="Main/Panel/Control/Options" method="_on_scale_button_value_changed"]
+[connection signal="toggled" from="Main/Panel/Control/Options/Options/#options_video#/VideoSetting/VSpilt/SDFGI/sdfgi_button" to="Main/Panel/Control/Options" method="_on_sdfgi_button_toggled"]
 [connection signal="value_changed" from="Main/Panel/Control/Options/Options/#options_audio#/AudioSetting/VSpilt/Master/master_button" to="Main/Panel/Control/Options" method="_on_master_button_value_changed"]
 [connection signal="value_changed" from="Main/Panel/Control/Options/Options/#options_audio#/AudioSetting/VSpilt/Music/music_button" to="Main/Panel/Control/Options" method="_on_music_button_value_changed"]
 [connection signal="value_changed" from="Main/Panel/Control/Options/Options/#options_audio#/AudioSetting/VSpilt/SFX/sfx_button" to="Main/Panel/Control/Options" method="_on_sfx_button_value_changed"]

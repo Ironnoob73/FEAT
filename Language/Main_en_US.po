@@ -49,6 +49,9 @@ msgstr "Fullscreen"
 msgid "options.game.scale"
 msgstr "Scale"
 
+msgid "options.game.sdfgi"
+msgstr "SDFGI"
+
 msgid "#options_audio#"
 msgstr "Audio"
 

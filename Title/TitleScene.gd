@@ -15,7 +15,7 @@ func _on_timer_timeout():
 		animation.play_backwards("ToMainMenu")
 		current_menu = "Ready"
 
-#Options
+# Options
 func _on_options_button_pressed():
 	if current_menu == "Main" and !animation.is_playing():
 		animation.play("Options")
@@ -25,7 +25,7 @@ func _on_options_back_button_pressed():
 		animation.play_backwards("Options")
 		current_menu = "Main"
 
-#Exit
+# Exit
 func _on_exit_button_pressed():
 	if current_menu == "Main" and !animation.is_playing():
 		animation.play("Exit")
@@ -37,11 +37,12 @@ func _on_cancel_button_pressed():
 func _on_confirm_button_pressed():
 	if current_menu == "Exit":	get_tree().quit()
 
-#World
+# World
 func _on_start_button_pressed():
 	LoadManager.load_scene("res://Assets_Main/World/WorldMain.tscn")
+	Global.isInGame = true
 
-#Uncomplete
+# Uncomplete
 func _on_continue_button_pressed():
 	# One-time steps.
 	# Pick a voice. Here, we arbitrarily pick the first English voice.

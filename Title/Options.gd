@@ -56,9 +56,13 @@ func _on_fullscreen_button_toggled(toggled_on):
 func _on_fullscreen_warn_close_requested():
 	await get_tree().create_timer(0.0001).timeout
 	fullscreen_warn.show()
-#Scale
+# Scale
 func _on_scale_button_value_changed(value):
 	get_window().content_scale_factor = value
+	Global.save_config()
+# SDFGI
+func _on_sdfgi_button_toggled(toggled_on):
+	Global.Sdfgi = toggled_on
 	Global.save_config()
 
 #Master volume
@@ -82,4 +86,3 @@ func _on_mouse_button_value_changed(value):
 	Global.mouse_sens = value
 	MouseSen.set_tooltip_text( str(value*100) + "%")
 	Global.save_config()
-

@@ -164,6 +164,27 @@ max_value = 5.0
 step = 0.01
 value = 1.0
 
+[node name="SDFGI" type="HBoxContainer" parent="#options_video#/VideoSetting/VSpilt"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="sdfgi_text" type="Label" parent="#options_video#/VideoSetting/VSpilt/SDFGI"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "options.game.sdfgi"
+
+[node name="sdfgi_button" type="CheckBox" parent="#options_video#/VideoSetting/VSpilt/SDFGI"]
+layout_mode = 2
+size_flags_horizontal = 8
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath("../../../..")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath(".")
+focus_next = NodePath(".")
+focus_previous = NodePath(".")
+text = " "
+flat = true
+
 [node name="#options_audio#" type="TabBar" parent="."]
 visible = false
 layout_mode = 2
@@ -296,6 +317,7 @@ value = 0.4
 [connection signal="toggled" from="#options_video#/VideoSetting/VSpilt/Fullscreen/fullscreen_button" to="." method="_on_fullscreen_button_toggled"]
 [connection signal="close_requested" from="#options_video#/VideoSetting/VSpilt/Fullscreen/fullscreen_button/fullscreen_warn" to="." method="_on_fullscreen_warn_close_requested"]
 [connection signal="value_changed" from="#options_video#/VideoSetting/VSpilt/Scale/scale_button" to="." method="_on_scale_button_value_changed"]
+[connection signal="toggled" from="#options_video#/VideoSetting/VSpilt/SDFGI/sdfgi_button" to="." method="_on_sdfgi_button_toggled"]
 [connection signal="value_changed" from="#options_audio#/AudioSetting/VSpilt/Master/master_button" to="." method="_on_master_button_value_changed"]
 [connection signal="value_changed" from="#options_audio#/AudioSetting/VSpilt/Music/bgm_button" to="." method="_on_bgm_button_value_changed"]
 [connection signal="value_changed" from="#options_audio#/AudioSetting/VSpilt/SFX/sfx_button" to="." method="_on_sfx_button_value_changed"]

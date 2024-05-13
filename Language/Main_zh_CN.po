@@ -49,6 +49,9 @@ msgstr "全屏"
 msgid "options.game.scale"
 msgstr "缩放"
 
+msgid "options.game.sdfgi"
+msgstr "带符号距离场全局光照"
+
 msgid "#options_audio#"
 msgstr "音频"
 

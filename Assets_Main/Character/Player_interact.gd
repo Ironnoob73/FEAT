@@ -6,7 +6,7 @@ var hit_point : Vector3
 @onready var _detection_area : Area3D = $"../../Cursor/DetectionArea"
 
 @onready var inventory = preload("res://Assets_Main/Inventory/Player_inventory.tres")
-@onready var HandHeldItem = $"../FirstPersonHandled/SubViewport/FirstPersonCam/HandHeld".get_child(0)
+#@onready var HandHeldItem = $"../FirstPersonHandled/SubViewport/FirstPersonCam/HandHeld".get_child(0)
 @onready var Player = get_node("/root/World/Player")
 	
 func _physics_process(_delta):

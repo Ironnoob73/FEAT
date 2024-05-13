@@ -17,5 +17,7 @@ void fragment()
 	ALBEDO.rgb = color ;
 	ALBEDO.rgb = 0.5 + texture_color.rgb * sin(TIME*4.0);
 	
-	EMISSION.rgb = color * (sin(TIME*4.0)+1.0);
+	EMISSION.rgb = color * (sin(TIME*4.0) + 1.0) * 0.5;
+	
+	ROUGHNESS = 1.0;
 }

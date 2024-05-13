@@ -7,6 +7,7 @@ extends TabContainer
 @onready var Fullscreen = $"#options_video#/VideoSetting/VSpilt/Fullscreen/fullscreen_button"
 @onready var fullscreen_warn = $"#options_video#/VideoSetting/VSpilt/Fullscreen/fullscreen_button/fullscreen_warn"
 @onready var Scale = $"#options_video#/VideoSetting/VSpilt/Scale/scale_button"
+@onready var Sdfgi = $"#options_video#/VideoSetting/VSpilt/SDFGI/sdfgi_button"
 
 @onready var MasterVolume = $"#options_audio#/AudioSetting/VSpilt/Master/master_button"
 @onready var BgmVolume = $"#options_audio#/AudioSetting/VSpilt/Music/bgm_button"
@@ -14,31 +15,35 @@ extends TabContainer
 
 @onready var MouseSen = $"#options_control#/ControlSetting/VSpilt/MouseSen/mouse_button"
 
+signal SetSdfgi(bool)
+
 func _ready():
-	#Language
+	# Language
 	match TranslationServer.get_locale():
 		"en_US":	GameLanguage.set_indexed("selected",0)
 		"zh_CN":	GameLanguage.set_indexed("selected",1)
-	#Data path
+	# Data path
 	DataPath.text = Global.DATA_PATH
-	#Fullscreen
+	# Fullscreen
 	match DisplayServer.window_get_mode():
 		0:	Fullscreen.set_pressed_no_signal(false)
 		3:	Fullscreen.set_pressed_no_signal(true)
-	#Scale
+	# Scale
 	Scale.value = get_window().content_scale_factor
-	#Volume
+	# SDFGI
+	Sdfgi.set_pressed_no_signal(Global.Sdfgi)
+	# Volume
 	MasterVolume.value = db_to_linear(AudioServer.get_bus_volume_db(0))
 	MasterVolume.set_tooltip_text( str(db_to_linear(AudioServer.get_bus_volume_db(0))*100) + "%")
 	BgmVolume.value = db_to_linear(AudioServer.get_bus_volume_db(1))
 	BgmVolume.set_tooltip_text( str(db_to_linear(AudioServer.get_bus_volume_db(1))*100) + "%")
 	SfxVolume.value = db_to_linear(AudioServer.get_bus_volume_db(2))
 	SfxVolume.set_tooltip_text( str(db_to_linear(AudioServer.get_bus_volume_db(2))*100) + "%")
-	#Control
+	# Control
 	MouseSen.value = Global.mouse_sens
 	MouseSen.set_tooltip_text( str((Global.mouse_sens)*100) + "%")
 
-#Change tab
+# Change tab
 func _input(_event):
 	if get_parent().current_menu == "Options":
 		if Input.is_action_just_pressed("tab_right"):
@@ -49,7 +54,7 @@ func _input(_event):
 			if current_tab == 0 :	current_tab = get_tab_count()-1
 			else :					current_tab -= 1
 			tab_focus()
-#Language
+# Language
 func _on_option_button_item_selected(index):
 	match index:
 		0:	TranslationServer.set_locale("en_US")
@@ -57,7 +62,7 @@ func _on_option_button_item_selected(index):
 	print(TranslationServer.get_locale())
 	Global.save_config()
 	Global.window_min_limit()
-#Choose data path
+# Choose data path
 func _on_datapath_button_pressed():
 	path_choose.show()
 func _on_path_choose_dir_selected(dir):
@@ -65,7 +70,7 @@ func _on_path_choose_dir_selected(dir):
 	DataPath.text = Global.DATA_PATH
 	Global.save_config()
 
-#Fullscreen
+# Fullscreen
 func _on_fullscreen_button_toggled(toggled_on):
 	if toggled_on == true :
 		if DisplayServer.window_get_mode() != 2:
@@ -81,9 +86,14 @@ func _on_fullscreen_button_toggled(toggled_on):
 func _on_fullscreen_warn_close_requested():
 	await get_tree().create_timer(0.0001).timeout
 	fullscreen_warn.show()
-#Scale
+# Scale
 func _on_scale_button_value_changed(value):
 	get_window().content_scale_factor = value
+	Global.save_config()
+# SDFGI
+func _on_sdfgi_button_toggled(toggled_on):
+	Global.Sdfgi = toggled_on
+	SetSdfgi.emit(toggled_on)
 	Global.save_config()
 	
 #Master volume
@@ -116,3 +126,4 @@ func tab_focus():
 		1:Fullscreen.grab_focus()
 		2:MasterVolume.grab_focus()
 		3:MouseSen.grab_focus()
+
