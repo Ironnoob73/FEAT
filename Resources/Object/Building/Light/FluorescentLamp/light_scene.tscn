@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=3 uid="uid://coan3h6n6wobt"]
+
+[ext_resource type="ArrayMesh" uid="uid://04r2mc3k2lvq" path="res://Resources/Object/Building/Light/FluorescentLamp/FluorescentLampShell.obj" id="1_k347u"]
+[ext_resource type="Material" uid="uid://b860lbxbd3ed6" path="res://Resources/Material/GrayMaterial.tres" id="2_dc5cg"]
+[ext_resource type="Material" uid="uid://dccfefkmpm8o5" path="res://Resources/Material/WhiteEmissive.tres" id="3_4d3i2"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wrkx5"]
+size = Vector3(1.8, 0.2, 0.5)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_si3s6"]
+top_radius = 0.05
+bottom_radius = 0.05
+height = 1.8
+
+[node name="FluorescentLampScene" type="StaticBody3D"]
+
+[node name="FluorescentLampShell" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_k347u")
+surface_material_override/0 = ExtResource("2_dc5cg")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2, 0)
+shape = SubResource("BoxShape3D_wrkx5")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, -0.3, 0)
+spot_range = 10.0
+spot_angle = 75.0
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+
+[node name="TubeL" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, -0.25, 0.075)
+material_override = ExtResource("3_4d3i2")
+mesh = SubResource("CylinderMesh_si3s6")
+
+[node name="TubeR" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, -0.25, -0.075)
+material_override = ExtResource("3_4d3i2")
+mesh = SubResource("CylinderMesh_si3s6")

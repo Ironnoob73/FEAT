@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://bwtcv55j8d0nw"]
+[gd_scene load_steps=28 format=3 uid="uid://bwtcv55j8d0nw"]
 
 [ext_resource type="Material" uid="uid://lwjkvikmw3dm" path="res://Resources/Material/Asphalt.tres" id="1_5tpe3"]
 [ext_resource type="Material" uid="uid://cjpmx8tyalvu6" path="res://Resources/Material/RedSidewalkBricks.tres" id="2_3prk5"]
@@ -22,6 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://bgelaund2s486" path="res://Resources/Object/Building/Window/CasementWindow/window_scene.tscn" id="11_004g5"]
 [ext_resource type="PackedScene" uid="uid://dgamoawgoj1oe" path="res://Resources/Object/Building/Window/SlidingWindow/window_scene.tscn" id="12_itlxy"]
 [ext_resource type="PackedScene" uid="uid://dm67jnnf21g1t" path="res://Resources/Object/Building/Window/HungWindow/window_scene.tscn" id="14_o8sen"]
+[ext_resource type="PackedScene" uid="uid://coan3h6n6wobt" path="res://Resources/Object/Building/Light/FluorescentLamp/light_scene.tscn" id="15_py854"]
 [ext_resource type="PackedScene" uid="uid://bj6k2kwnojef7" path="res://Resources/Object/Building/Window/AwningWindow/window_scene.tscn" id="19_locbr"]
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_bhbyw"]
@@ -136,6 +137,12 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.5, -
 [node name="GlassScene" parent="TravelAgency" instance=ExtResource("9_smlrj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 1, 5)
 
+[node name="FluorescentLampScene1" parent="TravelAgency" instance=ExtResource("15_py854")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 2.5)
+
+[node name="FluorescentLampScene2" parent="TravelAgency" instance=ExtResource("15_py854")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, -2.5)
+
 [node name="Door0Scene" parent="TravelAgency" instance=ExtResource("10_kd5tk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1.5, -0.4, 5)
 
@@ -211,6 +218,9 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 4, 
 [node name="FenceScene6" parent="TravelAgencySideStair" instance=ExtResource("6_1w0sr")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 4, -2.5)
 
+[node name="FluorescentLampScene1" parent="TravelAgencySideStair" instance=ExtResource("15_py854")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 4, -0.5)
+
 [node name="TravelAgencySideStairPart2" parent="TravelAgencySideStair" instance=ExtResource("9_3lyio")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.9, 4, -4.9)
 
@@ -241,6 +251,9 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 8, 
 [node name="FenceScene13" parent="TravelAgencySideStair" instance=ExtResource("6_1w0sr")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 12, 2.5)
 
+[node name="FluorescentLampScene2" parent="TravelAgencySideStair" instance=ExtResource("15_py854")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 8, -0.5)
+
 [node name="TravelAgencySideStairPart3" parent="TravelAgencySideStair" instance=ExtResource("9_3lyio")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.9, 8, -4.9)
 
@@ -270,6 +283,9 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 12,
 
 [node name="FenceScene20" parent="TravelAgencySideStair" instance=ExtResource("6_1w0sr")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 12, -4.5)
+
+[node name="FluorescentLampScene3" parent="TravelAgencySideStair" instance=ExtResource("15_py854")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 12, -0.5)
 
 [node name="LadderScene1" parent="TravelAgencySideStair" instance=ExtResource("10_5v2hs")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.5, 12.5, 3.5)
