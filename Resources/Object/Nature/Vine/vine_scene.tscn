@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://cms45csqi38uo"]
+
+[ext_resource type="Material" uid="uid://7peufrdrdfyt" path="res://Resources/Material/Vine.tres" id="1_un12j"]
+[ext_resource type="ArrayMesh" uid="uid://bh1babdq2gyv1" path="res://Resources/Object/Nature/Vine/Vine.obj" id="2_bpom1"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_4oyy6"]
+subdivide_width = 10
+subdivide_depth = 10
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3jpcf"]
+size = Vector3(1, 1, 0.2)
+
+[node name="VineScene" type="Area3D"]
+
+[node name="Mesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.11)
+material_override = ExtResource("1_un12j")
+mesh = SubResource("QuadMesh_4oyy6")
+
+[node name="CollisionShape" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.1)
+shape = SubResource("BoxShape3D_3jpcf")
+
+[node name="Vine1" type="MeshInstance3D" parent="."]
+material_override = ExtResource("1_un12j")
+mesh = ExtResource("2_bpom1")
+
+[node name="Vine2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4, 0, 0)
+material_override = ExtResource("1_un12j")
+mesh = ExtResource("2_bpom1")
+
+[node name="Vine3" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4, 0, 0)
+material_override = ExtResource("1_un12j")
+mesh = ExtResource("2_bpom1")

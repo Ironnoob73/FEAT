@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://bwtcv55j8d0nw"]
+[gd_scene load_steps=29 format=3 uid="uid://bwtcv55j8d0nw"]
 
 [ext_resource type="Material" uid="uid://lwjkvikmw3dm" path="res://Resources/Material/Asphalt.tres" id="1_5tpe3"]
 [ext_resource type="Material" uid="uid://cjpmx8tyalvu6" path="res://Resources/Material/RedSidewalkBricks.tres" id="2_3prk5"]
@@ -23,6 +23,7 @@
 [ext_resource type="PackedScene" uid="uid://dgamoawgoj1oe" path="res://Resources/Object/Building/Window/SlidingWindow/window_scene.tscn" id="12_itlxy"]
 [ext_resource type="PackedScene" uid="uid://dm67jnnf21g1t" path="res://Resources/Object/Building/Window/HungWindow/window_scene.tscn" id="14_o8sen"]
 [ext_resource type="PackedScene" uid="uid://coan3h6n6wobt" path="res://Resources/Object/Building/Light/FluorescentLamp/light_scene.tscn" id="15_py854"]
+[ext_resource type="Material" uid="uid://c2bf4nk8dtp88" path="res://Resources/Material/BlueMetalPlate.tres" id="16_im62s"]
 [ext_resource type="PackedScene" uid="uid://bj6k2kwnojef7" path="res://Resources/Object/Building/Window/AwningWindow/window_scene.tscn" id="19_locbr"]
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_bhbyw"]
@@ -180,6 +181,27 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 4, 9, 
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -4, 12.1, -2.5)
 door_color = Color(1, 1, 1, 1)
 frame_material = ExtResource("9_r346l")
+
+[node name="MetalPlate0" type="CSGBox3D" parent="TravelAgency"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 13.75, 0)
+use_collision = true
+collision_layer = 3
+size = Vector3(0.05, 1.5, 8)
+material = ExtResource("16_im62s")
+
+[node name="MetalPlate1" type="CSGBox3D" parent="TravelAgency"]
+transform = Transform3D(0.5, -0.866025, 0, 0.866025, 0.5, 0, 0, 0, 1, 4.5, 11.75, 0)
+use_collision = true
+collision_layer = 3
+size = Vector3(0.05, 1, 9)
+material = ExtResource("16_im62s")
+
+[node name="MetalPlate2" type="CSGBox3D" parent="TravelAgency"]
+transform = Transform3D(0.173648, -0.984808, 0, 0.984808, 0.173648, 0, 0, 0, 1, 0.445, 15.175, 0)
+use_collision = true
+collision_layer = 3
+size = Vector3(0.05, 9, 10)
+material = ExtResource("16_im62s")
 
 [node name="TravelAgencySideStair" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 1, 49)

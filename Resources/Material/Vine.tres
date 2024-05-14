@@ -1,0 +1,42 @@
+[gd_resource type="ShaderMaterial" load_steps=5 format=3 uid="uid://7peufrdrdfyt"]
+
+[ext_resource type="Shader" path="res://Resources/Object/Nature/Tree/foliage.gdshader" id="1_adwww"]
+
+[sub_resource type="Gradient" id="Gradient_ug525"]
+offsets = PackedFloat32Array(0, 0.5)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_66jjw"]
+frequency = 0.15
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_7rnhx"]
+width = 32
+height = 32
+color_ramp = SubResource("Gradient_ug525")
+noise = SubResource("FastNoiseLite_66jjw")
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_adwww")
+shader_parameter/TopColor = Color(0.239216, 0.819608, 0.270588, 1)
+shader_parameter/BottomColor = Color(0.129412, 0.572549, 0.25098, 1)
+shader_parameter/FresnelColor = Color(0.58, 0.65, 0.33, 1)
+shader_parameter/WindScale = 5.0
+shader_parameter/WindSpeed = 20.0
+shader_parameter/WindStrength = 5.0
+shader_parameter/WindDensity = 20.0
+shader_parameter/ClampTop = 1.0
+shader_parameter/ClampBtm = -1.0
+shader_parameter/MeshScale = 2.375e-07
+shader_parameter/ColorRamp = 0.3
+shader_parameter/FaceRoationVariation = 3.0
+shader_parameter/FresnelStrength = -2.0
+shader_parameter/FresnelBlend = 1.0
+shader_parameter/DeactivateGlobalVariation = true
+shader_parameter/WiggleFrequency = 3.0
+shader_parameter/WiggleStrength = 0.1
+shader_parameter/WiggleSpeed = 1.0
+shader_parameter/WiggleScale = 3.0
+shader_parameter/DistanceScale = 0.5
+shader_parameter/DistanceStart = 0.0
+shader_parameter/DistanceScaleRange = 70.0
+shader_parameter/Alpha = SubResource("NoiseTexture2D_7rnhx")
