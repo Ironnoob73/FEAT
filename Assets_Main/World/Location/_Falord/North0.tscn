@@ -120,7 +120,7 @@ collision_layer = 3
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.5, 0)
 shape = SubResource("ConcavePolygonShape3D_bhbyw")
 
-[node name="Tom2" parent="TravelAgency" instance=ExtResource("5_f8vrt")]
+[node name="Tom" parent="TravelAgency" instance=ExtResource("5_f8vrt")]
 transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, -2.5, 0.9, 1.5)
 
 [node name="CounterScene" parent="TravelAgency" instance=ExtResource("6_vgnfv")]
@@ -402,3 +402,5 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -4, 0,
 
 [node name="FenceSceneW3" parent="FlowerBed" instance=ExtResource("6_1w0sr")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -4, 0, -1.5)
+
+[node name="LightmapGI" type="LightmapGI" parent="."]

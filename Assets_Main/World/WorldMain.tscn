@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://c0hvltjdip61f"]
+[gd_scene load_steps=16 format=3 uid="uid://c0hvltjdip61f"]
 
 [ext_resource type="Script" path="res://Assets_Main/World/WorldMain.gd" id="1_4lhai"]
 [ext_resource type="PackedScene" uid="uid://bk6ihg1vf71uf" path="res://Assets_Main/Character/Player.tscn" id="1_ur16q"]
@@ -7,19 +7,38 @@
 [ext_resource type="Shader" path="res://Resources/Shader/depth.gdshader" id="4_drrf1"]
 [ext_resource type="Texture2D" uid="uid://dx2blvlx1qx1" path="res://Resources/Image/map/Map001_detailed.png" id="6_sts46"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_77ny8"]
+[sub_resource type="Gradient" id="Gradient_imnon"]
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_slkoq"]
+gradient = SubResource("Gradient_imnon")
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ppesn"]
 
 [sub_resource type="Sky" id="Sky_540gf"]
-sky_material = SubResource("ProceduralSkyMaterial_77ny8")
+sky_material = SubResource("ProceduralSkyMaterial_ppesn")
+radiance_size = 0
 
 [sub_resource type="Environment" id="Environment_kprkk"]
 background_mode = 2
 sky = SubResource("Sky_540gf")
-ambient_light_source = 1
-ssil_radius = 16.0
+tonemap_mode = 1
+ssr_enabled = true
+ssao_enabled = true
+ssao_radius = 2.0
+sdfgi_enabled = true
 sdfgi_use_occlusion = true
+sdfgi_bounce_feedback = 1.2
 glow_enabled = true
-glow_strength = 2.0
+glow_levels/1 = 1.0
+glow_levels/2 = 0.8
+glow_levels/3 = 0.4
+glow_levels/4 = 0.1
+glow_normalized = true
+glow_intensity = 0.2
+glow_blend_mode = 1
+volumetric_fog_density = 0.04
+adjustment_enabled = true
+adjustment_color_correction = SubResource("GradientTexture1D_slkoq")
 
 [sub_resource type="QuadMesh" id="QuadMesh_d8kjj"]
 size = Vector2(2, 2)
@@ -41,9 +60,15 @@ script = ExtResource("1_4lhai")
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_kprkk")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment"]
-transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433012, 0, 0, 0)
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.766044, -0.55667, 0.321394, 0, 0.5, 0.866025, -0.642788, -0.663414, 0.383022, 0, 0, 0)
+light_color = Color(1, 1, 0.937255, 1)
 shadow_enabled = true
+shadow_bias = 0.0
+shadow_normal_bias = 7.0
+directional_shadow_mode = 1
+directional_shadow_split_1 = 1.0
+directional_shadow_fade_start = 1.0
 
 [node name="Falord" type="Node3D" parent="."]
 

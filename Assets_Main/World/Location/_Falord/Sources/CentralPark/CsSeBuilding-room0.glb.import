@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dpv4np1vugbae"
-path="res://.godot/imported/TravelAgencySideStair.glb-3b4a1489aae77ba06953e7ca2e7c2fb4.scn"
+uid="uid://cvdrn7k74nj7p"
+path="res://.godot/imported/CsSeBuilding-room0.glb-0867e417119e23bff21e605862f06cc2.scn"
 
 [deps]
 
-source_file="res://Assets_Main/World/Location/_Falord/Sources/N0Buildings/TravelAgencySideStair.glb"
-dest_files=["res://.godot/imported/TravelAgencySideStair.glb-3b4a1489aae77ba06953e7ca2e7c2fb4.scn"]
+source_file="res://Assets_Main/World/Location/_Falord/Sources/CentralPark/CsSeBuilding-room0.glb"
+dest_files=["res://.godot/imported/CsSeBuilding-room0.glb-0867e417119e23bff21e605862f06cc2.scn"]
 
 [params]
 
@@ -20,7 +20,7 @@ nodes/root_scale=1.0
 meshes/ensure_tangents=true
 meshes/generate_lods=true
 meshes/create_shadow_meshes=true
-meshes/light_baking=2
+meshes/light_baking=1
 meshes/lightmap_texel_size=0.2
 meshes/force_disable_compression=false
 skins/use_named_skins=true

@@ -1,7 +1,7 @@
 extends CharacterBody3D
 
 const SPEED = 5
-const DASH = 80
+const DASH = 8
 const CROUCH = 3
 const CROUCH_depth = 0.5
 const JUMP_VELOCITY = 8

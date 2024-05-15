@@ -198,8 +198,3 @@ locale/translations=PackedStringArray("res://Language/Main_en_US.po", "res://Lan
 3d_physics/layer_2="Building"
 3d_physics/layer_3="Character"
 3d_physics/layer_4="Decorate"
-
-[rendering]
-
-global_illumination/sdfgi/probe_ray_count=2
-global_illumination/sdfgi/frames_to_converge=3
