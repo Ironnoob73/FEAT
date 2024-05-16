@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://bk6ihg1vf71uf"]
+[gd_scene load_steps=25 format=3 uid="uid://bk6ihg1vf71uf"]
 
 [ext_resource type="Script" path="res://Assets_Main/Character/Player.gd" id="1_twfth"]
 [ext_resource type="Script" path="res://Assets_Main/Character/Player_interact.gd" id="2_fls23"]
@@ -37,16 +37,6 @@ repeat = 1
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_a500n"]
 radius = 0.4
 height = 1.8
-
-[sub_resource type="CameraAttributesPhysical" id="CameraAttributesPhysical_40wtr"]
-exposure_sensitivity = 50.0
-exposure_multiplier = 0.5
-auto_exposure_enabled = true
-auto_exposure_scale = 0.15
-auto_exposure_speed = 1.0
-frustum_focal_length = 15.0
-auto_exposure_min_exposure_value = -15.0
-auto_exposure_max_exposure_value = 0.0
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_stt28"]
 size = Vector3(0.5, 0.5, 0.5)
@@ -124,8 +114,8 @@ shape = SubResource("CapsuleShape3D_a500n")
 [node name="PlayerCam" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 cull_mask = 3
-attributes = SubResource("CameraAttributesPhysical_40wtr")
 doppler_tracking = 1
+fov = 77.3196
 
 [node name="FirstPersonHandled" type="SubViewportContainer" parent="PlayerCam"]
 anchors_preset = 15

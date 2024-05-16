@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://c0hvltjdip61f"]
+[gd_scene load_steps=20 format=3 uid="uid://c0hvltjdip61f"]
 
 [ext_resource type="Script" path="res://Assets_Main/World/WorldMain.gd" id="1_4lhai"]
 [ext_resource type="PackedScene" uid="uid://bk6ihg1vf71uf" path="res://Assets_Main/Character/Player.tscn" id="1_ur16q"]
@@ -6,6 +6,10 @@
 [ext_resource type="PackedScene" uid="uid://bwtcv55j8d0nw" path="res://Assets_Main/World/Location/_Falord/North0.tscn" id="2_qe5ad"]
 [ext_resource type="Shader" path="res://Resources/Shader/depth.gdshader" id="4_drrf1"]
 [ext_resource type="Texture2D" uid="uid://dx2blvlx1qx1" path="res://Resources/Image/map/Map001_detailed.png" id="6_sts46"]
+[ext_resource type="PackedScene" uid="uid://bisvoohcjjglv" path="res://Assets_Main/World/Location/test/csg_box_3d.tscn" id="7_vaheu"]
+[ext_resource type="Material" uid="uid://d0ykvcp4rnf2h" path="res://Resources/Material/WhiteWall.tres" id="8_740s5"]
+[ext_resource type="PackedScene" uid="uid://bwnnfhuwgv4kt" path="res://Assets_Main/World/Location/test/csg_box_3d.gltf" id="9_e38ri"]
+[ext_resource type="Material" uid="uid://c4otco3kww8jo" path="res://Resources/Material/YellowPaintedWall.tres" id="10_3s88q"]
 
 [sub_resource type="Gradient" id="Gradient_imnon"]
 
@@ -27,7 +31,6 @@ ssao_enabled = true
 ssao_radius = 2.0
 sdfgi_enabled = true
 sdfgi_use_occlusion = true
-sdfgi_bounce_feedback = 1.2
 glow_enabled = true
 glow_levels/1 = 1.0
 glow_levels/2 = 0.8
@@ -61,8 +64,9 @@ script = ExtResource("1_4lhai")
 environment = SubResource("Environment_kprkk")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.766044, -0.55667, 0.321394, 0, 0.5, 0.866025, -0.642788, -0.663414, 0.383022, 0, 0, 0)
+transform = Transform3D(0.766044, -0.55667, 0.321394, 0, 0.5, 0.866025, -0.642787, -0.663414, 0.383022, 0, 0, 0)
 light_color = Color(1, 1, 0.937255, 1)
+light_energy = 2.5
 shadow_enabled = true
 shadow_bias = 0.0
 shadow_normal_bias = 7.0
@@ -91,9 +95,34 @@ visible = false
 material_override = SubResource("StandardMaterial3D_43ey3")
 mesh = SubResource("PlaneMesh_16ygr")
 
+[node name="CSGBox3D3" parent="." instance=ExtResource("7_vaheu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40, 16, 20)
+
+[node name="CSGBox3D" parent="CSGBox3D3" index="0"]
+material = ExtResource("8_740s5")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="CSGBox3D3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -87.2368, -12.3264, 5.04132)
+light_negative = true
+shadow_enabled = true
+omni_range = 20.0
+omni_attenuation = 0.5
+
+[node name="CSGBox3D" parent="." instance=ExtResource("7_vaheu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40, 5, 20)
+
+[node name="CSGBox3D2" parent="." instance=ExtResource("9_e38ri")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 51, 5, 20)
+surface_material_override/0 = ExtResource("10_3s88q")
+
+[node name="CSGBox3D4" parent="." instance=ExtResource("9_e38ri")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 51, 16, 20)
+surface_material_override/0 = ExtResource("8_740s5")
+
 [connection signal="SetSdfgi" from="Player/Pause_menu/Options" to="." method="_on_options_set_sdfgi"]
 
 [editable path="Player"]
 [editable path="Player/HudHotbar"]
 [editable path="Player/Pause_menu"]
 [editable path="Player/Pause_menu/Options"]
+[editable path="CSGBox3D3"]

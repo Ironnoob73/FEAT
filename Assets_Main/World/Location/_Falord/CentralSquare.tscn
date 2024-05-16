@@ -422,6 +422,13 @@ operation = 2
 size = Vector3(12, 9, 78)
 material = ExtResource("19_dg1fs")
 
+[node name="OmniLight3D" type="OmniLight3D" parent="WestWall/Main/InnerSpace"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -30)
+light_negative = true
+shadow_enabled = true
+omni_range = 20.0
+omni_attenuation = 0.5
+
 [node name="CorridorDown" type="CSGBox3D" parent="WestWall/Main"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.5, 0)
 operation = 2
@@ -681,5 +688,3 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 0, -5.5)
 
 [node name="LongWallScene4" parent="SEBuilding" instance=ExtResource("24_qe48j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, -5.5)
-
-[node name="LightmapGI" type="LightmapGI" parent="."]
