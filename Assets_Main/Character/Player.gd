@@ -275,7 +275,15 @@ func _on_climb_area_area_exited(area):
 		for i in _climb_area.get_overlapping_areas():
 			if i.is_in_group("ClimbAble"):
 				isClimb = true
-#Sit
+# Motion Detection
+func _on_motion_area_area_entered(area):
+	if area.is_in_group("MotionSensing"):
+		area.detected_player = self
+func _on_motion_area_area_exited(area):
+	if area.is_in_group("MotionSensing"):
+		area.detected_player = null
+
+# Sit
 func sit( chair_position, chair_rotation):
 	if !isSit :
 		var tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUART).set_parallel(true)

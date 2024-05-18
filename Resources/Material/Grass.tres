@@ -1,26 +1,10 @@
-[gd_resource type="ShaderMaterial" load_steps=7 format=3 uid="uid://fmupa14licja"]
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://fmupa14licja"]
 
 [ext_resource type="Shader" path="res://Resources/Object/Nature/Grass/Grass.gdshader" id="1_kn4pr"]
-[ext_resource type="Texture2D" uid="uid://cw26uquoixpus" path="res://Resources/Object/Nature/Grass/grass_texture.png" id="2_qwhx2"]
-[ext_resource type="Texture2D" uid="uid://c8jfo0h8hctjg" path="res://Resources/Material/Sources/GrassGround_albedo.png" id="3_6qe3w"]
 [ext_resource type="Texture2D" uid="uid://c2v4meklxdsi7" path="res://Resources/Object/Nature/Grass/Grass_32x.png" id="4_wix6k"]
-
-[sub_resource type="Gradient" id="Gradient_5xi87"]
-colors = PackedColorArray(0, 0, 0, 1, 0.498039, 0.498039, 0.498039, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_ngim8"]
-gradient = SubResource("Gradient_5xi87")
-fill_from = Vector2(1, 1)
 
 [resource]
 render_priority = 0
 shader = ExtResource("1_kn4pr")
-shader_parameter/enable_details = false
 shader_parameter/billboard_y = true
-shader_parameter/detail_color = Color(0.2, 0.2, 0.2, 1)
-shader_parameter/world_size = Vector2(10, 10)
-shader_parameter/world_position = Vector2(2.14748e+09, 2.14748e+09)
-shader_parameter/grass_color = ExtResource("2_qwhx2")
-shader_parameter/terrain_color = ExtResource("3_6qe3w")
-shader_parameter/gradient_mask = SubResource("GradientTexture2D_ngim8")
-shader_parameter/variants = Array[Texture2D]([ExtResource("4_wix6k")])
+shader_parameter/texture_albedo = ExtResource("4_wix6k")

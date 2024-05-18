@@ -1,36 +1,19 @@
+// From : https://github.com/FaRu85/Godot-Foliage/blob/main/Shader/foliage.gdshader
 shader_type spatial;
 
-//from : https://github.com/FaRu85/Godot-Foliage/blob/main/Shader/foliage.gdshader
-render_mode depth_draw_opaque, specular_schlick_ggx, depth_prepass_alpha ;
-//render_mode blend_mix, cull_disabled, depth_draw_opaque, specular_disabled;
+render_mode blend_mix, depth_draw_opaque, specular_schlick_ggx, depth_prepass_alpha ;
+uniform sampler2D texture_albedo : source_color,filter_nearest;
 
-uniform vec4 TopColor : source_color = vec4(0.24, 0.47, 0.27, 1.0);
-uniform vec4 BottomColor : source_color = vec4(0.13, 0.33, 0.25, 1.0);
-uniform sampler2D Alpha : filter_nearest;
-uniform vec4 FresnelColor : source_color = vec4(0.58, 0.65, 0.33, 1.0);
-
-uniform float WindScale : hint_range(1.0, 20.0) = 1.0;
-uniform float WindSpeed : hint_range(0.0, 20.0) = 4.0;
-uniform float WindStrength : hint_range(1.0, 20.0) = 5.0;
-uniform float WindDensity : hint_range(1.0, 20.0) = 5.0;
+uniform float WindScale : hint_range(1.0, 20.0) = 20.0;
+uniform float WindSpeed : hint_range(0.0, 20.0) = 20.0;
+uniform float WindStrength : hint_range(1.0, 20.0) = 10.0;
+uniform float WindDensity : hint_range(1.0, 20.0) = 20.0;
 uniform float ClampTop : hint_range(0.0, 1.0) = 1.0;
-uniform float ClampBtm : hint_range(-1.0, 0.0) = 0.0;
-uniform float MeshScale : hint_range(-5.0, 5.0) = -0.333;
-uniform float ColorRamp : hint_range(0.05, 5.0) = 0.3;
+uniform float ClampBtm : hint_range(-1.0, 0.0) = -1.0;
+uniform float MeshScale : hint_range(-5.0, 5.0) = 1.0;
+uniform bool DeactivateGlobalVariation = false;
 
-uniform float FaceRoationVariation : hint_range(-3.0, 3.0) = 1.0;
-
-uniform float FresnelStrength : hint_range(-2.0, 2.0) = 0.5;
-uniform float FresnelBlend : hint_range(-1.0, 1.0) = 1.0;
-uniform bool DeactivateGlobalVariation;
-// Uniforms for wiggling
-uniform sampler2D WiggleNoise : hint_default_black;
-uniform float WiggleFrequency = 3.0;
-uniform float WiggleStrength = 0.1;
-uniform float WiggleSpeed = 1.0;
-uniform float WiggleScale = 3.0;
-
-uniform float DistanceScale : hint_range(0.0, 5.0) = 0.5;
+uniform float DistanceScale : hint_range(0.0, 5.0) = 0.0;
 uniform float DistanceStart = 0;
 uniform float DistanceScaleRange = 70;
 
@@ -64,16 +47,7 @@ void vertex()
 	orient_2d *= MeshScale;
 	orient_2d *= (1.0 + distance_influence * DistanceScale);
 	
-	//random tilt
-	float angle = 6.248 * UV2.x * FaceRoationVariation;
-	float cos_ang = cos(angle);
-	float sin_ang = sin(angle);
-	mat3 rotation = mat3(vec3(cos_ang, -sin_ang, 0.0),vec3(sin_ang, cos_ang, 0.0),vec3(0.0, 0.0, 0.0));
-	
-	orient_2d *= rotation;
-	
 	vec3 oriented_offset = reflect((INV_VIEW_MATRIX * vec4(orient_2d, 0.0)).xyz,INV_VIEW_MATRIX[0].xyz);
-	//vec3 oriented_offset = (INV_VIEW_MATRIX * vec4(orient_2d, 0.0)).xyz;
 	vec3 obj_oriented_offset = (vec4(oriented_offset, 0.0) * MODEL_MATRIX).xyz;
 	
 	//Wind-Effect
@@ -99,8 +73,6 @@ void vertex()
 		
 	vec3 wind_offset = vec3(VERTEX.x * si * mask, VERTEX.y * si * mask, VERTEX.z * csi * mask);
 	
-	float col = VERTEX.y * ColorRamp;
-	COLOR = vec4(col, positional_influence, distance_influence, 1.0);
 	VERTEX += obj_oriented_offset + wind_offset;
 	
 	obj_vertex = VERTEX;
@@ -114,28 +86,12 @@ void fragment()
 	float fresnel = pow(1.0 - clamp(dot(NORMAL, VIEW), 0.0, 1.0), 3.0);
 	float fresnel_rate = clamp(rate_col1,0.1,1);
 	
-	vec3 albedo = TopColor.rgb* rate_col1 + BottomColor.rgb * rate_col2;
-	
-	vec3 fres_col = albedo *(1.0 - FresnelStrength);
-	fres_col += FresnelColor.rgb * FresnelStrength;
-	fres_col *= fresnel;
-	fres_col *= fresnel_rate;
-	fres_col *= FresnelBlend;
-	//fres_col *= (1.0 - COLOR.b);
-	
-	vec2 wiggle_uv = normalize(obj_vertex.xz) / WiggleScale;
-	float wiggle = texture(WiggleNoise, wiggle_uv + TIME * WiggleSpeed).r;
-	float wiggle_final_strength = wiggle * WiggleStrength;
-	wiggle_final_strength *= clamp(sin(TIME * WiggleFrequency + COLOR.g * 0.2), 0.0, 1.0);
 	vec2 uv = UV;
-	uv = rotateUV(uv, wiggle_final_strength, vec2(0.5));
 	uv = clamp(uv, 0.0, 1.0);
-	vec3 tex = texture(Alpha, uv.xy).rgb;
 	float x = COLOR.b;
-	float alpha = clamp(tex.r + tex.g * 2.0 * COLOR.b ,0.0, 1.0);
-	alpha = clamp((clamp(tex.g * 1.0 , 1.0 - x, 1.0) - (1.0 - x)) * 10.0 + tex.r, 0.0, 1.0);
-	//albedo = vec3(COLOR.b,COLOR.b,COLOR.b);
-	ALBEDO = albedo;
-	ALPHA = alpha;
-	EMISSION = fres_col;
+	
+	vec2 base_uv = UV;
+	vec4 albedo_tex = texture(texture_albedo,base_uv);
+	ALBEDO = albedo_tex.rgb;
+	ALPHA = albedo_tex.a;
 }
