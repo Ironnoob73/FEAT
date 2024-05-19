@@ -1,0 +1,191 @@
+[gd_scene load_steps=8 format=3 uid="uid://df1dxiy2eo2u4"]
+
+[ext_resource type="Material" uid="uid://c4otco3kww8jo" path="res://Resources/Material/YellowPaintedWall.tres" id="1_sxbg8"]
+[ext_resource type="Material" uid="uid://drhehwdeyc38b" path="res://Resources/Material/Concrete.tres" id="2_1pb40"]
+[ext_resource type="Material" uid="uid://dcwav4237d0l3" path="res://Resources/Material/GrassGround.tres" id="3_kr4nk"]
+[ext_resource type="PackedScene" uid="uid://byw56o8l1r150" path="res://Resources/Object/Building/Arch/arch.tscn" id="4_u3th6"]
+[ext_resource type="Material" uid="uid://d2aru44blbpby" path="res://Resources/Material/SlateBricks.tres" id="5_rskyd"]
+[ext_resource type="Material" uid="uid://btm3w7ckienog" path="res://Resources/Material/YellowPaintedBricks.tres" id="6_jqoef"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_2ofon"]
+size = Vector2(16, 80)
+
+[node name="Main" type="CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 5, 0)
+use_collision = true
+collision_layer = 3
+size = Vector3(16, 10, 80)
+material = ExtResource("1_sxbg8")
+
+[node name="Floor" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5.025, 0)
+size = Vector3(16.5, 0.05, 80)
+material = ExtResource("2_1pb40")
+
+[node name="TopGrass" type="CSGMesh3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
+mesh = SubResource("PlaneMesh_2ofon")
+material = ExtResource("3_kr4nk")
+
+[node name="InnerSpace" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+operation = 2
+size = Vector3(12, 9, 78)
+material = ExtResource("1_sxbg8")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="InnerSpace"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -30)
+light_negative = true
+shadow_enabled = true
+omni_range = 20.0
+omni_attenuation = 0.5
+
+[node name="CorridorDown" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.5, 0)
+operation = 2
+size = Vector3(16, 3, 9)
+material = ExtResource("2_1pb40")
+
+[node name="CorridorUp" type="CSGCylinder3D" parent="."]
+transform = Transform3D(-5.96046e-08, 1, 0, -1, -5.96046e-08, 0, 0, 0, 1, 0, -2, 0)
+operation = 2
+radius = 4.5
+height = 16.0
+sides = 16
+material = ExtResource("2_1pb40")
+
+[node name="CorridorCutDown" type="CSGBox3D" parent="CorridorUp"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 3, 0, 0)
+operation = 2
+size = Vector3(16, 1, 9)
+
+[node name="Arch0" parent="." instance=ExtResource("4_u3th6")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 8.5, -2, 0)
+
+[node name="Arch1" parent="." instance=ExtResource("4_u3th6")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 6.5, -2, 0)
+
+[node name="Arch2" parent="." instance=ExtResource("4_u3th6")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -5.5, -2, 0)
+
+[node name="Arch3" parent="." instance=ExtResource("4_u3th6")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -7.5, -2, 0)
+
+[node name="WallEdge" type="Node3D" parent="."]
+
+[node name="WallEdgeE" type="CSGPolygon3D" parent="WallEdge"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 5, 40)
+use_collision = true
+collision_layer = 3
+polygon = PackedVector2Array(0, -0.5, 0, 0.5, 0.5, 0.5, 0.5, 0)
+depth = 80.5
+material = ExtResource("5_rskyd")
+
+[node name="Negative" type="CSGPolygon3D" parent="WallEdge/WallEdgeE"]
+transform = Transform3D(-0.707107, -0.707107, -4.37114e-08, -3.09086e-08, -3.09086e-08, 1, -0.707107, 0.707107, 1.91069e-15, 0.5, 0.5, -80.5)
+operation = 2
+
+[node name="Pillar0" type="CSGBox3D" parent="WallEdge/WallEdgeE"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.125, -5, -0.5)
+size = Vector3(0.25, 10, 1)
+material = ExtResource("6_jqoef")
+
+[node name="Pillar1" type="CSGBox3D" parent="WallEdge/WallEdgeE"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.125, -5, -16.5)
+size = Vector3(0.25, 10, 1)
+material = ExtResource("6_jqoef")
+
+[node name="Pillar2" type="CSGBox3D" parent="WallEdge/WallEdgeE"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.125, -5, -32.5)
+size = Vector3(0.25, 10, 1)
+material = ExtResource("6_jqoef")
+
+[node name="Pillar3" type="CSGBox3D" parent="WallEdge/WallEdgeE"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.125, -5, -47.5)
+size = Vector3(0.25, 10, 1)
+material = ExtResource("6_jqoef")
+
+[node name="Pillar4" type="CSGBox3D" parent="WallEdge/WallEdgeE"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.125, -5, -63.5)
+size = Vector3(0.25, 10, 1)
+material = ExtResource("6_jqoef")
+
+[node name="Pillar5" type="CSGBox3D" parent="WallEdge/WallEdgeE"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.125, -5, -79.5)
+size = Vector3(0.25, 10, 1)
+material = ExtResource("6_jqoef")
+
+[node name="WallEdgeW" type="CSGPolygon3D" parent="WallEdge"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 5, 40)
+use_collision = true
+collision_layer = 3
+polygon = PackedVector2Array(0, -0.5, 0, 0.5, -0.5, 0.5, -0.5, 0)
+depth = 80.5
+material = ExtResource("5_rskyd")
+
+[node name="Negative" type="CSGPolygon3D" parent="WallEdge/WallEdgeW"]
+transform = Transform3D(0.707107, 0.707107, 3.09086e-08, 0, -4.37114e-08, 1, 0.707107, -0.707107, -3.09086e-08, -0.5, 0.5, -80.5)
+operation = 2
+
+[node name="Pillar0" type="CSGBox3D" parent="WallEdge/WallEdgeW"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.125, -5, -0.5)
+size = Vector3(0.25, 10, 1)
+material = ExtResource("6_jqoef")
+
+[node name="Pillar1" type="CSGBox3D" parent="WallEdge/WallEdgeW"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.125, -5, -16.5)
+size = Vector3(0.25, 10, 1)
+material = ExtResource("6_jqoef")
+
+[node name="Pillar2" type="CSGBox3D" parent="WallEdge/WallEdgeW"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.125, -5, -32.5)
+size = Vector3(0.25, 10, 1)
+material = ExtResource("6_jqoef")
+
+[node name="Pillar3" type="CSGBox3D" parent="WallEdge/WallEdgeW"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.125, -5, -47.5)
+size = Vector3(0.25, 10, 1)
+material = ExtResource("6_jqoef")
+
+[node name="Pillar4" type="CSGBox3D" parent="WallEdge/WallEdgeW"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.125, -5, -63.5)
+size = Vector3(0.25, 10, 1)
+material = ExtResource("6_jqoef")
+
+[node name="Pillar5" type="CSGBox3D" parent="WallEdge/WallEdgeW"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.125, -5, -79.5)
+size = Vector3(0.25, 10, 1)
+material = ExtResource("6_jqoef")
+
+[node name="WallEdgeN" type="CSGPolygon3D" parent="WallEdge"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -8.5, 5, -40)
+use_collision = true
+collision_layer = 3
+polygon = PackedVector2Array(0, -0.5, 0, 0.5, -0.5, 0.5, -0.5, 0)
+depth = 17.0
+material = ExtResource("5_rskyd")
+
+[node name="Negative0" type="CSGPolygon3D" parent="WallEdge/WallEdgeN"]
+transform = Transform3D(0.707107, -0.707107, -3.09086e-08, 0, -4.37114e-08, 1, -0.707107, -0.707107, -3.09086e-08, 0, 0.5, -16.5)
+operation = 2
+
+[node name="Negative1" type="CSGPolygon3D" parent="WallEdge/WallEdgeN"]
+transform = Transform3D(-0.707107, 0.707107, 3.09086e-08, 0, -4.37114e-08, 1, 0.707107, 0.707107, 3.09086e-08, 0, 0.5, -0.5)
+operation = 2
+
+[node name="Stair" type="CSGCombiner3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 40)
+
+[node name="Stair0" type="CSGPolygon3D" parent="Stair"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 4)
+use_collision = true
+polygon = PackedVector2Array(5, 0, 5, -5, -8, -5, -8, -4.5, -7, -4.5, -7, -4, -6, -4, -6, -3.5, -5, -3.5, -5, -3, -4, -3, -4, -2.5, -3, -2.5, -3, -2, -2, -2, -2, -1.5, -1, -1.5, -1, -1, 0, -1, 0, -0.5, 1, -0.5, 1, 0)
+depth = 2.0
+material = ExtResource("1_sxbg8")
+
+[node name="Stair1" type="CSGPolygon3D" parent="Stair"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+use_collision = true
+polygon = PackedVector2Array(8, 0, 8, -5, -8, -5, -8, 5, -5, 5, -5, 4.5, -4, 4.5, -4, 4, -3, 4, -3, 3.5, -2, 3.5, -2, 3, -1, 3, -1, 2.5, 0, 2.5, 0, 2, 1, 2, 1, 1.5, 2, 1.5, 2, 1, 3, 1, 3, 0.5, 4, 0.5, 4, 0)
+depth = 2.0
+material = ExtResource("1_sxbg8")
