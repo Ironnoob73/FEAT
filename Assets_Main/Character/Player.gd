@@ -9,6 +9,8 @@ const JUMP_VELOCITY = 8
 const ACCELERATION = 0.1
 const FRICTION = 0.3
 
+const MAX_STEP_HEIGHT = 0.5
+
 var isDash = 0
 var isCrouch = 0
 var isClimb : bool = false
@@ -103,7 +105,7 @@ func _unhandled_input(_event):
 	if isSit and ( Input.is_action_pressed("ui_accept") or Input.is_action_pressed("crouch")) :
 		isSit = false
 
-#from : https://github.com/majikayogames/godot-character-controller-stairs/blob/main/entities/Player/Player.gd
+# From : https://github.com/majikayogames/godot-character-controller-stairs/blob/main/entities/Player/Player.gd
 var _was_on_floor_last_frame = false
 var _snapped_to_stairs_last_frame = false
 func _snap_down_to_stairs_check():
@@ -123,51 +125,58 @@ func _snap_down_to_stairs_check():
 	_was_on_floor_last_frame = is_on_floor() or isClimb
 	_snapped_to_stairs_last_frame = did_snap
 	
-@onready var _initial_separation_ray_dist = abs($StepUpSeparationRay_F.position.z)
-var _last_xz_vel : Vector3 = Vector3(0,0,0)
-func _rotate_step_up_separation_ray():
-	var xz_vel = velocity * Vector3(1,0,1)
-	
-	if xz_vel.length() < 0.1:
-		xz_vel = _last_xz_vel
-	else:
-		_last_xz_vel = xz_vel
-		
-	var xz_f_ray_pos = xz_vel.normalized() * _initial_separation_ray_dist
-	$StepUpSeparationRay_F.global_position.x = self.global_position.x + xz_f_ray_pos.x
-	$StepUpSeparationRay_F.global_position.z = self.global_position.z + xz_f_ray_pos.z
-
-	var xz_l_ray_pos = xz_f_ray_pos.rotated(Vector3(0,1.0,0), deg_to_rad(-50))
-	$StepUpSeparationRay_L.global_position.x = self.global_position.x + xz_l_ray_pos.x
-	$StepUpSeparationRay_L.global_position.z = self.global_position.z + xz_l_ray_pos.z
-	
-	var xz_r_ray_pos = xz_f_ray_pos.rotated(Vector3(0,1.0,0), deg_to_rad(50))
-	$StepUpSeparationRay_R.global_position.x = self.global_position.x + xz_r_ray_pos.x
-	$StepUpSeparationRay_R.global_position.z = self.global_position.z + xz_r_ray_pos.z
-	
-	# To prevent character from running up walls, we do a check for how steep
-	# the slope in contact with our separation rays is
-	$StepUpSeparationRay_F/RayCast3D.force_raycast_update()
-	$StepUpSeparationRay_L/RayCast3D.force_raycast_update()
-	$StepUpSeparationRay_R/RayCast3D.force_raycast_update()
-	var max_slope_ang_dot = Vector3(0,1,0).rotated(Vector3(1.0,0,0), self.floor_max_angle).dot(Vector3(0,1,0))
-	var any_too_steep = false
-	if $StepUpSeparationRay_F/RayCast3D.is_colliding() and $StepUpSeparationRay_F/RayCast3D.get_collision_normal().dot(Vector3(0,1,0)) < max_slope_ang_dot:
-		any_too_steep = true
-	if $StepUpSeparationRay_L/RayCast3D.is_colliding() and $StepUpSeparationRay_L/RayCast3D.get_collision_normal().dot(Vector3(0,1,0)) < max_slope_ang_dot:
-		any_too_steep = true
-	if $StepUpSeparationRay_R/RayCast3D.is_colliding() and $StepUpSeparationRay_R/RayCast3D.get_collision_normal().dot(Vector3(0,1,0)) < max_slope_ang_dot:
-		any_too_steep = true
-	
-	$StepUpSeparationRay_F.disabled = any_too_steep
-	$StepUpSeparationRay_L.disabled = any_too_steep
-	$StepUpSeparationRay_R.disabled = any_too_steep
-	
 var _cur_frame = 0
 @export var _jump_frame_grace = 5
 var _last_frame_was_on_floor = -_jump_frame_grace - 1
-			
-func _physics_process(_delta):
+
+# From : https://github.com/majikayogames/SimpleFPSController/blob/main/FPSController/FPSController.gd
+func _push_away_rigid_bodies():
+	for i in get_slide_collision_count():
+		var c := get_slide_collision(i)
+		if c.get_collider() is RigidBody3D:
+			var push_dir = -c.get_normal()
+			# How much velocity the object needs to increase to match player velocity in the push direction
+			var velocity_diff_in_push_dir = self.velocity.dot(push_dir) - c.get_collider().linear_velocity.dot(push_dir)
+			# Only count velocity towards push dir, away from character
+			velocity_diff_in_push_dir = max(0., velocity_diff_in_push_dir)
+			# Objects with more mass than us should be harder to push. But doesn't really make sense to push faster than we are going
+			const MY_APPROX_MASS_KG = 80.0
+			var mass_ratio = min(1., MY_APPROX_MASS_KG / c.get_collider().mass)
+			# Don't push object from above/below
+			push_dir.y = 0
+			# 5.0 is a magic number, adjust to your needs
+			var push_force = mass_ratio * 5.0
+			c.get_collider().apply_impulse(push_dir * velocity_diff_in_push_dir * push_force, c.get_position() - c.get_collider().global_position)
+# From : https://github.com/majikayogames/SimpleFPSController/blob/main/FPSController/FPSController.gd
+func is_surface_too_steep(normal : Vector3) -> bool:
+	return normal.angle_to(Vector3.UP) > self.floor_max_angle
+func _snap_up_stairs_check(delta) -> bool:
+	if not is_on_floor() and not _snapped_to_stairs_last_frame: return false
+	var expected_move_motion = self.velocity * Vector3(1,0,1) * delta
+	var step_pos_with_clearance = self.global_transform.translated(expected_move_motion + Vector3(0, MAX_STEP_HEIGHT * 2, 0))
+	# Run a body_test_motion slightly above the pos we expect to move to, towards the floor.
+	#  We give some clearance above to ensure there's ample room for the player.
+	#  If it hits a step <= MAX_STEP_HEIGHT, we can teleport the player on top of the step
+	#  along with their intended motion forward.
+	var down_check_result = KinematicCollision3D.new()
+	if (self.test_move(step_pos_with_clearance, Vector3(0,-MAX_STEP_HEIGHT*2,0), down_check_result)
+	and (down_check_result.get_collider().is_class("StaticBody3D") or down_check_result.get_collider().is_class("CSGShape3D"))):
+		var step_height = ((step_pos_with_clearance.origin + down_check_result.get_travel()) - self.global_position).y
+		# Note I put the step_height <= 0.01 in just because I noticed it prevented some physics glitchiness
+		# 0.02 was found with trial and error. Too much and sometimes get stuck on a stair. Too little and can jitter if running into a ceiling.
+		# The normal character controller (both jolt & default) seems to be able to handled steps up of 0.1 anyway
+		if step_height > MAX_STEP_HEIGHT or step_height <= 0.01 or (down_check_result.get_position() - self.global_position).y > MAX_STEP_HEIGHT: return false
+		$StairsAheadRayCast3D.global_position = down_check_result.get_position() + Vector3(0,MAX_STEP_HEIGHT,0) + expected_move_motion.normalized() * 0.1
+		$StairsAheadRayCast3D.force_raycast_update()
+		if $StairsAheadRayCast3D.is_colliding() and not is_surface_too_steep($StairsAheadRayCast3D.get_collision_normal()):
+			#_save_camera_pos_for_smoothing()
+			self.global_position = step_pos_with_clearance.origin + down_check_result.get_travel()
+			apply_floor_snap()
+			_snapped_to_stairs_last_frame = true
+			return true
+	return false
+
+func _physics_process(delta):
 	# Record Inerita & Add the gravity.
 	if is_on_floor() or isClimb:
 		INERTIA.x = velocity.x
@@ -206,15 +215,9 @@ func _physics_process(_delta):
 	if Input.is_action_pressed("crouch") and !isClimb and !isSit :
 		player_collision.shape.height = lerp(player_collision.shape.height,1.8 * CROUCH_depth,0.5)
 		player_camera.position.y = lerp(player_camera.position.y,0.5 * CROUCH_depth,0.5)
-		$StepUpSeparationRay_F.shape.length = lerp($StepUpSeparationRay_F.shape.length,0.0,0.5)
-		$StepUpSeparationRay_L.shape.length = lerp($StepUpSeparationRay_L.shape.length,0.0,0.5)
-		$StepUpSeparationRay_R.shape.length = lerp($StepUpSeparationRay_R.shape.length,0.0,0.5)
 	elif !standing_detected.is_colliding() :
 		player_collision.shape.height = lerp(player_collision.shape.height,1.8,0.5)
 		player_camera.position.y = lerp(player_camera.position.y,0.5,0.5)
-		$StepUpSeparationRay_F.shape.length = lerp($StepUpSeparationRay_F.shape.length,0.55,0.1)
-		$StepUpSeparationRay_L.shape.length = lerp($StepUpSeparationRay_L.shape.length,0.55,0.1)
-		$StepUpSeparationRay_R.shape.length = lerp($StepUpSeparationRay_R.shape.length,0.55,0.1)
 	# Climb
 	if isClimb:
 		input_vec.y = Input.get_action_strength("ui_accept") - Input.get_action_strength("crouch")
@@ -222,9 +225,10 @@ func _physics_process(_delta):
 	if velocity.y * input_vec.y <= 0 and velocity.y!=0 and isClimb:
 		velocity.y = lerp(velocity.y,0.0,FRICTION)
 		
-	_rotate_step_up_separation_ray()
-	if !isSit : move_and_slide()
-	_snap_down_to_stairs_check()
+	if not _snap_up_stairs_check(delta):
+		_push_away_rigid_bodies()
+		if !isSit : move_and_slide()
+		_snap_down_to_stairs_check()
 
 	#Scroll hotbar
 	if current_menu == "HUD" and !Input.is_action_pressed("tool_function_switch"):

@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://bk6ihg1vf71uf"]
+[gd_scene load_steps=25 format=3 uid="uid://bk6ihg1vf71uf"]
 
 [ext_resource type="Script" path="res://Assets_Main/Character/Player.gd" id="1_twfth"]
 [ext_resource type="Script" path="res://Assets_Main/Character/Player_interact.gd" id="2_fls23"]
@@ -43,9 +43,6 @@ height = 1.8
 [sub_resource type="BoxShape3D" id="BoxShape3D_stt28"]
 size = Vector3(0.5, 0.5, 0.5)
 
-[sub_resource type="SeparationRayShape3D" id="SeparationRayShape3D_danfw"]
-length = 0.55
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_co7mu"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_33j34"]
@@ -76,6 +73,7 @@ size = Vector3(0.79, 0.19, 0.79)
 [node name="Player" type="CharacterBody3D"]
 collision_layer = 4
 collision_mask = 15
+floor_max_angle = 0.872665
 script = ExtResource("1_twfth")
 Inventory = SubResource("Resource_5kp7r")
 
@@ -95,6 +93,7 @@ offset_bottom = 4.5
 grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("GradientTexture2D_vsdsi")
+metadata/_edit_use_anchors_ = true
 
 [node name="InteractionTip" type="Label" parent="CrossHair"]
 layout_mode = 1
@@ -103,6 +102,7 @@ offset_top = 10.0
 offset_right = 30.0
 offset_bottom = 33.0
 text = "[E]"
+metadata/_edit_use_anchors_ = true
 
 [node name="PlayerColl" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_a500n")
@@ -131,6 +131,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 stretch = true
+metadata/_edit_use_anchors_ = true
 
 [node name="SubViewport" type="SubViewport" parent="PlayerCam/FirstPersonHandled"]
 transparent_bg = true
@@ -155,29 +156,9 @@ script = ExtResource("2_fls23")
 shape = SubResource("BoxShape3D_stt28")
 target_position = Vector3(0, 0.65, 0)
 
-[node name="StepUpSeparationRay_F" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, -0.35, -0.41)
-shape = SubResource("SeparationRayShape3D_danfw")
-
-[node name="RayCast3D" type="RayCast3D" parent="StepUpSeparationRay_F"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
-target_position = Vector3(0, 0.55, 0)
-
-[node name="StepUpSeparationRay_L" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, -0.35, -0.41)
-shape = SubResource("SeparationRayShape3D_danfw")
-
-[node name="RayCast3D" type="RayCast3D" parent="StepUpSeparationRay_L"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
-target_position = Vector3(0, 0.55, 0)
-
-[node name="StepUpSeparationRay_R" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, -0.35, -0.41)
-shape = SubResource("SeparationRayShape3D_danfw")
-
-[node name="RayCast3D" type="RayCast3D" parent="StepUpSeparationRay_R"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
-target_position = Vector3(0, 0.55, 0)
+[node name="StairsAheadRayCast3D" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.35, -0.41)
+target_position = Vector3(0, -0.55, 0)
 
 [node name="StairsBelowRayCast3D" type="RayCast3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.9, 0)
