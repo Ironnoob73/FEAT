@@ -1,6 +1,6 @@
 extends Node3D
 
-var global_time : int = 0
+var global_time : int = 48600
 @export var time_speed : int = 1
 
 @onready var env = $WorldEnvironment
@@ -19,10 +19,10 @@ func _physics_process(_delta):
 	global_time += time_speed
 	# Day Circle
 	# Time of a day : 129600
-	var sunlight = global_time % 129600 / 129600.0 * PI
-	var daytime : float = global_time % 129600 / 129600.0
+	var sunlight = (global_time - 32400) % 129600 / 129600.0 * PI
+	var daytime : float = (global_time - 32400) % 129600 / 129600.0
 	# Sun
-	sun_axis.rotation.z = deg_to_rad( global_time % 129600 / 360.0)
+	sun_axis.rotation.z = deg_to_rad((global_time - 32400) % 129600 / 360.0)
 	sun.rotation.y = deg_to_rad( 80 - sin(sunlight * 2) * 30)
 	sun_visual.rotation.y = sun.rotation.y
 	if sin(sunlight * 2) >= 0 :

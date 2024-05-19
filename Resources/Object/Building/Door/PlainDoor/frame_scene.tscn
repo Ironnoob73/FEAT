@@ -1,0 +1,26 @@
+[gd_scene load_steps=7 format=3 uid="uid://c5nkwuac4jut0"]
+
+[ext_resource type="Script" path="res://Resources/Object/Building/Door/PlainDoor/DoorFrameRecolor.gd" id="1_glgy1"]
+[ext_resource type="Material" uid="uid://bi2qrop8jfbsf" path="res://Resources/Material/Tree.tres" id="1_xa7w8"]
+[ext_resource type="ArrayMesh" uid="uid://dutllpwyvnjjh" path="res://Resources/Object/Building/Door/PlainDoor/DoorFrame.obj" id="2_uio7l"]
+[ext_resource type="Shader" path="res://Resources/Shader/recolor.gdshader" id="3_fgf2p"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rq84c"]
+render_priority = 0
+shader = ExtResource("3_fgf2p")
+shader_parameter/color = Color(0, 0, 0, 0)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_eokk7"]
+data = PackedVector3Array(-0.7, 2.4, 0.1, -0.7, 0, 0.1, -0.7, 2.4, -0.1, -0.7, 2.4, -0.1, -0.7, 0, 0.1, -0.7, 0, -0.1, -0.7, 2.4, -0.1, -0.7, 0, -0.1, -0.6, 2.3, -0.1, -0.6, 2.3, -0.1, -0.7, 0, -0.1, -0.6, 0, -0.1, -0.6, 2.3, -0.1, -0.6, 0, -0.1, -0.6, 2.3, 0.1, -0.6, 2.3, 0.1, -0.6, 0, -0.1, -0.6, 0, 0.1, -0.6, 2.3, 0.1, -0.6, 0, 0.1, -0.7, 2.4, 0.1, -0.7, 2.4, 0.1, -0.6, 0, 0.1, -0.7, 0, 0.1, -0.6, 0, -0.1, -0.7, 0, -0.1, -0.6, 0, 0.1, -0.6, 0, 0.1, -0.7, 0, -0.1, -0.7, 0, 0.1, -0.6, 2.3, -0.1, -0.6, 2.3, 0.1, 0.6, 2.3, -0.1, 0.6, 2.3, -0.1, -0.6, 2.3, 0.1, 0.6, 2.3, 0.1, 0.6, 2.3, 0.1, 0.7, 2.4, 0.1, 0.6, 0, 0.1, 0.6, 0, 0.1, 0.7, 2.4, 0.1, 0.7, 0, 0.1, -0.7, 2.4, 0.1, -0.7, 2.4, -0.1, 0.7, 2.4, 0.1, 0.7, 2.4, 0.1, -0.7, 2.4, -0.1, 0.7, 2.4, -0.1, -0.6, 2.3, 0.1, -0.7, 2.4, 0.1, 0.6, 2.3, 0.1, 0.6, 2.3, 0.1, -0.7, 2.4, 0.1, 0.7, 2.4, 0.1, -0.7, 2.4, -0.1, -0.6, 2.3, -0.1, 0.7, 2.4, -0.1, 0.7, 2.4, -0.1, -0.6, 2.3, -0.1, 0.6, 2.3, -0.1, 0.7, 0, -0.1, 0.6, 0, -0.1, 0.7, 0, 0.1, 0.7, 0, 0.1, 0.6, 0, -0.1, 0.6, 0, 0.1, 0.7, 2.4, -0.1, 0.6, 2.3, -0.1, 0.7, 0, -0.1, 0.7, 0, -0.1, 0.6, 2.3, -0.1, 0.6, 0, -0.1, 0.6, 2.3, -0.1, 0.6, 2.3, 0.1, 0.6, 0, -0.1, 0.6, 0, -0.1, 0.6, 2.3, 0.1, 0.6, 0, 0.1, 0.7, 2.4, 0.1, 0.7, 2.4, -0.1, 0.7, 0, 0.1, 0.7, 0, 0.1, 0.7, 2.4, -0.1, 0.7, 0, -0.1)
+
+[node name="FrameScene" type="StaticBody3D"]
+collision_layer = 3
+script = ExtResource("1_glgy1")
+
+[node name="DoorFrame" type="MeshInstance3D" parent="."]
+material_override = ExtResource("1_xa7w8")
+material_overlay = SubResource("ShaderMaterial_rq84c")
+mesh = ExtResource("2_uio7l")
+
+[node name="CollisionShape" type="CollisionShape3D" parent="."]
+shape = SubResource("ConcavePolygonShape3D_eokk7")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://bcp40gisqlrka"]
+[gd_scene load_steps=40 format=3 uid="uid://bcp40gisqlrka"]
 
 [ext_resource type="Script" path="res://Assets_Main/World/Location/_Falord/CentralSquare.gd" id="1_lf70u"]
 [ext_resource type="Material" uid="uid://4hlgj1u74iny" path="res://Resources/Material/ConcreteBricks.tres" id="2_pjbdn"]
@@ -24,6 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://b2qd8baf3wfdv" path="res://Resources/Object/Nature/Grass/grass_ground.tscn" id="23_3qn80"]
 [ext_resource type="PackedScene" uid="uid://g5862e05ysd1" path="res://Resources/Object/Building/Wall/YellowPaintedWall/wall1_scene.tscn" id="24_qe48j"]
 [ext_resource type="PackedScene" uid="uid://2w18ecf0ojdo" path="res://Resources/Object/Building/Door/ArchDoor/frame_scene.tscn" id="25_8jt7r"]
+[ext_resource type="PackedScene" uid="uid://ds1bb3oh6akpf" path="res://Resources/Object/Building/Door/PlainDoor/door_scene.tscn" id="26_ov42t"]
 [ext_resource type="PackedScene" uid="uid://cvdrn7k74nj7p" path="res://Assets_Main/World/Location/_Falord/Sources/CentralPark/CsSeBuilding-room0.glb" id="26_sj4ky"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_1ldni"]
@@ -517,8 +518,13 @@ shape = SubResource("ConcavePolygonShape3D_bb6r6")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0)
 shape = SubResource("ConcavePolygonShape3D_85omy")
 
-[node name="ArchDoorFrameScene" parent="SEBuilding" instance=ExtResource("25_8jt7r")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -4.95, 0, 2.5)
+[node name="ArchDoorFrameScene1" parent="SEBuilding" instance=ExtResource("25_8jt7r")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -5, 0, 2.5)
+
+[node name="DoorScene" parent="SEBuilding/ArchDoorFrameScene1" instance=ExtResource("26_ov42t")]
+
+[node name="ArchDoorFrameScene2" parent="SEBuilding" instance=ExtResource("25_8jt7r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 5, 5)
 
 [node name="LongWallScene1" parent="SEBuilding" instance=ExtResource("24_qe48j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19, 0, -5.5)

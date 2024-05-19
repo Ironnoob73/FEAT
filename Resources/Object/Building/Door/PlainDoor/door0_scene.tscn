@@ -1,15 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://dolx4mc7cel7q"]
+[gd_scene load_steps=9 format=3 uid="uid://dolx4mc7cel7q"]
 
-[ext_resource type="Material" uid="uid://bi2qrop8jfbsf" path="res://Resources/Material/Tree.tres" id="1_uj1ie"]
-[ext_resource type="ArrayMesh" uid="uid://dutllpwyvnjjh" path="res://Resources/Object/Building/Door/PlainDoor/DoorFrame.obj" id="2_u5ld1"]
 [ext_resource type="Script" path="res://Resources/Object/Building/Door/PlainDoor/DoorInteraction.gd" id="3_cxbeg"]
 [ext_resource type="Material" uid="uid://do55163v32q4u" path="res://Resources/Material/Wood.tres" id="4_tfs5u"]
 [ext_resource type="ArrayMesh" uid="uid://b2qgmt5a5jnyp" path="res://Resources/Object/Building/Door/PlainDoor/Door0.obj" id="5_43774"]
 [ext_resource type="Material" uid="uid://b860lbxbd3ed6" path="res://Resources/Material/GrayMaterial.tres" id="5_hnrnm"]
 [ext_resource type="Material" uid="uid://d2kh2k5stcerf" path="res://Resources/Material/Glass.tres" id="7_fxnoq"]
-
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_eokk7"]
-data = PackedVector3Array(-0.7, 2.4, 0.1, -0.7, 0, 0.1, -0.7, 2.4, -0.1, -0.7, 2.4, -0.1, -0.7, 0, 0.1, -0.7, 0, -0.1, -0.7, 2.4, -0.1, -0.7, 0, -0.1, -0.6, 2.3, -0.1, -0.6, 2.3, -0.1, -0.7, 0, -0.1, -0.6, 0, -0.1, -0.6, 2.3, -0.1, -0.6, 0, -0.1, -0.6, 2.3, 0.1, -0.6, 2.3, 0.1, -0.6, 0, -0.1, -0.6, 0, 0.1, -0.6, 2.3, 0.1, -0.6, 0, 0.1, -0.7, 2.4, 0.1, -0.7, 2.4, 0.1, -0.6, 0, 0.1, -0.7, 0, 0.1, -0.6, 0, -0.1, -0.7, 0, -0.1, -0.6, 0, 0.1, -0.6, 0, 0.1, -0.7, 0, -0.1, -0.7, 0, 0.1, -0.6, 2.3, -0.1, -0.6, 2.3, 0.1, 0.6, 2.3, -0.1, 0.6, 2.3, -0.1, -0.6, 2.3, 0.1, 0.6, 2.3, 0.1, 0.6, 2.3, 0.1, 0.7, 2.4, 0.1, 0.6, 0, 0.1, 0.6, 0, 0.1, 0.7, 2.4, 0.1, 0.7, 0, 0.1, -0.7, 2.4, 0.1, -0.7, 2.4, -0.1, 0.7, 2.4, 0.1, 0.7, 2.4, 0.1, -0.7, 2.4, -0.1, 0.7, 2.4, -0.1, -0.6, 2.3, 0.1, -0.7, 2.4, 0.1, 0.6, 2.3, 0.1, 0.6, 2.3, 0.1, -0.7, 2.4, 0.1, 0.7, 2.4, 0.1, -0.7, 2.4, -0.1, -0.6, 2.3, -0.1, 0.7, 2.4, -0.1, 0.7, 2.4, -0.1, -0.6, 2.3, -0.1, 0.6, 2.3, -0.1, 0.7, 0, -0.1, 0.6, 0, -0.1, 0.7, 0, 0.1, 0.7, 0, 0.1, 0.6, 0, -0.1, 0.6, 0, 0.1, 0.7, 2.4, -0.1, 0.6, 2.3, -0.1, 0.7, 0, -0.1, 0.7, 0, -0.1, 0.6, 2.3, -0.1, 0.6, 0, -0.1, 0.6, 2.3, -0.1, 0.6, 2.3, 0.1, 0.6, 0, -0.1, 0.6, 0, -0.1, 0.6, 2.3, 0.1, 0.6, 0, 0.1, 0.7, 2.4, 0.1, 0.7, 2.4, -0.1, 0.7, 0, 0.1, 0.7, 0, 0.1, 0.7, 2.4, -0.1, 0.7, 0, -0.1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_pcbij"]
 size = Vector3(0.1, 0.2, 0.2)
@@ -20,18 +15,7 @@ size = Vector3(1, 1.2, 0)
 [sub_resource type="BoxShape3D" id="BoxShape3D_byqrf"]
 size = Vector3(1.2, 2.3, 0.1)
 
-[node name="Door0Scene" type="StaticBody3D"]
-collision_layer = 3
-
-[node name="DoorFrame" type="MeshInstance3D" parent="."]
-material_override = ExtResource("1_uj1ie")
-mesh = ExtResource("2_u5ld1")
-
-[node name="CollisionShape" type="CollisionShape3D" parent="."]
-shape = SubResource("ConcavePolygonShape3D_eokk7")
-
-[node name="DoorPlate" type="AnimatableBody3D" parent="." groups=["Interactive"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6, 0, 0)
+[node name="Door0Scene" type="AnimatableBody3D" groups=["Interactive"]]
 collision_layer = 8
 collision_mask = 15
 axis_lock_linear_x = true
@@ -41,21 +25,21 @@ axis_lock_angular_x = true
 axis_lock_angular_z = true
 script = ExtResource("3_cxbeg")
 
-[node name="Mesh" type="MeshInstance3D" parent="DoorPlate"]
+[node name="Mesh" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6, 0, -0.05)
 material_override = ExtResource("4_tfs5u")
 mesh = ExtResource("5_43774")
 
-[node name="Handle" type="MeshInstance3D" parent="DoorPlate"]
+[node name="Handle" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0.8, 0)
 material_override = ExtResource("5_hnrnm")
 mesh = SubResource("BoxMesh_pcbij")
 
-[node name="Glass" type="MeshInstance3D" parent="DoorPlate"]
+[node name="Glass" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6, 1.6, 0)
 material_override = ExtResource("7_fxnoq")
 mesh = SubResource("BoxMesh_54wb5")
 
-[node name="CollisionShape" type="CollisionShape3D" parent="DoorPlate"]
+[node name="CollisionShape" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6, 1.15, 0)
 shape = SubResource("BoxShape3D_byqrf")

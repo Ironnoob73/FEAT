@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://bwtcv55j8d0nw"]
+[gd_scene load_steps=32 format=3 uid="uid://bwtcv55j8d0nw"]
 
 [ext_resource type="Material" uid="uid://lwjkvikmw3dm" path="res://Resources/Material/Asphalt.tres" id="1_5tpe3"]
 [ext_resource type="Material" uid="uid://cjpmx8tyalvu6" path="res://Resources/Material/RedSidewalkBricks.tres" id="2_3prk5"]
@@ -21,6 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://ogtwuy5brc0t" path="res://Resources/Object/Building/Switch/Common/switch_scene.tscn" id="10_8ia8y"]
 [ext_resource type="PackedScene" uid="uid://dolx4mc7cel7q" path="res://Resources/Object/Building/Door/PlainDoor/door0_scene.tscn" id="10_kd5tk"]
 [ext_resource type="PackedScene" uid="uid://bgelaund2s486" path="res://Resources/Object/Building/Window/CasementWindow/window_scene.tscn" id="11_004g5"]
+[ext_resource type="PackedScene" uid="uid://c5nkwuac4jut0" path="res://Resources/Object/Building/Door/PlainDoor/frame_scene.tscn" id="12_db80y"]
 [ext_resource type="PackedScene" uid="uid://dgamoawgoj1oe" path="res://Resources/Object/Building/Window/SlidingWindow/window_scene.tscn" id="12_itlxy"]
 [ext_resource type="PackedScene" uid="uid://dm67jnnf21g1t" path="res://Resources/Object/Building/Window/HungWindow/window_scene.tscn" id="14_o8sen"]
 [ext_resource type="PackedScene" uid="uid://coan3h6n6wobt" path="res://Resources/Object/Building/Light/FluorescentLamp/light_scene.tscn" id="15_py854"]
@@ -151,11 +152,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 2.5)
 [node name="FluorescentLampScene2" parent="TravelAgency" instance=ExtResource("15_py854")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, -2.5)
 
-[node name="Door0Scene" parent="TravelAgency" instance=ExtResource("10_kd5tk")]
+[node name="FrameScene0" parent="TravelAgency" instance=ExtResource("12_db80y")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1.5, -0.4, 5)
 
-[node name="DoorScene1" parent="TravelAgency" instance=ExtResource("8_uavgb")]
+[node name="Door0Scene" parent="TravelAgency/FrameScene0" instance=ExtResource("10_kd5tk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6, 0, 0)
+
+[node name="FrameScene1" parent="TravelAgency" instance=ExtResource("12_db80y")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -4, 4.1, -2.5)
+
+[node name="DoorScene" parent="TravelAgency/FrameScene1" instance=ExtResource("8_uavgb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6, 0, 0)
 
 [node name="CasementWindowScene1" parent="TravelAgency" instance=ExtResource("11_004g5")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 2.5, 5, 5)
@@ -169,8 +176,11 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 4, 5, 
 [node name="SlidingWindowScene2" parent="TravelAgency" instance=ExtResource("12_itlxy")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 4, 5, -2.5)
 
-[node name="DoorScene2" parent="TravelAgency" instance=ExtResource("8_uavgb")]
+[node name="FrameScene2" parent="TravelAgency" instance=ExtResource("12_db80y")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -4, 8.1, -2.5)
+
+[node name="DoorScene" parent="TravelAgency/FrameScene2" instance=ExtResource("8_uavgb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6, 0, 0)
 
 [node name="CasementWindowScene3" parent="TravelAgency" instance=ExtResource("11_004g5")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 2.5, 9, 5)
@@ -184,10 +194,13 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 4, 9, 
 [node name="SlidingWindowScene4" parent="TravelAgency" instance=ExtResource("12_itlxy")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 4, 9, -2.5)
 
-[node name="DoorScene3" parent="TravelAgency" instance=ExtResource("8_uavgb")]
+[node name="FrameScene3" parent="TravelAgency" instance=ExtResource("12_db80y")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -4, 12.1, -2.5)
-door_color = Color(1, 1, 1, 1)
-frame_material = ExtResource("9_r346l")
+mesh_material = ExtResource("9_r346l")
+
+[node name="DoorScene3" parent="TravelAgency/FrameScene3" instance=ExtResource("8_uavgb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6, 0, 0)
+mesh_color = Color(1, 1, 1, 1)
 
 [node name="MetalPlate0" type="CSGBox3D" parent="TravelAgency"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 13.75, 0)
@@ -355,10 +368,13 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.5, 1
 [node name="LadderScene3" parent="TravelAgencySideStair" instance=ExtResource("10_5v2hs")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.5, 14.5, 3.5)
 
-[node name="DoorScene4" parent="TravelAgencySideStair" instance=ExtResource("8_uavgb")]
+[node name="FrameScene" parent="TravelAgencySideStair" instance=ExtResource("12_db80y")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1.5, 15.1, 1)
-door_color = Color(1, 1, 1, 1)
-frame_material = ExtResource("9_r346l")
+mesh_material = ExtResource("9_r346l")
+
+[node name="DoorScene" parent="TravelAgencySideStair/FrameScene" instance=ExtResource("8_uavgb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6, 0, 0)
+mesh_color = Color(1, 1, 1, 1)
 
 [node name="AwningWindowScene" parent="TravelAgencySideStair" instance=ExtResource("19_locbr")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1.5, 16, 5)

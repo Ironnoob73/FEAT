@@ -58,7 +58,7 @@ shader = ExtResource("4_drrf1")
 
 [node name="World" type="Node3D"]
 script = ExtResource("1_4lhai")
-time_speed = 100
+time_speed = 0
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_kprkk")
