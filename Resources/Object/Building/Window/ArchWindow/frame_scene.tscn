@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://diptcnbycj2lp"]
+
+[ext_resource type="Material" uid="uid://bnmwjuiwnwo6w" path="res://Resources/Object/Building/Door/ArchDoor/YellowStoneBricksNT.tres" id="1_xvolr"]
+[ext_resource type="Material" uid="uid://cur0jmwbk5e0p" path="res://Resources/Material/YellowStoneBricks.tres" id="2_cq1se"]
+[ext_resource type="Material" uid="uid://d2aru44blbpby" path="res://Resources/Material/SlateBricks.tres" id="3_mr2dv"]
+
+[node name="ArchWindowFrameScene" type="Node3D"]
+
+[node name="ArchTop" type="CSGPolygon3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1.8, -0.15)
+use_collision = true
+collision_layer = 3
+polygon = PackedVector2Array(0.6, 0, 0.6, 0.3, 0.8, 0.3, 0.8, 0)
+mode = 1
+spin_degrees = 180.0
+spin_sides = 8
+material = ExtResource("1_xvolr")
+
+[node name="ArchPillarLeft" type="CSGBox3D" parent="ArchTop"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -0.7, 0.15, 0.9)
+size = Vector3(0.2, 1.8, 0.3)
+material = ExtResource("2_cq1se")
+
+[node name="ArchPillarRight" type="CSGBox3D" parent="ArchTop"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.7, 0.15, 0.9)
+size = Vector3(0.2, 1.8, 0.3)
+material = ExtResource("2_cq1se")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="ArchTop"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15, 1.8)
+size = Vector3(1.6, 0.4, 0.1)
+material = ExtResource("3_mr2dv")

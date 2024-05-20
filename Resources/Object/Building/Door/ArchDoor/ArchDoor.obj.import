@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bjw2vjcini6nq"
+path="res://.godot/imported/ArchDoor.obj-3107e4f58419df9ccbbe8b566b550710.mesh"
+
+[deps]
+
+files=["res://.godot/imported/ArchDoor.obj-3107e4f58419df9ccbbe8b566b550710.mesh"]
+
+source_file="res://Resources/Object/Building/Door/ArchDoor/ArchDoor.obj"
+dest_files=["res://.godot/imported/ArchDoor.obj-3107e4f58419df9ccbbe8b566b550710.mesh", "res://.godot/imported/ArchDoor.obj-3107e4f58419df9ccbbe8b566b550710.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

@@ -1,15 +1,9 @@
-[gd_scene load_steps=20 format=3 uid="uid://c0hvltjdip61f"]
+[gd_scene load_steps=10 format=3 uid="uid://c0hvltjdip61f"]
 
 [ext_resource type="Script" path="res://Assets_Main/World/WorldMain.gd" id="1_4lhai"]
 [ext_resource type="PackedScene" uid="uid://bk6ihg1vf71uf" path="res://Assets_Main/Character/Player.tscn" id="1_ur16q"]
 [ext_resource type="PackedScene" uid="uid://bcp40gisqlrka" path="res://Assets_Main/World/Location/_Falord/CentralSquare.tscn" id="2_5adnp"]
 [ext_resource type="PackedScene" uid="uid://bwtcv55j8d0nw" path="res://Assets_Main/World/Location/_Falord/North0.tscn" id="2_qe5ad"]
-[ext_resource type="Shader" path="res://Resources/Shader/depth.gdshader" id="4_drrf1"]
-[ext_resource type="Texture2D" uid="uid://dx2blvlx1qx1" path="res://Resources/Image/map/Map001_detailed.png" id="6_sts46"]
-[ext_resource type="PackedScene" uid="uid://bisvoohcjjglv" path="res://Assets_Main/World/Location/test/csg_box_3d.tscn" id="7_vaheu"]
-[ext_resource type="Material" uid="uid://d0ykvcp4rnf2h" path="res://Resources/Material/WhiteWall.tres" id="8_740s5"]
-[ext_resource type="PackedScene" uid="uid://bwnnfhuwgv4kt" path="res://Assets_Main/World/Location/test/csg_box_3d.gltf" id="9_e38ri"]
-[ext_resource type="Material" uid="uid://c4otco3kww8jo" path="res://Resources/Material/YellowPaintedWall.tres" id="10_3s88q"]
 
 [sub_resource type="Gradient" id="Gradient_imnon"]
 
@@ -41,20 +35,6 @@ glow_blend_mode = 1
 volumetric_fog_density = 0.04
 adjustment_enabled = true
 adjustment_color_correction = SubResource("GradientTexture1D_slkoq")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_43ey3"]
-albedo_texture = ExtResource("6_sts46")
-texture_filter = 0
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_16ygr"]
-size = Vector2(196608, 196608)
-
-[sub_resource type="QuadMesh" id="QuadMesh_d8kjj"]
-size = Vector2(2, 2)
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ft81l"]
-render_priority = 0
-shader = ExtResource("4_drrf1")
 
 [node name="World" type="Node3D"]
 script = ExtResource("1_4lhai")
@@ -95,55 +75,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -128)
 [node name="Player" parent="." instance=ExtResource("1_ur16q")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
 
-[node name="ExtraTest" type="Node3D" parent="."]
-
-[node name="Map" type="MeshInstance3D" parent="ExtraTest"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35648, -10, 35520)
-visible = false
-material_override = SubResource("StandardMaterial3D_43ey3")
-mesh = SubResource("PlaneMesh_16ygr")
-skeleton = NodePath("../..")
-
-[node name="CSGBox3D3" parent="ExtraTest" instance=ExtResource("7_vaheu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40, 16, 20)
-
-[node name="CSGBox3D" parent="ExtraTest/CSGBox3D3" index="0"]
-material = ExtResource("8_740s5")
-
-[node name="OmniLight3D" type="OmniLight3D" parent="ExtraTest/CSGBox3D3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -87.2368, -12.3264, 5.04132)
-visible = false
-light_negative = true
-shadow_enabled = true
-omni_range = 20.0
-omni_attenuation = 0.5
-
-[node name="CSGBox3D" parent="ExtraTest" instance=ExtResource("7_vaheu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40, 5, 20)
-
-[node name="CSGBox3D2" parent="ExtraTest" instance=ExtResource("9_e38ri")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 51, 5, 20)
-surface_material_override/0 = ExtResource("10_3s88q")
-
-[node name="CSGBox3D4" parent="ExtraTest" instance=ExtResource("9_e38ri")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 51, 16, 20)
-surface_material_override/0 = ExtResource("8_740s5")
-
-[node name="DepthTest" type="MeshInstance3D" parent="ExtraTest"]
-transform = Transform3D(0.965854, 0, -0.259089, 0, 1, 0, 0.259089, 0, 0.965854, -4.85156, 2.08748, -12.4727)
-mesh = SubResource("QuadMesh_d8kjj")
-skeleton = NodePath("../..")
-surface_material_override/0 = SubResource("ShaderMaterial_ft81l")
-
-[node name="Timer" type="Timer" parent="."]
-process_callback = 0
-autostart = true
-
 [connection signal="SetSdfgi" from="Player/Pause_menu/Options" to="." method="_on_options_set_sdfgi"]
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 
 [editable path="Player"]
 [editable path="Player/HudHotbar"]
 [editable path="Player/Pause_menu"]
 [editable path="Player/Pause_menu/Options"]
-[editable path="ExtraTest/CSGBox3D3"]

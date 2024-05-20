@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bwnnfhuwgv4kt"
-path="res://.godot/imported/csg_box_3d.gltf-1b15a5daac01f0c00abdbab80b7234e3.scn"
+uid="uid://c26jswh36g6xu"
+path="res://.godot/imported/RollingShutter.glb-7bcb8c32d9ffd201a9f1ee9e1fe21b11.scn"
 
 [deps]
 
-source_file="res://Assets_Main/World/Location/test/csg_box_3d.gltf"
-dest_files=["res://.godot/imported/csg_box_3d.gltf-1b15a5daac01f0c00abdbab80b7234e3.scn"]
+source_file="res://Resources/Object/Building/Door/RollingShutter/RollingShutter.glb"
+dest_files=["res://.godot/imported/RollingShutter.glb-7bcb8c32d9ffd201a9f1ee9e1fe21b11.scn"]
 
 [params]
 

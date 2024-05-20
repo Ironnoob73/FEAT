@@ -1,10 +1,11 @@
-[gd_scene load_steps=32 format=3 uid="uid://bwtcv55j8d0nw"]
+[gd_scene load_steps=33 format=3 uid="uid://bwtcv55j8d0nw"]
 
 [ext_resource type="Material" uid="uid://lwjkvikmw3dm" path="res://Resources/Material/Asphalt.tres" id="1_5tpe3"]
 [ext_resource type="Material" uid="uid://cjpmx8tyalvu6" path="res://Resources/Material/RedSidewalkBricks.tres" id="2_3prk5"]
 [ext_resource type="Material" uid="uid://d2aru44blbpby" path="res://Resources/Material/SlateBricks.tres" id="3_p48y5"]
 [ext_resource type="PackedScene" uid="uid://bp0s053ote8ac" path="res://Assets_Main/World/Location/_Falord/Sources/N0Buildings/TravelAgency.glb" id="4_eqyvy"]
 [ext_resource type="Material" uid="uid://dcwav4237d0l3" path="res://Resources/Material/GrassGround.tres" id="5_2vn2i"]
+[ext_resource type="PackedScene" uid="uid://3yd06robq3f8" path="res://Resources/Object/Building/Door/RollingShutter/door_scene.tscn" id="5_f1ikq"]
 [ext_resource type="PackedScene" uid="uid://c3mhx4rgcj41a" path="res://Resources/Character/Tom/tom_scene.tscn" id="5_f8vrt"]
 [ext_resource type="PackedScene" uid="uid://bgar67py461my" path="res://Resources/Object/Building/Fence/MetalFenceShort/fence_scene.tscn" id="6_1w0sr"]
 [ext_resource type="Material" uid="uid://4hlgj1u74iny" path="res://Resources/Material/ConcreteBricks.tres" id="6_ul4k6"]
@@ -122,6 +123,9 @@ collision_layer = 3
 [node name="CollisionShape" type="CollisionShape3D" parent="TravelAgency"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.5, 0)
 shape = SubResource("ConcavePolygonShape3D_bhbyw")
+
+[node name="RollingShutterScene" parent="TravelAgency" instance=ExtResource("5_f1ikq")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 4.05, -0.5, 1)
 
 [node name="Tom" parent="TravelAgency" instance=ExtResource("5_f8vrt")]
 transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, -2.5, 0.9, 1.5)

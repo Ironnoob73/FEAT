@@ -96,8 +96,3 @@ func _physics_process(_delta):
 		( bottom_color_n * (1.125 - daytime) + bottom_color_d * (daytime - 0.875) ) * 4
 	else :
 		env.environment.sky.sky_material.ground_bottom_color = bottom_color_d
-		
-
-func _on_timer_timeout():
-	#print(global_time)
-	pass
