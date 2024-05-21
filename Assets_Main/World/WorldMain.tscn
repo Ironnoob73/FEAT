@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://c0hvltjdip61f"]
+[gd_scene load_steps=13 format=3 uid="uid://c0hvltjdip61f"]
 
 [ext_resource type="Script" path="res://Assets_Main/World/WorldMain.gd" id="1_4lhai"]
 [ext_resource type="PackedScene" uid="uid://bk6ihg1vf71uf" path="res://Assets_Main/Character/Player.tscn" id="1_ur16q"]
 [ext_resource type="PackedScene" uid="uid://bcp40gisqlrka" path="res://Assets_Main/World/Location/_Falord/CentralSquare.tscn" id="2_5adnp"]
 [ext_resource type="PackedScene" uid="uid://bwtcv55j8d0nw" path="res://Assets_Main/World/Location/_Falord/North0.tscn" id="2_qe5ad"]
+[ext_resource type="Texture2D" uid="uid://dx2blvlx1qx1" path="res://Resources/Image/map/Map001_detailed.png" id="5_61s7l"]
 
 [sub_resource type="Gradient" id="Gradient_imnon"]
 
@@ -36,6 +37,13 @@ volumetric_fog_density = 0.04
 adjustment_enabled = true
 adjustment_color_correction = SubResource("GradientTexture1D_slkoq")
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qoha8"]
+albedo_texture = ExtResource("5_61s7l")
+texture_filter = 0
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_l72iu"]
+size = Vector2(196608, 196608)
+
 [node name="World" type="Node3D"]
 script = ExtResource("1_4lhai")
 time_speed = 0
@@ -65,7 +73,7 @@ shadow_normal_bias = 7.0
 directional_shadow_mode = 1
 sky_mode = 2
 
-[node name="Falord" type="Node3D" parent="."]
+[node name="Falord" type="Node" parent="."]
 
 [node name="CentralSquare" parent="Falord" instance=ExtResource("2_5adnp")]
 
@@ -74,6 +82,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -128)
 
 [node name="Player" parent="." instance=ExtResource("1_ur16q")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
+
+[node name="Map" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35648, -10, 35520)
+visible = false
+material_override = SubResource("StandardMaterial3D_qoha8")
+mesh = SubResource("PlaneMesh_l72iu")
 
 [connection signal="SetSdfgi" from="Player/Pause_menu/Options" to="." method="_on_options_set_sdfgi"]
 
