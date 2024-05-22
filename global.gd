@@ -7,6 +7,13 @@ var Sdfgi : bool = false
 var mouse_sens = 0.4
 
 var isInGame : bool = false
+var playerPos : Vector3
+var playerRot : Vector3
+var playerTeleported : bool = true
+
+var VRDim : String
+var VRPos : Vector3
+var VRRot : Vector3
 
 func _ready():
 	load_config()
@@ -49,3 +56,8 @@ func load_config():
 func back_to_title():
 	LoadManager.load_scene("res://Title/TitleScene.tscn")
 	isInGame = false
+	
+# Get World Path
+func get_world_path(dim : String) :
+	match dim :
+		"Overworld" :	return "res://Assets_Main/World/WorldMain.tscn"

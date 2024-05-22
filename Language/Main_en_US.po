@@ -114,6 +114,9 @@ msgstr "Are you sure to exit?"
 msgid "exit.save"
 msgstr "Unsaved content will be lost!"
 
+msgid "exit.quit_vr"
+msgstr "This will take you out of VR."
+
 #----------In game----------#
 #Pause menu
 msgid "pause.title"
@@ -121,6 +124,9 @@ msgstr "Game paused"
 
 msgid "pause.resume"
 msgstr "Resume"
+
+msgid "pause.quit"
+msgstr "Quit"
 
 #Inventory
 msgid "inventory.title"

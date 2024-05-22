@@ -12,8 +12,12 @@ var _progress : Array = []
 
 var use_sub_threads : bool = false
 
-func load_scene(scene_path : String):
+func load_scene(scene_path : String , pos = null , rot = null):
 	_scene_path = scene_path
+	if pos :
+		Global.playerPos = pos
+		Global.playerRot = rot
+		Global.playerTeleported = false
 	var loading_screen = _load_screen.instantiate()
 	get_tree().get_root().add_child(loading_screen)
 	self.progress_changed.connect(loading_screen._update_progress)
@@ -21,7 +25,7 @@ func load_scene(scene_path : String):
 	start_load()
 	
 func start_load():
-	var state = ResourceLoader.load_threaded_request(_scene_path, "", use_sub_threads)
+	var state = ResourceLoader.load_threaded_request(_scene_path, "PackedScene", use_sub_threads)
 	if state == OK:
 		set_process(true)
 

@@ -32,6 +32,7 @@ var isSit : bool = false
 var INERTIA:Vector2 = Vector2.ZERO
 
 var current_menu = "HUD"
+@export var isInVR : bool = false
 
 @export var Inventory : InventoryClass
 var current_hotbar : int = 0

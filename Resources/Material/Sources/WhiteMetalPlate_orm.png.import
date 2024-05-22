@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://w4v5cnlkcsif"
-path.s3tc="res://.godot/imported/WhiteMetalPlate_albedo.png-87b20f873a2e676c56590a9c92697929.s3tc.ctex"
+uid="uid://bc4gk4lm4b4a1"
+path.s3tc="res://.godot/imported/WhiteMetalPlate_orm.png-bf0aecd30c38e5d38ca9aca33a2b3594.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Resources/Material/WhiteMetalPlate_albedo.png"
-dest_files=["res://.godot/imported/WhiteMetalPlate_albedo.png-87b20f873a2e676c56590a9c92697929.s3tc.ctex"]
+source_file="res://Resources/Material/Sources/WhiteMetalPlate_orm.png"
+dest_files=["res://.godot/imported/WhiteMetalPlate_orm.png-bf0aecd30c38e5d38ca9aca33a2b3594.s3tc.ctex"]
 
 [params]
 

@@ -26,12 +26,9 @@ ssao_enabled = true
 ssao_radius = 2.0
 sdfgi_use_occlusion = true
 glow_enabled = true
-glow_levels/1 = 1.0
-glow_levels/2 = 0.8
-glow_levels/3 = 0.4
-glow_levels/4 = 0.1
-glow_normalized = true
-glow_intensity = 0.2
+glow_levels/1 = 16.0
+glow_levels/2 = 5.0
+glow_levels/3 = 0.5
 glow_blend_mode = 1
 volumetric_fog_density = 0.04
 adjustment_enabled = true
@@ -46,7 +43,9 @@ size = Vector2(196608, 196608)
 
 [node name="World" type="Node3D"]
 script = ExtResource("1_4lhai")
+global_time = 48600
 time_speed = 0
+metadata/Dim = "Overworld"
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_kprkk")

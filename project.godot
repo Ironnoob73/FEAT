@@ -202,3 +202,7 @@ locale/translations=PackedStringArray("res://Language/Main_en_US.po", "res://Lan
 [rendering]
 
 anti_aliasing/screen_space_roughness_limiter/amount=1.0
+
+[threading]
+
+worker_pool/max_threads=5

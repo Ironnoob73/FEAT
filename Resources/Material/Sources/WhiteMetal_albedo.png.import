@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://biwris08bagcg"
-path.s3tc="res://.godot/imported/BlueMetalPlate_heightmap.png-c91b6848911096dc7c14c70adc3ba6ab.s3tc.ctex"
+uid="uid://xr7qklqtv6lk"
+path.s3tc="res://.godot/imported/WhiteMetal_albedo.png-5ed64c9341a5ffe7a265840bb0becbfa.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Resources/Material/Sources/BlueMetalPlate_heightmap.png"
-dest_files=["res://.godot/imported/BlueMetalPlate_heightmap.png-c91b6848911096dc7c14c70adc3ba6ab.s3tc.ctex"]
+source_file="res://Resources/Material/Sources/WhiteMetal_albedo.png"
+dest_files=["res://.godot/imported/WhiteMetal_albedo.png-5ed64c9341a5ffe7a265840bb0becbfa.s3tc.ctex"]
 
 [params]
 
@@ -24,8 +24,8 @@ compress/normal_map=0
 compress/channel_pack=0
 mipmaps/generate=true
 mipmaps/limit=-1
-roughness/mode=7
-roughness/src_normal="res://Resources/Material/BlueMetalPlate_normal.png"
+roughness/mode=0
+roughness/src_normal=""
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/normal_map_invert_y=false

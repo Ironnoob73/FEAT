@@ -15,7 +15,7 @@ data = PackedVector3Array(-0.6, 2, -0.1, -0.55, 2.23, -0.1, -0.6, 2, 0, -0.6, 2,
 collision_layer = 9
 script = ExtResource("1_7eq6e")
 
-[node name="ArchDoor" type="MeshInstance3D" parent="."]
+[node name="Mesh" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6, 0, 0.05)
 material_override = ExtResource("2_1kqcd")
 mesh = ExtResource("2_5xydl")

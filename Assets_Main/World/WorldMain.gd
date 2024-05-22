@@ -1,6 +1,6 @@
 extends Node3D
 
-var global_time : int = 48600
+@export var global_time : int = 0
 @export var time_speed : int = 1
 
 @onready var env = $WorldEnvironment
@@ -8,8 +8,14 @@ var global_time : int = 48600
 @onready var sun = $WorldEnvironment/SunAxis/SunLight
 @onready var sun_visual = $WorldEnvironment/SunAxis/SunVisual
 
+@onready var player = $Player
+
 func _ready():
 	_on_options_set_sdfgi(Global.Sdfgi)
+	if !Global.playerTeleported :
+		player.position = Global.playerPos
+		player.rotation = Global.playerRot
+		Global.playerTeleported = true
 
 func _on_options_set_sdfgi(value : bool):
 	if Global.isInGame:

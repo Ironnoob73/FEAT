@@ -114,6 +114,9 @@ msgstr "你确定退出吗？"
 msgid "exit.save"
 msgstr "未保存的内容将会丢失！"
 
+msgid "exit.quit_vr"
+msgstr "这将使你退出VR。"
+
 #----------In game----------#
 #Pause menu
 msgid "pause.title"
@@ -121,6 +124,9 @@ msgstr "游戏暂停了"
 
 msgid "pause.resume"
 msgstr "继续"
+
+msgid "pause.quit"
+msgstr "离开"
 
 #Inventory
 msgid "inventory.title"

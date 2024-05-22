@@ -3,9 +3,14 @@ extends ColorRect
 var current_menu = "Pause"
 var escape_released = false
 @onready var animation = $AnimationPlayer
+@onready var exit_button = $Main/ExitButton
+@onready var exit_text1 = $ExitBox/exit_text1
 
 func _ready():
 	animation.play("RESET")
+	if get_parent().isInVR :
+		exit_button.text = "pause.quit"
+		exit_text1.text = "exit.quit_vr"
 
 func _on_visibility_changed():
 	get_tree().paused = visible
@@ -37,7 +42,9 @@ func _on_exit_button_pressed():
 	animation.play("Exit")
 func _on_confirm_button_pressed():
 	hide()
-	Global.back_to_title()
+	if !get_parent().isInVR :	Global.back_to_title()
+	else :
+		LoadManager.load_scene(Global.get_world_path(Global.VRDim),Global.VRPos,Global.VRRot)
 func _on_cancel_button_pressed():
 	if current_menu == "Exit":
 		current_menu = "Pause"

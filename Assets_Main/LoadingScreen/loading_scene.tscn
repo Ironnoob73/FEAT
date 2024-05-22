@@ -299,6 +299,16 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_tv7c5")
 max_value = 1.0
 show_percentage = false
 
+[node name="ProgressNumber" type="Label" parent="Background"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = -40.0
+grow_vertical = 0
+text = "0%"
+
 [node name="LoadingAnimation" type="Control" parent="Background"]
 layout_mode = 1
 anchors_preset = 3
