@@ -1,8 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://d3jmi13knbvt"]
+[gd_scene load_steps=10 format=3 uid="uid://d3jmi13knbvt"]
 
 [ext_resource type="Material" uid="uid://lrbpaershnpm" path="res://Resources/Material/BlueGrid.tres" id="1_01kt7"]
+[ext_resource type="Script" path="res://Assets_Main/World/Tutorial.gd" id="1_3cq5v"]
 [ext_resource type="PackedScene" uid="uid://bk6ihg1vf71uf" path="res://Assets_Main/Character/Player.tscn" id="2_oeg7p"]
 [ext_resource type="Material" uid="uid://dpy1qjkamvh6q" path="res://Resources/Material/Blank.tres" id="2_ric70"]
+[ext_resource type="Material" uid="uid://bxspvesneuvnj" path="res://Resources/Material/Barrier.tres" id="4_6ulxs"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_fxyp4"]
 sky_top_color = Color(0.498039, 0.74902, 1, 1)
@@ -18,7 +20,14 @@ background_mode = 2
 sky = SubResource("Sky_b4tj8")
 ssao_enabled = true
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a7byu"]
+bg_color = Color(0, 0, 0, 0.498039)
+border_width_left = 5
+border_width_right = 5
+border_color = Color(0, 0, 0, 0.247059)
+
 [node name="World" type="Node3D"]
+script = ExtResource("1_3cq5v")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_co6cg")
@@ -35,10 +44,98 @@ collision_layer = 3
 size = Vector3(1024, 0, 1024)
 material = ExtResource("1_01kt7")
 
-[node name="CSGBox3D" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.5, -10.5)
+[node name="Barrier" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8, -87.5)
+use_collision = true
+size = Vector3(26, 16, 201)
+material = ExtResource("4_6ulxs")
+
+[node name="Negative" type="CSGBox3D" parent="Barrier"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5)
+operation = 2
+size = Vector3(25, 17, 200)
+material = ExtResource("4_6ulxs")
+
+[node name="MovingBarrier" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8, -13.5)
+use_collision = true
+size = Vector3(25, 16, 1)
+material = ExtResource("4_6ulxs")
+
+[node name="Parkour" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -14)
+
+[node name="Column0" type="CSGBox3D" parent="Parkour"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, -1, 8.5)
+use_collision = true
+collision_layer = 3
 material = ExtResource("2_ric70")
+
+[node name="Column1" type="CSGBox3D" parent="Parkour"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, -1.5, 6.5)
+use_collision = true
+collision_layer = 3
+size = Vector3(1, 2, 1)
+material = ExtResource("2_ric70")
+
+[node name="Column2" type="CSGBox3D" parent="Parkour"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, -2, 4.5)
+use_collision = true
+collision_layer = 3
+size = Vector3(1, 3, 1)
+material = ExtResource("2_ric70")
+
+[node name="Column3" type="CSGBox3D" parent="Parkour"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, -2.5, 1.5)
+use_collision = true
+collision_layer = 3
+size = Vector3(1, 4, 1)
+material = ExtResource("2_ric70")
+
+[node name="Column4" type="CSGBox3D" parent="Parkour"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, -3, -1.5)
+use_collision = true
+collision_layer = 3
+size = Vector3(1, 5, 1)
+material = ExtResource("2_ric70")
+
+[node name="Column5" type="CSGBox3D" parent="Parkour"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, -4, -4.5)
+use_collision = true
+collision_layer = 3
+size = Vector3(1, 5, 1)
+material = ExtResource("2_ric70")
+
+[node name="ColumnPlat" type="CSGBox3D" parent="Parkour/Column5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
+use_collision = true
+collision_layer = 3
+size = Vector3(3, 1, 3)
+material = ExtResource("2_ric70")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[node name="Tip" type="Label" parent="."]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -23.0
+offset_right = 20.0
+offset_bottom = -100.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_a7byu")
+text = "TEST"
 
 [node name="Player" parent="." instance=ExtResource("2_oeg7p")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 isInVR = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

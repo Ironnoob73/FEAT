@@ -10,3 +10,16 @@ msgstr ""
 #----------Fatal Window----------#
 msgid "fatal_window.fullscreen_warning"
 msgstr "It is strictly forbidden to enable full-screen mode when the window is maximized."
+
+#----------Tutorial----------#
+msgid "tutorial.move_mouse.0"
+msgstr "Move the mouse to rotate the perspective"
+
+msgid "tutorial.move_mouse.1"
+msgstr "Use [WASD] to move the character"
+
+msgid "tutorial.parkour.0"
+msgstr "Use [space] to jump"
+
+msgid "tutorial.parkour.1"
+msgstr "Hold [shift] to dash"

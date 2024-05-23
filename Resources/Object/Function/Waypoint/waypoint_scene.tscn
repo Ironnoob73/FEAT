@@ -1,0 +1,131 @@
+[gd_scene load_steps=15 format=3 uid="uid://dvw3hfru3s5m6"]
+
+[ext_resource type="Script" path="res://Resources/Object/Function/Waypoint/WaypointReach.gd" id="1_lj31y"]
+[ext_resource type="Material" uid="uid://cw5qxvyjmvrdc" path="res://Resources/Material/YellowEmissive.tres" id="2_tjesi"]
+[ext_resource type="Material" uid="uid://lyhxo5ka0dp5" path="res://Resources/Object/Function/Waypoint/YellowEmissiveBillboard.tres" id="3_myash"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_ohrjb"]
+size = Vector3(0.25, 0.25, 0.25)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_o4yfr"]
+size = Vector3(0.5, 0.5, 0.5)
+
+[sub_resource type="Curve" id="Curve_dtju3"]
+min_value = -360.0
+max_value = 360.0
+_data = [Vector2(0, 360), 0.0, 0.0, 0, 0, Vector2(1, -360), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_e5jq0"]
+curve = SubResource("Curve_dtju3")
+
+[sub_resource type="Curve" id="Curve_eh73m"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_2muf7"]
+curve = SubResource("Curve_eh73m")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_yr26y"]
+angle_min = -720.0
+angle_max = 720.0
+angle_curve = SubResource("CurveTexture_e5jq0")
+direction = Vector3(0, 0, 0)
+spread = 180.0
+gravity = Vector3(0, -1, 0)
+scale_min = 0.0
+scale_max = 0.0
+scale_curve = SubResource("CurveTexture_2muf7")
+
+[sub_resource type="QuadMesh" id="QuadMesh_o2jgh"]
+material = ExtResource("3_myash")
+size = Vector2(0.25, 0.25)
+
+[sub_resource type="Animation" id="Animation_pi6f4"]
+resource_name = "Idle"
+length = 5.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Mesh:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0.610865, 0, 0.785398), Vector3(0.610865, 6.28319, 0.785398)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Mesh:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2.5, 5),
+"transitions": PackedFloat32Array(-2, -2, 1),
+"update": 0,
+"values": [Vector3(0, 0.45, 0), Vector3(0, 0.55, 0), Vector3(0, 0.45, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ta87r"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Mesh:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.610865, 0, 0.785398)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Mesh:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0.45, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fkq7k"]
+_data = {
+"Idle": SubResource("Animation_pi6f4"),
+"RESET": SubResource("Animation_ta87r")
+}
+
+[node name="WaypointScene" type="Area3D"]
+script = ExtResource("1_lj31y")
+
+[node name="Mesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.707107, -0.707107, 0, 0.579228, 0.579228, -0.573576, 0.40558, 0.40558, 0.819152, 0, 0.45, 0)
+visible = false
+mesh = SubResource("BoxMesh_ohrjb")
+surface_material_override/0 = ExtResource("2_tjesi")
+
+[node name="CollisionShape" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_o4yfr")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+lifetime = 0.5
+process_material = SubResource("ParticleProcessMaterial_yr26y")
+draw_pass_1 = SubResource("QuadMesh_o2jgh")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_fkq7k")
+}
+autoplay = "Idle"
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

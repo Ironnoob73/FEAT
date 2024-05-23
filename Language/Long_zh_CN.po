@@ -10,3 +10,16 @@ msgstr ""
 #----------Fatal Window----------#
 msgid "fatal_window.fullscreen_warning"
 msgstr "窗口最大化下禁止开启全屏模式"
+
+#----------Tutorial----------#
+msgid "tutorial.move_mouse.0"
+msgstr "移动鼠标转动视角"
+
+msgid "tutorial.move_mouse.1"
+msgstr "使用[WASD]移动角色"
+
+msgid "tutorial.parkour.0"
+msgstr "使用[空格]进行跳跃"
+
+msgid "tutorial.parkour.1"
+msgstr "按住[上档]进行冲刺"
