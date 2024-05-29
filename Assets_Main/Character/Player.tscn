@@ -1,9 +1,8 @@
-[gd_scene load_steps=25 format=3 uid="uid://bk6ihg1vf71uf"]
+[gd_scene load_steps=23 format=3 uid="uid://bk6ihg1vf71uf"]
 
 [ext_resource type="Script" path="res://Assets_Main/Character/Player.gd" id="1_twfth"]
 [ext_resource type="Script" path="res://Assets_Main/Character/Player_interact.gd" id="2_fls23"]
 [ext_resource type="PackedScene" uid="uid://bledb03vcydda" path="res://Assets_Main/Character/Pause_menu.tscn" id="2_ghaer"]
-[ext_resource type="Script" path="res://Assets_Main/Inventory/CInventoryClass.gd" id="2_jbrrd"]
 [ext_resource type="Shader" path="res://Assets_Main/Character/CrossHair.gdshader" id="2_ksj8u"]
 [ext_resource type="PackedScene" uid="uid://cerd3suomf3u2" path="res://Assets_Main/Character/PlayerHUDHotbar.tscn" id="3_fnuc4"]
 [ext_resource type="PackedScene" uid="uid://dtcknsjsvxg38" path="res://Assets_Main/Inventory/Inventory.tscn" id="3_grckl"]
@@ -11,13 +10,6 @@
 [ext_resource type="Shader" path="res://Assets_Main/Character/Cursor.gdshader" id="5_u5uvm"]
 [ext_resource type="PackedScene" uid="uid://v2j546pk6a4k" path="res://Assets_Main/Character/PlayerHUDStatesBar.tscn" id="6_b8jq2"]
 [ext_resource type="PackedScene" uid="uid://tnlamai5w4yx" path="res://Assets_Main/Character/VirtualJoypad/VirtualJoypad.tscn" id="8_ox0si"]
-
-[sub_resource type="Resource" id="Resource_5kp7r"]
-script = ExtResource("2_jbrrd")
-ToolHotbar = Array[Resource("res://Assets_Main/Inventory/Class/Equipment/EqMetaClass.gd")]([null, null, null, null, null])
-ItemHotbar = Array[Resource("res://Assets_Main/Inventory/Class/Item/ItemClass.gd")]([null, null, null, null, null])
-itemStack = Array[Resource("res://Assets_Main/Inventory/Class/Item/ItemStackClass.gd")]([])
-eqMeta = Array[Resource("res://Assets_Main/Inventory/Class/Equipment/EqMetaClass.gd")]([])
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vxpu5"]
 shader = ExtResource("2_ksj8u")
@@ -75,7 +67,6 @@ collision_layer = 4
 collision_mask = 15
 floor_max_angle = 0.872665
 script = ExtResource("1_twfth")
-Inventory = SubResource("Resource_5kp7r")
 
 [node name="CrossHair" type="TextureRect" parent="."]
 texture_filter = 1
@@ -145,7 +136,7 @@ cull_mask = 16
 script = ExtResource("4_750b5")
 
 [node name="HandHeld" type="Node3D" parent="PlayerCam/FirstPersonHandled/SubViewport/FirstPersonCam"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.45, -0.35, -0.5)
+transform = Transform3D(-2.18557e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.18557e-08, 0.45, -0.35, -0.5)
 
 [node name="InteractRay" type="RayCast3D" parent="PlayerCam"]
 target_position = Vector3(0, 0, -20)

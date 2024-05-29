@@ -1,5 +1,7 @@
 extends CharacterBody3D
 
+var load_step : int = 0
+
 const SPEED = 5
 const DASH = 8
 const CROUCH = 3
@@ -46,9 +48,15 @@ func _ready():
 	# Lock Mouse.
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	
+	if !Inventory:
+		Inventory = CInventoryClass.new()
+		Inventory.ItemHotbar.append_array([null,null,null,null,null])
+		Inventory.ToolHotbar.append_array([null,null,null,null,null])
+	
 	pause_menu.hide()
 	inventory_menu.hide()
 	refresh_handheld(current_hotbar)
+	inventory_menu.init()
 	
 func _input(event):
 	# Player camera.
@@ -70,7 +78,6 @@ func _unhandled_input(_event):
 			"ToolSetting":
 				current_menu = "HUD"
 				hand_held.get_child(0).setting_off()
-		print(current_menu)
 	# Inventory
 	if Input.is_action_just_pressed("inventory"):
 		match current_menu :
@@ -243,6 +250,11 @@ func _physics_process(delta):
 			refresh_handheld(current_hotbar)
 	
 func _process(_delta):
+	match load_step :
+		0 :
+			load_step += 1
+		1 :
+			load_step += 1
 	first_person_cam.global_transform = player_camera.global_transform
 	
 func refresh_handheld(index:int):
@@ -251,15 +263,14 @@ func refresh_handheld(index:int):
 		if hand_held.get_children():
 			hand_held.get_child(0).queue_free()
 			hand_held.get_child(0).free()
-			interact_ray.affect_terrain = "none"
 		if handheld_tool:
 			if handheld_tool.equipment.scene:
 				hand_held.add_child(handheld_tool.equipment.scene.instantiate())
-				interact_ray.affect_terrain = handheld_tool.equipment.affect_terrain
 				hand_held.get_child(0)._tool_init()
 			else :
 				var handheld_model = MeshInstance3D.new()
 				handheld_model.mesh = handheld_tool.equipment.model
+				handheld_model.material_override = handheld_tool.equipment.material
 				hand_held.add_child(handheld_model)
 			refresh_handheld_info()
 		else :

@@ -19,7 +19,10 @@ msgid "tutorial.move_mouse.1"
 msgstr "使用[WASD]移动角色"
 
 msgid "tutorial.parkour.0"
-msgstr "使用[空格]进行跳跃"
+msgstr "按下[空格]进行跳跃"
 
 msgid "tutorial.parkour.1"
 msgstr "按住[上档]进行冲刺"
+
+msgid "tutorial.opendoor.0"
+msgstr "按下[E]进行交互"

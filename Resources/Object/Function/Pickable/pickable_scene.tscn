@@ -1,0 +1,45 @@
+[gd_scene load_steps=9 format=3 uid="uid://bt7knoovenvbk"]
+
+[ext_resource type="Script" path="res://Resources/Object/Function/Pickable/PickableThingsInfo.gd" id="1_4u8fc"]
+[ext_resource type="Material" uid="uid://b70uhgp32byqb" path="res://Resources/Object/Function/Pickable/DefaultMaterial.tres" id="2_ga5f3"]
+[ext_resource type="Shader" path="res://Resources/Shader/shine.gdshader" id="3_dwmhh"]
+[ext_resource type="Shader" path="res://Resources/Shader/outline.gdshader" id="4_2v5m8"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_74jug"]
+render_priority = 0
+shader = ExtResource("3_dwmhh")
+shader_parameter/shine_color = Color(1, 1, 1, 1)
+shader_parameter/cycle_interval = 1.0
+shader_parameter/shine_speed = 3.0
+shader_parameter/shine_width = 3.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_g6v25"]
+render_priority = -9
+next_pass = SubResource("ShaderMaterial_74jug")
+shader = ExtResource("4_2v5m8")
+shader_parameter/active = true
+shader_parameter/outline_color = Color(1, 1, 1, 1)
+shader_parameter/outline_width = 5.0
+
+[sub_resource type="TextMesh" id="TextMesh_iudy2"]
+text = "🚧"
+font_size = 50
+curve_step = 0.1
+depth = 0.5
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ao11c"]
+size = Vector3(0.5, 0.5, 0.5)
+
+[node name="PickableScene" type="Area3D"]
+collision_mask = 4
+script = ExtResource("1_4u8fc")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_override = ExtResource("2_ga5f3")
+material_overlay = SubResource("ShaderMaterial_g6v25")
+mesh = SubResource("TextMesh_iudy2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_ao11c")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

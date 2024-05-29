@@ -1,8 +1,6 @@
 extends Node
 
-#var dummy = preload("res://Resources/Block/Dummy/Tile_item.tres")
-#var concrete = preload("res://Resources/Block/Concrete/Tile_item.tres")
-#var wood = preload("res://Resources/Block/Wood/Tile_item.tres")
+var weapon_TutorialSword = preload("res://Resources/Item/weapon/melee/sword/tutorial_sword.eq.tres")
 
 func get_item_from_name(item_name:String):
 	return get(item_name)

@@ -1,10 +1,13 @@
-[gd_scene load_steps=10 format=3 uid="uid://d3jmi13knbvt"]
+[gd_scene load_steps=13 format=3 uid="uid://d3jmi13knbvt"]
 
 [ext_resource type="Material" uid="uid://lrbpaershnpm" path="res://Resources/Material/BlueGrid.tres" id="1_01kt7"]
 [ext_resource type="Script" path="res://Assets_Main/World/Tutorial.gd" id="1_3cq5v"]
 [ext_resource type="PackedScene" uid="uid://bk6ihg1vf71uf" path="res://Assets_Main/Character/Player.tscn" id="2_oeg7p"]
 [ext_resource type="Material" uid="uid://dpy1qjkamvh6q" path="res://Resources/Material/Blank.tres" id="2_ric70"]
 [ext_resource type="Material" uid="uid://bxspvesneuvnj" path="res://Resources/Material/Barrier.tres" id="4_6ulxs"]
+[ext_resource type="PackedScene" uid="uid://dvw3hfru3s5m6" path="res://Resources/Object/Function/Waypoint/waypoint_scene.tscn" id="5_ibxfv"]
+[ext_resource type="PackedScene" uid="uid://ds1bb3oh6akpf" path="res://Resources/Object/Building/Door/PlainDoor/door_scene.tscn" id="6_3h32r"]
+[ext_resource type="PackedScene" uid="uid://bt7knoovenvbk" path="res://Resources/Object/Function/Pickable/pickable_scene.tscn" id="7_vq7yj"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_fxyp4"]
 sky_top_color = Color(0.498039, 0.74902, 1, 1)
@@ -22,9 +25,10 @@ ssao_enabled = true
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a7byu"]
 bg_color = Color(0, 0, 0, 0.498039)
-border_width_left = 5
-border_width_right = 5
-border_color = Color(0, 0, 0, 0.247059)
+border_width_left = 10
+border_width_right = 10
+border_color = Color(0, 0, 0, 0)
+border_blend = true
 
 [node name="World" type="Node3D"]
 script = ExtResource("1_3cq5v")
@@ -57,7 +61,7 @@ size = Vector3(25, 17, 200)
 material = ExtResource("4_6ulxs")
 
 [node name="MovingBarrier" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8, -13.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8, -15)
 use_collision = true
 size = Vector3(25, 16, 1)
 material = ExtResource("4_6ulxs")
@@ -66,41 +70,41 @@ material = ExtResource("4_6ulxs")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -14)
 
 [node name="Column0" type="CSGBox3D" parent="Parkour"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, -1, 8.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, -1.5, 8.5)
 use_collision = true
 collision_layer = 3
 material = ExtResource("2_ric70")
 
 [node name="Column1" type="CSGBox3D" parent="Parkour"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, -1.5, 6.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, -2, 6.5)
 use_collision = true
 collision_layer = 3
 size = Vector3(1, 2, 1)
 material = ExtResource("2_ric70")
 
 [node name="Column2" type="CSGBox3D" parent="Parkour"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, -2, 4.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, -2.5, 4.5)
 use_collision = true
 collision_layer = 3
 size = Vector3(1, 3, 1)
 material = ExtResource("2_ric70")
 
 [node name="Column3" type="CSGBox3D" parent="Parkour"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, -2.5, 1.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, -3, 1.5)
 use_collision = true
 collision_layer = 3
 size = Vector3(1, 4, 1)
 material = ExtResource("2_ric70")
 
 [node name="Column4" type="CSGBox3D" parent="Parkour"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, -3, -1.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, -3.5, -1.5)
 use_collision = true
 collision_layer = 3
 size = Vector3(1, 5, 1)
 material = ExtResource("2_ric70")
 
 [node name="Column5" type="CSGBox3D" parent="Parkour"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, -4, -4.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, -4.5, -4.5)
 use_collision = true
 collision_layer = 3
 size = Vector3(1, 5, 1)
@@ -113,13 +117,50 @@ collision_layer = 3
 size = Vector3(3, 1, 3)
 material = ExtResource("2_ric70")
 
+[node name="WaypointScene" parent="Parkour/Column5" instance=ExtResource("5_ibxfv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.5, 0)
+
+[node name="OpenDoor" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -30)
+
+[node name="DoorPlate" parent="OpenDoor" instance=ExtResource("6_3h32r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6, -11, 0)
+mesh_color = Color(1, 1, 0, 1)
+mesh_material = ExtResource("2_ric70")
+
+[node name="Wall" type="CSGBox3D" parent="OpenDoor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -6, 0)
+use_collision = true
+collision_layer = 3
+size = Vector3(25, 10, 0.2)
+material = ExtResource("2_ric70")
+
+[node name="Negative" type="CSGBox3D" parent="OpenDoor/Wall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.85, 0)
+operation = 2
+size = Vector3(1.2, 2.3, 1)
+material = ExtResource("2_ric70")
+
+[node name="PickItem" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -40)
+
+[node name="Booth" type="CSGBox3D" parent="PickItem"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3, 0)
+use_collision = true
+collision_layer = 3
+material = ExtResource("2_ric70")
+
+[node name="TutorialSwordItem" parent="PickItem/Booth" instance=ExtResource("7_vq7yj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+item = "weapon_TutorialSword"
+
 [node name="Timer" type="Timer" parent="."]
 wait_time = 5.0
 autostart = true
 
 [node name="Tip" type="Label" parent="."]
 modulate = Color(1, 1, 1, 0)
-anchors_preset = -1
+anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
@@ -138,4 +179,6 @@ text = "TEST"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 isInVR = true
 
+[connection signal="touch" from="Parkour/Column5/WaypointScene" to="." method="_on_parkour_waypoint_touch"]
+[connection signal="interacted" from="OpenDoor/DoorPlate" to="." method="_on_door_plate_interacted"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

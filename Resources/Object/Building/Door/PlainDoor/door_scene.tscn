@@ -6,7 +6,7 @@
 [ext_resource type="Material" uid="uid://b860lbxbd3ed6" path="res://Resources/Material/GrayMaterial.tres" id="5_x7lst"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_m5r1b"]
-render_priority = 0
+render_priority = -10
 shader = ExtResource("5_br3hc")
 shader_parameter/color = Color(0, 0, 0, 0)
 
@@ -22,11 +22,6 @@ size = Vector3(1.2, 2.3, 0.1)
 [node name="DoorPlate" type="AnimatableBody3D" groups=["Interactive"]]
 collision_layer = 8
 collision_mask = 15
-axis_lock_linear_x = true
-axis_lock_linear_y = true
-axis_lock_linear_z = true
-axis_lock_angular_x = true
-axis_lock_angular_z = true
 script = ExtResource("3_ug2ta")
 
 [node name="Mesh" type="MeshInstance3D" parent="."]
@@ -43,3 +38,17 @@ mesh = SubResource("BoxMesh_pcbij")
 [node name="CollisionShape" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6, 1.15, 0)
 shape = SubResource("BoxShape3D_byqrf")
+
+[node name="LockTipF" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 0.11)
+modulate = Color(1, 1, 1, 0)
+text = "🔒"
+font_size = 50
+outline_size = 0
+
+[node name="LockTipB" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, -0.11)
+modulate = Color(1, 1, 1, 0)
+text = "🔒"
+font_size = 50
+outline_size = 0

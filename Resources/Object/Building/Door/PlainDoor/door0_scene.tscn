@@ -43,3 +43,17 @@ mesh = SubResource("BoxMesh_54wb5")
 [node name="CollisionShape" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6, 1.15, 0)
 shape = SubResource("BoxShape3D_byqrf")
+
+[node name="LockTipF" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 0.11)
+modulate = Color(1, 1, 1, 0)
+text = "🔒"
+font_size = 50
+outline_size = 0
+
+[node name="LockTipB" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, -0.11)
+modulate = Color(1, 1, 1, 0)
+text = "🔒"
+font_size = 50
+outline_size = 0

@@ -59,7 +59,6 @@ func _on_option_button_item_selected(index):
 	match index:
 		0:	TranslationServer.set_locale("en_US")
 		1:	TranslationServer.set_locale("zh_CN")
-	print(TranslationServer.get_locale())
 	Global.save_config()
 	Global.window_min_limit()
 # Choose data path
@@ -81,7 +80,6 @@ func _on_fullscreen_button_toggled(toggled_on):
 			#DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_MAXIMIZED)
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 			DisplayServer.window_set_size(Vector2(1600,900))
-	print(DisplayServer.window_get_mode())
 	Global.save_config()
 func _on_fullscreen_warn_close_requested():
 	await get_tree().create_timer(0.0001).timeout

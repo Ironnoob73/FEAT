@@ -783,12 +783,6 @@ render_target_update_mode = 0
 
 [node name="MeshView2d" parent="EquipmentInv/Preview/View/Viewport" instance=ExtResource("4_uebq1")]
 
-[node name="Camera" parent="EquipmentInv/Preview/View/Viewport/MeshView2d" index="0"]
-size = 3.0
-
-[node name="Mesh" parent="EquipmentInv/Preview/View/Viewport/MeshView2d" index="1"]
-transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 0, 0, -2)
-
 [node name="Discription" type="RichTextLabel" parent="EquipmentInv/Preview"]
 layout_mode = 2
 size_flags_vertical = 3
@@ -878,5 +872,3 @@ libraries = {
 [connection signal="column_title_clicked" from="EquipmentInv/EquipmentList" to="." method="_on_equipment_list_column_title_clicked"]
 [connection signal="item_selected" from="EquipmentInv/EquipmentList" to="." method="_on_equipment_list_item_selected"]
 [connection signal="on_item_select" from="Hotbar/ItemChooseWindow" to="." method="_on_item_choose_window_on_item_select"]
-
-[editable path="EquipmentInv/Preview/View/Viewport/MeshView2d"]

@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dxlwdomll0js1"
+path="res://.godot/imported/sword.obj-09913d92d51165f847cc317da6d8c1cc.mesh"
+
+[deps]
+
+files=["res://.godot/imported/sword.obj-09913d92d51165f847cc317da6d8c1cc.mesh"]
+
+source_file="res://Resources/Item/weapon/melee/sword/sword.obj"
+dest_files=["res://.godot/imported/sword.obj-09913d92d51165f847cc317da6d8c1cc.mesh", "res://.godot/imported/sword.obj-09913d92d51165f847cc317da6d8c1cc.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

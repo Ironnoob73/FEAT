@@ -19,7 +19,10 @@ msgid "tutorial.move_mouse.1"
 msgstr "Use [WASD] to move the character"
 
 msgid "tutorial.parkour.0"
-msgstr "Use [space] to jump"
+msgstr "Press [space] to jump"
 
 msgid "tutorial.parkour.1"
 msgstr "Hold [shift] to dash"
+
+msgid "tutorial.opendoor.0"
+msgstr "Press [E] to interact"

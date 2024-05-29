@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="EToolClass" load_steps=4 format=3 uid="uid://bjj8yywrbxut0"]
+
+[ext_resource type="Material" uid="uid://dpy1qjkamvh6q" path="res://Resources/Material/Blank.tres" id="1_eeniw"]
+[ext_resource type="ArrayMesh" uid="uid://dxlwdomll0js1" path="res://Resources/Item/weapon/melee/sword/sword.obj" id="2_75ml1"]
+[ext_resource type="Script" path="res://Assets_Main/Inventory/Class/Equipment/EToolClass.gd" id="3_bwotu"]
+
+[resource]
+script = ExtResource("3_bwotu")
+tool_type = "sword"
+performance = 1.0
+durability = 100.0
+name1 = ""
+name0 = "weapon_TutorialSword"
+model = ExtResource("2_75ml1")
+material = ExtResource("1_eeniw")
+discription = ""

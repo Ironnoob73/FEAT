@@ -75,7 +75,7 @@ near = 0.001
 far = 4.0
 
 [node name="Mesh" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, 0, -2)
 layers = 8
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
