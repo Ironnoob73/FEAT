@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://c0hvltjdip61f"]
+[gd_scene load_steps=14 format=3 uid="uid://c0hvltjdip61f"]
 
 [ext_resource type="Script" path="res://Assets_Main/World/WorldMain.gd" id="1_4lhai"]
 [ext_resource type="PackedScene" uid="uid://bk6ihg1vf71uf" path="res://Assets_Main/Character/Player.tscn" id="1_ur16q"]
@@ -34,12 +34,19 @@ volumetric_fog_density = 0.04
 adjustment_enabled = true
 adjustment_color_correction = SubResource("GradientTexture1D_slkoq")
 
+[sub_resource type="Curve3D" id="Curve3D_dl5w4"]
+_data = {
+"points": PackedVector3Array(119, 0, 5, -119, 0, -5, 108, 0, 104, -36, 0, 92, 36, 0, -92, 4, 0, -127),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qoha8"]
 albedo_texture = ExtResource("5_61s7l")
 texture_filter = 0
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_l72iu"]
-size = Vector2(196608, 196608)
+size = Vector2(24576, 24576)
 
 [node name="World" type="Node3D"]
 script = ExtResource("1_4lhai")
@@ -59,9 +66,7 @@ light_color = Color(1, 1, 0.937255, 1)
 shadow_enabled = true
 shadow_bias = 0.0
 shadow_normal_bias = 7.0
-directional_shadow_mode = 1
-directional_shadow_split_1 = 1.0
-directional_shadow_fade_start = 1.0
+directional_shadow_blend_splits = true
 sky_mode = 1
 
 [node name="SunVisual" type="DirectionalLight3D" parent="WorldEnvironment/SunAxis"]
@@ -75,16 +80,55 @@ sky_mode = 2
 [node name="Falord" type="Node" parent="."]
 
 [node name="CentralSquare" parent="Falord" instance=ExtResource("2_5adnp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 64, 0, 64)
 
 [node name="North0" parent="Falord" instance=ExtResource("2_qe5ad")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -128)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 64, 0, -64)
+
+[node name="Road" type="Node3D" parent="Falord"]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Falord/Road"]
+transform = Transform3D(0.906308, 0, 0.422618, 0, 1, 0, -0.422618, 0, 0.906308, 79.0145, 0, -100.916)
+size = Vector3(404, 0.25, 20)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Falord/Road"]
+transform = Transform3D(0.882948, 0, 0.469472, 0, 1, 0, -0.469472, 0, 0.882948, 89.1777, 0, 174.583)
+size = Vector3(350, 0.25, 30)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Falord/Road"]
+transform = Transform3D(0.469472, 0, -0.882948, 0, 1, 0, 0.882948, 0, 0.469472, 119.17, 0, -78.0571)
+size = Vector3(393, 0.25, 20)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="Falord/Road"]
+transform = Transform3D(0.469472, 0, -0.882948, 0, 1, 0, 0.882948, 0, 0.469472, -49.5429, 0, -157.91)
+size = Vector3(194, 0.25, 20)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="Falord/Road"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 194.62, 0, -211.664)
+size = Vector3(114, 0.25, 20)
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="Falord/Road"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -115, 0, 115)
+polygon = PackedVector2Array(-10, -0.125, -10, 0.125, 10, 0.125, 10, -0.125)
+mode = 2
+path_node = NodePath("Path3D")
+path_interval_type = 0
+path_interval = 20.0
+path_simplify_angle = 0.0
+path_rotation = 2
+path_local = true
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = false
+
+[node name="Path3D" type="Path3D" parent="Falord/Road/CSGPolygon3D"]
+curve = SubResource("Curve3D_dl5w4")
 
 [node name="Player" parent="." instance=ExtResource("1_ur16q")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
 
 [node name="Map" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35648, -10, 35520)
-visible = false
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4352, -10, 4352)
 material_override = SubResource("StandardMaterial3D_qoha8")
 mesh = SubResource("PlaneMesh_l72iu")
 

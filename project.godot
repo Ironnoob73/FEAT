@@ -17,6 +17,7 @@ config/name_localized={
 }
 run/main_scene="res://Title/TitleScene.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
+run/flush_stdout_on_print.debug=false
 config/icon="res://icon.svg"
 
 [audio]
@@ -31,6 +32,11 @@ AllItems="*res://Resources/Item/AllItems.gd"
 LoadManager="*res://Assets_Main/LoadingScreen/LoadManager.gd"
 MaterialUtil="*res://Assets_Main/Script/MaterialUtil.gd"
 
+[debug]
+
+file_logging/enable_file_logging=true
+settings/stdout/verbose_stdout=true
+
 [display]
 
 window/size/viewport_width=1600
@@ -38,7 +44,8 @@ window/size/viewport_height=900
 
 [gui]
 
-timers/tooltip_delay_sec=0.0
+theme/default_font_antialiasing=0
+theme/default_font_hinting=0
 
 [importer_defaults]
 
@@ -199,6 +206,27 @@ locale/translations=PackedStringArray("res://Language/Main_en_US.po", "res://Lan
 3d_physics/layer_3="Character"
 3d_physics/layer_4="Decorate"
 
+[physics]
+
+3d/run_on_separate_thread=true
+3d/default_gravity=10.0
+
 [rendering]
 
-anti_aliasing/screen_space_roughness_limiter/amount=1.0
+rendering_device/staging_buffer/texture_upload_region_size_px=32
+textures/canvas_textures/default_texture_filter=0
+lights_and_shadows/directional_shadow/size=2048
+reflections/reflection_atlas/reflection_size=32
+reflections/reflection_atlas/reflection_size.mobile=32
+reflections/reflection_atlas/reflection_count=32
+global_illumination/gi/use_half_resolution=true
+shading/overrides/force_vertex_shading=true
+shading/overrides/force_lambert_over_burley=true
+camera/depth_of_field/depth_of_field_use_jitter=true
+anti_aliasing/screen_space_roughness_limiter/enabled=false
+environment/glow/upscale_mode=0
+environment/screen_space_reflection/roughness_quality=0
+environment/subsurface_scattering/subsurface_scattering_quality=0
+environment/volumetric_fog/volume_size=32
+environment/volumetric_fog/volume_depth=32
+lights_and_shadows/positional_shadow/atlas_size=2048
