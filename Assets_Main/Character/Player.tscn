@@ -140,7 +140,7 @@ transform = Transform3D(-2.18557e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.18557e-08, 
 
 [node name="InteractRay" type="RayCast3D" parent="PlayerCam"]
 target_position = Vector3(0, 0, -20)
-collision_mask = 10
+collision_mask = 26
 script = ExtResource("2_fls23")
 
 [node name="StandingDetected" type="ShapeCast3D" parent="."]

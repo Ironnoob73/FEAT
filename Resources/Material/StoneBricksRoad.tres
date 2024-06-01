@@ -1,0 +1,16 @@
+[gd_resource type="StandardMaterial3D" load_steps=4 format=3 uid="uid://b7eqico61xad7"]
+
+[ext_resource type="Texture2D" uid="uid://c48muv72mttok" path="res://Resources/Material/Sources/StoneBricksRoad_albedo.png" id="1_k8eeg"]
+[ext_resource type="Texture2D" uid="uid://be7iq688p478e" path="res://Resources/Material/Sources/StoneBricksRoad_normal.png" id="2_y3v7x"]
+[ext_resource type="Texture2D" uid="uid://48c7hnc5i8uj" path="res://Resources/Material/Sources/StoneBricksRoad_orm.png" id="3_v21ow"]
+
+[resource]
+albedo_texture = ExtResource("1_k8eeg")
+metallic = 0.1
+roughness_texture = ExtResource("3_v21ow")
+roughness_texture_channel = 1
+normal_enabled = true
+normal_texture = ExtResource("2_y3v7x")
+uv1_scale = Vector3(0.25, 0.25, 0.25)
+uv1_triplanar = true
+texture_filter = 0

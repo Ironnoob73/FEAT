@@ -2,7 +2,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Experience of Falord Gully - Main Translation\n"
+"Project-Id-Version: FEAT - Main Translation\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: zh_CN\n"
@@ -176,6 +176,10 @@ msgstr "\n\n\n收藏"
 
 msgid "inventory.status.t"
 msgstr " 状态"
+
+#Item
+msgid "item.no_des"
+msgstr "这个物品没有描述。"
 
 ####----------Commonly----------####
 #----------Option----------#

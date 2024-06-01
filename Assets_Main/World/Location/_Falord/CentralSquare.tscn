@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://bcp40gisqlrka"]
+[gd_scene load_steps=45 format=3 uid="uid://bcp40gisqlrka"]
 
 [ext_resource type="Script" path="res://Assets_Main/World/Location/_Falord/CentralSquare.gd" id="1_lf70u"]
 [ext_resource type="Material" uid="uid://4hlgj1u74iny" path="res://Resources/Material/ConcreteBricks.tres" id="2_pjbdn"]
@@ -30,6 +30,7 @@
 [ext_resource type="PackedScene" uid="uid://clb0ryw2xvcqx" path="res://Resources/Object/Building/Door/ArchDoor/door_scene.tscn" id="27_nixbe"]
 [ext_resource type="PackedScene" uid="uid://b3jxh1ti0j3bs" path="res://Resources/Object/Building/Fence/MetalFenceInner/fence_scene.tscn" id="28_qn4rb"]
 [ext_resource type="PackedScene" uid="uid://y0museb2b2ye" path="res://Resources/Object/Building/Fence/MetalFence/fence_connecter.tscn" id="29_2wfq1"]
+[ext_resource type="Material" uid="uid://b7eqico61xad7" path="res://Resources/Material/StoneBricksRoad.tres" id="31_0cxb4"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_1ldni"]
 size = Vector2(80, 80)
@@ -602,3 +603,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 2.5, 0)
 
 [node name="FenceConnecter" parent="SEBuilding/FenceBase/FenceScene1" instance=ExtResource("29_2wfq1")]
 transform = Transform3D(2.5, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1.5, 0)
+
+[node name="SEwideroad" type="CSGPolygon3D" parent="SEBuilding"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 32, 0.15, 16)
+use_collision = true
+collision_layer = 3
+polygon = PackedVector2Array(-6, 10, -25, 2, -34, -2, 3, -2, 3, 13)
+depth = 0.25
+material = ExtResource("31_0cxb4")

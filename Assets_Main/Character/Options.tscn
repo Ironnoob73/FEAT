@@ -310,6 +310,27 @@ max_value = 1.0
 step = 0.1
 value = 0.4
 
+[node name="AutoPickup" type="HBoxContainer" parent="#options_control#/ControlSetting/VSpilt"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="auto_pickup_text" type="Label" parent="#options_control#/ControlSetting/VSpilt/AutoPickup"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "options.control.auto_pickup"
+
+[node name="auto_pickup_button" type="CheckBox" parent="#options_control#/ControlSetting/VSpilt/AutoPickup"]
+layout_mode = 2
+size_flags_horizontal = 8
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath("../../../..")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath(".")
+focus_next = NodePath(".")
+focus_previous = NodePath(".")
+text = " "
+flat = true
+
 [connection signal="tab_changed" from="." to="." method="_on_tab_changed"]
 [connection signal="item_selected" from="#options_game#/GameSetting/VSplit/Language/language_button" to="." method="_on_option_button_item_selected"]
 [connection signal="pressed" from="#options_game#/GameSetting/VSplit/DataPath/datapath_button" to="." method="_on_datapath_button_pressed"]
@@ -322,3 +343,4 @@ value = 0.4
 [connection signal="value_changed" from="#options_audio#/AudioSetting/VSpilt/Music/bgm_button" to="." method="_on_bgm_button_value_changed"]
 [connection signal="value_changed" from="#options_audio#/AudioSetting/VSpilt/SFX/sfx_button" to="." method="_on_sfx_button_value_changed"]
 [connection signal="value_changed" from="#options_control#/ControlSetting/VSpilt/MouseSen/mouse_button" to="." method="_on_mouse_button_value_changed"]
+[connection signal="toggled" from="#options_control#/ControlSetting/VSpilt/AutoPickup/auto_pickup_button" to="." method="_on_auto_pickup_button_toggled"]

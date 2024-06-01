@@ -4,6 +4,7 @@
 [ext_resource type="Material" uid="uid://b70uhgp32byqb" path="res://Resources/Object/Function/Pickable/DefaultMaterial.tres" id="2_ga5f3"]
 [ext_resource type="Shader" path="res://Resources/Shader/shine.gdshader" id="3_dwmhh"]
 [ext_resource type="Shader" path="res://Resources/Shader/outline.gdshader" id="4_2v5m8"]
+[ext_resource type="ArrayMesh" uid="uid://kxchelosyedc" path="res://Resources/Object/Function/Pickable/missing.obj" id="5_3ku75"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_74jug"]
 render_priority = 0
@@ -21,25 +22,27 @@ shader_parameter/active = true
 shader_parameter/outline_color = Color(1, 1, 1, 1)
 shader_parameter/outline_width = 5.0
 
-[sub_resource type="TextMesh" id="TextMesh_iudy2"]
-text = "🚧"
-font_size = 50
-curve_step = 0.1
-depth = 0.5
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_ao11c"]
 size = Vector3(0.5, 0.5, 0.5)
 
-[node name="PickableScene" type="Area3D"]
-collision_mask = 4
+[node name="PickableScene" type="RigidBody3D" groups=["Interactive"]]
+collision_layer = 16
 script = ExtResource("1_4u8fc")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="PickableArea" type="Area3D" parent="."]
+collision_layer = 16
+collision_mask = 4
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="PickableArea"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 material_override = ExtResource("2_ga5f3")
 material_overlay = SubResource("ShaderMaterial_g6v25")
-mesh = SubResource("TextMesh_iudy2")
+mesh = ExtResource("5_3ku75")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="CollisionShape" type="CollisionShape3D" parent="PickableArea"]
 shape = SubResource("BoxShape3D_ao11c")
 
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[node name="CollisionShape" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_ao11c")
+
+[connection signal="body_entered" from="PickableArea" to="." method="_on_pickable_area_body_entered"]

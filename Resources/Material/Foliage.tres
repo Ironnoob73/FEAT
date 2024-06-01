@@ -7,7 +7,6 @@
 render_priority = 0
 shader = ExtResource("1_cdy8u")
 shader_parameter/WindScale = 20.0
-shader_parameter/WindSpeed = 20.0
 shader_parameter/WindStrength = 10.0
 shader_parameter/WindDensity = 20.0
 shader_parameter/ClampTop = 1.0

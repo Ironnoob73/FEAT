@@ -115,6 +115,10 @@ func _on_mouse_button_value_changed(value):
 	Global.mouse_sens = value
 	MouseSen.set_tooltip_text( str(value*100) + "%")
 	Global.save_config()
+#AutoPickup
+func _on_auto_pickup_button_toggled(toggled_on):
+	Global.auto_pickup = toggled_on
+	Global.save_config()
 
 func _on_tab_changed(_tab):
 	tab_focus()

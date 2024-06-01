@@ -1,9 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://c0hvltjdip61f"]
+[gd_scene load_steps=16 format=3 uid="uid://c0hvltjdip61f"]
 
 [ext_resource type="Script" path="res://Assets_Main/World/WorldMain.gd" id="1_4lhai"]
 [ext_resource type="PackedScene" uid="uid://bk6ihg1vf71uf" path="res://Assets_Main/Character/Player.tscn" id="1_ur16q"]
 [ext_resource type="PackedScene" uid="uid://bcp40gisqlrka" path="res://Assets_Main/World/Location/_Falord/CentralSquare.tscn" id="2_5adnp"]
-[ext_resource type="PackedScene" uid="uid://bwtcv55j8d0nw" path="res://Assets_Main/World/Location/_Falord/North0.tscn" id="2_qe5ad"]
+[ext_resource type="PackedScene" uid="uid://bwtcv55j8d0nw" path="res://Assets_Main/World/Location/_Falord/North(0,-1).tscn" id="2_qe5ad"]
+[ext_resource type="PackedScene" uid="uid://yxim3nwwlt1j" path="res://Assets_Main/World/Location/_Falord/East(1,0).tscn" id="4_rmoue"]
 [ext_resource type="Texture2D" uid="uid://dx2blvlx1qx1" path="res://Resources/Image/map/Map001_detailed.png" id="5_61s7l"]
 
 [sub_resource type="Gradient" id="Gradient_imnon"]
@@ -36,7 +37,14 @@ adjustment_color_correction = SubResource("GradientTexture1D_slkoq")
 
 [sub_resource type="Curve3D" id="Curve3D_dl5w4"]
 _data = {
-"points": PackedVector3Array(119, 0, 5, -119, 0, -5, 108, 0, 104, -36, 0, 92, 36, 0, -92, 4, 0, -127),
+"points": PackedVector3Array(157, 0, -53, -157, 0, 53, 139.305, 0, 69, -102, 0, 53, 102, 0, -53, 42, 0, -145),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve3D" id="Curve3D_4f6vw"]
+_data = {
+"points": PackedVector3Array(-94, -3, 88, 94, 0, -88, -164.494, 0, 83.691, -122, 0, 15, 122, -1, -15, 159.181, 0, -73.225),
 "tilts": PackedFloat32Array(0, 0)
 }
 point_count = 2
@@ -82,32 +90,31 @@ sky_mode = 2
 [node name="CentralSquare" parent="Falord" instance=ExtResource("2_5adnp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 64, 0, 64)
 
-[node name="North0" parent="Falord" instance=ExtResource("2_qe5ad")]
+[node name="North(0,-1)" parent="Falord" instance=ExtResource("2_qe5ad")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 64, 0, -64)
 
-[node name="Road" type="Node3D" parent="Falord"]
+[node name="East(1,0)" parent="Falord" instance=ExtResource("4_rmoue")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 192, 0, 64)
 
-[node name="CSGBox3D" type="CSGBox3D" parent="Falord/Road"]
-transform = Transform3D(0.906308, 0, 0.422618, 0, 1, 0, -0.422618, 0, 0.906308, 79.0145, 0, -100.916)
-size = Vector3(404, 0.25, 20)
+[node name="Road" type="Node3D" parent="."]
 
-[node name="CSGBox3D2" type="CSGBox3D" parent="Falord/Road"]
-transform = Transform3D(0.882948, 0, 0.469472, 0, 1, 0, -0.469472, 0, 0.882948, 89.1777, 0, 174.583)
-size = Vector3(350, 0.25, 30)
+[node name="CSGBox3D" type="CSGBox3D" parent="Road"]
+transform = Transform3D(0.906308, 0, 0.422618, 0, 1, 0, -0.422618, 0, 0.906308, 93.5154, 0, -107.678)
+size = Vector3(372, 0.25, 20)
 
-[node name="CSGBox3D3" type="CSGBox3D" parent="Falord/Road"]
+[node name="CSGBox3D3" type="CSGBox3D" parent="Road"]
 transform = Transform3D(0.469472, 0, -0.882948, 0, 1, 0, 0.882948, 0, 0.469472, 119.17, 0, -78.0571)
 size = Vector3(393, 0.25, 20)
 
-[node name="CSGBox3D5" type="CSGBox3D" parent="Falord/Road"]
+[node name="CSGBox3D5" type="CSGBox3D" parent="Road"]
 transform = Transform3D(0.469472, 0, -0.882948, 0, 1, 0, 0.882948, 0, 0.469472, -49.5429, 0, -157.91)
 size = Vector3(194, 0.25, 20)
 
-[node name="CSGBox3D6" type="CSGBox3D" parent="Falord/Road"]
+[node name="CSGBox3D6" type="CSGBox3D" parent="Road"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 194.62, 0, -211.664)
 size = Vector3(114, 0.25, 20)
 
-[node name="CSGPolygon3D" type="CSGPolygon3D" parent="Falord/Road"]
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="Road"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -115, 0, 115)
 polygon = PackedVector2Array(-10, -0.125, -10, 0.125, 10, 0.125, 10, -0.125)
 mode = 2
@@ -121,14 +128,33 @@ path_continuous_u = true
 path_u_distance = 1.0
 path_joined = false
 
-[node name="Path3D" type="Path3D" parent="Falord/Road/CSGPolygon3D"]
+[node name="Path3D" type="Path3D" parent="Road/CSGPolygon3D"]
 curve = SubResource("Curve3D_dl5w4")
+
+[node name="CSGPolygon3D2" type="CSGPolygon3D" parent="Road"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 95, 0, 171)
+polygon = PackedVector2Array(-15, -0.125, -15, 0.125, 15, 0.125, 15, -0.125)
+mode = 2
+path_node = NodePath("Path3D")
+path_interval_type = 0
+path_interval = 20.0
+path_simplify_angle = 0.0
+path_rotation = 2
+path_local = true
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = false
+
+[node name="Path3D" type="Path3D" parent="Road/CSGPolygon3D2"]
+visible = false
+curve = SubResource("Curve3D_4f6vw")
 
 [node name="Player" parent="." instance=ExtResource("1_ur16q")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
 
 [node name="Map" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4352, -10, 4352)
+visible = false
 material_override = SubResource("StandardMaterial3D_qoha8")
 mesh = SubResource("PlaneMesh_l72iu")
 

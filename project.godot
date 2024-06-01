@@ -193,7 +193,7 @@ tab_right={
 
 [internationalization]
 
-locale/translations=PackedStringArray("res://Language/Main_en_US.po", "res://Language/Main_zh_CN.po", "res://Language/Long_en_US.po", "res://Language/Long_zh_CN.po")
+locale/translations=PackedStringArray("res://Language/Main_en_US.po", "res://Language/Main_zh_CN.po", "res://Language/Long_en_US.po", "res://Language/Long_zh_CN.po", "res://Language/Item_en_US.po", "res://Language/Item_zh_CN.po")
 
 [layer_names]
 
@@ -205,6 +205,7 @@ locale/translations=PackedStringArray("res://Language/Main_en_US.po", "res://Lan
 3d_physics/layer_2="Building"
 3d_physics/layer_3="Character"
 3d_physics/layer_4="Decorate"
+3d_physics/layer_5="NoCullDeco"
 
 [physics]
 

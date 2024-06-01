@@ -1,0 +1,45 @@
+# LD_Anvil, 2023.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: FEAT - Item\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: zh_CN\n"
+
+####----------Item----------####
+
+####----------Equipment----------####
+###----------Tool----------###
+#----------Type----------#
+msgid "tool.type.undefined"
+msgstr "未定义"
+
+msgid "tool.type.wrench"
+msgstr "扳手"
+
+msgid "tool.type.screwdriver"
+msgstr "螺丝刀"
+
+msgid "tool.type.special"
+msgstr "特殊"
+
+msgid "tool.type.pickaxe"
+msgstr "镐"
+
+msgid "tool.type.sword"
+msgstr "剑"
+
+#----------By Material----------#
+msgid "tool.platinum_pickaxe"
+msgstr "铂镐"
+
+msgid "tool.platinum_pickaxe.description"
+msgstr "由铂金制成的镐子。"
+
+#----------Special----------#
+msgid "weapon.tutorial_sword"
+msgstr "教程剑"
+
+msgid "weapon.tutorial_sword.description"
+msgstr "仅用于新手教程"

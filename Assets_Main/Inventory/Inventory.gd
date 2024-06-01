@@ -6,14 +6,14 @@ extends Control
 @onready var item_list = $ItemInv/ItemList
 @onready var item_name = $ItemInv/Preview/Name
 @onready var item_model = $ItemInv/Preview/View/Viewport/MeshView2d/Mesh
-@onready var item_discription = $ItemInv/Preview/Discription
+@onready var item_description = $ItemInv/Preview/Description
 
 @onready var equipment_list = $EquipmentInv/EquipmentList
 @onready var equipment_name = $EquipmentInv/Preview/Container/VBoxContainer/Name
 @onready var equipment_subname = $EquipmentInv/Preview/Container/VBoxContainer/Subname
 @onready var equipment_info = $EquipmentInv/Preview/Container/VBoxContainer/Info
 @onready var equipment_model = $EquipmentInv/Preview/View/Viewport/MeshView2d/Mesh
-@onready var equipment_discription = $EquipmentInv/Preview/Discription
+@onready var equipment_description = $EquipmentInv/Preview/Description
 @onready var equipped_star = preload("res://Resources/Image/blue_star.svg")
 
 @onready var hotbar = $Hotbar
@@ -110,7 +110,7 @@ func item_inv_update():
 		subitem.set_icon(0,i.item.icon)
 		subitem.set_icon_max_width(0,30)
 		subitem.set_text(0,tr(i.item.name0))
-		subitem.set_tooltip_text(0,tr(i.item.get_discription()))
+		subitem.set_tooltip_text(0,tr(i.item.get_description()))
 		subitem.set_text(1,str(i.count))
 		subitem.set_text_alignment(1,HORIZONTAL_ALIGNMENT_RIGHT)
 		subitem.set_metadata(0,get_parent().Inventory.itemStack.find(i))
@@ -122,7 +122,7 @@ func _on_item_list_item_selected():
 		item_model.mesh = get_parent().Inventory.itemStack[index].item.model
 		if get_parent().Inventory.itemStack[index].item.material:
 			item_model.material_override = get_parent().Inventory.itemStack[index].item.material
-		item_discription.text = get_parent().Inventory.itemStack[index].item.get_discription()
+		item_description.text = get_parent().Inventory.itemStack[index].item.get_description()
 #Sort
 func _on_item_list_column_title_clicked(column, mouse_button_index):
 	get_parent().Inventory.sort_item(bool(column),bool(mouse_button_index-1))
@@ -163,7 +163,7 @@ func _on_equipment_list_item_selected():
 		equipment_model.mesh = get_parent().Inventory.eqMeta[index].equipment.model
 		if get_parent().Inventory.eqMeta[index].equipment.material:
 			equipment_model.material_override = get_parent().Inventory.eqMeta[index].equipment.material
-		equipment_discription.text = get_parent().Inventory.eqMeta[index].equipment.get_discription()
+		equipment_description.text = get_parent().Inventory.eqMeta[index].equipment.get_description()
 #Sort
 func _on_equipment_list_column_title_clicked(column, mouse_button_index):
 	get_parent().Inventory.sort_equipment(bool(column),bool(mouse_button_index-1))

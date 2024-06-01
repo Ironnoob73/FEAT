@@ -1,0 +1,46 @@
+# LD_Anvil, 2023.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: FEAT - Item\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: en_US\n"
+
+####----------Item----------####
+
+####----------Equipment----------####
+###----------Tool----------###
+#----------Type----------#
+msgid "tool.type.undefined"
+msgstr "Undefined"
+
+msgid "tool.type.wrench"
+msgstr "Wrench"
+
+msgid "tool.type.screwdriver"
+msgstr "Screwdriver"
+
+msgid "tool.type.special"
+msgstr "Special"
+
+msgid "tool.type.pickaxe"
+msgstr "Pickaxe"
+
+msgid "tool.type.sword"
+msgstr "Sword"
+
+
+#----------By Material----------#
+msgid "tool.platinum_pickaxe"
+msgstr "Platinum Pickaxe"
+
+msgid "tool.platinum_pickaxe.description"
+msgstr "A pickaxe made of platinum."
+
+#----------Special----------#
+msgid "weapon.tutorial_sword"
+msgstr "教程剑"
+
+msgid "weapon.tutorial_sword.description"
+msgstr "教程剑"

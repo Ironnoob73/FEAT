@@ -1,14 +1,25 @@
-extends Area3D
+extends RigidBody3D
 
-@export var item : String
-@onready var mesh = $MeshInstance3D
+@export var ThingInstance : ThingInstanceClass
+@onready var mesh = $PickableArea/MeshInstance3D
 
 func _ready():
-	if item :
-		var item_class = AllItems.get_item_from_name(item)
-		mesh.mesh = item_class.model
-		mesh.material_override = item_class.material
+	if !ThingInstance:
+		push_warning("NoThing")
+	elif ThingInstance is ItemStackClass:
+		if ThingInstance.item:
+			mesh.mesh = ThingInstance.item.model
+			mesh.material_override = ThingInstance.item.material
+		else : push_warning("NoThing")
+	elif ThingInstance is EqMetaClass:
+		if ThingInstance.equipment:
+			mesh.mesh = ThingInstance.equipment.model
+			mesh.material_override = ThingInstance.equipment.material
+		else : push_warning("NoThing")
 
-func _on_body_entered(body):
-	body.Inventory.add_equipment(item)
+func interact(sender):
+	_on_pickable_area_body_entered(sender)
+
+func _on_pickable_area_body_entered(body):
+	body.Inventory.add_instance(ThingInstance)
 	queue_free()

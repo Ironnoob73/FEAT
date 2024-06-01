@@ -1,4 +1,4 @@
-extends Resource
+extends ThingInstanceClass
 class_name EqMetaClass
 
 @export var equipment : EquipmentClass

@@ -5,6 +5,7 @@ var DATA_PATH : String = "user://"
 var Sdfgi : bool = false
 # In game control
 var mouse_sens = 0.4
+var auto_pickup : bool = true
 
 var isInGame : bool = false
 var playerPos : Vector3
@@ -35,6 +36,7 @@ func save_config():
 	file.set_value("audio","bgm",AudioServer.get_bus_volume_db(1))
 	file.set_value("audio","sfx",AudioServer.get_bus_volume_db(2))
 	file.set_value("control","mouse_sens",mouse_sens)
+	file.set_value("control","auto_pickup",auto_pickup)
 	var err = file.save(CONFIG_PATH)
 	if err != OK:	push_error("Fail to save config: %d" % err)
 func load_config():
@@ -50,6 +52,7 @@ func load_config():
 		AudioServer.set_bus_volume_db(1,file.get_value("audio","bgm",AudioServer.get_bus_volume_db(1)))
 		AudioServer.set_bus_volume_db(2,file.get_value("audio","sfx",AudioServer.get_bus_volume_db(2)))
 		mouse_sens = file.get_value("control","mouse_sens",0.4)
+		auto_pickup = file.get_value("control","auto_pickup",true)
 	else:			push_warning("Fail to load config: %d" % err)
 
 # Back to title

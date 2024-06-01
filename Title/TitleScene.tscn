@@ -952,6 +952,34 @@ value = 0.4
 custom_minimum_size = Vector2(20, 0)
 layout_mode = 2
 
+[node name="AutoPickup" type="HBoxContainer" parent="Main/Panel/Control/Options/Options/#options_control#/ControlSetting/VSpilt"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="EmptyL" type="Control" parent="Main/Panel/Control/Options/Options/#options_control#/ControlSetting/VSpilt/AutoPickup"]
+custom_minimum_size = Vector2(15, 0)
+layout_mode = 2
+
+[node name="auto_pickup_text" type="Label" parent="Main/Panel/Control/Options/Options/#options_control#/ControlSetting/VSpilt/AutoPickup"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "options.control.auto_pickup"
+
+[node name="auto_pickup_button" type="CheckBox" parent="Main/Panel/Control/Options/Options/#options_control#/ControlSetting/VSpilt/AutoPickup"]
+layout_mode = 2
+size_flags_horizontal = 10
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath("../../../..")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath(".")
+focus_next = NodePath(".")
+focus_previous = NodePath(".")
+flat = true
+
+[node name="EmptyR" type="Control" parent="Main/Panel/Control/Options/Options/#options_control#/ControlSetting/VSpilt/AutoPickup"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
 [node name="BackButton" type="Button" parent="Main/Panel/Control/Options"]
 layout_mode = 2
 shortcut = SubResource("Shortcut_elb6v")
@@ -1033,6 +1061,7 @@ libraries = {
 [connection signal="value_changed" from="Main/Panel/Control/Options/Options/#options_audio#/AudioSetting/VSpilt/Music/music_button" to="Main/Panel/Control/Options" method="_on_music_button_value_changed"]
 [connection signal="value_changed" from="Main/Panel/Control/Options/Options/#options_audio#/AudioSetting/VSpilt/SFX/sfx_button" to="Main/Panel/Control/Options" method="_on_sfx_button_value_changed"]
 [connection signal="value_changed" from="Main/Panel/Control/Options/Options/#options_control#/ControlSetting/VSpilt/MouseSen/mouse_button" to="Main/Panel/Control/Options" method="_on_mouse_button_value_changed"]
+[connection signal="toggled" from="Main/Panel/Control/Options/Options/#options_control#/ControlSetting/VSpilt/AutoPickup/auto_pickup_button" to="Main/Panel/Control/Options" method="_on_auto_pickup_button_toggled"]
 [connection signal="pressed" from="Main/Panel/Control/Options/BackButton" to="." method="_on_options_back_button_pressed"]
 [connection signal="pressed" from="Main/Panel/Control/ExitConfirm/ConfirmButton" to="." method="_on_confirm_button_pressed"]
 [connection signal="pressed" from="Main/Panel/Control/ExitConfirm/CancelButton" to="." method="_on_cancel_button_pressed"]

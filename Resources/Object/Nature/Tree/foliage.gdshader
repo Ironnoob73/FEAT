@@ -5,7 +5,6 @@ render_mode blend_mix, depth_draw_opaque, specular_schlick_ggx, depth_prepass_al
 uniform sampler2D texture_albedo : source_color,filter_nearest;
 
 uniform float WindScale : hint_range(1.0, 20.0) = 20.0;
-uniform float WindSpeed : hint_range(0.0, 20.0) = 20.0;
 uniform float WindStrength : hint_range(1.0, 20.0) = 10.0;
 uniform float WindDensity : hint_range(1.0, 20.0) = 20.0;
 uniform float ClampTop : hint_range(0.0, 1.0) = 1.0;
@@ -17,20 +16,9 @@ uniform float DistanceScale : hint_range(0.0, 5.0) = 0.0;
 uniform float DistanceStart = 0;
 uniform float DistanceScaleRange = 70;
 
-vec2 rotateUV(vec2 uv, float rotation, vec2 mid)
-{
-	float cosAngle = cos(rotation);
-	float sinAngle = sin(rotation);
-	return vec2(
-		cosAngle * (uv.x - mid.x) + sinAngle * (uv.y - mid.y) + mid.x,
-		cosAngle * (uv.y - mid.y) - sinAngle * (uv.x - mid.x) + mid.y
-	);
-}
-
-varying vec3 obj_vertex;
 void vertex()
 {
-	float distanceScale = 1.0;
+	//float distanceScale = 1.0;
 	vec3 world_pos = (MODEL_MATRIX * vec4(VERTEX, 1.0)).xyz;	//Generates world coordinates for vertecies
 	vec3 distance_vector = world_pos - (INV_VIEW_MATRIX * vec4(0.0, 0.0, 0.0, 1.0)).xyz;
 	float square_distance = distance_vector.x * distance_vector.x + distance_vector.y * distance_vector.y + distance_vector.z * distance_vector.z;
@@ -74,21 +62,12 @@ void vertex()
 	vec3 wind_offset = vec3(VERTEX.x * si * mask, VERTEX.y * si * mask, VERTEX.z * csi * mask);
 	
 	VERTEX += obj_oriented_offset + wind_offset;
-	
-	obj_vertex = VERTEX;
 }
 
 void fragment()
 {
-	float rate_col1 = clamp(COLOR.r,0.0, 1.0);
-	float rate_col2 = 1.0 - rate_col1;
-	
-	float fresnel = pow(1.0 - clamp(dot(NORMAL, VIEW), 0.0, 1.0), 3.0);
-	float fresnel_rate = clamp(rate_col1,0.1,1);
-	
 	vec2 uv = UV;
 	uv = clamp(uv, 0.0, 1.0);
-	float x = COLOR.b;
 	
 	vec2 base_uv = UV;
 	vec4 albedo_tex = texture(texture_albedo,base_uv);
