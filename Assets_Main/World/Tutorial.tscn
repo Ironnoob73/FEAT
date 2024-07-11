@@ -165,6 +165,10 @@ ThingInstance = SubResource("Resource_tp6iv")
 wait_time = 5.0
 autostart = true
 
+[node name="Player" parent="." instance=ExtResource("2_oeg7p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+isInVR = true
+
 [node name="Tip" type="Label" parent="."]
 modulate = Color(1, 1, 1, 0)
 anchors_preset = 7
@@ -172,19 +176,15 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -20.0
-offset_top = -23.0
-offset_right = 20.0
+offset_left = -44.0
+offset_top = -142.0
+offset_right = 44.0
 offset_bottom = -100.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxFlat_a7byu")
 text = "TEST"
-
-[node name="Player" parent="." instance=ExtResource("2_oeg7p")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-isInVR = true
 
 [connection signal="touch" from="Parkour/Column5/WaypointScene" to="." method="_on_parkour_waypoint_touch"]
 [connection signal="interacted" from="OpenDoor/DoorPlate" to="." method="_on_door_plate_interacted"]

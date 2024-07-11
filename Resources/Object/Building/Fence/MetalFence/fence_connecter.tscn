@@ -6,15 +6,15 @@
 use_collision = true
 collision_layer = 9
 collision_mask = 3
-size = Vector3(0.4, 0.2, 0.2)
+size = Vector3(0.5, 0.2, 0.2)
 material = ExtResource("1_bavt6")
 
 [node name="Middle" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.55, 0)
-size = Vector3(0.4, 0.1, 0.2)
+size = Vector3(0.5, 0.1, 0.2)
 material = ExtResource("1_bavt6")
 
 [node name="Down" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.6, 0)
-size = Vector3(0.4, 0.2, 0.2)
+size = Vector3(0.5, 0.2, 0.2)
 material = ExtResource("1_bavt6")

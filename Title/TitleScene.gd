@@ -60,3 +60,5 @@ func _on_continue_button_pressed():
 # Tooltip
 #func _process(_delta):
 #	tooltip.position = lerp(Vector2(tooltip.position),get_global_mouse_position() + Vector2(20,20),0.5)
+
+

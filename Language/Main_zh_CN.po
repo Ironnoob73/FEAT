@@ -40,6 +40,9 @@ msgstr "语言"
 msgid "options.game.data"
 msgstr "存档路径"
 
+msgid "options.game.use_sub_threads"
+msgstr "使用子线程加载场景"
+
 msgid "#options_video#"
 msgstr "视频"
 

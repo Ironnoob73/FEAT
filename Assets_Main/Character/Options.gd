@@ -3,6 +3,7 @@ extends TabContainer
 @onready var GameLanguage = $"#options_game#/GameSetting/VSplit/Language/language_button"
 @onready var DataPath = $"#options_game#/GameSetting/VSplit/DataPath/datapath_button"
 @onready var path_choose = $"#options_game#/GameSetting/VSplit/DataPath/datapath_button/path_choose"
+@onready var UseSubThreads = $"#options_game#/GameSetting/VSplit/UseSubThreads/ust_button"
 
 @onready var Fullscreen = $"#options_video#/VideoSetting/VSpilt/Fullscreen/fullscreen_button"
 @onready var fullscreen_warn = $"#options_video#/VideoSetting/VSpilt/Fullscreen/fullscreen_button/fullscreen_warn"
@@ -14,6 +15,7 @@ extends TabContainer
 @onready var SfxVolume = $"#options_audio#/AudioSetting/VSpilt/SFX/sfx_button"
 
 @onready var MouseSen = $"#options_control#/ControlSetting/VSpilt/MouseSen/mouse_button"
+@onready var AutoPickup = $"#options_control#/ControlSetting/VSpilt/AutoPickup/auto_pickup_button"
 
 signal SetSdfgi(bool)
 
@@ -24,6 +26,9 @@ func _ready():
 		"zh_CN":	GameLanguage.set_indexed("selected",1)
 	# Data path
 	DataPath.text = Global.DATA_PATH
+	# Use sub threads
+	UseSubThreads.set_pressed_no_signal(Global.load_use_sub_threads)
+	
 	# Fullscreen
 	match DisplayServer.window_get_mode():
 		0:	Fullscreen.set_pressed_no_signal(false)
@@ -42,6 +47,9 @@ func _ready():
 	# Control
 	MouseSen.value = Global.mouse_sens
 	MouseSen.set_tooltip_text( str((Global.mouse_sens)*100) + "%")
+	# AutoPickup
+	AutoPickup.set_pressed_no_signal(Global.auto_pickup)
+	
 
 # Change tab
 func _input(_event):
@@ -67,6 +75,10 @@ func _on_datapath_button_pressed():
 func _on_path_choose_dir_selected(dir):
 	Global.DATA_PATH = dir
 	DataPath.text = Global.DATA_PATH
+	Global.save_config()
+# Use sub threads to load scene
+func _on_ust_button_toggled(toggled_on):
+	Global.load_use_sub_threads = toggled_on
 	Global.save_config()
 
 # Fullscreen
@@ -128,4 +140,6 @@ func tab_focus():
 		1:Fullscreen.grab_focus()
 		2:MasterVolume.grab_focus()
 		3:MouseSen.grab_focus()
+
+
 

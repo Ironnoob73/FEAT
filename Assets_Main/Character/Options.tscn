@@ -93,6 +93,27 @@ file_mode = 2
 access = 2
 use_native_dialog = true
 
+[node name="UseSubThreads" type="HBoxContainer" parent="#options_game#/GameSetting/VSplit"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ust_text" type="Label" parent="#options_game#/GameSetting/VSplit/UseSubThreads"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "options.game.use_sub_threads"
+
+[node name="ust_button" type="CheckBox" parent="#options_game#/GameSetting/VSplit/UseSubThreads"]
+layout_mode = 2
+size_flags_horizontal = 8
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath("../../../..")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath(".")
+focus_next = NodePath(".")
+focus_previous = NodePath(".")
+text = " "
+flat = true
+
 [node name="#options_video#" type="TabBar" parent="."]
 visible = false
 layout_direction = 1
@@ -335,6 +356,7 @@ flat = true
 [connection signal="item_selected" from="#options_game#/GameSetting/VSplit/Language/language_button" to="." method="_on_option_button_item_selected"]
 [connection signal="pressed" from="#options_game#/GameSetting/VSplit/DataPath/datapath_button" to="." method="_on_datapath_button_pressed"]
 [connection signal="dir_selected" from="#options_game#/GameSetting/VSplit/DataPath/datapath_button/path_choose" to="." method="_on_path_choose_dir_selected"]
+[connection signal="toggled" from="#options_game#/GameSetting/VSplit/UseSubThreads/ust_button" to="." method="_on_ust_button_toggled"]
 [connection signal="toggled" from="#options_video#/VideoSetting/VSpilt/Fullscreen/fullscreen_button" to="." method="_on_fullscreen_button_toggled"]
 [connection signal="close_requested" from="#options_video#/VideoSetting/VSpilt/Fullscreen/fullscreen_button/fullscreen_warn" to="." method="_on_fullscreen_warn_close_requested"]
 [connection signal="value_changed" from="#options_video#/VideoSetting/VSpilt/Scale/scale_button" to="." method="_on_scale_button_value_changed"]

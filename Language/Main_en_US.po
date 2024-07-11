@@ -40,6 +40,9 @@ msgstr "Language"
 msgid "options.game.data"
 msgstr "Data Path"
 
+msgid "options.game.use_sub_threads"
+msgstr "Use sub threads to load scenes"
+
 msgid "#options_video#"
 msgstr "Video"
 

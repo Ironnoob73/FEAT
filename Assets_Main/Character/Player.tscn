@@ -11,6 +11,15 @@
 [ext_resource type="PackedScene" uid="uid://v2j546pk6a4k" path="res://Assets_Main/Character/PlayerHUDStatesBar.tscn" id="6_b8jq2"]
 [ext_resource type="PackedScene" uid="uid://tnlamai5w4yx" path="res://Assets_Main/Character/VirtualJoypad/VirtualJoypad.tscn" id="8_ox0si"]
 
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_a500n"]
+radius = 0.4
+height = 1.8
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_xn36b"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_stt28"]
+size = Vector3(0.5, 0.5, 0.5)
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vxpu5"]
 shader = ExtResource("2_ksj8u")
 
@@ -25,15 +34,6 @@ width = 3
 height = 3
 fill_to = Vector2(0.5, 0.5)
 repeat = 1
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_a500n"]
-radius = 0.4
-height = 1.8
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_xn36b"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_stt28"]
-size = Vector3(0.5, 0.5, 0.5)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_co7mu"]
 
@@ -68,6 +68,89 @@ collision_mask = 15
 floor_max_angle = 0.872665
 script = ExtResource("1_twfth")
 
+[node name="PlayerColl" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_a500n")
+
+[node name="ClimbArea" type="Area3D" parent="PlayerColl"]
+collision_mask = 15
+
+[node name="Coll" type="CollisionShape3D" parent="PlayerColl/ClimbArea"]
+shape = SubResource("CapsuleShape3D_a500n")
+
+[node name="MotionArea" type="Area3D" parent="PlayerColl"]
+
+[node name="Coll" type="CollisionShape3D" parent="PlayerColl/MotionArea"]
+shape = SubResource("CapsuleShape3D_xn36b")
+
+[node name="PlayerCam" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+cull_mask = 47
+doppler_tracking = 1
+current = true
+
+[node name="FirstPersonHandled" type="SubViewportContainer" parent="PlayerCam"]
+visibility_layer = 16
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+metadata/_edit_use_anchors_ = true
+
+[node name="SubViewport" type="SubViewport" parent="PlayerCam/FirstPersonHandled"]
+transparent_bg = true
+handle_input_locally = false
+canvas_cull_mask = 4293918736
+size = Vector2i(1600, 900)
+render_target_update_mode = 4
+
+[node name="FirstPersonCam" type="Camera3D" parent="PlayerCam/FirstPersonHandled/SubViewport"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+cull_mask = 16
+script = ExtResource("4_750b5")
+
+[node name="HandHeld" type="Node3D" parent="PlayerCam/FirstPersonHandled/SubViewport/FirstPersonCam"]
+transform = Transform3D(-2.18557e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.18557e-08, 0.45, -0.35, -0.5)
+
+[node name="WorldActual" type="SubViewportContainer" parent="PlayerCam"]
+visible = false
+visibility_layer = 15
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="PlayerCam/WorldActual"]
+transparent_bg = true
+handle_input_locally = false
+canvas_cull_mask = 4293918735
+size = Vector2i(1600, 900)
+render_target_update_mode = 0
+
+[node name="WorldActualCam" type="Camera3D" parent="PlayerCam/WorldActual/SubViewport"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+cull_mask = 15
+
+[node name="InteractRay" type="RayCast3D" parent="PlayerCam"]
+target_position = Vector3(0, 0, -20)
+collision_mask = 26
+script = ExtResource("2_fls23")
+
+[node name="StandingDetected" type="ShapeCast3D" parent="."]
+shape = SubResource("BoxShape3D_stt28")
+target_position = Vector3(0, 0.65, 0)
+
+[node name="StairsAheadRayCast3D" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.35, -0.41)
+target_position = Vector3(0, -0.55, 0)
+
+[node name="StairsBelowRayCast3D" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.9, 0)
+target_position = Vector3(0, -0.5, 0)
+
 [node name="CrossHair" type="TextureRect" parent="."]
 texture_filter = 1
 texture_repeat = 2
@@ -94,66 +177,6 @@ offset_right = 30.0
 offset_bottom = 33.0
 text = "[E]"
 metadata/_edit_use_anchors_ = true
-
-[node name="PlayerColl" type="CollisionShape3D" parent="."]
-shape = SubResource("CapsuleShape3D_a500n")
-
-[node name="ClimbArea" type="Area3D" parent="PlayerColl"]
-collision_mask = 15
-
-[node name="Coll" type="CollisionShape3D" parent="PlayerColl/ClimbArea"]
-shape = SubResource("CapsuleShape3D_a500n")
-
-[node name="MotionArea" type="Area3D" parent="PlayerColl"]
-
-[node name="Coll" type="CollisionShape3D" parent="PlayerColl/MotionArea"]
-shape = SubResource("CapsuleShape3D_xn36b")
-
-[node name="PlayerCam" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
-cull_mask = 3
-doppler_tracking = 1
-fov = 77.3196
-
-[node name="FirstPersonHandled" type="SubViewportContainer" parent="PlayerCam"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-stretch = true
-metadata/_edit_use_anchors_ = true
-
-[node name="SubViewport" type="SubViewport" parent="PlayerCam/FirstPersonHandled"]
-transparent_bg = true
-handle_input_locally = false
-size = Vector2i(1600, 900)
-render_target_update_mode = 4
-
-[node name="FirstPersonCam" type="Camera3D" parent="PlayerCam/FirstPersonHandled/SubViewport"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
-cull_mask = 16
-script = ExtResource("4_750b5")
-
-[node name="HandHeld" type="Node3D" parent="PlayerCam/FirstPersonHandled/SubViewport/FirstPersonCam"]
-transform = Transform3D(-2.18557e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.18557e-08, 0.45, -0.35, -0.5)
-
-[node name="InteractRay" type="RayCast3D" parent="PlayerCam"]
-target_position = Vector3(0, 0, -20)
-collision_mask = 26
-script = ExtResource("2_fls23")
-
-[node name="StandingDetected" type="ShapeCast3D" parent="."]
-shape = SubResource("BoxShape3D_stt28")
-target_position = Vector3(0, 0.65, 0)
-
-[node name="StairsAheadRayCast3D" type="RayCast3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.35, -0.41)
-target_position = Vector3(0, -0.55, 0)
-
-[node name="StairsBelowRayCast3D" type="RayCast3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.9, 0)
-target_position = Vector3(0, -0.5, 0)
 
 [node name="HudHotbar" parent="." instance=ExtResource("3_fnuc4")]
 mouse_filter = 1

@@ -3,6 +3,10 @@ extends Node
 const CONFIG_PATH = "user://settings.cfg"
 var DATA_PATH : String = "user://"
 var Sdfgi : bool = false
+
+# Load options
+var load_use_sub_threads : bool = false
+
 # In game control
 var mouse_sens = 0.4
 var auto_pickup : bool = true
@@ -29,6 +33,7 @@ func save_config():
 	var file = ConfigFile.new()
 	file.set_value("game","language",TranslationServer.get_locale())
 	file.set_value("game","data_path",DATA_PATH)
+	file.set_value("game","load_use_sub_threads",load_use_sub_threads)
 	file.set_value("video","fullscreen",DisplayServer.window_get_mode())
 	file.set_value("video","scale",get_window().content_scale_factor)
 	file.set_value("video","sdfgi",Sdfgi)
@@ -45,6 +50,7 @@ func load_config():
 	if err == OK:
 		TranslationServer.set_locale(file.get_value("game","language",TranslationServer.get_locale()))
 		DATA_PATH = file.get_value("game","data_path","user://")
+		load_use_sub_threads = file.get_value("game","load_use_sub_threads",false)
 		DisplayServer.window_set_mode(file.get_value("video","fullscreen",DisplayServer.window_get_mode()))
 		get_window().content_scale_factor = file.get_value("video","scale",1)
 		Sdfgi = file.get_value("video","sdfgi",false)

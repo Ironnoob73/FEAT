@@ -25,6 +25,7 @@ var isSit : bool = false
 @onready var inventory_menu = $Inventory
 
 @onready var first_person_cam = $PlayerCam/FirstPersonHandled/SubViewport/FirstPersonCam
+@onready var world_actual_cam = $PlayerCam/WorldActual/SubViewport/WorldActualCam
 @onready var hand_held = $PlayerCam/FirstPersonHandled/SubViewport/FirstPersonCam/HandHeld
 
 @onready var interact_ray = $PlayerCam/InteractRay
@@ -256,6 +257,7 @@ func _process(_delta):
 		1 :
 			load_step += 1
 	first_person_cam.global_transform = player_camera.global_transform
+	world_actual_cam.global_transform = player_camera.global_transform
 	
 func refresh_handheld(index:int):
 	handheld_tool = Inventory.ToolHotbar[current_hotbar]
@@ -271,6 +273,7 @@ func refresh_handheld(index:int):
 				var handheld_model = MeshInstance3D.new()
 				handheld_model.mesh = handheld_tool.equipment.model
 				handheld_model.material_override = handheld_tool.equipment.material
+				handheld_model.set_layer_mask_value(5,true)
 				hand_held.add_child(handheld_model)
 			refresh_handheld_info()
 		else :

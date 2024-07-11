@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://cbqcgu2sfj7s0"]
+
+[ext_resource type="Material" uid="uid://lwjkvikmw3dm" path="res://Resources/Material/Asphalt.tres" id="1_hwx1j"]
+[ext_resource type="Material" uid="uid://drhehwdeyc38b" path="res://Resources/Material/Concrete.tres" id="2_45o1y"]
+[ext_resource type="Material" uid="uid://dcwav4237d0l3" path="res://Resources/Material/GrassGround.tres" id="2_gp166"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_yhxj7"]
+size = Vector2(92, 24)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_rkiac"]
+size = Vector2(44, 28)
+
+[node name="South(-1,0)" type="Node3D"]
+
+[node name="MainRoad" type="CSGPolygon3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.15, 0)
+use_collision = true
+collision_layer = 3
+polygon = PackedVector2Array(15, 25, 31, 33, 49, 41, 59, 45, 64, 47, 64, 64, 27, 64, 12, 57, -2, 50, -17, 42, -34, 32, -50, 22, -64, 12, -64, -24, -51, -15, -35, -4, -19, 6, -2, 16)
+depth = 0.25
+material = ExtResource("1_hwx1j")
+
+[node name="RoadBase" type="CSGPolygon3D" parent="MainRoad"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.25)
+use_collision = true
+collision_layer = 3
+polygon = PackedVector2Array(15, 25, 31, 33, 49, 41, 59, 45, 64, 47, 64, 64, 27, 64, 12, 57, -2, 50, -17, 42, -34, 32, -50, 22, -64, 12, -64, -24, -51, -15, -35, -4, -19, 6, -2, 16)
+material = ExtResource("2_45o1y")
+
+[node name="NGrassground0" type="CSGMesh3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18, -0.025, -52)
+use_collision = true
+collision_layer = 3
+mesh = SubResource("PlaneMesh_yhxj7")
+material = ExtResource("2_gp166")
+
+[node name="NGrassground1" type="CSGMesh3D" parent="NGrassground0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 0, 26)
+mesh = SubResource("PlaneMesh_rkiac")
+material = ExtResource("2_gp166")

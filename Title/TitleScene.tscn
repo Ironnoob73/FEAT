@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bp6c7x4dytetk"]
+[gd_scene load_steps=17 format=3 uid="uid://bp6c7x4dytetk"]
 
 [ext_resource type="Script" path="res://Title/TitleScene.gd" id="1_eqpau"]
 [ext_resource type="Theme" uid="uid://cwbdqmvx07r3k" path="res://Title/MainMenuButton_theme.tres" id="2_l7ppy"]
@@ -27,6 +27,14 @@ content_margin_top = 4.0
 content_margin_right = 4.0
 content_margin_bottom = 4.0
 bg_color = Color(0.6, 0.6, 0.6, 0)
+corner_detail = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m6in3"]
+content_margin_left = 8.0
+content_margin_top = 4.0
+content_margin_right = 21.0
+content_margin_bottom = 4.0
+bg_color = Color(0.1, 0.1, 0.1, 0.6)
 corner_detail = 1
 
 [sub_resource type="InputEventAction" id="InputEventAction_8q5da"]
@@ -724,6 +732,74 @@ popup/item_1/id = 1
 custom_minimum_size = Vector2(20, 0)
 layout_mode = 2
 
+[node name="DataPath" type="HBoxContainer" parent="Main/Panel/Control/Options/Options/#options_game#/GameSetting/VSpilt"]
+layout_mode = 2
+
+[node name="EmptyL" type="Control" parent="Main/Panel/Control/Options/Options/#options_game#/GameSetting/VSpilt/DataPath"]
+custom_minimum_size = Vector2(15, 0)
+layout_mode = 2
+
+[node name="datapath_text" type="Label" parent="Main/Panel/Control/Options/Options/#options_game#/GameSetting/VSpilt/DataPath"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "options.game.data"
+
+[node name="datapath_button" type="Button" parent="Main/Panel/Control/Options/Options/#options_game#/GameSetting/VSpilt/DataPath"]
+custom_minimum_size = Vector2(200, 35)
+layout_mode = 2
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath("../../Language/language_button")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath("../../Language/language_button")
+focus_next = NodePath("../../Language/language_button")
+focus_previous = NodePath("../../Language/language_button")
+theme_override_styles/normal = SubResource("StyleBoxFlat_m6in3")
+text = "PATH"
+alignment = 0
+
+[node name="path_choose" type="FileDialog" parent="Main/Panel/Control/Options/Options/#options_game#/GameSetting/VSpilt/DataPath/datapath_button"]
+gui_embed_subwindows = true
+title = "Open a Directory"
+initial_position = 2
+size = Vector2i(750, 500)
+ok_button_text = "选择当前文件夹"
+cancel_button_text = "button.cancel"
+file_mode = 2
+access = 2
+use_native_dialog = true
+
+[node name="EmptyR" type="Control" parent="Main/Panel/Control/Options/Options/#options_game#/GameSetting/VSpilt/DataPath"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="UseSubThreads" type="HBoxContainer" parent="Main/Panel/Control/Options/Options/#options_game#/GameSetting/VSpilt"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="EmptyL" type="Control" parent="Main/Panel/Control/Options/Options/#options_game#/GameSetting/VSpilt/UseSubThreads"]
+custom_minimum_size = Vector2(15, 0)
+layout_mode = 2
+
+[node name="ust_text" type="Label" parent="Main/Panel/Control/Options/Options/#options_game#/GameSetting/VSpilt/UseSubThreads"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "options.game.use_sub_threads"
+
+[node name="ust_button" type="CheckBox" parent="Main/Panel/Control/Options/Options/#options_game#/GameSetting/VSpilt/UseSubThreads"]
+layout_mode = 2
+size_flags_horizontal = 10
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath("../../../..")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath(".")
+focus_next = NodePath(".")
+focus_previous = NodePath(".")
+flat = true
+
+[node name="EmptyR" type="Control" parent="Main/Panel/Control/Options/Options/#options_game#/GameSetting/VSpilt/UseSubThreads"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
 [node name="#options_video#" type="TabBar" parent="Main/Panel/Control/Options/Options"]
 visible = false
 layout_mode = 2
@@ -1053,6 +1129,9 @@ libraries = {
 [connection signal="pressed" from="Main/Panel/Control/MainMenu/MainMenu/OptionsButton" to="." method="_on_options_button_pressed"]
 [connection signal="pressed" from="Main/Panel/Control/MainMenu/MainMenu/ExitButton" to="." method="_on_exit_button_pressed"]
 [connection signal="item_selected" from="Main/Panel/Control/Options/Options/#options_game#/GameSetting/VSpilt/Language/language_button" to="Main/Panel/Control/Options" method="_on_language_button_item_selected"]
+[connection signal="pressed" from="Main/Panel/Control/Options/Options/#options_game#/GameSetting/VSpilt/DataPath/datapath_button" to="Main/Panel/Control/Options" method="_on_datapath_button_pressed"]
+[connection signal="dir_selected" from="Main/Panel/Control/Options/Options/#options_game#/GameSetting/VSpilt/DataPath/datapath_button/path_choose" to="Main/Panel/Control/Options" method="_on_path_choose_dir_selected"]
+[connection signal="toggled" from="Main/Panel/Control/Options/Options/#options_game#/GameSetting/VSpilt/UseSubThreads/ust_button" to="Main/Panel/Control/Options" method="_on_ust_button_toggled"]
 [connection signal="toggled" from="Main/Panel/Control/Options/Options/#options_video#/VideoSetting/VSpilt/Fullscreen/fullscreen_button" to="Main/Panel/Control/Options" method="_on_fullscreen_button_toggled"]
 [connection signal="close_requested" from="Main/Panel/Control/Options/Options/#options_video#/VideoSetting/VSpilt/Fullscreen/fullscreen_button/fullscreen_warn" to="Main/Panel/Control/Options" method="_on_fullscreen_warn_close_requested"]
 [connection signal="value_changed" from="Main/Panel/Control/Options/Options/#options_video#/VideoSetting/VSpilt/Scale/scale_button" to="Main/Panel/Control/Options" method="_on_scale_button_value_changed"]

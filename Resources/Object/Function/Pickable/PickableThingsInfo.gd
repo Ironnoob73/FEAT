@@ -17,9 +17,13 @@ func _ready():
 			mesh.material_override = ThingInstance.equipment.material
 		else : push_warning("NoThing")
 
-func interact(sender):
-	_on_pickable_area_body_entered(sender)
-
-func _on_pickable_area_body_entered(body):
+func pickup(body):
 	body.Inventory.add_instance(ThingInstance)
 	queue_free()
+	
+func interact(sender):
+	pickup(sender)
+
+func _on_pickable_area_body_entered(body):
+	if Global.auto_pickup:
+		pickup(body)
