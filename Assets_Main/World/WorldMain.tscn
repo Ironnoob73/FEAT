@@ -59,8 +59,9 @@ size = Vector2(24576, 24576)
 albedo_texture = ExtResource("5_61s7l")
 texture_filter = 0
 proximity_fade_distance = 128.0
-distance_fade_min_distance = 256.0
-distance_fade_max_distance = 1024.0
+distance_fade_mode = 2
+distance_fade_min_distance = 128.0
+distance_fade_max_distance = 512.0
 
 [node name="World" type="Node3D"]
 script = ExtResource("1_4lhai")
