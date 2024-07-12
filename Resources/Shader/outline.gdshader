@@ -1,6 +1,5 @@
 // From : https://godotshaders.com/shader/pixel-perfect-outline-shader/
-shader_type spatial;
-render_mode cull_front, unshaded;
+shader_type sky;
 
 uniform bool active = false;
 uniform vec4 outline_color : source_color;
@@ -19,6 +18,7 @@ void vertex() {
 
 void fragment() {
 	ALBEDO = outline_color.rgb;
+	EMISSION = outline_color.rgb * 100.0;
 	if(active){
 		ALPHA = outline_color.a * sin(TIME * 5.0);
 	}else{

@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://bvy3w12icx37e"]
+
+[ext_resource type="Material" uid="uid://lwjkvikmw3dm" path="res://Resources/Material/Asphalt.tres" id="1_w67mv"]
+[ext_resource type="Material" uid="uid://b7eqico61xad7" path="res://Resources/Material/StoneBricksRoad.tres" id="2_ybnsu"]
+
+[node name="SouthWest(-1,1)" type="Node3D"]
+
+[node name="Wideroad" type="CSGPolygon3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.15, 0)
+use_collision = true
+collision_layer = 3
+polygon = PackedVector2Array(64, 13, 47, 1, 33, -10, 17, -23, -3, -40, -16, -52, -28, -64, 15, -64, 23, -57, 36, -46, 51, -34, 64, -24)
+depth = 0.25
+material = ExtResource("1_w67mv")
+
+[node name="Sideroad" type="CSGPolygon3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.150002, 0)
+use_collision = true
+collision_layer = 3
+polygon = PackedVector2Array(64, 13, 50, 10, 32, 10, 16, 13, -1, 20, -15, 29, -28, 42, -38, 56, -42, 64, -64, 64, -56, 47, -45, 31, -28, 14, -10, 2, 9, -6, 31, -10, 33, -10, 47, 1)
+depth = 0.25
+material = ExtResource("2_ybnsu")

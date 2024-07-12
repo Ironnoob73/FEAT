@@ -1,0 +1,60 @@
+[gd_scene load_steps=7 format=3 uid="uid://ct20o7uc280r3"]
+
+[ext_resource type="Material" uid="uid://b7eqico61xad7" path="res://Resources/Material/StoneBricksRoad.tres" id="1_ofik3"]
+[ext_resource type="Material" uid="uid://4hlgj1u74iny" path="res://Resources/Material/ConcreteBricks.tres" id="2_y47w3"]
+[ext_resource type="Material" uid="uid://drhehwdeyc38b" path="res://Resources/Material/Concrete.tres" id="3_clafs"]
+[ext_resource type="PackedScene" uid="uid://6ubkkpxp1sn5" path="res://Resources/Object/Building/Fence/MetalFence/fence_scene.tscn" id="4_qp4ji"]
+[ext_resource type="PackedScene" uid="uid://y0museb2b2ye" path="res://Resources/Object/Building/Fence/MetalFence/fence_connecter.tscn" id="5_mu2f0"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_1m0wm"]
+size = Vector2(100, 100)
+
+[node name="West(-1,0)" type="Node3D"]
+
+[node name="Sideroad" type="CSGPolygon3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.15, 0)
+use_collision = true
+collision_layer = 3
+polygon = PackedVector2Array(-52, 16, -48, 32, -41, 49, -31, 64, -55, 64, -59, 58, -64, 45, -64, -64, -42, -64, -46, -56, -51, -39, -54, -20, -54, -3)
+depth = 0.25
+material = ExtResource("1_ofik3")
+
+[node name="FarmLand" type="CSGMesh3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, 14)
+use_collision = true
+collision_layer = 3
+mesh = SubResource("PlaneMesh_1m0wm")
+
+[node name="FarmBoard" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, -38)
+use_collision = true
+collision_layer = 3
+size = Vector3(100, 0.1, 4)
+material = ExtResource("2_y47w3")
+
+[node name="WestBoard" type="CSGBox3D" parent="FarmBoard"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -52, 0, 50)
+use_collision = true
+collision_layer = 3
+size = Vector3(4, 0.1, 104)
+material = ExtResource("2_y47w3")
+
+[node name="FenceBase" type="CSGBox3D" parent="FarmBoard"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46, 0.8, -1.75)
+size = Vector3(8, 1.5, 0.5)
+material = ExtResource("3_clafs")
+
+[node name="FenceScene0" parent="FarmBoard/FenceBase" instance=ExtResource("4_qp4ji")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 2.75, 0)
+
+[node name="FenceConnecter0" parent="FarmBoard/FenceBase/FenceScene0" instance=ExtResource("5_mu2f0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.75, 1.5, 0)
+
+[node name="FenceConnecter1" parent="FarmBoard/FenceBase/FenceScene0" instance=ExtResource("5_mu2f0")]
+transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1.5, 0)
+
+[node name="FenceScene1" parent="FarmBoard/FenceBase" instance=ExtResource("4_qp4ji")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 2.75, 0)
+
+[node name="FenceConnecter" parent="FarmBoard/FenceBase/FenceScene1" instance=ExtResource("5_mu2f0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.75, 1.5, 0)

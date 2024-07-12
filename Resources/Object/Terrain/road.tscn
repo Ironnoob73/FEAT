@@ -67,3 +67,6 @@ path_joined = false
 [node name="Path3D" type="Path3D" parent="CSGPolygon3D2"]
 visible = false
 curve = SubResource("Curve3D_4f6vw")
+
+[node name="Node3D" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -64, 0, 192)
