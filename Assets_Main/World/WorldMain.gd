@@ -36,7 +36,6 @@ func _physics_process(_delta):
 		sun.light_energy = sin(sunlight * 2) * 2
 		sun.light_color.g = sin(sunlight + PI / 2) * 0.5 + 0.5
 		sun.light_color.b = sin(sunlight + PI / 2) * 0.8 + 0.15
-		print(sun.light_color)
 		sun_visual.light_color = sun.light_color
 		sun.light_angular_distance = sin(sunlight) * 5
 		sun_visual.light_angular_distance = sun.light_angular_distance

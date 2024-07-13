@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://ggr3biv5ly6l"]
+
+[ext_resource type="Script" path="res://Resources/Object/Function/Comment/CommentInteraction.gd" id="1_a7b4t"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1k3no"]
+size = Vector3(0.5, 0.5, 0.5)
+
+[node name="CommentScene" type="StaticBody3D" groups=["Interactive"]]
+collision_layer = 16
+collision_mask = 9
+script = ExtResource("1_a7b4t")
+
+[node name="CollisionShape" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_1k3no")
+
+[node name="Label3D" type="Label3D" parent="."]
+billboard = 1
+text = "💬"
+font_size = 128
+outline_size = 0

@@ -1,7 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://bvy3w12icx37e"]
+[gd_scene load_steps=7 format=3 uid="uid://bvy3w12icx37e"]
 
 [ext_resource type="Material" uid="uid://lwjkvikmw3dm" path="res://Resources/Material/Asphalt.tres" id="1_w67mv"]
 [ext_resource type="Material" uid="uid://b7eqico61xad7" path="res://Resources/Material/StoneBricksRoad.tres" id="2_ybnsu"]
+[ext_resource type="Material" uid="uid://dcwav4237d0l3" path="res://Resources/Material/GrassGround.tres" id="4_x28dq"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_qu2cc"]
+size = Vector2(106, 24)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_4hj8m"]
+size = Vector2(90, 24)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_6wwew"]
+size = Vector2(56, 6)
 
 [node name="SouthWest(-1,1)" type="Node3D"]
 
@@ -13,10 +23,27 @@ polygon = PackedVector2Array(64, 13, 47, 1, 33, -10, 17, -23, -3, -40, -16, -52,
 depth = 0.25
 material = ExtResource("1_w67mv")
 
-[node name="Sideroad" type="CSGPolygon3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.150002, 0)
+[node name="Sideroad" type="CSGPolygon3D" parent="Wideroad"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -8.70415e-14, 1.99676e-06)
 use_collision = true
 collision_layer = 3
 polygon = PackedVector2Array(64, 13, 50, 10, 32, 10, 16, 13, -1, 20, -15, 29, -28, 42, -38, 56, -42, 64, -64, 64, -56, 47, -45, 31, -28, 14, -10, 2, 9, -6, 31, -10, 33, -10, 47, 1)
 depth = 0.25
 material = ExtResource("2_ybnsu")
+
+[node name="NGrassground0" type="CSGMesh3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, -0.025, -52)
+use_collision = true
+collision_layer = 3
+mesh = SubResource("PlaneMesh_qu2cc")
+material = ExtResource("4_x28dq")
+
+[node name="NGrassground1" type="CSGMesh3D" parent="NGrassground0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 24)
+mesh = SubResource("PlaneMesh_4hj8m")
+material = ExtResource("4_x28dq")
+
+[node name="NGrassground2" type="CSGMesh3D" parent="NGrassground0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 0, 39)
+mesh = SubResource("PlaneMesh_6wwew")
+material = ExtResource("4_x28dq")

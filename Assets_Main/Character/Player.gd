@@ -32,6 +32,8 @@ var isSit : bool = false
 
 @onready var _climb_area = $PlayerColl/ClimbArea
 
+@onready var caption = $Caption
+
 var INERTIA:Vector2 = Vector2.ZERO
 
 var current_menu = "HUD"
@@ -311,3 +313,14 @@ func sit( chair_position, chair_rotation):
 		tween.tween_property(player_camera, "rotation:x", chair_rotation.x, 0.5)
 		isSit = true
 	else : isSit = false
+
+# Caption
+func add_caption(text_in:String):
+	for i in caption.get_child_count():
+		caption.get_child(i).update_pos()
+	var new_caption = load("res://Assets_Main/Character/Caption/Caption.tscn").instantiate()
+	new_caption.text = text_in
+	caption.add_child(new_caption)
+func clear_caption():
+	for i in caption.get_child_count():
+		caption.get_child(i)._on_timer_timeout()

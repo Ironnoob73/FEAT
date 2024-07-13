@@ -151,6 +151,14 @@ target_position = Vector3(0, -0.55, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.9, 0)
 target_position = Vector3(0, -0.5, 0)
 
+[node name="Caption" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
 [node name="CrossHair" type="TextureRect" parent="."]
 texture_filter = 1
 texture_repeat = 2

@@ -6,7 +6,11 @@
 [ext_resource type="ArrayMesh" uid="uid://kxchelosyedc" path="res://Resources/Object/Function/Pickable/missing.obj" id="5_3ku75"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_g6v25"]
+render_priority = 0
 shader = ExtResource("4_2v5m8")
+shader_parameter/active = true
+shader_parameter/outline_color = Color(1, 1, 1, 1)
+shader_parameter/outline_width = 5.0
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ao11c"]
 size = Vector3(0.5, 0.5, 0.5)

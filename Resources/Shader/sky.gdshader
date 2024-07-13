@@ -1,3 +1,4 @@
+// From : https://godotshaders.com/shader/stylized-sky-with-procedural-sun-and-moon/
 shader_type sky;
 render_mode use_quarter_res_pass;
 

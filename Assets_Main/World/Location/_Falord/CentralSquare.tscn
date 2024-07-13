@@ -437,12 +437,12 @@ size = Vector3(8, 0.1, 104)
 material = ExtResource("2_pjbdn")
 
 [node name="FenceBase" type="CSGBox3D" parent="WestWall/WestGround"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, -51.75)
-size = Vector3(8, 1.5, 0.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1, 0.8, -51.75)
+size = Vector3(7.8, 1.5, 0.5)
 material = ExtResource("20_bsqhj")
 
 [node name="FenceScene0" parent="WestWall/WestGround/FenceBase" instance=ExtResource("21_1r3kg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 2.75, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.1, 2.75, 0)
 
 [node name="FenceConnecter0" parent="WestWall/WestGround/FenceBase/FenceScene0" instance=ExtResource("29_2wfq1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.75, 1.5, 0)
@@ -451,7 +451,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.75, 1.5, 0)
 transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1.5, 0)
 
 [node name="FenceScene1" parent="WestWall/WestGround/FenceBase" instance=ExtResource("21_1r3kg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 2.75, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9, 2.75, 0)
 
 [node name="FenceConnecter" parent="WestWall/WestGround/FenceBase/FenceScene1" instance=ExtResource("29_2wfq1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.75, 1.5, 0)

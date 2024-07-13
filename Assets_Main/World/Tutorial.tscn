@@ -170,7 +170,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 isInVR = true
 
 [node name="Tip" type="Label" parent="."]
-modulate = Color(1, 1, 1, 0)
+visible = false
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0

@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://c0hvltjdip61f"]
+[gd_scene load_steps=29 format=3 uid="uid://c0hvltjdip61f"]
 
 [ext_resource type="Script" path="res://Assets_Main/World/WorldMain.gd" id="1_4lhai"]
 [ext_resource type="PackedScene" uid="uid://bk6ihg1vf71uf" path="res://Assets_Main/Character/Player.tscn" id="1_ur16q"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://ba73ox4ijv2j" path="res://Resources/Object/Terrain/road.tscn" id="8_hntou"]
 [ext_resource type="ArrayMesh" uid="uid://dsqrubw167opv" path="res://Resources/Object/Terrain/FalordMap.obj" id="8_ko6el"]
 [ext_resource type="Material" uid="uid://dtcokq66lcuki" path="res://Resources/Material/Sea.tres" id="11_hgrt0"]
+[ext_resource type="PackedScene" uid="uid://ggr3biv5ly6l" path="res://Resources/Object/Function/Comment/comment_scene.tscn" id="16_154un"]
 
 [sub_resource type="Gradient" id="Gradient_imnon"]
 
@@ -39,7 +40,7 @@ noise = SubResource("FastNoiseLite_252vq")
 shader = ExtResource("2_pgb2y")
 shader_parameter/day_top_color = Color(0.38, 0.45, 0.55, 1)
 shader_parameter/day_bottom_color = Color(0.64, 0.65, 0.67, 1)
-shader_parameter/sunset_top_color = Color(0.75, 0.25, 0.11, 1)
+shader_parameter/sunset_top_color = Color(0.74902, 0.498039, 0.109804, 1)
 shader_parameter/sunset_bottom_color = Color(1, 0.62, 0.55, 1)
 shader_parameter/night_top_color = Color(0, 0.11, 0.17, 1)
 shader_parameter/night_bottom_color = Color(0.01, 0.02, 0.03, 1)
@@ -113,7 +114,7 @@ distance_fade_max_distance = 512.0
 [node name="World" type="Node3D"]
 script = ExtResource("1_4lhai")
 global_time = 48600
-time_speed = 50
+time_speed = 0
 metadata/Dim = "Overworld"
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -173,7 +174,7 @@ shape = SubResource("ConcavePolygonShape3D_51jb8")
 visible = false
 
 [node name="Player" parent="." instance=ExtResource("1_ur16q")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 57, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 42, 0)
 
 [node name="Map" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4352, -10, 4352)
@@ -194,6 +195,15 @@ visible = false
 layers = 32
 material_override = SubResource("StandardMaterial3D_wg3hs")
 mesh = ExtResource("8_ko6el")
+
+[node name="CommentScene" parent="." instance=ExtResource("16_154un")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 41, -3)
+comment = "HelloWorld"
+
+[node name="CommentScene2" parent="." instance=ExtResource("16_154un")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 41, -3)
+comment = "warp
+warp"
 
 [connection signal="SetSdfgi" from="Player/Pause_menu/Options" to="." method="_on_options_set_sdfgi"]
 

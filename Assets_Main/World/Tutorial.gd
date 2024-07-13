@@ -26,23 +26,15 @@ func _on_door_plate_interacted(_value):
 func move_mouse():
 	idle = false
 	var tween = create_tween().set_trans(Tween.TRANS_LINEAR)
-	tween.tween_property(tip, "text", "tutorial.move_mouse.0",0)
-	tween.tween_property(tip, "modulate:a", 1, 0.5)
-	tween.tween_property(tip, "modulate:a", 0, 0.5).set_delay(5)
-	tween.tween_property(tip, "text", "tutorial.move_mouse.1",0)
-	tween.tween_property(tip, "modulate:a", 1, 0.5)
-	tween.tween_property(tip, "modulate:a", 0, 0.5).set_delay(5)
-	tween.tween_property(self, "idle", true, 0)
+	tween.tween_callback(func():player.add_caption("tutorial.move_mouse.0"))
+	tween.tween_callback(func():player.add_caption("tutorial.move_mouse.1")).set_delay(5)
+	tween.tween_property(self, "idle", true, 0).set_delay(5)
 func parkour():
 	idle = false
 	var tween = create_tween().set_trans(Tween.TRANS_LINEAR)
 	var tween_column = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUART).set_parallel(true)
-	tween.tween_property(tip, "text", "tutorial.parkour.0",0)
-	tween.tween_property(tip, "modulate:a", 1, 0.5)
-	tween.tween_property(tip, "modulate:a", 0, 0.5).set_delay(5)
-	tween.tween_property(tip, "text", "tutorial.parkour.1",0)
-	tween.tween_property(tip, "modulate:a", 1, 0.5)
-	tween.tween_property(tip, "modulate:a", 0, 0.5).set_delay(5)
+	tween.tween_callback(func():player.add_caption("tutorial.parkour.0"))
+	tween.tween_callback(func():player.add_caption("tutorial.parkour.1")).set_delay(5)
 	tween_column.tween_property($MovingBarrier, "position:z", -25, 3)
 	tween_column.tween_property($Parkour/Column0, "position:y", 0.5, 0.5)
 	tween_column.tween_property($Parkour/Column1, "position:y", 1, 1)
@@ -50,18 +42,16 @@ func parkour():
 	tween_column.tween_property($Parkour/Column3, "position:y", 2, 2)
 	tween_column.tween_property($Parkour/Column4, "position:y", 2.5, 2.5)
 	tween_column.tween_property($Parkour/Column5, "position:y", 2.5, 3)
-	tween.tween_property(self, "idle", true, 0)
+	tween.tween_property(self, "idle", true, 0).set_delay(5)
 func open_door():
 	idle = false
 	var tween = create_tween().set_trans(Tween.TRANS_LINEAR)
 	var tween_door = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUART).set_parallel(true)
-	tween.tween_property(tip, "text", "tutorial.opendoor.0",0)
-	tween.tween_property(tip, "modulate:a", 1, 0.5)
-	tween.tween_property(tip, "modulate:a", 0, 0.5).set_delay(5)
+	tween.tween_callback(func():player.add_caption("tutorial.opendoor.0"))
 	tween_door.tween_property($MovingBarrier, "position:z", -35, 2)
 	tween_door.tween_property($OpenDoor/Wall, "position:y", 5, 2)
 	tween_door.tween_property($OpenDoor/DoorPlate, "position:y", 0, 2)
-	tween.tween_property(self, "idle", true, 0)
+	tween.tween_property(self, "idle", true, 0).set_delay(5)
 func pick_item():
 	idle = false
 	var tween = create_tween().set_trans(Tween.TRANS_LINEAR)
