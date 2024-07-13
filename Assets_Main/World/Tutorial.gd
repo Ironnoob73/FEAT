@@ -3,7 +3,6 @@ extends Node3D
 var step : int = 0
 var idle : bool = true
 
-@onready var tip = $Tip
 @onready var timer = $Timer
 @onready var player = $Player
 

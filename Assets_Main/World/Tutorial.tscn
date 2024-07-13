@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://d3jmi13knbvt"]
+[gd_scene load_steps=15 format=3 uid="uid://d3jmi13knbvt"]
 
 [ext_resource type="Material" uid="uid://lrbpaershnpm" path="res://Resources/Material/BlueGrid.tres" id="1_01kt7"]
 [ext_resource type="Script" path="res://Assets_Main/World/Tutorial.gd" id="1_3cq5v"]
@@ -29,13 +29,6 @@ ssao_enabled = true
 script = ExtResource("9_vwm7j")
 equipment = ExtResource("8_v31wx")
 damage = 0.0
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a7byu"]
-bg_color = Color(0, 0, 0, 0.498039)
-border_width_left = 10
-border_width_right = 10
-border_color = Color(0, 0, 0, 0)
-border_blend = true
 
 [node name="World" type="Node3D"]
 script = ExtResource("1_3cq5v")
@@ -168,23 +161,6 @@ autostart = true
 [node name="Player" parent="." instance=ExtResource("2_oeg7p")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 isInVR = true
-
-[node name="Tip" type="Label" parent="."]
-visible = false
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -44.0
-offset_top = -142.0
-offset_right = 44.0
-offset_bottom = -100.0
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_font_sizes/font_size = 30
-theme_override_styles/normal = SubResource("StyleBoxFlat_a7byu")
-text = "TEST"
 
 [connection signal="touch" from="Parkour/Column5/WaypointScene" to="." method="_on_parkour_waypoint_touch"]
 [connection signal="interacted" from="OpenDoor/DoorPlate" to="." method="_on_door_plate_interacted"]
