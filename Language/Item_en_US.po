@@ -40,7 +40,7 @@ msgstr "A pickaxe made of platinum."
 
 #----------Special----------#
 msgid "weapon.tutorial_sword"
-msgstr "教程剑"
+msgstr "Tutorial Sword"
 
 msgid "weapon.tutorial_sword.description"
-msgstr "教程剑"
+msgstr "For beginner tutorials only"

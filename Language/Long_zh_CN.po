@@ -26,3 +26,9 @@ msgstr "按住[上档]进行冲刺"
 
 msgid "tutorial.opendoor.0"
 msgstr "按下[E]进行交互"
+
+msgid "tutorial.pick_item.0"
+msgstr "靠近物品或是与物品交互以拾取物品"
+
+msgid "tutorial.pick_item.1"
+msgstr "按下[TAB]打开物品栏"

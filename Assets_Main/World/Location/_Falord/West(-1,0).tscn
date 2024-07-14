@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://ct20o7uc280r3"]
+[gd_scene load_steps=13 format=3 uid="uid://ct20o7uc280r3"]
 
 [ext_resource type="Material" uid="uid://b7eqico61xad7" path="res://Resources/Material/StoneBricksRoad.tres" id="1_ofik3"]
 [ext_resource type="Material" uid="uid://dk5pls0f7nbf4" path="res://Resources/Material/SoilGround.tres" id="2_3t27r"]
@@ -9,13 +9,17 @@
 [ext_resource type="Material" uid="uid://d26s3k3ybdmt7" path="res://Resources/Material/RedSidewalkTiles.tres" id="7_7loa4"]
 [ext_resource type="Material" uid="uid://d2aru44blbpby" path="res://Resources/Material/SlateBricks.tres" id="8_2kh68"]
 [ext_resource type="Material" uid="uid://lwjkvikmw3dm" path="res://Resources/Material/Asphalt.tres" id="9_2lkbl"]
+[ext_resource type="Material" uid="uid://dcwav4237d0l3" path="res://Resources/Material/GrassGround.tres" id="10_2xwbt"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_1m0wm"]
 size = Vector2(100, 100)
 
+[sub_resource type="PlaneMesh" id="PlaneMesh_h4bhm"]
+size = Vector2(14, 104)
+
 [node name="West(-1,0)" type="Node3D"]
 
-[node name="Sideroad" type="CSGPolygon3D" parent="."]
+[node name="Wroad" type="CSGPolygon3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.15, 0)
 use_collision = true
 collision_layer = 3
@@ -24,7 +28,7 @@ depth = 0.25
 material = ExtResource("1_ofik3")
 
 [node name="FarmLand" type="CSGMesh3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, 14)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, -0.025, 14)
 use_collision = true
 collision_layer = 3
 mesh = SubResource("PlaneMesh_1m0wm")
@@ -371,30 +375,32 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -53.75
 size = Vector3(0.5, 4, 0.5)
 material = ExtResource("3_clafs")
 
-[node name="WSsidewalk" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5, 0, -44.5)
+[node name="Nroad" type="Node3D" parent="."]
+
+[node name="NSidewalk" type="CSGBox3D" parent="Nroad"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.75, 0, -44.5)
 use_collision = true
 collision_layer = 3
-size = Vector3(105, 1, 8)
+size = Vector3(104.5, 1, 8)
 material = ExtResource("7_7loa4")
 
-[node name="NWSideWalk_SFill" type="CSGBox3D" parent="WSsidewalk"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 4.25)
+[node name="NsideWalk_SFill" type="CSGBox3D" parent="Nroad/NSidewalk"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25, 0, 4.25)
 size = Vector3(104, 1, 0.5)
 material = ExtResource("8_2kh68")
 
-[node name="NWroad" type="CSGBox3D" parent="WSsidewalk"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -12)
+[node name="Nroad" type="CSGBox3D" parent="Nroad/NSidewalk"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.25, 0, -12)
 size = Vector3(105, 0.25, 15)
 material = ExtResource("9_2lkbl")
 
-[node name="NWsidewalk" type="CSGPolygon3D" parent="WSsidewalk"]
+[node name="NsidewalkT" type="CSGPolygon3D" parent="Nroad/NSidewalk"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -55, 0.5, 0)
 use_collision = true
-polygon = PackedVector2Array(3, -4, -1, -4, 2.29, 4, 3, 4)
+polygon = PackedVector2Array(2.75, -4, -0.715, -4, 2.582, 4, 2.75, 4)
 material = ExtResource("7_7loa4")
 
-[node name="NWsidewalk_Ncurb" type="CSGPolygon3D" parent="."]
+[node name="Nsidewalk_Ncurb" type="CSGPolygon3D" parent="Nroad"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 64, -0.5, -48.5)
 use_collision = true
 collision_layer = 3
@@ -403,8 +409,47 @@ depth = 105.25
 smooth_faces = true
 material = ExtResource("8_2kh68")
 
-[node name="Negative" type="CSGBox3D" parent="NWsidewalk_Ncurb"]
-transform = Transform3D(0.919135, 0, -0.393942, 0, 1, 0, 0.393942, 0, 0.919135, 0.465, 0.5, -105.285)
+[node name="Negative" type="CSGPolygon3D" parent="Nroad/Nsidewalk_Ncurb"]
+transform = Transform3D(0.830011, 0, 0.557744, 0, 1, 0, -0.557744, 0, 0.830011, 0.501, 1.1, -105.004)
 operation = 2
-size = Vector3(1, 1.5, 0.5)
+polygon = PackedVector2Array(0.2, 0, 0.2, -1, -1, -1, -1, 0)
+
+[node name="Nsidewalk_SWcurb" type="CSGPolygon3D" parent="Nroad"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -44.705, -0.5, -40.5)
+use_collision = true
+collision_layer = 3
+polygon = PackedVector2Array(0, 0, 0, 1, 0.25, 1, 0.5, 0.75, 0.5, 0)
+depth = 4.71
+smooth_faces = true
 material = ExtResource("8_2kh68")
+
+[node name="Negative" type="CSGPolygon3D" parent="Nroad/Nsidewalk_SWcurb"]
+transform = Transform3D(0.830011, 0, 0.557744, 0, 1, 0, -0.557744, 0, 0.830011, 0.5, 1, 0.00543976)
+operation = 2
+polygon = PackedVector2Array(0, 0, 0, -1, -1, -1, -1, 0)
+
+[node name="Nsidewalk_Wcurb" type="CSGPolygon3D" parent="Nroad"]
+transform = Transform3D(-0.924546, 0, 0.38107, 0, 1, 0, -0.38107, 0, -0.924546, -40.5395, -0.5, -48.8111)
+use_collision = true
+collision_layer = 3
+polygon = PackedVector2Array(0, 0, 0, 1, 0.25, 1, 0.5, 0.75, 0.5, 0)
+depth = 9.74
+smooth_faces = true
+material = ExtResource("8_2kh68")
+
+[node name="Negative0" type="CSGPolygon3D" parent="Nroad/Nsidewalk_Wcurb"]
+transform = Transform3D(0.556295, 0, 0.830984, 0, 1, 0, -0.830984, 0, 0.556295, 0.503796, 1, -9.74337)
+operation = 2
+polygon = PackedVector2Array(0, 0, 0, -1, -1, -1, -1, 0)
+
+[node name="Negative1" type="CSGPolygon3D" parent="Nroad/Nsidewalk_Wcurb"]
+transform = Transform3D(0.554843, 0, 0.831952, 0, 1, 0, -0.831952, 0, 0.554843, 0.502, 1, -0.001)
+operation = 2
+polygon = PackedVector2Array(0, 0, 0, -1, -1, -1, -1, 0)
+
+[node name="WGrassground" type="CSGMesh3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -47, -0.025, 12)
+use_collision = true
+collision_layer = 3
+mesh = SubResource("PlaneMesh_h4bhm")
+material = ExtResource("10_2xwbt")

@@ -26,3 +26,9 @@ msgstr "Hold [shift] to dash"
 
 msgid "tutorial.opendoor.0"
 msgstr "Press [E] to interact"
+
+msgid "tutorial.pick_item.0"
+msgstr "Approach or interact with items to pick up items"
+
+msgid "tutorial.pick_item.1"
+msgstr "Press [TAB] to open the inventory"
