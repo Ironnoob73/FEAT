@@ -12,12 +12,13 @@ func _on_timer_timeout():
 		2 :	parkour()
 		3 :	open_door()
 		4 :	pick_item()
+		5 :	attack()
 	
 func _input(event):
 	if event is InputEventMouseMotion and step == 0:	step = 1
 func _process(_delta):
 	if step == 1 and player.position.x != 0 and player.position.z != 0 :	step = 2
-	if player.Inventory != null : print(player.Inventory.get_tool("weapon_TutorialSword"))
+	if step == 4 and player.Inventory.get_tool("weapon_TutorialSword") :	step = 5
 func _on_parkour_waypoint_touch():
 	if step == 2 : step = 3
 func _on_door_plate_interacted(_value):
@@ -61,4 +62,10 @@ func pick_item():
 	tween.tween_callback(func():player.add_caption("tutorial.pick_item.2")).set_delay(5)
 	tween_booth.tween_property($MovingBarrier, "position:z", -45, 2)
 	tween_booth.tween_property($PickItem/Booth, "position:y", 0.5, 1)
+	tween.tween_property(self, "idle", true, 0).set_delay(5)
+func attack():
+	idle = false
+	var tween = create_tween().set_trans(Tween.TRANS_LINEAR)
+	tween.tween_callback(func():player.add_caption("tutorial.attack.0"))
+	tween.tween_callback(func():player.add_caption("tutorial.attack.1")).set_delay(5)
 	tween.tween_property(self, "idle", true, 0).set_delay(5)

@@ -16,22 +16,28 @@ msgid "tutorial.move_mouse.0"
 msgstr "Move the mouse to rotate the perspective"
 
 msgid "tutorial.move_mouse.1"
-msgstr "Use [WASD] to move the character"
+msgstr "Use [color=yellow]WASD[/color] to move the character"
 
 msgid "tutorial.parkour.0"
-msgstr "Press [space] to jump"
+msgstr "Press [color=yellow]space[/color] to jump"
 
 msgid "tutorial.parkour.1"
-msgstr "Hold [shift] to dash"
+msgstr "Hold [color=yellow]shift[/color] to dash"
 
 msgid "tutorial.opendoor.0"
-msgstr "Press [E] to interact"
+msgstr "Press [color=yellow]E[/color] to interact"
 
 msgid "tutorial.pick_item.0"
 msgstr "Approach or interact with items to pick up items"
 
 msgid "tutorial.pick_item.1"
-msgstr "Press [TAB] to open the inventory"
+msgstr "Press [color=yellow]TAB[/color] to open the inventory"
 
 msgid "tutorial.pick_item.2"
-msgstr "Equip items under the \"Status\" option"
+msgstr "Equip items under the [color=yellow]\"Status\"[/color] option"
+
+msgid "tutorial.attack.0"
+msgstr "[color=yellow]Left-click[/color] to use a tool or weapon"
+
+msgid "tutorial.attack.1"
+msgstr "Some equipment also has a [color=yellow]right-click[/color] function"

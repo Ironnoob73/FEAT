@@ -6,9 +6,8 @@ class_name CInventoryClass
 
 func get_tool(eq_name :String):
 	var eq = AllItems.get_item_from_name(eq_name)
+	var result : int = 0
 	for i in ToolHotbar.size():
 		if ToolHotbar[i] != null and ToolHotbar[i].equipment == eq :
-			return i
-	#var meta = ToolHotbar.filter(func(eqmeta):return eqmeta.equipment == eq)
-	#if !meta.is_empty() :	return true
-	#else :	return false
+			result = i + 1
+	return result

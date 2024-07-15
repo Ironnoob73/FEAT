@@ -154,6 +154,8 @@ material = ExtResource("2_ric70")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 ThingInstance = SubResource("Resource_tp6iv")
 
+[node name="Attack" type="Node3D" parent="."]
+
 [node name="Timer" type="Timer" parent="."]
 wait_time = 5.0
 autostart = true

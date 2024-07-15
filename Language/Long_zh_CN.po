@@ -16,22 +16,28 @@ msgid "tutorial.move_mouse.0"
 msgstr "移动鼠标转动视角"
 
 msgid "tutorial.move_mouse.1"
-msgstr "使用[WASD]移动角色"
+msgstr "使用[color=yellow]WASD[/color]移动角色"
 
 msgid "tutorial.parkour.0"
-msgstr "按下[空格]进行跳跃"
+msgstr "按下[color=yellow]空格[/color]进行跳跃"
 
 msgid "tutorial.parkour.1"
-msgstr "按住[上档]进行冲刺"
+msgstr "按住[color=yellow]上档[/color]进行冲刺"
 
 msgid "tutorial.opendoor.0"
-msgstr "按下[E]进行交互"
+msgstr "按下[color=yellow]E[/color]进行交互"
 
 msgid "tutorial.pick_item.0"
-msgstr "靠近物品或是与物品交互以拾取物品"
+msgstr "靠近物品或与物品交互以拾取物品"
 
 msgid "tutorial.pick_item.1"
-msgstr "按下[TAB]打开物品栏"
+msgstr "按下[color=yellow]TAB[/color]打开物品栏"
 
 msgid "tutorial.pick_item.2"
-msgstr "在“状态”选项下装备物品"
+msgstr "在[color=yellow]“状态”[/color]选项下装备物品"
+
+msgid "tutorial.attack.0"
+msgstr "点击[color=yellow]鼠标左键[/color]使用工具或武器"
+
+msgid "tutorial.attack.1"
+msgstr "部分装备也具有[color=yellow]右键[/color]功能"
