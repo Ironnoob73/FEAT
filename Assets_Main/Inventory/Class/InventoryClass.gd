@@ -60,6 +60,14 @@ func add_equipment(eq_name :String):
 		eqMeta.append(newEqMeta)
 	on_equipments_changed.emit()
 	
+func remove_equipment(eq_name :String): # NEED TEST
+	var eq = AllItems.get_item_from_name(eq_name)
+	for i in eqMeta:
+		if i.equipment == eq:
+			eqMeta.erase(i)
+			break
+	on_equipments_changed.emit()
+	
 func sort_equipment(by_performance:bool,direction:bool):
 	if by_performance :	eqMeta.sort_custom(func(a, b): return (a.equipment.performance < b.equipment.performance)!=direction)
 	else :	eqMeta.sort_custom(func(a, b): return (a.equipment.name0 < b.equipment.name0)!=direction)

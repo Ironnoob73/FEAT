@@ -32,3 +32,6 @@ msgstr "Approach or interact with items to pick up items"
 
 msgid "tutorial.pick_item.1"
 msgstr "Press [TAB] to open the inventory"
+
+msgid "tutorial.pick_item.2"
+msgstr "Equip items under the \"Status\" option"
