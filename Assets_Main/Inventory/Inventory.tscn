@@ -811,22 +811,32 @@ layout_mode = 2
 [node name="ToolHotbar0" type="Button" parent="Hotbar/VBox/ToolHBox"]
 custom_minimum_size = Vector2(70, 70)
 layout_mode = 2
+icon_alignment = 1
+expand_icon = true
 
 [node name="ToolHotbar1" type="Button" parent="Hotbar/VBox/ToolHBox"]
 custom_minimum_size = Vector2(70, 70)
 layout_mode = 2
+icon_alignment = 1
+expand_icon = true
 
 [node name="ToolHotbar2" type="Button" parent="Hotbar/VBox/ToolHBox"]
 custom_minimum_size = Vector2(70, 70)
 layout_mode = 2
+icon_alignment = 1
+expand_icon = true
 
 [node name="ToolHotbar3" type="Button" parent="Hotbar/VBox/ToolHBox"]
 custom_minimum_size = Vector2(70, 70)
 layout_mode = 2
+icon_alignment = 1
+expand_icon = true
 
 [node name="ToolHotbar4" type="Button" parent="Hotbar/VBox/ToolHBox"]
 custom_minimum_size = Vector2(70, 70)
 layout_mode = 2
+icon_alignment = 1
+expand_icon = true
 
 [node name="ItemHotBarTitle" type="Label" parent="Hotbar/VBox"]
 layout_mode = 2
@@ -838,22 +848,32 @@ layout_mode = 2
 [node name="ItemHotbar0" type="Button" parent="Hotbar/VBox/ItemHBox"]
 custom_minimum_size = Vector2(70, 70)
 layout_mode = 2
+icon_alignment = 1
+expand_icon = true
 
 [node name="ItemHotbar1" type="Button" parent="Hotbar/VBox/ItemHBox"]
 custom_minimum_size = Vector2(70, 70)
 layout_mode = 2
+icon_alignment = 1
+expand_icon = true
 
 [node name="ItemHotbar2" type="Button" parent="Hotbar/VBox/ItemHBox"]
 custom_minimum_size = Vector2(70, 70)
 layout_mode = 2
+icon_alignment = 1
+expand_icon = true
 
 [node name="ItemHotbar3" type="Button" parent="Hotbar/VBox/ItemHBox"]
 custom_minimum_size = Vector2(70, 70)
 layout_mode = 2
+icon_alignment = 1
+expand_icon = true
 
 [node name="ItemHotbar4" type="Button" parent="Hotbar/VBox/ItemHBox"]
 custom_minimum_size = Vector2(70, 70)
 layout_mode = 2
+icon_alignment = 1
+expand_icon = true
 
 [node name="ItemChooseWindow" parent="Hotbar" instance=ExtResource("5_bckn1")]
 visible = false
