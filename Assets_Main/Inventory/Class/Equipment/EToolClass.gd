@@ -3,6 +3,7 @@ class_name EToolClass
 
 @export_enum("undefined","wrench","screwdriver","special","pickaxe","sword") var tool_type : String = "undefined"
 @export var scene : PackedScene
+@export var the_script : GDScript
 
 func get_subname():
 	if name1 :	return name1

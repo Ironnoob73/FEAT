@@ -7,7 +7,7 @@ var hit_point : Vector3
 @onready var tooltip = $"../../CrossHair/InteractionTip"
 
 @onready var inventory = preload("res://Assets_Main/Inventory/Player_inventory.tres")
-#@onready var HandHeldItem = $"../FirstPersonHandled/SubViewport/FirstPersonCam/HandHeld".get_child(0)
+@onready var HandHeldItem = $"../FirstPersonHandled/SubViewport/FirstPersonCam/HandHeld"
 @onready var Player = get_node("/root/World/Player")
 	
 func _physics_process(_delta):
@@ -31,7 +31,7 @@ func _physics_process(_delta):
 		_cursor.set_global_position(Vector3(hit_point)+Vector3(0.5,0.25,0.5))
 	# Interact
 	if is_colliding() and get_collider().is_in_group("Interactive"):
-		var key_array : Array
+		var key_array : Array = []
 		for i in InputMap.action_get_events("interact"):
 			key_array.append(i.as_text().rsplit(" ", true, 1)[0])
 		tooltip.text = str(key_array).replacen("\"","")
@@ -50,3 +50,12 @@ func can_place_voxel_at(pos: Vector3i):
 	params.set_shape(shape)
 	var hits = space_state.intersect_shape(params)
 	return hits.size() == 0
+
+func _input(_event):
+	if HandHeldItem.get_child_count() and Player.current_menu == "HUD":
+		if Input.is_action_just_pressed("main_attack"):
+			HandHeldItem.get_child(0).main_attack(true)
+		if Input.is_action_just_pressed("secondary_attack"):
+			HandHeldItem.get_child(0).secondary_attack(true)
+		if Input.is_action_just_released("secondary_attack"):
+			HandHeldItem.get_child(0).secondary_attack(false)

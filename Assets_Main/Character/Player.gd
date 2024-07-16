@@ -276,6 +276,8 @@ func refresh_handheld(index:int):
 				handheld_model.mesh = handheld_tool.equipment.model
 				handheld_model.material_override = handheld_tool.equipment.material
 				handheld_model.set_layer_mask_value(5,true)
+				if handheld_tool.equipment.the_script :
+					handheld_model.set_script(handheld_tool.equipment.the_script)
 				hand_held.add_child(handheld_model)
 			refresh_handheld_info()
 		else :

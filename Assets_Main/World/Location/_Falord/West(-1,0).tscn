@@ -377,25 +377,27 @@ material = ExtResource("3_clafs")
 
 [node name="Nroad" type="Node3D" parent="."]
 
-[node name="NSidewalk" type="CSGBox3D" parent="Nroad"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.75, 0, -44.5)
+[node name="Nroad" type="CSGBox3D" parent="Nroad"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5, 0, -56.5)
+use_collision = true
+collision_layer = 3
+size = Vector3(105, 0.25, 15)
+material = ExtResource("9_2lkbl")
+
+[node name="NSidewalk" type="CSGBox3D" parent="Nroad/Nroad"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25, 0, 12)
 use_collision = true
 collision_layer = 3
 size = Vector3(104.5, 1, 8)
 material = ExtResource("7_7loa4")
 
-[node name="NsideWalk_SFill" type="CSGBox3D" parent="Nroad/NSidewalk"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25, 0, 4.25)
+[node name="NsideWalk_SFill" type="CSGBox3D" parent="Nroad/Nroad"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 16.25)
 size = Vector3(104, 1, 0.5)
 material = ExtResource("8_2kh68")
 
-[node name="Nroad" type="CSGBox3D" parent="Nroad/NSidewalk"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.25, 0, -12)
-size = Vector3(105, 0.25, 15)
-material = ExtResource("9_2lkbl")
-
-[node name="NsidewalkT" type="CSGPolygon3D" parent="Nroad/NSidewalk"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -55, 0.5, 0)
+[node name="NsidewalkT" type="CSGPolygon3D" parent="Nroad/Nroad"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -54.75, 0.5, 12)
 use_collision = true
 polygon = PackedVector2Array(2.75, -4, -0.715, -4, 2.582, 4, 2.75, 4)
 material = ExtResource("7_7loa4")

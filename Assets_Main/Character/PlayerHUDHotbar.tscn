@@ -53,6 +53,8 @@ theme_override_constants/margin_bottom = 5
 
 [node name="Icon" type="TextureRect" parent="HotBar/IconBackground/Margin"]
 layout_mode = 2
+expand_mode = 5
+stretch_mode = 5
 
 [node name="HotbatInfo" type="VBoxContainer" parent="HotBar"]
 layout_mode = 2

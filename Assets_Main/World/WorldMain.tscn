@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://c0hvltjdip61f"]
+[gd_scene load_steps=33 format=3 uid="uid://c0hvltjdip61f"]
 
 [ext_resource type="Script" path="res://Assets_Main/World/WorldMain.gd" id="1_4lhai"]
 [ext_resource type="PackedScene" uid="uid://bk6ihg1vf71uf" path="res://Assets_Main/Character/Player.tscn" id="1_ur16q"]
@@ -16,6 +16,9 @@
 [ext_resource type="ArrayMesh" uid="uid://dsqrubw167opv" path="res://Resources/Object/Terrain/FalordMap.obj" id="8_ko6el"]
 [ext_resource type="Material" uid="uid://dtcokq66lcuki" path="res://Resources/Material/Sea.tres" id="11_hgrt0"]
 [ext_resource type="PackedScene" uid="uid://ggr3biv5ly6l" path="res://Resources/Object/Function/Comment/comment_scene.tscn" id="16_154un"]
+[ext_resource type="PackedScene" uid="uid://bt7knoovenvbk" path="res://Resources/Object/Function/Pickable/pickable_scene.tscn" id="17_qkaja"]
+[ext_resource type="Resource" uid="uid://bjj8yywrbxut0" path="res://Resources/Item/weapon/melee/sword/tutorial_sword.eq.tres" id="18_7dolo"]
+[ext_resource type="Script" path="res://Assets_Main/Inventory/Class/Equipment/EqMetaClass.gd" id="19_5t0th"]
 
 [sub_resource type="Gradient" id="Gradient_imnon"]
 
@@ -111,6 +114,11 @@ distance_fade_mode = 2
 distance_fade_min_distance = 128.0
 distance_fade_max_distance = 512.0
 
+[sub_resource type="Resource" id="Resource_qhbyy"]
+script = ExtResource("19_5t0th")
+equipment = ExtResource("18_7dolo")
+damage = 0.0
+
 [node name="World" type="Node3D"]
 script = ExtResource("1_4lhai")
 global_time = 48600
@@ -204,6 +212,10 @@ comment = "HelloWorld"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 41, -3)
 comment = "warp
 warp"
+
+[node name="TutorialSwordItem" parent="." instance=ExtResource("17_qkaja")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 45, -3)
+ThingInstance = SubResource("Resource_qhbyy")
 
 [connection signal="SetSdfgi" from="Player/Pause_menu/Options" to="." method="_on_options_set_sdfgi"]
 
