@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://bk6ihg1vf71uf"]
+[gd_scene load_steps=24 format=3 uid="uid://bk6ihg1vf71uf"]
 
 [ext_resource type="Script" path="res://Assets_Main/Character/Player.gd" id="1_twfth"]
 [ext_resource type="Script" path="res://Assets_Main/Character/Player_interact.gd" id="2_fls23"]
@@ -16,6 +16,9 @@ radius = 0.4
 height = 1.8
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_xn36b"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8ga1f"]
+size = Vector3(0.25, 0.25, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_stt28"]
 size = Vector3(0.5, 0.5, 0.5)
@@ -62,7 +65,7 @@ shader_parameter/albedo = SubResource("GradientTexture2D_f0825")
 margin = 0.0
 size = Vector3(0.79, 0.19, 0.79)
 
-[node name="Player" type="CharacterBody3D"]
+[node name="Player" type="CharacterBody3D" groups=["Hutrable"]]
 collision_layer = 4
 collision_mask = 15
 floor_max_angle = 0.872665
@@ -138,6 +141,14 @@ cull_mask = 15
 target_position = Vector3(0, 0, -20)
 collision_mask = 26
 script = ExtResource("2_fls23")
+
+[node name="AttackArea" type="Area3D" parent="PlayerCam"]
+collision_layer = 0
+collision_mask = 31
+
+[node name="Coll" type="CollisionShape3D" parent="PlayerCam/AttackArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5)
+shape = SubResource("BoxShape3D_8ga1f")
 
 [node name="StandingDetected" type="ShapeCast3D" parent="."]
 shape = SubResource("BoxShape3D_stt28")

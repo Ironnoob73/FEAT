@@ -26,3 +26,8 @@ func get_selection():
 	#ray.collision_mask = 64
 	#var result = worldspace.intersect_ray(ray)
 	hand_held.get_child(0).click_event(end)
+	
+func attack():
+	for i in Player.attack_area.get_overlapping_bodies():
+		if i.is_in_group("Hurtable") && i != Player:
+			print(i)

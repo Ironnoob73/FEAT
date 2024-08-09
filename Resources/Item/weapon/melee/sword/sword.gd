@@ -20,6 +20,8 @@ func main_attack(press:bool):
 		tween.tween_property(self, "rotation_degrees:z", 70, 0.1)
 		tween.tween_property(self, "rotation_degrees:z", 0, 0.5)
 		tween.tween_property(self, "idle", true, 0)
+		get_parent().get_parent().attack()
+		
 func secondary_attack(press:bool):
 	if press == true && idle == true :
 		sec = true

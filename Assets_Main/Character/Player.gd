@@ -27,6 +27,8 @@ var isSit : bool = false
 @onready var first_person_cam = $PlayerCam/FirstPersonHandled/SubViewport/FirstPersonCam
 @onready var world_actual_cam = $PlayerCam/WorldActual/SubViewport/WorldActualCam
 @onready var hand_held = $PlayerCam/FirstPersonHandled/SubViewport/FirstPersonCam/HandHeld
+@onready var attack_area = $PlayerCam/AttackArea
+@onready var hitbox = $PlayerCam/AttackArea/Coll
 
 @onready var interact_ray = $PlayerCam/InteractRay
 
@@ -279,8 +281,12 @@ func refresh_handheld(index:int):
 				if handheld_tool.equipment.the_script :
 					handheld_model.set_script(handheld_tool.equipment.the_script)
 				hand_held.add_child(handheld_model)
+			hitbox.shape.size = handheld_tool.equipment.hitbox
+			hitbox.position.z = -hitbox.shape.size.z/2
 			refresh_handheld_info()
 		else :
+			hitbox.shape.size = Vector3(0.25,0.25,1)
+			hitbox.position.z = -0.5
 			HUD_hotbar.set_info(current_hotbar)
 func refresh_handheld_info():
 	HUD_hotbar.set_info(current_hotbar,\

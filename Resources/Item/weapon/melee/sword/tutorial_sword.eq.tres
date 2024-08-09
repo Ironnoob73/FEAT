@@ -9,6 +9,7 @@
 [resource]
 script = ExtResource("3_bwotu")
 tool_type = "sword"
+hitbox = Vector3(0.1, 0.5, 1.5)
 the_script = ExtResource("5_tr7i6")
 performance = 1.0
 durability = 100.0
