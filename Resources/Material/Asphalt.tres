@@ -5,6 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://bdnuvui4d1pah" path="res://Resources/Material/Sources/Asphalt_orm.png" id="3_c7iqn"]
 
 [resource]
+diffuse_mode = 3
+specular_mode = 1
 albedo_texture = ExtResource("1_c66xr")
 roughness_texture = ExtResource("3_c7iqn")
 roughness_texture_channel = 1

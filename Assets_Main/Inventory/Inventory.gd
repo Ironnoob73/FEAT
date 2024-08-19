@@ -26,6 +26,8 @@ var current_hotbar_index : int
 
 var current_inv = "Main"
 
+signal mouse_mode_signal(bool)
+
 func init():
 	item_list.set_column_expand_ratio(0,7)
 	item_list.set_column_expand_ratio(1,1)
@@ -54,7 +56,7 @@ func close_inventory():
 			"Main" :
 				animation.play_backwards("Show")
 				get_parent().current_menu = "HUD"
-				Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+				emit_signal("mouse_mode_signal",false)
 			"Item" :
 				current_inv = "Main"
 				animation.play_backwards("Item")

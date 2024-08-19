@@ -37,7 +37,7 @@ vec4 triplanar_texture(sampler2D p_sampler,vec3 p_weights,vec3 p_triplanar_pos) 
 void fragment() {
 	vec4 albedo_tex = triplanar_texture(texture_albedo,uv1_power_normal,uv1_triplanar_pos);
 	ALBEDO = albedo.rgb * albedo_tex.rgb;
-	
+
 	ALPHA *= albedo.a * albedo_tex.r;
 	ALPHA *= clamp(smoothstep(distance_fade_min, distance_fade_max, length(VERTEX)), 0.0,5.0);
 }

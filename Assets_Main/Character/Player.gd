@@ -17,20 +17,30 @@ var isDash = 0
 var isCrouch = 0
 var isClimb : bool = false
 var isSit : bool = false
+var isThirdPerson : bool = true
 
 @onready var player_collision = $PlayerColl
 @onready var player_camera = $PlayerCam
 @onready var standing_detected= $StandingDetected
 @onready var pause_menu = $Pause_menu
 @onready var inventory_menu = $Inventory
+@onready var mesh: MeshInstance3D = $Mesh
 
 @onready var first_person_cam = $PlayerCam/FirstPersonHandled/SubViewport/FirstPersonCam
 @onready var world_actual_cam = $PlayerCam/WorldActual/SubViewport/WorldActualCam
 @onready var hand_held = $PlayerCam/FirstPersonHandled/SubViewport/FirstPersonCam/HandHeld
 @onready var attack_area = $PlayerCam/AttackArea
 @onready var hitbox = $PlayerCam/AttackArea/Coll
+@onready var third_perosn_cam: Camera3D = $ThirdPerosnCam
+
+var perspective_in_rotate : bool = false
+var perspective_rad : float = 0
+var perspective_size : float = 10
+var perspective_from : Vector2
 
 @onready var interact_ray = $PlayerCam/InteractRay
+@onready var interact_ray_tp: RayCast3D = $ThirdPerosnCam/InteractRayTP
+@onready var cursor3: MeshInstance3D = $Cursor3
 
 @onready var _climb_area = $PlayerColl/ClimbArea
 
@@ -51,7 +61,8 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 func _ready():
 	# Lock Mouse.
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	if !isThirdPerson:
+		mouse_mode(false)
 	
 	if !Inventory:
 		Inventory = CInventoryClass.new()
@@ -64,19 +75,43 @@ func _ready():
 	inventory_menu.init()
 	
 func _input(event):
+	# Perspective
+	if isThirdPerson:
+		if Input.is_action_just_pressed("perspective"):
+			perspective_from = caption.get_mouse_pos()
+			perspective_in_rotate = true
+		if Input.is_action_just_released("perspective"):
+			perspective_in_rotate = false
+		
 	# Player camera.
 	if event is InputEventMouseMotion and current_menu == "HUD":
-		rotate_y(-deg_to_rad(event.relative.x * Global.mouse_sens))
-		player_camera.rotate_x(-deg_to_rad(event.relative.y * Global.mouse_sens))
-		player_camera.rotation.x = clamp(player_camera.rotation.x,deg_to_rad(-90),deg_to_rad(90))
-		
+		var pos = caption.get_mouse_pos()
+		if isThirdPerson :
+			mesh.rotation.y = -atan2(pos.y,pos.x) - PI/2
+			player_camera.rotation.y = -atan2(pos.y,pos.x) - PI/2
+			interact_ray_tp.position.x = pos.x * third_perosn_cam.size * 0.0011
+			interact_ray_tp.position.y = -pos.y * third_perosn_cam.size * 0.0011
+			cursor3.global_position = interact_ray_tp.get_collision_point()
+			if perspective_in_rotate:
+				rotation.y = perspective_rad - deg_to_rad(pos.x - perspective_from.x)
+				third_perosn_cam.size = clamp(perspective_size + (pos.y - perspective_from.y) * 0.1,5,50)
+				third_perosn_cam.position.y = third_perosn_cam.size
+				third_perosn_cam.position.z = third_perosn_cam.size
+			else:
+				perspective_rad = self.global_rotation.y
+				perspective_size = third_perosn_cam.size
+		else :
+			rotate_y(-deg_to_rad(event.relative.x * Global.mouse_sens))
+			player_camera.rotate_x(-deg_to_rad(event.relative.y * Global.mouse_sens))
+			player_camera.rotation.x = clamp(player_camera.rotation.x,deg_to_rad(-90),deg_to_rad(90))
+	
 func _unhandled_input(_event):
 	# Pause.
 	if Input.is_action_just_pressed("pause"):
 		match current_menu :
 			"HUD":
 				current_menu = "Pause"
-				Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+				mouse_mode(true)
 				pause_menu.show()
 			"Inventory":
 				inventory_menu.close_inventory()
@@ -88,14 +123,14 @@ func _unhandled_input(_event):
 		match current_menu :
 			"HUD":
 				current_menu = "Inventory"
-				Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+				mouse_mode(true)
 				inventory_menu.open_inventory()
 			"Inventory":
 				inventory_menu.close_inventory()
 			"ToolSetting":
 				hand_held.get_child(0).setting_off()
 				current_menu = "Inventory"
-				Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+				mouse_mode(true)
 				inventory_menu.open_inventory()
 	# Hotbar
 	if !Input.is_action_pressed("tool_function_switch") and current_menu == "HUD":
@@ -117,6 +152,15 @@ func _unhandled_input(_event):
 	# UnSit
 	if isSit and ( Input.is_action_pressed("ui_accept") or Input.is_action_pressed("crouch")) :
 		isSit = false
+		
+	# Switch perspectives
+	if Input.is_action_just_pressed("switch_perspectives") and current_menu == "HUD":
+		isThirdPerson = !isThirdPerson
+		mesh.rotation.y = 0
+		player_camera.rotation.y = 0
+		mouse_mode(isThirdPerson)
+		third_perosn_cam.current = isThirdPerson
+		player_camera.current = !isThirdPerson
 
 # From : https://github.com/majikayogames/godot-character-controller-stairs/blob/main/entities/Player/Player.gd
 var _was_on_floor_last_frame = false
@@ -332,3 +376,9 @@ func add_caption(text_in:String):
 func clear_caption():
 	for i in caption.get_child_count():
 		caption.get_child(i)._on_timer_timeout()
+
+func mouse_mode(isVisible:bool)->void:
+	if !isThirdPerson :
+		if isVisible :	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		else :	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	else :	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)

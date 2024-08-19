@@ -5,6 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://48c7hnc5i8uj" path="res://Resources/Material/Sources/StoneBricksRoad_orm.png" id="3_v21ow"]
 
 [resource]
+diffuse_mode = 3
+specular_mode = 1
 albedo_texture = ExtResource("1_k8eeg")
 metallic = 0.1
 roughness_texture = ExtResource("3_v21ow")

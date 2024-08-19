@@ -5,6 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://vddp3jd7r32m" path="res://Resources/Material/Sources/WoodenPlanks_normal.png" id="3_0d53s"]
 
 [resource]
+diffuse_mode = 3
+specular_mode = 1
 albedo_texture = ExtResource("1_j55xk")
 metallic = 1.0
 metallic_texture = ExtResource("2_tegfw")

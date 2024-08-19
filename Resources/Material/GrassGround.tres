@@ -5,6 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://bbbf8jcp8ao1o" path="res://Resources/Material/Sources/GrassGround_normal.png" id="3_nhnnl"]
 
 [resource]
+diffuse_mode = 3
+specular_mode = 1
 albedo_texture = ExtResource("1_q3syl")
 metallic_texture = ExtResource("2_ic3vf")
 metallic_texture_channel = 2

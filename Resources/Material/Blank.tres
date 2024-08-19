@@ -12,6 +12,8 @@ fill_to = Vector2(0.5, 0.5)
 repeat = 2
 
 [resource]
+diffuse_mode = 3
+specular_mode = 1
 albedo_texture = SubResource("GradientTexture2D_pcjrw")
 uv1_triplanar = true
 texture_filter = 0

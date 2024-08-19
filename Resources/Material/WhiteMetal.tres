@@ -5,6 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://dt5hmkqjqacb0" path="res://Resources/Material/Sources/WhiteMetal_normal.png" id="3"]
 
 [resource]
+diffuse_mode = 3
+specular_mode = 1
 albedo_texture = ExtResource("1")
 metallic = 0.5
 metallic_texture = ExtResource("2")

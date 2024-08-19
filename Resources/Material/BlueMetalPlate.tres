@@ -5,6 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://bgipcjavkn16c" path="res://Resources/Material/Sources/BlueMetalPlate_normal.png" id="4_xeckh"]
 
 [resource]
+diffuse_mode = 3
+specular_mode = 1
 albedo_texture = ExtResource("1_mb8w5")
 metallic = 1.0
 metallic_texture = ExtResource("3_lgiw7")

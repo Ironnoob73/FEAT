@@ -5,6 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://cvqevaih4603w" path="res://Resources/Material/Sources/Tree_orm.png" id="3_2r5jd"]
 
 [resource]
+diffuse_mode = 3
+specular_mode = 1
 albedo_texture = ExtResource("1_amec5")
 roughness_texture = ExtResource("3_2r5jd")
 roughness_texture_channel = 1

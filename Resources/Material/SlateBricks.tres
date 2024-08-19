@@ -5,6 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://drqxr0i3jsn1t" path="res://Resources/Material/Sources/SlateBricks_orm.png" id="3_d480y"]
 
 [resource]
+diffuse_mode = 3
+specular_mode = 1
 albedo_texture = ExtResource("1_f4l4a")
 metallic = 0.1
 roughness = 0.75

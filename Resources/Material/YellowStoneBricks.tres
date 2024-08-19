@@ -5,6 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://wet3444ln2dr" path="res://Resources/Material/Sources/YellowStoneBricks_orm.png" id="3_p6m8v"]
 
 [resource]
+diffuse_mode = 3
+specular_mode = 1
 albedo_texture = ExtResource("1_4p4x1")
 metallic = 0.1
 roughness = 1.5

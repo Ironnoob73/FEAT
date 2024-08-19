@@ -5,6 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://vuqajt5ft1d3" path="res://Resources/Material/Sources/SoilGround_normal.png" id="3_fqssw"]
 
 [resource]
+diffuse_mode = 3
+specular_mode = 1
 albedo_texture = ExtResource("1_runki")
 metallic_texture = ExtResource("2_ap5kh")
 metallic_texture_channel = 2

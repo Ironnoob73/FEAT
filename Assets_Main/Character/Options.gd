@@ -140,6 +140,3 @@ func tab_focus():
 		1:Fullscreen.grab_focus()
 		2:MasterVolume.grab_focus()
 		3:MouseSen.grab_focus()
-
-
-

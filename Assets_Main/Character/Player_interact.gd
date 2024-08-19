@@ -4,7 +4,7 @@ var hit_point : Vector3
 
 @onready var _cursor = $"../../Cursor"
 @onready var _detection_area : Area3D = $"../../Cursor/DetectionArea"
-@onready var tooltip = $"../../CrossHair/InteractionTip"
+@onready var tooltip = $"../../Caption/CrossHair/InteractionTip"
 
 @onready var inventory = preload("res://Assets_Main/Inventory/Player_inventory.tres")
 @onready var HandHeldItem = $"../FirstPersonHandled/SubViewport/FirstPersonCam/HandHeld"

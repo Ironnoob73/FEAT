@@ -6,6 +6,8 @@ var escape_released = false
 @onready var exit_button = $Main/ExitButton
 @onready var exit_text1 = $ExitBox/exit_text1
 
+signal mouse_mode_signal(bool)
+
 func _ready():
 	animation.play("RESET")
 	if get_parent().isInVR :
@@ -23,7 +25,7 @@ func _unhandled_input(_event):
 			escape_released = false
 			_on_resume_button_pressed()
 func _on_resume_button_pressed():
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	emit_signal("mouse_mode_signal",false)
 	get_parent().current_menu = "HUD"
 	hide()
 	

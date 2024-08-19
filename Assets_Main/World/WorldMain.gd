@@ -9,6 +9,7 @@ extends Node3D
 @onready var sun_visual = $WorldEnvironment/SunAxis/SunVisual
 
 @onready var player = $Player
+@onready var background = $FalordMap
 
 func _ready():
 	_on_options_set_sdfgi(Global.Sdfgi)
@@ -46,3 +47,9 @@ func _physics_process(_delta):
 		sun_visual.light_angular_distance = 0
 	else :
 		sun.visible = false
+		
+func _process(delta: float) -> void:
+	background.position.x = player.position.x - (player.position.x + 4352)/12288
+	background.position.y = player.position.y - player.position.y/12288 + 0.5
+	background.position.z = player.position.z - (player.position.z - 4352)/12288
+	

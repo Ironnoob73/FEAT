@@ -5,6 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://c2iko80ohlxpk" path="res://Resources/Material/Sources/RustedMetal_normal.png" id="3_krirx"]
 
 [resource]
+diffuse_mode = 3
+specular_mode = 1
 albedo_texture = ExtResource("1_d1lcp")
 metallic = 1.0
 metallic_texture = ExtResource("2_es64s")
