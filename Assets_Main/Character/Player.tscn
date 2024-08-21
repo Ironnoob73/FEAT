@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://bk6ihg1vf71uf"]
+[gd_scene load_steps=35 format=3 uid="uid://bk6ihg1vf71uf"]
 
 [ext_resource type="Script" path="res://Assets_Main/Character/Player.gd" id="1_twfth"]
 [ext_resource type="Script" path="res://Assets_Main/Character/Player_interact.gd" id="2_fls23"]
@@ -24,6 +24,22 @@ radial_segments = 5
 
 [sub_resource type="BoxMesh" id="BoxMesh_entkh"]
 size = Vector3(0.5, 0.5, 2)
+
+[sub_resource type="Gradient" id="Gradient_kcmtc"]
+interpolation_mode = 2
+interpolation_color_space = 2
+offsets = PackedFloat32Array(0.25, 0.75)
+colors = PackedColorArray(0, 1, 1, 1, 0, 0.560784, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_qby3e"]
+gradient = SubResource("Gradient_kcmtc")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bcc5j"]
+shading_mode = 0
+albedo_texture = SubResource("GradientTexture1D_qby3e")
+
+[sub_resource type="QuadMesh" id="QuadMesh_01c7o"]
+size = Vector2(20, 25)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8ga1f"]
 size = Vector3(0.25, 0.25, 1)
@@ -123,7 +139,7 @@ mesh = SubResource("BoxMesh_entkh")
 
 [node name="ThirdPerosnCam" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 100, 100)
-cull_mask = 31
+cull_mask = 63
 projection = 1
 current = true
 size = 10.0
@@ -132,6 +148,11 @@ near = 5.0
 [node name="InteractRayTP" type="RayCast3D" parent="ThirdPerosnCam"]
 target_position = Vector3(0, 0, -10000)
 collision_mask = 26
+
+[node name="Background" type="MeshInstance3D" parent="ThirdPerosnCam"]
+transform = Transform3D(-0.5, -0.866025, 0, 0.866025, -0.5, 0, 0, 0, 1, 0, 0, -1000)
+material_override = SubResource("StandardMaterial3D_bcc5j")
+mesh = SubResource("QuadMesh_01c7o")
 
 [node name="PlayerCam" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)

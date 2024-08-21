@@ -5,8 +5,6 @@
 [ext_resource type="Texture2D" uid="uid://cb2mk4lfvwsa5" path="res://Resources/Material/Sources/BrownTiles_normal.png" id="3_eklbx"]
 
 [resource]
-diffuse_mode = 3
-specular_mode = 1
 albedo_texture = ExtResource("1_ikrrb")
 metallic = 1.0
 metallic_specular = 0.0
@@ -17,6 +15,4 @@ roughness_texture = ExtResource("2_m6x8x")
 roughness_texture_channel = 1
 normal_enabled = true
 normal_texture = ExtResource("3_eklbx")
-uv1_scale = Vector3(0.25, 0.25, 0.25)
-uv1_triplanar = true
 texture_filter = 0

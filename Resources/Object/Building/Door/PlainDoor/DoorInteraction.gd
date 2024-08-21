@@ -1,8 +1,17 @@
+@tool
 extends AnimatableBody3D
 
 @onready var mesh = $Mesh
-@export var mesh_color : Color = Color(0,0,0,0)
-@export var mesh_material : Material
+@export var mesh_color : Color = Color(0,0,0,0):
+	set(color):
+		mesh_color = color
+		if Engine.is_editor_hint():
+			color_setter()
+@export var mesh_material : Material = preload("res://Resources/Material/Wood.tres"):
+	set(material):
+		mesh_material = material
+		if Engine.is_editor_hint():
+			material_setter()
 @export var lock : int = 0
 var open : bool = false
 signal interacted(bool)
@@ -13,6 +22,11 @@ signal interacted(bool)
 func _ready():
 	if mesh_color != Color(0,0,0,0) :	MaterialUtil.recolor(mesh,mesh_color)
 	if mesh_material : MaterialUtil.change_material(mesh,mesh_material)
+	
+func color_setter():
+	MaterialUtil.recolor(mesh,mesh_color)
+func material_setter():
+	MaterialUtil.change_material(mesh,mesh_material)
 
 func interact(_sender):
 	if !open and lock:

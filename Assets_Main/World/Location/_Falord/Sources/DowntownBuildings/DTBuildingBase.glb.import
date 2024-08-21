@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dhfy66syvbifo"
-path="res://.godot/imported/counter.glb-6b1ec380ce1d92bfa67d3978ec9d57af.scn"
+uid="uid://7rflpb8cd33k"
+path="res://.godot/imported/DTBuildingBase.glb-1cc78b409ae0819689c7df083c0ecc97.scn"
 
 [deps]
 
-source_file="res://Resources/Object/Furniture/Counter/counter.glb"
-dest_files=["res://.godot/imported/counter.glb-6b1ec380ce1d92bfa67d3978ec9d57af.scn"]
+source_file="res://Assets_Main/World/Location/_Falord/Sources/DowntownBuildings/DTBuildingBase.glb"
+dest_files=["res://.godot/imported/DTBuildingBase.glb-1cc78b409ae0819689c7df083c0ecc97.scn"]
 
 [params]
 

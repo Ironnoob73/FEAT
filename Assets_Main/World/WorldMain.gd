@@ -48,8 +48,8 @@ func _physics_process(_delta):
 	else :
 		sun.visible = false
 		
-func _process(delta: float) -> void:
-	background.position.x = player.position.x - (player.position.x + 4352)/12288
-	background.position.y = player.position.y - player.position.y/12288 + 0.5
-	background.position.z = player.position.z - (player.position.z - 4352)/12288
+#func _process(delta: float) -> void:
+	#background.position.x = player.position.x - (player.position.x + 4352)/12288
+	#background.position.y = player.position.y - player.position.y/12288 + 0.5
+	#background.position.z = player.position.z - (player.position.z - 4352)/12288
 	

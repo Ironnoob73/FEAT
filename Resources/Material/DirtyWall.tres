@@ -5,14 +5,10 @@
 [ext_resource type="Texture2D" uid="uid://cy4kyowhdsfpl" path="res://Resources/Material/Sources/DirtyWall_orm.png" id="3_a8ttp"]
 
 [resource]
-diffuse_mode = 3
-specular_mode = 1
 albedo_texture = ExtResource("1_klxyd")
 metallic = 0.1
 roughness_texture = ExtResource("3_a8ttp")
 roughness_texture_channel = 1
 normal_enabled = true
 normal_texture = ExtResource("2_tf8c3")
-uv1_scale = Vector3(0.25, 0.25, 0.25)
-uv1_triplanar = true
 texture_filter = 0

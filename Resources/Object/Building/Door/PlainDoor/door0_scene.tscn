@@ -13,7 +13,7 @@ size = Vector3(0.1, 0.2, 0.2)
 size = Vector3(1, 1.2, 0)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_byqrf"]
-size = Vector3(1.2, 2.3, 0.1)
+size = Vector3(1.2, 2.4, 0.1)
 
 [node name="Door0Scene" type="AnimatableBody3D" groups=["Interactive"]]
 collision_layer = 8
@@ -41,7 +41,7 @@ material_override = ExtResource("7_fxnoq")
 mesh = SubResource("BoxMesh_54wb5")
 
 [node name="CollisionShape" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6, 1.15, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6, 1.2, 0)
 shape = SubResource("BoxShape3D_byqrf")
 
 [node name="LockTipF" type="Label3D" parent="."]

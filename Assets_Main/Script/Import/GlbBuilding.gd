@@ -13,9 +13,11 @@ func iterate(node):
 			for i in mesh.get_surface_count():
 				mesh.surface_set_material(i, load("res://Resources/Material/" + mesh.surface_get_material(i).resource_name + ".tres"))
 			var collision = CollisionShape3D.new()
-			node.add_child(collision)
 			collision.shape = ConcavePolygonShape3D.new()
 			collision.shape.set_faces(mesh.get_faces())
+			node.add_child(collision)
+			node.set_cast_shadows_setting(2)
+			print(node.get_cast_shadows_setting(),"cast shadow now")
 			
 
 		# Keep iterating

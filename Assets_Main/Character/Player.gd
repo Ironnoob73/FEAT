@@ -45,6 +45,7 @@ var perspective_from : Vector2
 @onready var _climb_area = $PlayerColl/ClimbArea
 
 @onready var caption = $Caption
+@onready var gradient_background: MeshInstance3D = $ThirdPerosnCam/Background
 
 var INERTIA:Vector2 = Vector2.ZERO
 
@@ -97,6 +98,8 @@ func _input(event):
 				third_perosn_cam.size = clamp(perspective_size + (pos.y - perspective_from.y) * 0.1,5,50)
 				third_perosn_cam.position.y = third_perosn_cam.size
 				third_perosn_cam.position.z = third_perosn_cam.size
+				gradient_background.mesh.size.x = third_perosn_cam.size * 2
+				gradient_background.mesh.size.y = third_perosn_cam.size * 2.5
 			else:
 				perspective_rad = self.global_rotation.y
 				perspective_size = third_perosn_cam.size

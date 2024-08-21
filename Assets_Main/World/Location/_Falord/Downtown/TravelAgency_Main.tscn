@@ -1,0 +1,83 @@
+[gd_scene load_steps=17 format=3 uid="uid://cl6ldjsalc5wj"]
+
+[ext_resource type="PackedScene" uid="uid://3yd06robq3f8" path="res://Resources/Object/Building/Door/RollingShutter/door_scene.tscn" id="1_mvlr0"]
+[ext_resource type="PackedScene" uid="uid://lixd4xll3bl0" path="res://Resources/Object/Building/Window/StaticGlass/glass_scene.tscn" id="2_qsc8l"]
+[ext_resource type="PackedScene" uid="uid://c5nkwuac4jut0" path="res://Resources/Object/Building/Door/PlainDoor/frame_scene.tscn" id="3_f6wq3"]
+[ext_resource type="PackedScene" uid="uid://dolx4mc7cel7q" path="res://Resources/Object/Building/Door/PlainDoor/door0_scene.tscn" id="4_7eld8"]
+[ext_resource type="PackedScene" uid="uid://r1jin26481p6" path="res://Assets_Main/World/Location/_Falord/Sources/DowntownBuildings/TravelAgencyMainInner.glb" id="5_8f4bo"]
+[ext_resource type="Texture2D" uid="uid://dx2blvlx1qx1" path="res://Resources/Image/map/Map001_detailed.png" id="6_gpas7"]
+[ext_resource type="PackedScene" uid="uid://drgodm207unxt" path="res://Assets_Main/World/Location/_Falord/Sources/DowntownBuildings/TutorialVR.tscn" id="7_elm17"]
+[ext_resource type="PackedScene" uid="uid://c3mhx4rgcj41a" path="res://Resources/Character/Tom/tom_scene.tscn" id="8_63kpw"]
+[ext_resource type="PackedScene" uid="uid://gi76rr5sims" path="res://Resources/Object/Furniture/Counter/counter_scene.tscn" id="9_gxstb"]
+[ext_resource type="PackedScene" uid="uid://lpmasy302bvb" path="res://Resources/Object/Furniture/WoodenTable/table_scene.tscn" id="10_82dgq"]
+[ext_resource type="PackedScene" uid="uid://drxt0mv3ci5ed" path="res://Resources/Object/Furniture/WoodenChair/chair_scene.tscn" id="11_uvgp4"]
+[ext_resource type="PackedScene" uid="uid://ogtwuy5brc0t" path="res://Resources/Object/Building/Switch/Common/switch_scene.tscn" id="12_53pvo"]
+[ext_resource type="PackedScene" uid="uid://coan3h6n6wobt" path="res://Resources/Object/Building/Light/FluorescentLamp/light_scene.tscn" id="13_vw08j"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_m2pp3"]
+data = PackedVector3Array(4, 0, 5, 3, 2.5, 5, 3, 0.4999, 5, 4, 0, 5, 4, 4, 5, 3, 2.5, 5, 4, 4, 5, 4, 3, -1, 4, 4, -5, 4, 4, 5, 4, 3, 3, 4, 3, -1, 4, 4, 5, 4, 0, 3, 4, 3, 3, 4, 4, 5, 4, 0, 5, 4, 0, 3, -0.8, 2.5, 5, -0.0001, 0.4999, 5, -0.0001, 2.5, 5, -0.8, 2.5, 5, -0.8, 0, 5, -0.0001, 0.4999, 5, -4, 0, 5, -2.2, 2.5, 5, -4, 4, 5, -4, 0, 5, -2.2, 0, 5, -2.2, 2.5, 5, -0.8, 2.5, 5, -4, 4, 5, -2.2, 2.5, 5, -0.8, 2.5, 5, -0.0001, 2.5, 5, -4, 4, 5, -0.8, 0, 5, 3, 0.4999, 5, -0.0001, 0.4999, 5, -0.8, 0, 5, 4, 0, 5, 3, 0.4999, 5, 4, 4, -5, -4, 0, -5, -4, 4, -5, 4, 4, -5, 4, 0, -5, -4, 0, -5, 4, 0, -5, 4, 3, -1, 4, 0, -1, 4, 0, -5, 4, 4, -5, 4, 3, -1, -4, 4, 5, 3, 2.5, 5, 4, 4, 5, -4, 4, 5, -0.0001, 2.5, 5, 3, 2.5, 5, -4, 4, -5, -4, 0, 5, -4, 4, 5, -4, 4, -5, -4, 0, -5, -4, 0, 5, -4, 4, -5, 4, 4, 5, 4, 4, -5, -4, 4, -5, -4, 4, 5, 4, 4, 5, -4, 0, 5, 4, 0, -1, 4, 0, 3, -4, 0, 5, -4, 0, -5, 4, 0, -1, 4, 0, -5, 4, 0, -1, -4, 0, -5, -4, 0, 5, 4, 0, 3, -2.2, 0, 5, -0.8, 0, 5, -2.2, 0, 5, 4, 0, 3, 4, 0, 3, 4, 0, 5, -0.8, 0, 5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x4nl5"]
+albedo_texture = ExtResource("6_gpas7")
+texture_filter = 0
+
+[sub_resource type="QuadMesh" id="QuadMesh_7jkkh"]
+size = Vector2(1.5, 1.5)
+
+[node name="TravelAgencyMain" type="StaticBody3D"]
+collision_layer = 3
+
+[node name="RollingShutterScene" parent="." instance=ExtResource("1_mvlr0")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 4.05, 0, 1)
+open = true
+lock = 7247614650
+
+[node name="GlassScene" parent="." instance=ExtResource("2_qsc8l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 1.5, 5)
+occlusion = "none"
+
+[node name="FrameScene0" parent="." instance=ExtResource("3_f6wq3")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1.5, 0, 5)
+occlusion = "none"
+
+[node name="Door0Scene" parent="FrameScene0" instance=ExtResource("4_7eld8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6, 0, 0)
+
+[node name="TravelAgencyMainInner" parent="." instance=ExtResource("5_8f4bo")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("ConcavePolygonShape3D_m2pp3")
+
+[node name="Map" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 3.89, 1.5, -3)
+material_override = SubResource("StandardMaterial3D_x4nl5")
+mesh = SubResource("QuadMesh_7jkkh")
+
+[node name="TutorialVR" parent="." instance=ExtResource("7_elm17")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5, 0.5, 4.5)
+
+[node name="Tom" parent="." instance=ExtResource("8_63kpw")]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, -2.5, 1.5, 1.5)
+
+[node name="CounterScene" parent="." instance=ExtResource("9_gxstb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.5, 0, 1.5)
+
+[node name="WoodenTableScene" parent="." instance=ExtResource("10_82dgq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, 4.5)
+
+[node name="WoodenChairScene1" parent="." instance=ExtResource("11_uvgp4")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.5, 0, 4.5)
+
+[node name="WoodenChairScene2" parent="." instance=ExtResource("11_uvgp4")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.5, 0, 4.5)
+
+[node name="SwitchScene" parent="." instance=ExtResource("12_53pvo")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 4.1, 1, 3.5)
+state = true
+connected_node = Array[NodePath]([NodePath("../FluorescentLampScene1"), NodePath("../FluorescentLampScene2")])
+
+[node name="FluorescentLampScene1" parent="." instance=ExtResource("13_vw08j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 2.5)
+
+[node name="FluorescentLampScene2" parent="." instance=ExtResource("13_vw08j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, -2.5)
