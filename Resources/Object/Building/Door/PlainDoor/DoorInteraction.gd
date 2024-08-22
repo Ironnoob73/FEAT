@@ -1,7 +1,7 @@
 @tool
-extends AnimatableBody3D
+extends StaticBody3D
 
-@onready var mesh = $Mesh
+var open : bool = false
 @export var mesh_color : Color = Color(0,0,0,0):
 	set(color):
 		mesh_color = color
@@ -13,11 +13,12 @@ extends AnimatableBody3D
 		if Engine.is_editor_hint():
 			material_setter()
 @export var lock : int = 0
-var open : bool = false
 signal interacted(bool)
 
-@onready var lock_tip_f = $LockTipF
-@onready var lock_tip_b = $LockTipB
+@onready var mesh = $Hinge/Mesh
+@onready var hinge = $Hinge
+@onready var lock_tip_f = $Hinge/LockTipF
+@onready var lock_tip_b = $Hinge/LockTipB
 
 func _ready():
 	if mesh_color != Color(0,0,0,0) :	MaterialUtil.recolor(mesh,mesh_color)
@@ -36,9 +37,24 @@ func interact(_sender):
 		tween_b.tween_property(lock_tip_b, "modulate:a", 1, 0)
 		tween_f.tween_property(lock_tip_f, "modulate:a", 0, 1)
 		tween_b.tween_property(lock_tip_b, "modulate:a", 0, 1)
-	else:
+	#else:
+	#	var tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUART)
+	#	open = !open
+	#	if open :	tween.tween_property(hinge, "rotation:y", deg_to_rad(90), 0.5)
+	#	else :		tween.tween_property(hinge, "rotation:y", 0, 0.5)
+	#	emit_signal("interacted",open)
+
+func _on_auto_open_area_area_entered(area: Area3D) -> void:
+	if area.is_in_group("PlayerMotion") && !lock:
+		print("income")
+		open = true
+		set_collision_layer_value(4,false)
 		var tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUART)
-		open = !open
-		if open :	tween.tween_property(self, "rotation:y", deg_to_rad(90), 0.5)
-		else :		tween.tween_property(self, "rotation:y", 0, 0.5)
-		emit_signal("interacted",open)
+		tween.tween_property(hinge, "rotation:y", deg_to_rad(90), 0.5)
+func _on_auto_open_area_area_exited(area: Area3D) -> void:
+	if area.is_in_group("PlayerMotion") && !lock:
+		print("outcome")
+		open = false
+		set_collision_layer_value(4,true)
+		var tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUART)
+		tween.tween_property(hinge, "rotation:y", 0, 0.5)

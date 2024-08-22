@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cwit74o33j318"
+path="res://.godot/imported/RollingShutterDown.obj-25e1ca26fbff508119c07227daf679a8.mesh"
+
+[deps]
+
+files=["res://.godot/imported/RollingShutterDown.obj-25e1ca26fbff508119c07227daf679a8.mesh"]
+
+source_file="res://Resources/Object/Building/Door/RollingShutter/RollingShutterDown.obj"
+dest_files=["res://.godot/imported/RollingShutterDown.obj-25e1ca26fbff508119c07227daf679a8.mesh", "res://.godot/imported/RollingShutterDown.obj-25e1ca26fbff508119c07227daf679a8.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

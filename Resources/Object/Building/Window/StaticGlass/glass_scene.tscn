@@ -1,11 +1,11 @@
 [gd_scene load_steps=10 format=3 uid="uid://lixd4xll3bl0"]
 
-[ext_resource type="Script" path="res://Resources/Object/Building/OcclusionLogic.gd" id="1_083ap"]
+[ext_resource type="Script" path="res://Resources/Object/Building/OcclusionSetup.gd" id="1_083ap"]
 [ext_resource type="Material" uid="uid://b860lbxbd3ed6" path="res://Resources/Material/GrayMaterial.tres" id="1_fullj"]
 [ext_resource type="Material" uid="uid://d2kh2k5stcerf" path="res://Resources/Material/Glass.tres" id="2_4v2hw"]
 [ext_resource type="ArrayMesh" uid="uid://6p1gb7kymho6" path="res://Resources/Object/Building/Window/StaticGlass/StaticGlassFrame.obj" id="2_b71qc"]
 [ext_resource type="Material" uid="uid://rnxv6hl1w5ul" path="res://Resources/Material/DarkMaterial.tres" id="4_ipi4v"]
-[ext_resource type="Material" uid="uid://dccfefkmpm8o5" path="res://Resources/Material/WhiteEmissive.tres" id="6_lu0k4"]
+[ext_resource type="Material" uid="uid://cimr26thbt57t" path="res://Resources/Material/WhiteNoshadow.tres" id="6_dq6qf"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xnr1y"]
 size = Vector3(3, 2, 0.2)
@@ -40,11 +40,12 @@ mesh = SubResource("QuadMesh_pht77")
 [node name="Occlusion_light" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.1)
 visible = false
-material_override = ExtResource("6_lu0k4")
+material_override = ExtResource("6_dq6qf")
 mesh = SubResource("QuadMesh_pht77")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Occlusion_light"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, -0.9)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -0.9)
+light_energy = 3.0
 shadow_enabled = true
 shadow_bias = 0.0
 shadow_normal_bias = 10.0

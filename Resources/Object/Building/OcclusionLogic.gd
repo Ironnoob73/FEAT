@@ -1,25 +1,15 @@
 @tool
-extends StaticBody3D
+extends Node
 
-@export_enum("none","dark","light") var occlusion : String = "dark":
-	set(state):
-		occlusion = state
-		occlusion_setter()
-@onready var occlusion_obj: MeshInstance3D = $Occlusion
-@onready var occlusion_light_obj: MeshInstance3D = $Occlusion_light
-
-func _ready() -> void:
-	occlusion_setter()
-
-func occlusion_setter():
-	if is_instance_valid(occlusion_obj) && is_instance_valid(occlusion_light_obj) :
-		match occlusion:
+func occlusion_setter(obj:Node):
+	if is_instance_valid(obj.occlusion_obj):
+		match obj.occlusion:
 			"none" :
-				occlusion_obj.visible = false
-				occlusion_light_obj.visible = false
+				obj.occlusion_obj.visible = false
+				obj.occlusion_light_obj.visible = false
 			"dark" :
-				occlusion_obj.visible = true
-				occlusion_light_obj.visible = false
+				obj.occlusion_obj.visible = true
+				obj.occlusion_light_obj.visible = false
 			"light" :
-				occlusion_light_obj.visible = true
-				occlusion_obj.visible = false
+				obj.occlusion_light_obj.visible = true
+				obj.occlusion_obj.visible = false

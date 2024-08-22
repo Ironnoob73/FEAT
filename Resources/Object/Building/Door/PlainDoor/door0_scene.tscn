@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dolx4mc7cel7q"]
+[gd_scene load_steps=10 format=3 uid="uid://dolx4mc7cel7q"]
 
 [ext_resource type="Script" path="res://Resources/Object/Building/Door/PlainDoor/DoorInteraction.gd" id="3_cxbeg"]
 [ext_resource type="Material" uid="uid://do55163v32q4u" path="res://Resources/Material/Wood.tres" id="4_tfs5u"]
@@ -10,50 +10,65 @@
 size = Vector3(0.1, 0.2, 0.2)
 
 [sub_resource type="BoxMesh" id="BoxMesh_54wb5"]
-size = Vector3(1, 1.2, 0)
+size = Vector3(1, 1, 0)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_byqrf"]
 size = Vector3(1.2, 2.4, 0.1)
 
-[node name="Door0Scene" type="AnimatableBody3D" groups=["Interactive"]]
+[sub_resource type="BoxShape3D" id="BoxShape3D_olwkq"]
+size = Vector3(1.2, 2.4, 2)
+
+[node name="Door0Scene" type="StaticBody3D" groups=["Interactive"]]
 collision_layer = 8
 collision_mask = 15
-axis_lock_linear_x = true
-axis_lock_linear_y = true
-axis_lock_linear_z = true
-axis_lock_angular_x = true
-axis_lock_angular_z = true
 script = ExtResource("3_cxbeg")
 
-[node name="Mesh" type="MeshInstance3D" parent="."]
+[node name="Hinge" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6, 0, 0)
+
+[node name="Mesh" type="MeshInstance3D" parent="Hinge"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6, 0, -0.05)
 material_override = ExtResource("4_tfs5u")
 mesh = ExtResource("5_43774")
+skeleton = NodePath("../..")
 
-[node name="Handle" type="MeshInstance3D" parent="."]
+[node name="Handle" type="MeshInstance3D" parent="Hinge"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0.8, 0)
 material_override = ExtResource("5_hnrnm")
 mesh = SubResource("BoxMesh_pcbij")
+skeleton = NodePath("../..")
 
-[node name="Glass" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6, 1.6, 0)
+[node name="Glass" type="MeshInstance3D" parent="Hinge"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6, 1.7, 0)
 material_override = ExtResource("7_fxnoq")
 mesh = SubResource("BoxMesh_54wb5")
+skeleton = NodePath("../..")
 
-[node name="CollisionShape" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6, 1.2, 0)
-shape = SubResource("BoxShape3D_byqrf")
-
-[node name="LockTipF" type="Label3D" parent="."]
+[node name="LockTipF" type="Label3D" parent="Hinge"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 0.11)
 modulate = Color(1, 1, 1, 0)
 text = "🔒"
 font_size = 50
 outline_size = 0
 
-[node name="LockTipB" type="Label3D" parent="."]
+[node name="LockTipB" type="Label3D" parent="Hinge"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, -0.11)
 modulate = Color(1, 1, 1, 0)
 text = "🔒"
 font_size = 50
 outline_size = 0
+
+[node name="CollisionShape" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, 0)
+shape = SubResource("BoxShape3D_byqrf")
+
+[node name="AutoOpenArea" type="Area3D" parent="."]
+collision_layer = 16
+collision_mask = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AutoOpenArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, 0)
+shape = SubResource("BoxShape3D_olwkq")
+
+[connection signal="area_entered" from="AutoOpenArea" to="." method="_on_auto_open_area_area_entered"]
+[connection signal="area_exited" from="AutoOpenArea" to="." method="_on_auto_open_area_area_exited"]

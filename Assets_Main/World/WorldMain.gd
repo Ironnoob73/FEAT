@@ -11,6 +11,9 @@ extends Node3D
 @onready var player = $Player
 @onready var background = $FalordMap
 
+@onready var packed: Node3D = $Packed
+@onready var next_scene: Node3D = null
+
 func _ready():
 	_on_options_set_sdfgi(Global.Sdfgi)
 	if !Global.playerTeleported :
@@ -53,3 +56,20 @@ func _physics_process(_delta):
 	#background.position.y = player.position.y - player.position.y/12288 + 0.5
 	#background.position.z = player.position.z - (player.position.z - 4352)/12288
 	
+func change_scene(location:String,pos:Vector3):
+	match location :
+		"null":
+			return
+		"out":
+			add_child(packed)
+			if next_scene != null:
+				remove_child(next_scene)
+				next_scene = null
+		_ :
+			if next_scene == null:
+				remove_child(packed)
+			else:
+				remove_child(next_scene)
+			next_scene = packed.get(location)
+			add_child(next_scene)
+	player.position = pos

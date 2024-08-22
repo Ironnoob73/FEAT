@@ -7,7 +7,7 @@
 [ext_resource type="ArrayMesh" uid="uid://bk6pj84y4cnv6" path="res://Resources/Object/Building/Window/CasementWindow/CasementWindow.obj" id="5_2202u"]
 [ext_resource type="Material" uid="uid://d2kh2k5stcerf" path="res://Resources/Material/Glass.tres" id="6_jya43"]
 [ext_resource type="Material" uid="uid://rnxv6hl1w5ul" path="res://Resources/Material/DarkMaterial.tres" id="7_0gtub"]
-[ext_resource type="Material" uid="uid://dccfefkmpm8o5" path="res://Resources/Material/WhiteEmissive.tres" id="8_ytfbq"]
+[ext_resource type="Material" uid="uid://cimr26thbt57t" path="res://Resources/Material/WhiteNoshadow.tres" id="8_hod1q"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_turlg"]
 size = Vector3(1.5, 2, 0.2)
@@ -61,7 +61,7 @@ mesh = SubResource("QuadMesh_y75ba")
 [node name="Occlusion_light" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25, 1, 0.1)
 visible = false
-material_override = ExtResource("8_ytfbq")
+material_override = ExtResource("8_hod1q")
 mesh = SubResource("QuadMesh_y75ba")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Occlusion_light"]

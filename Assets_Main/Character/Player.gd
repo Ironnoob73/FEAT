@@ -345,6 +345,9 @@ func refresh_handheld_info():
 func _on_climb_area_area_entered(area):
 	if area.is_in_group("ClimbAble"):
 		isClimb = true
+	if area.is_in_group("Teleporter"):
+		print(global_position)
+		get_node("/root/World").change_scene(area.get_parent().ToLocation,area.get_parent().ToLocationPos)
 func _on_climb_area_area_exited(area):
 	if area.is_in_group("ClimbAble"):
 		isClimb = false

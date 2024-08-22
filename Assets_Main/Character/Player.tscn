@@ -119,12 +119,15 @@ script = ExtResource("1_twfth")
 shape = SubResource("CapsuleShape3D_a500n")
 
 [node name="ClimbArea" type="Area3D" parent="PlayerColl"]
-collision_mask = 15
+collision_layer = 4
+collision_mask = 27
 
 [node name="Coll" type="CollisionShape3D" parent="PlayerColl/ClimbArea"]
 shape = SubResource("CapsuleShape3D_a500n")
 
-[node name="MotionArea" type="Area3D" parent="PlayerColl"]
+[node name="MotionArea" type="Area3D" parent="PlayerColl" groups=["PlayerMotion"]]
+collision_layer = 4
+collision_mask = 27
 
 [node name="Coll" type="CollisionShape3D" parent="PlayerColl/MotionArea"]
 shape = SubResource("CapsuleShape3D_xn36b")
@@ -209,7 +212,7 @@ visible = false
 cull_mask = 0
 
 [node name="InteractRay" type="RayCast3D" parent="PlayerCam"]
-target_position = Vector3(0, 0, -20)
+target_position = Vector3(0, 0, -1)
 collision_mask = 26
 script = ExtResource("2_fls23")
 
@@ -296,6 +299,7 @@ shape = SubResource("BoxShape3D_j771c")
 
 [node name="Cursor3" type="MeshInstance3D" parent="."]
 top_level = true
+visible = false
 material_override = SubResource("ShaderMaterial_3qjou")
 mesh = SubResource("SphereMesh_qjga7")
 

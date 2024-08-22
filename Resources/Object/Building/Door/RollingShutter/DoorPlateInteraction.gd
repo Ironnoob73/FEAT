@@ -1,4 +1,4 @@
-extends CSGBox3D
+extends StaticBody3D
 
 @onready var lock_tip_f = $"../LockTipF"
 @onready var lock_tip_b = $"../LockTipB"

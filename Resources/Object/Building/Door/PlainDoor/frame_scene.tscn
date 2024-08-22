@@ -1,11 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://c5nkwuac4jut0"]
+[gd_scene load_steps=12 format=3 uid="uid://c5nkwuac4jut0"]
 
 [ext_resource type="Script" path="res://Resources/Object/Building/Door/PlainDoor/DoorFrameRecolor.gd" id="1_glgy1"]
 [ext_resource type="Material" uid="uid://bi2qrop8jfbsf" path="res://Resources/Material/Tree.tres" id="1_xa7w8"]
 [ext_resource type="ArrayMesh" uid="uid://dutllpwyvnjjh" path="res://Resources/Object/Building/Door/PlainDoor/DoorFrame.obj" id="2_uio7l"]
 [ext_resource type="Shader" path="res://Resources/Shader/recolor.gdshader" id="3_fgf2p"]
 [ext_resource type="Material" uid="uid://rnxv6hl1w5ul" path="res://Resources/Material/DarkMaterial.tres" id="5_cm3tb"]
-[ext_resource type="Material" uid="uid://dccfefkmpm8o5" path="res://Resources/Material/WhiteEmissive.tres" id="6_naxvi"]
+[ext_resource type="Material" uid="uid://cimr26thbt57t" path="res://Resources/Material/WhiteNoshadow.tres" id="6_4g2hj"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_rq84c"]
 render_priority = 0
@@ -21,10 +21,12 @@ size = Vector2(1.2, 2.4)
 [sub_resource type="QuadMesh" id="QuadMesh_cgvbv"]
 size = Vector2(1.2, 2.4)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_vgq7w"]
+size = Vector3(1.2, 2.4, 0.1)
+
 [node name="FrameScene" type="StaticBody3D"]
 collision_layer = 3
 script = ExtResource("1_glgy1")
-mesh_material = null
 
 [node name="DoorFrame" type="MeshInstance3D" parent="."]
 material_override = ExtResource("1_xa7w8")
@@ -42,7 +44,7 @@ mesh = SubResource("QuadMesh_63jro")
 [node name="Occlusion_light" type="MeshInstance3D" parent="."]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 1.2, 0.1)
 visible = false
-material_override = ExtResource("6_naxvi")
+material_override = ExtResource("6_4g2hj")
 mesh = SubResource("QuadMesh_cgvbv")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Occlusion_light"]
@@ -50,3 +52,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -0.9)
 shadow_enabled = true
 shadow_bias = 0.0
 shadow_normal_bias = 10.0
+
+[node name="Teleporter" type="Area3D" parent="." groups=["Teleporter"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Teleporter"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, 0.15)
+shape = SubResource("BoxShape3D_vgq7w")

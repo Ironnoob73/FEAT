@@ -17,6 +17,7 @@ size = Vector3(0.5, 0.5, 0.5)
 
 [node name="PickableScene" type="RigidBody3D" groups=["Interactive"]]
 collision_layer = 16
+collision_mask = 11
 script = ExtResource("1_4u8fc")
 
 [node name="PickableArea" type="Area3D" parent="."]
