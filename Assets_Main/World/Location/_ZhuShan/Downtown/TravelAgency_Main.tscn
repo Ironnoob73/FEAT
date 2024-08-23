@@ -46,11 +46,8 @@ occlusion = "none"
 ToLocation = "out"
 ToLocationPos = Vector3(45.5, 1.5, -9.5)
 
-[node name="Node3D" type="Node3D" parent="FrameScene0"]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
-
-[node name="Door0Scene" parent="FrameScene0/Node3D" instance=ExtResource("4_7eld8")]
-transform = Transform3D(1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, 0, 0, 0)
+[node name="Door0Scene" parent="FrameScene0" instance=ExtResource("4_7eld8")]
+transform = Transform3D(-1, 0, 8.74232e-08, 0, 1, 0, -8.74232e-08, 0, -1, 0, 0, 0)
 
 [node name="TravelAgencyMainInner" parent="." instance=ExtResource("5_8f4bo")]
 

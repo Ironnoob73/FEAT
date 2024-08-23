@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://c5nkwuac4jut0"]
+[gd_scene load_steps=14 format=3 uid="uid://c5nkwuac4jut0"]
 
 [ext_resource type="Script" path="res://Resources/Object/Building/Door/PlainDoor/DoorFrameRecolor.gd" id="1_glgy1"]
 [ext_resource type="Material" uid="uid://bi2qrop8jfbsf" path="res://Resources/Material/Tree.tres" id="1_xa7w8"]
@@ -6,6 +6,7 @@
 [ext_resource type="Shader" path="res://Resources/Shader/recolor.gdshader" id="3_fgf2p"]
 [ext_resource type="Material" uid="uid://rnxv6hl1w5ul" path="res://Resources/Material/DarkMaterial.tres" id="5_cm3tb"]
 [ext_resource type="Material" uid="uid://cimr26thbt57t" path="res://Resources/Material/WhiteNoshadow.tres" id="6_4g2hj"]
+[ext_resource type="Material" uid="uid://b860lbxbd3ed6" path="res://Resources/Material/GrayMaterial.tres" id="7_i4j0n"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_rq84c"]
 render_priority = 0
@@ -23,6 +24,9 @@ size = Vector2(1.2, 2.4)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vgq7w"]
 size = Vector3(1.2, 2.4, 0.1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_8ckeh"]
+size = Vector2(1.2, 0.2)
 
 [node name="FrameScene" type="StaticBody3D"]
 collision_layer = 3
@@ -58,3 +62,7 @@ shadow_normal_bias = 10.0
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Teleporter"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, 0.15)
 shape = SubResource("BoxShape3D_vgq7w")
+
+[node name="Bottom" type="MeshInstance3D" parent="."]
+material_override = ExtResource("7_i4j0n")
+mesh = SubResource("PlaneMesh_8ckeh")

@@ -23,6 +23,7 @@ signal interacted(bool)
 func _ready():
 	if mesh_color != Color(0,0,0,0) :	MaterialUtil.recolor(mesh,mesh_color)
 	if mesh_material : MaterialUtil.change_material(mesh,mesh_material)
+	if lock : set_collision_layer_value(4,true)
 	
 func color_setter():
 	MaterialUtil.recolor(mesh,mesh_color)

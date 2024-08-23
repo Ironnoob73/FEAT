@@ -354,7 +354,7 @@ func refresh_handheld_info():
 func _on_climb_area_area_entered(area):
 	if area.is_in_group("ClimbAble"):
 		isClimb = true
-	if area.is_in_group("Teleporter"):
+	if area.is_in_group("Teleporter") && area.get_parent().ToLocation != "null" :
 		var tween = create_tween().set_trans(Tween.TRANS_LINEAR)
 		tween.tween_callback(func():isInTeleport=true)
 		tween.tween_property(transition, "color:a", 1, 0.25)

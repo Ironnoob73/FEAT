@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://bwtcv55j8d0nw"]
+[gd_scene load_steps=24 format=3 uid="uid://bwtcv55j8d0nw"]
 
 [ext_resource type="PackedScene" uid="uid://db5q11bnija1c" path="res://Assets_Main/World/Location/_ZhuShan/Sources/DowntownBuildings/DTGround.glb" id="1_04gio"]
 [ext_resource type="PackedScene" uid="uid://7rflpb8cd33k" path="res://Assets_Main/World/Location/_ZhuShan/Sources/DowntownBuildings/DTBuildingBase.glb" id="2_gv80c"]
@@ -16,7 +16,6 @@
 [ext_resource type="PackedScene" uid="uid://dpv4np1vugbae" path="res://Assets_Main/World/Location/_ZhuShan/Sources/DowntownBuildings/TravelAgencySideStair.glb" id="14_vk7u6"]
 [ext_resource type="PackedScene" uid="uid://dm67jnnf21g1t" path="res://Resources/Object/Building/Window/HungWindow/window_scene.tscn" id="16_a4tpg"]
 [ext_resource type="PackedScene" uid="uid://bgar67py461my" path="res://Resources/Object/Building/Fence/MetalFenceShort/fence_scene.tscn" id="17_vinc8"]
-[ext_resource type="PackedScene" uid="uid://b40pj5rwujily" path="res://Resources/Object/Building/Ladder/MetalWallLadder/ladder_scene.tscn" id="20_ckxen"]
 [ext_resource type="PackedScene" uid="uid://bj6k2kwnojef7" path="res://Resources/Object/Building/Window/AwningWindow/window_scene.tscn" id="21_256j1"]
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_b8g7n"]
@@ -122,16 +121,6 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 4, 9, 
 [node name="SlidingWindowScene4" parent="TravelAgency" instance=ExtResource("11_aqa85")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 4, 9, -2.5)
 
-[node name="FrameScene3" parent="TravelAgency" instance=ExtResource("7_7l25i")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -4, 12.1, -2.5)
-mesh_material = ExtResource("12_esyd3")
-ToLocation = ""
-
-[node name="DoorScene3" parent="TravelAgency/FrameScene3" instance=ExtResource("9_l2hol")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6, 0, 0)
-mesh_color = Color(1, 1, 1, 1)
-lock = 57024
-
 [node name="MetalPlate0" type="CSGBox3D" parent="TravelAgency"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 13.75, 0)
 use_collision = true
@@ -186,15 +175,6 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1, 13
 
 [node name="HungWindowScene6" parent="TravelAgencySideStair" instance=ExtResource("16_a4tpg")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1.5, 13, 5)
-
-[node name="LadderScene1" parent="TravelAgencySideStair" instance=ExtResource("20_ckxen")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.5, 12.5, 3.5)
-
-[node name="LadderScene2" parent="TravelAgencySideStair" instance=ExtResource("20_ckxen")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.5, 13.5, 3.5)
-
-[node name="LadderScene3" parent="TravelAgencySideStair" instance=ExtResource("20_ckxen")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.5, 14.5, 3.5)
 
 [node name="FrameScene" parent="TravelAgencySideStair" instance=ExtResource("7_7l25i")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1.5, 15, 1)
