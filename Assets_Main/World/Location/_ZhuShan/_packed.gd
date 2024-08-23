@@ -5,3 +5,4 @@ extends Node3D
 # Location
 #	B2
 var TravelAgency_MAIN = preload("res://Assets_Main/World/Location/_ZhuShan/Downtown/TravelAgency_Main.tscn").instantiate()
+var TravelAgency_SideStair = preload("res://Assets_Main/World/Location/_ZhuShan/Downtown/TravelAgency_SideStair.tscn").instantiate()

@@ -1,0 +1,194 @@
+[gd_scene load_steps=18 format=3 uid="uid://c5x88i487dw"]
+
+[ext_resource type="PackedScene" uid="uid://vtmimg6a3eqb" path="res://Assets_Main/World/Location/_ZhuShan/Sources/DowntownBuildings/TravelAgencySideStairEntrance.glb" id="1_5o8y8"]
+[ext_resource type="Material" uid="uid://rnxv6hl1w5ul" path="res://Resources/Material/DarkMaterial.tres" id="2_re8q5"]
+[ext_resource type="PackedScene" uid="uid://3yd06robq3f8" path="res://Resources/Object/Building/Door/RollingShutter/door_scene.tscn" id="3_2bo1a"]
+[ext_resource type="PackedScene" uid="uid://2jr0tjnjphjq" path="res://Assets_Main/World/Location/_ZhuShan/Sources/DowntownBuildings/TravelAgencySideStairPart.tscn" id="4_hq787"]
+[ext_resource type="PackedScene" uid="uid://coan3h6n6wobt" path="res://Resources/Object/Building/Light/FluorescentLamp/light_scene.tscn" id="5_8opvs"]
+[ext_resource type="PackedScene" uid="uid://daqmxa7nkfs61" path="res://Resources/Object/Building/Switch/MotionSensing/switch_scene.tscn" id="6_3hcy3"]
+[ext_resource type="PackedScene" uid="uid://cdb8pwnrak2xt" path="res://Assets_Main/World/Location/_ZhuShan/Sources/DowntownBuildings/TravelAgencySideStairFloor.glb" id="7_iijnv"]
+[ext_resource type="Script" path="res://Assets_Main/World/Location/_ZhuShan/Downtown/PlayerLevelDetect.gd" id="8_mku5d"]
+[ext_resource type="PackedScene" uid="uid://dm67jnnf21g1t" path="res://Resources/Object/Building/Window/HungWindow/window_scene.tscn" id="8_n31n0"]
+[ext_resource type="PackedScene" uid="uid://bgar67py461my" path="res://Resources/Object/Building/Fence/MetalFenceShort/fence_scene.tscn" id="9_0psam"]
+[ext_resource type="PackedScene" uid="uid://c5nkwuac4jut0" path="res://Resources/Object/Building/Door/PlainDoor/frame_scene.tscn" id="9_bm8kl"]
+[ext_resource type="PackedScene" uid="uid://ds1bb3oh6akpf" path="res://Resources/Object/Building/Door/PlainDoor/door_scene.tscn" id="10_ydf68"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_jjyd1"]
+data = PackedVector3Array(-3, 0, -5, -3, 4, 5, -3, 4, -5, -3, 0, -5, -3, 0, 5, -3, 4, 5, 2, 3, 5, 3, 0, 5, 3, 4, 5, 2, 3, 5, 2, 0, 5, 3, 0, 5, -2, 0, 5, -3, 4, 5, -3, 0, 5, -2, 0, 5, -2, 3, 5, -3, 4, 5, 0, 4, 5, -2, 3, 5, 0, 3, 5, 0, 4, 5, -3, 4, 5, -2, 3, 5, 0, 4, -5, 3, 0, -5, 0, 0, -5, 0, 4, -5, 3, 4, -5, 3, 0, -5, 3, 4, 5, 3, 0, -5, 3, 4, -5, 3, 4, 5, 3, 0, 5, 3, 0, -5, -3, 4, -5, 0, 0, -5, -3, 0, -5, -3, 4, -5, 0, 4, -5, 0, 0, -5, 3, 4, 5, 0, 3, 5, 2, 3, 5, 3, 4, 5, 0, 4, 5, 0, 3, 5, 2, 0, 5, 3, 0, -5, 3, 0, 5, 2, 0, 5, 0, 0, -5, 3, 0, -5, 2, 0, 5, -2, 0, 5, 0, 0, -5, 2, 0, 5, 0, 0, 5, -2, 0, 5, -3, 0, -5, -2, 0, 5, -3, 0, 5, -3, 0, -5, 0, 0, -5, -2, 0, 5, 3, 4, -5, 0, 4, 5, 3, 4, 5, 3, 4, -5, 0, 4, -5, 0, 4, 5)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_4v6pi"]
+size = Vector2(3, 10)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_51v4j"]
+data = PackedVector3Array(0.4999, 1, 5, -0.5, 1, 5, 0, 0, 5, -0.5, 1, 5, 0, 4, 5, -0.5, 3, 5, 0, 4, 5, 0.4999, 1, 5, 0.4999, 3, 5, -0.5, 1, 5, 0.4999, 1, 5, 0, 4, 5, 2, 1, 5, 3, 4, 5, 2, 3, 5, 2, 1, 5, 3, 0, 5, 3, 4, 5, 0, 0, -5, 3, 4, -5, 3, 0, -5, 0, 0, -5, 0, 4, -5, 3, 4, -5, -2, 1, 5, -3, 4, 5, -3, 0, 5, -2, 1, 5, -2, 3, 5, -3, 4, 5, -2, 3, 5, 0, 4, 5, -3, 4, 5, -2, 3, 5, -0.5, 3, 5, 0, 4, 5, -3, 0, -5, -3, 4, 5, -3, 4, -5, -3, 0, -5, -3, 0, 5, -3, 4, 5, 2, 1, 5, 0, 0, 5, 3, 0, 5, 2, 1, 5, 0.4999, 1, 5, 0, 0, 5, 3, 4, 5, 0.4999, 3, 5, 2, 3, 5, 3, 4, 5, 0, 4, 5, 0.4999, 3, 5, -3, 4, -5, 0, 0, -5, -3, 0, -5, -3, 4, -5, 0, 4, -5, 0, 0, -5, -0.5, 1, 5, -3, 0, 5, 0, 0, 5, -0.5, 1, 5, -2, 1, 5, -3, 0, 5, 3, 2.5, -3.2, 3, 4, 5, 3, 2.5, -1.8, 3, 2.5, -3.2, 3, 4, -5, 3, 4, 5, 3, 0, -3.2, 3, 4, -5, 3, 2.5, -3.2, 3, 0, -3.2, 3, 0, -5, 3, 4, -5, 3, 2.5, -1.8, 3, 0, 5, 3, 0, -1.8, 3, 2.5, -1.8, 3, 4, 5, 3, 0, 5, 3, 0, -5, 3, 0, -3.2, 0, 0, -5, 3, 0, -1.8, 0, 0, -5, 3, 0, -3.2, 3, 0, -1.8, 0, 0, 5, 0, 0, -5, 3, 4, -5, 0, 4, 5, 3, 4, 5, 3, 4, -5, 0, 4, -5, 0, 4, 5, 3, 0, -1.8, 3, 0, 5, 0, 0, 5)
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_8x3iy"]
+plane = Plane(0, -1, 0, 0)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_g1th2"]
+data = PackedVector3Array(0.4999, 1, 5, -0.5, 1, 5, 0, 0, 5, -0.5, 1, 5, 0, 4, 5, -0.5, 3, 5, 0, 4, 5, 0.4999, 1, 5, 0.4999, 3, 5, -0.5, 1, 5, 0.4999, 1, 5, 0, 4, 5, 2, 1, 5, 3, 4, 5, 2, 3, 5, 2, 1, 5, 3, 0, 5, 3, 4, 5, 0, 0, -5, 3, 4, -5, 3, 0, -5, 0, 0, -5, 0, 4, -5, 3, 4, -5, -2, 1, 5, -3, 4, 5, -3, 0, 5, -2, 1, 5, -2, 3, 5, -3, 4, 5, -2, 3, 5, 0, 4, 5, -3, 4, 5, -2, 3, 5, -0.5, 3, 5, 0, 4, 5, -3, 0, -5, -3, 4, 5, -3, 4, -5, -3, 0, -5, -3, 0, 5, -3, 4, 5, 2, 1, 5, 0, 0, 5, 3, 0, 5, 2, 1, 5, 0.4999, 1, 5, 0, 0, 5, 3, 4, 5, 0.4999, 3, 5, 2, 3, 5, 3, 4, 5, 0, 4, 5, 0.4999, 3, 5, -3, 4, -5, 0, 0, -5, -3, 0, -5, -3, 4, -5, 0, 4, -5, 0, 0, -5, -0.5, 1, 5, -3, 0, 5, 0, 0, 5, -0.5, 1, 5, -2, 1, 5, -3, 0, 5, 3, 2.5, -3.2, 3, 4, 5, 3, 2.5, -1.8, 3, 2.5, -3.2, 3, 4, -5, 3, 4, 5, 3, 0, -3.2, 3, 4, -5, 3, 2.5, -3.2, 3, 0, -3.2, 3, 0, -5, 3, 4, -5, 3, 2.5, -1.8, 3, 0, 5, 3, 0, -1.8, 3, 2.5, -1.8, 3, 4, 5, 3, 0, 5, 3, 0, -5, 3, 0, -3.2, 0, 0, -5, 3, 0, -1.8, 0, 0, -5, 3, 0, -3.2, 3, 0, -1.8, 0, 0, 5, 0, 0, -5, 3, 4, -5, 0, 4, 5, 3, 4, 5, 3, 4, -5, 0, 4, -5, 0, 4, 5, 3, 0, -1.8, 3, 0, 5, 0, 0, 5)
+
+[node name="TravelAgencySideStair" type="StaticBody3D"]
+collision_layer = 3
+
+[node name="LV0" type="CollisionShape3D" parent="."]
+shape = SubResource("ConcavePolygonShape3D_jjyd1")
+
+[node name="TravelAgencySideStairEntrance" parent="LV0" instance=ExtResource("1_5o8y8")]
+
+[node name="Shadow" type="MeshInstance3D" parent="LV0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 4, 0)
+material_override = ExtResource("2_re8q5")
+cast_shadow = 3
+mesh = SubResource("PlaneMesh_4v6pi")
+skeleton = NodePath("../..")
+
+[node name="TravelAgencySideStairPart" parent="LV0" instance=ExtResource("4_hq787")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5)
+
+[node name="RollingShutterScene" parent="LV0" instance=ExtResource("3_2bo1a")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 5)
+open = true
+inner = true
+occlusion = "none"
+ToLocation = "out"
+ToLocationPos = Vector3(40, 1.5, -9.5)
+
+[node name="FluorescentLampScene" parent="LV0" instance=ExtResource("5_8opvs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 4, -0.5)
+lit = false
+
+[node name="SwitchScene" parent="LV0" instance=ExtResource("6_3hcy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 4, 0.5)
+connected_node = Array[NodePath]([NodePath("../FluorescentLampScene")])
+
+[node name="LV1" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
+shape = SubResource("ConcavePolygonShape3D_51v4j")
+
+[node name="TravelAgencySideStairFloor" parent="LV1" instance=ExtResource("7_iijnv")]
+
+[node name="PlayerDetect" type="Area3D" parent="LV1"]
+collision_layer = 16
+collision_mask = 4
+script = ExtResource("8_mku5d")
+
+[node name="CollisionShape" type="CollisionShape3D" parent="LV1/PlayerDetect"]
+shape = SubResource("WorldBoundaryShape3D_8x3iy")
+
+[node name="Shadow" type="MeshInstance3D" parent="LV1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 4, 0)
+material_override = ExtResource("2_re8q5")
+cast_shadow = 3
+mesh = SubResource("PlaneMesh_4v6pi")
+skeleton = NodePath("../..")
+
+[node name="TravelAgencySideStairPart" parent="LV1" instance=ExtResource("4_hq787")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5)
+
+[node name="FrameScene" parent="LV1" instance=ExtResource("9_bm8kl")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 3, 0, -2.5)
+
+[node name="DoorPlate" parent="LV1/FrameScene" instance=ExtResource("10_ydf68")]
+
+[node name="HungWindowScene1" parent="LV1" instance=ExtResource("8_n31n0")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1, 1, 5)
+occlusion = "none"
+
+[node name="HungWindowScene2" parent="LV1" instance=ExtResource("8_n31n0")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1.5, 1, 5)
+occlusion = "none"
+
+[node name="FenceScene1" parent="LV1" instance=ExtResource("9_0psam")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 2.5)
+
+[node name="FenceScene2" parent="LV1" instance=ExtResource("9_0psam")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 1.5)
+
+[node name="FenceScene3" parent="LV1" instance=ExtResource("9_0psam")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0.5)
+
+[node name="FenceScene4" parent="LV1" instance=ExtResource("9_0psam")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, -0.5)
+
+[node name="FenceScene5" parent="LV1" instance=ExtResource("9_0psam")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, -1.5)
+
+[node name="FenceScene6" parent="LV1" instance=ExtResource("9_0psam")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, -2.5)
+
+[node name="FluorescentLampScene" parent="LV1" instance=ExtResource("5_8opvs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 4, -0.5)
+lit = false
+
+[node name="SwitchScene" parent="LV1" instance=ExtResource("6_3hcy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 4, 0.5)
+connected_node = Array[NodePath]([NodePath("../FluorescentLampScene")])
+
+[node name="LV2" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8, 0)
+shape = SubResource("ConcavePolygonShape3D_g1th2")
+
+[node name="TravelAgencySideStairFloor" parent="LV2" instance=ExtResource("7_iijnv")]
+
+[node name="PlayerDetect" type="Area3D" parent="LV2"]
+collision_layer = 16
+collision_mask = 4
+script = ExtResource("8_mku5d")
+
+[node name="CollisionShape" type="CollisionShape3D" parent="LV2/PlayerDetect"]
+shape = SubResource("WorldBoundaryShape3D_8x3iy")
+
+[node name="Shadow" type="MeshInstance3D" parent="LV2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 4, 0)
+material_override = ExtResource("2_re8q5")
+cast_shadow = 3
+mesh = SubResource("PlaneMesh_4v6pi")
+skeleton = NodePath("../..")
+
+[node name="TravelAgencySideStairPart" parent="LV2" instance=ExtResource("4_hq787")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5)
+
+[node name="FrameScene" parent="LV2" instance=ExtResource("9_bm8kl")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 3, 0, -2.5)
+
+[node name="DoorPlate" parent="LV2/FrameScene" instance=ExtResource("10_ydf68")]
+
+[node name="HungWindowScene1" parent="LV2" instance=ExtResource("8_n31n0")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1, 1, 5)
+occlusion = "none"
+
+[node name="HungWindowScene2" parent="LV2" instance=ExtResource("8_n31n0")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1.5, 1, 5)
+occlusion = "none"
+
+[node name="FenceScene1" parent="LV2" instance=ExtResource("9_0psam")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 2.5)
+
+[node name="FenceScene2" parent="LV2" instance=ExtResource("9_0psam")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 1.5)
+
+[node name="FenceScene3" parent="LV2" instance=ExtResource("9_0psam")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0.5)
+
+[node name="FenceScene4" parent="LV2" instance=ExtResource("9_0psam")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, -0.5)
+
+[node name="FenceScene5" parent="LV2" instance=ExtResource("9_0psam")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, -1.5)
+
+[node name="FenceScene6" parent="LV2" instance=ExtResource("9_0psam")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, -2.5)
+
+[node name="FluorescentLampScene" parent="LV2" instance=ExtResource("5_8opvs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 4, -0.5)
+lit = false
+
+[node name="SwitchScene" parent="LV2" instance=ExtResource("6_3hcy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 4, 0.5)
+connected_node = Array[NodePath]([NodePath("../FluorescentLampScene")])
+
+[connection signal="area_entered" from="LV1/PlayerDetect" to="LV1/PlayerDetect" method="_on_area_entered"]
+[connection signal="area_exited" from="LV1/PlayerDetect" to="LV1/PlayerDetect" method="_on_area_exited"]
+[connection signal="area_entered" from="LV2/PlayerDetect" to="LV2/PlayerDetect" method="_on_area_entered"]
+[connection signal="area_exited" from="LV2/PlayerDetect" to="LV2/PlayerDetect" method="_on_area_exited"]

@@ -1,14 +1,19 @@
-[gd_scene load_steps=10 format=3 uid="uid://dm67jnnf21g1t"]
+[gd_scene load_steps=14 format=3 uid="uid://dm67jnnf21g1t"]
 
+[ext_resource type="Script" path="res://Resources/Object/Building/OcclusionSetup.gd" id="1_87rkb"]
 [ext_resource type="Material" uid="uid://rnxv6hl1w5ul" path="res://Resources/Material/DarkMaterial.tres" id="1_ae14p"]
 [ext_resource type="ArrayMesh" uid="uid://b6wytugc502th" path="res://Resources/Object/Building/Window/HungWindow/HungWindowFrame.obj" id="2_fmjxt"]
 [ext_resource type="Material" uid="uid://d2kh2k5stcerf" path="res://Resources/Material/Glass.tres" id="3_o62sn"]
 [ext_resource type="Script" path="res://Resources/Object/Building/Window/HungWindow/WindowInteraction.gd" id="4_06ye5"]
 [ext_resource type="Material" uid="uid://b860lbxbd3ed6" path="res://Resources/Material/GrayMaterial.tres" id="5_cy6bf"]
 [ext_resource type="ArrayMesh" uid="uid://cqless0n8acbt" path="res://Resources/Object/Building/Window/HungWindow/HungWindow.obj" id="6_wtun7"]
+[ext_resource type="Material" uid="uid://cimr26thbt57t" path="res://Resources/Material/WhiteNoshadow.tres" id="8_spxyb"]
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_5uuf3"]
 data = PackedVector3Array(0.9, 1.1, 0.1, 0.9, 1.1, 0, 0.9, 1.9, 0.1, 0.9, 1.9, 0.1, 0.9, 1.1, 0, 0.9, 1.9, -0.1, -0.4, 1.1, 0, 0.9, 1.1, 0, -0.4, 1.1, 0.1, -0.4, 1.1, 0.1, 0.9, 1.1, 0, 0.9, 1.1, 0.1, 0.9, 1, 0, -0.4, 1, 0, 0.9, 1, 0.1, 0.9, 1, 0.1, -0.4, 1, 0, -0.4, 1, 0.1, -0.4, 1.9, 0.1, -0.4, 1.1, 0.1, -0.5, 2, 0.1, -0.5, 2, 0.1, -0.4, 1.1, 0.1, -0.4, 1, 0.1, 0.9, 1.1, 0, -0.4, 1.1, 0, 0.9, 1, 0, 0.9, 1, 0, -0.4, 1.1, 0, -0.4, 1, 0, 0.9, 1.1, 0.1, 0.9, 1.9, 0.1, 0.9, 1, 0.1, 0.9, 1, 0.1, 0.9, 1.9, 0.1, 1, 2, 0.1, -0.4, 1.1, 0.1, 0.9, 1.1, 0.1, -0.4, 1, 0.1, -0.4, 1, 0.1, 0.9, 1.1, 0.1, 0.9, 1, 0.1, 0.9, 1.9, 0.1, -0.4, 1.9, 0.1, 1, 2, 0.1, 1, 2, 0.1, -0.4, 1.9, 0.1, -0.5, 2, 0.1, 0.9, 1.9, -0.1, -0.4, 1.9, -0.1, 0.9, 1.9, 0.1, 0.9, 1.9, 0.1, -0.4, 1.9, -0.1, -0.4, 1.9, 0.1, -0.4, 1.1, 0, -0.4, 1.1, 0.1, -0.4, 1.9, -0.1, -0.4, 1.9, -0.1, -0.4, 1.1, 0.1, -0.4, 1.9, 0.1, -0.5, 2, -0.1, 1, 2, -0.1, -0.5, 2, 0.1, -0.5, 2, 0.1, 1, 2, -0.1, 1, 2, 0.1, -0.5, 2, 0.1, -0.5, 0, 0.1, -0.5, 2, -0.1, -0.5, 2, -0.1, -0.5, 0, 0.1, -0.5, 0, -0.1, 1, 0, -0.1, -0.5, 0, -0.1, 1, 0, 0.1, 1, 0, 0.1, -0.5, 0, -0.1, -0.5, 0, 0.1, 1, 2, -0.1, 1, 0, -0.1, 1, 2, 0.1, 1, 2, 0.1, 1, 0, -0.1, 1, 0, 0.1, -0.4, 0.1, -0.1, 0.9, 0.1, -0.1, -0.4, 0.1, 0.1, -0.4, 0.1, 0.1, 0.9, 0.1, -0.1, 0.9, 0.1, 0.1, 0.9, 0.1, -0.1, -0.4, 0.1, -0.1, 1, 0, -0.1, 1, 0, -0.1, -0.4, 0.1, -0.1, -0.5, 0, -0.1, 0.9, 1.9, -0.1, 0.9, 0.1, -0.1, 1, 2, -0.1, 1, 2, -0.1, 0.9, 0.1, -0.1, 1, 0, -0.1, 0.9, 1, 0, 0.9, 1, 0.1, 0.9, 0.1, -0.1, 0.9, 0.1, -0.1, 0.9, 1, 0.1, 0.9, 0.1, 0.1, -0.4, 0.1, -0.1, -0.4, 1.9, -0.1, -0.5, 0, -0.1, -0.5, 0, -0.1, -0.4, 1.9, -0.1, -0.5, 2, -0.1, -0.4, 0.1, 0.1, 0.9, 0.1, 0.1, -0.5, 0, 0.1, -0.5, 0, 0.1, 0.9, 0.1, 0.1, 1, 0, 0.1, -0.4, 1.9, -0.1, 0.9, 1.9, -0.1, -0.5, 2, -0.1, -0.5, 2, -0.1, 0.9, 1.9, -0.1, 1, 2, -0.1, 0.9, 0.1, 0.1, 0.9, 1, 0.1, 1, 0, 0.1, 1, 0, 0.1, 0.9, 1, 0.1, 1, 2, 0.1, -0.5, 0, 0.1, -0.5, 2, 0.1, -0.4, 0.1, 0.1, -0.4, 0.1, 0.1, -0.5, 2, 0.1, -0.4, 1, 0.1, -0.4, 0.1, 0.1, -0.4, 1, 0.1, -0.4, 0.1, -0.1, -0.4, 0.1, -0.1, -0.4, 1, 0.1, -0.4, 1, 0, -0.4, 0.1, -0.1, -0.4, 1, 0, -0.4, 1.9, -0.1, -0.4, 1.9, -0.1, -0.4, 1, 0, -0.4, 1.1, 0, 0.9, 1.1, 0, 0.9, 1, 0, 0.9, 1.9, -0.1, 0.9, 1.9, -0.1, 0.9, 1, 0, 0.9, 0.1, -0.1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_egm1h"]
+size = Vector3(1.3, 0.8, 0.05)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fea2e"]
 size = Vector3(1.3, 1, 0.1)
@@ -16,8 +21,13 @@ size = Vector3(1.3, 1, 0.1)
 [sub_resource type="BoxMesh" id="BoxMesh_n3yfw"]
 size = Vector3(1.1, 0.8, 0)
 
+[sub_resource type="QuadMesh" id="QuadMesh_n58bi"]
+flip_faces = true
+size = Vector2(1.5, 2)
+
 [node name="HungWindowScene" type="StaticBody3D"]
 collision_layer = 3
+script = ExtResource("1_87rkb")
 
 [node name="Frame" type="MeshInstance3D" parent="."]
 material_override = ExtResource("1_ae14p")
@@ -26,11 +36,10 @@ mesh = ExtResource("2_fmjxt")
 [node name="CollisionShape" type="CollisionShape3D" parent="."]
 shape = SubResource("ConcavePolygonShape3D_5uuf3")
 
-[node name="Glass" type="CSGBox3D" parent="."]
+[node name="Glass" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25, 1.5, 0.03)
-use_collision = true
-size = Vector3(1.3, 0.8, 0.05)
-material = ExtResource("3_o62sn")
+material_override = ExtResource("3_o62sn")
+mesh = SubResource("BoxMesh_egm1h")
 
 [node name="Window" type="AnimatableBody3D" parent="." groups=["Interactive"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
@@ -52,3 +61,20 @@ shape = SubResource("BoxShape3D_fea2e")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25, 0.5, 0)
 material_override = ExtResource("3_o62sn")
 mesh = SubResource("BoxMesh_n3yfw")
+
+[node name="Occlusion" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25, 1, 0.1)
+material_override = ExtResource("1_ae14p")
+mesh = SubResource("QuadMesh_n58bi")
+
+[node name="Occlusion_light" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25, 1, 0.1)
+visible = false
+material_override = ExtResource("8_spxyb")
+mesh = SubResource("QuadMesh_n58bi")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Occlusion_light"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0.5)
+shadow_enabled = true
+shadow_bias = 0.0
+shadow_normal_bias = 10.0

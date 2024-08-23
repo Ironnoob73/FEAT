@@ -18,6 +18,7 @@ var isCrouch = 0
 var isClimb : bool = false
 var isSit : bool = false
 var isThirdPerson : bool = true
+var isInTeleport : bool = false
 
 @onready var player_collision = $PlayerColl
 @onready var player_camera = $PlayerCam
@@ -44,6 +45,7 @@ var perspective_from : Vector2
 
 @onready var _climb_area = $PlayerColl/ClimbArea
 
+@onready var transition: ColorRect = $Transition
 @onready var caption = $Caption
 @onready var gradient_background: MeshInstance3D = $ThirdPerosnCam/Background
 
@@ -75,6 +77,8 @@ func _ready():
 	refresh_handheld(current_hotbar)
 	inventory_menu.init()
 	
+	tird_person_setup(true,false)
+	
 func _input(event):
 	# Perspective
 	if isThirdPerson:
@@ -86,27 +90,30 @@ func _input(event):
 		
 	# Player camera.
 	if event is InputEventMouseMotion and current_menu == "HUD":
-		var pos = caption.get_mouse_pos()
 		if isThirdPerson :
-			mesh.rotation.y = -atan2(pos.y,pos.x) - PI/2
-			player_camera.rotation.y = -atan2(pos.y,pos.x) - PI/2
-			interact_ray_tp.position.x = pos.x * third_perosn_cam.size * 0.0011
-			interact_ray_tp.position.y = -pos.y * third_perosn_cam.size * 0.0011
-			cursor3.global_position = interact_ray_tp.get_collision_point()
-			if perspective_in_rotate:
-				rotation.y = perspective_rad - deg_to_rad(pos.x - perspective_from.x)
-				third_perosn_cam.size = clamp(perspective_size + (pos.y - perspective_from.y) * 0.1,5,50)
-				third_perosn_cam.position.y = third_perosn_cam.size
-				third_perosn_cam.position.z = third_perosn_cam.size
-				gradient_background.mesh.size.x = third_perosn_cam.size * 2
-				gradient_background.mesh.size.y = third_perosn_cam.size * 2.5
-			else:
-				perspective_rad = self.global_rotation.y
-				perspective_size = third_perosn_cam.size
+			tird_person_setup(perspective_in_rotate)
 		else :
 			rotate_y(-deg_to_rad(event.relative.x * Global.mouse_sens))
 			player_camera.rotate_x(-deg_to_rad(event.relative.y * Global.mouse_sens))
 			player_camera.rotation.x = clamp(player_camera.rotation.x,deg_to_rad(-90),deg_to_rad(90))
+	
+func tird_person_setup(is_rotate:bool,not_init:bool = true):
+	var pos = caption.get_mouse_pos()
+	mesh.rotation.y = -atan2(pos.y,pos.x) - PI/2
+	player_camera.rotation.y = -atan2(pos.y,pos.x) - PI/2
+	interact_ray_tp.position.x = pos.x * third_perosn_cam.size * 0.0011
+	interact_ray_tp.position.y = -pos.y * third_perosn_cam.size * 0.0011
+	cursor3.global_position = interact_ray_tp.get_collision_point()
+	if is_rotate:
+		rotation.y = perspective_rad - deg_to_rad((pos.x if not_init else 0) - perspective_from.x)
+		third_perosn_cam.size = clamp(perspective_size + ((pos.y if not_init else 0) - perspective_from.y) * 0.1,5,50)
+		third_perosn_cam.position.y = third_perosn_cam.size
+		third_perosn_cam.position.z = third_perosn_cam.size
+		gradient_background.mesh.size.x = third_perosn_cam.size * 2
+		gradient_background.mesh.size.y = third_perosn_cam.size * 2.5
+	else:
+		perspective_rad = self.global_rotation.y
+		perspective_size = third_perosn_cam.size
 	
 func _unhandled_input(_event):
 	# Pause.
@@ -211,7 +218,8 @@ func _push_away_rigid_bodies():
 func is_surface_too_steep(normal : Vector3) -> bool:
 	return normal.angle_to(Vector3.UP) > self.floor_max_angle
 func _snap_up_stairs_check(delta) -> bool:
-	if not is_on_floor() and not _snapped_to_stairs_last_frame: return false
+	if not is_on_floor() and not _snapped_to_stairs_last_frame:
+		return false
 	var expected_move_motion = self.velocity * Vector3(1,0,1) * delta
 	var step_pos_with_clearance = self.global_transform.translated(expected_move_motion + Vector3(0, MAX_STEP_HEIGHT * 2, 0))
 	# Run a body_test_motion slightly above the pos we expect to move to, towards the floor.
@@ -225,7 +233,8 @@ func _snap_up_stairs_check(delta) -> bool:
 		# Note I put the step_height <= 0.01 in just because I noticed it prevented some physics glitchiness
 		# 0.02 was found with trial and error. Too much and sometimes get stuck on a stair. Too little and can jitter if running into a ceiling.
 		# The normal character controller (both jolt & default) seems to be able to handled steps up of 0.1 anyway
-		if step_height > MAX_STEP_HEIGHT or step_height <= 0.01 or (down_check_result.get_position() - self.global_position).y > MAX_STEP_HEIGHT: return false
+		if step_height > MAX_STEP_HEIGHT or step_height <= 0.01 or (down_check_result.get_position() - self.global_position).y > MAX_STEP_HEIGHT:
+			return false
 		$StairsAheadRayCast3D.global_position = down_check_result.get_position() + Vector3(0,MAX_STEP_HEIGHT,0) + expected_move_motion.normalized() * 0.1
 		$StairsAheadRayCast3D.force_raycast_update()
 		if $StairsAheadRayCast3D.is_colliding() and not is_surface_too_steep($StairsAheadRayCast3D.get_collision_normal()):
@@ -287,7 +296,7 @@ func _physics_process(delta):
 		
 	if not _snap_up_stairs_check(delta):
 		_push_away_rigid_bodies()
-		if !isSit : move_and_slide()
+		if !isSit && !isInTeleport: move_and_slide()
 		_snap_down_to_stairs_check()
 
 	#Scroll hotbar
@@ -341,13 +350,17 @@ func refresh_handheld_info():
 		handheld_tool.equipment.icon,\
 		((handheld_tool.equipment.durability - handheld_tool.damage)/handheld_tool.equipment.durability)*100)
 
-# Climb Detection
+# Climb Detection & Teleport
 func _on_climb_area_area_entered(area):
 	if area.is_in_group("ClimbAble"):
 		isClimb = true
 	if area.is_in_group("Teleporter"):
-		print(global_position)
-		get_node("/root/World").change_scene(area.get_parent().ToLocation,area.get_parent().ToLocationPos)
+		var tween = create_tween().set_trans(Tween.TRANS_LINEAR)
+		tween.tween_callback(func():isInTeleport=true)
+		tween.tween_property(transition, "color:a", 1, 0.25)
+		tween.tween_callback(func():get_node("/root/World").change_scene(area.get_parent().ToLocation,area.get_parent().ToLocationPos))
+		tween.tween_callback(func():isInTeleport=false)
+		tween.tween_property(transition, "color:a", 0, 0.25)
 func _on_climb_area_area_exited(area):
 	if area.is_in_group("ClimbAble"):
 		isClimb = false

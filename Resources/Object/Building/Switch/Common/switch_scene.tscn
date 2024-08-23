@@ -4,34 +4,34 @@
 [ext_resource type="Material" uid="uid://v4eof5jjlhmn" path="res://Resources/Material/RedEmissiveD.tres" id="2_rx144"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_i6cr2"]
-size = Vector3(0.2, 0.2, 0.1)
+size = Vector3(0.2, 0.2, 0.05)
 
 [sub_resource type="BoxMesh" id="BoxMesh_0dj8r"]
-size = Vector3(0.15, 0.15, 0.1)
+size = Vector3(0.15, 0.15, 0.05)
 
 [sub_resource type="BoxMesh" id="BoxMesh_8hndt"]
 size = Vector3(0.1, 0.01, 0.01)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_upsxn"]
-size = Vector3(0.2, 0.2, 0.1)
+size = Vector3(1, 1, 0.1)
 
 [node name="SwitchScene" type="StaticBody3D" groups=["Interactive"]]
-collision_layer = 9
+collision_layer = 17
 script = ExtResource("1_8njl6")
 
 [node name="Base" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.075)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.025)
 mesh = SubResource("BoxMesh_i6cr2")
 
 [node name="Button" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.984808, 0.173648, 0, -0.173648, 0.984808, 0, 0, 0.09)
+transform = Transform3D(1, 0, 0, 0, 0.984808, 0.173648, 0, -0.173648, 0.984808, 0, 0, 0.05)
 mesh = SubResource("BoxMesh_0dj8r")
 
 [node name="Light" type="MeshInstance3D" parent="Button"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0.05)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0.03)
 material_override = ExtResource("2_rx144")
 mesh = SubResource("BoxMesh_8hndt")
 
 [node name="CollisionShape" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.075)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.05)
 shape = SubResource("BoxShape3D_upsxn")

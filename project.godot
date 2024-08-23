@@ -230,6 +230,7 @@ locale/translations=PackedStringArray("res://Language/Main_en_US.po", "res://Lan
 
 rendering_device/staging_buffer/texture_upload_region_size_px=32
 textures/canvas_textures/default_texture_filter=0
+lights_and_shadows/directional_shadow/size=10200
 shader_compiler/shader_cache/strip_debug=true
 reflections/reflection_atlas/reflection_size=32
 reflections/reflection_atlas/reflection_size.mobile=32

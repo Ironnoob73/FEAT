@@ -1,8 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://clb0ryw2xvcqx"]
+[gd_scene load_steps=8 format=3 uid="uid://clb0ryw2xvcqx"]
 
 [ext_resource type="Script" path="res://Resources/Object/Building/Door/PlainDoor/DoorInteraction.gd" id="1_7eq6e"]
-[ext_resource type="Material" uid="uid://bi2qrop8jfbsf" path="res://Resources/Material/Tree.tres" id="2_1kqcd"]
 [ext_resource type="ArrayMesh" uid="uid://bjw2vjcini6nq" path="res://Resources/Object/Building/Door/ArchDoor/ArchDoor.obj" id="2_5xydl"]
+[ext_resource type="Material" uid="uid://do55163v32q4u" path="res://Resources/Material/Wood.tres" id="2_388il"]
 [ext_resource type="Material" uid="uid://b860lbxbd3ed6" path="res://Resources/Material/GrayMaterial.tres" id="4_0vjnr"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_b8ep5"]
@@ -11,34 +11,53 @@ size = Vector3(0.1, 0.2, 0.2)
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_sk3cb"]
 data = PackedVector3Array(-0.6, 2, -0.1, -0.55, 2.23, -0.1, -0.6, 2, 0, -0.6, 2, 0, -0.55, 2.23, -0.1, -0.55, 2.23, 0, -0.55, 2.23, -0.1, -0.42, 2.42, -0.1, -0.55, 2.23, 0, -0.55, 2.23, 0, -0.42, 2.42, -0.1, -0.42, 2.42, 0, 0.42, 2.42, -0.1, 0.55, 2.23, -0.1, 0.42, 2.42, 0, 0.42, 2.42, 0, 0.55, 2.23, -0.1, 0.55, 2.23, 0, -0.23, 2.55, -0.1, 0, 2.6, -0.1, -0.23, 2.55, 0, -0.23, 2.55, 0, 0, 2.6, -0.1, 0, 2.6, 0, 0, 2.6, -0.1, 0.23, 2.55, -0.1, 0, 2.6, 0, 0, 2.6, 0, 0.23, 2.55, -0.1, 0.23, 2.55, 0, 0.23, 2.55, -0.1, 0.42, 2.42, -0.1, 0.23, 2.55, 0, 0.23, 2.55, 0, 0.42, 2.42, -0.1, 0.42, 2.42, 0, -0.42, 2.42, -0.1, -0.23, 2.55, -0.1, -0.42, 2.42, 0, -0.42, 2.42, 0, -0.23, 2.55, -0.1, -0.23, 2.55, 0, 0.55, 2.23, -0.1, 0.6, 2, -0.1, 0.55, 2.23, 0, 0.55, 2.23, 0, 0.6, 2, -0.1, 0.6, 2, 0, 0.55, 2.23, 0, 0.6, 2, 0, -0.55, 2.23, 0, -0.55, 2.23, 0, 0.6, 2, 0, -0.6, 2, 0, 0.42, 2.42, 0, 0.55, 2.23, 0, -0.42, 2.42, 0, -0.42, 2.42, 0, 0.55, 2.23, 0, -0.55, 2.23, 0, 0.23, 2.55, 0, 0.42, 2.42, 0, -0.23, 2.55, 0, -0.23, 2.55, 0, 0.42, 2.42, 0, -0.42, 2.42, 0, -0.23, 2.55, 0, 0, 2.6, 0, 0.23, 2.55, 0, -0.6, 2, -0.1, 0.6, 2, -0.1, -0.55, 2.23, -0.1, -0.55, 2.23, -0.1, 0.6, 2, -0.1, 0.55, 2.23, -0.1, -0.55, 2.23, -0.1, 0.55, 2.23, -0.1, -0.42, 2.42, -0.1, -0.42, 2.42, -0.1, 0.55, 2.23, -0.1, 0.42, 2.42, -0.1, -0.42, 2.42, -0.1, 0.42, 2.42, -0.1, -0.23, 2.55, -0.1, -0.23, 2.55, -0.1, 0.42, 2.42, -0.1, 0.23, 2.55, -0.1, 0.23, 2.55, -0.1, 0, 2.6, -0.1, -0.23, 2.55, -0.1, -0.6, 0, 0, -0.6, 2, 0, 0.6, 0, 0, 0.6, 0, 0, -0.6, 2, 0, 0.6, 2, 0, 0.6, 0, -0.1, -0.6, 0, -0.1, 0.6, 0, 0, 0.6, 0, 0, -0.6, 0, -0.1, -0.6, 0, 0, -0.6, 2, -0.1, -0.6, 2, 0, -0.6, 0, -0.1, -0.6, 0, -0.1, -0.6, 2, 0, -0.6, 0, 0, 0.6, 2, 0, 0.6, 2, -0.1, 0.6, 0, 0, 0.6, 0, 0, 0.6, 2, -0.1, 0.6, 0, -0.1, -0.6, 0, -0.1, 0.6, 0, -0.1, -0.6, 2, -0.1, -0.6, 2, -0.1, 0.6, 0, -0.1, 0.6, 2, -0.1)
 
-[node name="DoorScene" type="AnimatableBody3D" groups=["Interactive"]]
-collision_layer = 9
+[sub_resource type="BoxShape3D" id="BoxShape3D_jxnwb"]
+size = Vector3(1.2, 2.4, 2)
+
+[node name="DoorScene" type="StaticBody3D" groups=["Interactive"]]
+collision_layer = 16
 script = ExtResource("1_7eq6e")
 
-[node name="Mesh" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6, 0, 0.05)
-material_override = ExtResource("2_1kqcd")
-mesh = ExtResource("2_5xydl")
+[node name="Hinge" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6, 0, 0)
 
-[node name="Handle" type="MeshInstance3D" parent="."]
+[node name="Mesh" type="MeshInstance3D" parent="Hinge"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6, 0, 0.05)
+material_override = ExtResource("2_388il")
+mesh = ExtResource("2_5xydl")
+skeleton = NodePath("../..")
+
+[node name="Handle" type="MeshInstance3D" parent="Hinge"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1.1, 0)
 material_override = ExtResource("4_0vjnr")
 mesh = SubResource("BoxMesh_b8ep5")
+skeleton = NodePath("../..")
 
-[node name="CollisionShape" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6, 0, 0.05)
-shape = SubResource("ConcavePolygonShape3D_sk3cb")
-
-[node name="LockTipF" type="Label3D" parent="."]
+[node name="LockTipF" type="Label3D" parent="Hinge"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 0.11)
 modulate = Color(1, 1, 1, 0)
 text = "🔒"
 font_size = 50
 outline_size = 0
 
-[node name="LockTipB" type="Label3D" parent="."]
+[node name="LockTipB" type="Label3D" parent="Hinge"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, -0.11)
 modulate = Color(1, 1, 1, 0)
 text = "🔒"
 font_size = 50
 outline_size = 0
+
+[node name="CollisionShape" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.05)
+shape = SubResource("ConcavePolygonShape3D_sk3cb")
+
+[node name="AutoOpenArea" type="Area3D" parent="."]
+collision_layer = 16
+collision_mask = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AutoOpenArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, 0)
+shape = SubResource("BoxShape3D_jxnwb")
+
+[connection signal="area_entered" from="AutoOpenArea" to="." method="_on_auto_open_area_area_entered"]
+[connection signal="area_exited" from="AutoOpenArea" to="." method="_on_auto_open_area_area_exited"]

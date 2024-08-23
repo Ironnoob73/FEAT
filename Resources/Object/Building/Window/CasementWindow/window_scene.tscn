@@ -1,5 +1,6 @@
-[gd_scene load_steps=13 format=3 uid="uid://bgelaund2s486"]
+[gd_scene load_steps=14 format=3 uid="uid://bgelaund2s486"]
 
+[ext_resource type="Script" path="res://Resources/Object/Building/OcclusionSetup.gd" id="1_6unuo"]
 [ext_resource type="Material" uid="uid://bi2qrop8jfbsf" path="res://Resources/Material/Tree.tres" id="1_ruirv"]
 [ext_resource type="ArrayMesh" uid="uid://cj8yvtn7voah" path="res://Resources/Object/Building/Window/CasementWindow/CasementWindowFrame.obj" id="2_8ujlu"]
 [ext_resource type="Script" path="res://Resources/Object/Building/Window/CasementWindow/WindowInteraction.gd" id="3_50q7s"]
@@ -22,9 +23,9 @@ size = Vector3(1.1, 1.6, 0)
 flip_faces = true
 size = Vector2(1.5, 2)
 
-[node name="CasementWindowScene" type="StaticBody3D" groups=["Interactive"]]
+[node name="CasementWindowScene" type="StaticBody3D"]
 collision_layer = 3
-script = ExtResource("3_50q7s")
+script = ExtResource("1_6unuo")
 
 [node name="Frame" type="MeshInstance3D" parent="."]
 material_override = ExtResource("1_ruirv")
@@ -34,9 +35,10 @@ mesh = ExtResource("2_8ujlu")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25, 1, 0)
 shape = SubResource("BoxShape3D_turlg")
 
-[node name="Window" type="AnimatableBody3D" parent="."]
+[node name="Window" type="AnimatableBody3D" parent="." groups=["Interactive"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4, 0.1, 0)
 collision_layer = 9
+script = ExtResource("3_50q7s")
 
 [node name="Mesh" type="MeshInstance3D" parent="Window"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4, -0.1, 0.05)

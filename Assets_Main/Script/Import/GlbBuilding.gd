@@ -17,7 +17,6 @@ func iterate(node):
 			collision.shape.set_faces(mesh.get_faces())
 			node.add_child(collision)
 			node.set_cast_shadows_setting(2)
-			print(node.get_cast_shadows_setting(),"cast shadow now")
 			
 
 		# Keep iterating

@@ -8,36 +8,36 @@ radius = 2.0
 height = 5.0
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_80b7b"]
-size = Vector3(0.2, 0.1, 0.2)
+size = Vector3(0.2, 0.05, 0.2)
 
 [sub_resource type="BoxMesh" id="BoxMesh_vhojb"]
-size = Vector3(0.2, 0.1, 0.2)
+size = Vector3(0.2, 0.05, 0.2)
 
 [sub_resource type="BoxMesh" id="BoxMesh_mfsmj"]
-size = Vector3(0.15, 0.1, 0.15)
+size = Vector3(0.15, 0.05, 0.15)
 
 [node name="SwitchScene" type="Area3D" groups=["MotionSensing"]]
 collision_layer = 9
 script = ExtResource("1_qsvbg")
 
 [node name="CollisionShape" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
 shape = SubResource("CapsuleShape3D_ak1up")
 
 [node name="Collision" type="StaticBody3D" parent="."]
 collision_layer = 9
 
 [node name="CollisionShape" type="CollisionShape3D" parent="Collision"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.075, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.025, 0)
 shape = SubResource("BoxShape3D_80b7b")
 
 [node name="Base" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.075, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.025, 0)
 mesh = SubResource("BoxMesh_vhojb")
 skeleton = NodePath("../Collision")
 
 [node name="Detector" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.09, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.03, 0)
 material_override = ExtResource("2_escc1")
 mesh = SubResource("BoxMesh_mfsmj")
 skeleton = NodePath("../Collision")

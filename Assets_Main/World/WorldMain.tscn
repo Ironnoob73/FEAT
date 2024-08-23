@@ -121,11 +121,7 @@ light_color = Color(1, 1, 0.937255, 1)
 shadow_enabled = true
 shadow_bias = 0.0
 directional_shadow_mode = 1
-directional_shadow_split_1 = 0.025
-directional_shadow_split_2 = 0.0
-directional_shadow_split_3 = 0.021
 directional_shadow_blend_splits = true
-directional_shadow_pancake_size = 0.0
 sky_mode = 1
 
 [node name="Player" parent="." instance=ExtResource("1_ur16q")]

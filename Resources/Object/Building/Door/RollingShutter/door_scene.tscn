@@ -27,8 +27,6 @@ size = Vector3(3.8, 3, 0.1)
 [node name="RollingShutterScene" type="StaticBody3D" groups=["Switchable"]]
 collision_layer = 3
 script = ExtResource("1_dpw5o")
-ToLocation = null
-ToLocationPos = null
 
 [node name="RollingShutterUp" parent="." instance=ExtResource("7_vsl45")]
 

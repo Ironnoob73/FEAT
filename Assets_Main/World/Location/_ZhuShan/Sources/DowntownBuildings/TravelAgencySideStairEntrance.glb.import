@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://deqi0w4qoi7bs"
-path="res://.godot/imported/TravelAgencySideStairPart.glb-063ace6a57eade57a9f01f01bfa7ef41.scn"
+uid="uid://vtmimg6a3eqb"
+path="res://.godot/imported/TravelAgencySideStairEntrance.glb-a8c1debe53fdafd4d3f0bd55b569087a.scn"
 
 [deps]
 
-source_file="res://Assets_Main/World/Location/_ZhuShan/Sources/DowntownBuildings/TravelAgencySideStairPart.glb"
-dest_files=["res://.godot/imported/TravelAgencySideStairPart.glb-063ace6a57eade57a9f01f01bfa7ef41.scn"]
+source_file="res://Assets_Main/World/Location/_ZhuShan/Sources/DowntownBuildings/TravelAgencySideStairEntrance.glb"
+dest_files=["res://.godot/imported/TravelAgencySideStairEntrance.glb-a8c1debe53fdafd4d3f0bd55b569087a.scn"]
 
 [params]
 

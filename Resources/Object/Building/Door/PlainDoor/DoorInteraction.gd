@@ -46,14 +46,12 @@ func interact(_sender):
 
 func _on_auto_open_area_area_entered(area: Area3D) -> void:
 	if area.is_in_group("PlayerMotion") && !lock:
-		print("income")
 		open = true
 		set_collision_layer_value(4,false)
 		var tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUART)
 		tween.tween_property(hinge, "rotation:y", deg_to_rad(90), 0.5)
 func _on_auto_open_area_area_exited(area: Area3D) -> void:
 	if area.is_in_group("PlayerMotion") && !lock:
-		print("outcome")
 		open = false
 		set_collision_layer_value(4,true)
 		var tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUART)
