@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://be4fl50meaf7a"]
+
+[ext_resource type="Material" uid="uid://c2bf4nk8dtp88" path="res://Resources/Material/BlueMetalPlate.tres" id="1_o78ld"]
+[ext_resource type="ArrayMesh" uid="uid://ctrfpwq4jonxq" path="res://Resources/Object/Building/Plates/Plate10x10.obj" id="2_ebono"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gqitp"]
+size = Vector3(10, 0.05, 10)
+
+[node name="Plate10x10" type="StaticBody3D"]
+collision_layer = 3
+
+[node name="Mesh" type="MeshInstance3D" parent="."]
+material_override = ExtResource("1_o78ld")
+mesh = ExtResource("2_ebono")
+
+[node name="CollisionShape" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.025, 0)
+shape = SubResource("BoxShape3D_gqitp")
