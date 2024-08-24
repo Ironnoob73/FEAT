@@ -31,6 +31,7 @@ size = Vector2(1.2, 0.2)
 [node name="FrameScene" type="StaticBody3D"]
 collision_layer = 3
 script = ExtResource("1_glgy1")
+occlusion = "light"
 
 [node name="DoorFrame" type="MeshInstance3D" parent="."]
 material_override = ExtResource("1_xa7w8")
@@ -42,19 +43,18 @@ shape = SubResource("ConcavePolygonShape3D_cyb54")
 
 [node name="Occlusion" type="MeshInstance3D" parent="."]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 1.2, 0.1)
+visible = false
 material_override = ExtResource("5_cm3tb")
 mesh = SubResource("QuadMesh_63jro")
 
 [node name="Occlusion_light" type="MeshInstance3D" parent="."]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 1.2, 0.1)
-visible = false
 material_override = ExtResource("6_4g2hj")
 mesh = SubResource("QuadMesh_cgvbv")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Occlusion_light"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -0.9)
 shadow_enabled = true
-shadow_bias = 0.0
 shadow_normal_bias = 10.0
 
 [node name="Teleporter" type="Area3D" parent="." groups=["Teleporter"]]

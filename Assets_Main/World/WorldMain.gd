@@ -3,16 +3,16 @@ extends Node3D
 @export var global_time : int = 0
 @export var time_speed : int = 1
 
+@onready var player = $Player
+@onready var background = $FalordMap
+
+@onready var SCENES_PACKAGE: Node3D = $ScenesPackage
+@onready var next_scene: Node3D = null
+
 @onready var env = $WorldEnvironment
 @onready var sun_axis = $WorldEnvironment/SunAxis
 @onready var sun = $WorldEnvironment/SunAxis/SunLight
 @onready var sun_visual = $WorldEnvironment/SunAxis/SunVisual
-
-@onready var player = $Player
-@onready var background = $FalordMap
-
-@onready var packed: Node3D = $Packed
-@onready var next_scene: Node3D = null
 
 func _ready():
 	_on_options_set_sdfgi(Global.Sdfgi)
@@ -58,18 +58,18 @@ func _physics_process(_delta):
 	
 func change_scene(location:String,pos:Vector3):
 	match location :
-		"null":
-			return
+		"":	return
+		"null":	return
 		"out":
-			add_child(packed)
+			add_child(SCENES_PACKAGE)
 			if next_scene != null:
 				remove_child(next_scene)
 				next_scene = null
 		_ :
 			if next_scene == null:
-				remove_child(packed)
+				remove_child(SCENES_PACKAGE)
 			else:
 				remove_child(next_scene)
-			next_scene = packed.get(location)
+			next_scene = SCENES_PACKAGE.get(location)
 			add_child(next_scene)
 	player.position = pos

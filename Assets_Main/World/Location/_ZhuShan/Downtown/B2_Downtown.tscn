@@ -86,7 +86,6 @@ occlusion = "light"
 
 [node name="FrameScene0" parent="TravelAgency" instance=ExtResource("7_7l25i")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1.5, -0.4, 5)
-occlusion = "light"
 ToLocation = "TravelAgency_MAIN"
 ToLocationPos = Vector3(-1.5, 0.5, 4.5)
 

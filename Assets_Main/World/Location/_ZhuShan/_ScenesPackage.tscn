@@ -1,6 +1,6 @@
 [gd_scene load_steps=18 format=3 uid="uid://dqyequp22c8rg"]
 
-[ext_resource type="Script" path="res://Assets_Main/World/Location/_ZhuShan/_packed.gd" id="1_32jy5"]
+[ext_resource type="Script" path="res://Assets_Main/World/Location/_ZhuShan/_ScenesPackage.gd" id="1_32jy5"]
 [ext_resource type="PackedScene" uid="uid://bcp40gisqlrka" path="res://Assets_Main/World/Location/_ZhuShan/C2_CentralSquare.tscn" id="2_fegob"]
 [ext_resource type="PackedScene" uid="uid://bwtcv55j8d0nw" path="res://Assets_Main/World/Location/_ZhuShan/Downtown/B2_Downtown.tscn" id="3_28cl2"]
 [ext_resource type="PackedScene" uid="uid://yxim3nwwlt1j" path="res://Assets_Main/World/Location/_ZhuShan/C3.tscn" id="4_6ehde"]

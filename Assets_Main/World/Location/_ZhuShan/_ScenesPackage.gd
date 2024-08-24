@@ -1,4 +1,4 @@
-extends Node3D
+extends ScenePackage
 
 @onready var B2:Node = $B2_Downtown
 

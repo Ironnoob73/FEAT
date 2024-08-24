@@ -94,7 +94,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5)
 
 [node name="FrameScene" parent="LV1" instance=ExtResource("9_bm8kl")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 3, 0, -2.5)
-occlusion = "light"
 ToLocation = "TravelAgency_Room1"
 ToLocationPos = Vector3(-3, 1, -2.5)
 
@@ -160,7 +159,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5)
 
 [node name="FrameScene" parent="LV2" instance=ExtResource("9_bm8kl")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 3, 0, -2.5)
-occlusion = "light"
+ToLocation = ""
 
 [node name="DoorPlate" parent="LV2/FrameScene" instance=ExtResource("10_ydf68")]
 

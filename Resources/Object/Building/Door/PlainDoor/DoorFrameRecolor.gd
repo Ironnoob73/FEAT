@@ -30,6 +30,3 @@ func color_setter():
 	MaterialUtil.recolor(mesh,mesh_color)
 func material_setter():
 	MaterialUtil.change_material(mesh,mesh_material)
-	
-func teleport():
-	get_node("/root/World").change_scene(ToLocation,ToLocationPos)
