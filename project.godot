@@ -44,6 +44,10 @@ settings/stdout/verbose_stdout=true
 window/size/viewport_width=1600
 window/size/viewport_height=900
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/abyss_history_lib/plugin.cfg")
+
 [gui]
 
 theme/default_font_antialiasing=0

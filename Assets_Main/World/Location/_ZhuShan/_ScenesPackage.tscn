@@ -1,6 +1,5 @@
-[gd_scene load_steps=18 format=3 uid="uid://dqyequp22c8rg"]
+[gd_scene load_steps=17 format=3 uid="uid://dqyequp22c8rg"]
 
-[ext_resource type="Script" path="res://Assets_Main/World/Location/_ZhuShan/_ScenesPackage.gd" id="1_32jy5"]
 [ext_resource type="PackedScene" uid="uid://bcp40gisqlrka" path="res://Assets_Main/World/Location/_ZhuShan/C2_CentralSquare.tscn" id="2_fegob"]
 [ext_resource type="PackedScene" uid="uid://bwtcv55j8d0nw" path="res://Assets_Main/World/Location/_ZhuShan/Downtown/B2_Downtown.tscn" id="3_28cl2"]
 [ext_resource type="PackedScene" uid="uid://yxim3nwwlt1j" path="res://Assets_Main/World/Location/_ZhuShan/C3.tscn" id="4_6ehde"]
@@ -25,7 +24,6 @@ equipment = ExtResource("13_qk5mw")
 damage = 0.0
 
 [node name="Packed" type="Node3D"]
-script = ExtResource("1_32jy5")
 
 [node name="C2_CentralSquare" parent="." instance=ExtResource("2_fegob")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 64, 0, 64)

@@ -70,6 +70,6 @@ func change_scene(location:String,pos:Vector3):
 				remove_child(SCENES_PACKAGE)
 			else:
 				remove_child(next_scene)
-			next_scene = SCENES_PACKAGE.get(location)
+			next_scene = SCENES_PACKAGE.room_scenes.get(location)
 			add_child(next_scene)
 	player.position = pos
