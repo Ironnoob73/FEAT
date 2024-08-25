@@ -1,6 +1,8 @@
 @tool
 extends RigidBody3D
 
+var interact_icon : String = "🤚"
+
 @export var ThingInstance : ThingInstanceClass:
 	set(thing):
 		ThingInstance = thing

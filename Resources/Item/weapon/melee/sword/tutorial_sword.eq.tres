@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://tgauabrc2oa1" path="res://Resources/Image/missing.svg" id="1_84jnc"]
 [ext_resource type="Material" uid="uid://dpy1qjkamvh6q" path="res://Resources/Material/Blank.tres" id="1_eeniw"]
 [ext_resource type="ArrayMesh" uid="uid://dxlwdomll0js1" path="res://Resources/Item/weapon/melee/sword/sword.obj" id="2_75ml1"]
-[ext_resource type="Script" path="res://Assets_Main/Inventory/Class/Equipment/EToolClass.gd" id="3_bwotu"]
+[ext_resource type="Script" path="res://addons/abyss_history_lib/Class/Inventory/Equipment/EToolClass.gd" id="3_bwotu"]
 [ext_resource type="Script" path="res://Resources/Item/weapon/melee/sword/sword.gd" id="5_tr7i6"]
 
 [resource]

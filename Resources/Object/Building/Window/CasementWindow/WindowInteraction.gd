@@ -1,6 +1,8 @@
 @tool
 extends AnimatableBody3D
 
+var interact_icon : String = "🤚"
+
 @export var open : bool = false:
 	set(state):
 		open = state

@@ -28,9 +28,9 @@ general/text_to_speech=true
 [autoload]
 
 Global="*res://global.gd"
+LoadManager="*res://Assets_Main/LoadingScreen/LoadManager.gd"
 AllItems="*res://Resources/Item/AllItems.gd"
 LocationPreload="*res://Assets_Main/World/Location/LocationPreload.gd"
-LoadManager="*res://Assets_Main/LoadingScreen/LoadManager.gd"
 MaterialUtil="*res://Assets_Main/Script/MaterialUtil.gd"
 OcclusionLogic="*res://Resources/Object/Building/OcclusionLogic.gd"
 

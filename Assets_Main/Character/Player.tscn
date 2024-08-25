@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://bk6ihg1vf71uf"]
+[gd_scene load_steps=36 format=3 uid="uid://bk6ihg1vf71uf"]
 
 [ext_resource type="Script" path="res://Assets_Main/Character/Player.gd" id="1_twfth"]
 [ext_resource type="Script" path="res://Assets_Main/Character/Player_interact.gd" id="2_fls23"]
@@ -61,6 +61,17 @@ width = 3
 height = 3
 fill_to = Vector2(0.5, 0.5)
 repeat = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nmodt"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.1, 0.1, 0.1, 0.6)
+border_width_bottom = 4
+border_color = Color(0.8, 0.8, 0.8, 0)
+corner_detail = 1
+expand_margin_top = 4.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_co7mu"]
 
@@ -145,8 +156,9 @@ transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 
 cull_mask = 63
 projection = 1
 current = true
-size = 10.0
-near = 5.0
+fov = 72.7
+size = 0.001
+near = 0.001
 
 [node name="InteractRayTP" type="RayCast3D" parent="ThirdPerosnCam"]
 target_position = Vector3(0, 0, -10000)
@@ -255,11 +267,10 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("5_qmagh")
 
-[node name="CrossHair" type="TextureRect" parent="Caption"]
+[node name="CrossHair" type="TextureRect" parent="."]
 texture_filter = 1
 texture_repeat = 2
 material = SubResource("ShaderMaterial_vxpu5")
-layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -274,13 +285,50 @@ grow_vertical = 2
 texture = SubResource("GradientTexture2D_vsdsi")
 metadata/_edit_use_anchors_ = true
 
-[node name="InteractionTip" type="Label" parent="Caption/CrossHair"]
+[node name="InteractionTip" type="Control" parent="CrossHair"]
 layout_mode = 1
-offset_left = 10.0
-offset_top = 10.0
-offset_right = 30.0
-offset_bottom = 33.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Icon" type="Label" parent="CrossHair/InteractionTip"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.5
+offset_top = -21.0
+offset_right = 20.5
+offset_bottom = 21.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_nmodt")
+text = "✅"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Text" type="Label" parent="CrossHair/InteractionTip"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+offset_top = 30.0
+grow_horizontal = 2
+theme_override_constants/outline_size = 4
 text = "[E]"
+horizontal_alignment = 1
+vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="HudHotbar" parent="." instance=ExtResource("3_fnuc4")]

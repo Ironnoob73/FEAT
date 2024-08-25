@@ -171,6 +171,7 @@ func _unhandled_input(_event):
 		mouse_mode(isThirdPerson)
 		third_perosn_cam.current = isThirdPerson
 		player_camera.current = !isThirdPerson
+		caption.get_mouse_pos()
 
 # From : https://github.com/majikayogames/godot-character-controller-stairs/blob/main/entities/Player/Player.gd
 var _was_on_floor_last_frame = false

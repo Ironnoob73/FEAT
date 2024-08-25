@@ -17,6 +17,7 @@ func main_attack(press:bool):
 	if press == true && idle == true && sec == false:
 		idle = false
 		var tween = create_tween().set_trans(Tween.TRANS_CUBIC)
+		tween.tween_property(self, "rotation_degrees:y", 70, 0.1)
 		tween.tween_property(self, "rotation_degrees:z", 70, 0.1)
 		tween.tween_property(self, "rotation_degrees:z", 0, 0.5)
 		tween.tween_property(self, "idle", true, 0)

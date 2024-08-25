@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Resources/Object/Function/Comment/CommentInteraction.gd" id="1_a7b4t"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1k3no"]
-size = Vector3(0.5, 0.5, 0.5)
+size = Vector3(0.5, 2, 0.5)
 
 [node name="CommentScene" type="StaticBody3D" groups=["Interactive"]]
 collision_layer = 16
@@ -11,6 +11,7 @@ collision_mask = 9
 script = ExtResource("1_a7b4t")
 
 [node name="CollisionShape" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
 shape = SubResource("BoxShape3D_1k3no")
 
 [node name="Label3D" type="Label3D" parent="."]

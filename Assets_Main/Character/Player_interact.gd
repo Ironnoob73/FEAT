@@ -4,7 +4,9 @@ var hit_point : Vector3
 
 @onready var _cursor = $"../../Cursor"
 @onready var _detection_area : Area3D = $"../../Cursor/DetectionArea"
-@onready var tooltip = $"../../Caption/CrossHair/InteractionTip"
+@onready var tooltip = $"../../CrossHair/InteractionTip"
+@onready var tooltip_icon = $"../../CrossHair/InteractionTip/Icon"
+@onready var tooltip_text = $"../../CrossHair/InteractionTip/Text"
 
 @onready var inventory = preload("res://Assets_Main/Inventory/Player_inventory.tres")
 @onready var HandHeldItem = $"../FirstPersonHandled/SubViewport/FirstPersonCam/HandHeld"
@@ -34,10 +36,18 @@ func _physics_process(_delta):
 		var key_array : Array = []
 		for i in InputMap.action_get_events("interact"):
 			key_array.append(i.as_text().rsplit(" ", true, 1)[0])
-		tooltip.text = str(key_array).replacen("\"","")
+		if get_collider().has_method("interact"):
+			if get_collider().get("interact_icon"):
+				tooltip_icon.text = get_collider().interact_icon
+			else:
+				tooltip_icon.text = "👆"
+			tooltip_text.text = str(key_array).replacen("\"","")
+			if Input.is_action_just_pressed("interact"):
+				get_collider().interact(Player)
+		else:
+			tooltip_icon.text = "❌"
+			tooltip_text.text = "ERR"
 		tooltip.visible = true
-		if Input.is_action_just_pressed("interact"):
-			get_collider().interact(Player)
 	else:	tooltip.visible = false
 		
 func can_place_voxel_at(pos: Vector3i):

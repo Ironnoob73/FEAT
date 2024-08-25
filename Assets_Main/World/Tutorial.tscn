@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://ds1bb3oh6akpf" path="res://Resources/Object/Building/Door/PlainDoor/door_scene.tscn" id="6_3h32r"]
 [ext_resource type="PackedScene" uid="uid://bt7knoovenvbk" path="res://Resources/Object/Function/Pickable/pickable_scene.tscn" id="7_vq7yj"]
 [ext_resource type="Resource" uid="uid://bjj8yywrbxut0" path="res://Resources/Item/weapon/melee/sword/tutorial_sword.eq.tres" id="8_v31wx"]
-[ext_resource type="Script" path="res://Assets_Main/Inventory/Class/Equipment/EqMetaClass.gd" id="9_vwm7j"]
+[ext_resource type="Script" path="res://addons/abyss_history_lib/Class/Inventory/Equipment/EqMetaClass.gd" id="9_vwm7j"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_fxyp4"]
 sky_top_color = Color(0.498039, 0.74902, 1, 1)
