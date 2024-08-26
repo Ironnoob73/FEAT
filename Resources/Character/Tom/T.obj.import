@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cn2o32pxxus61"
+path="res://.godot/imported/T.obj-a73f845e69cf4a935c3cb11de134d454.mesh"
+
+[deps]
+
+files=["res://.godot/imported/T.obj-a73f845e69cf4a935c3cb11de134d454.mesh"]
+
+source_file="res://Resources/Character/Tom/T.obj"
+dest_files=["res://.godot/imported/T.obj-a73f845e69cf4a935c3cb11de134d454.mesh", "res://.godot/imported/T.obj-a73f845e69cf4a935c3cb11de134d454.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

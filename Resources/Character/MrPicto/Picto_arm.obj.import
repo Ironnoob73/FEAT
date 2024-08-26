@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://b2yjcblomanfk"
+path="res://.godot/imported/Picto_arm.obj-70f31e48b497805abba0ba1ce4d67daf.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Picto_arm.obj-70f31e48b497805abba0ba1ce4d67daf.mesh"]
+
+source_file="res://Resources/Character/MrPicto/Picto_arm.obj"
+dest_files=["res://.godot/imported/Picto_arm.obj-70f31e48b497805abba0ba1ce4d67daf.mesh", "res://.godot/imported/Picto_arm.obj-70f31e48b497805abba0ba1ce4d67daf.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

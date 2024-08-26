@@ -1,6 +1,7 @@
-[gd_scene load_steps=36 format=3 uid="uid://bk6ihg1vf71uf"]
+[gd_scene load_steps=35 format=3 uid="uid://bk6ihg1vf71uf"]
 
 [ext_resource type="Script" path="res://Assets_Main/Character/Player.gd" id="1_twfth"]
+[ext_resource type="PackedScene" uid="uid://c4pg4fa4c3vft" path="res://Resources/Character/MrPicto/body_scene.tscn" id="2_c5t80"]
 [ext_resource type="Script" path="res://Assets_Main/Character/Player_interact.gd" id="2_fls23"]
 [ext_resource type="PackedScene" uid="uid://bledb03vcydda" path="res://Assets_Main/Character/Pause_menu.tscn" id="2_ghaer"]
 [ext_resource type="Shader" path="res://Assets_Main/Character/CrossHair.gdshader" id="2_ksj8u"]
@@ -17,13 +18,6 @@ radius = 0.4
 height = 1.8
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_xn36b"]
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_hemud"]
-height = 1.8
-radial_segments = 5
-
-[sub_resource type="BoxMesh" id="BoxMesh_entkh"]
-size = Vector3(0.5, 0.5, 2)
 
 [sub_resource type="Gradient" id="Gradient_kcmtc"]
 interpolation_mode = 2
@@ -143,13 +137,8 @@ collision_mask = 27
 [node name="Coll" type="CollisionShape3D" parent="PlayerColl/MotionArea"]
 shape = SubResource("CapsuleShape3D_xn36b")
 
-[node name="Mesh" type="MeshInstance3D" parent="."]
-layers = 4
-mesh = SubResource("CylinderMesh_hemud")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Mesh"]
-layers = 4
-mesh = SubResource("BoxMesh_entkh")
+[node name="BodyScene" parent="." instance=ExtResource("2_c5t80")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.9, 0)
 
 [node name="ThirdPerosnCam" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 100, 100)

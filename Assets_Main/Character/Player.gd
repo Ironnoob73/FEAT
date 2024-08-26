@@ -25,7 +25,7 @@ var isInTeleport : bool = false
 @onready var standing_detected= $StandingDetected
 @onready var pause_menu = $Pause_menu
 @onready var inventory_menu = $Inventory
-@onready var mesh: MeshInstance3D = $Mesh
+@onready var mesh = $BodyScene
 
 @onready var first_person_cam = $PlayerCam/FirstPersonHandled/SubViewport/FirstPersonCam
 @onready var world_actual_cam = $PlayerCam/WorldActual/SubViewport/WorldActualCam
@@ -99,7 +99,7 @@ func _input(event):
 	
 func tird_person_setup(is_rotate:bool,not_init:bool = true):
 	var pos = caption.get_mouse_pos()
-	mesh.rotation.y = -atan2(pos.y,pos.x) - PI/2
+	mesh.rotation.y = - atan2(pos.y,pos.x) + PI/2
 	player_camera.rotation.y = -atan2(pos.y,pos.x) - PI/2
 	interact_ray_tp.position.x = pos.x * third_perosn_cam.size * 0.0011
 	interact_ray_tp.position.y = -pos.y * third_perosn_cam.size * 0.0011
@@ -319,6 +319,9 @@ func _process(_delta):
 			load_step += 1
 	first_person_cam.global_transform = player_camera.global_transform
 	world_actual_cam.global_transform = player_camera.global_transform
+	
+	# Animation
+	mesh.animation_tree["parameters/Movement/blend_position"] = ( -2 * (abs(Vector2(cos(mesh.global_rotation.y + PI/2),sin(mesh.global_rotation.y + PI/2)).angle_to(Vector2(-velocity.x , velocity.z))) /PI )+ 1)* Vector2(velocity.x , velocity.z).length()
 	
 func refresh_handheld(index:int):
 	handheld_tool = Inventory.ToolHotbar[current_hotbar]
