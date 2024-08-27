@@ -13,8 +13,8 @@ const FRICTION = 0.3
 
 const MAX_STEP_HEIGHT = 0.5
 
-var isDash = 0
-var isCrouch = 0
+var isDash : float = 0
+var isCrouch : float = 0
 var isClimb : bool = false
 var isSit : bool = false
 var isThirdPerson : bool = true
@@ -321,8 +321,19 @@ func _process(_delta):
 	world_actual_cam.global_transform = player_camera.global_transform
 	
 	# Animation
-	mesh.animation_tree["parameters/Movement/blend_position"] = ( -2 * (abs(Vector2(cos(mesh.global_rotation.y + PI/2),sin(mesh.global_rotation.y + PI/2)).angle_to(Vector2(-velocity.x , velocity.z))) /PI )+ 1)* Vector2(velocity.x , velocity.z).length()
+	var _move_direct = (abs(Vector2(cos(mesh.global_rotation.y + PI/2),sin(mesh.global_rotation.y + PI/2)).angle_to(Vector2(-velocity.x , velocity.z))) /PI )
+	mesh.animation_tree["parameters/Movement/blend_position"] = _forward_strength(_move_direct) * Vector2(velocity.x , velocity.z).length()
+	mesh.animation_tree["parameters/SideMix/add_amount"] = _move_direct * Vector2(velocity.x , velocity.z).length() / 10
+	mesh.animation_tree["parameters/CrouchMix/add_amount"] = lerp(mesh.animation_tree["parameters/CrouchMix/add_amount"],(1.8 - player_collision.shape.height)*1.5,0.5)
 	
+func _forward_strength(value:float) -> float:
+	if (-2 * value + 1) > 0:
+		return ( (-2 * value + 1) / 2 ) + 0.5
+	elif (-2 * value + 1) < 0:
+		return ( (-2 * value + 1) / 2 ) - 0.5
+	else:
+		return 0
+		
 func refresh_handheld(index:int):
 	handheld_tool = Inventory.ToolHotbar[current_hotbar]
 	if index == current_hotbar:

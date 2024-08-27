@@ -228,6 +228,7 @@ shape = SubResource("BoxShape3D_8ga1f")
 [node name="StandingDetected" type="ShapeCast3D" parent="."]
 shape = SubResource("BoxShape3D_stt28")
 target_position = Vector3(0, 0.65, 0)
+collision_mask = 11
 
 [node name="StairsAheadRayCast3D" type="RayCast3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.35, -0.41)
