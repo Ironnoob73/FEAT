@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://ct4bg5yh6gj73"
+path="res://.godot/imported/MaleBodyHand.obj-273b8a0c9e031831e82a812328f25888.mesh"
+
+[deps]
+
+files=["res://.godot/imported/MaleBodyHand.obj-273b8a0c9e031831e82a812328f25888.mesh"]
+
+source_file="res://Resources/Character/MaleBody/MaleBodyHand.obj"
+dest_files=["res://.godot/imported/MaleBodyHand.obj-273b8a0c9e031831e82a812328f25888.mesh", "res://.godot/imported/MaleBodyHand.obj-273b8a0c9e031831e82a812328f25888.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

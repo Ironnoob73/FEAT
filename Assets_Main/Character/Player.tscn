@@ -138,7 +138,7 @@ collision_mask = 27
 shape = SubResource("CapsuleShape3D_xn36b")
 
 [node name="BodyScene" parent="." instance=ExtResource("2_c5t80")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.9, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 
 [node name="ThirdPerosnCam" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 100, 100)
@@ -159,7 +159,7 @@ material_override = SubResource("StandardMaterial3D_bcc5j")
 mesh = SubResource("QuadMesh_01c7o")
 
 [node name="PlayerCam" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
 cull_mask = 27
 doppler_tracking = 1
 size = 0.001
@@ -183,11 +183,11 @@ size = Vector2i(1600, 900)
 render_target_update_mode = 0
 
 [node name="FirstPersonCam" type="Camera3D" parent="PlayerCam/FirstPersonHandled/SubViewport"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
 cull_mask = 16
 script = ExtResource("4_750b5")
 
-[node name="HandHeld" type="Node3D" parent="PlayerCam/FirstPersonHandled/SubViewport/FirstPersonCam"]
+[node name="HandHeldRight" type="Node3D" parent="PlayerCam/FirstPersonHandled/SubViewport/FirstPersonCam"]
 transform = Transform3D(-2.18557e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.18557e-08, 0.45, -0.35, -0.5)
 
 [node name="WorldActual" type="SubViewportContainer" parent="PlayerCam"]

@@ -9,7 +9,7 @@ var hit_point : Vector3
 @onready var tooltip_text = $"../../CrossHair/InteractionTip/Text"
 
 @onready var inventory = preload("res://Assets_Main/Inventory/Player_inventory.tres")
-@onready var HandHeldItem = $"../FirstPersonHandled/SubViewport/FirstPersonCam/HandHeld"
+@onready var HandHeldItem = $"../FirstPersonHandled/SubViewport/FirstPersonCam/HandHeldRight"
 @onready var Player = get_node("/root/World/Player")
 	
 func _physics_process(_delta):
@@ -62,10 +62,14 @@ func can_place_voxel_at(pos: Vector3i):
 	return hits.size() == 0
 
 func _input(_event):
-	if HandHeldItem.get_child_count() and Player.current_menu == "HUD":
-		if Input.is_action_just_pressed("main_attack"):
-			HandHeldItem.get_child(0).main_attack(true)
-		if Input.is_action_just_pressed("secondary_attack"):
-			HandHeldItem.get_child(0).secondary_attack(true)
-		if Input.is_action_just_released("secondary_attack"):
-			HandHeldItem.get_child(0).secondary_attack(false)
+	if Player.current_menu == "HUD":
+		if HandHeldItem.get_child_count():
+			if Input.is_action_just_pressed("main_attack"):
+				Player.main_attack(true)
+			if Input.is_action_just_pressed("secondary_attack"):
+				HandHeldItem.get_child(0).secondary_attack(true)
+			if Input.is_action_just_released("secondary_attack"):
+				HandHeldItem.get_child(0).secondary_attack(false)
+		else:
+			if Input.is_action_just_pressed("main_attack"):
+				Player.main_attack(true)

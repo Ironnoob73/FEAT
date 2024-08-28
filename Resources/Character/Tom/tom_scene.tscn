@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://c3mhx4rgcj41a"]
+[gd_scene load_steps=21 format=3 uid="uid://c3mhx4rgcj41a"]
 
 [ext_resource type="ArrayMesh" uid="uid://dfrrq6tdtisaj" path="res://Resources/Character/Tom/MainHead.obj" id="1_wpgvx"]
 [ext_resource type="Material" uid="uid://bkekwgbk7sndy" path="res://Resources/Character/Tom/tom_material.tres" id="2_juyvc"]
@@ -7,12 +7,6 @@
 [ext_resource type="ArrayMesh" uid="uid://dkkua0qcdquo3" path="res://Resources/Character/Tom/Hand.obj" id="5_ut541"]
 [ext_resource type="ArrayMesh" uid="uid://dgo1aatjiql4g" path="res://Resources/Character/Tom/Hat.obj" id="6_8xf8m"]
 [ext_resource type="ArrayMesh" uid="uid://cn2o32pxxus61" path="res://Resources/Character/Tom/T.obj" id="7_cskgn"]
-
-[sub_resource type="Skin" id="Skin_wdwe4"]
-bind_count = 1
-bind/0/name = &"Head"
-bind/0/bone = -1
-bind/0/pose = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [sub_resource type="Curve" id="Curve_tvy65"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -3.0, 0.0, 0, 0]
@@ -116,12 +110,11 @@ _data = {
 "RESET": SubResource("Animation_0uxs2")
 }
 
-[node name="BodyScene" type="Skeleton3D"]
+[node name="BodyScene" type="Node3D"]
 
 [node name="MainHead" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
 mesh = ExtResource("1_wpgvx")
-skin = SubResource("Skin_wdwe4")
 surface_material_override/0 = ExtResource("2_juyvc")
 
 [node name="Trail" type="GPUParticles3D" parent="MainHead"]

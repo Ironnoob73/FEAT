@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://b2h1fr1h5e7xj"
+path="res://.godot/imported/MaleBodyChest.obj-60c0b030cd752fe0a969da040ad3b246.mesh"
+
+[deps]
+
+files=["res://.godot/imported/MaleBodyChest.obj-60c0b030cd752fe0a969da040ad3b246.mesh"]
+
+source_file="res://Resources/Character/MaleBody/MaleBodyChest.obj"
+dest_files=["res://.godot/imported/MaleBodyChest.obj-60c0b030cd752fe0a969da040ad3b246.mesh", "res://.godot/imported/MaleBodyChest.obj-60c0b030cd752fe0a969da040ad3b246.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

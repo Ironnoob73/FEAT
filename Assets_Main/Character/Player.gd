@@ -29,7 +29,7 @@ var isInTeleport : bool = false
 
 @onready var first_person_cam = $PlayerCam/FirstPersonHandled/SubViewport/FirstPersonCam
 @onready var world_actual_cam = $PlayerCam/WorldActual/SubViewport/WorldActualCam
-@onready var hand_held = $PlayerCam/FirstPersonHandled/SubViewport/FirstPersonCam/HandHeld
+@onready var hand_held = $PlayerCam/FirstPersonHandled/SubViewport/FirstPersonCam/HandHeldRight
 @onready var attack_area = $PlayerCam/AttackArea
 @onready var hitbox = $PlayerCam/AttackArea/Coll
 @onready var third_perosn_cam: Camera3D = $ThirdPerosnCam
@@ -61,6 +61,10 @@ var handheld_tool : EqMetaClass
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
+
+var att_idle : bool = true
+var att_sec : bool = false
+var att_order : bool = false
 
 func _ready():
 	# Lock Mouse.
@@ -166,12 +170,13 @@ func _unhandled_input(_event):
 	# Switch perspectives
 	if Input.is_action_just_pressed("switch_perspectives") and current_menu == "HUD":
 		isThirdPerson = !isThirdPerson
-		mesh.rotation.y = 0
+		mesh.rotation.y = PI
 		player_camera.rotation.y = 0
 		mouse_mode(isThirdPerson)
 		third_perosn_cam.current = isThirdPerson
 		player_camera.current = !isThirdPerson
 		caption.get_mouse_pos()
+		player_camera.rotation.x = 0
 
 # From : https://github.com/majikayogames/godot-character-controller-stairs/blob/main/entities/Player/Player.gd
 var _was_on_floor_last_frame = false
@@ -287,7 +292,7 @@ func _physics_process(delta):
 		player_camera.position.y = lerp(player_camera.position.y,0.5 * CROUCH_depth,0.5)
 	elif !standing_detected.is_colliding() :
 		player_collision.shape.height = lerp(player_collision.shape.height,1.8,0.5)
-		player_camera.position.y = lerp(player_camera.position.y,0.5,0.5)
+		player_camera.position.y = lerp(player_camera.position.y,0.8,0.5)
 	# Climb
 	if isClimb:
 		input_vec.y = Input.get_action_strength("ui_accept") - Input.get_action_strength("crouch")
@@ -325,7 +330,8 @@ func _process(_delta):
 	mesh.animation_tree["parameters/Movement/blend_position"] = _forward_strength(_move_direct) * Vector2(velocity.x , velocity.z).length()
 	mesh.animation_tree["parameters/SideMix/add_amount"] = _move_direct * Vector2(velocity.x , velocity.z).length() / 10
 	mesh.animation_tree["parameters/CrouchMix/add_amount"] = lerp(mesh.animation_tree["parameters/CrouchMix/add_amount"],(1.8 - player_collision.shape.height)*1.5,0.5)
-	
+	hand_held.global_position = mesh.right_hand_pos.global_position
+	hand_held.global_rotation = mesh.right_hand_pos.global_rotation
 func _forward_strength(value:float) -> float:
 	if (-2 * value + 1) > 0:
 		return ( (-2 * value + 1) / 2 ) + 0.5
@@ -335,6 +341,7 @@ func _forward_strength(value:float) -> float:
 		return 0
 		
 func refresh_handheld(index:int):
+	mesh.animation_tree["parameters/MainAttack/request"] = 3
 	handheld_tool = Inventory.ToolHotbar[current_hotbar]
 	if index == current_hotbar:
 		if hand_held.get_children():
@@ -351,11 +358,14 @@ func refresh_handheld(index:int):
 				handheld_model.set_layer_mask_value(5,true)
 				if handheld_tool.equipment.the_script :
 					handheld_model.set_script(handheld_tool.equipment.the_script)
+				handheld_model.position = handheld_tool.equipment.pos_offset
 				hand_held.add_child(handheld_model)
+			set_attack_animation(handheld_tool.equipment.attack_type)
 			hitbox.shape.size = handheld_tool.equipment.hitbox
 			hitbox.position.z = -hitbox.shape.size.z/2
 			refresh_handheld_info()
 		else :
+			set_attack_animation("DoubleHand")
 			hitbox.shape.size = Vector3(0.25,0.25,1)
 			hitbox.position.z = -0.5
 			HUD_hotbar.set_info(current_hotbar)
@@ -416,3 +426,22 @@ func mouse_mode(isVisible:bool)->void:
 		if isVisible :	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		else :	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	else :	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+
+# Attack
+func main_attack(press:bool):
+	if press == true && att_idle == true && att_sec == false:
+		att_idle = false
+		mesh.animation_tree["parameters/AttackStateMachine/conditions/left"] = att_order
+		mesh.animation_tree["parameters/AttackStateMachine/conditions/right"] = !att_order
+		att_order = !att_order
+		mesh.animation_tree["parameters/MainAttack/request"] = 1
+		var tween = create_tween().set_trans(Tween.TRANS_CUBIC)
+		tween.tween_property(self, "att_idle", true, 0).set_delay(0.5)
+		first_person_cam.attack()
+func set_attack_animation(type:String = "Light"):
+	mesh.animation_tree["parameters/AttackStateMachine/conditions/DoubleHand"] = false
+	mesh.animation_tree["parameters/AttackStateMachine/conditions/Light"] = false
+	match type:
+		"DoubleHand":	mesh.animation_tree["parameters/AttackStateMachine/conditions/DoubleHand"] = true
+		"Light":	mesh.animation_tree["parameters/AttackStateMachine/conditions/Light"] = true
+	

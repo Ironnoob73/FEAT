@@ -1,7 +1,7 @@
 extends Camera3D
 
 var mouse_pos : Vector2
-@onready var hand_held = $HandHeld
+@onready var hand_held = $HandHeldRight
 @onready var Player = get_node("/root/World/Player")
 
 func _input(event):
