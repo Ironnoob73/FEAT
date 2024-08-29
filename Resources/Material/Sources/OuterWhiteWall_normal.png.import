@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://baxhd0iuh6h17"
 path.s3tc="res://.godot/imported/OuterWhiteWall_normal.png-cc193e0245c1e46834be2d71d0c030ec.s3tc.ctex"
+path.etc2="res://.godot/imported/OuterWhiteWall_normal.png-cc193e0245c1e46834be2d71d0c030ec.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Resources/Material/Sources/OuterWhiteWall_normal.png"
-dest_files=["res://.godot/imported/OuterWhiteWall_normal.png-cc193e0245c1e46834be2d71d0c030ec.s3tc.ctex"]
+dest_files=["res://.godot/imported/OuterWhiteWall_normal.png-cc193e0245c1e46834be2d71d0c030ec.s3tc.ctex", "res://.godot/imported/OuterWhiteWall_normal.png-cc193e0245c1e46834be2d71d0c030ec.etc2.ctex"]
 
 [params]
 

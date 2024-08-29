@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://blq2pyhc4ovam"
 path.s3tc="res://.godot/imported/ConcreteBricks_albedo.png-dcad8059607e9358343d9a6d6621814f.s3tc.ctex"
+path.etc2="res://.godot/imported/ConcreteBricks_albedo.png-dcad8059607e9358343d9a6d6621814f.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Resources/Material/Sources/ConcreteBricks_albedo.png"
-dest_files=["res://.godot/imported/ConcreteBricks_albedo.png-dcad8059607e9358343d9a6d6621814f.s3tc.ctex"]
+dest_files=["res://.godot/imported/ConcreteBricks_albedo.png-dcad8059607e9358343d9a6d6621814f.s3tc.ctex", "res://.godot/imported/ConcreteBricks_albedo.png-dcad8059607e9358343d9a6d6621814f.etc2.ctex"]
 
 [params]
 

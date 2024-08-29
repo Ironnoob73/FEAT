@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://b4uhq04of3bwi"
 path.s3tc="res://.godot/imported/ConcreteBricks_normal.png-a58619bce6b3cfc074c6dd52e73a7d2d.s3tc.ctex"
+path.etc2="res://.godot/imported/ConcreteBricks_normal.png-a58619bce6b3cfc074c6dd52e73a7d2d.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Resources/Material/Sources/ConcreteBricks_normal.png"
-dest_files=["res://.godot/imported/ConcreteBricks_normal.png-a58619bce6b3cfc074c6dd52e73a7d2d.s3tc.ctex"]
+dest_files=["res://.godot/imported/ConcreteBricks_normal.png-a58619bce6b3cfc074c6dd52e73a7d2d.s3tc.ctex", "res://.godot/imported/ConcreteBricks_normal.png-a58619bce6b3cfc074c6dd52e73a7d2d.etc2.ctex"]
 
 [params]
 

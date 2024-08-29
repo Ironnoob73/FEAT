@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bp0j8tiw474mc"
 path.s3tc="res://.godot/imported/WoodenPlanks_albedo.png-9d967d53a421fcfa619d7f5cefc2b50e.s3tc.ctex"
+path.etc2="res://.godot/imported/WoodenPlanks_albedo.png-9d967d53a421fcfa619d7f5cefc2b50e.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Resources/Material/Sources/WoodenPlanks_albedo.png"
-dest_files=["res://.godot/imported/WoodenPlanks_albedo.png-9d967d53a421fcfa619d7f5cefc2b50e.s3tc.ctex"]
+dest_files=["res://.godot/imported/WoodenPlanks_albedo.png-9d967d53a421fcfa619d7f5cefc2b50e.s3tc.ctex", "res://.godot/imported/WoodenPlanks_albedo.png-9d967d53a421fcfa619d7f5cefc2b50e.etc2.ctex"]
 
 [params]
 

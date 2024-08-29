@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cpex420t4fjvd"
 path.s3tc="res://.godot/imported/YellowStoneBricks_normal.png-be1c1497667de77f91b7aac636f013ae.s3tc.ctex"
+path.etc2="res://.godot/imported/YellowStoneBricks_normal.png-be1c1497667de77f91b7aac636f013ae.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Resources/Material/Sources/YellowStoneBricks_normal.png"
-dest_files=["res://.godot/imported/YellowStoneBricks_normal.png-be1c1497667de77f91b7aac636f013ae.s3tc.ctex"]
+dest_files=["res://.godot/imported/YellowStoneBricks_normal.png-be1c1497667de77f91b7aac636f013ae.s3tc.ctex", "res://.godot/imported/YellowStoneBricks_normal.png-be1c1497667de77f91b7aac636f013ae.etc2.ctex"]
 
 [params]
 

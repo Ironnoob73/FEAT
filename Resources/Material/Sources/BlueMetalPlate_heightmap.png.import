@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://lcmgsd2lw52q"
 path.s3tc="res://.godot/imported/BlueMetalPlate_heightmap.png-c91b6848911096dc7c14c70adc3ba6ab.s3tc.ctex"
+path.etc2="res://.godot/imported/BlueMetalPlate_heightmap.png-c91b6848911096dc7c14c70adc3ba6ab.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Resources/Material/Sources/BlueMetalPlate_heightmap.png"
-dest_files=["res://.godot/imported/BlueMetalPlate_heightmap.png-c91b6848911096dc7c14c70adc3ba6ab.s3tc.ctex"]
+dest_files=["res://.godot/imported/BlueMetalPlate_heightmap.png-c91b6848911096dc7c14c70adc3ba6ab.s3tc.ctex", "res://.godot/imported/BlueMetalPlate_heightmap.png-c91b6848911096dc7c14c70adc3ba6ab.etc2.ctex"]
 
 [params]
 

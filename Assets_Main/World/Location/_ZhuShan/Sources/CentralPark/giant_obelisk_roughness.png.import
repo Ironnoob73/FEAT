@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cpvin22byugni"
 path.s3tc="res://.godot/imported/giant_obelisk_roughness.png-1cad173685ee8cf6331ac4e7abc98236.s3tc.ctex"
+path.etc2="res://.godot/imported/giant_obelisk_roughness.png-1cad173685ee8cf6331ac4e7abc98236.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets_Main/World/Location/_ZhuShan/Sources/CentralPark/giant_obelisk_roughness.png"
-dest_files=["res://.godot/imported/giant_obelisk_roughness.png-1cad173685ee8cf6331ac4e7abc98236.s3tc.ctex"]
+dest_files=["res://.godot/imported/giant_obelisk_roughness.png-1cad173685ee8cf6331ac4e7abc98236.s3tc.ctex", "res://.godot/imported/giant_obelisk_roughness.png-1cad173685ee8cf6331ac4e7abc98236.etc2.ctex"]
 
 [params]
 

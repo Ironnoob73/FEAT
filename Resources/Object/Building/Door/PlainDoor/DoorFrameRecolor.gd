@@ -17,7 +17,7 @@ extends StaticBody3D
 		occlusion = state
 		OcclusionLogic.occlusion_setter(self)
 @export var ToLocation : String = "null"
-@export var ToLocationPos : Vector3 = Vector3(0,1,0)
+@export var ToLocationPos : Vector3 = Vector3(0,0,0)
 @onready var occlusion_obj: MeshInstance3D = $Occlusion
 @onready var occlusion_light_obj: MeshInstance3D = $Occlusion_light
 

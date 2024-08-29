@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://be7iq688p478e"
 path.s3tc="res://.godot/imported/StoneBricksRoad_normal.png-d8a6220af79d83cd918c347064f3e25a.s3tc.ctex"
+path.etc2="res://.godot/imported/StoneBricksRoad_normal.png-d8a6220af79d83cd918c347064f3e25a.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Resources/Material/Sources/StoneBricksRoad_normal.png"
-dest_files=["res://.godot/imported/StoneBricksRoad_normal.png-d8a6220af79d83cd918c347064f3e25a.s3tc.ctex"]
+dest_files=["res://.godot/imported/StoneBricksRoad_normal.png-d8a6220af79d83cd918c347064f3e25a.s3tc.ctex", "res://.godot/imported/StoneBricksRoad_normal.png-d8a6220af79d83cd918c347064f3e25a.etc2.ctex"]
 
 [params]
 

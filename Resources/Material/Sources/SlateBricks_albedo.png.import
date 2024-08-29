@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bv1nta07nnovn"
 path.s3tc="res://.godot/imported/SlateBricks_albedo.png-3cb6d4ba2f74a31ff211463a70c1508e.s3tc.ctex"
+path.etc2="res://.godot/imported/SlateBricks_albedo.png-3cb6d4ba2f74a31ff211463a70c1508e.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Resources/Material/Sources/SlateBricks_albedo.png"
-dest_files=["res://.godot/imported/SlateBricks_albedo.png-3cb6d4ba2f74a31ff211463a70c1508e.s3tc.ctex"]
+dest_files=["res://.godot/imported/SlateBricks_albedo.png-3cb6d4ba2f74a31ff211463a70c1508e.s3tc.ctex", "res://.godot/imported/SlateBricks_albedo.png-3cb6d4ba2f74a31ff211463a70c1508e.etc2.ctex"]
 
 [params]
 

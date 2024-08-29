@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://ba4k0xefxk23k"
 path.s3tc="res://.godot/imported/BlueMetalPlate_albedo.png-168e184558716732d3f71cab45c10495.s3tc.ctex"
+path.etc2="res://.godot/imported/BlueMetalPlate_albedo.png-168e184558716732d3f71cab45c10495.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Resources/Material/Sources/BlueMetalPlate_albedo.png"
-dest_files=["res://.godot/imported/BlueMetalPlate_albedo.png-168e184558716732d3f71cab45c10495.s3tc.ctex"]
+dest_files=["res://.godot/imported/BlueMetalPlate_albedo.png-168e184558716732d3f71cab45c10495.s3tc.ctex", "res://.godot/imported/BlueMetalPlate_albedo.png-168e184558716732d3f71cab45c10495.etc2.ctex"]
 
 [params]
 

@@ -30,8 +30,8 @@ var isInTeleport : bool = false
 @onready var first_person_cam = $PlayerCam/FirstPersonHandled/SubViewport/FirstPersonCam
 @onready var world_actual_cam = $PlayerCam/WorldActual/SubViewport/WorldActualCam
 @onready var hand_held = $PlayerCam/FirstPersonHandled/SubViewport/FirstPersonCam/HandHeldRight
-@onready var attack_area = $PlayerCam/AttackArea
-@onready var hitbox = $PlayerCam/AttackArea/Coll
+@onready var attack_area = $PlayerColl/AttackArea
+@onready var hitbox = $PlayerColl/AttackArea/Coll
 @onready var third_perosn_cam: Camera3D = $ThirdPerosnCam
 
 var perspective_in_rotate : bool = false
@@ -41,6 +41,7 @@ var perspective_from : Vector2
 
 @onready var interact_ray = $PlayerCam/InteractRay
 @onready var interact_ray_tp: RayCast3D = $ThirdPerosnCam/InteractRayTP
+@onready var interact_ray_tp_test: RayCast3D = $ThirdPerosnCam/InteractRayTP/InteractRayTPTest
 @onready var cursor3: MeshInstance3D = $Cursor3
 
 @onready var _climb_area = $PlayerColl/ClimbArea
@@ -102,16 +103,18 @@ func _input(event):
 			player_camera.rotation.x = clamp(player_camera.rotation.x,deg_to_rad(-90),deg_to_rad(90))
 	
 func tird_person_setup(is_rotate:bool,not_init:bool = true):
-	var pos = caption.get_mouse_pos()
-	mesh.rotation.y = - atan2(pos.y,pos.x) + PI/2
-	player_camera.rotation.y = -atan2(pos.y,pos.x) - PI/2
-	interact_ray_tp.position.x = pos.x * third_perosn_cam.size * 0.0011
-	interact_ray_tp.position.y = -pos.y * third_perosn_cam.size * 0.0011
+	interact_ray_tp.global_position = third_perosn_cam.project_position(caption.get_global_mouse_position(),0)
+	interact_ray_tp.set_collision_mask_value(6,!interact_ray_tp_test.is_colliding())
+	var pos : Vector2 = caption.get_mouse_pos()
+	var offset_pos : Vector3 = interact_ray_tp.get_collision_point() - global_position
+	player_camera.rotation.y = - atan2(offset_pos.z,offset_pos.x) - PI/2 - self.global_rotation.y
+	mesh.rotation.y = player_camera.rotation.y + PI
+	player_camera.rotation.x = atan2(offset_pos.y - 1.7,Vector2(offset_pos.x,offset_pos.z).length())
 	cursor3.global_position = interact_ray_tp.get_collision_point()
 	if is_rotate:
 		rotation.y = perspective_rad - deg_to_rad((pos.x if not_init else 0) - perspective_from.x)
 		third_perosn_cam.size = clamp(perspective_size + ((pos.y if not_init else 0) - perspective_from.y) * 0.1,5,50)
-		third_perosn_cam.position.y = third_perosn_cam.size
+		third_perosn_cam.position.y = third_perosn_cam.size + 0.9
 		third_perosn_cam.position.z = third_perosn_cam.size
 		gradient_background.mesh.size.x = third_perosn_cam.size * 2
 		gradient_background.mesh.size.y = third_perosn_cam.size * 2.5
@@ -165,6 +168,8 @@ func _unhandled_input(_event):
 			refresh_handheld(current_hotbar)
 	# UnSit
 	if isSit and ( Input.is_action_pressed("ui_accept") or Input.is_action_pressed("crouch")) :
+		var tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUART).set_parallel(true)
+		tween.tween_property(mesh.animation_tree,"parameters/Sit/add_amount",0,0.5)
 		isSit = false
 		
 	# Switch perspectives
@@ -172,11 +177,11 @@ func _unhandled_input(_event):
 		isThirdPerson = !isThirdPerson
 		mesh.rotation.y = PI
 		player_camera.rotation.y = 0
+		player_camera.rotation.x = 0
 		mouse_mode(isThirdPerson)
 		third_perosn_cam.current = isThirdPerson
 		player_camera.current = !isThirdPerson
 		caption.get_mouse_pos()
-		player_camera.rotation.x = 0
 
 # From : https://github.com/majikayogames/godot-character-controller-stairs/blob/main/entities/Player/Player.gd
 var _was_on_floor_last_frame = false
@@ -289,10 +294,10 @@ func _physics_process(delta):
 	# Crouch.
 	if Input.is_action_pressed("crouch") and !isClimb and !isSit :
 		player_collision.shape.height = lerp(player_collision.shape.height,1.8 * CROUCH_depth,0.5)
-		player_camera.position.y = lerp(player_camera.position.y,0.5 * CROUCH_depth,0.5)
+		player_camera.position.y = lerp(player_camera.position.y,1.7 * CROUCH_depth,0.5)
 	elif !standing_detected.is_colliding() :
 		player_collision.shape.height = lerp(player_collision.shape.height,1.8,0.5)
-		player_camera.position.y = lerp(player_camera.position.y,0.8,0.5)
+		player_camera.position.y = lerp(player_camera.position.y,1.7,0.5)
 	# Climb
 	if isClimb:
 		input_vec.y = Input.get_action_strength("ui_accept") - Input.get_action_strength("crouch")
@@ -327,9 +332,10 @@ func _process(_delta):
 	
 	# Animation
 	var _move_direct = (abs(Vector2(cos(mesh.global_rotation.y + PI/2),sin(mesh.global_rotation.y + PI/2)).angle_to(Vector2(-velocity.x , velocity.z))) /PI )
-	mesh.animation_tree["parameters/Movement/blend_position"] = _forward_strength(_move_direct) * Vector2(velocity.x , velocity.z).length()
-	mesh.animation_tree["parameters/SideMix/add_amount"] = _move_direct * Vector2(velocity.x , velocity.z).length() / 10
-	mesh.animation_tree["parameters/CrouchMix/add_amount"] = lerp(mesh.animation_tree["parameters/CrouchMix/add_amount"],(1.8 - player_collision.shape.height)*1.5,0.5)
+	if !isSit:
+		mesh.animation_tree["parameters/Movement/blend_position"] = _forward_strength(_move_direct) * Vector2(velocity.x , velocity.z).length()
+		mesh.animation_tree["parameters/SideMix/add_amount"] = _move_direct * Vector2(velocity.x , velocity.z).length() / 10
+		mesh.animation_tree["parameters/CrouchMix/add_amount"] = lerp(mesh.animation_tree["parameters/CrouchMix/add_amount"],(1.8 - player_collision.shape.height)*1.5,0.5)
 	hand_held.global_position = mesh.right_hand_pos.global_position
 	hand_held.global_rotation = mesh.right_hand_pos.global_rotation
 func _forward_strength(value:float) -> float:
@@ -402,13 +408,17 @@ func _on_motion_area_area_exited(area):
 
 # Sit
 func sit( chair_position, chair_rotation):
+	var tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUART).set_parallel(true)
 	if !isSit :
-		var tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUART).set_parallel(true)
 		tween.tween_property(self, "position", chair_position, 0.5)
-		tween.tween_property(self, "rotation:y", chair_rotation.y - deg_to_rad(180), 0.5)
-		tween.tween_property(player_camera, "rotation:x", chair_rotation.x, 0.5)
+		tween.tween_property(mesh.animation_tree,"parameters/Sit/add_amount",1,0.5)
+		if !isThirdPerson:
+			tween.tween_property(self, "rotation:y", chair_rotation.y - deg_to_rad(180), 0.5)
+			tween.tween_property(player_camera, "rotation:x", chair_rotation.x, 0.5)
 		isSit = true
-	else : isSit = false
+	else :
+		tween.tween_property(mesh.animation_tree,"parameters/Sit/add_amount",0,0.5)
+		isSit = false
 
 # Caption
 func add_caption(text_in:String):
@@ -437,11 +447,14 @@ func main_attack(press:bool):
 		mesh.animation_tree["parameters/MainAttack/request"] = 1
 		var tween = create_tween().set_trans(Tween.TRANS_CUBIC)
 		tween.tween_property(self, "att_idle", true, 0).set_delay(0.5)
-		first_person_cam.attack()
+		attack(1)
 func set_attack_animation(type:String = "Light"):
 	mesh.animation_tree["parameters/AttackStateMachine/conditions/DoubleHand"] = false
 	mesh.animation_tree["parameters/AttackStateMachine/conditions/Light"] = false
 	match type:
 		"DoubleHand":	mesh.animation_tree["parameters/AttackStateMachine/conditions/DoubleHand"] = true
 		"Light":	mesh.animation_tree["parameters/AttackStateMachine/conditions/Light"] = true
-	
+func attack(damage_point:float,attack_type:String = "Normal"):
+	for i in attack_area.get_overlapping_bodies():
+		if i.is_in_group("Hurtable") && i != self && i.has_method("rec_attack"):
+			i.rec_attack(damage_point,attack_type)

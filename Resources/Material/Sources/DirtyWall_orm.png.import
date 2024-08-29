@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cy4kyowhdsfpl"
 path.s3tc="res://.godot/imported/DirtyWall_orm.png-e269bcacabe453db0c3276ada31cd11b.s3tc.ctex"
+path.etc2="res://.godot/imported/DirtyWall_orm.png-e269bcacabe453db0c3276ada31cd11b.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Resources/Material/Sources/DirtyWall_orm.png"
-dest_files=["res://.godot/imported/DirtyWall_orm.png-e269bcacabe453db0c3276ada31cd11b.s3tc.ctex"]
+dest_files=["res://.godot/imported/DirtyWall_orm.png-e269bcacabe453db0c3276ada31cd11b.s3tc.ctex", "res://.godot/imported/DirtyWall_orm.png-e269bcacabe453db0c3276ada31cd11b.etc2.ctex"]
 
 [params]
 

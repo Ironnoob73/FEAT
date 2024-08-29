@@ -32,6 +32,7 @@ size = Vector2(1.2, 0.2)
 collision_layer = 3
 script = ExtResource("1_glgy1")
 occlusion = "light"
+ToLocationPos = Vector3(0, 1, 0)
 
 [node name="DoorFrame" type="MeshInstance3D" parent="."]
 material_override = ExtResource("1_xa7w8")

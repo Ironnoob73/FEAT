@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://8sto45wsi3ca"
 path.s3tc="res://.godot/imported/RedSidewalkTiles_albedo.png-2ed6046246f65144c12177e7b223cb3c.s3tc.ctex"
+path.etc2="res://.godot/imported/RedSidewalkTiles_albedo.png-2ed6046246f65144c12177e7b223cb3c.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Resources/Material/Sources/RedSidewalkTiles_albedo.png"
-dest_files=["res://.godot/imported/RedSidewalkTiles_albedo.png-2ed6046246f65144c12177e7b223cb3c.s3tc.ctex"]
+dest_files=["res://.godot/imported/RedSidewalkTiles_albedo.png-2ed6046246f65144c12177e7b223cb3c.s3tc.ctex", "res://.godot/imported/RedSidewalkTiles_albedo.png-2ed6046246f65144c12177e7b223cb3c.etc2.ctex"]
 
 [params]
 

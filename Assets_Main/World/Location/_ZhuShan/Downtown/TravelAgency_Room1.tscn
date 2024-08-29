@@ -23,7 +23,7 @@ shape = SubResource("ConcavePolygonShape3D_dvrn3")
 [node name="FrameScene" parent="." instance=ExtResource("2_kppcn")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -4, 0, -2.5)
 ToLocation = "TravelAgency_SideStair"
-ToLocationPos = Vector3(2, 5, -2.5)
+ToLocationPos = Vector3(2, 4, -2.5)
 
 [node name="DoorPlate" parent="FrameScene" instance=ExtResource("3_0g6xs")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)

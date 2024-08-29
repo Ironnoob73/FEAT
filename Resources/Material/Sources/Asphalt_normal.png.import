@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cvbbqqwlg6oid"
 path.s3tc="res://.godot/imported/Asphalt_normal.png-0843c1b8703c37a3acd846d1b6b52d69.s3tc.ctex"
+path.etc2="res://.godot/imported/Asphalt_normal.png-0843c1b8703c37a3acd846d1b6b52d69.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Resources/Material/Sources/Asphalt_normal.png"
-dest_files=["res://.godot/imported/Asphalt_normal.png-0843c1b8703c37a3acd846d1b6b52d69.s3tc.ctex"]
+dest_files=["res://.godot/imported/Asphalt_normal.png-0843c1b8703c37a3acd846d1b6b52d69.s3tc.ctex", "res://.godot/imported/Asphalt_normal.png-0843c1b8703c37a3acd846d1b6b52d69.etc2.ctex"]
 
 [params]
 

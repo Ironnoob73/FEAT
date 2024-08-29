@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://drqxr0i3jsn1t"
 path.s3tc="res://.godot/imported/SlateBricks_orm.png-ac4e677b8514b188846ec9d926a7a78a.s3tc.ctex"
+path.etc2="res://.godot/imported/SlateBricks_orm.png-ac4e677b8514b188846ec9d926a7a78a.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Resources/Material/Sources/SlateBricks_orm.png"
-dest_files=["res://.godot/imported/SlateBricks_orm.png-ac4e677b8514b188846ec9d926a7a78a.s3tc.ctex"]
+dest_files=["res://.godot/imported/SlateBricks_orm.png-ac4e677b8514b188846ec9d926a7a78a.s3tc.ctex", "res://.godot/imported/SlateBricks_orm.png-ac4e677b8514b188846ec9d926a7a78a.etc2.ctex"]
 
 [params]
 

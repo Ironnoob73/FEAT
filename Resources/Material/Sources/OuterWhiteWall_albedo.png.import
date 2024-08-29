@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bnlcxb34q7kss"
 path.s3tc="res://.godot/imported/OuterWhiteWall_albedo.png-379c8d0d059fa7132014f3952e85a56d.s3tc.ctex"
+path.etc2="res://.godot/imported/OuterWhiteWall_albedo.png-379c8d0d059fa7132014f3952e85a56d.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Resources/Material/Sources/OuterWhiteWall_albedo.png"
-dest_files=["res://.godot/imported/OuterWhiteWall_albedo.png-379c8d0d059fa7132014f3952e85a56d.s3tc.ctex"]
+dest_files=["res://.godot/imported/OuterWhiteWall_albedo.png-379c8d0d059fa7132014f3952e85a56d.s3tc.ctex", "res://.godot/imported/OuterWhiteWall_albedo.png-379c8d0d059fa7132014f3952e85a56d.etc2.ctex"]
 
 [params]
 

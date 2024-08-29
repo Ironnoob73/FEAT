@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://da22iy0ksw8o2"
 path.s3tc="res://.godot/imported/tom_emissive.png-d8acd83a5cde9d76b97b7d398061ea7b.s3tc.ctex"
+path.etc2="res://.godot/imported/tom_emissive.png-d8acd83a5cde9d76b97b7d398061ea7b.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Resources/Character/Tom/tom_emissive.png"
-dest_files=["res://.godot/imported/tom_emissive.png-d8acd83a5cde9d76b97b7d398061ea7b.s3tc.ctex"]
+dest_files=["res://.godot/imported/tom_emissive.png-d8acd83a5cde9d76b97b7d398061ea7b.s3tc.ctex", "res://.godot/imported/tom_emissive.png-d8acd83a5cde9d76b97b7d398061ea7b.etc2.ctex"]
 
 [params]
 

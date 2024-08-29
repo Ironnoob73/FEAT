@@ -34,7 +34,7 @@ inner = true
 lock = 7247614650
 occlusion = "none"
 ToLocation = "out"
-ToLocationPos = Vector3(51.5, 1.5, -14)
+ToLocationPos = Vector3(51.5, 0.5, -14)
 
 [node name="GlassScene" parent="." instance=ExtResource("2_qsc8l")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1.5, 1.5, 5)
@@ -44,7 +44,7 @@ occlusion = "none"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, 5)
 occlusion = "none"
 ToLocation = "out"
-ToLocationPos = Vector3(45.5, 1.5, -9.5)
+ToLocationPos = Vector3(45.5, 0.5, -9.5)
 
 [node name="Door0Scene" parent="FrameScene0" instance=ExtResource("4_7eld8")]
 transform = Transform3D(-1, 0, 8.74232e-08, 0, 1, 0, -8.74232e-08, 0, -1, 0, 0, 0)

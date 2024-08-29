@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bb7moin1s2ofv"
 path.s3tc="res://.godot/imported/YellowStoneBricks_albedo.png-3de023f1e48e0e80e070852b9ca51166.s3tc.ctex"
+path.etc2="res://.godot/imported/YellowStoneBricks_albedo.png-3de023f1e48e0e80e070852b9ca51166.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Resources/Material/Sources/YellowStoneBricks_albedo.png"
-dest_files=["res://.godot/imported/YellowStoneBricks_albedo.png-3de023f1e48e0e80e070852b9ca51166.s3tc.ctex"]
+dest_files=["res://.godot/imported/YellowStoneBricks_albedo.png-3de023f1e48e0e80e070852b9ca51166.s3tc.ctex", "res://.godot/imported/YellowStoneBricks_albedo.png-3de023f1e48e0e80e070852b9ca51166.etc2.ctex"]
 
 [params]
 

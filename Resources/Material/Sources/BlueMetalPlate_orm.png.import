@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cv8w2efpmnpaj"
 path.s3tc="res://.godot/imported/BlueMetalPlate_orm.png-39f001adca607079c5d6cb7dd669b2ba.s3tc.ctex"
+path.etc2="res://.godot/imported/BlueMetalPlate_orm.png-39f001adca607079c5d6cb7dd669b2ba.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Resources/Material/Sources/BlueMetalPlate_orm.png"
-dest_files=["res://.godot/imported/BlueMetalPlate_orm.png-39f001adca607079c5d6cb7dd669b2ba.s3tc.ctex"]
+dest_files=["res://.godot/imported/BlueMetalPlate_orm.png-39f001adca607079c5d6cb7dd669b2ba.s3tc.ctex", "res://.godot/imported/BlueMetalPlate_orm.png-39f001adca607079c5d6cb7dd669b2ba.etc2.ctex"]
 
 [params]
 

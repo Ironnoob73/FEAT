@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://duoa35wrfrbj2"
 path.s3tc="res://.godot/imported/BrownTiles_orm.png-acdd2905d3194f7817a5f6b82c8cbe3d.s3tc.ctex"
+path.etc2="res://.godot/imported/BrownTiles_orm.png-acdd2905d3194f7817a5f6b82c8cbe3d.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Resources/Material/Sources/BrownTiles_orm.png"
-dest_files=["res://.godot/imported/BrownTiles_orm.png-acdd2905d3194f7817a5f6b82c8cbe3d.s3tc.ctex"]
+dest_files=["res://.godot/imported/BrownTiles_orm.png-acdd2905d3194f7817a5f6b82c8cbe3d.s3tc.ctex", "res://.godot/imported/BrownTiles_orm.png-acdd2905d3194f7817a5f6b82c8cbe3d.etc2.ctex"]
 
 [params]
 

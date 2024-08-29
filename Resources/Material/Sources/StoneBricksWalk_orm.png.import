@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://c7e45akpfghxq"
 path.s3tc="res://.godot/imported/StoneBricksWalk_orm.png-de6332023608ec1ef1360dd6dc22b82d.s3tc.ctex"
+path.etc2="res://.godot/imported/StoneBricksWalk_orm.png-de6332023608ec1ef1360dd6dc22b82d.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Resources/Material/Sources/StoneBricksWalk_orm.png"
-dest_files=["res://.godot/imported/StoneBricksWalk_orm.png-de6332023608ec1ef1360dd6dc22b82d.s3tc.ctex"]
+dest_files=["res://.godot/imported/StoneBricksWalk_orm.png-de6332023608ec1ef1360dd6dc22b82d.s3tc.ctex", "res://.godot/imported/StoneBricksWalk_orm.png-de6332023608ec1ef1360dd6dc22b82d.etc2.ctex"]
 
 [params]
 

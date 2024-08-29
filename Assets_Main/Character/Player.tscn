@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://bk6ihg1vf71uf"]
+[gd_scene load_steps=36 format=3 uid="uid://bk6ihg1vf71uf"]
 
 [ext_resource type="Script" path="res://Assets_Main/Character/Player.gd" id="1_twfth"]
 [ext_resource type="PackedScene" uid="uid://c4pg4fa4c3vft" path="res://Resources/Character/MrPicto/body_scene.tscn" id="2_c5t80"]
@@ -19,6 +19,9 @@ height = 1.8
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_xn36b"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_8ga1f"]
+size = Vector3(0.25, 0.25, 1)
+
 [sub_resource type="Gradient" id="Gradient_kcmtc"]
 interpolation_mode = 2
 interpolation_color_space = 2
@@ -34,9 +37,6 @@ albedo_texture = SubResource("GradientTexture1D_qby3e")
 
 [sub_resource type="QuadMesh" id="QuadMesh_01c7o"]
 size = Vector2(20, 25)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_8ga1f"]
-size = Vector3(0.25, 0.25, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_stt28"]
 size = Vector3(0.5, 0.5, 0.5)
@@ -114,6 +114,8 @@ shader_parameter/albedo = SubResource("GradientTexture2D_jmgba")
 
 [sub_resource type="SphereMesh" id="SphereMesh_qjga7"]
 
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_ocwai"]
+
 [node name="Player" type="CharacterBody3D" groups=["Hurtable"]]
 collision_layer = 4
 collision_mask = 15
@@ -121,6 +123,7 @@ floor_max_angle = 0.872665
 script = ExtResource("1_twfth")
 
 [node name="PlayerColl" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
 shape = SubResource("CapsuleShape3D_a500n")
 
 [node name="ClimbArea" type="Area3D" parent="PlayerColl" groups=["PlayerMotion"]]
@@ -137,19 +140,30 @@ collision_mask = 27
 [node name="Coll" type="CollisionShape3D" parent="PlayerColl/MotionArea"]
 shape = SubResource("CapsuleShape3D_xn36b")
 
+[node name="AttackArea" type="Area3D" parent="PlayerColl"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
+collision_layer = 0
+collision_mask = 31
+
+[node name="Coll" type="CollisionShape3D" parent="PlayerColl/AttackArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, -0.5)
+shape = SubResource("BoxShape3D_8ga1f")
+
 [node name="BodyScene" parent="." instance=ExtResource("2_c5t80")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 
 [node name="ThirdPerosnCam" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 100, 100)
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 100.9, 100)
 cull_mask = 63
 projection = 1
 current = true
 fov = 72.7
-size = 0.001
 near = 0.001
 
 [node name="InteractRayTP" type="RayCast3D" parent="ThirdPerosnCam"]
+target_position = Vector3(0, 0, -10000)
+collision_mask = 26
+
+[node name="InteractRayTPTest" type="RayCast3D" parent="ThirdPerosnCam/InteractRayTP"]
 target_position = Vector3(0, 0, -10000)
 collision_mask = 26
 
@@ -159,7 +173,7 @@ material_override = SubResource("StandardMaterial3D_bcc5j")
 mesh = SubResource("QuadMesh_01c7o")
 
 [node name="PlayerCam" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
 cull_mask = 27
 doppler_tracking = 1
 size = 0.001
@@ -183,7 +197,7 @@ size = Vector2i(1600, 900)
 render_target_update_mode = 0
 
 [node name="FirstPersonCam" type="Camera3D" parent="PlayerCam/FirstPersonHandled/SubViewport"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
 cull_mask = 16
 script = ExtResource("4_750b5")
 
@@ -213,17 +227,12 @@ visible = false
 cull_mask = 0
 
 [node name="InteractRay" type="RayCast3D" parent="PlayerCam"]
-target_position = Vector3(0, 0, -1)
+target_position = Vector3(0, 0, -2)
 collision_mask = 26
 script = ExtResource("2_fls23")
 
-[node name="AttackArea" type="Area3D" parent="PlayerCam"]
-collision_layer = 0
-collision_mask = 31
-
-[node name="Coll" type="CollisionShape3D" parent="PlayerCam/AttackArea"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5)
-shape = SubResource("BoxShape3D_8ga1f")
+[node name="InteractRayFront" type="RayCast3D" parent="PlayerCam"]
+target_position = Vector3(0, 0, -1)
 
 [node name="StandingDetected" type="ShapeCast3D" parent="."]
 shape = SubResource("BoxShape3D_stt28")
@@ -347,9 +356,15 @@ shape = SubResource("BoxShape3D_j771c")
 
 [node name="Cursor3" type="MeshInstance3D" parent="."]
 top_level = true
-visible = false
 material_override = SubResource("ShaderMaterial_3qjou")
 mesh = SubResource("SphereMesh_qjga7")
+
+[node name="InteractLowerLimit" type="StaticBody3D" parent="."]
+collision_layer = 32
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractLowerLimit"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
+shape = SubResource("WorldBoundaryShape3D_ocwai")
 
 [connection signal="area_entered" from="PlayerColl/ClimbArea" to="." method="_on_climb_area_area_entered"]
 [connection signal="area_exited" from="PlayerColl/ClimbArea" to="." method="_on_climb_area_area_exited"]

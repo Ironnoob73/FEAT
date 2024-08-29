@@ -78,7 +78,7 @@ open = true
 lock = 7247614650
 occlusion = "light"
 ToLocation = "TravelAgency_MAIN"
-ToLocationPos = Vector3(3.5, 1, 1)
+ToLocationPos = Vector3(3.5, 0, 1)
 
 [node name="GlassScene" parent="TravelAgency" instance=ExtResource("6_vshk5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 1, 5)
@@ -87,7 +87,7 @@ occlusion = "light"
 [node name="FrameScene0" parent="TravelAgency" instance=ExtResource("7_7l25i")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1.5, -0.4, 5)
 ToLocation = "TravelAgency_MAIN"
-ToLocationPos = Vector3(-1.5, 0.5, 4.5)
+ToLocationPos = Vector3(-1.5, 0, 4.5)
 
 [node name="Door0Scene" parent="TravelAgency/FrameScene0" instance=ExtResource("8_2n55k")]
 
@@ -138,7 +138,7 @@ shape = SubResource("ConcavePolygonShape3D_olidq")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 5)
 open = true
 ToLocation = "TravelAgency_SideStair"
-ToLocationPos = Vector3(0, 1, 4.5)
+ToLocationPos = Vector3(0, 0, 4.5)
 
 [node name="HungWindowScene1" parent="TravelAgencySideStair" instance=ExtResource("16_a4tpg")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1, 5, 5)

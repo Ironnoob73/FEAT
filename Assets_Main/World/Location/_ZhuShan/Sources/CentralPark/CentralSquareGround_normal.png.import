@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bpwnl4y4ypxpn"
 path.s3tc="res://.godot/imported/CentralSquareGround_normal.png-a9c21efa236b5bab37e15a323a67a789.s3tc.ctex"
+path.etc2="res://.godot/imported/CentralSquareGround_normal.png-a9c21efa236b5bab37e15a323a67a789.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets_Main/World/Location/_ZhuShan/Sources/CentralPark/CentralSquareGround_normal.png"
-dest_files=["res://.godot/imported/CentralSquareGround_normal.png-a9c21efa236b5bab37e15a323a67a789.s3tc.ctex"]
+dest_files=["res://.godot/imported/CentralSquareGround_normal.png-a9c21efa236b5bab37e15a323a67a789.s3tc.ctex", "res://.godot/imported/CentralSquareGround_normal.png-a9c21efa236b5bab37e15a323a67a789.etc2.ctex"]
 
 [params]
 
