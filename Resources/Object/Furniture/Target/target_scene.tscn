@@ -1,5 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://cdhmfgttd6yfu"]
+[gd_scene load_steps=8 format=3 uid="uid://cdhmfgttd6yfu"]
 
+[ext_resource type="Script" path="res://addons/abyss_history_lib/Class/Interact/Attack/HurtableClass.gd" id="1_56vg1"]
 [ext_resource type="Script" path="res://Resources/Object/Furniture/Target/target_scene.gd" id="1_acvgp"]
 [ext_resource type="Material" uid="uid://b860lbxbd3ed6" path="res://Resources/Material/GrayMaterial.tres" id="1_dnlip"]
 
@@ -25,28 +26,31 @@ texture_filter = 0
 height = 0.1
 radius = 0.45
 
-[node name="TargetScene" type="StaticBody3D" groups=["Hurtable"]]
+[node name="Hurtable" type="Node3D"]
+script = ExtResource("1_56vg1")
+
+[node name="TargetScene" type="StaticBody3D" parent="." groups=["Hurtable"]]
 collision_layer = 8
 script = ExtResource("1_acvgp")
 
-[node name="Main" type="CSGCylinder3D" parent="."]
+[node name="Main" type="CSGCylinder3D" parent="TargetScene"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.5, 0)
 radius = 0.45
 height = 0.1
 sides = 16
 material = SubResource("StandardMaterial3D_rmi1y")
 
-[node name="Outline" type="CSGCylinder3D" parent="Main"]
+[node name="Outline" type="CSGCylinder3D" parent="TargetScene/Main"]
 radius = 0.46
 height = 0.09
 sides = 16
 material = ExtResource("1_dnlip")
 
-[node name="Coll" type="CollisionShape3D" parent="."]
+[node name="Coll" type="CollisionShape3D" parent="TargetScene"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.5, 0)
 shape = SubResource("CylinderShape3D_7t65m")
 
-[node name="CSGCylinder3D" type="CSGCylinder3D" parent="."]
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="TargetScene"]
 use_collision = true
 collision_layer = 8
 radius = 0.05

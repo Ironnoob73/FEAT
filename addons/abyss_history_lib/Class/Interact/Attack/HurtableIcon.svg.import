@@ -2,12 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bcpatqnylucji"
-valid=false
+uid="uid://b51nihpr8vx6j"
+path="res://.godot/imported/HurtableIcon.svg-64ae70c63702badcf6477bf91d957a6e.ctex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
-source_file="res://addons/abyss_history_lib/Class/World/ChunkPath.svg"
+source_file="res://addons/abyss_history_lib/Class/Interact/Attack/HurtableIcon.svg"
+dest_files=["res://.godot/imported/HurtableIcon.svg-64ae70c63702badcf6477bf91d957a6e.ctex"]
 
 [params]
 

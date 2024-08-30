@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://bk6ihg1vf71uf"]
+[gd_scene load_steps=37 format=3 uid="uid://bk6ihg1vf71uf"]
 
 [ext_resource type="Script" path="res://Assets_Main/Character/Player.gd" id="1_twfth"]
 [ext_resource type="PackedScene" uid="uid://c4pg4fa4c3vft" path="res://Resources/Character/MrPicto/body_scene.tscn" id="2_c5t80"]
@@ -21,6 +21,8 @@ height = 1.8
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8ga1f"]
 size = Vector3(0.25, 0.25, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_n6bsr"]
 
 [sub_resource type="Gradient" id="Gradient_kcmtc"]
 interpolation_mode = 2
@@ -148,6 +150,9 @@ collision_mask = 31
 [node name="Coll" type="CollisionShape3D" parent="PlayerColl/AttackArea"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, -0.5)
 shape = SubResource("BoxShape3D_8ga1f")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="PlayerColl/AttackArea"]
+mesh = SubResource("BoxMesh_n6bsr")
 
 [node name="BodyScene" parent="." instance=ExtResource("2_c5t80")]
 

@@ -7,6 +7,8 @@ extends Node3D
 
 var room_scenes : Dictionary = {}
 
+func get_class() -> String:	return "ScenesPackage"
+
 func _ready() -> void:
 	for i in rooms:
 		if i.room_name && i.room_scene:

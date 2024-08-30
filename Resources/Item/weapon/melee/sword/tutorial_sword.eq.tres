@@ -12,6 +12,7 @@ tool_type = "sword"
 pos_offset = Vector3(0, 0.25, 0)
 hitbox = Vector3(1.5, 0.25, 1.5)
 attack_type = "Light"
+damage_type = "Sharp"
 the_script = ExtResource("5_tr7i6")
 performance = 1.0
 durability = 100.0

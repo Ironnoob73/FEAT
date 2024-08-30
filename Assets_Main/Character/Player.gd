@@ -32,6 +32,7 @@ var isInTeleport : bool = false
 @onready var hand_held = $PlayerCam/FirstPersonHandled/SubViewport/FirstPersonCam/HandHeldRight
 @onready var attack_area = $PlayerColl/AttackArea
 @onready var hitbox = $PlayerColl/AttackArea/Coll
+@onready var hitbox_debug: MeshInstance3D = $PlayerColl/AttackArea/MeshInstance3D
 @onready var third_perosn_cam: Camera3D = $ThirdPerosnCam
 
 var perspective_in_rotate : bool = false
@@ -109,6 +110,7 @@ func tird_person_setup(is_rotate:bool,not_init:bool = true):
 	var offset_pos : Vector3 = interact_ray_tp.get_collision_point() - global_position
 	player_camera.rotation.y = - atan2(offset_pos.z,offset_pos.x) - PI/2 - self.global_rotation.y
 	mesh.rotation.y = player_camera.rotation.y + PI
+	attack_area.rotation.y = player_camera.rotation.y
 	player_camera.rotation.x = atan2(offset_pos.y - 1.7,Vector2(offset_pos.x,offset_pos.z).length())
 	cursor3.global_position = interact_ray_tp.get_collision_point()
 	if is_rotate:
@@ -338,6 +340,11 @@ func _process(_delta):
 		mesh.animation_tree["parameters/CrouchMix/add_amount"] = lerp(mesh.animation_tree["parameters/CrouchMix/add_amount"],(1.8 - player_collision.shape.height)*1.5,0.5)
 	hand_held.global_position = mesh.right_hand_pos.global_position
 	hand_held.global_rotation = mesh.right_hand_pos.global_rotation
+	
+	# Hitbox Debug
+	hitbox_debug.position = hitbox.position
+	hitbox_debug.mesh.size = hitbox.shape.size
+	
 func _forward_strength(value:float) -> float:
 	if (-2 * value + 1) > 0:
 		return ( (-2 * value + 1) / 2 ) + 0.5
@@ -447,7 +454,9 @@ func main_attack(press:bool):
 		mesh.animation_tree["parameters/MainAttack/request"] = 1
 		var tween = create_tween().set_trans(Tween.TRANS_CUBIC)
 		tween.tween_property(self, "att_idle", true, 0).set_delay(0.5)
-		attack(1)
+		if handheld_tool:
+			attack(1+handheld_tool.equipment.performance,handheld_tool.equipment.damage_type)
+		else:attack(1)
 func set_attack_animation(type:String = "Light"):
 	mesh.animation_tree["parameters/AttackStateMachine/conditions/DoubleHand"] = false
 	mesh.animation_tree["parameters/AttackStateMachine/conditions/Light"] = false
@@ -456,5 +465,5 @@ func set_attack_animation(type:String = "Light"):
 		"Light":	mesh.animation_tree["parameters/AttackStateMachine/conditions/Light"] = true
 func attack(damage_point:float,attack_type:String = "Normal"):
 	for i in attack_area.get_overlapping_bodies():
-		if i.is_in_group("Hurtable") && i != self && i.has_method("rec_attack"):
-			i.rec_attack(damage_point,attack_type)
+		if i.get_parent().get_class() == "Hurtable":
+			i.get_parent().receive_attack(damage_point,attack_type)
