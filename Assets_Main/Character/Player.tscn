@@ -1,6 +1,7 @@
-[gd_scene load_steps=37 format=3 uid="uid://bk6ihg1vf71uf"]
+[gd_scene load_steps=35 format=3 uid="uid://bk6ihg1vf71uf"]
 
 [ext_resource type="Script" path="res://Assets_Main/Character/Player.gd" id="1_twfth"]
+[ext_resource type="Material" uid="uid://b0vyuvvjptrtg" path="res://Resources/Material/RedAlpha.tres" id="2_5ji8l"]
 [ext_resource type="PackedScene" uid="uid://c4pg4fa4c3vft" path="res://Resources/Character/MrPicto/body_scene.tscn" id="2_c5t80"]
 [ext_resource type="Script" path="res://Assets_Main/Character/Player_interact.gd" id="2_fls23"]
 [ext_resource type="PackedScene" uid="uid://bledb03vcydda" path="res://Assets_Main/Character/Pause_menu.tscn" id="2_ghaer"]
@@ -23,6 +24,7 @@ height = 1.8
 size = Vector3(0.25, 0.25, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_n6bsr"]
+size = Vector3(0.25, 0.25, 1)
 
 [sub_resource type="Gradient" id="Gradient_kcmtc"]
 interpolation_mode = 2
@@ -96,25 +98,9 @@ shader_parameter/albedo = SubResource("GradientTexture2D_f0825")
 margin = 0.0
 size = Vector3(0.79, 0.19, 0.79)
 
-[sub_resource type="Gradient" id="Gradient_m3kqk"]
-offsets = PackedFloat32Array(0.9, 1)
-colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_jmgba"]
-gradient = SubResource("Gradient_m3kqk")
-width = 32
-height = 32
-fill = 2
-fill_from = Vector2(0.5, 0.5)
-fill_to = Vector2(1, 1)
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_3qjou"]
-render_priority = 0
-shader = ExtResource("5_u5uvm")
-shader_parameter/color = Color(1, 0, 0, 1)
-shader_parameter/albedo = SubResource("GradientTexture2D_jmgba")
-
 [sub_resource type="SphereMesh" id="SphereMesh_qjga7"]
+radius = 0.2
+height = 0.4
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_ocwai"]
 
@@ -152,6 +138,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, -0.5)
 shape = SubResource("BoxShape3D_8ga1f")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="PlayerColl/AttackArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, -0.5)
+visible = false
+material_override = ExtResource("2_5ji8l")
 mesh = SubResource("BoxMesh_n6bsr")
 
 [node name="BodyScene" parent="." instance=ExtResource("2_c5t80")]
@@ -361,7 +350,8 @@ shape = SubResource("BoxShape3D_j771c")
 
 [node name="Cursor3" type="MeshInstance3D" parent="."]
 top_level = true
-material_override = SubResource("ShaderMaterial_3qjou")
+visible = false
+material_override = ExtResource("2_5ji8l")
 mesh = SubResource("SphereMesh_qjga7")
 
 [node name="InteractLowerLimit" type="StaticBody3D" parent="."]

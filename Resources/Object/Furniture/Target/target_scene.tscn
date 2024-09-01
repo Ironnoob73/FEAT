@@ -1,56 +1,22 @@
-[gd_scene load_steps=8 format=3 uid="uid://cdhmfgttd6yfu"]
+[gd_scene load_steps=4 format=3 uid="uid://cdhmfgttd6yfu"]
 
 [ext_resource type="Script" path="res://addons/abyss_history_lib/Class/Interact/Attack/HurtableClass.gd" id="1_56vg1"]
-[ext_resource type="Script" path="res://Resources/Object/Furniture/Target/target_scene.gd" id="1_acvgp"]
-[ext_resource type="Material" uid="uid://b860lbxbd3ed6" path="res://Resources/Material/GrayMaterial.tres" id="1_dnlip"]
-
-[sub_resource type="Gradient" id="Gradient_gb1dc"]
-interpolation_mode = 1
-offsets = PackedFloat32Array(0, 0.25, 0.5, 0.75)
-colors = PackedColorArray(1, 0, 0, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_myyc6"]
-gradient = SubResource("Gradient_gb1dc")
-width = 16
-height = 16
-fill = 2
-fill_from = Vector2(0.5, 0.5)
-repeat = 1
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rmi1y"]
-albedo_texture = SubResource("GradientTexture2D_myyc6")
-uv2_triplanar_sharpness = 9.1896
-texture_filter = 0
+[ext_resource type="PackedScene" uid="uid://dasv0wj0agabw" path="res://Resources/Object/Furniture/Target/Target.glb" id="3_lf3u3"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_7t65m"]
 height = 0.1
 radius = 0.45
 
-[node name="Hurtable" type="Node3D"]
+[node name="TargetScene" type="Node3D"]
 script = ExtResource("1_56vg1")
+MaxHealth = 10.0
+current_health = 10.0
 
-[node name="TargetScene" type="StaticBody3D" parent="." groups=["Hurtable"]]
+[node name="Body" type="StaticBody3D" parent="."]
 collision_layer = 8
-script = ExtResource("1_acvgp")
 
-[node name="Main" type="CSGCylinder3D" parent="TargetScene"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.5, 0)
-radius = 0.45
-height = 0.1
-sides = 16
-material = SubResource("StandardMaterial3D_rmi1y")
-
-[node name="Outline" type="CSGCylinder3D" parent="TargetScene/Main"]
-radius = 0.46
-height = 0.09
-sides = 16
-material = ExtResource("1_dnlip")
-
-[node name="Coll" type="CollisionShape3D" parent="TargetScene"]
+[node name="Coll" type="CollisionShape3D" parent="Body"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.5, 0)
 shape = SubResource("CylinderShape3D_7t65m")
 
-[node name="CSGCylinder3D" type="CSGCylinder3D" parent="TargetScene"]
-use_collision = true
-collision_layer = 8
-radius = 0.05
+[node name="Target" parent="Body" instance=ExtResource("3_lf3u3")]

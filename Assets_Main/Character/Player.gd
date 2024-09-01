@@ -178,6 +178,7 @@ func _unhandled_input(_event):
 	if Input.is_action_just_pressed("switch_perspectives") and current_menu == "HUD":
 		isThirdPerson = !isThirdPerson
 		mesh.rotation.y = PI
+		attack_area.rotation.y = 0
 		player_camera.rotation.y = 0
 		player_camera.rotation.x = 0
 		mouse_mode(isThirdPerson)

@@ -11,7 +11,8 @@ func iterate(node):
 			# Override the materials of the mesh with a custom material
 			var mesh:Mesh = node.mesh
 			for i in mesh.get_surface_count():
-				mesh.surface_set_material(i, load("res://Resources/Material/" + mesh.surface_get_material(i).resource_name + ".tres"))
+				if FileAccess.file_exists("res://Resources/Material/" + mesh.surface_get_material(i).resource_name + ".tres"):
+					mesh.surface_set_material(i, load("res://Resources/Material/" + mesh.surface_get_material(i).resource_name + ".tres"))
 			var collision = CollisionShape3D.new()
 			collision.shape = ConcavePolygonShape3D.new()
 			collision.shape.set_faces(mesh.get_faces())

@@ -105,4 +105,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 5, -3)
 ThingInstance = SubResource("Resource_acjqk")
 
 [node name="TargetScene" parent="." instance=ExtResource("15_jcahf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 1, -3)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 1.5, -3)
+current_health = 10.0
