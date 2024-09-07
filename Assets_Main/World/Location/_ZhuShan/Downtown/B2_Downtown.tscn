@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://bwtcv55j8d0nw"]
+[gd_scene load_steps=25 format=3 uid="uid://bwtcv55j8d0nw"]
 
 [ext_resource type="PackedScene" uid="uid://db5q11bnija1c" path="res://Assets_Main/World/Location/_ZhuShan/Sources/DowntownBuildings/DTGround.glb" id="1_04gio"]
 [ext_resource type="PackedScene" uid="uid://7rflpb8cd33k" path="res://Assets_Main/World/Location/_ZhuShan/Sources/DowntownBuildings/DTBuildingBase.glb" id="2_gv80c"]
@@ -15,7 +15,6 @@
 [ext_resource type="PackedScene" uid="uid://be4fl50meaf7a" path="res://Resources/Object/Building/Plates/BlueMetalPlate10x10.tscn" id="11_fvxwq"]
 [ext_resource type="Material" uid="uid://b860lbxbd3ed6" path="res://Resources/Material/GrayMaterial.tres" id="12_esyd3"]
 [ext_resource type="PackedScene" uid="uid://d08sy213gr0cf" path="res://Resources/Object/Building/Plates/BlueMetalPlate1x5.tscn" id="12_xbbdb"]
-[ext_resource type="Material" uid="uid://c2bf4nk8dtp88" path="res://Resources/Material/BlueMetalPlate.tres" id="13_3fclq"]
 [ext_resource type="PackedScene" uid="uid://dpv4np1vugbae" path="res://Assets_Main/World/Location/_ZhuShan/Sources/DowntownBuildings/TravelAgencySideStair.glb" id="14_vk7u6"]
 [ext_resource type="PackedScene" uid="uid://dm67jnnf21g1t" path="res://Resources/Object/Building/Window/HungWindow/window_scene.tscn" id="16_a4tpg"]
 [ext_resource type="PackedScene" uid="uid://bgar67py461my" path="res://Resources/Object/Building/Fence/MetalFenceShort/fence_scene.tscn" id="17_vinc8"]
@@ -163,8 +162,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 15, 1)
 mesh_material = ExtResource("12_esyd3")
 
 [node name="DoorScene" parent="TravelAgencySideStair/FrameScene" instance=ExtResource("9_l2hol")]
-mesh_color = Color(1, 1, 1, 1)
-mesh_material = ExtResource("13_3fclq")
+DisplayName = null
+interact_text = ""
+interact_behavior = null
+Switchable = null
+state = null
+Hurtable = null
+MaxHealth = null
+current_health = null
+hurt_behavior = null
+touch_behavior = null
 
 [node name="AwningWindowScene" parent="TravelAgencySideStair" instance=ExtResource("21_256j1")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1.5, 16, 5)

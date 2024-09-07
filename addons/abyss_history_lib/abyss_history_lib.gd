@@ -7,12 +7,14 @@ func _enter_tree() -> void:
 	add_custom_type("ChunkPath","Resource",preload("Class/World/ChunkClass.gd"),preload("Class/World/ChunkPathIcon.svg"))
 	add_custom_type("RoomInstance","Resource",preload("Class/World/RoomClass.gd"),preload("Class/World/RoomInstanceIcon.svg"))
 	# Interact
+	add_custom_type("Interactive","Node3D",preload("Class/Interact/InteractiveClass.gd"),preload("Class/Interact/InteractiveIcon.svg"))
 	#	Attack
-	add_custom_type("Hurtable","Node3D",preload("Class/Interact/Attack/HurtableClass.gd"),preload("Class/Interact/Attack/HurtableIcon.svg"))
+	add_custom_type("Hurtable","Interactive",preload("Class/Interact/Attack/HurtableClass.gd"),preload("Class/Interact/Attack/HurtableIcon.svg"))
 
 func _exit_tree() -> void:
 	remove_custom_type("ScenesPackage")
 	remove_custom_type("ChunkPath")
 	remove_custom_type("RoomInstance")
 	
+	remove_custom_type("Interactive")
 	remove_custom_type("Hurtable")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cl6ldjsalc5wj"]
+[gd_scene load_steps=21 format=3 uid="uid://cl6ldjsalc5wj"]
 
 [ext_resource type="PackedScene" uid="uid://3yd06robq3f8" path="res://Resources/Object/Building/Door/RollingShutter/door_scene.tscn" id="1_mvlr0"]
 [ext_resource type="PackedScene" uid="uid://lixd4xll3bl0" path="res://Resources/Object/Building/Window/StaticGlass/glass_scene.tscn" id="2_qsc8l"]
@@ -12,7 +12,9 @@
 [ext_resource type="PackedScene" uid="uid://lpmasy302bvb" path="res://Resources/Object/Furniture/WoodenTable/table_scene.tscn" id="10_82dgq"]
 [ext_resource type="PackedScene" uid="uid://drxt0mv3ci5ed" path="res://Resources/Object/Furniture/WoodenChair/chair_scene.tscn" id="11_uvgp4"]
 [ext_resource type="PackedScene" uid="uid://ogtwuy5brc0t" path="res://Resources/Object/Building/Switch/Common/switch_scene.tscn" id="12_53pvo"]
+[ext_resource type="Script" path="res://addons/abyss_history_lib/Class/Interact/Behaviour/_BehaviorClass.gd" id="13_8evp1"]
 [ext_resource type="PackedScene" uid="uid://coan3h6n6wobt" path="res://Resources/Object/Building/Light/FluorescentLamp/light_scene.tscn" id="13_vw08j"]
+[ext_resource type="Script" path="res://addons/abyss_history_lib/Class/Interact/Behaviour/SwitchClass.gd" id="14_nom32"]
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_m2pp3"]
 data = PackedVector3Array(4, 0, 5, 3, 2.5, 5, 3, 0.4999, 5, 4, 0, 5, 4, 4, 5, 3, 2.5, 5, 4, 4, 5, 4, 3, -1, 4, 4, -5, 4, 4, 5, 4, 3, 3, 4, 3, -1, 4, 4, 5, 4, 0, 3, 4, 3, 3, 4, 4, 5, 4, 0, 5, 4, 0, 3, -0.8, 2.5, 5, -0.0001, 0.4999, 5, -0.0001, 2.5, 5, -0.8, 2.5, 5, -0.8, 0, 5, -0.0001, 0.4999, 5, -4, 0, 5, -2.2, 2.5, 5, -4, 4, 5, -4, 0, 5, -2.2, 0, 5, -2.2, 2.5, 5, -0.8, 2.5, 5, -4, 4, 5, -2.2, 2.5, 5, -0.8, 2.5, 5, -0.0001, 2.5, 5, -4, 4, 5, -0.8, 0, 5, 3, 0.4999, 5, -0.0001, 0.4999, 5, -0.8, 0, 5, 4, 0, 5, 3, 0.4999, 5, 4, 4, -5, -4, 0, -5, -4, 4, -5, 4, 4, -5, 4, 0, -5, -4, 0, -5, 4, 0, -5, 4, 3, -1, 4, 0, -1, 4, 0, -5, 4, 4, -5, 4, 3, -1, -4, 4, 5, 3, 2.5, 5, 4, 4, 5, -4, 4, 5, -0.0001, 2.5, 5, 3, 2.5, 5, -4, 4, -5, -4, 0, 5, -4, 4, 5, -4, 4, -5, -4, 0, -5, -4, 0, 5, -4, 4, -5, 4, 4, 5, 4, 4, -5, -4, 4, -5, -4, 4, 5, 4, 4, 5, -4, 0, 5, 4, 0, -1, 4, 0, 3, -4, 0, 5, -4, 0, -5, 4, 0, -1, 4, 0, -5, 4, 0, -1, -4, 0, -5, -4, 0, 5, 4, 0, 3, -2.2, 0, 5, -0.8, 0, 5, -2.2, 0, 5, 4, 0, 3, 4, 0, 3, 4, 0, 5, -0.8, 0, 5)
@@ -23,6 +25,13 @@ texture_filter = 0
 
 [sub_resource type="QuadMesh" id="QuadMesh_7jkkh"]
 size = Vector2(1.5, 1.5)
+
+[sub_resource type="Resource" id="Resource_o3ex2"]
+script = ExtResource("14_nom32")
+connected_node = Array[NodePath]([NodePath("../FluorescentLampScene1"), NodePath("../FluorescentLampScene2")])
+
+[sub_resource type="Resource" id="Resource_whrxm"]
+script = ExtResource("13_8evp1")
 
 [node name="TravelAgencyMain" type="StaticBody3D"]
 collision_layer = 3
@@ -79,8 +88,8 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.5, 0
 
 [node name="SwitchScene" parent="." instance=ExtResource("12_53pvo")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 4, 1.5, 3.5)
-state = true
-connected_node = Array[NodePath]([NodePath("../FluorescentLampScene1"), NodePath("../FluorescentLampScene2")])
+interact_behavior = Array[ExtResource("13_8evp1")]([SubResource("Resource_o3ex2"), SubResource("Resource_whrxm")])
+current_health = 100.0
 
 [node name="FluorescentLampScene1" parent="." instance=ExtResource("13_vw08j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 2.5)

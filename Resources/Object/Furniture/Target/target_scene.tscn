@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://cdhmfgttd6yfu"]
 
-[ext_resource type="Script" path="res://addons/abyss_history_lib/Class/Interact/Attack/HurtableClass.gd" id="1_56vg1"]
+[ext_resource type="Script" path="res://addons/abyss_history_lib/Class/Interact/InteractiveClass.gd" id="1_khvlg"]
 [ext_resource type="PackedScene" uid="uid://dasv0wj0agabw" path="res://Resources/Object/Furniture/Target/Target.glb" id="3_lf3u3"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_7t65m"]
@@ -8,9 +8,8 @@ height = 0.1
 radius = 0.45
 
 [node name="TargetScene" type="Node3D"]
-script = ExtResource("1_56vg1")
-MaxHealth = 10.0
-current_health = 10.0
+script = ExtResource("1_khvlg")
+touch_behavior = null
 
 [node name="Body" type="StaticBody3D" parent="."]
 collision_layer = 8

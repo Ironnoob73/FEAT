@@ -20,14 +20,12 @@ signal interacted(bool)
 @onready var lock_tip_f = $Hinge/LockTipF
 @onready var lock_tip_b = $Hinge/LockTipB
 
-var interact_icon : String = "✔"
-
 func _ready():
 	if mesh_color != Color(0,0,0,0) :	MaterialUtil.recolor(mesh,mesh_color)
 	if mesh_material : MaterialUtil.change_material(mesh,mesh_material)
 	if lock :
 		set_collision_layer_value(4,true)
-		interact_icon = "🔒"
+		get_parent().interact_icon = "🔒"
 	
 func color_setter():
 	MaterialUtil.recolor(mesh,mesh_color)

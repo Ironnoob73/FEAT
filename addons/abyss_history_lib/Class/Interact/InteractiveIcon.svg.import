@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b51nihpr8vx6j"
-path="res://.godot/imported/HurtableIcon.svg-64ae70c63702badcf6477bf91d957a6e.ctex"
+uid="uid://chpc3eyuopv2u"
+path="res://.godot/imported/InteractiveIcon.svg-b9322e76d448fd31c0e7e2ab312fa47b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/abyss_history_lib/Class/Interact/Attack/HurtableIcon.svg"
-dest_files=["res://.godot/imported/HurtableIcon.svg-64ae70c63702badcf6477bf91d957a6e.ctex"]
+source_file="res://addons/abyss_history_lib/Class/Interact/InteractiveIcon.svg"
+dest_files=["res://.godot/imported/InteractiveIcon.svg-b9322e76d448fd31c0e7e2ab312fa47b.ctex"]
 
 [params]
 

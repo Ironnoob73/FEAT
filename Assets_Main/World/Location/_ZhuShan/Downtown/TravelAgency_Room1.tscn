@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://bcu7q26iw4y3q"]
+[gd_scene load_steps=10 format=3 uid="uid://bcu7q26iw4y3q"]
 
 [ext_resource type="PackedScene" uid="uid://d02kgnj63nygs" path="res://Assets_Main/World/Location/_ZhuShan/Sources/DowntownBuildings/TravelAgencyRoom.glb" id="1_sdkrh"]
 [ext_resource type="PackedScene" uid="uid://c5nkwuac4jut0" path="res://Resources/Object/Building/Door/PlainDoor/frame_scene.tscn" id="2_kppcn"]
 [ext_resource type="PackedScene" uid="uid://ds1bb3oh6akpf" path="res://Resources/Object/Building/Door/PlainDoor/door_scene.tscn" id="3_0g6xs"]
 [ext_resource type="PackedScene" uid="uid://bgelaund2s486" path="res://Resources/Object/Building/Window/CasementWindow/window_scene.tscn" id="4_idiah"]
+[ext_resource type="Script" path="res://addons/abyss_history_lib/Class/Interact/Behaviour/_BehaviorClass.gd" id="4_le32w"]
 [ext_resource type="PackedScene" uid="uid://dgamoawgoj1oe" path="res://Resources/Object/Building/Window/SlidingWindow/window_scene.tscn" id="5_coceq"]
 [ext_resource type="PackedScene" uid="uid://ogtwuy5brc0t" path="res://Resources/Object/Building/Switch/Common/switch_scene.tscn" id="6_4jyuc"]
 [ext_resource type="PackedScene" uid="uid://coan3h6n6wobt" path="res://Resources/Object/Building/Light/FluorescentLamp/light_scene.tscn" id="7_0twap"]
@@ -27,6 +28,14 @@ ToLocationPos = Vector3(2, 4, -2.5)
 
 [node name="DoorPlate" parent="FrameScene" instance=ExtResource("3_0g6xs")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+DisplayName = ""
+interact_behavior = Array[ExtResource("4_le32w")]([])
+Switchable = false
+state = true
+Hurtable = false
+MaxHealth = 100.0
+current_health = 100.0
+hurt_behavior = Array[ExtResource("4_le32w")]([])
 
 [node name="CasementWindowScene1" parent="." instance=ExtResource("4_idiah")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 2.5, 1, 5)
@@ -46,7 +55,7 @@ occlusion = "none"
 
 [node name="SwitchScene" parent="." instance=ExtResource("6_4jyuc")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -4, 1.5, -1.5)
-connected_node = Array[NodePath]([NodePath("../FluorescentLampScene1"), NodePath("../FluorescentLampScene2")])
+current_health = 100.0
 
 [node name="FluorescentLampScene1" parent="." instance=ExtResource("7_0twap")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, -2.5)
