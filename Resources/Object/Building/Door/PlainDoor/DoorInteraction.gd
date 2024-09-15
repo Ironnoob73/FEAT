@@ -12,7 +12,7 @@ var open : bool = false
 		mesh_material = material
 		if Engine.is_editor_hint():
 			material_setter()
-@export var lock : int = 0
+var lock = func () : return get_parent().get_meta('lock_int',0)
 signal interacted(bool)
 
 @onready var mesh = $Hinge/Mesh
@@ -25,7 +25,6 @@ func _ready():
 	if mesh_material : MaterialUtil.change_material(mesh,mesh_material)
 	if lock :
 		set_collision_layer_value(4,true)
-		get_parent().interact_icon = "🔒"
 	
 func color_setter():
 	MaterialUtil.recolor(mesh,mesh_color)

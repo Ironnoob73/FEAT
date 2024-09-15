@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://c5x88i487dw"]
+[gd_scene load_steps=25 format=3 uid="uid://c5x88i487dw"]
 
 [ext_resource type="PackedScene" uid="uid://vtmimg6a3eqb" path="res://Assets_Main/World/Location/_ZhuShan/Sources/DowntownBuildings/TravelAgencySideStairEntrance.glb" id="1_5o8y8"]
 [ext_resource type="Material" uid="uid://rnxv6hl1w5ul" path="res://Resources/Material/DarkMaterial.tres" id="2_re8q5"]
@@ -12,9 +12,11 @@
 [ext_resource type="PackedScene" uid="uid://bgar67py461my" path="res://Resources/Object/Building/Fence/MetalFenceShort/fence_scene.tscn" id="9_0psam"]
 [ext_resource type="PackedScene" uid="uid://c5nkwuac4jut0" path="res://Resources/Object/Building/Door/PlainDoor/frame_scene.tscn" id="9_bm8kl"]
 [ext_resource type="PackedScene" uid="uid://ds1bb3oh6akpf" path="res://Resources/Object/Building/Door/PlainDoor/door_scene.tscn" id="10_ydf68"]
+[ext_resource type="Script" path="res://addons/abyss_history_lib/Class/Interact/Behaviour/_BehaviorClass.gd" id="11_bq67n"]
 [ext_resource type="PackedScene" uid="uid://dv5a73blgpw8h" path="res://Assets_Main/World/Location/_ZhuShan/Sources/DowntownBuildings/TravelAgencySideStairTop.glb" id="13_841an"]
 [ext_resource type="Material" uid="uid://b860lbxbd3ed6" path="res://Resources/Material/GrayMaterial.tres" id="14_xrgfx"]
 [ext_resource type="PackedScene" uid="uid://b40pj5rwujily" path="res://Resources/Object/Building/Ladder/MetalWallLadder/ladder_scene.tscn" id="15_58a8g"]
+[ext_resource type="Script" path="res://addons/abyss_history_lib/Class/Interact/Behaviour/LockBehaviorClass.gd" id="16_ewerb"]
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_jjyd1"]
 data = PackedVector3Array(-3, 0, -5, -3, 4, 5, -3, 4, -5, -3, 0, -5, -3, 0, 5, -3, 4, 5, 2, 3, 5, 3, 0, 5, 3, 4, 5, 2, 3, 5, 2, 0, 5, 3, 0, 5, -2, 0, 5, -3, 4, 5, -3, 0, 5, -2, 0, 5, -2, 3, 5, -3, 4, 5, 0, 4, 5, -2, 3, 5, 0, 3, 5, 0, 4, 5, -3, 4, 5, -2, 3, 5, 0, 4, -5, 3, 0, -5, 0, 0, -5, 0, 4, -5, 3, 4, -5, 3, 0, -5, 3, 4, 5, 3, 0, -5, 3, 4, -5, 3, 4, 5, 3, 0, 5, 3, 0, -5, -3, 4, -5, 0, 0, -5, -3, 0, -5, -3, 4, -5, 0, 4, -5, 0, 0, -5, 3, 4, 5, 0, 3, 5, 2, 3, 5, 3, 4, 5, 0, 4, 5, 0, 3, 5, 2, 0, 5, 3, 0, -5, 3, 0, 5, 2, 0, 5, 0, 0, -5, 3, 0, -5, 2, 0, 5, -2, 0, 5, 0, 0, -5, 2, 0, 5, 0, 0, 5, -2, 0, 5, -3, 0, -5, -2, 0, 5, -3, 0, 5, -3, 0, -5, 0, 0, -5, -2, 0, 5, 3, 4, -5, 0, 4, 5, 3, 4, 5, 3, 4, -5, 0, 4, -5, 0, 4, 5)
@@ -33,6 +35,11 @@ data = PackedVector3Array(0.4999, 1, 5, -0.5, 1, 5, 0, 0, 5, -0.5, 1, 5, 0, 4, 5
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_18myh"]
 data = PackedVector3Array(0.5, 1, 5, -0.5, 1, 5, 0, 0, 5, -0.5, 1, 5, 0.5, 3, 5, -0.5, 3, 5, -0.5, 1, 5, 0.5, 1, 5, 0.5, 3, 5, 2, 1, 5, 3, 3, 5, 2, 3, 5, 2, 1, 5, 3, 0, 5, 3, 3, 5, 0, 0, -5, 3, 3, -5, 3, 0, -5, 0, 0, -5, 0, 3, -5, 3, 3, -5, -2, 1, 5, -3, 3, 5, -3, 0, 5, -2, 1, 5, -2, 3, 5, -3, 3, 5, -3, 0, -5, -3, 3, 5, -3, 3, -5, -3, 0, -5, -3, 0, 5, -3, 3, 5, 2, 1, 5, 0, 0, 5, 3, 0, 5, 2, 1, 5, 0.5, 1, 5, 0, 0, 5, -3, 3, -5, 0, 0, -5, -3, 0, -5, -3, 3, -5, 0, 3, -5, 0, 0, -5, -0.5, 1, 5, -3, 0, 5, 0, 0, 5, -0.5, 1, 5, -2, 1, 5, -3, 0, 5, 3, 0, -3.2, 3, 3, -5, 3, 2.5, -3.2, 3, 0, -3.2, 3, 0, -5, 3, 3, -5, 3, 2.5, -1.8, 3, 0, 5, 3, 0, -1.8, 3, 2.5, -1.8, 3, 3, 5, 3, 0, 5, 3, 3, 5, 3, 3, 3, 3, 3, 4, 3, 3, 5, 3, 2.5, -1.8, 3, 3, 3, 3, 2.5, -3.2, 3, 3, 3, 3, 2.5, -1.8, 3, 2.5, -3.2, 3, 3, -5, 3, 3, 3, 3, 0, -5, 3, 0, -3.2, 0, 0, -5, 0.4999, 3, 5, 3, 3, 3.9999, 2, 3, 3.9999, 0.4999, 3, 5, 2, 3, 5, 3, 3, 3.9999, 3, 0, -1.8, 0, 0, -5, 3, 0, -3.2, 3, 0, -1.8, 0, 0, 5, 0, 0, -5, -0.5, 3, 5, -3, 3, -5, -2, 3, 5, -0.5, 3, 5, 0, 3, -5, -3, 3, -5, 3, 0, -1.8, 3, 0, 5, 0, 0, 5, 3, 3, 5, 3, 3, 3.9999, 2, 3, 5, 3, 3, 3, 0, 3, -5, 2, 3, 3, 3, 3, 3, 3, 3, -5, 0, 3, -5, 0, 3, -5, 2, 3, 3.9999, 2, 3, 3, 0, 3, -5, -0.5, 3, 5, 2, 3, 3.9999, -0.5, 3, 5, 0.4999, 3, 5, 2, 3, 3.9999, -2, 3, 5, -3, 3, -5, -3, 3, 5)
+
+[sub_resource type="Resource" id="Resource_f40bh"]
+script = ExtResource("16_ewerb")
+unlock = false
+lock = 7247614650
 
 [node name="TravelAgencySideStair" type="StaticBody3D"]
 collision_layer = 3
@@ -98,16 +105,7 @@ ToLocation = "TravelAgency_Room1"
 ToLocationPos = Vector3(-3, 0, -2.5)
 
 [node name="DoorPlate" parent="LV1/FrameScene" instance=ExtResource("10_ydf68")]
-DisplayName = null
-interact_text = ""
-interact_behavior = null
-Switchable = null
-state = null
-Hurtable = null
-MaxHealth = null
-current_health = null
-hurt_behavior = null
-touch_behavior = null
+init_behavior = Array[ExtResource("11_bq67n")]([])
 
 [node name="HungWindowScene1" parent="LV1" instance=ExtResource("8_n31n0")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1, 1, 5)
@@ -172,16 +170,7 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 3, 0, 
 ToLocation = ""
 
 [node name="DoorPlate" parent="LV2/FrameScene" instance=ExtResource("10_ydf68")]
-DisplayName = null
-interact_text = ""
-interact_behavior = null
-Switchable = null
-state = null
-Hurtable = null
-MaxHealth = null
-current_health = null
-hurt_behavior = null
-touch_behavior = null
+init_behavior = Array[ExtResource("11_bq67n")]([])
 
 [node name="HungWindowScene1" parent="LV2" instance=ExtResource("8_n31n0")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1, 1, 5)
@@ -244,16 +233,7 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 3, 0, 
 mesh_material = ExtResource("14_xrgfx")
 
 [node name="DoorScene3" parent="LV3/FrameScene3" instance=ExtResource("10_ydf68")]
-DisplayName = null
-interact_text = ""
-interact_behavior = null
-Switchable = null
-state = null
-Hurtable = null
-MaxHealth = null
-current_health = null
-hurt_behavior = null
-touch_behavior = null
+init_behavior = Array[ExtResource("11_bq67n")]([SubResource("Resource_f40bh")])
 
 [node name="LadderScene1" parent="LV3" instance=ExtResource("15_58a8g")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.5, 0.5, 3.5)

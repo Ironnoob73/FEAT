@@ -9,7 +9,7 @@ func _enter_tree() -> void:
 	# Interact
 	add_custom_type("Interactive","Node3D",preload("Class/Interact/InteractiveClass.gd"),preload("Class/Interact/InteractiveIcon.svg"))
 	#	Attack
-	add_custom_type("Hurtable","Interactive",preload("Class/Interact/Attack/HurtableClass.gd"),preload("Class/Interact/Attack/HurtableIcon.svg"))
+	#add_custom_type("Hurtable","Interactive",preload("Class/Interact/Attack/HurtableClass.gd"),preload("Class/Interact/Attack/HurtableIcon.svg"))
 
 func _exit_tree() -> void:
 	remove_custom_type("ScenesPackage")

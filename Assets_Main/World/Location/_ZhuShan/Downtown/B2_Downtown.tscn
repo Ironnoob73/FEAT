@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://bwtcv55j8d0nw"]
+[gd_scene load_steps=26 format=3 uid="uid://bwtcv55j8d0nw"]
 
 [ext_resource type="PackedScene" uid="uid://db5q11bnija1c" path="res://Assets_Main/World/Location/_ZhuShan/Sources/DowntownBuildings/DTGround.glb" id="1_04gio"]
 [ext_resource type="PackedScene" uid="uid://7rflpb8cd33k" path="res://Assets_Main/World/Location/_ZhuShan/Sources/DowntownBuildings/DTBuildingBase.glb" id="2_gv80c"]
@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://d08sy213gr0cf" path="res://Resources/Object/Building/Plates/BlueMetalPlate1x5.tscn" id="12_xbbdb"]
 [ext_resource type="PackedScene" uid="uid://dpv4np1vugbae" path="res://Assets_Main/World/Location/_ZhuShan/Sources/DowntownBuildings/TravelAgencySideStair.glb" id="14_vk7u6"]
 [ext_resource type="PackedScene" uid="uid://dm67jnnf21g1t" path="res://Resources/Object/Building/Window/HungWindow/window_scene.tscn" id="16_a4tpg"]
+[ext_resource type="Script" path="res://addons/abyss_history_lib/Class/Interact/Behaviour/_BehaviorClass.gd" id="17_p07jj"]
 [ext_resource type="PackedScene" uid="uid://bgar67py461my" path="res://Resources/Object/Building/Fence/MetalFenceShort/fence_scene.tscn" id="17_vinc8"]
 [ext_resource type="PackedScene" uid="uid://bj6k2kwnojef7" path="res://Resources/Object/Building/Window/AwningWindow/window_scene.tscn" id="21_256j1"]
 
@@ -162,16 +163,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 15, 1)
 mesh_material = ExtResource("12_esyd3")
 
 [node name="DoorScene" parent="TravelAgencySideStair/FrameScene" instance=ExtResource("9_l2hol")]
-DisplayName = null
-interact_text = ""
-interact_behavior = null
-Switchable = null
-state = null
-Hurtable = null
-MaxHealth = null
-current_health = null
-hurt_behavior = null
-touch_behavior = null
+DisplayName = ""
+init_behavior = null
+interact_behavior = Array[ExtResource("17_p07jj")]([])
+Switchable = false
+state = true
+Hurtable = false
+MaxHealth = 100.0
+current_health = 100.0
+hurt_behavior = Array[ExtResource("17_p07jj")]([])
+touch_behavior = Array[ExtResource("17_p07jj")]([])
 
 [node name="AwningWindowScene" parent="TravelAgencySideStair" instance=ExtResource("21_256j1")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1.5, 16, 5)

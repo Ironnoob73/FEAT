@@ -25,16 +25,9 @@ size = Vector3(1.2, 2.4, 2)
 
 [node name="DoorPlate" type="Node3D"]
 script = ExtResource("1_pf086")
-DisplayName = null
+init_behavior = null
 interact_icon = "✔"
-interact_behavior = null
-Switchable = null
-state = null
-Hurtable = null
-MaxHealth = null
-current_health = null
-hurt_behavior = null
-touch_behavior = null
+current_health = 100.0
 
 [node name="Body" type="StaticBody3D" parent="."]
 collision_layer = 16

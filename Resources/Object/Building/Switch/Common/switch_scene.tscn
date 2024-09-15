@@ -18,8 +18,11 @@ size = Vector3(1, 1, 0.1)
 
 [node name="SwitchScene" type="Node3D"]
 script = ExtResource("1_xx5fq")
+init_behavior = null
+Interactable = true
 interact_icon = "👆"
 Switchable = true
+current_health = 100.0
 
 [node name="Body" type="StaticBody3D" parent="."]
 collision_layer = 17
