@@ -57,6 +57,7 @@ ToLocationPos = Vector3(45.5, 0.5, -9.5)
 
 [node name="Door0Scene" parent="FrameScene0" instance=ExtResource("4_7eld8")]
 transform = Transform3D(-1, 0, 8.74232e-08, 0, 1, 0, -8.74232e-08, 0, -1, 0, 0, 0)
+collision_layer = 24
 
 [node name="TravelAgencyMainInner" parent="." instance=ExtResource("5_8f4bo")]
 

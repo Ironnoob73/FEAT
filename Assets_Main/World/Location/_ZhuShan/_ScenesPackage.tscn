@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://dqyequp22c8rg"]
+[gd_scene load_steps=28 format=3 uid="uid://dqyequp22c8rg"]
 
 [ext_resource type="Script" path="res://addons/abyss_history_lib/Class/World/ScenesPackageClass.gd" id="1_p1ge1"]
 [ext_resource type="PackedScene" uid="uid://bcp40gisqlrka" path="res://Assets_Main/World/Location/_ZhuShan/C2_CentralSquare.tscn" id="2_fegob"]
@@ -20,6 +20,7 @@
 [ext_resource type="Resource" uid="uid://bjj8yywrbxut0" path="res://Resources/Item/weapon/melee/sword/tutorial_sword.eq.tres" id="13_qk5mw"]
 [ext_resource type="Script" path="res://addons/abyss_history_lib/Class/Inventory/Equipment/EqMetaClass.gd" id="14_acjhv"]
 [ext_resource type="PackedScene" uid="uid://cdhmfgttd6yfu" path="res://Resources/Object/Furniture/Target/target_scene.tscn" id="15_jcahf"]
+[ext_resource type="Script" path="res://addons/abyss_history_lib/Class/Interact/Behaviour/_BehaviorClass.gd" id="21_jxev0"]
 
 [sub_resource type="Resource" id="Resource_l6lr1"]
 script = ExtResource("2_qcrhu")
@@ -106,4 +107,4 @@ ThingInstance = SubResource("Resource_acjqk")
 
 [node name="TargetScene" parent="." instance=ExtResource("15_jcahf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 1.5, -3)
-init_behavior = null
+init_behavior = Array[ExtResource("21_jxev0")]([])

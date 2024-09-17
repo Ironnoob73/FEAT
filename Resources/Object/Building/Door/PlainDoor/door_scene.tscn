@@ -25,12 +25,12 @@ size = Vector3(1.2, 2.4, 2)
 
 [node name="DoorPlate" type="Node3D"]
 script = ExtResource("1_pf086")
-init_behavior = null
+Interactable = true
 interact_icon = "✔"
 current_health = 100.0
 
 [node name="Body" type="StaticBody3D" parent="."]
-collision_layer = 16
+collision_layer = 24
 collision_mask = 15
 script = ExtResource("3_ug2ta")
 

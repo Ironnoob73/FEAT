@@ -32,7 +32,7 @@ func material_setter():
 	MaterialUtil.change_material(mesh,mesh_material)
 
 func interact(_sender):
-	if !open and lock:
+	if !open and get_lock():
 		var tween_f = create_tween().set_trans(Tween.TRANS_LINEAR)
 		var tween_b = create_tween().set_trans(Tween.TRANS_LINEAR)
 		tween_f.tween_property(lock_tip_f, "modulate:a", 1, 0)
@@ -47,14 +47,17 @@ func interact(_sender):
 	#	emit_signal("interacted",open)
 
 func _on_auto_open_area_area_entered(area: Area3D) -> void:
-	if area.is_in_group("PlayerMotion") && !lock:
+	if area.is_in_group("PlayerMotion") && !get_lock():
 		open = true
 		set_collision_layer_value(4,false)
 		var tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUART)
 		tween.tween_property(hinge, "rotation:y", deg_to_rad(90), 0.5)
 func _on_auto_open_area_area_exited(area: Area3D) -> void:
-	if area.is_in_group("PlayerMotion") && !lock:
+	if area.is_in_group("PlayerMotion"):
 		open = false
 		set_collision_layer_value(4,true)
 		var tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUART)
 		tween.tween_property(hinge, "rotation:y", 0, 0.5)
+
+func get_lock():
+	return get_parent().get_meta('lock_int',0)

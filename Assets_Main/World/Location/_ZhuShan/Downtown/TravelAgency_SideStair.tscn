@@ -82,6 +82,8 @@ shape = SubResource("ConcavePolygonShape3D_51v4j")
 [node name="TravelAgencySideStairFloor" parent="LV1" instance=ExtResource("7_iijnv")]
 
 [node name="PlayerDetect" type="Area3D" parent="LV1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
+top_level = true
 collision_layer = 16
 collision_mask = 4
 script = ExtResource("8_mku5d")
@@ -105,7 +107,6 @@ ToLocation = "TravelAgency_Room1"
 ToLocationPos = Vector3(-3, 0, -2.5)
 
 [node name="DoorPlate" parent="LV1/FrameScene" instance=ExtResource("10_ydf68")]
-init_behavior = Array[ExtResource("11_bq67n")]([])
 
 [node name="HungWindowScene1" parent="LV1" instance=ExtResource("8_n31n0")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1, 1, 5)
@@ -148,6 +149,8 @@ shape = SubResource("ConcavePolygonShape3D_g1th2")
 [node name="TravelAgencySideStairFloor" parent="LV2" instance=ExtResource("7_iijnv")]
 
 [node name="PlayerDetect" type="Area3D" parent="LV2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8, 0)
+top_level = true
 collision_layer = 16
 collision_mask = 4
 script = ExtResource("8_mku5d")
@@ -170,7 +173,6 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 3, 0, 
 ToLocation = ""
 
 [node name="DoorPlate" parent="LV2/FrameScene" instance=ExtResource("10_ydf68")]
-init_behavior = Array[ExtResource("11_bq67n")]([])
 
 [node name="HungWindowScene1" parent="LV2" instance=ExtResource("8_n31n0")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1, 1, 5)
@@ -213,6 +215,8 @@ shape = SubResource("ConcavePolygonShape3D_18myh")
 [node name="TravelAgencySideStairTop" parent="LV3" instance=ExtResource("13_841an")]
 
 [node name="PlayerDetect" type="Area3D" parent="LV3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12, 0)
+top_level = true
 collision_layer = 16
 collision_mask = 4
 script = ExtResource("8_mku5d")

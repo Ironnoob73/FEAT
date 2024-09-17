@@ -90,6 +90,7 @@ ToLocation = "TravelAgency_MAIN"
 ToLocationPos = Vector3(-1.5, 0, 4.5)
 
 [node name="Door0Scene" parent="TravelAgency/FrameScene0" instance=ExtResource("8_2n55k")]
+collision_layer = 24
 
 [node name="CasementWindowScene1" parent="TravelAgency" instance=ExtResource("10_mc13w")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 2.5, 5, 5)
@@ -163,16 +164,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 15, 1)
 mesh_material = ExtResource("12_esyd3")
 
 [node name="DoorScene" parent="TravelAgencySideStair/FrameScene" instance=ExtResource("9_l2hol")]
-DisplayName = ""
-init_behavior = null
-interact_behavior = Array[ExtResource("17_p07jj")]([])
-Switchable = false
-state = true
-Hurtable = false
-MaxHealth = 100.0
-current_health = 100.0
-hurt_behavior = Array[ExtResource("17_p07jj")]([])
-touch_behavior = Array[ExtResource("17_p07jj")]([])
+init_behavior = Array[ExtResource("17_p07jj")]([])
 
 [node name="AwningWindowScene" parent="TravelAgencySideStair" instance=ExtResource("21_256j1")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1.5, 16, 5)
