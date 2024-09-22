@@ -13,7 +13,7 @@ var open : bool = false
 		if Engine.is_editor_hint():
 			material_setter()
 var lock = func () : return get_parent().get_meta('lock_int',0)
-signal interacted(bool)
+#signal interacted(bool)
 
 @onready var mesh = $Hinge/Mesh
 @onready var hinge = $Hinge

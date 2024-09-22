@@ -73,6 +73,9 @@ msgstr "控制"
 msgid "options.control.mouse_sen"
 msgstr "鼠标灵敏度"
 
+msgid "options.control.auto_pickup"
+msgstr "自动拾取"
+
 #Beginning
 msgid "beginning.title"
 msgstr " 选择一个开始..."

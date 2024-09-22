@@ -18,6 +18,7 @@ size = Vector3(1, 1, 0.1)
 
 [node name="SwitchScene" type="Node3D"]
 script = ExtResource("1_xx5fq")
+DisplayName = "Switch"
 Interactable = true
 interact_icon = "👆"
 Switchable = true

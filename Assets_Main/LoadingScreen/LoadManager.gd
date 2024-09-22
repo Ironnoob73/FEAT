@@ -34,9 +34,9 @@ func _process(_delta):
 			set_process(false)
 			return
 		1:
-			emit_signal("progress_changed", _progress[0])
+			progress_changed.emit(_progress[0])
 		3:
 			_loaded_resource = ResourceLoader.load_threaded_get(_scene_path)
-			emit_signal("progress_changed", 1.0)
-			emit_signal("load_done")
+			progress_changed.emit(1.0)
+			load_done.emit()
 			get_tree().change_scene_to_packed(_loaded_resource)

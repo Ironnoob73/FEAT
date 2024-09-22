@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://cl6ldjsalc5wj"]
+[gd_scene load_steps=20 format=3 uid="uid://cl6ldjsalc5wj"]
 
 [ext_resource type="PackedScene" uid="uid://3yd06robq3f8" path="res://Resources/Object/Building/Door/RollingShutter/door_scene.tscn" id="1_mvlr0"]
 [ext_resource type="PackedScene" uid="uid://lixd4xll3bl0" path="res://Resources/Object/Building/Window/StaticGlass/glass_scene.tscn" id="2_qsc8l"]
@@ -30,9 +30,6 @@ size = Vector2(1.5, 1.5)
 script = ExtResource("14_nom32")
 connected_node = Array[NodePath]([NodePath("../FluorescentLampScene1"), NodePath("../FluorescentLampScene2")])
 
-[sub_resource type="Resource" id="Resource_whrxm"]
-script = ExtResource("13_8evp1")
-
 [node name="TravelAgencyMain" type="StaticBody3D"]
 collision_layer = 3
 
@@ -57,7 +54,6 @@ ToLocationPos = Vector3(45.5, 0.5, -9.5)
 
 [node name="Door0Scene" parent="FrameScene0" instance=ExtResource("4_7eld8")]
 transform = Transform3D(-1, 0, 8.74232e-08, 0, 1, 0, -8.74232e-08, 0, -1, 0, 0, 0)
-collision_layer = 24
 
 [node name="TravelAgencyMainInner" parent="." instance=ExtResource("5_8f4bo")]
 
@@ -89,8 +85,7 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.5, 0
 
 [node name="SwitchScene" parent="." instance=ExtResource("12_53pvo")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 4, 1.5, 3.5)
-init_behavior = Array[ExtResource("13_8evp1")]([])
-interact_behavior = Array[ExtResource("13_8evp1")]([SubResource("Resource_o3ex2"), SubResource("Resource_whrxm")])
+interact_behavior = Array[ExtResource("13_8evp1")]([SubResource("Resource_o3ex2")])
 
 [node name="FluorescentLampScene1" parent="." instance=ExtResource("13_vw08j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 2.5)

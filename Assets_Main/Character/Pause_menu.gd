@@ -25,7 +25,7 @@ func _unhandled_input(_event):
 			escape_released = false
 			_on_resume_button_pressed()
 func _on_resume_button_pressed():
-	emit_signal("mouse_mode_signal",false)
+	mouse_mode_signal.emit(false)
 	get_parent().current_menu = "HUD"
 	hide()
 	

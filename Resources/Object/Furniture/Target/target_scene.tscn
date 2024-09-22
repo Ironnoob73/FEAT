@@ -9,6 +9,7 @@ radius = 0.45
 
 [node name="TargetScene" type="Node3D"]
 script = ExtResource("1_khvlg")
+DisplayName = "Target"
 current_health = 100.0
 
 [node name="Body" type="StaticBody3D" parent="."]

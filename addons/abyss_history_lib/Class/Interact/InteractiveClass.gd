@@ -2,8 +2,14 @@
 extends Node3D
 class_name Interactive
 
+signal interact_signal
+signal init_behavior_signal
+
 @export var DisplayName : String = ""
-@export var init_behavior : Array[BehaviorClass]
+@export var init_behavior : Array[BehaviorClass]:
+	set(behavior_in):
+		init_behavior = behavior_in
+		init_behavior_signal.emit()
 @export_group("Interact")
 @export var Interactable : bool = false
 @export var interact_icon : String = "🤚"
@@ -13,7 +19,7 @@ class_name Interactive
 @export var state : bool = true:
 	set(state_in):
 		state = state_in
-		emit_signal("interact_signal")
+		interact_signal.emit()
 @export_group("Hurtable")
 @export var Hurtable : bool = false
 @export var MaxHealth : float = 100
@@ -22,19 +28,18 @@ class_name Interactive
 @export_group("Touch")
 @export var touch_behavior : Array[BehaviorClass]
 
-signal interact_signal
-
 func _ready() -> void:
 	current_health = MaxHealth
 	for i in init_behavior:
-		i.do(self)
+		i.do(self,null)
+	init_behavior_signal.emit()
 
-func interact(_sender):
+func interact(sender):
 	if Switchable:
 		state = !state
 		
 	for i in interact_behavior:
-		i.do(self)
+		i.do(self,sender)
 	
 func receive_attack(damage_point:float,attack_type:String = "Normal"):
 	if Hurtable:

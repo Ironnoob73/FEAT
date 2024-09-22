@@ -73,6 +73,9 @@ msgstr "Control"
 msgid "options.control.mouse_sen"
 msgstr "Mouse Sensitivity"
 
+msgid "options.control.auto_pickup"
+msgstr "Auto Pickup"
+
 #Beginning
 msgid "beginning.title"
 msgstr " Select a beginning..."

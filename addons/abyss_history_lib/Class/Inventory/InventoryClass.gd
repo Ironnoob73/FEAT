@@ -75,15 +75,16 @@ func sort_equipment(by_performance:bool,direction:bool):
 
 #Add instanced thing directly
 func add_instance(thing : ThingInstanceClass):
-	if thing is ItemStackClass :
-		var stacks = itemStack.filter(func(stack):return stack.item == thing.item)
-		if !stacks.is_empty():
-			stacks[0].count += thing.count
-		else:
-			var newStack = ItemStackClass.new()
-			newStack.item = thing.item
-			newStack.count = thing.count
-			itemStack.append(newStack)
-	elif thing is EqMetaClass :
-		eqMeta.append(thing)
-	on_equipments_changed.emit()
+	if thing:
+		if thing is ItemStackClass :
+			var stacks = itemStack.filter(func(stack):return stack.item == thing.item)
+			if !stacks.is_empty():
+				stacks[0].count += thing.count
+			else:
+				var newStack = ItemStackClass.new()
+				newStack.item = thing.item
+				newStack.count = thing.count
+				itemStack.append(newStack)
+		elif thing is EqMetaClass :
+			eqMeta.append(thing)
+		on_equipments_changed.emit()

@@ -56,7 +56,7 @@ func close_inventory():
 			"Main" :
 				animation.play_backwards("Show")
 				get_parent().current_menu = "HUD"
-				emit_signal("mouse_mode_signal",false)
+				mouse_mode_signal.emit(false)
 			"Item" :
 				current_inv = "Main"
 				animation.play_backwards("Item")

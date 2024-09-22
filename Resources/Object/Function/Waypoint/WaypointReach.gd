@@ -8,7 +8,7 @@ func _on_body_entered(_body):
 		$Mesh.hide()
 		$GPUParticles3D.restart()
 		_touched = true
-		emit_signal("touch")
+		touch.emit()
 
 func reactive():
 	_touched = false

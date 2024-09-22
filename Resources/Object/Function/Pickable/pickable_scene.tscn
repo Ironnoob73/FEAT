@@ -1,5 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://bt7knoovenvbk"]
+[gd_scene load_steps=8 format=3 uid="uid://bt7knoovenvbk"]
 
+[ext_resource type="Script" path="res://addons/abyss_history_lib/Class/Interact/InteractiveClass.gd" id="1_1eg30"]
 [ext_resource type="Script" path="res://Resources/Object/Function/Pickable/PickableThingsInfo.gd" id="1_4u8fc"]
 [ext_resource type="Material" uid="uid://b70uhgp32byqb" path="res://Resources/Object/Function/Pickable/DefaultMaterial.tres" id="2_ga5f3"]
 [ext_resource type="Shader" path="res://Resources/Shader/outline.gdshader" id="4_2v5m8"]
@@ -15,25 +16,32 @@ shader_parameter/outline_width = 5.0
 [sub_resource type="BoxShape3D" id="BoxShape3D_ao11c"]
 size = Vector3(0.5, 0.5, 0.5)
 
-[node name="PickableScene" type="RigidBody3D" groups=["Interactive"]]
+[node name="PickableScene" type="Node3D"]
+script = ExtResource("1_1eg30")
+DisplayName = "Item"
+Interactable = true
+current_health = 100.0
+
+[node name="Body" type="RigidBody3D" parent="."]
 collision_layer = 16
 collision_mask = 11
 script = ExtResource("1_4u8fc")
 
-[node name="PickableArea" type="Area3D" parent="."]
+[node name="PickableArea" type="Area3D" parent="Body"]
 collision_layer = 16
 collision_mask = 4
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="PickableArea"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Body/PickableArea"]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 material_override = ExtResource("2_ga5f3")
 material_overlay = SubResource("ShaderMaterial_g6v25")
 mesh = ExtResource("5_3ku75")
 
-[node name="CollisionShape" type="CollisionShape3D" parent="PickableArea"]
+[node name="CollisionShape" type="CollisionShape3D" parent="Body/PickableArea"]
 shape = SubResource("BoxShape3D_ao11c")
 
-[node name="CollisionShape" type="CollisionShape3D" parent="."]
+[node name="CollisionShape" type="CollisionShape3D" parent="Body"]
 shape = SubResource("BoxShape3D_ao11c")
 
-[connection signal="body_entered" from="PickableArea" to="." method="_on_pickable_area_body_entered"]
+[connection signal="init_behavior_signal" from="." to="Body" method="model_setter"]
+[connection signal="body_entered" from="Body/PickableArea" to="Body" method="_on_pickable_area_body_entered"]

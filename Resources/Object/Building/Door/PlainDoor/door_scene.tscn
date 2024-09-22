@@ -25,6 +25,7 @@ size = Vector3(1.2, 2.4, 2)
 
 [node name="DoorPlate" type="Node3D"]
 script = ExtResource("1_pf086")
+DisplayName = "Door"
 Interactable = true
 interact_icon = "✔"
 current_health = 100.0

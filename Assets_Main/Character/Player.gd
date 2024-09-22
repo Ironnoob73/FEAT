@@ -114,8 +114,8 @@ func tird_person_setup(is_rotate:bool,not_init:bool = true):
 	player_camera.rotation.x = atan2(offset_pos.y - 1.7,Vector2(offset_pos.x,offset_pos.z).length())
 	cursor3.global_position = interact_ray_tp.get_collision_point()
 	if is_rotate:
-		rotation.y = perspective_rad - deg_to_rad((pos.x if not_init else 0) - perspective_from.x)
-		third_perosn_cam.size = clamp(perspective_size + ((pos.y if not_init else 0) - perspective_from.y) * 0.1,5,50)
+		rotation.y = perspective_rad - deg_to_rad((pos.x if not_init else 0.0) - perspective_from.x)
+		third_perosn_cam.size = clamp(perspective_size + ((pos.y if not_init else 0.0) - perspective_from.y) * 0.1,5,50)
 		third_perosn_cam.position.y = third_perosn_cam.size + 0.9
 		third_perosn_cam.position.z = third_perosn_cam.size
 		gradient_background.mesh.size.x = third_perosn_cam.size * 2
