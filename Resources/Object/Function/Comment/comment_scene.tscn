@@ -1,20 +1,26 @@
 [gd_scene load_steps=3 format=3 uid="uid://ggr3biv5ly6l"]
 
-[ext_resource type="Script" path="res://Resources/Object/Function/Comment/CommentInteraction.gd" id="1_a7b4t"]
+[ext_resource type="Script" path="res://addons/abyss_history_lib/Class/Interact/InteractiveClass.gd" id="1_gifr0"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1k3no"]
 size = Vector3(0.5, 2, 0.5)
 
-[node name="CommentScene" type="StaticBody3D" groups=["Interactive"]]
+[node name="Interactive" type="Node3D"]
+script = ExtResource("1_gifr0")
+Interactable = true
+interact_icon = "💬"
+interact_text = "Comment"
+current_health = 100.0
+
+[node name="CommentScene" type="StaticBody3D" parent="."]
 collision_layer = 16
 collision_mask = 9
-script = ExtResource("1_a7b4t")
 
-[node name="CollisionShape" type="CollisionShape3D" parent="."]
+[node name="CollisionShape" type="CollisionShape3D" parent="CommentScene"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
 shape = SubResource("BoxShape3D_1k3no")
 
-[node name="Label3D" type="Label3D" parent="."]
+[node name="Label3D" type="Label3D" parent="CommentScene"]
 billboard = 1
 text = "💬"
 font_size = 128

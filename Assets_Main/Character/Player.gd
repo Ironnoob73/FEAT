@@ -466,5 +466,9 @@ func set_attack_animation(type:String = "Light"):
 		"Light":	mesh.animation_tree["parameters/AttackStateMachine/conditions/Light"] = true
 func attack(damage_point:float,attack_type:String = "Normal"):
 	for i in attack_area.get_overlapping_bodies():
-		if i.get_parent().get_class() == "Hurtable":
-			i.get_parent().receive_attack(damage_point,attack_type)
+		if i.get_parent() is Interactive and i.get_parent().Hurtable == true:
+			var damage_res = DamageResClass.new()
+			damage_res.sender = self
+			damage_res.damage_point = damage_point
+			damage_res.attack_type = attack_type
+			i.get_parent().receive_attack(damage_res)

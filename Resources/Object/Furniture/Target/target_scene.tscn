@@ -1,7 +1,23 @@
-[gd_scene load_steps=4 format=3 uid="uid://cdhmfgttd6yfu"]
+[gd_scene load_steps=11 format=3 uid="uid://cdhmfgttd6yfu"]
 
 [ext_resource type="Script" path="res://addons/abyss_history_lib/Class/Interact/InteractiveClass.gd" id="1_khvlg"]
+[ext_resource type="Script" path="res://addons/abyss_history_lib/Class/Interact/Behaviour/_BehaviorClass.gd" id="2_2ob0t"]
 [ext_resource type="PackedScene" uid="uid://dasv0wj0agabw" path="res://Resources/Object/Furniture/Target/Target.glb" id="3_lf3u3"]
+[ext_resource type="Script" path="res://addons/abyss_history_lib/Class/Interact/Behaviour/DebugPrintInfoBehaviorClass.gd" id="3_uohmq"]
+[ext_resource type="Script" path="res://addons/abyss_history_lib/Class/Interact/Behaviour/DebugPrintBehaviorClass.gd" id="4_23goi"]
+[ext_resource type="Script" path="res://addons/abyss_history_lib/Class/Interact/Behaviour/QFreeBehaviorClass.gd" id="5_5kkcx"]
+
+[sub_resource type="Resource" id="Resource_61m81"]
+script = ExtResource("3_uohmq")
+isSender = false
+tag = "current_health"
+
+[sub_resource type="Resource" id="Resource_e2p8h"]
+script = ExtResource("4_23goi")
+text = "Killed"
+
+[sub_resource type="Resource" id="Resource_f6j42"]
+script = ExtResource("5_5kkcx")
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_7t65m"]
 height = 0.1
@@ -10,7 +26,10 @@ radius = 0.45
 [node name="TargetScene" type="Node3D"]
 script = ExtResource("1_khvlg")
 DisplayName = "Target"
+Hurtable = true
 current_health = 100.0
+hurt_behavior = Array[ExtResource("2_2ob0t")]([SubResource("Resource_61m81")])
+killed_behavior = Array[ExtResource("2_2ob0t")]([SubResource("Resource_e2p8h"), SubResource("Resource_f6j42")])
 
 [node name="Body" type="StaticBody3D" parent="."]
 collision_layer = 8

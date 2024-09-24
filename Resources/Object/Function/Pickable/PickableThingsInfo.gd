@@ -36,4 +36,5 @@ func model_setter():
 			else : push_warning("NoThing")
 	
 func get_thing_instance():
-	return get_parent().get_meta('thing_instance',null)
+	if get_parent().has_meta('thing_instance'):
+		return get_parent().get_meta('thing_instance')

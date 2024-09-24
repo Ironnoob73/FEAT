@@ -54,6 +54,7 @@ ToLocationPos = Vector3(45.5, 0.5, -9.5)
 
 [node name="Door0Scene" parent="FrameScene0" instance=ExtResource("4_7eld8")]
 transform = Transform3D(-1, 0, 8.74232e-08, 0, 1, 0, -8.74232e-08, 0, -1, 0, 0, 0)
+killed_behavior = Array[ExtResource("13_8evp1")]([])
 
 [node name="TravelAgencyMainInner" parent="." instance=ExtResource("5_8f4bo")]
 
@@ -79,13 +80,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, 4.5)
 
 [node name="WoodenChairScene1" parent="." instance=ExtResource("11_uvgp4")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.5, 0, 4.5)
+killed_behavior = Array[ExtResource("13_8evp1")]([])
 
 [node name="WoodenChairScene2" parent="." instance=ExtResource("11_uvgp4")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.5, 0, 4.5)
+killed_behavior = Array[ExtResource("13_8evp1")]([])
 
 [node name="SwitchScene" parent="." instance=ExtResource("12_53pvo")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 4, 1.5, 3.5)
 interact_behavior = Array[ExtResource("13_8evp1")]([SubResource("Resource_o3ex2")])
+killed_behavior = Array[ExtResource("13_8evp1")]([])
 
 [node name="FluorescentLampScene1" parent="." instance=ExtResource("13_vw08j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 2.5)

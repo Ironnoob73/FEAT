@@ -25,6 +25,7 @@ signal init_behavior_signal
 @export var MaxHealth : float = 100
 @export var current_health : float
 @export var hurt_behavior : Array[BehaviorClass]
+@export var killed_behavior : Array[BehaviorClass]
 @export_group("Touch")
 @export var touch_behavior : Array[BehaviorClass]
 
@@ -41,8 +42,13 @@ func interact(sender):
 	for i in interact_behavior:
 		i.do(self,sender)
 	
-func receive_attack(damage_point:float,attack_type:String = "Normal"):
+func receive_attack(damage_res:DamageResClass):
 	if Hurtable:
-		current_health -= damage_point
-		if current_health <= 0:
-			print("Killed")
+		if current_health >= 0:
+			current_health -= damage_res.damage_point
+		if current_health > 0:
+			for i in hurt_behavior:
+				i.do(self,null)
+		else:
+			for i in killed_behavior:
+				i.do(self,null)

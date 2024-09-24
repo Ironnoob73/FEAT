@@ -23,6 +23,7 @@ Interactable = true
 interact_icon = "👆"
 Switchable = true
 current_health = 100.0
+killed_behavior = null
 
 [node name="Body" type="StaticBody3D" parent="."]
 collision_layer = 17

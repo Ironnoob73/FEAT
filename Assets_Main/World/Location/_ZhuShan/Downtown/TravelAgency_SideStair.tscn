@@ -107,6 +107,7 @@ ToLocation = "TravelAgency_Room1"
 ToLocationPos = Vector3(-3, 0, -2.5)
 
 [node name="DoorPlate" parent="LV1/FrameScene" instance=ExtResource("10_ydf68")]
+killed_behavior = null
 
 [node name="HungWindowScene1" parent="LV1" instance=ExtResource("8_n31n0")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1, 1, 5)
@@ -173,6 +174,7 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 3, 0, 
 ToLocation = ""
 
 [node name="DoorPlate" parent="LV2/FrameScene" instance=ExtResource("10_ydf68")]
+killed_behavior = null
 
 [node name="HungWindowScene1" parent="LV2" instance=ExtResource("8_n31n0")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1, 1, 5)
@@ -238,6 +240,7 @@ mesh_material = ExtResource("14_xrgfx")
 
 [node name="DoorScene3" parent="LV3/FrameScene3" instance=ExtResource("10_ydf68")]
 init_behavior = Array[ExtResource("11_bq67n")]([SubResource("Resource_f40bh")])
+killed_behavior = null
 
 [node name="LadderScene1" parent="LV3" instance=ExtResource("15_58a8g")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.5, 0.5, 3.5)
