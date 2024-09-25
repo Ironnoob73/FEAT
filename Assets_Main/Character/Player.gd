@@ -1,5 +1,7 @@
 extends CharacterBody3D
 
+@export var player_name : String = 'Anonymous'
+
 var load_step : int = 0
 
 const SPEED = 5
@@ -24,6 +26,7 @@ var isInTeleport : bool = false
 @onready var player_camera = $PlayerCam
 @onready var standing_detected= $StandingDetected
 @onready var pause_menu = $Pause_menu
+@onready var chat_menu = $Chat
 @onready var inventory_menu = $Inventory
 @onready var mesh = $BodyScene
 
@@ -102,6 +105,7 @@ func _input(event):
 			rotate_y(-deg_to_rad(event.relative.x * Global.mouse_sens))
 			player_camera.rotate_x(-deg_to_rad(event.relative.y * Global.mouse_sens))
 			player_camera.rotation.x = clamp(player_camera.rotation.x,deg_to_rad(-90),deg_to_rad(90))
+		attack_area.rotation.x = player_camera.rotation.x
 	
 func tird_person_setup(is_rotate:bool,not_init:bool = true):
 	interact_ray_tp.global_position = third_perosn_cam.project_position(caption.get_global_mouse_position(),0)
@@ -137,6 +141,18 @@ func _unhandled_input(_event):
 			"ToolSetting":
 				current_menu = "HUD"
 				hand_held.get_child(0).setting_off()
+			"Chat":
+				current_menu = "HUD"
+				chat_menu.isInput = false
+	# Chat
+	if Input.is_action_just_pressed("chat"):
+		match current_menu:
+			"HUD":
+				current_menu = "Chat"
+				chat_menu.isInput = true
+			"Chat":
+				current_menu = "HUD"
+				chat_menu.isInput = false
 	# Inventory
 	if Input.is_action_just_pressed("inventory"):
 		match current_menu :
@@ -276,12 +292,14 @@ func _physics_process(delta):
 	
 	# Move Input.
 	var input_vec = Vector3.ZERO
-	input_vec.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
-	input_vec.z = Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
-	input_vec = (transform.basis * Vector3(input_vec.x,0,input_vec.z)).normalized()
+	if current_menu == "HUD":
+		input_vec.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
+		input_vec.z = Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
 	
-	isDash = Input.get_action_strength("shift")
-	isCrouch = Input.get_action_strength("crouch")
+		isDash = Input.get_action_strength("shift")
+		isCrouch = Input.get_action_strength("crouch")
+		
+	input_vec = (transform.basis * Vector3(input_vec.x,0,input_vec.z)).normalized()
 	
 	# Move.
 	velocity.x = lerp(velocity.x,input_vec.x * (SPEED + isDash * DASH * (1 - isCrouch) - isCrouch * CROUCH ) , ACCELERATION)
@@ -295,7 +313,7 @@ func _physics_process(delta):
 		else:							velocity.z = lerp(INERTIA.y,0.0,FRICTION)
 	
 	# Crouch.
-	if Input.is_action_pressed("crouch") and !isClimb and !isSit :
+	if Input.is_action_pressed("crouch") and !isClimb and !isSit and current_menu == "HUD":
 		player_collision.shape.height = lerp(player_collision.shape.height,1.8 * CROUCH_depth,0.5)
 		player_camera.position.y = lerp(player_camera.position.y,1.7 * CROUCH_depth,0.5)
 	elif !standing_detected.is_colliding() :
@@ -303,7 +321,8 @@ func _physics_process(delta):
 		player_camera.position.y = lerp(player_camera.position.y,1.7,0.5)
 	# Climb
 	if isClimb:
-		input_vec.y = Input.get_action_strength("ui_accept") - Input.get_action_strength("crouch")
+		if current_menu == "HUD":
+			input_vec.y = Input.get_action_strength("ui_accept") - Input.get_action_strength("crouch")
 		velocity.y = lerp(velocity.y,input_vec.y * SPEED , ACCELERATION)
 	if velocity.y * input_vec.y <= 0 and velocity.y!=0 and isClimb:
 		velocity.y = lerp(velocity.y,0.0,FRICTION)
@@ -471,4 +490,11 @@ func attack(damage_point:float,attack_type:String = "Normal"):
 			damage_res.sender = self
 			damage_res.damage_point = damage_point
 			damage_res.attack_type = attack_type
-			i.get_parent().receive_attack(damage_res)
+			i.get_parent().receive_attack(damage_res,self)
+
+#Name
+func get_player_name() -> String:
+	if player_name:
+		return player_name
+	else:
+		return self.to_string()

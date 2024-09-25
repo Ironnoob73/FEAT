@@ -26,10 +26,9 @@ size = Vector3(1.2, 2.4, 2)
 [node name="DoorPlate" type="Node3D"]
 script = ExtResource("1_pf086")
 DisplayName = "Door"
-Interactable = true
 interact_icon = "✔"
+interact_text = "interact.no_interact"
 current_health = 100.0
-killed_behavior = null
 
 [node name="Body" type="StaticBody3D" parent="."]
 collision_layer = 24

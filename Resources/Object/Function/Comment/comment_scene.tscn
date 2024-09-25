@@ -9,7 +9,7 @@ size = Vector3(0.5, 2, 0.5)
 script = ExtResource("1_gifr0")
 Interactable = true
 interact_icon = "💬"
-interact_text = "Comment"
+interact_text = "interact.comment"
 current_health = 100.0
 
 [node name="CommentScene" type="StaticBody3D" parent="."]

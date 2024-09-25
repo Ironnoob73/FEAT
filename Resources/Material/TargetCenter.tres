@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://btbmnj3nslfj8"]
+
+[ext_resource type="Texture2D" uid="uid://dyp0aokxa3nor" path="res://Resources/Material/Sources/TargetCenter.png" id="1_a7w0l"]
+
+[resource]
+albedo_texture = ExtResource("1_a7w0l")
+metallic = 1.0
+roughness = 0.5
+texture_filter = 0

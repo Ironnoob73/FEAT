@@ -134,6 +134,10 @@ msgstr "继续"
 msgid "pause.quit"
 msgstr "离开"
 
+#Chat
+msgid "chat.send"
+msgstr "发送"
+
 #Inventory
 msgid "inventory.title"
 msgstr " 背包"
@@ -226,3 +230,28 @@ msgstr "方块"
 
 msgid "terrain.smooth"
 msgstr "平滑"
+
+#Interact
+msgid "interact.interact"
+msgstr "交互"
+
+msgid "interact.no_interact"
+msgstr "无需交互"
+
+msgid "interact.switch"
+msgstr "开关"
+
+msgid "interact.open"
+msgstr "打开"
+
+msgid "interact.close"
+msgstr "关闭"
+
+msgid "interact.locked"
+msgstr "已锁定"
+
+msgid "interact.comment"
+msgstr "注释"
+
+msgid "interact.pickup"
+msgstr "拾取"

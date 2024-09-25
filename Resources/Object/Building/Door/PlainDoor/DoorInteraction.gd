@@ -13,7 +13,6 @@ var open : bool = false
 		if Engine.is_editor_hint():
 			material_setter()
 var lock = func () : return get_parent().get_meta('lock_int',0)
-#signal interacted(bool)
 
 @onready var mesh = $Hinge/Mesh
 @onready var hinge = $Hinge
@@ -39,12 +38,6 @@ func interact(_sender):
 		tween_b.tween_property(lock_tip_b, "modulate:a", 1, 0)
 		tween_f.tween_property(lock_tip_f, "modulate:a", 0, 1)
 		tween_b.tween_property(lock_tip_b, "modulate:a", 0, 1)
-	#else:
-	#	var tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUART)
-	#	open = !open
-	#	if open :	tween.tween_property(hinge, "rotation:y", deg_to_rad(90), 0.5)
-	#	else :		tween.tween_property(hinge, "rotation:y", 0, 0.5)
-	#	emit_signal("interacted",open)
 
 func _on_auto_open_area_area_entered(area: Area3D) -> void:
 	if area.is_in_group("PlayerMotion") && !get_lock():

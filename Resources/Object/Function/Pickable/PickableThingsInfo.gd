@@ -1,19 +1,7 @@
 @tool
 extends RigidBody3D
 
-var interact_icon : String = "🤚"
-
 @onready var mesh = $PickableArea/MeshInstance3D
-
-#func _ready():
-#	model_setter()
-
-#func pickup(body):
-#	body.Inventory.add_instance(ThingInstance)
-#	queue_free()
-	
-#func interact(sender):
-#	pickup(sender)
 
 func _on_pickable_area_body_entered(body):
 	if Global.auto_pickup:

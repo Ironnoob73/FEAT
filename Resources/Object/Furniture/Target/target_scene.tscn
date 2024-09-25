@@ -26,8 +26,11 @@ radius = 0.45
 [node name="TargetScene" type="Node3D"]
 script = ExtResource("1_khvlg")
 DisplayName = "Target"
+interact_icon = "🎯"
+interact_text = ""
 Hurtable = true
-current_health = 100.0
+MaxHealth = 10.0
+current_health = 10.0
 hurt_behavior = Array[ExtResource("2_2ob0t")]([SubResource("Resource_61m81")])
 killed_behavior = Array[ExtResource("2_2ob0t")]([SubResource("Resource_e2p8h"), SubResource("Resource_f6j42")])
 

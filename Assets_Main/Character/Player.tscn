@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://bk6ihg1vf71uf"]
+[gd_scene load_steps=36 format=3 uid="uid://bk6ihg1vf71uf"]
 
 [ext_resource type="Script" path="res://Assets_Main/Character/Player.gd" id="1_twfth"]
 [ext_resource type="Material" uid="uid://b0vyuvvjptrtg" path="res://Resources/Material/RedAlpha.tres" id="2_5ji8l"]
@@ -13,6 +13,7 @@
 [ext_resource type="Shader" path="res://Assets_Main/Character/Cursor.gdshader" id="5_u5uvm"]
 [ext_resource type="PackedScene" uid="uid://v2j546pk6a4k" path="res://Assets_Main/Character/PlayerHUDStatesBar.tscn" id="6_b8jq2"]
 [ext_resource type="PackedScene" uid="uid://tnlamai5w4yx" path="res://Assets_Main/Character/VirtualJoypad/VirtualJoypad.tscn" id="8_ox0si"]
+[ext_resource type="PackedScene" uid="uid://cgea2weecephm" path="res://Assets_Main/Character/Chat/Chat.tscn" id="10_gspbl"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_a500n"]
 radius = 0.4
@@ -129,16 +130,16 @@ collision_mask = 27
 shape = SubResource("CapsuleShape3D_xn36b")
 
 [node name="AttackArea" type="Area3D" parent="PlayerColl"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
 collision_layer = 0
 collision_mask = 31
 
 [node name="Coll" type="CollisionShape3D" parent="PlayerColl/AttackArea"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, -0.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5)
 shape = SubResource("BoxShape3D_8ga1f")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="PlayerColl/AttackArea"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, -0.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5)
 visible = false
 material_override = ExtResource("2_5ji8l")
 mesh = SubResource("BoxMesh_n6bsr")
@@ -328,6 +329,16 @@ metadata/_edit_use_anchors_ = true
 mouse_filter = 1
 
 [node name="HudStatesBar" parent="." instance=ExtResource("6_b8jq2")]
+
+[node name="Chat" parent="." instance=ExtResource("10_gspbl")]
+custom_minimum_size = Vector2(500, 250)
+anchors_preset = 2
+anchor_top = 1.0
+anchor_right = 0.0
+offset_top = -250.0
+offset_right = 500.0
+grow_horizontal = 1
+grow_vertical = 0
 
 [node name="VirtualJoypad" parent="." instance=ExtResource("8_ox0si")]
 visible = false

@@ -13,7 +13,7 @@ signal init_behavior_signal
 @export_group("Interact")
 @export var Interactable : bool = false
 @export var interact_icon : String = "🤚"
-@export var interact_text : String = ""
+@export var interact_text : String = "interact.interact"
 @export var interact_behavior : Array[BehaviorClass]
 @export var Switchable : bool = false
 @export var state : bool = true:
@@ -42,13 +42,13 @@ func interact(sender):
 	for i in interact_behavior:
 		i.do(self,sender)
 	
-func receive_attack(damage_res:DamageResClass):
+func receive_attack(damage_res:DamageResClass,sender):
 	if Hurtable:
 		if current_health >= 0:
 			current_health -= damage_res.damage_point
 		if current_health > 0:
 			for i in hurt_behavior:
-				i.do(self,null)
+				i.do(self,sender)
 		else:
 			for i in killed_behavior:
-				i.do(self,null)
+				i.do(self,sender)

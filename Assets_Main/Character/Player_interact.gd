@@ -32,13 +32,15 @@ func _physics_process(_delta):
 		_cursor.show()
 		_cursor.set_global_position(Vector3(hit_point)+Vector3(0.5,0.25,0.5))
 	# Interact
-	if is_colliding() and get_collider().get_parent() is Interactive and get_collider().get_parent().Interactable == true:
-		var key_array : Array = []
-		for i in InputMap.action_get_events("interact"):
-			key_array.append(i.as_text().rsplit(" ", true, 1)[0])
+	if is_colliding() and get_collider().get_parent() is Interactive:
 		tooltip_icon.text = get_collider().get_parent().interact_icon
-		tooltip_text.text = str(key_array).replacen("\"","") + get_collider().get_parent().interact_text
-		if Input.is_action_just_pressed("interact"):
+		if get_collider().get_parent().Interactable == true:
+			var key_array : Array = []
+			for i in InputMap.action_get_events("interact"):
+				key_array.append(i.as_text().rsplit(" ", true, 1)[0])
+			tooltip_text.text = str(key_array).replacen("\"","") + tr(get_collider().get_parent().interact_text)
+		else: tooltip_text.text = tr(get_collider().get_parent().interact_text)
+		if Input.is_action_just_pressed("interact") && Player.current_menu == "HUD":
 			get_collider().get_parent().interact(Player)
 		tooltip.visible = true
 	else:	tooltip.visible = false

@@ -134,6 +134,10 @@ msgstr "Resume"
 msgid "pause.quit"
 msgstr "Quit"
 
+#Chat
+msgid "chat.send"
+msgstr "Send"
+
 #Inventory
 msgid "inventory.title"
 msgstr " Inventory"
@@ -227,3 +231,28 @@ msgstr "Blocky"
 
 msgid "terrain.smooth"
 msgstr "Smooth"
+
+#Interact
+msgid "interact.interact"
+msgstr "Interact"
+
+msgid "interact.no_interact"
+msgstr "No interaction required"
+
+msgid "interact.switch"
+msgstr "Switch"
+
+msgid "interact.open"
+msgstr "Open"
+
+msgid "interact.close"
+msgstr "Close"
+
+msgid "interact.locked"
+msgstr "Locked"
+
+msgid "interact.comment"
+msgstr "Comment"
+
+msgid "interact.pickup"
+msgstr "Pickup"

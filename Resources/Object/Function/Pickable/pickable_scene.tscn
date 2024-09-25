@@ -20,8 +20,8 @@ size = Vector3(0.5, 0.5, 0.5)
 script = ExtResource("1_1eg30")
 DisplayName = "Item"
 Interactable = true
+interact_text = "interact.pickup"
 current_health = 100.0
-killed_behavior = null
 
 [node name="Body" type="RigidBody3D" parent="."]
 collision_layer = 16
