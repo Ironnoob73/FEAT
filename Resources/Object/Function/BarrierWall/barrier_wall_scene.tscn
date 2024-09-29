@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://bn7io11r2qhyi"]
+
+[ext_resource type="ArrayMesh" uid="uid://d42slrfansy0" path="res://Resources/Object/Function/BarrierWall/barrier_wall.obj" id="1_tfud5"]
+[ext_resource type="Material" uid="uid://mlq53v5mtv75" path="res://Resources/Object/Function/BarrierWall/BarrierWallTex.tres" id="2_rrnlq"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_cibf8"]
+size = Vector3(1, 5, 0)
+
+[node name="Barrier" type="StaticBody3D"]
+collision_layer = 3
+
+[node name="Mesh" type="MeshInstance3D" parent="."]
+cast_shadow = 0
+mesh = ExtResource("1_tfud5")
+surface_material_override/0 = ExtResource("2_rrnlq")
+
+[node name="Coll" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0)
+shape = SubResource("BoxShape3D_cibf8")

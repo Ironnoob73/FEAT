@@ -1,11 +1,13 @@
-[gd_scene load_steps=11 format=3 uid="uid://cdhmfgttd6yfu"]
+[gd_scene load_steps=14 format=3 uid="uid://cdhmfgttd6yfu"]
 
 [ext_resource type="Script" path="res://addons/abyss_history_lib/Class/Interact/InteractiveClass.gd" id="1_khvlg"]
 [ext_resource type="Script" path="res://addons/abyss_history_lib/Class/Interact/Behaviour/_BehaviorClass.gd" id="2_2ob0t"]
 [ext_resource type="PackedScene" uid="uid://dasv0wj0agabw" path="res://Resources/Object/Furniture/Target/Target.glb" id="3_lf3u3"]
 [ext_resource type="Script" path="res://addons/abyss_history_lib/Class/Interact/Behaviour/DebugPrintInfoBehaviorClass.gd" id="3_uohmq"]
 [ext_resource type="Script" path="res://addons/abyss_history_lib/Class/Interact/Behaviour/DebugPrintBehaviorClass.gd" id="4_23goi"]
+[ext_resource type="Script" path="res://addons/abyss_history_lib/Class/Interact/Behaviour/Combat/GenerateGoreBehaviorClass.gd" id="5_00ebf"]
 [ext_resource type="Script" path="res://addons/abyss_history_lib/Class/Interact/Behaviour/QFreeBehaviorClass.gd" id="5_5kkcx"]
+[ext_resource type="PackedScene" uid="uid://dbk7211il6m7g" path="res://Resources/Object/Furniture/Target/target_gore_scene.tscn" id="8_r05uh"]
 
 [sub_resource type="Resource" id="Resource_61m81"]
 script = ExtResource("3_uohmq")
@@ -15,6 +17,9 @@ tag = "current_health"
 [sub_resource type="Resource" id="Resource_e2p8h"]
 script = ExtResource("4_23goi")
 text = "Killed"
+
+[sub_resource type="Resource" id="Resource_vkna7"]
+script = ExtResource("5_00ebf")
 
 [sub_resource type="Resource" id="Resource_f6j42"]
 script = ExtResource("5_5kkcx")
@@ -32,7 +37,7 @@ Hurtable = true
 MaxHealth = 10.0
 current_health = 10.0
 hurt_behavior = Array[ExtResource("2_2ob0t")]([SubResource("Resource_61m81")])
-killed_behavior = Array[ExtResource("2_2ob0t")]([SubResource("Resource_e2p8h"), SubResource("Resource_f6j42")])
+killed_behavior = Array[ExtResource("2_2ob0t")]([SubResource("Resource_e2p8h"), SubResource("Resource_vkna7"), SubResource("Resource_f6j42")])
 
 [node name="Body" type="StaticBody3D" parent="."]
 collision_layer = 8
@@ -42,3 +47,6 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.5
 shape = SubResource("CylinderShape3D_7t65m")
 
 [node name="Target" parent="Body" instance=ExtResource("3_lf3u3")]
+
+[node name="GorePreloader" type="ResourcePreloader" parent="."]
+resources = [PackedStringArray("target_gore_scene"), [ExtResource("8_r05uh")]]

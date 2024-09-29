@@ -48,6 +48,16 @@ window/size/viewport_height=900
 
 enabled=PackedStringArray("res://addons/abyss_history_lib/plugin.cfg")
 
+[file_customization]
+
+folder_colors={
+"res://Assets_Main/": "red",
+"res://Language/": "teal",
+"res://Resources/": "blue",
+"res://Title/": "gray",
+"res://addons/": "yellow"
+}
+
 [gui]
 
 theme/default_font_antialiasing=0

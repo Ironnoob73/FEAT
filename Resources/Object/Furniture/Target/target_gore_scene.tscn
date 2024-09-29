@@ -1,0 +1,56 @@
+[gd_scene load_steps=3 format=3 uid="uid://dbk7211il6m7g"]
+
+[ext_resource type="PackedScene" uid="uid://bwrwtacd1hin3" path="res://Resources/Object/Furniture/Target/Target_Gore.glb" id="1_knhsa"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_olkkp"]
+size = Vector3(0.45, 0.45, 0.1)
+
+[node name="TargetGoreScene" type="Node3D"]
+
+[node name="Gore_UE" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+collision_layer = 16
+collision_mask = 31
+
+[node name="Mesh" parent="Gore_UE" instance=ExtResource("1_knhsa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.2, 0)
+
+[node name="Coll" type="CollisionShape3D" parent="Gore_UE"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.2, 0)
+shape = SubResource("BoxShape3D_olkkp")
+
+[node name="Gore_DE" type="RigidBody3D" parent="."]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, 0.5, 0)
+collision_layer = 16
+collision_mask = 31
+
+[node name="Mesh" parent="Gore_DE" instance=ExtResource("1_knhsa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.2, 0)
+
+[node name="Coll" type="CollisionShape3D" parent="Gore_DE"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.2, 0)
+shape = SubResource("BoxShape3D_olkkp")
+
+[node name="Gore_DW" type="RigidBody3D" parent="."]
+transform = Transform3D(-1, -8.74228e-08, 0, 8.74228e-08, -1, 0, 0, 0, 1, 0, 0.5, 0)
+collision_layer = 16
+collision_mask = 31
+
+[node name="Mesh" parent="Gore_DW" instance=ExtResource("1_knhsa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.2, 0)
+
+[node name="Coll" type="CollisionShape3D" parent="Gore_DW"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.2, 0)
+shape = SubResource("BoxShape3D_olkkp")
+
+[node name="Gore_UW" type="RigidBody3D" parent="."]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0.5, 0)
+collision_layer = 16
+collision_mask = 31
+
+[node name="Mesh" parent="Gore_UW" instance=ExtResource("1_knhsa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.2, 0)
+
+[node name="Coll" type="CollisionShape3D" parent="Gore_UW"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.2, 0)
+shape = SubResource("BoxShape3D_olkkp")
