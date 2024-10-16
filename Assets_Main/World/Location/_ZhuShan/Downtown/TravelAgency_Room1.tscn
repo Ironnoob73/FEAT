@@ -33,7 +33,6 @@ ToLocationPos = Vector3(2, 4, -2.5)
 
 [node name="DoorPlate" parent="FrameScene" instance=ExtResource("3_0g6xs")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
-killed_behavior = null
 
 [node name="CasementWindowScene1" parent="." instance=ExtResource("4_idiah")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 2.5, 1, 5)
@@ -54,7 +53,6 @@ occlusion = "none"
 [node name="SwitchScene" parent="." instance=ExtResource("6_4jyuc")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -4, 1.5, -1.5)
 interact_behavior = Array[ExtResource("4_le32w")]([SubResource("Resource_iy8rn")])
-killed_behavior = null
 
 [node name="FluorescentLampScene1" parent="." instance=ExtResource("7_0twap")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, -2.5)

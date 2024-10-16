@@ -2,7 +2,7 @@
 shader_type spatial;
 
 render_mode blend_mix, depth_draw_opaque, specular_schlick_ggx, depth_prepass_alpha ;
-uniform sampler2D texture_albedo : source_color,filter_nearest;
+uniform sampler2D texture_albedo : source_color,filter_nearest_mipmap;
 
 uniform float WindScale : hint_range(1.0, 20.0) = 20.0;
 uniform float WindStrength : hint_range(1.0, 20.0) = 10.0;
@@ -73,4 +73,5 @@ void fragment()
 	vec4 albedo_tex = texture(texture_albedo,base_uv);
 	ALBEDO = albedo_tex.rgb;
 	ALPHA = albedo_tex.a;
+	ALPHA_SCISSOR_THRESHOLD = 0.5;
 }

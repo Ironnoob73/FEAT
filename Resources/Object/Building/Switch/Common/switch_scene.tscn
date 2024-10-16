@@ -26,6 +26,7 @@ Switchable = true
 current_health = 100.0
 
 [node name="Body" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.1)
 collision_layer = 17
 script = ExtResource("1_8njl6")
 

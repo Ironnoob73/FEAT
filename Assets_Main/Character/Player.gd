@@ -19,7 +19,7 @@ var isDash : float = 0
 var isCrouch : float = 0
 var isClimb : bool = false
 var isSit : bool = false
-var isThirdPerson : bool = true
+var isThirdPerson : bool = false
 var isInTeleport : bool = false
 
 @onready var player_collision = $PlayerColl
@@ -72,9 +72,6 @@ var att_sec : bool = false
 var att_order : bool = false
 
 func _ready():
-	# Lock Mouse.
-	if !isThirdPerson:
-		mouse_mode(false)
 	
 	if !Inventory:
 		Inventory = CInventoryClass.new()
@@ -87,6 +84,7 @@ func _ready():
 	inventory_menu.init()
 	
 	tird_person_setup(true,false)
+	switch_perspectives()
 	
 func _input(event):
 	# Perspective
@@ -127,6 +125,15 @@ func tird_person_setup(is_rotate:bool,not_init:bool = true):
 	else:
 		perspective_rad = self.global_rotation.y
 		perspective_size = third_perosn_cam.size
+func switch_perspectives():
+	mesh.rotation.y = PI
+	attack_area.rotation.y = 0
+	player_camera.rotation.y = 0
+	player_camera.rotation.x = 0
+	mouse_mode(isThirdPerson)
+	third_perosn_cam.current = isThirdPerson
+	player_camera.current = !isThirdPerson
+	caption.get_mouse_pos()
 	
 func _unhandled_input(_event):
 	# Pause.
@@ -193,14 +200,7 @@ func _unhandled_input(_event):
 	# Switch perspectives
 	if Input.is_action_just_pressed("switch_perspectives") and current_menu == "HUD":
 		isThirdPerson = !isThirdPerson
-		mesh.rotation.y = PI
-		attack_area.rotation.y = 0
-		player_camera.rotation.y = 0
-		player_camera.rotation.x = 0
-		mouse_mode(isThirdPerson)
-		third_perosn_cam.current = isThirdPerson
-		player_camera.current = !isThirdPerson
-		caption.get_mouse_pos()
+		switch_perspectives()
 
 # From : https://github.com/majikayogames/godot-character-controller-stairs/blob/main/entities/Player/Player.gd
 var _was_on_floor_last_frame = false

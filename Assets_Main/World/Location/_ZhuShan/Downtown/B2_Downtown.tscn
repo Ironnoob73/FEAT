@@ -1,42 +1,17 @@
-[gd_scene load_steps=26 format=3 uid="uid://bwtcv55j8d0nw"]
+[gd_scene load_steps=9 format=3 uid="uid://bwtcv55j8d0nw"]
 
 [ext_resource type="PackedScene" uid="uid://db5q11bnija1c" path="res://Assets_Main/World/Location/_ZhuShan/Sources/DowntownBuildings/DTGround.glb" id="1_04gio"]
 [ext_resource type="PackedScene" uid="uid://7rflpb8cd33k" path="res://Assets_Main/World/Location/_ZhuShan/Sources/DowntownBuildings/DTBuildingBase.glb" id="2_gv80c"]
-[ext_resource type="PackedScene" uid="uid://bp0s053ote8ac" path="res://Assets_Main/World/Location/_ZhuShan/Sources/DowntownBuildings/TravelAgency.glb" id="3_tombo"]
+[ext_resource type="PackedScene" uid="uid://cl6ldjsalc5wj" path="res://Assets_Main/World/Location/_ZhuShan/Downtown/TravelAgency_Main.tscn" id="3_gq3ym"]
 [ext_resource type="Material" uid="uid://rnxv6hl1w5ul" path="res://Resources/Material/DarkMaterial.tres" id="4_8b7xd"]
-[ext_resource type="PackedScene" uid="uid://3yd06robq3f8" path="res://Resources/Object/Building/Door/RollingShutter/door_scene.tscn" id="5_d80cm"]
-[ext_resource type="PackedScene" uid="uid://lixd4xll3bl0" path="res://Resources/Object/Building/Window/StaticGlass/glass_scene.tscn" id="6_vshk5"]
-[ext_resource type="PackedScene" uid="uid://c5nkwuac4jut0" path="res://Resources/Object/Building/Door/PlainDoor/frame_scene.tscn" id="7_7l25i"]
-[ext_resource type="PackedScene" uid="uid://dolx4mc7cel7q" path="res://Resources/Object/Building/Door/PlainDoor/door0_scene.tscn" id="8_2n55k"]
-[ext_resource type="Script" path="res://addons/abyss_history_lib/Class/Interact/Behaviour/_BehaviorClass.gd" id="8_afam2"]
-[ext_resource type="PackedScene" uid="uid://ds1bb3oh6akpf" path="res://Resources/Object/Building/Door/PlainDoor/door_scene.tscn" id="9_l2hol"]
-[ext_resource type="PackedScene" uid="uid://bgelaund2s486" path="res://Resources/Object/Building/Window/CasementWindow/window_scene.tscn" id="10_mc13w"]
-[ext_resource type="PackedScene" uid="uid://wj4b36ji8ir2" path="res://Resources/Object/Building/Plates/BlueMetalPlate1x10.tscn" id="10_ndmnl"]
-[ext_resource type="PackedScene" uid="uid://dgamoawgoj1oe" path="res://Resources/Object/Building/Window/SlidingWindow/window_scene.tscn" id="11_aqa85"]
-[ext_resource type="PackedScene" uid="uid://be4fl50meaf7a" path="res://Resources/Object/Building/Plates/BlueMetalPlate10x10.tscn" id="11_fvxwq"]
-[ext_resource type="Material" uid="uid://b860lbxbd3ed6" path="res://Resources/Material/GrayMaterial.tres" id="12_esyd3"]
-[ext_resource type="PackedScene" uid="uid://d08sy213gr0cf" path="res://Resources/Object/Building/Plates/BlueMetalPlate1x5.tscn" id="12_xbbdb"]
-[ext_resource type="PackedScene" uid="uid://dpv4np1vugbae" path="res://Assets_Main/World/Location/_ZhuShan/Sources/DowntownBuildings/TravelAgencySideStair.glb" id="14_vk7u6"]
-[ext_resource type="PackedScene" uid="uid://dm67jnnf21g1t" path="res://Resources/Object/Building/Window/HungWindow/window_scene.tscn" id="16_a4tpg"]
+[ext_resource type="PackedScene" uid="uid://c5x88i487dw" path="res://Assets_Main/World/Location/_ZhuShan/Downtown/TravelAgency_SideStair.tscn" id="4_ag3bq"]
 [ext_resource type="PackedScene" uid="uid://bgar67py461my" path="res://Resources/Object/Building/Fence/MetalFenceShort/fence_scene.tscn" id="17_vinc8"]
-[ext_resource type="PackedScene" uid="uid://bj6k2kwnojef7" path="res://Resources/Object/Building/Window/AwningWindow/window_scene.tscn" id="21_256j1"]
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_b8g7n"]
 data = PackedVector3Array(0, 0.6, -70.7, 0, 0.6, -0.0007, 0, 0.65, -70.7, -0.3, 1, -70.3012, -0.5, 1, -0.2001, -0.5, 1, -70.0003, -0.3, 1, -70.3012, -0.3, 1, -0.101, -0.5, 1, -0.2001, 0, 0.8, -0.0007, -8.6007, 1, 8.1991, -0.3, 1, -0.101, 0, 0.8, -0.0007, -8.5006, 0.8, 8.5, -8.6007, 1, 8.1991, 0, 0.8, -70.7, -0.3, 1, -0.101, -0.3, 1, -70.3012, 0, 0.8, -70.7, 0, 0.8, -0.0007, -0.3, 1, -0.101, -8.5006, 0.6, 8.5, 0, 0.8, -0.0007, 0, 0.6, -0.0007, -8.5006, 0.6, 8.5, -8.5006, 0.8, 8.5, 0, 0.8, -0.0007, -8.6007, 1, 8.1991, -56.5, 0.8, 8.5, -56.5, 1, 8.1991, -8.6007, 1, 8.1991, -8.5006, 0.8, 8.5, -56.5, 0.8, 8.5, -8.5006, 0.6, 8.5, -56.5, 0.8, 8.5, -8.5006, 0.8, 8.5, -8.5006, 0.6, 8.5, -56.5, 0.6, 8.5, -56.5, 0.8, 8.5, -8.6007, 1, 8.1991, -56.5, 1, 7.9997, -8.7007, 1, 7.9997, -8.6007, 1, 8.1991, -56.5, 1, 8.1991, -56.5, 1, 7.9997, -0.3, 1, -0.101, -8.7007, 1, 7.9997, -0.5, 1, -0.2001, -0.3, 1, -0.101, -8.6007, 1, 8.1991, -8.7007, 1, 7.9997, -24.5001, 1, -59.0004, -0.3, 1, -70.3012, -0.5, 1, -70.0003, -24.5001, 1, -59.0004, -24.5001, 1, -59.201, -0.3, 1, -70.3012, -24.5001, 1, -59.201, 0, 0.8, -70.7, -0.3, 1, -70.3012, -24.5001, 1, -59.201, -24.5001, 0.8, -59.5007, 0, 0.8, -70.7, 0, 0.8, -70.7, -24.5001, 0.65, -59.5007, 0, 0.65, -70.7, 0, 0.8, -70.7, -24.5001, 0.8, -59.5007, -24.5001, 0.65, -59.5007, 0, 0.6, -0.0007, 0, 0.8, -70.7, 0, 0.65, -70.7, 0, 0.6, -0.0007, 0, 0.8, -0.0007, 0, 0.8, -70.7, 15, 0.6, 8.5, -0.0001, 0.6, -0.001, 15, 0.6, -0.001, 15, 0.6, 8.5, -8.5, 0.6, 8.5, -0.0001, 0.6, -0.001, 15, 0.6, -77.7, -0.0001, 0.6, -0.001, -0.0001, 0.6, -70.7011, 15, 0.6, -77.7, 15, 0.6, -0.001, -0.0001, 0.6, -0.001, -8.7007, 1, 8, -56.5, 1, -15.5006, -24.5005, 1, -15.5006, -8.7007, 1, 8, -56.5, 1, 8, -56.5, 1, -15.5006, -24.5005, 1, -15.5006, -0.5, 1, -0.2005, -8.7007, 1, 8, -0.5, 1, -0.2005, -24.5005, 1, -59.0001, -0.5, 1, -70, -0.5, 1, -0.2005, -24.5005, 1, -15.5006, -24.5005, 1, -59.0001, 31.4994, 0.65, -107.5, 14.9991, 0.65, -77.7012, 14.4991, 0.65, -99.5007, 31.4994, 0.65, -107.5, 40.4995, 0.65, -89.5004, 14.9991, 0.65, -77.7012, 49.4997, 0.65, -115.5, 57.4998, 0.65, -119.5, 71.5, 0.65, -119.5, 40.4995, 0.65, -89.5004, 71.5, 0.65, -74.5006, 71.5, 0.65, -32.5, 40.4995, 0.65, -89.5004, 58.4998, 0.65, -98.5011, 71.5, 0.65, -74.5006, -56.5, 0.65, -44.5009, -56.5, 0.65, -77.5008, -51.5019, 0.65, -68.5001, 58.4998, 0.65, -98.5011, 71.5, 0.65, -119.5, 71.5, 0.65, -104.5, 58.4998, 0.65, -98.5011, 49.4997, 0.65, -115.5, 71.5, 0.65, -119.5, 58.4998, 0.65, -98.5011, 31.4994, 0.65, -107.5, 49.4997, 0.65, -115.5, 58.4998, 0.65, -98.5011, 40.4995, 0.65, -89.5004, 31.4994, 0.65, -107.5, 49.4997, 0.65, -115.5, 24.4993, 0.65, -119.5, 47.4996, 0.65, -119.5, 49.4997, 0.65, -115.5, 31.4994, 0.65, -107.5, 24.4993, 0.65, -119.5, 31.4994, 0.4, -107.5, 14.4991, 0.65, -99.5007, 14.4991, 0.4, -99.5007, 31.4994, 0.4, -107.5, 31.4994, 0.65, -107.5, 14.4991, 0.65, -99.5007, -51.5019, 0.4, -68.5001, -56.5, 0.65, -77.5008, -56.5, 0.4, -77.5008, -51.5019, 0.4, -68.5001, -51.5019, 0.65, -68.5001, -56.5, 0.65, -77.5008, -0.5011, 0.65, -92.5006, -24.5015, 0.4, -81.5006, -0.5011, 0.4, -92.5006, -0.5011, 0.65, -92.5006, -24.5015, 0.6, -81.5006, -24.5015, 0.4, -81.5006, 31.4994, 0.65, -107.5, 31.4994, 0.4, -107.5, 24.4993, 0.4, -119.5, 24.4993, 0.4, -119.5, 24.4993, 0.65, -119.5, 31.4994, 0.65, -107.5, 71.5, 0.4, -74.5006, 58.4998, 0.65, -98.5011, 58.4998, 0.4, -98.5011, 71.5, 0.4, -74.5006, 71.5, 0.65, -74.5006, 58.4998, 0.65, -98.5011, 49.4997, 0.4, -115.5, 47.4996, 0.65, -119.5, 47.4996, 0.4, -119.5, 49.4997, 0.4, -115.5, 49.4997, 0.65, -115.5, 47.4996, 0.65, -119.5, 14.4991, 0.65, -99.5007, -0.5011, 0.4, -92.5006, 14.4991, 0.4, -99.5007, 14.4991, 0.65, -99.5007, -0.5011, 0.65, -92.5006, -0.5011, 0.4, -92.5006, 40.4995, 0.4, -89.5004, 71.5, 0.65, -32.5, 71.5, 0.4, -32.5, 40.4995, 0.4, -89.5004, 40.4995, 0.65, -89.5004, 71.5, 0.65, -32.5, 58.4998, 0.4, -98.5011, 71.5, 0.65, -104.5, 71.5, 0.4, -104.5, 58.4998, 0.4, -98.5011, 58.4998, 0.65, -98.5011, 71.5, 0.65, -104.5, 14.9991, 0.6, -77.7012, 40.4995, 0.65, -89.5004, 40.4995, 0.4, -89.5004, 14.9991, 0.6, -77.7012, 14.9991, 0.65, -77.7012, 40.4995, 0.65, -89.5004, -0.0011, 0.65, -70.7011, -24.5015, 0.6, -81.5006, -0.5011, 0.65, -92.5006, -0.0011, 0.65, -70.7011, -24.5015, 0.65, -59.5007, -24.5015, 0.6, -81.5006, 14.9991, 0.65, -77.7012, -0.5011, 0.65, -92.5006, 14.4991, 0.65, -99.5007, 14.9991, 0.65, -77.7012, -0.0011, 0.65, -70.7011, -0.5011, 0.65, -92.5006, -0.0011, 0.6, -70.7011, 14.9991, 0.65, -77.7012, 14.9991, 0.6, -77.7012, -0.0011, 0.6, -70.7011, -0.0011, 0.65, -70.7011, 14.9991, 0.65, -77.7012, -24.5015, 0.6, -81.5006, -51.5019, 0.4, -68.5001, -24.5015, 0.4, -81.5006, -24.5015, 0.6, -81.5006, -51.5019, 0.65, -68.5001, -51.5019, 0.4, -68.5001, -24.5015, 0.65, -59.5007, -51.5019, 0.65, -68.5001, -24.5015, 0.6, -81.5006, -24.5015, 0.65, -59.5007, -56.5, 0.65, -44.5009, -51.5019, 0.65, -68.5001, 57.4998, 0.4, -119.5, 49.4997, 0.65, -115.5, 49.4997, 0.4, -115.5, 57.4998, 0.4, -119.5, 57.4998, 0.65, -119.5, 49.4997, 0.65, -115.5)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_o72r3"]
 size = Vector3(8.2, 0.1, 4.2)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_vygcf"]
-size = Vector3(8, 12, 10)
-
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_b8783"]
-data = PackedVector3Array(4, 0, 5, 3, 2.5, 5, 3, 0.4999, 5, 4, 0, 5, 4, 4, 5, 3, 2.5, 5, 4, 4, 5, 4, 3, -1, 4, 4, -5, 4, 4, 5, 4, 3, 3, 4, 3, -1, 4, 4, 5, 4, 0, 3, 4, 3, 3, 4, 4, 5, 4, 0, 5, 4, 0, 3, -0.8, 2.5, 5, -0.0001, 0.4999, 5, -0.0001, 2.5, 5, -0.8, 2.5, 5, -0.8, 0, 5, -0.0001, 0.4999, 5, -4, 0, 5, -2.2, 2.5, 5, -4, 4, 5, -4, 0, 5, -2.2, 0, 5, -2.2, 2.5, 5, -0.8, 2.5, 5, -4, 4, 5, -2.2, 2.5, 5, -0.8, 2.5, 5, -0.0001, 2.5, 5, -4, 4, 5, -0.8, 0, 5, 3, 0.4999, 5, -0.0001, 0.4999, 5, -0.8, 0, 5, 4, 0, 5, 3, 0.4999, 5, 4, 4, -5, -4, 0, -5, -4, 4, -5, 4, 4, -5, 4, 0, -5, -4, 0, -5, 4, 0, -5, 4, 3, -1, 4, 0, -1, 4, 0, -5, 4, 4, -5, 4, 3, -1, -4, 4, 5, 3, 2.5, 5, 4, 4, 5, -4, 4, 5, -0.0001, 2.5, 5, 3, 2.5, 5, -4, 4, -5, -4, 0, 5, -4, 4, 5, -4, 4, -5, -4, 0, -5, -4, 0, 5, -4, 4, -5, 4, 4, 5, 4, 4, -5, -4, 4, -5, -4, 4, 5, 4, 4, 5, -4, 0, 5, 4, 0, -1, 4, 0, 3, -4, 0, 5, -4, 0, -5, 4, 0, -1, 4, 0, -5, 4, 0, -1, -4, 0, -5, -4, 0, 5, 4, 0, 3, -2.2, 0, 5, -0.8, 0, 5, -2.2, 0, 5, 4, 0, 3, 4, 0, 3, 4, 0, 5, -0.8, 0, 5)
-backface_collision = true
-
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_olidq"]
-data = PackedVector3Array(-3, 0, -5, -3, 4, 5, -3, 4, -5, -3, 0, -5, -3, 0, 5, -3, 4, 5, 2, 3, 5, 3, 0, 5, 3, 4, 5, 2, 3, 5, 2, 0, 5, 3, 0, 5, -2, 0, 5, -3, 4, 5, -3, 0, 5, -2, 0, 5, -2, 3, 5, -3, 4, 5, 0, 4, 5, -2, 3, 5, 0, 3, 5, 0, 4, 5, -3, 4, 5, -2, 3, 5, 0, 4, -5, 3, 0, -5, 0, 0, -5, 0, 4, -5, 3, 4, -5, 3, 0, -5, 3, 4, 5, 3, 0, -5, 3, 4, -5, 3, 4, 5, 3, 0, 5, 3, 0, -5, -3, 4, -5, 0, 0, -5, -3, 0, -5, -3, 4, -5, 0, 4, -5, 0, 0, -5, 3, 4, 5, 0, 3, 5, 2, 3, 5, 3, 4, 5, 0, 4, 5, 0, 3, 5, 2, 0, 5, 3, 0, -5, 3, 0, 5, 2, 0, 5, 0, 0, -5, 3, 0, -5, 2, 0, 5, -2, 0, 5, 0, 0, -5, 2, 0, 5, 0, 0, 5, -2, 0, 5, -3, 0, -5, -2, 0, 5, -3, 0, 5, -3, 0, -5, 0, 0, -5, -2, 0, 5, 3, 4, -5, 0, 4, 5, 3, 4, 5, 3, 4, -5, 0, 4, -5, 0, 4, 5, -3, 4, -5, 0, 4, 5, 0, 4, -5, -3, 4, -5, -3, 4, 5, 0, 4, 5)
-backface_collision = true
 
 [node name="Downtown" type="StaticBody3D"]
 collision_layer = 3
@@ -58,116 +33,11 @@ shape = SubResource("BoxShape3D_o72r3")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17, 0.5, 56)
 shape = SubResource("BoxShape3D_o72r3")
 
-[node name="TravelAgency" type="StaticBody3D" parent="."]
+[node name="TravelAgencyMain" parent="." instance=ExtResource("3_gq3ym")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17, 1, 49)
-collision_layer = 3
 
-[node name="Model" parent="TravelAgency" instance=ExtResource("3_tombo")]
-
-[node name="CollisionShape" type="CollisionShape3D" parent="TravelAgency"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.5, 0)
-shape = SubResource("BoxShape3D_vygcf")
-
-[node name="CollisionShapeDown" type="CollisionShape3D" parent="TravelAgency"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
-shape = SubResource("ConcavePolygonShape3D_b8783")
-
-[node name="RollingShutterScene" parent="TravelAgency" instance=ExtResource("5_d80cm")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 4, -0.5, 1)
-open = true
-lock = 7247614650
-occlusion = "light"
-ToLocation = "TravelAgency_MAIN"
-ToLocationPos = Vector3(3.5, 0, 1)
-
-[node name="GlassScene" parent="TravelAgency" instance=ExtResource("6_vshk5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 1, 5)
-occlusion = "light"
-
-[node name="FrameScene0" parent="TravelAgency" instance=ExtResource("7_7l25i")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1.5, -0.4, 5)
-ToLocation = "TravelAgency_MAIN"
-ToLocationPos = Vector3(-1.5, 0, 4.5)
-
-[node name="Door0Scene" parent="TravelAgency/FrameScene0" instance=ExtResource("8_2n55k")]
-killed_behavior = Array[ExtResource("8_afam2")]([])
-
-[node name="CasementWindowScene1" parent="TravelAgency" instance=ExtResource("10_mc13w")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 2.5, 5, 5)
-
-[node name="CasementWindowScene2" parent="TravelAgency" instance=ExtResource("10_mc13w")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, -1, -0.5, 5, 5)
-
-[node name="SlidingWindowScene1" parent="TravelAgency" instance=ExtResource("11_aqa85")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 4, 5, 2.5)
-
-[node name="SlidingWindowScene2" parent="TravelAgency" instance=ExtResource("11_aqa85")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 4, 5, -2.5)
-
-[node name="CasementWindowScene3" parent="TravelAgency" instance=ExtResource("10_mc13w")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 2.5, 9, 5)
-
-[node name="CasementWindowScene4" parent="TravelAgency" instance=ExtResource("10_mc13w")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, -1, -0.5, 9, 5)
-
-[node name="SlidingWindowScene3" parent="TravelAgency" instance=ExtResource("11_aqa85")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 4, 9, 2.5)
-
-[node name="SlidingWindowScene4" parent="TravelAgency" instance=ExtResource("11_aqa85")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 4, 9, -2.5)
-
-[node name="Plate1x10" parent="TravelAgency" instance=ExtResource("10_ndmnl")]
-transform = Transform3D(0.866025, 0.5, 0, -0.5, 0.866025, 0, 0, 0, 1, 4.4, 11, 0)
-
-[node name="Plate10x10" parent="TravelAgency" instance=ExtResource("11_fvxwq")]
-transform = Transform3D(0.984808, 0.173648, 0, -0.173648, 0.984808, 0, 0, 0, 1, 0.9, 15, 0)
-
-[node name="Plate1x5" parent="TravelAgency" instance=ExtResource("12_xbbdb")]
-transform = Transform3D(-3.78552e-08, 2.18557e-08, 1, 0.5, 0.866025, 0, -0.866025, 0.5, -4.37114e-08, 0.9, 11, 5.4)
-
-[node name="TravelAgencySideStair" type="StaticBody3D" parent="."]
+[node name="TravelAgencySideStair" parent="." instance=ExtResource("4_ag3bq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 1, 49)
-collision_layer = 3
-
-[node name="Model" parent="TravelAgencySideStair" instance=ExtResource("14_vk7u6")]
-
-[node name="CollisionShapeEntrance" type="CollisionShape3D" parent="TravelAgencySideStair"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
-shape = SubResource("ConcavePolygonShape3D_olidq")
-
-[node name="RollingShutterScene" parent="TravelAgencySideStair" instance=ExtResource("5_d80cm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 5)
-open = true
-ToLocation = "TravelAgency_SideStair"
-ToLocationPos = Vector3(0, 0, 4.5)
-
-[node name="HungWindowScene1" parent="TravelAgencySideStair" instance=ExtResource("16_a4tpg")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1, 5, 5)
-
-[node name="HungWindowScene2" parent="TravelAgencySideStair" instance=ExtResource("16_a4tpg")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1.5, 5, 5)
-
-[node name="HungWindowScene3" parent="TravelAgencySideStair" instance=ExtResource("16_a4tpg")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1, 9, 5)
-
-[node name="HungWindowScene4" parent="TravelAgencySideStair" instance=ExtResource("16_a4tpg")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1.5, 9, 5)
-
-[node name="HungWindowScene5" parent="TravelAgencySideStair" instance=ExtResource("16_a4tpg")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1, 13, 5)
-
-[node name="HungWindowScene6" parent="TravelAgencySideStair" instance=ExtResource("16_a4tpg")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1.5, 13, 5)
-
-[node name="FrameScene" parent="TravelAgencySideStair" instance=ExtResource("7_7l25i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 15, 1)
-mesh_material = ExtResource("12_esyd3")
-
-[node name="DoorScene" parent="TravelAgencySideStair/FrameScene" instance=ExtResource("9_l2hol")]
-killed_behavior = Array[ExtResource("8_afam2")]([])
-
-[node name="AwningWindowScene" parent="TravelAgencySideStair" instance=ExtResource("21_256j1")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1.5, 16, 5)
 
 [node name="FlowerBed" type="Node3D" parent="."]
 

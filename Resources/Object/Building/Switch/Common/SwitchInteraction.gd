@@ -6,7 +6,8 @@ func _ready():
 	_state_change()
 
 func _on_switch_scene_interact_signal() -> void:
-	_state_change()
+	if is_node_ready():
+		_state_change()
 		
 func _state_change():
 	if get_parent().state :	_button.rotation.x = deg_to_rad(10)

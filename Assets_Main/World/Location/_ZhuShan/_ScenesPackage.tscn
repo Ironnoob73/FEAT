@@ -117,20 +117,24 @@ visible = false
 
 [node name="CommentScene" parent="." instance=ExtResource("11_48slv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -3)
+Interactable = null
 interact_behavior = Array[ExtResource("18_dhv8b")]([SubResource("Resource_61ylp")])
 
 [node name="CommentScene2" parent="." instance=ExtResource("11_48slv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, -3)
+Interactable = null
 interact_behavior = Array[ExtResource("18_dhv8b")]([SubResource("Resource_xey1x")])
 
 [node name="TutorialSwordItem" parent="." instance=ExtResource("12_7rje5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 5, -3)
 init_behavior = Array[ExtResource("18_dhv8b")]([SubResource("Resource_mh07o")])
+Interactable = null
 interact_behavior = Array[ExtResource("18_dhv8b")]([SubResource("Resource_altmg"), SubResource("Resource_x8ioc")])
 metadata/thing_instance = SubResource("Resource_7p4kb")
 
 [node name="TargetScene" parent="." instance=ExtResource("15_jcahf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 1.5, -3)
+Interactable = null
 
 [node name="Barrier" parent="." instance=ExtResource("26_o81tg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -24)

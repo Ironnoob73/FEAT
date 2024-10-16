@@ -7,6 +7,6 @@ class_name LockBehaviorClass
 func do(interactor,sender):
 	interactor.set_meta('lock_int',lock)
 	if !unlock:
-		interactor.interactable = true
+		interactor.Interactable = true
 		interactor.interact_icon = "🔒"
 		interactor.interact_text = "locked"

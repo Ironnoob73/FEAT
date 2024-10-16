@@ -1,9 +1,9 @@
 // From : https://godotshaders.com/shader/stylized-cartoon-grass/
 shader_type spatial;
 
-//render_mode unshaded; //Use 'cull_back' if billboard Y
+render_mode cull_back;
 
-uniform sampler2D texture_albedo : source_color,filter_nearest;
+uniform sampler2D texture_albedo : source_color,filter_nearest_mipmap;
 // Internally capped at 16
 const int TOTAL_GRASS_VARIANTS = 4;
 
@@ -32,4 +32,5 @@ void fragment() {
 	vec4 albedo_tex = texture(texture_albedo,base_uv);
 	ALBEDO = albedo_tex.rgb;
 	ALPHA = albedo_tex.a;
+	ALPHA_SCISSOR_THRESHOLD = 0.5;
 }

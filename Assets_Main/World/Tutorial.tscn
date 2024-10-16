@@ -118,6 +118,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -30)
 
 [node name="DoorPlate" parent="OpenDoor" instance=ExtResource("6_3h32r")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6, -11, 0)
+Interactable = null
 
 [node name="Wall" type="CSGBox3D" parent="OpenDoor"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -6, 0)
@@ -143,6 +144,7 @@ material = ExtResource("2_ric70")
 
 [node name="TutorialSwordItem" parent="PickItem/Booth" instance=ExtResource("7_vq7yj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+Interactable = null
 
 [node name="Attack" type="Node3D" parent="."]
 
