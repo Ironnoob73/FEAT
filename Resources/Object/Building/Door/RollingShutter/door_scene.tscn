@@ -29,13 +29,15 @@ collision_layer = 3
 script = ExtResource("1_dpw5o")
 
 [node name="RollingShutterUp" parent="." instance=ExtResource("7_vsl45")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.05)
 
 [node name="RollingShutterDown" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.05)
 material_override = ExtResource("8_d56sv")
 mesh = ExtResource("9_r4t6p")
 
 [node name="CollisionShape" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.5, 0.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.5, 0.55)
 shape = SubResource("BoxShape3D_xuq0a")
 
 [node name="DoorPlate2" type="StaticBody3D" parent="."]

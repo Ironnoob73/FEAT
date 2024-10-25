@@ -15,7 +15,7 @@ data = PackedVector3Array(-0.6, 2, -0.1, -0.55, 2.23, -0.1, -0.6, 2, 0, -0.6, 2,
 size = Vector3(1.2, 2.4, 2)
 
 [node name="DoorScene" type="StaticBody3D" groups=["Interactive"]]
-collision_layer = 16
+collision_layer = 24
 script = ExtResource("1_7eq6e")
 
 [node name="Hinge" type="Node3D" parent="."]

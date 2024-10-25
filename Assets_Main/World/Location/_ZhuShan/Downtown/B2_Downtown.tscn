@@ -25,10 +25,6 @@ shape = SubResource("ConcavePolygonShape3D_b8g7n")
 [node name="DTBuildingBase" parent="." instance=ExtResource("2_gv80c")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17, 0.5, 54)
 
-[node name="BuildingBaseColl" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0.55, 49)
-shape = SubResource("BoxShape3D_o72r3")
-
 [node name="FlowerBedColl" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17, 0.5, 56)
 shape = SubResource("BoxShape3D_o72r3")

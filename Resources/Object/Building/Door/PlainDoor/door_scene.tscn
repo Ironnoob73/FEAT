@@ -26,17 +26,18 @@ size = Vector3(1.2, 2.4, 2)
 [node name="DoorPlate" type="Node3D"]
 script = ExtResource("1_pf086")
 DisplayName = "Door"
-interact_icon = "✔"
-interact_text = "interact.no_interact"
+Interactable = true
+interact_text = "interact.open"
+Switchable = true
 current_health = 100.0
 
 [node name="Body" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6, 0, 0)
 collision_layer = 24
 collision_mask = 15
 script = ExtResource("3_ug2ta")
 
 [node name="Hinge" type="Node3D" parent="Body"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6, 0, 0)
 
 [node name="Mesh" type="MeshInstance3D" parent="Body/Hinge"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6, 1.2, 0)
@@ -66,7 +67,7 @@ font_size = 50
 outline_size = 0
 
 [node name="CollisionShape" type="CollisionShape3D" parent="Body"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6, 1.2, 0)
 shape = SubResource("BoxShape3D_byqrf")
 
 [node name="AutoOpenArea" type="Area3D" parent="."]
@@ -77,5 +78,7 @@ collision_mask = 4
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, 0)
 shape = SubResource("BoxShape3D_pdnkw")
 
+[connection signal="init_behavior_signal" from="." to="Body" method="_ready"]
+[connection signal="interact_signal" from="." to="Body" method="_interact_signal"]
 [connection signal="area_entered" from="AutoOpenArea" to="Body" method="_on_auto_open_area_area_entered"]
 [connection signal="area_exited" from="AutoOpenArea" to="Body" method="_on_auto_open_area_area_exited"]

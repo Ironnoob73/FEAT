@@ -1536,15 +1536,18 @@ script = ExtResource("1_mosu4")
 
 [node name="Body" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
+cast_shadow = 3
 mesh = ExtResource("1_ld67k")
 
 [node name="Chest" type="MeshInstance3D" parent="Body"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0)
+cast_shadow = 3
 mesh = ExtResource("3_frtji")
 skeleton = NodePath("../..")
 
 [node name="Head" type="MeshInstance3D" parent="Body/Chest"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.38, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.384373, 0)
+cast_shadow = 3
 mesh = ExtResource("2_y5klv")
 skeleton = NodePath("../../..")
 

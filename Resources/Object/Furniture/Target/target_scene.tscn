@@ -31,9 +31,9 @@ radius = 0.45
 [node name="TargetScene" type="Node3D"]
 script = ExtResource("1_khvlg")
 DisplayName = "Target"
-Interactable = null
 interact_icon = "🎯"
 interact_text = ""
+state = true
 Hurtable = true
 MaxHealth = 10.0
 current_health = 10.0

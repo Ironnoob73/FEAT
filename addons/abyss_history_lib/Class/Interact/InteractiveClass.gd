@@ -16,7 +16,7 @@ signal init_behavior_signal
 @export var interact_text : String = "interact.interact"
 @export var interact_behavior : Array[BehaviorClass]
 @export var Switchable : bool = false
-@export var state : bool = true:
+@export var state : bool = false:
 	set(state_in):
 		state = state_in
 		interact_signal.emit()

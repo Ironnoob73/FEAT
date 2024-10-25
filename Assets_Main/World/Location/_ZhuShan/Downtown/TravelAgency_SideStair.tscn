@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://c5x88i487dw"]
+[gd_scene load_steps=25 format=3 uid="uid://c5x88i487dw"]
 
 [ext_resource type="PackedScene" uid="uid://vtmimg6a3eqb" path="res://Assets_Main/World/Location/_ZhuShan/Sources/DowntownBuildings/TravelAgencySideStairEntrance.glb" id="1_5o8y8"]
 [ext_resource type="Material" uid="uid://rnxv6hl1w5ul" path="res://Resources/Material/DarkMaterial.tres" id="2_re8q5"]
@@ -16,6 +16,7 @@
 [ext_resource type="Material" uid="uid://b860lbxbd3ed6" path="res://Resources/Material/GrayMaterial.tres" id="14_xrgfx"]
 [ext_resource type="PackedScene" uid="uid://b40pj5rwujily" path="res://Resources/Object/Building/Ladder/MetalWallLadder/ladder_scene.tscn" id="15_58a8g"]
 [ext_resource type="Script" path="res://addons/abyss_history_lib/Class/Interact/Behaviour/LockBehaviorClass.gd" id="16_ewerb"]
+[ext_resource type="Script" path="res://addons/abyss_history_lib/Class/Interact/Behaviour/ChangeColorBehaviorClass.gd" id="17_73uk0"]
 [ext_resource type="PackedScene" uid="uid://dpv4np1vugbae" path="res://Assets_Main/World/Location/_ZhuShan/Sources/DowntownBuildings/TravelAgencySideStair.glb" id="18_4hoiq"]
 [ext_resource type="PackedScene" uid="uid://bj6k2kwnojef7" path="res://Resources/Object/Building/Window/AwningWindow/window_scene.tscn" id="19_f8nr7"]
 
@@ -29,6 +30,14 @@ size = Vector2(3, 10)
 script = ExtResource("16_ewerb")
 unlock = false
 lock = 7247614650
+
+[sub_resource type="Resource" id="Resource_pxpr1"]
+script = ExtResource("17_73uk0")
+mesh_color = Color(1, 1, 1, 1)
+
+[sub_resource type="Resource" id="Resource_mqn22"]
+script = ExtResource("17_73uk0")
+mesh_color = Color(1, 1, 1, 1)
 
 [node name="TravelAgencySideStair" type="StaticBody3D"]
 collision_layer = 3
@@ -90,7 +99,6 @@ occlusion = "none"
 ToLocationPos = Vector3(-3, 0, -2.5)
 
 [node name="DoorPlate" parent="LV1/FrameScene" instance=ExtResource("10_ydf68")]
-Interactable = null
 
 [node name="HungWindowScene1" parent="LV1" instance=ExtResource("8_n31n0")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1, 1, 5)
@@ -147,7 +155,6 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 3, 0, 
 occlusion = "none"
 
 [node name="DoorPlate" parent="LV2/FrameScene" instance=ExtResource("10_ydf68")]
-Interactable = null
 
 [node name="HungWindowScene1" parent="LV2" instance=ExtResource("8_n31n0")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1, 1, 5)
@@ -203,8 +210,7 @@ mesh_material = ExtResource("14_xrgfx")
 occlusion = "none"
 
 [node name="DoorScene3" parent="LV3/FrameScene3" instance=ExtResource("10_ydf68")]
-init_behavior = Array[ExtResource("11_bq67n")]([SubResource("Resource_f40bh")])
-Interactable = null
+init_behavior = Array[ExtResource("11_bq67n")]([SubResource("Resource_f40bh"), SubResource("Resource_pxpr1")])
 
 [node name="LadderScene1" parent="LV3" instance=ExtResource("15_58a8g")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.5, 0.5, 3.5)
@@ -245,7 +251,7 @@ mesh_material = ExtResource("14_xrgfx")
 occlusion = "none"
 
 [node name="DoorScene" parent="FrameScene" instance=ExtResource("10_ydf68")]
-Interactable = null
+init_behavior = Array[ExtResource("11_bq67n")]([SubResource("Resource_mqn22")])
 
 [node name="AwningWindowScene" parent="." instance=ExtResource("19_f8nr7")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1.5, 16, 5)

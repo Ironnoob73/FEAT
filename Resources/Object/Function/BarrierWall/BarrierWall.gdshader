@@ -26,5 +26,5 @@ void fragment() {
 	ALPHA *= albedo.a * texture(texture_albedo,vec2(UV.y*uv1_scale.y+uv1_offset.y,UV.x*uv1_scale.x+uv1_offset.x)+TIME*speed).r;
 	ALPHA *= clamp(pow(((0.8-UV.x) + UV.y)/1.5,2.5),0.0,1.0);
 	ALPHA *= alpha;
-	
+
 }

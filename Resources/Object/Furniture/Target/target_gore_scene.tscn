@@ -1,9 +1,18 @@
-[gd_scene load_steps=3 format=3 uid="uid://dbk7211il6m7g"]
+[gd_scene load_steps=5 format=3 uid="uid://dbk7211il6m7g"]
 
 [ext_resource type="PackedScene" uid="uid://bwrwtacd1hin3" path="res://Resources/Object/Furniture/Target/Target_Gore.glb" id="1_knhsa"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_olkkp"]
 size = Vector3(0.45, 0.45, 0.1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_py0fe"]
+top_radius = 0.05
+bottom_radius = 0.05
+height = 1.0
+radial_segments = 8
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wsf3f"]
+size = Vector3(0.1, 1, 0.1)
 
 [node name="TargetGoreScene" type="Node3D"]
 
@@ -54,3 +63,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.2, 0)
 [node name="Coll" type="CollisionShape3D" parent="Gore_UW"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.2, 0)
 shape = SubResource("BoxShape3D_olkkp")
+
+[node name="Gore_Pole" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.4, 0)
+collision_layer = 16
+collision_mask = 31
+
+[node name="Mesh" type="MeshInstance3D" parent="Gore_Pole"]
+mesh = SubResource("CylinderMesh_py0fe")
+skeleton = NodePath("../..")
+
+[node name="Coll" type="CollisionShape3D" parent="Gore_Pole"]
+shape = SubResource("BoxShape3D_wsf3f")
