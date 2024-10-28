@@ -42,18 +42,18 @@ func interact(_sender):
 		tween_f.tween_property(lock_tip_f, "modulate:a", 0, 1)
 		tween_b.tween_property(lock_tip_b, "modulate:a", 0, 1)
 
-func _interact_signal() -> void:
+func _interact_signal(_i,_s) -> void:
 	if is_node_ready():
 		_state_change()
 		
-func _on_auto_open_area_area_entered(area: Area3D) -> void:
+func _on_auto_open_area_area_entered(_area: Area3D) -> void:
 	pass
 	#if area.is_in_group("PlayerMotion") && !get_lock():
 	#	open = true
 	#	set_collision_layer_value(4,false)
 	#	var tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUART)
 	#	tween.tween_property(hinge, "rotation:y", deg_to_rad(90), 0.5)
-func _on_auto_open_area_area_exited(area: Area3D) -> void:
+func _on_auto_open_area_area_exited(_area: Area3D) -> void:
 	pass
 	#if area.is_in_group("PlayerMotion"):
 	#	open = false

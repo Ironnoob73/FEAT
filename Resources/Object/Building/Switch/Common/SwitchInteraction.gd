@@ -5,7 +5,7 @@ extends StaticBody3D
 func _ready():
 	_state_change()
 
-func _on_switch_scene_interact_signal() -> void:
+func _interact_signal(_i,_s) -> void:
 	if is_node_ready():
 		_state_change()
 		

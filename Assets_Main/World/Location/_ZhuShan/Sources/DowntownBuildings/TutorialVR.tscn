@@ -1,12 +1,21 @@
-[gd_scene load_steps=3 format=3 uid="uid://drgodm207unxt"]
+[gd_scene load_steps=4 format=3 uid="uid://drgodm207unxt"]
 
 [ext_resource type="Material" uid="uid://lrbpaershnpm" path="res://Resources/Material/BlueGrid.tres" id="1_4xvlj"]
+[ext_resource type="Script" path="res://addons/abyss_history_lib/Class/Interact/InteractiveClass.gd" id="1_n80tj"]
 [ext_resource type="Script" path="res://Assets_Main/World/Location/_ZhuShan/Sources/DowntownBuildings/TutorialVR.gd" id="2_2qjf1"]
 
-[node name="TutorialVR" type="CSGCylinder3D" groups=["Interactive"]]
+[node name="TutorialVR" type="Node3D"]
+script = ExtResource("1_n80tj")
+DisplayName = "TutorialVR"
+Interactable = true
+current_health = 100.0
+
+[node name="Mesh" type="CSGCylinder3D" parent="."]
 use_collision = true
 collision_layer = 9
 radius = 0.4
 height = 1.0
 material = ExtResource("1_4xvlj")
 script = ExtResource("2_2qjf1")
+
+[connection signal="interact_signal" from="." to="Mesh" method="_interact"]

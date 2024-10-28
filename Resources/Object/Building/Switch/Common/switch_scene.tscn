@@ -47,4 +47,4 @@ mesh = SubResource("BoxMesh_8hndt")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.05)
 shape = SubResource("BoxShape3D_upsxn")
 
-[connection signal="interact_signal" from="." to="Body" method="_on_switch_scene_interact_signal"]
+[connection signal="interact_signal" from="." to="Body" method="_interact_signal"]

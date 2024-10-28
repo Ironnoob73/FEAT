@@ -2,7 +2,7 @@
 extends Node3D
 class_name Interactive
 
-signal interact_signal
+signal interact_signal(interactor,sender)
 signal init_behavior_signal
 
 @export var DisplayName : String = ""
@@ -19,7 +19,8 @@ signal init_behavior_signal
 @export var state : bool = false:
 	set(state_in):
 		state = state_in
-		interact_signal.emit()
+		if Engine.is_editor_hint():
+			interact_signal.emit(self,null)
 @export_group("Hurtable")
 @export var Hurtable : bool = false
 @export var MaxHealth : float = 100
@@ -41,6 +42,8 @@ func interact(sender):
 		
 	for i in interact_behavior:
 		i.do(self,sender)
+	
+	interact_signal.emit(self,sender)
 	
 func receive_attack(damage_res:DamageResClass,sender):
 	if Hurtable:

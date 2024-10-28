@@ -21,7 +21,7 @@ func _process(_delta):
 	if step == 4 and player.Inventory.get_tool("weapon_TutorialSword") :	step = 5
 func _on_parkour_waypoint_touch():
 	if step == 2 : step = 3
-func _on_door_plate_interacted(_value):
+func _on_door_plate_interact_signal(_i,_s) -> void:
 	if step == 3 : step = 4
 	
 func move_mouse():

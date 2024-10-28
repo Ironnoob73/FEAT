@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://d3jmi13knbvt"]
+[gd_scene load_steps=23 format=3 uid="uid://d3jmi13knbvt"]
 
 [ext_resource type="Material" uid="uid://lrbpaershnpm" path="res://Resources/Material/BlueGrid.tres" id="1_01kt7"]
 [ext_resource type="Script" path="res://Assets_Main/World/Tutorial.gd" id="1_3cq5v"]
@@ -8,6 +8,12 @@
 [ext_resource type="PackedScene" uid="uid://dvw3hfru3s5m6" path="res://Resources/Object/Function/Waypoint/waypoint_scene.tscn" id="5_ibxfv"]
 [ext_resource type="PackedScene" uid="uid://ds1bb3oh6akpf" path="res://Resources/Object/Building/Door/PlainDoor/door_scene.tscn" id="6_3h32r"]
 [ext_resource type="PackedScene" uid="uid://bt7knoovenvbk" path="res://Resources/Object/Function/Pickable/pickable_scene.tscn" id="7_vq7yj"]
+[ext_resource type="Script" path="res://addons/abyss_history_lib/Class/Interact/Behaviour/_BehaviorClass.gd" id="8_h8coa"]
+[ext_resource type="Resource" uid="uid://bjj8yywrbxut0" path="res://Resources/Item/weapon/melee/sword/tutorial_sword.eq.tres" id="9_v4lg5"]
+[ext_resource type="Script" path="res://addons/abyss_history_lib/Class/Inventory/Equipment/EqMetaClass.gd" id="10_fmbx2"]
+[ext_resource type="Script" path="res://addons/abyss_history_lib/Class/Interact/Behaviour/SetItemBehaviorClass.gd" id="11_hpkgp"]
+[ext_resource type="Script" path="res://addons/abyss_history_lib/Class/Interact/Behaviour/GiveItemBehaviorClass.gd" id="12_6qelh"]
+[ext_resource type="Script" path="res://addons/abyss_history_lib/Class/Interact/Behaviour/QFreeBehaviorClass.gd" id="13_4hudo"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_fxyp4"]
 sky_top_color = Color(0.498039, 0.74902, 1, 1)
@@ -22,6 +28,27 @@ sky_material = SubResource("ProceduralSkyMaterial_fxyp4")
 background_mode = 2
 sky = SubResource("Sky_b4tj8")
 ssao_enabled = true
+
+[sub_resource type="Resource" id="Resource_52jmv"]
+script = ExtResource("10_fmbx2")
+equipment = ExtResource("9_v4lg5")
+damage = 0.0
+
+[sub_resource type="Resource" id="Resource_6djjr"]
+script = ExtResource("11_hpkgp")
+ThingInstance = SubResource("Resource_52jmv")
+
+[sub_resource type="Resource" id="Resource_wwyre"]
+script = ExtResource("10_fmbx2")
+equipment = ExtResource("9_v4lg5")
+damage = 0.0
+
+[sub_resource type="Resource" id="Resource_jmwog"]
+script = ExtResource("12_6qelh")
+ThingInstance = SubResource("Resource_wwyre")
+
+[sub_resource type="Resource" id="Resource_kgf4f"]
+script = ExtResource("13_4hudo")
 
 [node name="World" type="Node3D"]
 script = ExtResource("1_3cq5v")
@@ -117,9 +144,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.5, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -30)
 
 [node name="DoorPlate" parent="OpenDoor" instance=ExtResource("6_3h32r")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6, -11, 0)
-interact_text = "interact.close"
-state = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -11, 0)
 
 [node name="Wall" type="CSGBox3D" parent="OpenDoor"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -6, 0)
@@ -145,6 +170,8 @@ material = ExtResource("2_ric70")
 
 [node name="TutorialSwordItem" parent="PickItem/Booth" instance=ExtResource("7_vq7yj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+init_behavior = Array[ExtResource("8_h8coa")]([SubResource("Resource_6djjr")])
+interact_behavior = Array[ExtResource("8_h8coa")]([SubResource("Resource_jmwog"), SubResource("Resource_kgf4f")])
 state = true
 
 [node name="Attack" type="Node3D" parent="."]
@@ -158,4 +185,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 isInVR = true
 
 [connection signal="touch" from="Parkour/Column5/WaypointScene" to="." method="_on_parkour_waypoint_touch"]
+[connection signal="interact_signal" from="OpenDoor/DoorPlate" to="." method="_on_door_plate_interact_signal"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
