@@ -173,6 +173,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 init_behavior = Array[ExtResource("8_h8coa")]([SubResource("Resource_6djjr")])
 interact_behavior = Array[ExtResource("8_h8coa")]([SubResource("Resource_jmwog"), SubResource("Resource_kgf4f")])
 state = true
+metadata/thing_instance = SubResource("Resource_52jmv")
 
 [node name="Attack" type="Node3D" parent="."]
 

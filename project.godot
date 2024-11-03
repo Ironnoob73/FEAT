@@ -15,9 +15,15 @@ config/name_localized={
 "en_US": "Falord Experiences: Adventurous Trails",
 "zh_CN": "纭碌实践"
 }
+config/version="0.0.1"
 run/main_scene="res://Title/TitleScene.tscn"
+config/custom_user_dir_name="FEAT"
 config/features=PackedStringArray("4.3", "Forward Plus")
 run/flush_stdout_on_print.debug=false
+boot_splash/bg_color=Color(0, 0, 0, 1)
+boot_splash/image="res://Title/present.png"
+boot_splash/fullsize=false
+boot_splash/use_filter=false
 config/icon="res://icon.svg"
 
 [audio]
