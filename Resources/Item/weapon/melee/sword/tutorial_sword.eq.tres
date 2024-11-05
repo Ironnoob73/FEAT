@@ -9,7 +9,7 @@
 script = ExtResource("3_bwotu")
 tool_type = "sword"
 pos_offset = Vector3(0, 0.25, 0)
-hitbox = Vector3(1.5, 0.25, 1)
+hitbox = Vector3(1.5, 0.25, 2)
 attack_type = "Light"
 damage_type = "Sharp"
 performance = 1.0

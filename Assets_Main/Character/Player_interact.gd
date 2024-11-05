@@ -62,9 +62,9 @@ func _input(_event):
 			if Input.is_action_just_pressed("main_attack"):
 				Player.main_attack(true)
 			if Input.is_action_just_pressed("secondary_attack"):
-				HandHeldItem.get_child(0).secondary_attack(true)
+				Player.secondary_attack(true)
 			if Input.is_action_just_released("secondary_attack"):
-				HandHeldItem.get_child(0).secondary_attack(false)
+				Player.secondary_attack(false)
 		else:
 			if Input.is_action_just_pressed("main_attack"):
 				Player.main_attack(true)

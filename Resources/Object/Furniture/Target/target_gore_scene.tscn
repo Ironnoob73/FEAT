@@ -1,5 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://dbk7211il6m7g"]
+[gd_scene load_steps=6 format=3 uid="uid://dbk7211il6m7g"]
 
+[ext_resource type="Script" path="res://Resources/Object/Furniture/Target/target_gore_scene.gd" id="1_30p8g"]
 [ext_resource type="PackedScene" uid="uid://bwrwtacd1hin3" path="res://Resources/Object/Furniture/Target/Target_Gore.glb" id="1_knhsa"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_olkkp"]
@@ -15,6 +16,7 @@ radial_segments = 8
 size = Vector3(0.1, 1, 0.1)
 
 [node name="TargetGoreScene" type="Node3D"]
+script = ExtResource("1_30p8g")
 
 [node name="Gore_UE" type="RigidBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)

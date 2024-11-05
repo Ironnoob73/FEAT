@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=3 uid="uid://c4pg4fa4c3vft"]
+[gd_scene load_steps=58 format=3 uid="uid://c4pg4fa4c3vft"]
 
 [ext_resource type="ArrayMesh" uid="uid://de2qv0d2qap2r" path="res://Resources/Character/MrPicto/Picto_body.obj" id="1_ld67k"]
 [ext_resource type="Script" path="res://Resources/Character/MrPicto/body_scene.gd" id="1_mosu4"]
@@ -1333,8 +1333,24 @@ tracks/8/keys = {
 "values": [Vector3(0, 0.77, 0), Vector3(0, 0.8, 0), Vector3(0, 0.77, 0), Vector3(0, 0.8, 0), Vector3(0, 0.77, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_8bs2o"]
+resource_name = "AttackPitch"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Body/Chest:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1.0472, 0, 0)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7g5dt"]
 _data = {
+"AttackPitch": SubResource("Animation_8bs2o"),
 "Crouch": SubResource("Animation_5ca1m"),
 "Idle": SubResource("Animation_nr7wl"),
 "MainAttack_BothHandsIdle": SubResource("Animation_cannw"),
@@ -1360,6 +1376,9 @@ animation = &"Crouch"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_4hdff"]
 animation = &"Sit"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_dux3a"]
+animation = &"AttackPitch"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_hu88s"]
 animation = &"SideDirect"
@@ -1502,12 +1521,14 @@ blend_point_5/pos = -10.0
 min_space = -10.0
 max_space = 10.0
 
+[sub_resource type="AnimationNodeAdd2" id="AnimationNodeAdd2_5wdcc"]
+
 [sub_resource type="AnimationNodeAdd3" id="AnimationNodeAdd3_m265m"]
 
 [sub_resource type="AnimationNodeAdd2" id="AnimationNodeAdd2_4esfh"]
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_8b6pp"]
-graph_offset = Vector2(147.22, 105.768)
+graph_offset = Vector2(-373.476, 280.418)
 nodes/Animation/node = SubResource("AnimationNodeAnimation_hu88s")
 nodes/Animation/position = Vector2(-20, 0)
 "nodes/Animation 2/node" = SubResource("AnimationNodeAnimation_aquk2")
@@ -1516,38 +1537,39 @@ nodes/Animation/position = Vector2(-20, 0)
 "nodes/Animation 3/position" = Vector2(380, 360)
 "nodes/Animation 4/node" = SubResource("AnimationNodeAnimation_4hdff")
 "nodes/Animation 4/position" = Vector2(540, 340)
+"nodes/Animation 5/node" = SubResource("AnimationNodeAnimation_dux3a")
+"nodes/Animation 5/position" = Vector2(40, 520)
 nodes/AttackStateMachine/node = SubResource("AnimationNodeStateMachine_4jiwg")
-nodes/AttackStateMachine/position = Vector2(140, 340)
+nodes/AttackStateMachine/position = Vector2(-140, 440)
 nodes/CrouchMix/node = SubResource("AnimationNodeAdd2_lfqm6")
 nodes/CrouchMix/position = Vector2(520, 120)
 nodes/MainAttack/node = SubResource("AnimationNodeOneShot_1qseg")
 nodes/MainAttack/position = Vector2(360, 100)
 nodes/Movement/node = SubResource("AnimationNodeBlendSpace1D_ju7c0")
 nodes/Movement/position = Vector2(-40, 140)
+nodes/PitchMix/node = SubResource("AnimationNodeAdd2_5wdcc")
+nodes/PitchMix/position = Vector2(200, 320)
 nodes/SideMix/node = SubResource("AnimationNodeAdd3_m265m")
 nodes/SideMix/position = Vector2(180, 80)
 nodes/Sit/node = SubResource("AnimationNodeAdd2_4esfh")
 nodes/Sit/position = Vector2(680, 120)
 nodes/output/position = Vector2(840, 120)
-node_connections = [&"CrouchMix", 0, &"MainAttack", &"CrouchMix", 1, &"Animation 3", &"MainAttack", 0, &"SideMix", &"MainAttack", 1, &"AttackStateMachine", &"SideMix", 0, &"Animation", &"SideMix", 1, &"Movement", &"SideMix", 2, &"Animation 2", &"Sit", 0, &"CrouchMix", &"Sit", 1, &"Animation 4", &"output", 0, &"Sit"]
+node_connections = [&"CrouchMix", 0, &"MainAttack", &"CrouchMix", 1, &"Animation 3", &"MainAttack", 0, &"SideMix", &"MainAttack", 1, &"PitchMix", &"PitchMix", 0, &"AttackStateMachine", &"PitchMix", 1, &"Animation 5", &"SideMix", 0, &"Animation", &"SideMix", 1, &"Movement", &"SideMix", 2, &"Animation 2", &"Sit", 0, &"CrouchMix", &"Sit", 1, &"Animation 4", &"output", 0, &"Sit"]
 
 [node name="BodyScene" type="Node3D"]
 script = ExtResource("1_mosu4")
 
 [node name="Body" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
-cast_shadow = 3
 mesh = ExtResource("1_ld67k")
 
 [node name="Chest" type="MeshInstance3D" parent="Body"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0)
-cast_shadow = 3
 mesh = ExtResource("3_frtji")
 skeleton = NodePath("../..")
 
 [node name="Head" type="MeshInstance3D" parent="Body/Chest"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.384373, 0)
-cast_shadow = 3
 mesh = ExtResource("2_y5klv")
 skeleton = NodePath("../../..")
 
@@ -1615,5 +1637,6 @@ parameters/MainAttack/active = false
 parameters/MainAttack/internal_active = false
 parameters/MainAttack/request = 0
 parameters/Movement/blend_position = 0.0
+parameters/PitchMix/add_amount = 0.0
 parameters/SideMix/add_amount = 0.0
 parameters/Sit/add_amount = 0.0

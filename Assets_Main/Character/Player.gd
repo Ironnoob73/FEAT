@@ -313,9 +313,10 @@ func _physics_process(delta):
 		else:							velocity.z = lerp(INERTIA.y,0.0,FRICTION)
 	
 	# Crouch.
+	player_collision.position.y = player_collision.shape.height * 0.5
 	if Input.is_action_pressed("crouch") and !isClimb and !isSit and current_menu == "HUD":
 		player_collision.shape.height = lerp(player_collision.shape.height,1.8 * CROUCH_depth,0.5)
-		player_camera.position.y = lerp(player_camera.position.y,1.7 * CROUCH_depth,0.5)
+		player_camera.position.y = lerp(player_camera.position.y,1.8 * CROUCH_depth,0.5)
 	elif !standing_detected.is_colliding() :
 		player_collision.shape.height = lerp(player_collision.shape.height,1.8,0.5)
 		player_camera.position.y = lerp(player_camera.position.y,1.7,0.5)
@@ -358,6 +359,7 @@ func _process(_delta):
 		mesh.animation_tree["parameters/Movement/blend_position"] = _forward_strength(_move_direct) * Vector2(velocity.x , velocity.z).length()
 		mesh.animation_tree["parameters/SideMix/add_amount"] = _move_direct * Vector2(velocity.x , velocity.z).length() / 10
 		mesh.animation_tree["parameters/CrouchMix/add_amount"] = lerp(mesh.animation_tree["parameters/CrouchMix/add_amount"],(1.8 - player_collision.shape.height)*1.5,0.5)
+		mesh.animation_tree["parameters/PitchMix/add_amount"] = - player_camera.rotation.x
 	hand_held.global_position = mesh.right_hand_pos.global_position
 	hand_held.global_rotation = mesh.right_hand_pos.global_rotation
 	
@@ -399,7 +401,7 @@ func refresh_handheld(index:int):
 			refresh_handheld_info()
 		else :
 			set_attack_animation("DoubleHand")
-			hitbox.shape.size = Vector3(0.25,0.25,1)
+			hitbox.shape.size = Vector3(0.25,0.25,1.5)
 			hitbox.position.z = -0.5
 			HUD_hotbar.set_info(current_hotbar)
 func refresh_handheld_info():
@@ -477,6 +479,8 @@ func main_attack(press:bool):
 		if handheld_tool:
 			attack(1+handheld_tool.equipment.performance,handheld_tool.equipment.damage_type)
 		else:attack(1)
+func secondary_attack(press:bool):
+	pass
 func set_attack_animation(type:String = "Light"):
 	mesh.animation_tree["parameters/AttackStateMachine/conditions/DoubleHand"] = false
 	mesh.animation_tree["parameters/AttackStateMachine/conditions/Light"] = false
