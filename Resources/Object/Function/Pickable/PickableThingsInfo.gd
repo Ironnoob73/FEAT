@@ -5,7 +5,7 @@ extends RigidBody3D
 
 func _on_pickable_area_body_entered(body):
 	if Global.auto_pickup:
-		get_parent().interact(body)
+		get_parent().touch(body)
 
 func model_setter():
 	var ThingInstance = get_thing_instance()

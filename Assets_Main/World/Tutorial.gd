@@ -23,6 +23,8 @@ func _on_parkour_waypoint_touch():
 	if step == 2 : step = 3
 func _on_door_plate_interact_signal(_i,_s) -> void:
 	if step == 3 : step = 4
+func _on_tutorial_sword_item_touch_signal() -> void:
+	if step == 4 : step = 5
 	
 func move_mouse():
 	idle = false
@@ -66,6 +68,9 @@ func pick_item():
 func attack():
 	idle = false
 	var tween = create_tween().set_trans(Tween.TRANS_LINEAR)
+	var tween_target = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUART).set_parallel(true)
 	tween.tween_callback(func():player.add_caption("tutorial.attack.0"))
 	tween.tween_callback(func():player.add_caption("tutorial.attack.1")).set_delay(5)
+	tween_target.tween_property($MovingBarrier, "position:z", -55, 2)
+	tween_target.tween_property($Attack/TargetScene, "position:y", 1, 1)
 	tween.tween_property(self, "idle", true, 0).set_delay(5)
