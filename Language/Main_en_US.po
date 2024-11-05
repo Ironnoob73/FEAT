@@ -236,6 +236,9 @@ msgstr "Smooth"
 msgid "interact.interact"
 msgstr "Interact"
 
+msgid "interact.press"
+msgstr "Press"
+
 msgid "interact.no_interact"
 msgstr "No interaction required"
 

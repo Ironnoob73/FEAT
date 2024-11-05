@@ -51,7 +51,9 @@ func receive_attack(damage_res:DamageResClass,sender):
 			current_health -= damage_res.damage_point
 		if current_health > 0:
 			for i in hurt_behavior:
+				i.set_meta("damage_res",damage_res)
 				i.do(self,sender)
 		else:
 			for i in killed_behavior:
+				i.set_meta("damage_res",damage_res)
 				i.do(self,sender)

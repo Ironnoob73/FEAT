@@ -7,6 +7,21 @@
 [ext_resource type="ArrayMesh" uid="uid://batliapo4h84d" path="res://Resources/Character/MrPicto/Picto_chest.obj" id="3_frtji"]
 [ext_resource type="ArrayMesh" uid="uid://d1jba5ydu8rh3" path="res://Resources/Character/MrPicto/Picto_leg.obj" id="4_8cq46"]
 
+[sub_resource type="Animation" id="Animation_8bs2o"]
+resource_name = "AttackPitch"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Body/Chest:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1.0472, 0, 0)]
+}
+
 [sub_resource type="Animation" id="Animation_5ca1m"]
 resource_name = "Crouch"
 length = 0.001
@@ -1331,21 +1346,6 @@ tracks/8/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
 "values": [Vector3(0, 0.77, 0), Vector3(0, 0.8, 0), Vector3(0, 0.77, 0), Vector3(0, 0.8, 0), Vector3(0, 0.77, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_8bs2o"]
-resource_name = "AttackPitch"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Body/Chest:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(1.0472, 0, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7g5dt"]

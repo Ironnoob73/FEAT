@@ -235,6 +235,9 @@ msgstr "平滑"
 msgid "interact.interact"
 msgstr "交互"
 
+msgid "interact.press"
+msgstr "按下"
+
 msgid "interact.no_interact"
 msgstr "无需交互"
 

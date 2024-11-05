@@ -1,0 +1,44 @@
+[gd_scene load_steps=7 format=3 uid="uid://b2qrwyulrn3jr"]
+
+[ext_resource type="Script" path="res://addons/abyss_history_lib/Class/Interact/InteractiveClass.gd" id="1_xx5fq"]
+[ext_resource type="Script" path="res://Resources/Object/Building/Switch/BigRed/SwitchInteraction.gd" id="2_2k3xk"]
+[ext_resource type="Material" uid="uid://v4eof5jjlhmn" path="res://Resources/Material/RedEmissiveD.tres" id="2_rx144"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_i6cr2"]
+size = Vector3(0.2, 0.2, 0.05)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_cpfy3"]
+top_radius = 0.075
+bottom_radius = 0.075
+height = 0.05
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_upsxn"]
+size = Vector3(1, 1, 0.1)
+
+[node name="SwitchScene" type="Node3D"]
+script = ExtResource("1_xx5fq")
+DisplayName = "Switch"
+Interactable = true
+interact_icon = "👆"
+interact_text = "interact.press"
+current_health = 100.0
+
+[node name="Body" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.1)
+collision_layer = 17
+script = ExtResource("2_2k3xk")
+
+[node name="Base" type="MeshInstance3D" parent="Body"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.025)
+mesh = SubResource("BoxMesh_i6cr2")
+
+[node name="Button" type="MeshInstance3D" parent="Body"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0.05)
+material_override = ExtResource("2_rx144")
+mesh = SubResource("CylinderMesh_cpfy3")
+
+[node name="CollisionShape" type="CollisionShape3D" parent="Body"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.05)
+shape = SubResource("BoxShape3D_upsxn")
+
+[connection signal="interact_signal" from="." to="Body" method="_interact_signal"]
