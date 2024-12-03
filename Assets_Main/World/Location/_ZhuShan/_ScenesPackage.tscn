@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://dqyequp22c8rg"]
+[gd_scene load_steps=47 format=3 uid="uid://dqyequp22c8rg"]
 
 [ext_resource type="Script" path="res://addons/abyss_history_lib/Class/World/ScenesPackageClass.gd" id="1_p1ge1"]
 [ext_resource type="PackedScene" uid="uid://bcp40gisqlrka" path="res://Assets_Main/World/Location/_ZhuShan/C2_CentralSquare.tscn" id="2_fegob"]
@@ -22,6 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://cdhmfgttd6yfu" path="res://Resources/Object/Furniture/Target/target_scene.tscn" id="15_jcahf"]
 [ext_resource type="Script" path="res://addons/abyss_history_lib/Class/Interact/Behaviour/_BehaviorClass.gd" id="18_dhv8b"]
 [ext_resource type="Script" path="res://addons/abyss_history_lib/Class/Interact/Behaviour/CaptionBehaviorClass.gd" id="18_mwpqd"]
+[ext_resource type="Resource" uid="uid://bbhccgfvjn42n" path="res://Resources/Item/weapon/range/slingshot/tutorial_slingshot.eq.tres" id="20_5hfey"]
 [ext_resource type="Script" path="res://addons/abyss_history_lib/Class/Interact/Behaviour/SetItemBehaviorClass.gd" id="21_2eydf"]
 [ext_resource type="Script" path="res://addons/abyss_history_lib/Class/Interact/Behaviour/GiveItemBehaviorClass.gd" id="22_5q5ai"]
 [ext_resource type="Script" path="res://addons/abyss_history_lib/Class/Interact/Behaviour/QFreeBehaviorClass.gd" id="23_5r8x0"]
@@ -60,19 +61,39 @@ text = "BBCode [color=green]test[/color]"
 script = ExtResource("18_mwpqd")
 text = "Text"
 
-[sub_resource type="Resource" id="Resource_7p4kb"]
+[sub_resource type="Resource" id="Resource_d1jr3"]
 script = ExtResource("14_acjhv")
 equipment = ExtResource("13_qk5mw")
 damage = 0.0
 
 [sub_resource type="Resource" id="Resource_mh07o"]
 script = ExtResource("21_2eydf")
-ThingInstance = SubResource("Resource_7p4kb")
+ThingInstance = SubResource("Resource_d1jr3")
 
-[sub_resource type="Resource" id="Resource_altmg"]
+[sub_resource type="Resource" id="Resource_met4i"]
 script = ExtResource("22_5q5ai")
 
-[sub_resource type="Resource" id="Resource_x8ioc"]
+[sub_resource type="Resource" id="Resource_j1x7l"]
+script = ExtResource("23_5r8x0")
+
+[sub_resource type="Resource" id="Resource_7p4kb"]
+script = ExtResource("14_acjhv")
+equipment = ExtResource("20_5hfey")
+damage = 0.0
+
+[sub_resource type="Resource" id="Resource_kib5r"]
+script = ExtResource("14_acjhv")
+equipment = ExtResource("20_5hfey")
+damage = 0.0
+
+[sub_resource type="Resource" id="Resource_nd87l"]
+script = ExtResource("21_2eydf")
+ThingInstance = SubResource("Resource_kib5r")
+
+[sub_resource type="Resource" id="Resource_6v0so"]
+script = ExtResource("22_5q5ai")
+
+[sub_resource type="Resource" id="Resource_pi28q"]
 script = ExtResource("23_5r8x0")
 
 [sub_resource type="Resource" id="Resource_cb2gx"]
@@ -136,7 +157,14 @@ state = true
 [node name="TutorialSwordItem" parent="." instance=ExtResource("12_7rje5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 5, -3)
 init_behavior = Array[ExtResource("18_dhv8b")]([SubResource("Resource_mh07o")])
-interact_behavior = Array[ExtResource("18_dhv8b")]([SubResource("Resource_altmg"), SubResource("Resource_x8ioc")])
+interact_behavior = Array[ExtResource("18_dhv8b")]([SubResource("Resource_met4i"), SubResource("Resource_j1x7l")])
+state = true
+metadata/thing_instance = SubResource("Resource_7p4kb")
+
+[node name="TutorialSlingshotItem" parent="." instance=ExtResource("12_7rje5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 5, -3)
+init_behavior = Array[ExtResource("18_dhv8b")]([SubResource("Resource_nd87l")])
+interact_behavior = Array[ExtResource("18_dhv8b")]([SubResource("Resource_6v0so"), SubResource("Resource_pi28q")])
 state = true
 metadata/thing_instance = SubResource("Resource_7p4kb")
 

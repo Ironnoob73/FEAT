@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=3 uid="uid://c4pg4fa4c3vft"]
+[gd_scene load_steps=68 format=3 uid="uid://c4pg4fa4c3vft"]
 
 [ext_resource type="ArrayMesh" uid="uid://de2qv0d2qap2r" path="res://Resources/Character/MrPicto/Picto_body.obj" id="1_ld67k"]
 [ext_resource type="Script" path="res://Resources/Character/MrPicto/body_scene.gd" id="1_mosu4"]
@@ -221,6 +221,34 @@ tracks/4/keys = {
 "transitions": PackedFloat32Array(-2, -2, 1),
 "update": 0,
 "values": [Vector3(0, 0, 0), Vector3(0, 0, -0.00872665), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_064f2"]
+resource_name = "MainAttack_AimIdle"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Body/Chest/ArmUR:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-1.50322, 1.69728, -1.44431)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Body/Chest/ArmUR/ArmDR/RightHandPos:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.260967, -1.66105, -1.56586)]
 }
 
 [sub_resource type="Animation" id="Animation_cannw"]
@@ -887,6 +915,30 @@ tracks/17/keys = {
 "update": 0,
 "values": [Vector3(-1, 1, 1)]
 }
+tracks/18/type = "value"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("Body/Chest/ArmUR/ArmDR/RightHandPos:position")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, -0.25, 0)]
+}
+tracks/19/type = "value"
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/path = NodePath("Body/Chest/ArmUL/ArmDL/LeftHandPos:position")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, -0.25, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_klwrl"]
 resource_name = "Run"
@@ -1140,6 +1192,82 @@ tracks/9/keys = {
 "values": [Vector3(0, 0, 0), Vector3(1.5708, 0, 0), Vector3(0.261799, 0, 0), Vector3(0, 0, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_jisu7"]
+resource_name = "SecondaryAttack_Aim"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Body/Chest/ArmUR:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-1.27684, 0.723934, -0.217412)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Body/Chest/ArmUR/ArmDR/RightHandPos:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.261519, -1.64019, -1.83288)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Body/Chest/ArmUR/ArmDR:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.484802, 0.146536, -0.333294)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Body/Chest/ArmUL:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-1.309, -0.523598, -9.78752e-07)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Body/Chest/ArmUR/ArmDR/RightHandPos:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.0504395, -0.267864, 0.0204158)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Body/Chest/ArmUL/ArmDL:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.446839, 0.277965, -0.0133364)]
+}
+
 [sub_resource type="Animation" id="Animation_4flo1"]
 resource_name = "SideDirect"
 length = 0.5
@@ -1353,6 +1481,7 @@ _data = {
 "AttackPitch": SubResource("Animation_8bs2o"),
 "Crouch": SubResource("Animation_5ca1m"),
 "Idle": SubResource("Animation_nr7wl"),
+"MainAttack_AimIdle": SubResource("Animation_064f2"),
 "MainAttack_BothHandsIdle": SubResource("Animation_cannw"),
 "MainAttack_BothHandsL": SubResource("Animation_jqo6r"),
 "MainAttack_BothHandsR": SubResource("Animation_q43wl"),
@@ -1362,6 +1491,7 @@ _data = {
 "RESET": SubResource("Animation_tvbre"),
 "Run": SubResource("Animation_klwrl"),
 "RunBackward": SubResource("Animation_phkun"),
+"SecondaryAttack_Aim": SubResource("Animation_jisu7"),
 "SideDirect": SubResource("Animation_4flo1"),
 "Sit": SubResource("Animation_di0o5"),
 "Walk": SubResource("Animation_hynqi")
@@ -1380,8 +1510,17 @@ animation = &"Sit"
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_dux3a"]
 animation = &"AttackPitch"
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_rw5ee"]
+animation = &"SecondaryAttack_Aim"
+
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_hu88s"]
 animation = &"SideDirect"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_l5i1h"]
+animation = &"MainAttack_AimIdle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_7wqua"]
+animation = &"MainAttack_AimIdle"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_qci3f"]
 animation = &"MainAttack_BothHandsIdle"
@@ -1460,8 +1599,30 @@ xfade_time = 5.0
 switch_mode = 2
 advance_mode = 2
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_w1wv2"]
+switch_mode = 2
+advance_mode = 2
+advance_condition = &"Aimable"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_1u11j"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_srac2"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_nj80s"]
+switch_mode = 2
+advance_mode = 2
+advance_condition = &"Aimable"
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_4jiwg"]
 states/End/position = Vector2(695, 172)
+states/MainAttack_AimIdle/node = SubResource("AnimationNodeAnimation_7wqua")
+states/MainAttack_AimIdle/position = Vector2(138, 404)
+"states/MainAttack_AimIdle 2/node" = SubResource("AnimationNodeAnimation_l5i1h")
+"states/MainAttack_AimIdle 2/position" = Vector2(447, 416)
 states/MainAttack_BothHandsIdle/node = SubResource("AnimationNodeAnimation_qci3f")
 states/MainAttack_BothHandsIdle/position = Vector2(138, 172)
 states/MainAttack_BothHandsL/node = SubResource("AnimationNodeAnimation_w8vp2")
@@ -1475,8 +1636,12 @@ states/MainAttack_LightL/position = Vector2(447, 289)
 states/MainAttack_LightR/node = SubResource("AnimationNodeAnimation_fqypx")
 states/MainAttack_LightR/position = Vector2(447, 353)
 states/Start/position = Vector2(-50, 172)
-transitions = ["MainAttack_BothHandsIdle", "MainAttack_BothHandsR", SubResource("AnimationNodeStateMachineTransition_j3iso"), "Start", "MainAttack_BothHandsIdle", SubResource("AnimationNodeStateMachineTransition_sm7ld"), "MainAttack_BothHandsIdle", "MainAttack_BothHandsL", SubResource("AnimationNodeStateMachineTransition_x8dut"), "MainAttack_BothHandsR", "End", SubResource("AnimationNodeStateMachineTransition_0mvm3"), "MainAttack_BothHandsL", "End", SubResource("AnimationNodeStateMachineTransition_ywfx1"), "Start", "MainAttack_LightIdle", SubResource("AnimationNodeStateMachineTransition_mqw15"), "MainAttack_LightIdle", "MainAttack_LightL", SubResource("AnimationNodeStateMachineTransition_xhq8m"), "MainAttack_LightL", "End", SubResource("AnimationNodeStateMachineTransition_tfyww"), "MainAttack_LightIdle", "MainAttack_LightR", SubResource("AnimationNodeStateMachineTransition_52sku"), "MainAttack_LightR", "End", SubResource("AnimationNodeStateMachineTransition_7byfk")]
-graph_offset = Vector2(-138, 125)
+transitions = ["MainAttack_BothHandsIdle", "MainAttack_BothHandsR", SubResource("AnimationNodeStateMachineTransition_j3iso"), "Start", "MainAttack_BothHandsIdle", SubResource("AnimationNodeStateMachineTransition_sm7ld"), "MainAttack_BothHandsIdle", "MainAttack_BothHandsL", SubResource("AnimationNodeStateMachineTransition_x8dut"), "MainAttack_BothHandsR", "End", SubResource("AnimationNodeStateMachineTransition_0mvm3"), "MainAttack_BothHandsL", "End", SubResource("AnimationNodeStateMachineTransition_ywfx1"), "Start", "MainAttack_LightIdle", SubResource("AnimationNodeStateMachineTransition_mqw15"), "MainAttack_LightIdle", "MainAttack_LightL", SubResource("AnimationNodeStateMachineTransition_xhq8m"), "MainAttack_LightL", "End", SubResource("AnimationNodeStateMachineTransition_tfyww"), "MainAttack_LightIdle", "MainAttack_LightR", SubResource("AnimationNodeStateMachineTransition_52sku"), "MainAttack_LightR", "End", SubResource("AnimationNodeStateMachineTransition_7byfk"), "Start", "MainAttack_AimIdle", SubResource("AnimationNodeStateMachineTransition_w1wv2"), "MainAttack_AimIdle", "MainAttack_AimIdle 2", SubResource("AnimationNodeStateMachineTransition_1u11j"), "MainAttack_AimIdle 2", "End", SubResource("AnimationNodeStateMachineTransition_srac2"), "MainAttack_AimIdle 2", "MainAttack_AimIdle", SubResource("AnimationNodeStateMachineTransition_nj80s")]
+graph_offset = Vector2(-93, 217)
+
+[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_dv3ac"]
+filter_enabled = true
+filters = ["Body/Chest/ArmUL/ArmDL:rotation", "Body/Chest/ArmUL:rotation", "Body/Chest/ArmUR/ArmDR/RightHandPos:position", "Body/Chest/ArmUR/ArmDR/RightHandPos:rotation", "Body/Chest/ArmUR/ArmDR:rotation", "Body/Chest/ArmUR:rotation"]
 
 [sub_resource type="AnimationNodeAdd2" id="AnimationNodeAdd2_lfqm6"]
 
@@ -1528,21 +1693,25 @@ max_space = 10.0
 [sub_resource type="AnimationNodeAdd2" id="AnimationNodeAdd2_4esfh"]
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_8b6pp"]
-graph_offset = Vector2(-373.476, 280.418)
+graph_offset = Vector2(-223.932, 123.68)
 nodes/Animation/node = SubResource("AnimationNodeAnimation_hu88s")
 nodes/Animation/position = Vector2(-20, 0)
 "nodes/Animation 2/node" = SubResource("AnimationNodeAnimation_aquk2")
 "nodes/Animation 2/position" = Vector2(-20, 300)
 "nodes/Animation 3/node" = SubResource("AnimationNodeAnimation_hy1a0")
-"nodes/Animation 3/position" = Vector2(380, 360)
+"nodes/Animation 3/position" = Vector2(560, 360)
 "nodes/Animation 4/node" = SubResource("AnimationNodeAnimation_4hdff")
-"nodes/Animation 4/position" = Vector2(540, 340)
+"nodes/Animation 4/position" = Vector2(740, 340)
 "nodes/Animation 5/node" = SubResource("AnimationNodeAnimation_dux3a")
 "nodes/Animation 5/position" = Vector2(40, 520)
+"nodes/Animation 6/node" = SubResource("AnimationNodeAnimation_rw5ee")
+"nodes/Animation 6/position" = Vector2(340, 360)
 nodes/AttackStateMachine/node = SubResource("AnimationNodeStateMachine_4jiwg")
 nodes/AttackStateMachine/position = Vector2(-140, 440)
+nodes/Blend2/node = SubResource("AnimationNodeBlend2_dv3ac")
+nodes/Blend2/position = Vector2(540, 120)
 nodes/CrouchMix/node = SubResource("AnimationNodeAdd2_lfqm6")
-nodes/CrouchMix/position = Vector2(520, 120)
+nodes/CrouchMix/position = Vector2(720, 120)
 nodes/MainAttack/node = SubResource("AnimationNodeOneShot_1qseg")
 nodes/MainAttack/position = Vector2(360, 100)
 nodes/Movement/node = SubResource("AnimationNodeBlendSpace1D_ju7c0")
@@ -1552,9 +1721,9 @@ nodes/PitchMix/position = Vector2(200, 320)
 nodes/SideMix/node = SubResource("AnimationNodeAdd3_m265m")
 nodes/SideMix/position = Vector2(180, 80)
 nodes/Sit/node = SubResource("AnimationNodeAdd2_4esfh")
-nodes/Sit/position = Vector2(680, 120)
-nodes/output/position = Vector2(840, 120)
-node_connections = [&"CrouchMix", 0, &"MainAttack", &"CrouchMix", 1, &"Animation 3", &"MainAttack", 0, &"SideMix", &"MainAttack", 1, &"PitchMix", &"PitchMix", 0, &"AttackStateMachine", &"PitchMix", 1, &"Animation 5", &"SideMix", 0, &"Animation", &"SideMix", 1, &"Movement", &"SideMix", 2, &"Animation 2", &"Sit", 0, &"CrouchMix", &"Sit", 1, &"Animation 4", &"output", 0, &"Sit"]
+nodes/Sit/position = Vector2(880, 120)
+nodes/output/position = Vector2(1040, 120)
+node_connections = [&"Blend2", 0, &"MainAttack", &"Blend2", 1, &"Animation 6", &"CrouchMix", 0, &"Blend2", &"CrouchMix", 1, &"Animation 3", &"MainAttack", 0, &"SideMix", &"MainAttack", 1, &"PitchMix", &"PitchMix", 0, &"AttackStateMachine", &"PitchMix", 1, &"Animation 5", &"SideMix", 0, &"Animation", &"SideMix", 1, &"Movement", &"SideMix", 2, &"Animation 2", &"Sit", 0, &"CrouchMix", &"Sit", 1, &"Animation 4", &"output", 0, &"Sit"]
 
 [node name="BodyScene" type="Node3D"]
 script = ExtResource("1_mosu4")
@@ -1579,12 +1748,12 @@ mesh = ExtResource("3_5m7lj")
 skeleton = NodePath("../../..")
 
 [node name="ArmDR" type="MeshInstance3D" parent="Body/Chest/ArmUR"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 3.57628e-07)
 mesh = ExtResource("3_5m7lj")
 skeleton = NodePath("../../..")
 
 [node name="RightHandPos" type="Marker3D" parent="Body/Chest/ArmUR/ArmDR"]
-transform = Transform3D(-4.36983e-08, -3.61999e-06, -1, -1, -3.61999e-06, 4.37114e-08, -3.61999e-06, 1, -3.61999e-06, 0, -0.25, 0)
+transform = Transform3D(-4.36983e-08, -3.61999e-06, -0.999999, -0.999999, -3.61999e-06, 4.37114e-08, -3.61999e-06, 0.999999, -3.61999e-06, 0, -0.25, 0)
 
 [node name="ArmUL" type="MeshInstance3D" parent="Body/Chest"]
 transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, 0.23, 0.28, 0)
@@ -1592,7 +1761,7 @@ mesh = ExtResource("3_5m7lj")
 skeleton = NodePath("../../..")
 
 [node name="ArmDL" type="MeshInstance3D" parent="Body/Chest/ArmUL"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 1.19209e-07)
 mesh = ExtResource("3_5m7lj")
 skeleton = NodePath("../../..")
 
@@ -1628,10 +1797,12 @@ autoplay = "Idle"
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource("AnimationNodeBlendTree_8b6pp")
 anim_player = NodePath("../AnimationPlayer")
+parameters/AttackStateMachine/conditions/Aimable = true
 parameters/AttackStateMachine/conditions/DoubleHand = false
-parameters/AttackStateMachine/conditions/Light = true
-parameters/AttackStateMachine/conditions/left = false
-parameters/AttackStateMachine/conditions/right = true
+parameters/AttackStateMachine/conditions/Light = false
+parameters/AttackStateMachine/conditions/left = true
+parameters/AttackStateMachine/conditions/right = false
+parameters/Blend2/blend_amount = 0.0
 parameters/CrouchMix/add_amount = 0.0
 parameters/MainAttack/active = false
 parameters/MainAttack/internal_active = false

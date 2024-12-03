@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="EToolClass" load_steps=5 format=3 uid="uid://bbhccgfvjn42n"]
+
+[ext_resource type="Texture2D" uid="uid://ckbeaa0264i7q" path="res://Resources/Item/weapon/range/slingshot/slingshot.svg" id="1_l1yfy"]
+[ext_resource type="Material" uid="uid://dpy1qjkamvh6q" path="res://Resources/Material/Blank.tres" id="2_8g8o1"]
+[ext_resource type="ArrayMesh" uid="uid://c1mwcxkljouib" path="res://Resources/Item/weapon/range/slingshot/y_stick.obj" id="3_3iaes"]
+[ext_resource type="Script" path="res://addons/abyss_history_lib/Class/Inventory/Equipment/EToolClass.gd" id="4_pdci8"]
+
+[resource]
+script = ExtResource("4_pdci8")
+tool_type = "shot"
+pos_offset = Vector3(0, 0, 0)
+hitbox = Vector3(0.25, 0.25, 1)
+attack_type = "Aimable"
+damage_type = "Normal"
+performance = 1.0
+durability = 100.0
+name1 = ""
+name0 = "weapon.tutorial_slingshot"
+icon = ExtResource("1_l1yfy")
+model = ExtResource("3_3iaes")
+material = ExtResource("2_8g8o1")
+description = "item.no_des"

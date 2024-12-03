@@ -4,6 +4,7 @@ class_name Interactive
 
 signal interact_signal(interactor,sender)
 signal init_behavior_signal
+signal killed_signal(interactor,sender)
 signal touch_signal
 
 @export var DisplayName : String = ""
@@ -57,6 +58,7 @@ func receive_attack(damage_res:DamageResClass,sender):
 		else:
 			for i in killed_behavior:
 				i.set_meta("damage_res",damage_res)
+				killed_signal.emit(self,sender)
 				i.do(self,sender)
 
 func touch(sender):

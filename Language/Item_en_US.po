@@ -18,17 +18,20 @@ msgstr "Undefined"
 msgid "tool.type.wrench"
 msgstr "Wrench"
 
-msgid "tool.type.screwdriver"
-msgstr "Screwdriver"
-
 msgid "tool.type.special"
 msgstr "Special"
 
-msgid "tool.type.pickaxe"
-msgstr "Pickaxe"
+msgid "tool.type.heavy"
+msgstr "Heavy"
 
-msgid "tool.type.sword"
-msgstr "Sword"
+msgid "tool.type.light"
+msgstr "Light"
+
+msgid "tool.type.shot"
+msgstr "Shot"
+
+msgid "tool.type.charge"
+msgstr "Charge"
 
 
 #----------By Material----------#
@@ -43,4 +46,10 @@ msgid "weapon.tutorial_sword"
 msgstr "Tutorial Sword"
 
 msgid "weapon.tutorial_sword.description"
-msgstr "For beginner tutorials only"
+msgstr "Melee weapon for beginner tutorials only"
+
+msgid "weapon.tutorial_slingshot"
+msgstr "Tutorial Slingshot"
+
+msgid "weapon.tutorial_slingshot.description"
+msgstr "Range weapon for beginner tutorials only"

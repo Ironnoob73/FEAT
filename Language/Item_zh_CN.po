@@ -18,17 +18,20 @@ msgstr "未定义"
 msgid "tool.type.wrench"
 msgstr "扳手"
 
-msgid "tool.type.screwdriver"
-msgstr "螺丝刀"
-
 msgid "tool.type.special"
 msgstr "特殊"
 
-msgid "tool.type.pickaxe"
-msgstr "镐"
+msgid "tool.type.heavy"
+msgstr "重型"
 
-msgid "tool.type.sword"
-msgstr "剑"
+msgid "tool.type.light"
+msgstr "轻型"
+
+msgid "tool.type.shot"
+msgstr "发射"
+
+msgid "tool.type.charge"
+msgstr "蓄力"
 
 #----------By Material----------#
 msgid "tool.platinum_pickaxe"
@@ -42,4 +45,10 @@ msgid "weapon.tutorial_sword"
 msgstr "教程剑"
 
 msgid "weapon.tutorial_sword.description"
-msgstr "仅用于新手教程"
+msgstr "仅用于新手教程的近战武器"
+
+msgid "weapon.tutorial_slingshot"
+msgstr "教程弹弓"
+
+msgid "weapon.tutorial_slingshot.description"
+msgstr "仅用于新手教程的远程武器"

@@ -197,4 +197,5 @@ isInVR = true
 [connection signal="touch" from="Parkour/Column5/WaypointScene" to="." method="_on_parkour_waypoint_touch"]
 [connection signal="interact_signal" from="OpenDoor/DoorPlate" to="." method="_on_door_plate_interact_signal"]
 [connection signal="touch_signal" from="PickItem/Booth/TutorialSwordItem" to="." method="_on_tutorial_sword_item_touch_signal"]
+[connection signal="killed_signal" from="Attack/TargetScene" to="." method="_on_target_scene_killed_signal"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

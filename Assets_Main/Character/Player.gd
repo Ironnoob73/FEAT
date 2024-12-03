@@ -133,6 +133,7 @@ func switch_perspectives():
 	mouse_mode(isThirdPerson)
 	third_perosn_cam.current = isThirdPerson
 	player_camera.current = !isThirdPerson
+	mesh.change_visible(mesh,isThirdPerson)
 	caption.get_mouse_pos()
 	
 func _unhandled_input(_event):
@@ -396,6 +397,8 @@ func refresh_handheld(index:int):
 				handheld_model.position = handheld_tool.equipment.pos_offset
 				hand_held.add_child(handheld_model)
 			set_attack_animation(handheld_tool.equipment.attack_type)
+			if handheld_tool.equipment.attack_type == "Aimable":
+				mesh.animation_tree["parameters/MainAttack/request"] = 1
 			hitbox.shape.size = handheld_tool.equipment.hitbox
 			hitbox.position.z = -hitbox.shape.size.z/2
 			refresh_handheld_info()
@@ -484,9 +487,11 @@ func secondary_attack(press:bool):
 func set_attack_animation(type:String = "Light"):
 	mesh.animation_tree["parameters/AttackStateMachine/conditions/DoubleHand"] = false
 	mesh.animation_tree["parameters/AttackStateMachine/conditions/Light"] = false
+	mesh.animation_tree["parameters/AttackStateMachine/conditions/Aimable"] = false
 	match type:
 		"DoubleHand":	mesh.animation_tree["parameters/AttackStateMachine/conditions/DoubleHand"] = true
 		"Light":	mesh.animation_tree["parameters/AttackStateMachine/conditions/Light"] = true
+		"Aimable":	mesh.animation_tree["parameters/AttackStateMachine/conditions/Aimable"] = true
 func attack(damage_point:float,attack_type:String = "Normal"):
 	for i in attack_area.get_overlapping_bodies():
 		if i.get_parent() is Interactive and i.get_parent().Hurtable == true:

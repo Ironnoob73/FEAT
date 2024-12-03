@@ -13,6 +13,7 @@ func _on_timer_timeout():
 		3 :	open_door()
 		4 :	pick_item()
 		5 :	attack()
+		6 :	pass
 	
 func _input(event):
 	if event is InputEventMouseMotion and step == 0:	step = 1
@@ -25,7 +26,9 @@ func _on_door_plate_interact_signal(_i,_s) -> void:
 	if step == 3 : step = 4
 func _on_tutorial_sword_item_touch_signal() -> void:
 	if step == 4 : step = 5
-	
+func _on_target_scene_killed_signal(interactor: Variant, sender: Variant) -> void:
+	if step == 5 : step = 6
+
 func move_mouse():
 	idle = false
 	var tween = create_tween().set_trans(Tween.TRANS_LINEAR)
@@ -72,5 +75,6 @@ func attack():
 	tween.tween_callback(func():player.add_caption("tutorial.attack.0"))
 	tween.tween_callback(func():player.add_caption("tutorial.attack.1")).set_delay(5)
 	tween_target.tween_property($MovingBarrier, "position:z", -55, 2)
-	tween_target.tween_property($Attack/TargetScene, "position:y", 1, 1)
+	if $Attack/TargetScene != null:
+		tween_target.tween_property($Attack/TargetScene, "position:y", 1, 1)
 	tween.tween_property(self, "idle", true, 0).set_delay(5)
