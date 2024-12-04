@@ -169,12 +169,11 @@ mesh = SubResource("QuadMesh_01c7o")
 
 [node name="PlayerCam" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
-cull_mask = 27
+cull_mask = 11
 doppler_tracking = 1
 size = 0.001
 
 [node name="FirstPersonHandled" type="SubViewportContainer" parent="PlayerCam"]
-visibility_layer = 16
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -188,6 +187,7 @@ transparent_bg = true
 handle_input_locally = false
 canvas_cull_mask = 4293918736
 size = Vector2i(1600, 900)
+render_target_update_mode = 4
 
 [node name="FirstPersonCam" type="Camera3D" parent="PlayerCam/FirstPersonHandled/SubViewport"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)

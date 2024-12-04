@@ -32,7 +32,9 @@ var isInTeleport : bool = false
 
 @onready var first_person_cam = $PlayerCam/FirstPersonHandled/SubViewport/FirstPersonCam
 @onready var world_actual_cam = $PlayerCam/WorldActual/SubViewport/WorldActualCam
-@onready var hand_held = $PlayerCam/FirstPersonHandled/SubViewport/FirstPersonCam/HandHeldRight
+@onready var hand_held : Node
+@onready var hand_held_fp = $PlayerCam/FirstPersonHandled/SubViewport/FirstPersonCam/HandHeldRight
+var hand_held_group : Array[Node]
 @onready var attack_area = $PlayerColl/AttackArea
 @onready var hitbox = $PlayerColl/AttackArea/Coll
 @onready var hitbox_debug: MeshInstance3D = $PlayerColl/AttackArea/MeshInstance3D
@@ -78,6 +80,7 @@ func _ready():
 		Inventory.ItemHotbar.append_array([null,null,null,null,null])
 		Inventory.ToolHotbar.append_array([null,null,null,null,null])
 	
+	refresh_player_mesh()
 	pause_menu.hide()
 	inventory_menu.hide()
 	refresh_handheld(current_hotbar)
@@ -361,8 +364,6 @@ func _process(_delta):
 		mesh.animation_tree["parameters/SideMix/add_amount"] = _move_direct * Vector2(velocity.x , velocity.z).length() / 10
 		mesh.animation_tree["parameters/CrouchMix/add_amount"] = lerp(mesh.animation_tree["parameters/CrouchMix/add_amount"],(1.8 - player_collision.shape.height)*1.5,0.5)
 		mesh.animation_tree["parameters/PitchMix/add_amount"] = - player_camera.rotation.x
-	hand_held.global_position = mesh.right_hand_pos.global_position
-	hand_held.global_rotation = mesh.right_hand_pos.global_rotation
 	
 	# Hitbox Debug
 	hitbox_debug.position = hitbox.position
@@ -380,38 +381,53 @@ func refresh_handheld(index:int):
 	mesh.animation_tree["parameters/MainAttack/request"] = 3
 	handheld_tool = Inventory.ToolHotbar[current_hotbar]
 	if index == current_hotbar:
-		if hand_held.get_children():
-			hand_held.get_child(0).queue_free()
-			hand_held.get_child(0).free()
-		if handheld_tool:
-			if handheld_tool.equipment.scene:
-				hand_held.add_child(handheld_tool.equipment.scene.instantiate())
-				hand_held.get_child(0)._tool_init()
+		for n in hand_held_group:
+			if n and n.get_children():
+				n.get_child(0).queue_free()
+				n.get_child(0).free()
+			if handheld_tool:
+				if handheld_tool.equipment.scene:
+					n.add_child(handheld_tool.equipment.scene.instantiate())
+					n.get_child(0)._tool_init()
+				else :
+					var handheld_model = MeshInstance3D.new()
+					handheld_model.mesh = handheld_tool.equipment.model
+					handheld_model.material_override = handheld_tool.equipment.material
+					handheld_model.set_layer_mask_value(5,true)
+					if handheld_tool.equipment.the_script :
+						handheld_model.set_script(handheld_tool.equipment.the_script)
+					handheld_model.position = handheld_tool.equipment.pos_offset
+					n.add_child(handheld_model)
+				set_attack_animation(handheld_tool.equipment.attack_type)
+				if handheld_tool.equipment.attack_type == "Aimable":
+					mesh.animation_tree["parameters/MainAttack/request"] = 1
+				hitbox.shape.size = handheld_tool.equipment.hitbox
+				hitbox.position.z = -hitbox.shape.size.z/2
+				refresh_handheld_info()
 			else :
-				var handheld_model = MeshInstance3D.new()
-				handheld_model.mesh = handheld_tool.equipment.model
-				handheld_model.material_override = handheld_tool.equipment.material
-				handheld_model.set_layer_mask_value(5,true)
-				if handheld_tool.equipment.the_script :
-					handheld_model.set_script(handheld_tool.equipment.the_script)
-				handheld_model.position = handheld_tool.equipment.pos_offset
-				hand_held.add_child(handheld_model)
-			set_attack_animation(handheld_tool.equipment.attack_type)
-			if handheld_tool.equipment.attack_type == "Aimable":
-				mesh.animation_tree["parameters/MainAttack/request"] = 1
-			hitbox.shape.size = handheld_tool.equipment.hitbox
-			hitbox.position.z = -hitbox.shape.size.z/2
-			refresh_handheld_info()
-		else :
-			set_attack_animation("DoubleHand")
-			hitbox.shape.size = Vector3(0.25,0.25,1.5)
-			hitbox.position.z = -0.5
-			HUD_hotbar.set_info(current_hotbar)
+				set_attack_animation("DoubleHand")
+				hitbox.shape.size = Vector3(0.25,0.25,1.5)
+				hitbox.position.z = -0.5
+				HUD_hotbar.set_info(current_hotbar)
+	if hand_held.get_children():
+		for i in hand_held.get_children():
+			if isThirdPerson:
+				i.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_ON
+			else:
+				i.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_SHADOWS_ONLY
+	if hand_held_fp.get_children():
+		for i in hand_held_fp.get_children():
+			i.set_layer_mask_value(1,false)
 func refresh_handheld_info():
 	HUD_hotbar.set_info(current_hotbar,\
 		handheld_tool.equipment.name0,\
 		handheld_tool.equipment.icon,\
 		((handheld_tool.equipment.durability - handheld_tool.damage)/handheld_tool.equipment.durability)*100)
+		
+func refresh_player_mesh():
+	if mesh.right_hand_pos != null:
+		hand_held = mesh.right_hand_pos
+		hand_held_group = [hand_held,hand_held_fp]
 
 # Climb Detection & Teleport
 func _on_climb_area_area_entered(area):
