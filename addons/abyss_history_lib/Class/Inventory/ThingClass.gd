@@ -7,6 +7,13 @@ class_name ThingClass
 @export var material : Material = preload("res://Resources/Object/Function/Pickable/DefaultMaterial.tres")
 @export var description : String = "item.no_des"
 
-func get_description():
+@export var pos_offset : Vector3 = Vector3(0,0,0)
+@export var pos_rotation : Vector3 = Vector3(0,0,0)
+@export var pos_scale : Vector3 = Vector3(1,1,1)
+
+func get_description() -> String:
 	if description :	return description
 	else :	return name0 + ".description"
+
+func pos_rotation_rad() -> Vector3:
+	return Vector3(deg_to_rad(pos_rotation.x),deg_to_rad(pos_rotation.y),deg_to_rad(pos_rotation.z))

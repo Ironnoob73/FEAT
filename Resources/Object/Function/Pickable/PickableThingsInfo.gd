@@ -21,6 +21,9 @@ func model_setter():
 			if ThingInstance.equipment:
 				mesh.mesh = ThingInstance.equipment.model
 				mesh.material_override = ThingInstance.equipment.material
+				mesh.position = ThingInstance.equipment.pos_offset
+				mesh.rotation = ThingInstance.equipment.pos_rotation_rad()
+				mesh.scale = ThingInstance.equipment.pos_scale
 			else : push_warning("NoThing")
 	
 func get_thing_instance():

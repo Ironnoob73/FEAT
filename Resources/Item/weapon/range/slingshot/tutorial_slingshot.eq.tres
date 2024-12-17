@@ -8,15 +8,18 @@
 [resource]
 script = ExtResource("4_pdci8")
 tool_type = "shot"
-pos_offset = Vector3(0, 0, 0)
 hitbox = Vector3(0.25, 0.25, 1)
 attack_type = "Aimable"
 damage_type = "Normal"
 performance = 1.0
 durability = 100.0
+delay = 0.5
 name1 = ""
 name0 = "weapon.tutorial_slingshot"
 icon = ExtResource("1_l1yfy")
 model = ExtResource("3_3iaes")
 material = ExtResource("2_8g8o1")
 description = "item.no_des"
+pos_offset = Vector3(0, 0, 0)
+pos_rotation = Vector3(0, 0, 0)
+pos_scale = Vector3(0.5, 0.5, 0.5)

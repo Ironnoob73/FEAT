@@ -393,10 +393,13 @@ func refresh_handheld(index:int):
 					var handheld_model = MeshInstance3D.new()
 					handheld_model.mesh = handheld_tool.equipment.model
 					handheld_model.material_override = handheld_tool.equipment.material
+					handheld_model.position = handheld_tool.equipment.pos_offset
+					handheld_model.rotation = handheld_tool.equipment.pos_rotation_rad()
+					handheld_model.scale = handheld_tool.equipment.pos_scale
+					handheld_model.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 					handheld_model.set_layer_mask_value(5,true)
 					if handheld_tool.equipment.the_script :
 						handheld_model.set_script(handheld_tool.equipment.the_script)
-					handheld_model.position = handheld_tool.equipment.pos_offset
 					n.add_child(handheld_model)
 				set_attack_animation(handheld_tool.equipment.attack_type)
 				if handheld_tool.equipment.attack_type == "Aimable":
@@ -493,8 +496,9 @@ func main_attack(press:bool):
 		mesh.animation_tree["parameters/AttackStateMachine/conditions/right"] = !att_order
 		att_order = !att_order
 		mesh.animation_tree["parameters/MainAttack/request"] = 1
+		hand_held_fp.MainAttack(handheld_tool.equipment.attack_type,handheld_tool.equipment.delay)
 		var tween = create_tween().set_trans(Tween.TRANS_CUBIC)
-		tween.tween_property(self, "att_idle", true, 0).set_delay(0.5)
+		tween.tween_property(self, "att_idle", true, 0).set_delay(handheld_tool.equipment.delay)
 		if handheld_tool:
 			attack(1+handheld_tool.equipment.performance,handheld_tool.equipment.damage_type)
 		else:attack(1)
