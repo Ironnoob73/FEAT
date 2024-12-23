@@ -259,3 +259,42 @@ msgstr "Comment"
 
 msgid "interact.pickup"
 msgstr "Pickup"
+
+####----------Notice----------####
+#----------Default----------#
+msgid "notice.title.default"
+msgstr "Notice"
+
+msgid "notice.content.empty"
+msgstr "[color=silver][i]No valid content provided.[/i][/color]"
+
+msgid "notice.choice.yep"
+msgstr "Yep"
+
+msgid "notice.choice.nope"
+msgstr "Nope"
+
+msgid "notice.choice.ok"
+msgstr "OK"
+
+msgid "notice.choice.no"
+msgstr "NO"
+
+#----------Title----------#
+msgid "notice.title.info"
+msgstr "Info"
+
+msgid "notice.title.hint"
+msgstr "Hint"
+
+msgid "notice.title.warning"
+msgstr "WARNING"
+
+msgid "notice.title.notice"
+msgstr "NOTICE"
+
+msgid "notice.title.error"
+msgstr "ERROR"
+
+msgid "notice.title.ban"
+msgstr "BAN"

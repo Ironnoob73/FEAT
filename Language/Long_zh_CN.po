@@ -11,6 +11,10 @@ msgstr ""
 msgid "fatal_window.fullscreen_warning"
 msgstr "窗口最大化下禁止开启全屏模式"
 
+#----------Notice Test----------#
+msgid "notice.content.test0"
+msgstr "这是一条通知。"
+
 #----------Tutorial----------#
 msgid "tutorial.move_mouse.0"
 msgstr "移动鼠标转动视角"

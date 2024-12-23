@@ -1,0 +1,42 @@
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://c7r4nopyum74m"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xqcy7"]
+content_margin_top = 0.0
+draw_center = false
+border_width_top = 50
+border_color = Color(0.74902, 0.74902, 0.247059, 0.498039)
+border_blend = true
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y68kp"]
+content_margin_bottom = 0.0
+draw_center = false
+border_width_bottom = 50
+border_color = Color(0.74902, 0.74902, 0.74902, 0.498039)
+border_blend = true
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qmmdw"]
+content_margin_bottom = 0.0
+draw_center = false
+border_width_bottom = 50
+border_color = Color(0.247059, 0.247059, 0.247059, 0.498039)
+border_blend = true
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k3kks"]
+bg_color = Color(0, 0, 0, 0.498039)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pb16x"]
+bg_color = Color(0.498039, 0.498039, 0.498039, 1)
+
+[resource]
+Button/font_sizes/font_size = 30
+Button/styles/focus = SubResource("StyleBoxFlat_xqcy7")
+Button/styles/hover = SubResource("StyleBoxFlat_y68kp")
+Button/styles/normal = SubResource("StyleBoxFlat_qmmdw")
+Label/colors/font_shadow_color = Color(0, 0, 0, 1)
+Label/constants/shadow_offset_x = 2
+Label/constants/shadow_offset_y = 5
+Label/constants/shadow_outline_size = 0
+Label/font_sizes/font_size = 50
+Panel/styles/panel = SubResource("StyleBoxFlat_k3kks")
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_pb16x")
+VBoxContainer/constants/separation = 0

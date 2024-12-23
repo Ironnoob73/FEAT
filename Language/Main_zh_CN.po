@@ -258,3 +258,42 @@ msgstr "注释"
 
 msgid "interact.pickup"
 msgstr "拾取"
+
+####----------Notice----------####
+#----------Default----------#
+msgid "notice.title.default"
+msgstr "通知"
+
+msgid "notice.content.empty"
+msgstr "[color=silver][i]未提供有效内容。[/i][/color]"
+
+msgid "notice.choice.yep"
+msgstr "好"
+
+msgid "notice.choice.nope"
+msgstr "不"
+
+msgid "notice.choice.ok"
+msgstr "好的"
+
+msgid "notice.choice.no"
+msgstr "不行"
+
+#----------Title----------#
+msgid "notice.title.info"
+msgstr "信息"
+
+msgid "notice.title.hint"
+msgstr "提示"
+
+msgid "notice.title.warning"
+msgstr "警告"
+
+msgid "notice.title.notice"
+msgstr "注意"
+
+msgid "notice.title.error"
+msgstr "错误"
+
+msgid "notice.title.ban"
+msgstr "禁令"

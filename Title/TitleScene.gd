@@ -46,16 +46,19 @@ func _on_start_button_pressed():
 
 # Uncomplete
 func _on_continue_button_pressed():
+	NoticeManager.show_notice(load("res://Assets_Main/UI/Notice/notice_info_test.tres"))
+	
+# Unused TTS
 	# One-time steps.
 	# Pick a voice. Here, we arbitrarily pick the first English voice.
-	var voices = DisplayServer.tts_get_voices_for_language("zh")
-	var voice_id = voices[0]
+	#var voices = DisplayServer.tts_get_voices_for_language("zh")
+	#var voice_id = voices[0]
 
 	# Say "Hello, world!".
-	DisplayServer.tts_speak("Hello, world!", voice_id)
+	#DisplayServer.tts_speak("Hello, world!", voice_id)
 
 	#DisplayServer.tts_stop()
-	DisplayServer.tts_speak("Goodbye!", voice_id)
+	#DisplayServer.tts_speak("Goodbye!", voice_id)
 
 # Tooltip
 #func _process(_delta):

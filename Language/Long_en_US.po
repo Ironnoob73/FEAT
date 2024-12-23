@@ -11,6 +11,10 @@ msgstr ""
 msgid "fatal_window.fullscreen_warning"
 msgstr "It is strictly forbidden to enable full-screen mode when the window is maximized."
 
+#----------Notice Test----------#
+msgid "notice.content.test0"
+msgstr "This is a notification."
+
 #----------Tutorial----------#
 msgid "tutorial.move_mouse.0"
 msgstr "Move the mouse to rotate the perspective"

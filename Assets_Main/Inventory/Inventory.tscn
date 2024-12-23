@@ -876,6 +876,7 @@ icon_alignment = 1
 expand_icon = true
 
 [node name="ItemChooseWindow" parent="Hotbar" instance=ExtResource("5_bckn1")]
+transparent_bg = true
 visible = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
