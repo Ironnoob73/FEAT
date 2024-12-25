@@ -62,9 +62,9 @@ var INERTIA:Vector2 = Vector2.ZERO
 var current_menu = "HUD"
 @export var isInVR : bool = false
 
-@export var Inventory : InventoryClass
+@export var Inventory : AHL_InventoryClass
 var current_hotbar : int = 0
-var handheld_tool : EqMetaClass
+var handheld_tool : AHL_EqMetaClass
 @onready var HUD_hotbar = $HudHotbar
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
@@ -497,12 +497,14 @@ func main_attack(press:bool):
 		mesh.animation_tree["parameters/AttackStateMachine/conditions/right"] = !att_order
 		att_order = !att_order
 		mesh.animation_tree["parameters/MainAttack/request"] = 1
-		hand_held_fp.MainAttack(handheld_tool.equipment.attack_type,handheld_tool.equipment.delay)
 		var tween = create_tween().set_trans(Tween.TRANS_CUBIC)
-		tween.tween_property(self, "att_idle", true, 0).set_delay(handheld_tool.equipment.delay)
 		if handheld_tool:
+			hand_held_fp.MainAttack(handheld_tool.equipment.attack_type,handheld_tool.equipment.delay)
+			tween.tween_property(self, "att_idle", true, 0).set_delay(handheld_tool.equipment.delay)
 			attack(1+handheld_tool.equipment.performance,handheld_tool.equipment.damage_type)
-		else:attack(1)
+		else:
+			tween.tween_property(self, "att_idle", true, 0).set_delay(0.5)
+			attack(1)
 func secondary_attack(press:bool):
 	pass
 func set_attack_animation(type:String = "Light"):
@@ -515,8 +517,8 @@ func set_attack_animation(type:String = "Light"):
 		"Aimable":	mesh.animation_tree["parameters/AttackStateMachine/conditions/Aimable"] = true
 func attack(damage_point:float,attack_type:String = "Normal"):
 	for i in attack_area.get_overlapping_bodies():
-		if i.get_parent() is Interactive and i.get_parent().Hurtable == true:
-			var damage_res = DamageResClass.new()
+		if i.get_parent() is AHL_Interactive and i.get_parent().Hurtable == true:
+			var damage_res = AHL_DamageResClass.new()
 			damage_res.sender = self
 			damage_res.damage_point = damage_point
 			damage_res.attack_type = attack_type

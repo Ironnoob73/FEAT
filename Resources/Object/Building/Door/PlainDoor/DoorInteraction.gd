@@ -69,7 +69,7 @@ func get_c_color() -> Color:
 	return get_parent().get_meta('c_color',mesh_color)
 	
 func _state_change():
-	if get_parent() is Interactive && !get_lock():
+	if get_parent() is AHL_Interactive && !get_lock():
 		if get_parent().state:
 			get_parent().interact_text = "interact.close"
 			open = true

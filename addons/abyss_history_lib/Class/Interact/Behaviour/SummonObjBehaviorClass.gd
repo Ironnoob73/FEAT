@@ -1,5 +1,5 @@
-extends BehaviorClass
-class_name SummonObjBehaviorClass
+extends AHL_BehaviorClass
+class_name AHL_SummonObjBehaviorClass
 
 @export var object : PackedScene
 @export var pos : Vector3 = Vector3(0,0,0)

@@ -1,8 +1,8 @@
-extends InventoryClass
+extends AHL_InventoryClass
 class_name CInventoryClass
 
-@export var ToolHotbar : Array[EqMetaClass]
-@export var ItemHotbar : Array[ItemClass]
+@export var ToolHotbar : Array[AHL_EqMetaClass]
+@export var ItemHotbar : Array[AHL_ItemClass]
 
 func get_tool(eq_name :String):
 	var eq = AllItems.get_item_from_name(eq_name)

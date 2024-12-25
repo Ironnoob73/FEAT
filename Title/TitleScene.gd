@@ -46,7 +46,7 @@ func _on_start_button_pressed():
 
 # Uncomplete
 func _on_continue_button_pressed():
-	NoticeManager.show_notice(load("res://Assets_Main/UI/Notice/notice_info_test.tres"))
+	AHL_NoticeManager.show_notice(load("res://Assets_Main/UI/Notice/notice_info_test.tres"))
 	
 # Unused TTS
 	# One-time steps.

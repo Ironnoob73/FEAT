@@ -1,7 +1,7 @@
-extends BehaviorClass
-class_name GiveItemBehaviorClass
+extends AHL_BehaviorClass
+class_name AHL_GiveItemBehaviorClass
 
-@export var ThingInstance : ThingInstanceClass
+@export var ThingInstance : AHL_ThingInstanceClass
 
 func do(interactor,sender):
 	if !ThingInstance:

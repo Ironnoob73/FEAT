@@ -106,8 +106,8 @@ func item_inv_update():
 		#match i.item.get_original_class():
 		#	"IBlockClass" :	group = block_group
 		#	"ItemClass" :	group = item_group
-		if i.item is IBlockClass :	group = block_group
-		elif i.item is ItemClass :	group = item_group
+		if i.item is AHL_IBlockClass :	group = block_group
+		elif i.item is AHL_ItemClass :	group = item_group
 		var subitem = item_list.create_item(group)
 		subitem.set_icon(0,i.item.icon)
 		subitem.set_icon_max_width(0,30)
@@ -143,7 +143,7 @@ func equipment_inv_update():
 	armor_group.set_text(0,tr("inventory.equipment.armor"))
 	for i in get_parent().Inventory.eqMeta:
 		var group : Object
-		if i.equipment is EToolClass :	group = tool_group
+		if i.equipment is AHL_EToolClass :	group = tool_group
 		var subitem = equipment_list.create_item(group)
 		subitem.set_icon(0,i.equipment.icon)
 		subitem.set_icon_max_width(0,30)
@@ -202,7 +202,7 @@ func choose_tool(index:int):
 	hotbar_choose_window.item_list.clear()
 	hotbar_choose_window.item_list.add_item(tr("hotbar.unequip"),unequip_icon)
 	for i in get_parent().Inventory.eqMeta:
-		if i.equipment is EToolClass :
+		if i.equipment is AHL_EToolClass :
 			hotbar_choose_window.item_list.add_item(\
 				tr(i.equipment.name0) + "   [" + str(int(((i.equipment.durability - i.damage)/i.equipment.durability)*100)) + "%]" ,\
 				i.equipment.icon)
@@ -214,7 +214,7 @@ func choose_item(index:int):
 	hotbar_choose_window.item_list.clear()
 	hotbar_choose_window.item_list.add_item(tr("hotbar.unequip"),unequip_icon)
 	for i in get_parent().Inventory.itemStack:
-		if i.item is ItemClass :
+		if i.item is AHL_ItemClass :
 			hotbar_choose_window.item_list.add_item(\
 				tr(i.item.name0) + "   [" + str(i.count) + "x]" ,\
 				i.item.icon)

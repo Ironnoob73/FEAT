@@ -1,6 +1,6 @@
 @tool
 extends Node3D
-class_name Interactive
+class_name AHL_Interactive
 
 signal interact_signal(interactor,sender)
 signal init_behavior_signal
@@ -8,7 +8,7 @@ signal killed_signal(interactor,sender)
 signal touch_signal
 
 @export var DisplayName : String = ""
-@export var init_behavior : Array[BehaviorClass]:
+@export var init_behavior : Array[AHL_BehaviorClass]:
 	set(behavior_in):
 		init_behavior = behavior_in
 		init_behavior_signal.emit()
@@ -16,7 +16,7 @@ signal touch_signal
 @export var Interactable : bool = false
 @export var interact_icon : String = "🤚"
 @export var interact_text : String = "interact.interact"
-@export var interact_behavior : Array[BehaviorClass]
+@export var interact_behavior : Array[AHL_BehaviorClass]
 @export var Switchable : bool = false
 @export var state : bool = false:
 	set(state_in):
@@ -27,10 +27,10 @@ signal touch_signal
 @export var Hurtable : bool = false
 @export var MaxHealth : float = 100
 @export var current_health : float
-@export var hurt_behavior : Array[BehaviorClass]
-@export var killed_behavior : Array[BehaviorClass]
+@export var hurt_behavior : Array[AHL_BehaviorClass]
+@export var killed_behavior : Array[AHL_BehaviorClass]
 @export_group("Touch")
-@export var touch_behavior : Array[BehaviorClass]
+@export var touch_behavior : Array[AHL_BehaviorClass]
 
 func _ready() -> void:
 	current_health = MaxHealth
@@ -47,7 +47,7 @@ func interact(sender):
 	
 	interact_signal.emit(self,sender)
 	
-func receive_attack(damage_res:DamageResClass,sender):
+func receive_attack(damage_res:AHL_DamageResClass,sender):
 	if Hurtable:
 		if current_health >= 0:
 			current_health -= damage_res.damage_point

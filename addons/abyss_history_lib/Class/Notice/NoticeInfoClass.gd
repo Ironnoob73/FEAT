@@ -1,5 +1,5 @@
 extends Resource
-class_name NoticeInfo
+class_name AHL_NoticeInfo
 
 @export var title : String = "notice.title.default"
 @export_enum("Info","Warning","Error") var type : String = "Info"

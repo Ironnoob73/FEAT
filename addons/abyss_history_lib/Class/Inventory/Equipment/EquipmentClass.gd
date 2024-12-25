@@ -1,5 +1,5 @@
-extends ThingClass
-class_name EquipmentClass
+extends AHL_ThingClass
+class_name AHL_EquipmentClass
 
 @export var performance : float
 @export var durability : float

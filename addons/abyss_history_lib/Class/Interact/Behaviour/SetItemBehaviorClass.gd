@@ -1,8 +1,8 @@
 @tool
-extends BehaviorClass
-class_name SetItemBehaviorClass
+extends AHL_BehaviorClass
+class_name AHL_SetItemBehaviorClass
 
-@export var ThingInstance : ThingInstanceClass
+@export var ThingInstance : AHL_ThingInstanceClass
 		
 func do(interactor,sender):
 	interactor.set_meta('thing_instance',ThingInstance)

@@ -1,5 +1,5 @@
-extends BehaviorClass
-class_name LockBehaviorClass
+extends AHL_BehaviorClass
+class_name AHL_LockBehaviorClass
 
 @export var unlock : bool = true
 @export var lock : int = 0

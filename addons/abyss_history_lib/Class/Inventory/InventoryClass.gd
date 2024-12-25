@@ -1,25 +1,25 @@
 extends Resource
-class_name InventoryClass
+class_name AHL_InventoryClass
 
 signal on_items_changed
 signal on_equipments_changed
 
-@export var itemStack : Array[ItemStackClass]
-@export var eqMeta : Array[EqMetaClass]
+@export var itemStack : Array[AHL_ItemStackClass]
+@export var eqMeta : Array[AHL_EqMetaClass]
 
 #Item
 func add_item(item_name :String , count :int = 1 ):
 	var item = AllItems.get_item_from_name(item_name)
-	if item is ItemClass:
+	if item is AHL_ItemClass:
 		var stacks = itemStack.filter(func(stack):return stack.item == item)
 		if !stacks.is_empty():
 			stacks[0].count += count
 		else:
-			var newStack = ItemStackClass.new()
+			var newStack = AHL_ItemStackClass.new()
 			newStack.item = item
 			newStack.count = count
 			itemStack.append(newStack)
-	elif item is EquipmentClass:
+	elif item is AHL_EquipmentClass:
 		add_equipment(item_name)
 		push_warning("You're trying to add equipment using the Add Item function.")
 	on_items_changed.emit()
@@ -54,8 +54,8 @@ func get_item_count_from_tr(item_name :String):
 #Equipment
 func add_equipment(eq_name :String):
 	var eq = AllItems.get_item_from_name(eq_name)
-	if eq is EquipmentClass:
-		var newEqMeta = EqMetaClass.new()
+	if eq is AHL_EquipmentClass:
+		var newEqMeta = AHL_EqMetaClass.new()
 		newEqMeta.equipment = eq
 		eqMeta.append(newEqMeta)
 	on_equipments_changed.emit()
@@ -74,17 +74,17 @@ func sort_equipment(by_performance:bool,direction:bool):
 	on_equipments_changed.emit()
 
 #Add instanced thing directly
-func add_instance(thing : ThingInstanceClass):
+func add_instance(thing : AHL_ThingInstanceClass):
 	if thing:
-		if thing is ItemStackClass :
+		if thing is AHL_ItemStackClass :
 			var stacks = itemStack.filter(func(stack):return stack.item == thing.item)
 			if !stacks.is_empty():
 				stacks[0].count += thing.count
 			else:
-				var newStack = ItemStackClass.new()
+				var newStack = AHL_ItemStackClass.new()
 				newStack.item = thing.item
 				newStack.count = thing.count
 				itemStack.append(newStack)
-		elif thing is EqMetaClass :
+		elif thing is AHL_EqMetaClass :
 			eqMeta.append(thing)
 		on_equipments_changed.emit()

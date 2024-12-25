@@ -1,5 +1,5 @@
-extends BehaviorClass
-class_name CaptionClass
+extends AHL_BehaviorClass
+class_name AHL_CaptionClass
 
 @export var text : String = ''
 

@@ -1,8 +1,8 @@
 @tool
 extends Node3D
 
-@export var chunks : Array[ChunkPath]
-@export var rooms : Array[RoomInstance]
+@export var chunks : Array[AHL_ChunkPath]
+@export var rooms : Array[AHL_RoomInstance]
 @export var background : Texture2D
 
 var room_scenes : Dictionary = {}

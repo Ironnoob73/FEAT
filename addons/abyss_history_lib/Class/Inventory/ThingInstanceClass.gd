@@ -1,2 +1,2 @@
 extends Resource
-class_name ThingInstanceClass
+class_name AHL_ThingInstanceClass

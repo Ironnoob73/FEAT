@@ -1,5 +1,5 @@
-extends BehaviorClass
-class_name SwitchBehaviorClass
+extends AHL_BehaviorClass
+class_name AHL_SwitchBehaviorClass
 
 @export var connected_node : Array[NodePath]
 

@@ -1,2 +1,2 @@
-extends ThingClass
-class_name ItemClass
+extends AHL_ThingClass
+class_name AHL_ItemClass

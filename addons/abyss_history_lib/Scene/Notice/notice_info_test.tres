@@ -1,6 +1,6 @@
-[gd_resource type="Resource" script_class="NoticeInfo" load_steps=2 format=3 uid="uid://chnrsxwossk4w"]
+[gd_resource type="Resource" script_class="AHL_NoticeInfo" load_steps=2 format=3 uid="uid://chnrsxwossk4w"]
 
-[ext_resource type="Script" path="res://Assets_Main/UI/Notice/NoticeInfoClass.gd" id="1_c1bip"]
+[ext_resource type="Script" path="res://addons/abyss_history_lib/Class/Notice/NoticeInfoClass.gd" id="1_c1bip"]
 
 [resource]
 script = ExtResource("1_c1bip")

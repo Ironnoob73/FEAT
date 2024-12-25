@@ -1,5 +1,5 @@
-extends BehaviorClass
-class_name ChangeMaterialBehaviorClass
+extends AHL_BehaviorClass
+class_name AHL_ChangeMaterialBehaviorClass
 
 @export var mesh_material : Material
 

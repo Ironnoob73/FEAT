@@ -1,5 +1,5 @@
-extends BehaviorClass
-class_name GenerateGoreBehaviorClass
+extends AHL_BehaviorClass
+class_name AHL_GenerateGoreBehaviorClass
 
 func do(interactor,sender):
 	for i in interactor.get_children():

@@ -1,5 +1,5 @@
 extends Resource
-class_name ThingClass
+class_name AHL_ThingClass
 
 @export var name0 : String
 @export var icon : Texture = preload("res://Resources/Image/missing.svg")

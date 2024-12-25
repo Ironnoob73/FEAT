@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="EToolClass" load_steps=5 format=3 uid="uid://bbhccgfvjn42n"]
+[gd_resource type="Resource" script_class="AHL_EToolClass" load_steps=5 format=3 uid="uid://bbhccgfvjn42n"]
 
 [ext_resource type="Texture2D" uid="uid://ckbeaa0264i7q" path="res://Resources/Item/weapon/range/slingshot/slingshot.svg" id="1_l1yfy"]
 [ext_resource type="Material" uid="uid://dpy1qjkamvh6q" path="res://Resources/Material/Blank.tres" id="2_8g8o1"]

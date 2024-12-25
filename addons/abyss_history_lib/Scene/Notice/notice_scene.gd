@@ -10,7 +10,7 @@ extends CanvasLayer
 
 @onready var anim: AnimationPlayer = $AnimationPlayer
 
-func get_notice_info(notice_info:NoticeInfo) -> void:
+func get_notice_info(notice_info:AHL_NoticeInfo) -> void:
 	title.text = notice_info.title
 	match notice_info.type:
 		"Info":

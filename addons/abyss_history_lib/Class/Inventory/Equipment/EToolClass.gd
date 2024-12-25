@@ -1,5 +1,5 @@
-extends EquipmentClass
-class_name EToolClass
+extends AHL_EquipmentClass
+class_name AHL_EToolClass
 
 @export_enum("undefined","wrench","special","heavy","light","shot","charge") var tool_type : String = "undefined"
 @export var scene : PackedScene

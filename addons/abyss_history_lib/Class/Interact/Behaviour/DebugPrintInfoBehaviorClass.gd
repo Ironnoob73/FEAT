@@ -1,5 +1,5 @@
-extends BehaviorClass
-class_name DebugPrintInfoBehaviorClass
+extends AHL_BehaviorClass
+class_name AHL_DebugPrintInfoBehaviorClass
 
 @export var isSender : bool = false
 @export var tag : String = ''

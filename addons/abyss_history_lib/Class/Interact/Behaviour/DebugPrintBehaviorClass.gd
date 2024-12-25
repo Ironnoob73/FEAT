@@ -1,5 +1,5 @@
-extends BehaviorClass
-class_name DebugPrintBehaviorClass
+extends AHL_BehaviorClass
+class_name AHL_DebugPrintBehaviorClass
 
 @export var text : String = ''
 

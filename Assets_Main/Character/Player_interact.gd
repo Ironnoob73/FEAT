@@ -32,7 +32,7 @@ func _physics_process(_delta):
 		_cursor.show()
 		_cursor.set_global_position(Vector3(hit_point)+Vector3(0.5,0.25,0.5))
 	# Interact
-	if is_colliding() and get_collider().get_parent() is Interactive:
+	if is_colliding() and get_collider().get_parent() is AHL_Interactive:
 		tooltip_icon.text = get_collider().get_parent().interact_icon
 		if get_collider().get_parent().Interactable == true:
 			var key_array : Array = []

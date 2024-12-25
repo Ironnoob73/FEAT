@@ -1,5 +1,5 @@
-extends BehaviorClass
-class_name ChangeColorBehaviorClass
+extends AHL_BehaviorClass
+class_name AHL_ChangeColorBehaviorClass
 
 @export var mesh_color : Color = Color(0,0,0,0)
 

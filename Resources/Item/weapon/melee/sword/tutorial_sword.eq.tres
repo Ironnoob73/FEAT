@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="EToolClass" load_steps=5 format=3 uid="uid://bjj8yywrbxut0"]
+[gd_resource type="Resource" script_class="AHL_EToolClass" load_steps=5 format=3 uid="uid://bjj8yywrbxut0"]
 
 [ext_resource type="Material" uid="uid://dpy1qjkamvh6q" path="res://Resources/Material/Blank.tres" id="1_eeniw"]
 [ext_resource type="Texture2D" uid="uid://bq3my6xal5xqm" path="res://Resources/Item/weapon/melee/sword/sword.svg" id="1_q0quc"]

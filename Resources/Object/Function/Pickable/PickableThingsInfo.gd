@@ -12,12 +12,12 @@ func model_setter():
 	if  is_instance_valid(mesh):
 		if !ThingInstance:
 			push_warning("NoThing")
-		elif ThingInstance is ItemStackClass:
+		elif ThingInstance is AHL_ItemStackClass:
 			if ThingInstance.item:
 				mesh.mesh = ThingInstance.item.model
 				mesh.material_override = ThingInstance.item.material
 			else : push_warning("NoThing")
-		elif ThingInstance is EqMetaClass:
+		elif ThingInstance is AHL_EqMetaClass:
 			if ThingInstance.equipment:
 				mesh.mesh = ThingInstance.equipment.model
 				mesh.material_override = ThingInstance.equipment.material
