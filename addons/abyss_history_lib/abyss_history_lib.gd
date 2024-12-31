@@ -13,7 +13,7 @@ func _enter_tree() -> void:
 
 	# Notice
 	add_autoload_singleton("AHL_NoticeManager","Scene/Notice/NoticeManager.gd")
-	add_custom_type("AHL_NoticeInfo","Node3D",preload("Class/Notice/NoticeInfoClass.gd"),preload("Class/Interact/InteractiveIcon.svg"))
+	add_custom_type("AHL_NoticeInfo","Node3D",preload("Class/Notice/NoticeInfoClass.gd"),preload("Class/Notice/Info.svg"))
 
 func _exit_tree() -> void:
 	remove_custom_type("AHL_ScenesPackage")

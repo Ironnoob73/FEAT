@@ -268,7 +268,7 @@ msgid "notice.content.empty"
 msgstr "[color=silver][i]未提供有效内容。[/i][/color]"
 
 msgid "notice.choice.yep"
-msgstr "好"
+msgstr "是"
 
 msgid "notice.choice.nope"
 msgstr "不"

@@ -6,5 +6,5 @@ class_name AHL_NoticeInfo
 @export_color_no_alpha var bgColor : Color = Color(0.5,0.5,0.5,1)
 @export_multiline var content : String = "notice.content.empty"
 @export var choice : bool = false
-@export var yep : String = "notice.choice.yep"
-@export var nope : String = "notice.choice.nope"
+@export var yep : String = "notice.choice.ok"
+@export var nope : String = "notice.choice.no"

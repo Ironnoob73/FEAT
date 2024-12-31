@@ -1,9 +1,11 @@
-[gd_scene load_steps=17 format=3 uid="uid://bp6c7x4dytetk"]
+[gd_scene load_steps=24 format=3 uid="uid://bp6c7x4dytetk"]
 
 [ext_resource type="Script" path="res://Title/TitleScene.gd" id="1_eqpau"]
 [ext_resource type="Theme" uid="uid://cwbdqmvx07r3k" path="res://Title/MainMenuButton_theme.tres" id="2_l7ppy"]
 [ext_resource type="Script" path="res://Title/Options.gd" id="3_5wo52"]
 [ext_resource type="Theme" uid="uid://bitmw3ij7201m" path="res://Resources/os/fatal_window/fw_theme.tres" id="4_7kevj"]
+[ext_resource type="PackedScene" uid="uid://gqwcyi21yhlc" path="res://addons/abyss_history_lib/Scene/Notice/hint_button.tscn" id="5_gpevy"]
+[ext_resource type="Script" path="res://addons/abyss_history_lib/Class/Notice/NoticeInfoClass.gd" id="6_lc4wm"]
 
 [sub_resource type="Gradient" id="Gradient_6pyre"]
 colors = PackedColorArray(0, 0.74902, 0.498039, 1, 0, 0.74902, 1, 1)
@@ -29,6 +31,16 @@ content_margin_bottom = 4.0
 bg_color = Color(0.6, 0.6, 0.6, 0)
 corner_detail = 1
 
+[sub_resource type="Resource" id="Resource_dd0px"]
+script = ExtResource("6_lc4wm")
+title = "notice.title.info"
+type = "Info"
+bgColor = Color(0, 0.501961, 1, 1)
+content = "options.game.data.disc"
+choice = false
+yep = "notice.choice.ok"
+nope = "notice.choice.no"
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m6in3"]
 content_margin_left = 8.0
 content_margin_top = 4.0
@@ -36,6 +48,46 @@ content_margin_right = 21.0
 content_margin_bottom = 4.0
 bg_color = Color(0.1, 0.1, 0.1, 0.6)
 corner_detail = 1
+
+[sub_resource type="Resource" id="Resource_44htu"]
+script = ExtResource("6_lc4wm")
+title = "notice.title.info"
+type = "Info"
+bgColor = Color(0, 0.501961, 1, 1)
+content = "options.game.use_sub_threads.disc"
+choice = false
+yep = "notice.choice.ok"
+nope = "notice.choice.no"
+
+[sub_resource type="Resource" id="Resource_j2lt3"]
+script = ExtResource("6_lc4wm")
+title = "notice.title.info"
+type = "Info"
+bgColor = Color(0, 0.501961, 1, 1)
+content = "options.game.fullscreen.disc"
+choice = false
+yep = "notice.choice.ok"
+nope = "notice.choice.no"
+
+[sub_resource type="Resource" id="Resource_u010m"]
+script = ExtResource("6_lc4wm")
+title = "notice.title.info"
+type = "Info"
+bgColor = Color(0, 0.501961, 1, 1)
+content = "options.game.sdfgi.disc"
+choice = false
+yep = "notice.choice.ok"
+nope = "notice.choice.no"
+
+[sub_resource type="Resource" id="Resource_jwxcf"]
+script = ExtResource("6_lc4wm")
+title = "notice.title.info"
+type = "Info"
+bgColor = Color(0, 0.501961, 1, 1)
+content = "options.control.auto_pickup.disc"
+choice = false
+yep = "notice.choice.ok"
+nope = "notice.choice.no"
 
 [sub_resource type="InputEventAction" id="InputEventAction_8q5da"]
 action = &"pause"
@@ -628,7 +680,7 @@ layout_mode = 2
 
 [node name="MainMenu" type="ScrollContainer" parent="Main/Panel/Control"]
 layout_mode = 1
-anchors_preset = 15
+anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
@@ -742,12 +794,16 @@ layout_mode = 2
 
 [node name="datapath_text" type="Label" parent="Main/Panel/Control/Options/Options/#options_game#/GameSetting/VSpilt/DataPath"]
 layout_mode = 2
-size_flags_horizontal = 3
 text = "options.game.data"
+
+[node name="HintButton" parent="Main/Panel/Control/Options/Options/#options_game#/GameSetting/VSpilt/DataPath" instance=ExtResource("5_gpevy")]
+layout_mode = 2
+notice = SubResource("Resource_dd0px")
 
 [node name="datapath_button" type="Button" parent="Main/Panel/Control/Options/Options/#options_game#/GameSetting/VSpilt/DataPath"]
 custom_minimum_size = Vector2(200, 35)
 layout_mode = 2
+size_flags_horizontal = 10
 focus_neighbor_left = NodePath(".")
 focus_neighbor_top = NodePath("../../Language/language_button")
 focus_neighbor_right = NodePath(".")
@@ -783,8 +839,11 @@ layout_mode = 2
 
 [node name="ust_text" type="Label" parent="Main/Panel/Control/Options/Options/#options_game#/GameSetting/VSpilt/UseSubThreads"]
 layout_mode = 2
-size_flags_horizontal = 3
 text = "options.game.use_sub_threads"
+
+[node name="HintButton" parent="Main/Panel/Control/Options/Options/#options_game#/GameSetting/VSpilt/UseSubThreads" instance=ExtResource("5_gpevy")]
+layout_mode = 2
+notice = SubResource("Resource_44htu")
 
 [node name="ust_button" type="CheckBox" parent="Main/Panel/Control/Options/Options/#options_game#/GameSetting/VSpilt/UseSubThreads"]
 layout_mode = 2
@@ -829,6 +888,10 @@ layout_mode = 2
 [node name="fullscreen_text" type="Label" parent="Main/Panel/Control/Options/Options/#options_video#/VideoSetting/VSpilt/Fullscreen"]
 layout_mode = 2
 text = "options.game.fullscreen"
+
+[node name="HintButton" parent="Main/Panel/Control/Options/Options/#options_video#/VideoSetting/VSpilt/Fullscreen" instance=ExtResource("5_gpevy")]
+layout_mode = 2
+notice = SubResource("Resource_j2lt3")
 
 [node name="fullscreen_button" type="CheckBox" parent="Main/Panel/Control/Options/Options/#options_video#/VideoSetting/VSpilt/Fullscreen"]
 texture_filter = 1
@@ -882,8 +945,11 @@ layout_mode = 2
 
 [node name="sdfgi_text" type="Label" parent="Main/Panel/Control/Options/Options/#options_video#/VideoSetting/VSpilt/SDFGI"]
 layout_mode = 2
-size_flags_horizontal = 3
 text = "options.game.sdfgi"
+
+[node name="HintButton" parent="Main/Panel/Control/Options/Options/#options_video#/VideoSetting/VSpilt/SDFGI" instance=ExtResource("5_gpevy")]
+layout_mode = 2
+notice = SubResource("Resource_u010m")
 
 [node name="sdfgi_button" type="CheckBox" parent="Main/Panel/Control/Options/Options/#options_video#/VideoSetting/VSpilt/SDFGI"]
 layout_mode = 2
@@ -1042,8 +1108,11 @@ layout_mode = 2
 
 [node name="auto_pickup_text" type="Label" parent="Main/Panel/Control/Options/Options/#options_control#/ControlSetting/VSpilt/AutoPickup"]
 layout_mode = 2
-size_flags_horizontal = 3
 text = "options.control.auto_pickup"
+
+[node name="HintButton" parent="Main/Panel/Control/Options/Options/#options_control#/ControlSetting/VSpilt/AutoPickup" instance=ExtResource("5_gpevy")]
+layout_mode = 2
+notice = SubResource("Resource_jwxcf")
 
 [node name="auto_pickup_button" type="CheckBox" parent="Main/Panel/Control/Options/Options/#options_control#/ControlSetting/VSpilt/AutoPickup"]
 layout_mode = 2

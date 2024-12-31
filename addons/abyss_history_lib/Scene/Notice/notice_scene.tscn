@@ -204,6 +204,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 theme = ExtResource("1_wlnoa")
 
 [node name="CenterContainer" type="Control" parent="Background"]
@@ -221,9 +223,12 @@ grow_vertical = 2
 [node name="Window" type="PanelContainer" parent="Background/CenterContainer"]
 material = SubResource("ShaderMaterial_4rlfe")
 clip_contents = true
-layout_mode = 2
-offset_right = 1600.0
-offset_bottom = 300.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_vertical = 3
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Background/CenterContainer/Window"]

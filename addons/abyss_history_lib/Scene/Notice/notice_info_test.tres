@@ -10,4 +10,4 @@ bgColor = Color(0, 0.501961, 1, 1)
 content = "notice.content.test0"
 choice = false
 yep = "notice.choice.ok"
-nope = "notice.choice.nope"
+nope = "notice.choice.no"

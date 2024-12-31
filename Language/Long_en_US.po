@@ -15,6 +15,22 @@ msgstr "It is strictly forbidden to enable full-screen mode when the window is m
 msgid "notice.content.test0"
 msgstr "This is a notification."
 
+#----------Options----------#
+msgid "options.game.data.disc"
+msgstr "This path is where you store your game saves. Note that your game settings will not be saved here."
+
+msgid "options.game.use_sub_threads.disc"
+msgstr "Using multithreading to load scenes can speed up loading in some cases, but it may also be slower or even cause the scene to fail to load. If you encounter the above two situations, please turn this option off."
+
+msgid "options.game.fullscreen.disc"
+msgstr "Make the game take up your entire screen. Note that due to a bug, if you enable this option while the window is maximized... forget it, [i]she[/i] will stop you."
+
+msgid "options.game.sdfgi.disc"
+msgstr "This will render the scene with a more refined effect, but may cause some visual issues and performance overhead."
+
+msgid "options.control.auto_pickup.disc"
+msgstr "If this is enabled, dropped items will be automatically picked up when you get close to them, otherwise they can only be picked up by pressing the interact key."
+
 #----------Tutorial----------#
 msgid "tutorial.move_mouse.0"
 msgstr "Move the mouse to rotate the perspective"
