@@ -113,6 +113,7 @@ func item_inv_update():
 		subitem.set_icon_max_width(0,30)
 		subitem.set_text(0,tr(i.item.name0))
 		subitem.set_tooltip_text(0,tr(i.item.get_description()))
+		#subitem.set_meta("DTooltip",i.item.get_description())
 		subitem.set_text(1,str(i.count))
 		subitem.set_text_alignment(1,HORIZONTAL_ALIGNMENT_RIGHT)
 		subitem.set_metadata(0,get_parent().Inventory.itemStack.find(i))
@@ -149,6 +150,7 @@ func equipment_inv_update():
 		subitem.set_icon_max_width(0,30)
 		subitem.set_text(0,tr(i.equipment.name0) + "   [" + str(int(((i.equipment.durability - i.damage)/i.equipment.durability)*100)) + "%]")
 		subitem.set_tooltip_text(0,tr(i.equipment.get_subname()) + "\n" + str(i.equipment.durability - i.damage) + "/" + str(i.equipment.durability))
+		#subitem.set_meta("DTooltip",i.equipment.get_subname() + "\n" + str(i.equipment.durability - i.damage) + "/" + str(i.equipment.durability))
 		subitem.set_text(1,str(i.equipment.performance))
 		subitem.set_text_alignment(1,HORIZONTAL_ALIGNMENT_RIGHT)
 		subitem.set_metadata(0,get_parent().Inventory.eqMeta.find(i))
@@ -177,24 +179,33 @@ func hotbar_refresh():
 			if get_parent().Inventory.ToolHotbar[child.get_index()]:
 				var tool_info = get_parent().Inventory.ToolHotbar[child.get_index()]
 				child.icon = tool_info.equipment.icon
-				child.set_tooltip_text(\
+				#child.set_tooltip_text(\
+				#	tr(tool_info.equipment.name0) + "\n" +\
+				#	str(tool_info.equipment.durability - tool_info.damage) + "/" + str(tool_info.equipment.durability) + "\n" + \
+				#	tr(tool_info.equipment.get_subname()) )
+				child.set_meta("DTooltip",\
 					tr(tool_info.equipment.name0) + "\n" +\
 					str(tool_info.equipment.durability - tool_info.damage) + "/" + str(tool_info.equipment.durability) + "\n" + \
 					tr(tool_info.equipment.get_subname()) )
 			else:
 				child.icon = null
-				child.set_tooltip_text("hotbar.empty")
+				#child.set_tooltip_text("hotbar.empty")
+				child.set_meta("DTooltip","hotbar.empty")
 	for child in item_hotbar.get_children():
 		if child is Button :
 			if get_parent().Inventory.ItemHotbar[child.get_index()]:
 				var item_info = get_parent().Inventory.ItemHotbar[child.get_index()]
 				child.icon = item_info.icon
-				child.set_tooltip_text(\
+				#child.set_tooltip_text(\
+				#	tr(item_info.name0) + "\n" +\
+				#	str(get_parent().Inventory.get_item_count_from_tr(item_info.name0)) )
+				child.set_meta("DTooltip",\
 					tr(item_info.name0) + "\n" +\
 					str(get_parent().Inventory.get_item_count_from_tr(item_info.name0)) )
 			else:
 				child.icon = null
-				child.set_tooltip_text("hotbar.empty")
+				#child.set_tooltip_text("hotbar.empty")
+				child.set_meta("DTooltip","hotbar.empty")
 func choose_tool(index:int):
 	current_hotbar_type = false
 	current_hotbar_index = index

@@ -3,9 +3,9 @@
 [ext_resource type="Script" path="res://addons/abyss_history_lib/Scene/Notice/notice_scene.gd" id="1_nkyr1"]
 [ext_resource type="Shader" path="res://addons/abyss_history_lib/Scene/Notice/notice_window.gdshader" id="1_npwpv"]
 [ext_resource type="Theme" uid="uid://c7r4nopyum74m" path="res://addons/abyss_history_lib/Scene/Notice/notice_theme.tres" id="1_wlnoa"]
-[ext_resource type="PackedScene" uid="uid://bx3yqwkfeu6k0" path="res://addons/abyss_history_lib/Scene/DynamicTooltip/Icon/Info.tscn" id="3_admhn"]
-[ext_resource type="PackedScene" uid="uid://1mlyansvlmd" path="res://addons/abyss_history_lib/Scene/DynamicTooltip/Icon/Warning.tscn" id="5_yqe8l"]
-[ext_resource type="PackedScene" uid="uid://jewjuqdob1ta" path="res://addons/abyss_history_lib/Scene/DynamicTooltip/Icon/Error.tscn" id="6_sdkan"]
+[ext_resource type="PackedScene" uid="uid://bx3yqwkfeu6k0" path="res://addons/abyss_history_lib/Scene/Notice/Icon/Info.tscn" id="3_admhn"]
+[ext_resource type="PackedScene" uid="uid://1mlyansvlmd" path="res://addons/abyss_history_lib/Scene/Notice/Icon/Warning.tscn" id="5_yqe8l"]
+[ext_resource type="PackedScene" uid="uid://jewjuqdob1ta" path="res://addons/abyss_history_lib/Scene/Notice/Icon/Error.tscn" id="6_sdkan"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4rlfe"]
 shader = ExtResource("1_npwpv")
