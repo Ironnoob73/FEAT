@@ -11,6 +11,8 @@ func _enter_tree() -> void:
 	#	Attack
 	#add_custom_type("Hurtable","AHL_Interactive",preload("Class/Interact/Attack/HurtableClass.gd"),preload("Class/Interact/Attack/HurtableIcon.svg"))
 
+	# Load
+	add_autoload_singleton("AHL_LoadManager","Scene/LoadingScreen/LoadManager.gd")
 	# Notice
 	add_autoload_singleton("AHL_NoticeManager","Scene/Notice/NoticeManager.gd")
 	add_custom_type("AHL_NoticeInfo","Node3D",preload("Class/Notice/NoticeInfoClass.gd"),preload("Class/Notice/Info.svg"))
@@ -22,6 +24,8 @@ func _exit_tree() -> void:
 	
 	remove_custom_type("AHL_Interactive")
 	#remove_custom_type("AHL_Hurtable")
+	
+	remove_autoload_singleton("AHL_LoadManager")
 	
 	remove_autoload_singleton("AHL_NoticeManager")
 	remove_custom_type("AHL_NoticeInfo")

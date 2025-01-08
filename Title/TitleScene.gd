@@ -41,12 +41,12 @@ func _on_confirm_button_pressed():
 
 # World
 func _on_start_button_pressed():
-	LoadManager.load_scene("res://Assets_Main/World/WorldMain.tscn")
+	AHL_LoadManager.load_scene("res://Assets_Main/World/WorldMain.tscn")
 	Global.isInGame = true
 
 # Uncomplete
 func _on_continue_button_pressed():
-	AHL_NoticeManager.show_notice(load("res://Assets_Main/UI/Notice/notice_info_test.tres"))
+	pass
 	
 # Unused TTS
 	# One-time steps.

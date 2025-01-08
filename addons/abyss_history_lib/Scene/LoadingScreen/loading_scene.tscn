@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://dgryi4o5pkshw"]
 
-[ext_resource type="Script" path="res://Assets_Main/UI/LoadingScreen/loading_scene.gd" id="1_ev2b1"]
+[ext_resource type="Script" path="res://addons/abyss_history_lib/Scene/LoadingScreen/loading_scene.gd" id="1_ev2b1"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1i3ra"]
 bg_color = Color(0, 0, 0, 1)

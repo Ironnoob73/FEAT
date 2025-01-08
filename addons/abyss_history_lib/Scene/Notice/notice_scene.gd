@@ -7,6 +7,8 @@ extends CanvasLayer
 @onready var window: PanelContainer = $Background/CenterContainer/Window
 
 @onready var info_img: Node2D = $Background/CenterContainer/Window/HBoxContainer/LeftBlank/Info
+@onready var warning_img: Node2D = $Background/CenterContainer/Window/HBoxContainer/LeftBlank/Warning
+@onready var error_img: Node2D = $Background/CenterContainer/Window/HBoxContainer/LeftBlank/Error
 
 @onready var anim: AnimationPlayer = $AnimationPlayer
 
@@ -15,7 +17,16 @@ func get_notice_info(notice_info:AHL_NoticeInfo = AHL_NoticeInfo.new()) -> void:
 	match notice_info.type:
 		"Info":
 			info_img.visible = true
-			info_img.play()
+			warning_img.visible = false
+			error_img.visible = false
+		"Warning":
+			info_img.visible = false
+			warning_img.visible = true
+			error_img.visible = false
+		"Error":
+			info_img.visible = false
+			warning_img.visible = false
+			error_img.visible = true
 	
 	window.material.set_shader_parameter("color",notice_info.bgColor)
 	info.text = notice_info.content

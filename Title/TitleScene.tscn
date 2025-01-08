@@ -1,11 +1,11 @@
-[gd_scene load_steps=24 format=3 uid="uid://bp6c7x4dytetk"]
+[gd_scene load_steps=23 format=3 uid="uid://bp6c7x4dytetk"]
 
 [ext_resource type="Script" path="res://Title/TitleScene.gd" id="1_eqpau"]
 [ext_resource type="Theme" uid="uid://cwbdqmvx07r3k" path="res://Title/MainMenuButton_theme.tres" id="2_l7ppy"]
 [ext_resource type="Script" path="res://Title/Options.gd" id="3_5wo52"]
-[ext_resource type="Theme" uid="uid://bitmw3ij7201m" path="res://Resources/os/fatal_window/fw_theme.tres" id="4_7kevj"]
 [ext_resource type="PackedScene" uid="uid://gqwcyi21yhlc" path="res://addons/abyss_history_lib/Scene/Notice/hint_button.tscn" id="5_gpevy"]
 [ext_resource type="Script" path="res://addons/abyss_history_lib/Class/Notice/NoticeInfoClass.gd" id="6_lc4wm"]
+[ext_resource type="PackedScene" uid="uid://dnof7wcs0plpt" path="res://addons/abyss_history_lib/Scene/DynamicTooltip/tooltip_scene.tscn" id="7_3hhti"]
 
 [sub_resource type="Gradient" id="Gradient_6pyre"]
 colors = PackedColorArray(0, 0.74902, 0.498039, 1, 0, 0.74902, 1, 1)
@@ -55,16 +55,6 @@ title = "notice.title.info"
 type = "Info"
 bgColor = Color(0, 0.501961, 1, 1)
 content = "options.game.use_sub_threads.disc"
-choice = false
-yep = "notice.choice.ok"
-nope = "notice.choice.no"
-
-[sub_resource type="Resource" id="Resource_j2lt3"]
-script = ExtResource("6_lc4wm")
-title = "notice.title.info"
-type = "Info"
-bgColor = Color(0, 0.501961, 1, 1)
-content = "options.game.fullscreen.disc"
 choice = false
 yep = "notice.choice.ok"
 nope = "notice.choice.no"
@@ -889,25 +879,11 @@ layout_mode = 2
 layout_mode = 2
 text = "options.game.fullscreen"
 
-[node name="HintButton" parent="Main/Panel/Control/Options/Options/#options_video#/VideoSetting/VSpilt/Fullscreen" instance=ExtResource("5_gpevy")]
-layout_mode = 2
-notice = SubResource("Resource_j2lt3")
-
 [node name="fullscreen_button" type="CheckBox" parent="Main/Panel/Control/Options/Options/#options_video#/VideoSetting/VSpilt/Fullscreen"]
 texture_filter = 1
 layout_mode = 2
 size_flags_horizontal = 10
 flat = true
-
-[node name="fullscreen_warn" type="AcceptDialog" parent="Main/Panel/Control/Options/Options/#options_video#/VideoSetting/VSpilt/Fullscreen/fullscreen_button"]
-title = ""
-initial_position = 2
-size = Vector2i(500, 250)
-unresizable = true
-theme = ExtResource("4_7kevj")
-ok_button_text = "button.confirm"
-dialog_text = "fatal_window.fullscreen_warning"
-dialog_autowrap = true
 
 [node name="EmptyR" type="Control" parent="Main/Panel/Control/Options/Options/#options_video#/VideoSetting/VSpilt/Fullscreen"]
 custom_minimum_size = Vector2(20, 0)
@@ -1132,6 +1108,7 @@ layout_mode = 2
 [node name="BackButton" type="Button" parent="Main/Panel/Control/Options"]
 layout_mode = 2
 shortcut = SubResource("Shortcut_elb6v")
+shortcut_in_tooltip = false
 text = "button.back"
 alignment = 0
 
@@ -1191,6 +1168,11 @@ theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 text = "title.press_to_start"
 
+[node name="TooltipScene" parent="." instance=ExtResource("7_3hhti")]
+layout_mode = 0
+offset_right = 51.9998
+offset_bottom = 22.9999
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_pqf80")
@@ -1206,7 +1188,6 @@ libraries = {
 [connection signal="dir_selected" from="Main/Panel/Control/Options/Options/#options_game#/GameSetting/VSpilt/DataPath/datapath_button/path_choose" to="Main/Panel/Control/Options" method="_on_path_choose_dir_selected"]
 [connection signal="toggled" from="Main/Panel/Control/Options/Options/#options_game#/GameSetting/VSpilt/UseSubThreads/ust_button" to="Main/Panel/Control/Options" method="_on_ust_button_toggled"]
 [connection signal="toggled" from="Main/Panel/Control/Options/Options/#options_video#/VideoSetting/VSpilt/Fullscreen/fullscreen_button" to="Main/Panel/Control/Options" method="_on_fullscreen_button_toggled"]
-[connection signal="close_requested" from="Main/Panel/Control/Options/Options/#options_video#/VideoSetting/VSpilt/Fullscreen/fullscreen_button/fullscreen_warn" to="Main/Panel/Control/Options" method="_on_fullscreen_warn_close_requested"]
 [connection signal="value_changed" from="Main/Panel/Control/Options/Options/#options_video#/VideoSetting/VSpilt/Scale/scale_button" to="Main/Panel/Control/Options" method="_on_scale_button_value_changed"]
 [connection signal="toggled" from="Main/Panel/Control/Options/Options/#options_video#/VideoSetting/VSpilt/SDFGI/sdfgi_button" to="Main/Panel/Control/Options" method="_on_sdfgi_button_toggled"]
 [connection signal="value_changed" from="Main/Panel/Control/Options/Options/#options_audio#/AudioSetting/VSpilt/Master/master_button" to="Main/Panel/Control/Options" method="_on_master_button_value_changed"]

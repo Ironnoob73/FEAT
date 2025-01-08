@@ -46,7 +46,7 @@ func _on_confirm_button_pressed():
 	hide()
 	if !get_parent().isInVR :	Global.back_to_title()
 	else :
-		LoadManager.load_scene(Global.get_world_path(Global.VRDim),Global.VRPos,Global.VRRot)
+		AHL_LoadManager.load_scene(Global.get_world_path(Global.VRDim),Global.VRPos,Global.VRRot)
 func _on_cancel_button_pressed():
 	if current_menu == "Exit":
 		current_menu = "Pause"

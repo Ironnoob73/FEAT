@@ -63,7 +63,7 @@ func load_config():
 
 # Back to title
 func back_to_title():
-	LoadManager.load_scene("res://Title/TitleScene.tscn")
+	AHL_LoadManager.load_scene("res://Title/TitleScene.tscn")
 	isInGame = false
 	
 # Get World Path

@@ -5,7 +5,6 @@ extends VBoxContainer
 @onready var UseSubThreads = $"Options/#options_game#/GameSetting/VSpilt/UseSubThreads/ust_button"
 
 @onready var Fullscreen = $"Options/#options_video#/VideoSetting/VSpilt/Fullscreen/fullscreen_button"
-@onready var fullscreen_warn = $"Options/#options_video#/VideoSetting/VSpilt/Fullscreen/fullscreen_button/fullscreen_warn"
 @onready var Scale = $"Options/#options_video#/VideoSetting/VSpilt/Scale/scale_button"
 @onready var Sdfgi = $"Options/#options_video#/VideoSetting/VSpilt/SDFGI/sdfgi_button"
 
@@ -71,16 +70,16 @@ func _on_fullscreen_button_toggled(toggled_on):
 	if toggled_on == true :
 		if DisplayServer.window_get_mode() != 2:
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
-		else :	fullscreen_warn.show()
+		else :
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+			await get_tree().create_timer(0.0001).timeout
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 	else :
 		while DisplayServer.window_get_mode() != 0:
 			#DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_MAXIMIZED)
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 			DisplayServer.window_set_size(Vector2(1600,900))
 	Global.save_config()
-func _on_fullscreen_warn_close_requested():
-	await get_tree().create_timer(0.0001).timeout
-	fullscreen_warn.show()
 # Scale
 func _on_scale_button_value_changed(value):
 	get_window().content_scale_factor = value

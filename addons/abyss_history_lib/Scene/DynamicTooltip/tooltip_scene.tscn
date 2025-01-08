@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://dnof7wcs0plpt"]
+
+[ext_resource type="Script" path="res://addons/abyss_history_lib/Scene/DynamicTooltip/tooltip_scene.gd" id="1_g4l1s"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vopgd"]
+bg_color = Color(0, 0, 0, 0.498039)
+corner_radius_top_left = 10
+corner_detail = 1
+
+[node name="TooltipScene" type="Panel"]
+clip_contents = true
+theme_override_styles/panel = SubResource("StyleBoxFlat_vopgd")
+script = ExtResource("1_g4l1s")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 2
+offset_right = 1.0
+offset_bottom = 23.0
+text = "tooltip"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0

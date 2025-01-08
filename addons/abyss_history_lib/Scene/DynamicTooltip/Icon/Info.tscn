@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://bx3yqwkfeu6k0"]
 
-[ext_resource type="Script" path="res://Resources/Image/NativeAnimation/info.gd" id="1_5ebga"]
+[ext_resource type="Script" path="res://addons/abyss_history_lib/Scene/DynamicTooltip/Icon/info.gd" id="1_5ebga"]
 
 [sub_resource type="Animation" id="Animation_wn4mj"]
 length = 0.001
