@@ -47,6 +47,8 @@ var perspective_size : float = 10
 var perspective_from : Vector2
 
 @onready var interact_ray = $PlayerCam/InteractRay
+@onready var Facing = $PlayerCam/Facing
+@onready var FacingTarget = $PlayerCam/Facing/FacingTarget
 @onready var interact_ray_tp: RayCast3D = $ThirdPerosnCam/InteractRayTP
 @onready var interact_ray_tp_test: RayCast3D = $ThirdPerosnCam/InteractRayTP/InteractRayTPTest
 @onready var cursor3: MeshInstance3D = $Cursor3
@@ -490,6 +492,9 @@ func mouse_mode(isVisible:bool)->void:
 	else :	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
 # Attack
+## 主要（左键）攻击。根据装备的[enum AHL_EToolClass.send_type]判断近远程类型。
+## 如果是近战武器，将手持武器的伤害数据（空手伤害+武器伤害，若未持有任何武器则只发送空手伤害）发送至[method player.attack]。
+## 如果是远程武器，则不发送伤害数据，而是发射子弹。
 func main_attack(press:bool):
 	if press == true && att_idle == true && att_sec == false:
 		att_idle = false
@@ -501,10 +506,17 @@ func main_attack(press:bool):
 		if handheld_tool:
 			hand_held_fp.MainAttack(handheld_tool.equipment.attack_type,handheld_tool.equipment.delay)
 			tween.tween_property(self, "att_idle", true, 0).set_delay(handheld_tool.equipment.delay)
-			attack(1+handheld_tool.equipment.performance,handheld_tool.equipment.damage_type)
+			match handheld_tool.equipment.send_type:
+				"Melee":
+					attack(1+handheld_tool.equipment.performance,handheld_tool.equipment.damage_type)
+				"Range":
+					pass
+			for i in handheld_tool.equipment.main_behavior:
+				i.do(handheld_tool,self)
 		else:
 			tween.tween_property(self, "att_idle", true, 0).set_delay(0.5)
 			attack(1)
+## 次要（右键）攻击，预期用法和[method player.main_attack]相同但主要用于瞄准或防御，还没做。
 func secondary_attack(press:bool):
 	pass
 func set_attack_animation(type:String = "Light"):
@@ -515,6 +527,7 @@ func set_attack_animation(type:String = "Light"):
 		"DoubleHand":	mesh.animation_tree["parameters/AttackStateMachine/conditions/DoubleHand"] = true
 		"Light":	mesh.animation_tree["parameters/AttackStateMachine/conditions/Light"] = true
 		"Aimable":	mesh.animation_tree["parameters/AttackStateMachine/conditions/Aimable"] = true
+## 将从[method player.main_attack]接收到的攻击数据发送给攻击范围内的受击者。
 func attack(damage_point:float,attack_type:String = "Normal"):
 	for i in attack_area.get_overlapping_bodies():
 		if i.get_parent() is AHL_Interactive and i.get_parent().Hurtable == true:
@@ -524,7 +537,8 @@ func attack(damage_point:float,attack_type:String = "Normal"):
 			damage_res.attack_type = attack_type
 			i.get_parent().receive_attack(damage_res,self)
 
-#Name
+# Name
+## 返回玩家的名字，默认为“匿名者”，如果名称为空则返回玩家节点的字符串形式。
 func get_player_name() -> String:
 	if player_name:
 		return player_name

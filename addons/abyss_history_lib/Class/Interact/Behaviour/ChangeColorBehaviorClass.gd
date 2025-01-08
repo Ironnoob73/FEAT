@@ -1,5 +1,6 @@
 extends AHL_BehaviorClass
 class_name AHL_ChangeColorBehaviorClass
+## 改变自身网格体颜色的行为。
 
 @export var mesh_color : Color = Color(0,0,0,0)
 

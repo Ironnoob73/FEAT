@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://ctmeic4k3kgow"]
+
+[ext_resource type="Script" path="res://Resources/Item/weapon/range/slingshot/projectiles_scene.gd" id="1_l5njo"]
+[ext_resource type="Material" uid="uid://dpy1qjkamvh6q" path="res://Resources/Material/Blank.tres" id="2_mx5hu"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_re7gj"]
+size = Vector3(0.1, 0.1, 0.1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_awexh"]
+material = ExtResource("2_mx5hu")
+size = Vector3(0.1, 0.1, 0.1)
+
+[node name="ProjectilesScene" type="RigidBody3D"]
+collision_layer = 64
+collision_mask = 2
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+gravity_scale = 0.25
+script = ExtResource("1_l5njo")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_re7gj")
+
+[node name="Mesh" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_awexh")

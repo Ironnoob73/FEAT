@@ -1,5 +1,6 @@
 extends AHL_BehaviorClass
 class_name AHL_GenerateGoreBehaviorClass
+## 生成尸块行为，首先需要通过命名为[code]GorePreloader[/code]的[ResourcePreloader]预加载尸块场景。
 
 func do(interactor,sender):
 	for i in interactor.get_children():

@@ -11,6 +11,8 @@ class_name AHL_ThingClass
 @export var pos_rotation : Vector3 = Vector3(0,0,0)
 @export var pos_scale : Vector3 = Vector3(1,1,1)
 
+@export var main_behavior : Array[AHL_BehaviorClass]
+
 func get_description() -> String:
 	if description :	return description
 	else :	return name0 + ".description"

@@ -1,5 +1,6 @@
 extends AHL_BehaviorClass
 class_name AHL_ChangeMaterialBehaviorClass
+## 改变自身网格体材质的行为。
 
 @export var mesh_material : Material
 

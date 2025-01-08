@@ -1,5 +1,6 @@
 extends AHL_BehaviorClass
 class_name AHL_DebugPrintInfoBehaviorClass
+## 在聊天栏打印自身相关信息的行为。
 
 @export var isSender : bool = false
 @export var tag : String = ''

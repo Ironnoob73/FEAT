@@ -1,5 +1,6 @@
 extends AHL_BehaviorClass
 class_name AHL_SwitchBehaviorClass
+## 开关行为，交互时同时调整连接到自身的节点。
 
 @export var connected_node : Array[NodePath]
 

@@ -62,7 +62,8 @@ folder_colors={
 "res://Language/": "teal",
 "res://Resources/": "blue",
 "res://Title/": "gray",
-"res://addons/": "yellow"
+"res://addons/": "yellow",
+"res://script_templates/": "orange"
 }
 
 [gui]
@@ -247,6 +248,7 @@ locale/translations=PackedStringArray("res://Language/Main_en_US.po", "res://Lan
 3d_physics/layer_4="Decorate"
 3d_physics/layer_5="NoCullDeco"
 3d_physics/layer_6="LowerLimit"
+3d_physics/layer_7="Bullet"
 
 [physics]
 

@@ -1,15 +1,23 @@
-[gd_resource type="Resource" script_class="AHL_EToolClass" load_steps=5 format=3 uid="uid://bbhccgfvjn42n"]
+[gd_resource type="Resource" script_class="AHL_EToolClass" load_steps=9 format=3 uid="uid://bbhccgfvjn42n"]
 
 [ext_resource type="Texture2D" uid="uid://ckbeaa0264i7q" path="res://Resources/Item/weapon/range/slingshot/slingshot.svg" id="1_l1yfy"]
 [ext_resource type="Material" uid="uid://dpy1qjkamvh6q" path="res://Resources/Material/Blank.tres" id="2_8g8o1"]
+[ext_resource type="Script" path="res://addons/abyss_history_lib/Class/Interact/Behaviour/_BehaviorClass.gd" id="2_gt2hc"]
 [ext_resource type="ArrayMesh" uid="uid://c1mwcxkljouib" path="res://Resources/Item/weapon/range/slingshot/y_stick.obj" id="3_3iaes"]
+[ext_resource type="PackedScene" uid="uid://ctmeic4k3kgow" path="res://Resources/Item/weapon/range/slingshot/projectiles_scene.tscn" id="3_7iv7k"]
 [ext_resource type="Script" path="res://addons/abyss_history_lib/Class/Inventory/Equipment/EToolClass.gd" id="4_pdci8"]
+[ext_resource type="Script" path="res://addons/abyss_history_lib/Class/Interact/Behaviour/Item/weapon/RangeProjectilesBehaviorClass.gd" id="4_wrgxf"]
+
+[sub_resource type="Resource" id="Resource_rwkma"]
+script = ExtResource("4_wrgxf")
+projectiles = ExtResource("3_7iv7k")
 
 [resource]
 script = ExtResource("4_pdci8")
 tool_type = "shot"
 hitbox = Vector3(0.25, 0.25, 1)
 attack_type = "Aimable"
+send_type = "Melee"
 damage_type = "Normal"
 performance = 1.0
 durability = 100.0
@@ -23,3 +31,4 @@ description = "item.no_des"
 pos_offset = Vector3(0, 0, 0)
 pos_rotation = Vector3(0, 0, 0)
 pos_scale = Vector3(0.5, 0.5, 0.5)
+main_behavior = Array[ExtResource("2_gt2hc")]([SubResource("Resource_rwkma")])
