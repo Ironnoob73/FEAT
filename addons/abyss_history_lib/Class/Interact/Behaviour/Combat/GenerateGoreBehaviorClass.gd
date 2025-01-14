@@ -10,4 +10,4 @@ func do(interactor,sender):
 				interactor.get_parent().add_child(loaded_gore)
 				loaded_gore.set_global_transform(interactor.get_global_transform())
 				if self.has_meta("damage_res"):
-					loaded_gore.receive_attack(self.get_meta("damage_res"))
+					loaded_gore.receive_final_attack(self.get_meta("damage_res"))

@@ -1,5 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://v2j546pk6a4k"]
+[gd_scene load_steps=8 format=3 uid="uid://v2j546pk6a4k"]
 
+[ext_resource type="Script" path="res://Assets_Main/Character/PlayerHUDStatesBar.gd" id="1_5dexk"]
 [ext_resource type="Texture2D" uid="uid://b4soesc0r8cwl" path="res://Resources/Image/hp_type/hp_t0.svg" id="1_gcjl0"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i0115"]
@@ -22,6 +23,7 @@ texture = SubResource("GradientTexture1D_654ha")
 [node name="PlayerHudStatesBar" type="Control"]
 layout_mode = 3
 anchors_preset = 0
+script = ExtResource("1_5dexk")
 
 [node name="Background" type="PanelContainer" parent="."]
 layout_mode = 1

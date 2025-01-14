@@ -69,6 +69,9 @@ var current_hotbar : int = 0
 var handheld_tool : AHL_EqMetaClass
 @onready var HUD_hotbar = $HudHotbar
 
+@export var MaxHealth : float = 100
+@export var current_health : float = 100
+
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
@@ -517,7 +520,7 @@ func main_attack(press:bool):
 			tween.tween_property(self, "att_idle", true, 0).set_delay(0.5)
 			attack(1)
 ## 次要（右键）攻击，预期用法和[method player.main_attack]相同但主要用于瞄准或防御，还没做。
-func secondary_attack(press:bool):
+func secondary_attack(_press:bool):
 	pass
 func set_attack_animation(type:String = "Light"):
 	mesh.animation_tree["parameters/AttackStateMachine/conditions/DoubleHand"] = false
@@ -536,7 +539,10 @@ func attack(damage_point:float,attack_type:String = "Normal"):
 			damage_res.damage_point = damage_point
 			damage_res.attack_type = attack_type
 			i.get_parent().receive_attack(damage_res,self)
-
+func receive_attack(damage_res:AHL_DamageResClass,sender):
+	if current_health >= 0:
+		current_health -= damage_res.damage_point
+	
 # Name
 ## 返回玩家的名字，默认为“匿名者”，如果名称为空则返回玩家节点的字符串形式。
 func get_player_name() -> String:

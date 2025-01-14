@@ -248,11 +248,12 @@ locale/translations=PackedStringArray("res://Language/Main_en_US.po", "res://Lan
 3d_physics/layer_4="Decorate"
 3d_physics/layer_5="NoCullDeco"
 3d_physics/layer_6="LowerLimit"
-3d_physics/layer_7="Bullet"
+3d_physics/layer_7="Projectiles"
 
 [physics]
 
 3d/run_on_separate_thread=true
+3d/physics_engine="JoltPhysics3D"
 3d/default_gravity=10.0
 
 [rendering]

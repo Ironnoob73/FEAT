@@ -3,7 +3,7 @@ extends Node3D
 @export var global_time : int = 0
 @export var time_speed : int = 1
 
-@onready var player = $Player
+@onready var player0 = $Player
 @onready var background = $FalordMap
 
 @onready var SCENES_PACKAGE: Node3D = $ScenesPackage
@@ -17,8 +17,8 @@ extends Node3D
 func _ready():
 	_on_options_set_sdfgi(Global.Sdfgi)
 	if !Global.playerTeleported :
-		player.position = Global.playerPos
-		player.rotation = Global.playerRot
+		player0.position = Global.playerPos
+		player0.rotation = Global.playerRot
 		Global.playerTeleported = true
 
 func _on_options_set_sdfgi(value : bool):
@@ -52,9 +52,9 @@ func _physics_process(_delta):
 		sun.visible = false
 		
 #func _process(delta: float) -> void:
-	#background.position.x = player.position.x - (player.position.x + 4352)/12288
-	#background.position.y = player.position.y - player.position.y/12288 + 0.5
-	#background.position.z = player.position.z - (player.position.z - 4352)/12288
+	#background.position.x = player0.position.x - (player0.position.x + 4352)/12288
+	#background.position.y = player0.position.y - player0.position.y/12288 + 0.5
+	#background.position.z = player0.position.z - (player0.position.z - 4352)/12288
 	
 func change_scene(location:String,pos:Vector3):
 	match location :
@@ -72,4 +72,4 @@ func change_scene(location:String,pos:Vector3):
 				remove_child(next_scene)
 			next_scene = SCENES_PACKAGE.room_scenes.get(location)
 			add_child(next_scene)
-	player.position = pos
+	player0.position = pos

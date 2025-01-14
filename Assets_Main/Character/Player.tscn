@@ -228,6 +228,7 @@ collision_mask = 26
 script = ExtResource("2_fls23")
 
 [node name="Facing" type="RayCast3D" parent="PlayerCam"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5)
 target_position = Vector3(0, 0, -1)
 
 [node name="FacingTarget" type="Node3D" parent="PlayerCam/Facing"]
