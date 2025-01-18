@@ -18,6 +18,7 @@ tool_type = "shot"
 hitbox = Vector3(0.25, 0.25, 1)
 attack_type = "Aimable"
 send_type = "Range"
+ammo_total = -1
 damage_type = "Normal"
 performance = 1.0
 durability = 100.0

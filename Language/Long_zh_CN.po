@@ -56,8 +56,8 @@ msgstr "按下[color=yellow]TAB[/color]打开物品栏"
 msgid "tutorial.pick_item.2"
 msgstr "在[color=yellow]“状态”[/color]选项下装备物品"
 
-msgid "tutorial.attack.0"
+msgid "tutorial.melee.0"
 msgstr "点击[color=yellow]鼠标左键[/color]使用工具或武器"
 
-msgid "tutorial.attack.1"
+msgid "tutorial.melee.1"
 msgstr "部分装备也具有[color=yellow]右键[/color]功能"

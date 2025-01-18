@@ -212,9 +212,10 @@ func _unhandled_input(_event):
 		isThirdPerson = !isThirdPerson
 		switch_perspectives()
 
-# From : https://github.com/majikayogames/godot-character-controller-stairs/blob/main/entities/Player/Player.gd
 var _was_on_floor_last_frame = false
 var _snapped_to_stairs_last_frame = false
+## 下楼梯检测。
+## From : https://github.com/majikayogames/godot-character-controller-stairs/blob/main/entities/Player/Player.gd
 func _snap_down_to_stairs_check():
 	var did_snap = false
 	if not ( is_on_floor() or isClimb ) and velocity.y <= 0 and (_was_on_floor_last_frame or _snapped_to_stairs_last_frame) and $StairsBelowRayCast3D.is_colliding():
@@ -236,7 +237,8 @@ var _cur_frame = 0
 @export var _jump_frame_grace = 5
 var _last_frame_was_on_floor = -_jump_frame_grace - 1
 
-# From : https://github.com/majikayogames/SimpleFPSController/blob/main/FPSController/FPSController.gd
+## 将其他物体推开。
+## From : https://github.com/majikayogames/SimpleFPSController/blob/main/FPSController/FPSController.gd
 func _push_away_rigid_bodies():
 	for i in get_slide_collision_count():
 		var c := get_slide_collision(i)
@@ -254,7 +256,8 @@ func _push_away_rigid_bodies():
 			# 5.0 is a magic number, adjust to your needs
 			var push_force = mass_ratio * 5.0
 			c.get_collider().apply_impulse(push_dir * velocity_diff_in_push_dir * push_force, c.get_position() - c.get_collider().global_position)
-# From : https://github.com/majikayogames/SimpleFPSController/blob/main/FPSController/FPSController.gd
+## 站立表面是否太陡检测。
+## From : https://github.com/majikayogames/SimpleFPSController/blob/main/FPSController/FPSController.gd
 func is_surface_too_steep(normal : Vector3) -> bool:
 	return normal.angle_to(Vector3.UP) > self.floor_max_angle
 func _snap_up_stairs_check(delta) -> bool:
@@ -418,6 +421,7 @@ func refresh_handheld(index:int):
 				hitbox.shape.size = Vector3(0.25,0.25,1.5)
 				hitbox.position.z = -0.5
 				HUD_hotbar.set_info(current_hotbar)
+				HUD_hotbar.set_ammo_info(false)
 	if hand_held.get_children():
 		for i in hand_held.get_children():
 			if isThirdPerson:
@@ -432,6 +436,8 @@ func refresh_handheld_info():
 		handheld_tool.equipment.name0,\
 		handheld_tool.equipment.icon,\
 		((handheld_tool.equipment.durability - handheld_tool.damage)/handheld_tool.equipment.durability)*100)
+	#if handheld_tool.equipment.send_type == "Range":
+	HUD_hotbar.set_ammo_info(handheld_tool.equipment.send_type == "Range", handheld_tool.equipment.ammo_total)
 		
 func refresh_player_mesh():
 	if mesh.right_hand_pos != null:
@@ -539,7 +545,7 @@ func attack(damage_point:float,attack_type:String = "Normal"):
 			damage_res.damage_point = damage_point
 			damage_res.attack_type = attack_type
 			i.get_parent().receive_attack(damage_res,self)
-func receive_attack(damage_res:AHL_DamageResClass,sender):
+func receive_attack(damage_res:AHL_DamageResClass,_sender):
 	if current_health >= 0:
 		current_health -= damage_res.damage_point
 	

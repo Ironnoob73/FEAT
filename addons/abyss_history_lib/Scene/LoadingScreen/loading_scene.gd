@@ -1,5 +1,5 @@
 extends CanvasLayer
-#from : https://www.youtube.com/watch?v=Wnkc_qUXYWs
+## @tutorial(From): https://forum.godotengine.org/t/how-to-keep-surface-material-override-didnt-change/59110 https://www.youtube.com/watch?v=Wnkc_qUXYWs
 
 @onready var animation : AnimationPlayer = $AnimationPlayer
 @onready var progress_bar : ProgressBar = $Background/ProgressBar

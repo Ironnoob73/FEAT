@@ -109,7 +109,7 @@ height = 0.4
 
 [node name="Player" type="CharacterBody3D" groups=["Hurtable"]]
 collision_layer = 4
-collision_mask = 15
+collision_mask = 143
 floor_max_angle = 0.872665
 script = ExtResource("1_twfth")
 

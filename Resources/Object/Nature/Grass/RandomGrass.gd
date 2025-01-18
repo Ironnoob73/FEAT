@@ -1,6 +1,6 @@
 extends MultiMeshInstance3D
 
-# From : https://forum.godotengine.org/t/help-with-multimeshinstance3d/49546/5
+## @tutorial(From): https://forum.godotengine.org/t/how-to-keep-surface-material-override-didnt-change/59110 https://forum.godotengine.org/t/help-with-multimeshinstance3d/49546/5
 @onready var grass = $Grass.mesh
 
 func _ready():

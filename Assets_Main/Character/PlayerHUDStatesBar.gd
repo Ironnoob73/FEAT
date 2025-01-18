@@ -4,7 +4,7 @@ extends Control
 @onready var remain: Label = $Background/HBox/Bar/Info/Remain
 @onready var progress: Label = $Background/HBox/Bar/Info/Progress
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	bar.max_value = get_parent().MaxHealth
 	bar.value = get_parent().current_health
 	remain.text = str(get_parent().current_health) + "/" + str(get_parent().MaxHealth)

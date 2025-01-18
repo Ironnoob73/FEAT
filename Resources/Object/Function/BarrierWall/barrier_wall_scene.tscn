@@ -4,7 +4,7 @@
 [ext_resource type="Material" uid="uid://mlq53v5mtv75" path="res://Resources/Object/Function/BarrierWall/BarrierWallTex.tres" id="2_rrnlq"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_cibf8"]
-size = Vector3(1, 5, 0)
+size = Vector3(1, 5, 0.001)
 
 [node name="Barrier" type="StaticBody3D"]
 collision_layer = 3

@@ -7,6 +7,6 @@ An opensource godot project.<br>
 
 The goal of this project is to implement as much functionality as possible in Godot for all the features required for an open-world game and to open-source them to learn from each other.
 
-需要额外安装[Godot-Jolt](https://github.com/godot-jolt/godot-jolt/releases/tag/v0.14.0-stable)插件。
+需要额外安装[Godot-Jolt](https://github.com/godot-jolt/godot-jolt/releases/tag/v0.14.0-stable)，[gdfxr](https://github.com/timothyqiu/gdfxr/tree/godot-4/addons/gdfxr)插件。
 
-You need to install the [Godot-Jolt](https://github.com/godot-jolt/godot-jolt/releases/tag/v0.14.0-stable) plugin additionally.
+You need to install the [Godot-Jolt](https://github.com/godot-jolt/godot-jolt/releases/tag/v0.14.0-stable) and [gdfxr](https://github.com/timothyqiu/gdfxr/tree/godot-4/addons/gdfxr) plugin additionally.

@@ -56,8 +56,8 @@ msgstr "Press [color=yellow]TAB[/color] to open the inventory"
 msgid "tutorial.pick_item.2"
 msgstr "Equip items under the [color=yellow]\"Status\"[/color] option"
 
-msgid "tutorial.attack.0"
+msgid "tutorial.melee.0"
 msgstr "[color=yellow]Left-click[/color] to use a tool or weapon"
 
-msgid "tutorial.attack.1"
+msgid "tutorial.melee.1"
 msgstr "Some equipment also has a [color=yellow]right-click[/color] function"

@@ -1,5 +1,5 @@
 extends TouchScreenButton
-#from : BV16A4m1A7gA
+## @tutorial(From): https://www.bilibili.com/video/BV16A4m1A7gA
 
 var finger_index := -1
 var drag_offset : Vector2

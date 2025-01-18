@@ -53,7 +53,7 @@ window/size/viewport_height=900
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/abyss_history_lib/plugin.cfg")
+enabled=PackedStringArray("res://addons/abyss_history_lib/plugin.cfg", "res://addons/gdfxr/plugin.cfg")
 
 [file_customization]
 
@@ -249,12 +249,14 @@ locale/translations=PackedStringArray("res://Language/Main_en_US.po", "res://Lan
 3d_physics/layer_5="NoCullDeco"
 3d_physics/layer_6="LowerLimit"
 3d_physics/layer_7="Projectiles"
+3d_physics/layer_8="Barrier-PlayerOnly"
 
 [physics]
 
 3d/run_on_separate_thread=true
 3d/physics_engine="JoltPhysics3D"
 3d/default_gravity=10.0
+jolt_3d/collisions/areas_detect_static_bodies=true
 
 [rendering]
 
