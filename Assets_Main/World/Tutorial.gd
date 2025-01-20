@@ -19,7 +19,7 @@ func _on_timer_timeout():
 func _input(event):
 	if event is InputEventMouseMotion and step == 0:	step = 1
 func _process(_delta):
-	if step == 1 and player0.position.x != 0 and player.position.z != 0 :	step = 2
+	if step == 1 and player0.position.x != 0 and player0.position.z != 0 :	step = 2
 	if step == 4 and player0.Inventory.get_tool("weapon_TutorialSword") :	step = 5
 func _on_parkour_waypoint_touch():
 	if step == 2 : step = 3

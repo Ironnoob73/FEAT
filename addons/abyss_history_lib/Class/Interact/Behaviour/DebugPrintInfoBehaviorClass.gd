@@ -13,4 +13,4 @@ func do(interactor,sender):
 				result = 'interactor.' + tag + ':' + str(interactor.get(tag))
 		elif sender.get(tag):
 			result = 'sender.' + tag + ':' + str(sender.get(tag))
-		sender.chat_menu.send_message("[Debug: " + result + "]")
+		sender.chat_menu.append_message("[Debug: " + result + "]")

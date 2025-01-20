@@ -160,16 +160,18 @@ func _unhandled_input(_event):
 				hand_held.get_child(0).setting_off()
 			"Chat":
 				current_menu = "HUD"
+				mouse_mode(false)
 				chat_menu.isInput = false
 	# Chat
 	if Input.is_action_just_pressed("chat"):
 		match current_menu:
 			"HUD":
 				current_menu = "Chat"
+				mouse_mode(true)
 				chat_menu.isInput = true
-			"Chat":
-				current_menu = "HUD"
-				chat_menu.isInput = false
+			#"Chat":
+			#	current_menu = "HUD"
+			#	chat_menu.isInput = false
 	# Inventory
 	if Input.is_action_just_pressed("inventory"):
 		match current_menu :
@@ -202,7 +204,7 @@ func _unhandled_input(_event):
 			current_hotbar = 4
 			refresh_handheld(current_hotbar)
 	# UnSit
-	if isSit and ( Input.is_action_pressed("ui_accept") or Input.is_action_pressed("crouch")) :
+	if isSit and ( Input.is_action_pressed("jump") or Input.is_action_pressed("crouch")) :
 		var tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUART).set_parallel(true)
 		tween.tween_property(mesh.animation_tree,"parameters/Sit/add_amount",0,0.5)
 		isSit = false
@@ -300,7 +302,8 @@ func _physics_process(delta):
 	_cur_frame += 1
 	if is_on_floor() :
 		_last_frame_was_on_floor = _cur_frame
-	if Input.is_action_just_pressed("ui_accept") and (is_on_floor() or _cur_frame - _last_frame_was_on_floor <= _jump_frame_grace):
+	if current_menu == "HUD" \
+	and Input.is_action_just_pressed("jump") and (is_on_floor() or _cur_frame - _last_frame_was_on_floor <= _jump_frame_grace):
 		velocity.y = JUMP_VELOCITY
 	
 	# Move Input.
@@ -336,7 +339,7 @@ func _physics_process(delta):
 	# Climb
 	if isClimb:
 		if current_menu == "HUD":
-			input_vec.y = Input.get_action_strength("ui_accept") - Input.get_action_strength("crouch")
+			input_vec.y = Input.get_action_strength("jump") - Input.get_action_strength("crouch")
 		velocity.y = lerp(velocity.y,input_vec.y * SPEED , ACCELERATION)
 	if velocity.y * input_vec.y <= 0 and velocity.y!=0 and isClimb:
 		velocity.y = lerp(velocity.y,0.0,FRICTION)

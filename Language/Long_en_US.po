@@ -61,3 +61,9 @@ msgstr "[color=yellow]Left-click[/color] to use a tool or weapon"
 
 msgid "tutorial.melee.1"
 msgstr "Some equipment also has a [color=yellow]right-click[/color] function"
+
+msgid "tutorial.range.0"
+msgstr "Use the [color=yellow]Mouse wheel[/color] or the [color=yellow]Number keys 1 to 5[/color] to switch equipment."
+
+msgid "tutorial.range.1"
+msgstr "Aim at the target with a ranged weapon (This time projectiles will pass through barriers)"

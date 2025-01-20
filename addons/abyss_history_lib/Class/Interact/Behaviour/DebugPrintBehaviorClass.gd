@@ -6,4 +6,4 @@ class_name AHL_DebugPrintBehaviorClass
 
 func do(interactor,sender):
 	if sender is player:
-		sender.chat_menu.send_message("[Debug: " + text + "]")
+		sender.chat_menu.append_message("[Debug: " + text + "]")

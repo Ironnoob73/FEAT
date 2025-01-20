@@ -61,3 +61,9 @@ msgstr "点击[color=yellow]鼠标左键[/color]使用工具或武器"
 
 msgid "tutorial.melee.1"
 msgstr "部分装备也具有[color=yellow]右键[/color]功能"
+
+msgid "tutorial.range.0"
+msgstr "使用[color=yellow]鼠标滚轮[/color]或[color=yellow]数字键1~5[/color]切换装备"
+
+msgid "tutorial.range.1"
+msgstr "瞄准目标使用远程武器（此时射弹可以穿过屏障）"

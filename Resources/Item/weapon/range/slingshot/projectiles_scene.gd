@@ -13,6 +13,7 @@ func _on_body_shape_entered(_body_rid: RID, body: Node, _body_shape_index: int, 
 			body.get_parent().receive_attack(damage_res,user)
 		else:
 			body.receive_attack(damage_res,user)
+		$Timer.start()
 
 func _on_timer_timeout() -> void:
 	self.queue_free()
