@@ -1,7 +1,7 @@
 @tool
-extends Node
+class_name OcclusionLogic
 
-func occlusion_setter(obj:Node):
+static func occlusion_setter(obj:Node):
 	if is_instance_valid(obj.occlusion_obj):
 		match obj.occlusion:
 			"none" :

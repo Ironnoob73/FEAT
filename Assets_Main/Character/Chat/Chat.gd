@@ -5,8 +5,9 @@ extends PanelContainer
 @onready var chat_list: RichTextLabel = $VBoxContainer/RichTextLabel
 @onready var send_button: Button = $VBoxContainer/InputBar/SendButton
 
-var send_history : Array[String]
+var send_history : Array[String] = []
 var current_history : int = -1
+var last_input: String = ""
 
 var isInput : bool = false:
 	set(state):
@@ -43,7 +44,7 @@ func send_message():
 				if command.get_argument_count() == argu_in.size():
 					command.callv(argu_in)
 				else:
-					append_message("[i]Parameter count mismatch, expect %s, get %s.[/i]" \
+					append_message("[i]Parameter count mismatch, expect %s, got %s.[/i]" \
 						% [str(command.get_argument_count()),argu_in])
 			else:
 				append_message("[i]No command called %s.[/i] " % edit.text.trim_prefix("#").get_slice("(",0))
@@ -51,9 +52,12 @@ func send_message():
 			append_message(get_parent().get_player_name() + ": " + edit.text)
 		send_history.append(edit.text)
 	edit.text = ""
+	last_input = ""
 	current_history = -1
 
 func append_history(up:bool = true):
+	if current_history == -1:
+		last_input = edit.text
 	if send_history.size() != 0:
 		if up:
 			if current_history == -1:
@@ -69,9 +73,10 @@ func append_history(up:bool = true):
 				current_history += 1
 	if send_history.size() != 0 and current_history != -1 and current_history <= send_history.size() -1:
 		edit.text = send_history[current_history]
+		edit.set_caret_column.call_deferred(edit.text.length())
 	else:
 		current_history = -1
-		edit.text = ""
+		edit.text = last_input
 	
 func _on_send_button_pressed() -> void:
 	send_message()
