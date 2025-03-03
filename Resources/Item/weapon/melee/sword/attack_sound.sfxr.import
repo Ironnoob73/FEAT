@@ -1,0 +1,17 @@
+[remap]
+
+importer="com.timothyqiu.gdfxr.importer"
+type="AudioStreamWAV"
+uid="uid://twtfd5uxrpw6"
+path="res://.godot/imported/attack_sound.sfxr-690fd6192e73ea29041c68d2e056581f.sample"
+
+[deps]
+
+source_file="res://Resources/Item/weapon/melee/sword/attack_sound.sfxr"
+dest_files=["res://.godot/imported/attack_sound.sfxr-690fd6192e73ea29041c68d2e056581f.sample"]
+
+[params]
+
+loop=false
+bit_depth=0
+sample_rate=0

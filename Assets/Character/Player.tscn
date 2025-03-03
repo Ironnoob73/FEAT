@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://bk6ihg1vf71uf"]
+[gd_scene load_steps=40 format=3 uid="uid://bk6ihg1vf71uf"]
 
 [ext_resource type="Script" path="res://Assets/Character/Player.gd" id="1_twfth"]
 [ext_resource type="Material" uid="uid://b0vyuvvjptrtg" path="res://Resources/Material/RedAlpha.tres" id="2_5ji8l"]
@@ -13,6 +13,8 @@
 [ext_resource type="Script" path="res://Assets/Character/Mouse.gd" id="5_qmagh"]
 [ext_resource type="Shader" path="res://Assets/Character/Cursor.gdshader" id="5_u5uvm"]
 [ext_resource type="PackedScene" uid="uid://v2j546pk6a4k" path="res://Assets/Character/PlayerHUDStatesBar.tscn" id="6_b8jq2"]
+[ext_resource type="AudioStream" uid="uid://bv2prris0qtxv" path="res://Resources/Sound/Walk/Stone.sfxr" id="7_3s6wt"]
+[ext_resource type="AudioStream" uid="uid://boa5kcdgiypnr" path="res://Resources/Sound/Walk/Grass.sfxr" id="8_g3qhk"]
 [ext_resource type="PackedScene" uid="uid://tnlamai5w4yx" path="res://Assets/Character/VirtualJoypad/VirtualJoypad.tscn" id="8_ox0si"]
 [ext_resource type="PackedScene" uid="uid://cgea2weecephm" path="res://Assets/Character/Chat/Chat.tscn" id="10_gspbl"]
 [ext_resource type="PackedScene" uid="uid://dnof7wcs0plpt" path="res://addons/abyss_history_lib/Scene/DynamicTooltip/tooltip_scene.tscn" id="16_suql0"]
@@ -249,6 +251,13 @@ collision_mask = 11
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.9, 0)
 target_position = Vector3(0, -0.5, 0)
 collision_mask = 11
+
+[node name="GroundRayCast" type="RayCast3D" parent="."]
+target_position = Vector3(0, -0.25, 0)
+metadata/SoundList = {
+"Grass": ExtResource("8_g3qhk"),
+"Stone": ExtResource("7_3s6wt")
+}
 
 [node name="Transition" type="ColorRect" parent="."]
 anchors_preset = 15

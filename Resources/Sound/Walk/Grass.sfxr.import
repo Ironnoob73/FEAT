@@ -1,0 +1,17 @@
+[remap]
+
+importer="com.timothyqiu.gdfxr.importer"
+type="AudioStreamWAV"
+uid="uid://boa5kcdgiypnr"
+path="res://.godot/imported/Grass.sfxr-8875e734759a3618ee1cf046d6dfef7c.sample"
+
+[deps]
+
+source_file="res://Resources/Sound/Walk/Grass.sfxr"
+dest_files=["res://.godot/imported/Grass.sfxr-8875e734759a3618ee1cf046d6dfef7c.sample"]
+
+[params]
+
+loop=false
+bit_depth=0
+sample_rate=0

@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://bcp40gisqlrka"]
+[gd_scene load_steps=47 format=3 uid="uid://bcp40gisqlrka"]
 
 [ext_resource type="Script" path="res://Assets/World/Location/_ZhuShan/C2_CentralSquare.gd" id="1_lf70u"]
 [ext_resource type="Material" uid="uid://4hlgj1u74iny" path="res://Resources/Material/ConcreteBricks.tres" id="2_pjbdn"]
@@ -7,7 +7,9 @@
 [ext_resource type="Texture2D" uid="uid://bpwnl4y4ypxpn" path="res://Assets/World/Location/_ZhuShan/Sources/CentralPark/CentralSquareGround_normal.png" id="5_rrqoc"]
 [ext_resource type="Material" uid="uid://cur0jmwbk5e0p" path="res://Resources/Material/YellowStoneBricks.tres" id="5_vcbrp"]
 [ext_resource type="ArrayMesh" uid="uid://dx4eb8v6beyws" path="res://Assets/World/Location/_ZhuShan/Sources/CentralPark/giant_obelisk.obj" id="6_unmh6"]
+[ext_resource type="Material" uid="uid://c88w6y6onry0f" path="res://Assets/World/Location/_ZhuShan/Sources/CentralPark/giant_obelisk_top.tres" id="8_5vjea"]
 [ext_resource type="Material" uid="uid://dcwav4237d0l3" path="res://Resources/Material/GrassGround.tres" id="9_7ejq8"]
+[ext_resource type="Material" uid="uid://bxlhdyu5wuth" path="res://Assets/World/Location/_ZhuShan/Sources/CentralPark/giant_obelisk_base.tres" id="9_pqpgv"]
 [ext_resource type="Material" uid="uid://bfkoreool5vno" path="res://Resources/Material/Water.tres" id="10_m28ra"]
 [ext_resource type="Material" uid="uid://cd5yiswprfdyd" path="res://Resources/Material/Foliage.tres" id="12_5nuw8"]
 [ext_resource type="ArrayMesh" uid="uid://c2vdl14mctiih" path="res://Resources/Object/Nature/Tree/Leaves.obj" id="14_xalwj"]
@@ -122,6 +124,7 @@ use_collision = true
 collision_layer = 3
 mesh = SubResource("PlaneMesh_1ldni")
 material = ExtResource("9_7ejq8")
+metadata/GroundMaterial = "Grass"
 
 [node name="CenterNegative" type="CSGCylinder3D" parent="GrassGround"]
 operation = 2
@@ -159,6 +162,8 @@ material = SubResource("ShaderMaterial_oxum2")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.5, 0)
 mesh = ExtResource("6_unmh6")
 skeleton = NodePath("../../..")
+surface_material_override/0 = ExtResource("8_5vjea")
+surface_material_override/1 = ExtResource("9_pqpgv")
 
 [node name="Parterre" type="CSGBox3D" parent="GrassGround/Ground/Obelisk"]
 transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 0, -3, 0)
@@ -360,6 +365,7 @@ use_collision = true
 collision_layer = 3
 size = Vector3(24, 0.1, 10)
 material = ExtResource("20_bsqhj")
+metadata/GroundMaterial = "Grass"
 
 [node name="Ncurb" type="CSGBox3D" parent="EastGround/MainRoad"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5.25)
@@ -461,6 +467,7 @@ use_collision = true
 collision_layer = 3
 mesh = SubResource("PlaneMesh_w61fd")
 material = ExtResource("9_7ejq8")
+metadata/GroundMaterial = "Grass"
 
 [node name="Ecurb" type="CSGBox3D" parent="SouthEntrance/SWGrassground"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.25, 0, 0)

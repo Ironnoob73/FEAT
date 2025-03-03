@@ -1,0 +1,17 @@
+[remap]
+
+importer="com.timothyqiu.gdfxr.importer"
+type="AudioStreamWAV"
+uid="uid://bv2prris0qtxv"
+path="res://.godot/imported/Stone.sfxr-8ec49689f2b541a4047372de4b505bc2.sample"
+
+[deps]
+
+source_file="res://Resources/Sound/Walk/Stone.sfxr"
+dest_files=["res://.godot/imported/Stone.sfxr-8ec49689f2b541a4047372de4b505bc2.sample"]
+
+[params]
+
+loop=false
+bit_depth=0
+sample_rate=0

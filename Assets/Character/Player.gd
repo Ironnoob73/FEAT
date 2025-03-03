@@ -45,15 +45,17 @@ var perspective_in_rotate : bool = false
 var perspective_rad : float = 0
 var perspective_size : float = 10
 var perspective_from : Vector2
-
+# Interact
 @onready var interact_ray = $PlayerCam/InteractRay
 @onready var Facing = $PlayerCam/Facing
 @onready var FacingTarget = $PlayerCam/Facing/FacingTarget
 @onready var interact_ray_tp: RayCast3D = $ThirdPerosnCam/InteractRayTP
 @onready var interact_ray_tp_test: RayCast3D = $ThirdPerosnCam/InteractRayTP/InteractRayTPTest
 @onready var cursor3: MeshInstance3D = $Cursor3
-
+# Environment interact
 @onready var _climb_area = $PlayerColl/ClimbArea
+@onready var _ground_ray_cast: RayCast3D = $GroundRayCast
+var _walk_length: float = 0
 
 @onready var transition: ColorRect = $Transition
 @onready var caption = $Caption
@@ -380,6 +382,24 @@ func _process(_delta):
 	# Hitbox Debug
 	hitbox_debug.position = hitbox.position
 	hitbox_debug.mesh.size = hitbox.shape.size
+	
+	# Play walk sound
+	if _ground_ray_cast.is_colliding() and velocity.length() > 0:
+		if _walk_length >= 200:
+			_walk_length = 0
+			if _ground_ray_cast.get_meta("SoundList","no") is Dictionary:
+				var soundPlayer: AudioStreamPlayer3D = AudioStreamPlayer3D.new()
+				get_tree().get_root().add_child(soundPlayer)
+				soundPlayer.global_position = global_position
+				soundPlayer.bus = "SFX"
+				if _ground_ray_cast.get_meta("SoundList","no").has(_ground_ray_cast.get_collider().get_meta("GroundMaterial","Stone")):
+					soundPlayer.stream = _ground_ray_cast.get_meta("SoundList","no").get(_ground_ray_cast.get_collider().get_meta("GroundMaterial","Stone"))
+					soundPlayer.play()
+					soundPlayer.connect("finished",func():soundPlayer.queue_free(),1)
+				else:
+					soundPlayer.queue_free()
+		else:
+			_walk_length += velocity.length()
 	
 func _forward_strength(value:float) -> float:
 	if (-2 * value + 1) > 0:
