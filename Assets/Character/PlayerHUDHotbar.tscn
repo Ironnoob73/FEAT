@@ -1,0 +1,183 @@
+[gd_scene load_steps=11 format=3 uid="uid://cerd3suomf3u2"]
+
+[ext_resource type="Script" path="res://Assets/Character/PlayerHUDHotbar.gd" id="1_n1xen"]
+[ext_resource type="Texture2D" uid="uid://b83wbfcan3w3n" path="res://Resources/Image/Default/ammo.svg" id="2_s3jgx"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r1otf"]
+bg_color = Color(0.247059, 0.247059, 0.247059, 0.498039)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hiod7"]
+bg_color = Color(0.498039, 0.247059, 0.247059, 0.498039)
+
+[sub_resource type="Gradient" id="Gradient_125rg"]
+colors = PackedColorArray(0, 0.74902, 0, 1, 0, 1, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_654ha"]
+gradient = SubResource("Gradient_125rg")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_f7jpl"]
+texture = SubResource("GradientTexture1D_654ha")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d4rs6"]
+bg_color = Color(0, 0, 0, 0.0392157)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xkmdl"]
+bg_color = Color(0, 0, 0, 0)
+border_width_left = 1
+border_width_right = 1
+border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y2ny2"]
+content_margin_top = 3.0
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 2
+border_width_right = 2
+border_color = Color(0.8, 0.8, 0.8, 0)
+
+[node name="PlayerHud" type="Control"]
+layout_mode = 3
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 0
+script = ExtResource("1_n1xen")
+
+[node name="HotBar" type="HBoxContainer" parent="."]
+layout_direction = 3
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -70.0
+offset_right = 250.0
+grow_vertical = 0
+theme_override_constants/separation = 0
+
+[node name="IconBackground" type="PanelContainer" parent="HotBar"]
+custom_minimum_size = Vector2(70, 0)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_r1otf")
+
+[node name="Margin" type="MarginContainer" parent="HotBar/IconBackground"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="Icon" type="TextureRect" parent="HotBar/IconBackground/Margin"]
+layout_mode = 2
+expand_mode = 5
+stretch_mode = 5
+
+[node name="HotbatInfo" type="VBoxContainer" parent="HotBar"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 0
+alignment = 2
+
+[node name="FreeName" type="Control" parent="HotBar/HotbatInfo"]
+layout_mode = 2
+
+[node name="Name" type="Label" parent="HotBar/HotbatInfo/FreeName"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -35.0
+offset_right = 180.0
+grow_vertical = 0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 25
+
+[node name="Durability" type="ProgressBar" parent="HotBar/HotbatInfo"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_hiod7")
+theme_override_styles/fill = SubResource("StyleBoxTexture_f7jpl")
+
+[node name="CurrentSlot" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -60.0
+offset_top = -23.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+text = "0"
+horizontal_alignment = 2
+
+[node name="AmmoBg" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -50.0
+offset_top = -50.0
+offset_bottom = -70.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_d4rs6")
+
+[node name="Ammo" type="HBoxContainer" parent="AmmoBg"]
+layout_mode = 2
+theme_override_constants/separation = 0
+alignment = 2
+
+[node name="AmmoInfo" type="VBoxContainer" parent="AmmoBg/Ammo"]
+layout_mode = 2
+theme_override_constants/separation = 0
+alignment = 2
+
+[node name="Label" type="Label" parent="AmmoBg/Ammo/AmmoInfo"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "10/10"
+vertical_alignment = 1
+
+[node name="ProgressBar" type="ProgressBar" parent="AmmoBg/Ammo/AmmoInfo"]
+layout_mode = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_xkmdl")
+theme_override_styles/fill = SubResource("StyleBoxFlat_y2ny2")
+max_value = 1.0
+value = 1.0
+show_percentage = false
+
+[node name="Inf" type="Control" parent="AmmoBg/Ammo"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="AmmoBg/Ammo/Inf"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -56.0
+offset_top = -55.0
+offset_bottom = 55.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 80
+text = "∞"
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="AmmoBg/Ammo"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="AmmoBg/Ammo/MarginContainer"]
+layout_mode = 2
+texture = ExtResource("2_s3jgx")

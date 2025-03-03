@@ -1,0 +1,66 @@
+[gd_scene load_steps=12 format=3 uid="uid://bcu7q26iw4y3q"]
+
+[ext_resource type="PackedScene" uid="uid://d02kgnj63nygs" path="res://Assets/World/Location/_ZhuShan/Sources/DowntownBuildings/TravelAgencyRoom.glb" id="1_sdkrh"]
+[ext_resource type="PackedScene" uid="uid://c5nkwuac4jut0" path="res://Resources/Object/Building/Door/PlainDoor/frame_scene.tscn" id="2_kppcn"]
+[ext_resource type="PackedScene" uid="uid://ds1bb3oh6akpf" path="res://Resources/Object/Building/Door/PlainDoor/door_scene.tscn" id="3_0g6xs"]
+[ext_resource type="PackedScene" uid="uid://bgelaund2s486" path="res://Resources/Object/Building/Window/CasementWindow/window_scene.tscn" id="4_idiah"]
+[ext_resource type="Script" path="res://addons/abyss_history_lib/Class/Interact/Behaviour/_BehaviorClass.gd" id="4_le32w"]
+[ext_resource type="PackedScene" uid="uid://dgamoawgoj1oe" path="res://Resources/Object/Building/Window/SlidingWindow/window_scene.tscn" id="5_coceq"]
+[ext_resource type="PackedScene" uid="uid://ogtwuy5brc0t" path="res://Resources/Object/Building/Switch/Common/switch_scene.tscn" id="6_4jyuc"]
+[ext_resource type="PackedScene" uid="uid://coan3h6n6wobt" path="res://Resources/Object/Building/Light/FluorescentLamp/light_scene.tscn" id="7_0twap"]
+[ext_resource type="Script" path="res://addons/abyss_history_lib/Class/Interact/Behaviour/SwitchBehaviorClass.gd" id="8_mxyjl"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_dvrn3"]
+data = PackedVector3Array(4, -6.5, -1, 4, -7.5, -5, 4, -6.5, -4.0001, -4, -7.5, 5, 0.4999, -6.5, 5, -1.0001, -6.5, 5, 4, -4.5, 3.9999, 4, -3.5, 5, 4, -4.5, 5, 4, -4.5, 3.9999, 4, -4.5, 1, 4, -3.5, 5, 4, -6.5, 3.9999, 4, -7.5, 5, 4, -6.5, 1, 4, -6.5, 3.9999, 4, -6.5, 5, 4, -7.5, 5, 0.4999, -6.5, 5, 1.5, -4.5, 5, 0.4999, -4.5, 5, 0.4999, -6.5, 5, 1.5, -6.5, 5, 1.5, -4.5, 5, -1.0001, -4.5, 5, 0.4999, -4.5, 5, -4, -3.5, 5, 4, -3.5, -5, 4, -6.5, -4.0001, 4, -7.5, -5, 4, -3.5, -5, 4, -4.5, -4.0001, 4, -6.5, -4.0001, 0.4999, -6.5, 5, 4, -7.5, 5, 1.5, -6.5, 5, 0.4999, -6.5, 5, -4, -7.5, 5, 4, -7.5, 5, 4, -4.5, 5, 3, -6.5, 5, 4, -6.5, 5, 4, -4.5, 5, 3, -4.5, 5, 3, -6.5, 5, 4, -6.5, 5, 1.5, -6.5, 5, 4, -7.5, 5, 4, -6.5, 5, 3, -6.5, 5, 1.5, -6.5, 5, 3, -4.5, 5, 4, -3.5, 5, 1.5, -4.5, 5, 3, -4.5, 5, 4, -4.5, 5, 4, -3.5, 5, -4, -3.5, -5, 4, -7.5, -5, -4, -7.5, -5, -4, -3.5, -5, 4, -3.5, -5, 4, -7.5, -5, 4, -4.5, 1, 4, -6.5, -1, 4, -4.5, -1, 4, -4.5, 1, 4, -6.5, 1, 4, -6.5, -1, 4, -4.5, -4.0001, 4, -3.5, -5, 4, -4.5, -1, 4, -3.5, -5, 4, -4.5, 1, 4, -4.5, -1, 4, -3.5, -5, 4, -3.5, 5, 4, -4.5, 1, -1.0001, -4.5, 5, -4, -7.5, 5, -1.0001, -6.5, 5, -1.0001, -4.5, 5, -4, -3.5, 5, -4, -7.5, 5, 0.4999, -4.5, 5, 4, -3.5, 5, -4, -3.5, 5, 0.4999, -4.5, 5, 1.5, -4.5, 5, 4, -3.5, 5, 4, -6.5, 5, 4, -4.5, 3.9999, 4, -4.5, 5, 4, -6.5, 5, 4, -6.5, 3.9999, 4, -4.5, 3.9999, 4, -6.5, -1, 4, -7.5, 5, 4, -7.5, -5, 4, -6.5, -1, 4, -6.5, 1, 4, -7.5, 5, -4, -7.5, -3.2, -4, -3.5, -5, -4, -7.5, -5, -4, -7.5, -3.2, -4, -5, -3.2, -4, -3.5, -5, -4, -5, -1.8, -4, -7.5, 5, -4, -3.5, 5, -4, -5, -1.8, -4, -7.5, -1.8, -4, -7.5, 5, -4, -5, -3.2, -4, -3.5, 5, -4, -3.5, -5, -4, -5, -3.2, -4, -5, -1.8, -4, -3.5, 5, 4, -3.5, -5, -4, -3.5, 5, 4, -3.5, 5, 4, -3.5, -5, -4, -3.5, -5, -4, -3.5, 5, -4, -7.5, -5, 4, -7.5, -5, -4, -7.5, -3.2, -4, -7.5, 5, -4, -7.5, -1.8, 4, -7.5, 5, 4, -7.5, 5, -4, -7.5, -3.2, 4, -7.5, -5, 4, -7.5, 5, -4, -7.5, -1.8, -4, -7.5, -3.2)
+
+[sub_resource type="Resource" id="Resource_iy8rn"]
+script = ExtResource("8_mxyjl")
+connected_node = Array[NodePath]([NodePath("../FluorescentLampScene1"), NodePath("../FluorescentLampScene2")])
+
+[node name="TravelAgencyRoom1" type="StaticBody3D"]
+collision_layer = 3
+
+[node name="Mesh" parent="." instance=ExtResource("1_sdkrh")]
+
+[node name="CollisionShape" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.5, 0)
+shape = SubResource("ConcavePolygonShape3D_dvrn3")
+
+[node name="FrameScene" parent="." instance=ExtResource("2_kppcn")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -4, 0, -2.5)
+ToLocation = "TravelAgency_SideStair"
+ToLocationPos = Vector3(2, 4, -2.5)
+
+[node name="DoorPlate" parent="FrameScene" instance=ExtResource("3_0g6xs")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+interact_text = "interact.close"
+state = true
+
+[node name="CasementWindowScene1" parent="." instance=ExtResource("4_idiah")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 2.5, 1, 5)
+occlusion = "none"
+
+[node name="CasementWindowScene2" parent="." instance=ExtResource("4_idiah")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, -1, -0.5, 1, 5)
+occlusion = "none"
+
+[node name="SlidingWindowScene1" parent="." instance=ExtResource("5_coceq")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 4, 1, 2.5)
+occlusion = "none"
+
+[node name="SlidingWindowScene2" parent="." instance=ExtResource("5_coceq")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 4, 1, -2.5)
+occlusion = "none"
+
+[node name="SwitchScene" parent="." instance=ExtResource("6_4jyuc")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -4, 1.5, -1.5)
+interact_behavior = Array[ExtResource("4_le32w")]([SubResource("Resource_iy8rn")])
+state = true
+
+[node name="FluorescentLampScene1" parent="." instance=ExtResource("7_0twap")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, -2.5)
+lit = false
+
+[node name="FluorescentLampScene2" parent="." instance=ExtResource("7_0twap")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 2.5)
+lit = false

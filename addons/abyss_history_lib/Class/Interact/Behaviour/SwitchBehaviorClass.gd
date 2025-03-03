@@ -4,7 +4,7 @@ class_name AHL_SwitchBehaviorClass
 
 @export var connected_node : Array[NodePath]
 
-func do(interactor,sender):
+func do(interactor:Node,sender:Node) -> void:
 	for i in connected_node :
 		var Ni = interactor.get_node(i)
 		if Ni.is_in_group("Switchable") :

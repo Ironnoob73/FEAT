@@ -1,0 +1,175 @@
+[gd_scene load_steps=19 format=3 uid="uid://c0hvltjdip61f"]
+
+[ext_resource type="Script" path="res://Assets/World/WorldMain.gd" id="1_4lhai"]
+[ext_resource type="PackedScene" uid="uid://bk6ihg1vf71uf" path="res://Assets/Character/Player.tscn" id="1_ur16q"]
+[ext_resource type="Shader" path="res://Resources/Shader/sky.gdshader" id="2_pgb2y"]
+[ext_resource type="Texture2D" uid="uid://dx2blvlx1qx1" path="res://Resources/Image/map/Map001_detailed.png" id="5_61s7l"]
+[ext_resource type="PackedScene" uid="uid://dqyequp22c8rg" path="res://Assets/World/Location/_ZhuShan/_ScenesPackage.tscn" id="7_ort8i"]
+[ext_resource type="ArrayMesh" uid="uid://dsqrubw167opv" path="res://Resources/Object/Terrain/FalordMap.obj" id="8_ko6el"]
+[ext_resource type="Material" uid="uid://dtcokq66lcuki" path="res://Resources/Material/Sea.tres" id="11_hgrt0"]
+
+[sub_resource type="Gradient" id="Gradient_imnon"]
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_slkoq"]
+gradient = SubResource("Gradient_imnon")
+
+[sub_resource type="Gradient" id="Gradient_0rqhi"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.9)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_252vq"]
+noise_type = 2
+frequency = 0.75
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_etwj1"]
+width = 128
+height = 128
+color_ramp = SubResource("Gradient_0rqhi")
+noise = SubResource("FastNoiseLite_252vq")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_v7icx"]
+shader = ExtResource("2_pgb2y")
+shader_parameter/day_top_color = Color(0.38, 0.45, 0.55, 1)
+shader_parameter/day_bottom_color = Color(0.64, 0.65, 0.67, 1)
+shader_parameter/sunset_top_color = Color(0.74902, 0.498039, 0.109804, 1)
+shader_parameter/sunset_bottom_color = Color(1, 0.62, 0.55, 1)
+shader_parameter/night_top_color = Color(0, 0.11, 0.17, 1)
+shader_parameter/night_bottom_color = Color(0.01, 0.02, 0.03, 1)
+shader_parameter/horizon_color = Color(0.64, 0.65, 0.67, 1)
+shader_parameter/horizon_blur = 0.05
+shader_parameter/sun_color = Color(10, 8, 1, 1)
+shader_parameter/sun_sunset_color = Color(5, 0.5, 0.15, 1)
+shader_parameter/sun_size = 0.2
+shader_parameter/sun_blur = 10.0
+shader_parameter/moon_color = Color(1, 0.95, 0.7, 1)
+shader_parameter/moon_size = 0.06
+shader_parameter/moon_blur = 0.1
+shader_parameter/clouds_edge_color = Color(0.8, 0.8, 0.98, 1)
+shader_parameter/clouds_top_color = Color(1, 1, 1, 1)
+shader_parameter/clouds_middle_color = Color(0.92, 0.92, 0.98, 1)
+shader_parameter/clouds_bottom_color = Color(0.83, 0.83, 0.94, 1)
+shader_parameter/clouds_speed = 7.2
+shader_parameter/clouds_direction = -0.25
+shader_parameter/clouds_scale = 0.5
+shader_parameter/clouds_cutoff = 0.5
+shader_parameter/clouds_fuzziness = 0.25
+shader_parameter/clouds_weight = 0.0
+shader_parameter/clouds_blur = 0.25
+shader_parameter/stars_speed = 1.0
+shader_parameter/stars_texture = SubResource("NoiseTexture2D_etwj1")
+shader_parameter/overwritten_time = 0.0
+
+[sub_resource type="Sky" id="Sky_540gf"]
+sky_material = SubResource("ShaderMaterial_v7icx")
+radiance_size = 0
+
+[sub_resource type="Environment" id="Environment_kprkk"]
+background_mode = 2
+sky = SubResource("Sky_540gf")
+reflected_light_source = 2
+tonemap_mode = 1
+ssr_enabled = true
+ssr_max_steps = 1
+ssao_enabled = true
+ssao_radius = 2.0
+sdfgi_use_occlusion = true
+glow_enabled = true
+glow_levels/1 = 16.0
+fog_light_energy = 1.5
+fog_density = 0.0005
+fog_sky_affect = 0.0
+volumetric_fog_density = 0.0
+adjustment_enabled = true
+adjustment_color_correction = SubResource("GradientTexture1D_slkoq")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wg3hs"]
+albedo_texture = ExtResource("5_61s7l")
+texture_filter = 0
+proximity_fade_distance = 128.0
+distance_fade_min_distance = 128.0
+distance_fade_max_distance = 512.0
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_l72iu"]
+size = Vector2(200, 200)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qoha8"]
+albedo_texture = ExtResource("5_61s7l")
+texture_filter = 0
+
+[node name="World" type="Node3D"]
+script = ExtResource("1_4lhai")
+global_time = 46500
+time_speed = 0
+metadata/Dim = "Overworld"
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_kprkk")
+
+[node name="SunAxis" type="Node3D" parent="WorldEnvironment"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="SunVisual" type="DirectionalLight3D" parent="WorldEnvironment/SunAxis"]
+transform = Transform3D(-0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, -0.866025, 0, 0, 0)
+shadow_enabled = true
+shadow_bias = 0.0
+directional_shadow_blend_splits = true
+sky_mode = 2
+
+[node name="SunLight" type="DirectionalLight3D" parent="WorldEnvironment/SunAxis"]
+transform = Transform3D(-0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, -0.866025, 0, 0, 0)
+light_color = Color(1, 1, 0.937255, 1)
+shadow_enabled = true
+shadow_bias = 0.0
+directional_shadow_mode = 1
+directional_shadow_blend_splits = true
+sky_mode = 1
+
+[node name="Player" parent="." instance=ExtResource("1_ur16q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+
+[node name="Options" parent="Player/Pause_menu" index="1"]
+current_tab = 0
+
+[node name="#options_game#" parent="Player/Pause_menu/Options" index="1"]
+metadata/_tab_index = 0
+
+[node name="path_choose" parent="Player/Pause_menu/Options/#options_game#/GameSetting/VSplit/DataPath/datapath_button" index="0"]
+ok_button_text = "Select Current Folder"
+
+[node name="#options_video#" parent="Player/Pause_menu/Options" index="2"]
+metadata/_tab_index = 1
+
+[node name="#options_audio#" parent="Player/Pause_menu/Options" index="3"]
+metadata/_tab_index = 2
+
+[node name="#options_control#" parent="Player/Pause_menu/Options" index="4"]
+metadata/_tab_index = 3
+
+[node name="FalordMap" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 42, 0)
+visible = false
+layers = 32
+material_override = SubResource("StandardMaterial3D_wg3hs")
+mesh = ExtResource("8_ko6el")
+
+[node name="Sea" type="MeshInstance3D" parent="FalordMap"]
+transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, 0, 0)
+layers = 32
+material_override = ExtResource("11_hgrt0")
+mesh = SubResource("PlaneMesh_l72iu")
+skeleton = NodePath("../..")
+
+[node name="Map" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4352, -10, 4352)
+visible = false
+material_override = SubResource("StandardMaterial3D_qoha8")
+mesh = SubResource("PlaneMesh_l72iu")
+
+[node name="ScenesPackage" parent="." instance=ExtResource("7_ort8i")]
+
+[connection signal="SetSdfgi" from="Player/Pause_menu/Options" to="." method="_on_options_set_sdfgi"]
+
+[editable path="Player"]
+[editable path="Player/HudHotbar"]
+[editable path="Player/Pause_menu"]
+[editable path="Player/Pause_menu/Options"]

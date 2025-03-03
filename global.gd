@@ -69,4 +69,4 @@ func back_to_title():
 # Get World Path
 func get_world_path(dim : String) :
 	match dim :
-		"Overworld" :	return "res://Assets_Main/World/WorldMain.tscn"
+		"Overworld" :	return "res://Assets/World/WorldMain.tscn"

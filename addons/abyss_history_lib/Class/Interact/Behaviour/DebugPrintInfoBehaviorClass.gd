@@ -5,7 +5,7 @@ class_name AHL_DebugPrintInfoBehaviorClass
 @export var isSender : bool = false
 @export var tag : String = ''
 
-func do(interactor,sender):
+func do(interactor:Node,sender:Node) -> void:
 	if sender is player and tag != '':
 		var result : String = ''
 		if !isSender:

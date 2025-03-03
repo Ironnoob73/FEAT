@@ -14,7 +14,7 @@ signal touch_signal
 		init_behavior_signal.emit()
 @export_group("Interact")
 @export var Interactable : bool = false
-@export var interact_icon : String = "🤚"
+@export var interact_icon : String = "\U01F91A"
 @export var interact_text : String = "interact.interact"
 @export var interact_behavior : Array[AHL_BehaviorClass]
 @export var Switchable : bool = false

@@ -1,7 +1,8 @@
-[gd_resource type="Resource" script_class="AHL_ItemClass" load_steps=5 format=3 uid="uid://bumgcddh1tn4f"]
+[gd_resource type="Resource" script_class="AHL_ItemClass" load_steps=6 format=3 uid="uid://bumgcddh1tn4f"]
 
 [ext_resource type="Texture2D" uid="uid://tgauabrc2oa1" path="res://Resources/Image/missing.svg" id="1_e6fiw"]
-[ext_resource type="Material" uid="uid://b70uhgp32byqb" path="res://Resources/Object/Function/Pickable/DefaultMaterial.tres" id="2_kjwr8"]
+[ext_resource type="Script" path="res://addons/abyss_history_lib/Class/Interact/Behaviour/_BehaviorClass.gd" id="2_5sku4"]
+[ext_resource type="Material" uid="uid://dpy1qjkamvh6q" path="res://Resources/Material/Blank.tres" id="3_6xham"]
 [ext_resource type="ArrayMesh" uid="uid://kxchelosyedc" path="res://Resources/Object/Function/Pickable/missing.obj" id="3_cekse"]
 [ext_resource type="Script" path="res://addons/abyss_history_lib/Class/Inventory/Item/ItemClass.gd" id="4_4w2tj"]
 
@@ -10,8 +11,9 @@ script = ExtResource("4_4w2tj")
 name0 = ""
 icon = ExtResource("1_e6fiw")
 model = ExtResource("3_cekse")
-material = ExtResource("2_kjwr8")
+material = ExtResource("3_6xham")
 description = "item.no_des"
 pos_offset = Vector3(0, 0, 0)
 pos_rotation = Vector3(0, 0, 0)
 pos_scale = Vector3(1, 1, 1)
+main_behavior = Array[ExtResource("2_5sku4")]([])

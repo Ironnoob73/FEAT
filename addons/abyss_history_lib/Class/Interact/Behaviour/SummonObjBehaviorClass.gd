@@ -6,7 +6,7 @@ class_name AHL_SummonObjBehaviorClass
 @export var pos : Vector3 = Vector3(0,0,0)
 @export var rot : Vector3 = Vector3(0,0,0)
 
-func do(interactor,sender):
+func do(interactor:Node,sender:Node) -> void:
 	var ins_obj = object.instantiate()
 	interactor.add_child(ins_obj)
 	ins_obj.position = pos

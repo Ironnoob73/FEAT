@@ -35,8 +35,8 @@ general/text_to_speech=true
 
 Global="*res://global.gd"
 AllItems="*res://Resources/Item/AllItems.gd"
-LocationPreload="*res://Assets_Main/World/Location/LocationPreload.gd"
-Commands="*res://Assets_Main/Script/Commands.gd"
+LocationPreload="*res://Assets/World/Location/LocationPreload.gd"
+Commands="*res://Assets/Script/Commands.gd"
 AHL_NoticeManager="*res://addons/abyss_history_lib/Scene/Notice/NoticeManager.gd"
 AHL_LoadManager="*res://addons/abyss_history_lib/Scene/LoadingScreen/LoadManager.gd"
 
@@ -57,7 +57,7 @@ enabled=PackedStringArray("res://addons/abyss_history_lib/plugin.cfg", "res://ad
 [file_customization]
 
 folder_colors={
-"res://Assets_Main/": "red",
+"res://Assets/": "red",
 "res://Language/": "teal",
 "res://Resources/": "blue",
 "res://Title/": "gray",
@@ -73,25 +73,8 @@ theme/default_font_hinting=0
 [importer_defaults]
 
 scene={
-"_subresources": {},
-"animation/fps": 30,
-"animation/import": true,
-"animation/remove_immutable_tracks": true,
-"animation/trimming": false,
 "gltf/embedded_image_handling": 0,
-"gltf/naming_version": 1,
-"import_script/path": "res://Assets_Main/Script/Import/GlbBuilding.gd",
-"meshes/create_shadow_meshes": true,
-"meshes/ensure_tangents": true,
-"meshes/force_disable_compression": false,
-"meshes/generate_lods": true,
-"meshes/light_baking": 1,
-"meshes/lightmap_texel_size": 0.2,
-"nodes/apply_root_scale": true,
-"nodes/root_name": "",
-"nodes/root_scale": 1.0,
-"nodes/root_type": "",
-"skins/use_named_skins": true
+"import_script/path": "res://Assets/Script/Import/GlbBuilding.gd"
 }
 
 [input]

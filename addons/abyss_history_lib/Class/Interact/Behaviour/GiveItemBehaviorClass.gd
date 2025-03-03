@@ -4,7 +4,7 @@ class_name AHL_GiveItemBehaviorClass
 
 @export var ThingInstance : AHL_ThingInstanceClass
 
-func do(interactor,sender):
+func do(interactor:Node,sender:Node) -> void:
 	if !ThingInstance:
 		ThingInstance = interactor.get_meta('thing_instance',null)
 	sender.Inventory.add_instance(ThingInstance)

@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://ch2hj3f1jkv86"
+path="res://.godot/imported/CentralSquareGround.obj-a4ec90e972ffdf1a3704aa7a7aa28420.mesh"
+
+[deps]
+
+files=["res://.godot/imported/CentralSquareGround.obj-a4ec90e972ffdf1a3704aa7a7aa28420.mesh"]
+
+source_file="res://Assets/World/Location/_ZhuShan/Sources/CentralPark/CentralSquareGround.obj"
+dest_files=["res://.godot/imported/CentralSquareGround.obj-a4ec90e972ffdf1a3704aa7a7aa28420.mesh", "res://.godot/imported/CentralSquareGround.obj-a4ec90e972ffdf1a3704aa7a7aa28420.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

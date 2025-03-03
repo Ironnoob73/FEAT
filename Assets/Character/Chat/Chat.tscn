@@ -1,0 +1,39 @@
+[gd_scene load_steps=2 format=3 uid="uid://cgea2weecephm"]
+
+[ext_resource type="Script" path="res://Assets/Character/Chat/Chat.gd" id="1_84ph4"]
+
+[node name="Chat" type="PanelContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_84ph4")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+focus_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+bbcode_enabled = true
+scroll_following = true
+context_menu_enabled = true
+threaded = true
+selection_enabled = true
+
+[node name="InputBar" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Edit" type="LineEdit" parent="VBoxContainer/InputBar"]
+layout_mode = 2
+size_flags_horizontal = 3
+caret_blink = true
+
+[node name="SendButton" type="Button" parent="VBoxContainer/InputBar"]
+layout_mode = 2
+text = "chat.send"
+
+[connection signal="pressed" from="VBoxContainer/InputBar/SendButton" to="." method="_on_send_button_pressed"]

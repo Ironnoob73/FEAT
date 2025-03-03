@@ -1,0 +1,116 @@
+[gd_scene load_steps=12 format=3 uid="uid://tnlamai5w4yx"]
+
+[ext_resource type="Script" path="res://Assets/Character/VirtualJoypad/Knob.gd" id="1_vyge3"]
+
+[sub_resource type="Gradient" id="Gradient_gboyf"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.6, 0.65, 0.7, 0.75)
+colors = PackedColorArray(0, 0.498039, 0.74902, 0.498039, 0, 0.247059, 0.498039, 0.498039, 0, 0.498039, 0.74902, 0.498039, 0, 0.247059, 0.498039, 0.498039, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_4236i"]
+gradient = SubResource("Gradient_gboyf")
+width = 32
+height = 32
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="Gradient" id="Gradient_m2lmo"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.6, 0.75)
+colors = PackedColorArray(0, 0.498039, 0.74902, 0.498039, 0, 0.247059, 0.498039, 0.498039, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_v2v66"]
+gradient = SubResource("Gradient_m2lmo")
+width = 32
+height = 32
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2q31x"]
+radius = 16.0
+
+[sub_resource type="Gradient" id="Gradient_5jv8n"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.25, 0.5, 0.9, 1.1)
+colors = PackedColorArray(0, 0.498039, 0.74902, 0.498039, 0, 0.247059, 0.498039, 0.498039, 0, 0.498039, 0.74902, 0.498039, 0, 0.247059, 0.498039, 0.498039, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ht2l5"]
+gradient = SubResource("Gradient_5jv8n")
+width = 16
+height = 16
+fill = 2
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="Gradient" id="Gradient_2imj3"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.25, 0.5, 0.75, 1.1)
+colors = PackedColorArray(0, 0.498039, 0.74902, 0.498039, 0, 0.247059, 0.498039, 0.498039, 0, 0.498039, 0.74902, 0.498039, 0, 0.247059, 0.498039, 0.498039, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_fu1b7"]
+gradient = SubResource("Gradient_2imj3")
+width = 16
+height = 16
+fill = 2
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lw0dx"]
+size = Vector2(16, 16)
+
+[node name="VirtualJoypad" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Stick" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 200.0
+offset_top = -200.0
+offset_right = 200.0
+offset_bottom = -200.0
+grow_vertical = 0
+
+[node name="Knob" type="TouchScreenButton" parent="Stick"]
+texture_filter = 1
+texture_repeat = 3
+position = Vector2(-160, -160)
+scale = Vector2(10, 10)
+texture_normal = SubResource("GradientTexture2D_4236i")
+texture_pressed = SubResource("GradientTexture2D_v2v66")
+shape = SubResource("CircleShape2D_2q31x")
+script = ExtResource("1_vyge3")
+
+[node name="Actions" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -200.0
+offset_top = -200.0
+offset_right = -200.0
+offset_bottom = -200.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="Jump" type="TouchScreenButton" parent="Actions"]
+texture_filter = 1
+position = Vector2(-60, -160)
+scale = Vector2(10, 10)
+texture_normal = SubResource("GradientTexture2D_ht2l5")
+texture_pressed = SubResource("GradientTexture2D_fu1b7")
+shape = SubResource("RectangleShape2D_lw0dx")
+action = "ui_accept"
+
+[node name="Pause" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+grow_horizontal = 0

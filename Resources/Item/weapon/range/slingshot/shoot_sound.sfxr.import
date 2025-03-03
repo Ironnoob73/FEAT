@@ -1,0 +1,17 @@
+[remap]
+
+importer="com.timothyqiu.gdfxr.importer"
+type="AudioStreamWAV"
+uid="uid://bsdvyy6xbw7q2"
+path="res://.godot/imported/shoot_sound.sfxr-7744901ff9891bb8a8aad037cbdb2003.sample"
+
+[deps]
+
+source_file="res://Resources/Item/weapon/range/slingshot/shoot_sound.sfxr"
+dest_files=["res://.godot/imported/shoot_sound.sfxr-7744901ff9891bb8a8aad037cbdb2003.sample"]
+
+[params]
+
+loop=false
+bit_depth=0
+sample_rate=0

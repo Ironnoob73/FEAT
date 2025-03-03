@@ -4,5 +4,5 @@ class_name AHL_CaptionClass
 
 @export var text : String = ''
 
-func do(interactor,sender):
+func do(interactor:Node,sender:Node) -> void:
 	sender.add_caption(text)

@@ -5,5 +5,5 @@ class_name AHL_SetItemBehaviorClass
 
 @export var ThingInstance : AHL_ThingInstanceClass
 		
-func do(interactor,sender):
+func do(interactor:Node,sender:Node) -> void:
 	interactor.set_meta('thing_instance',ThingInstance)

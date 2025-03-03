@@ -1,0 +1,246 @@
+[gd_scene load_steps=31 format=3 uid="uid://d3jmi13knbvt"]
+
+[ext_resource type="Material" uid="uid://lrbpaershnpm" path="res://Resources/Material/BlueGrid.tres" id="1_01kt7"]
+[ext_resource type="Script" path="res://Assets/World/Tutorial.gd" id="1_3cq5v"]
+[ext_resource type="PackedScene" uid="uid://bk6ihg1vf71uf" path="res://Assets/Character/Player.tscn" id="2_oeg7p"]
+[ext_resource type="Material" uid="uid://dpy1qjkamvh6q" path="res://Resources/Material/Blank.tres" id="2_ric70"]
+[ext_resource type="Material" uid="uid://bxspvesneuvnj" path="res://Resources/Material/Old_Barrier.tres" id="4_6ulxs"]
+[ext_resource type="PackedScene" uid="uid://dvw3hfru3s5m6" path="res://Resources/Object/Function/Waypoint/waypoint_scene.tscn" id="5_ibxfv"]
+[ext_resource type="PackedScene" uid="uid://ds1bb3oh6akpf" path="res://Resources/Object/Building/Door/PlainDoor/door_scene.tscn" id="6_3h32r"]
+[ext_resource type="PackedScene" uid="uid://bt7knoovenvbk" path="res://Resources/Object/Function/Pickable/pickable_scene.tscn" id="7_vq7yj"]
+[ext_resource type="Script" path="res://addons/abyss_history_lib/Class/Interact/Behaviour/_BehaviorClass.gd" id="8_h8coa"]
+[ext_resource type="Resource" uid="uid://bbhccgfvjn42n" path="res://Resources/Item/weapon/range/slingshot/tutorial_slingshot.eq.tres" id="9_8gskj"]
+[ext_resource type="Resource" uid="uid://bjj8yywrbxut0" path="res://Resources/Item/weapon/melee/sword/tutorial_sword.eq.tres" id="9_v4lg5"]
+[ext_resource type="Script" path="res://addons/abyss_history_lib/Class/Inventory/Equipment/EqMetaClass.gd" id="10_fmbx2"]
+[ext_resource type="Script" path="res://addons/abyss_history_lib/Class/Interact/Behaviour/SetItemBehaviorClass.gd" id="11_hpkgp"]
+[ext_resource type="Script" path="res://addons/abyss_history_lib/Class/Interact/Behaviour/GiveItemBehaviorClass.gd" id="12_6qelh"]
+[ext_resource type="Script" path="res://addons/abyss_history_lib/Class/Interact/Behaviour/QFreeBehaviorClass.gd" id="13_4hudo"]
+[ext_resource type="PackedScene" uid="uid://cdhmfgttd6yfu" path="res://Resources/Object/Furniture/Target/target_scene.tscn" id="14_gyusx"]
+[ext_resource type="Script" path="res://addons/abyss_history_lib/Class/Interact/Behaviour/DoInteractBehaviorClass.gd" id="14_neugb"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_fxyp4"]
+sky_top_color = Color(0.498039, 0.74902, 1, 1)
+sky_horizon_color = Color(0, 0.498039, 1, 1)
+ground_bottom_color = Color(0, 0, 1, 1)
+ground_horizon_color = Color(0, 0.498039, 1, 1)
+
+[sub_resource type="Sky" id="Sky_b4tj8"]
+sky_material = SubResource("ProceduralSkyMaterial_fxyp4")
+
+[sub_resource type="Environment" id="Environment_co6cg"]
+background_mode = 2
+sky = SubResource("Sky_b4tj8")
+ssao_enabled = true
+
+[sub_resource type="Resource" id="Resource_52jmv"]
+script = ExtResource("10_fmbx2")
+equipment = ExtResource("9_v4lg5")
+damage = 0.0
+
+[sub_resource type="Resource" id="Resource_npb1p"]
+script = ExtResource("11_hpkgp")
+ThingInstance = SubResource("Resource_52jmv")
+
+[sub_resource type="Resource" id="Resource_wwyre"]
+script = ExtResource("10_fmbx2")
+equipment = ExtResource("9_v4lg5")
+damage = 0.0
+
+[sub_resource type="Resource" id="Resource_kckcv"]
+script = ExtResource("12_6qelh")
+ThingInstance = SubResource("Resource_wwyre")
+
+[sub_resource type="Resource" id="Resource_kgf4f"]
+script = ExtResource("13_4hudo")
+
+[sub_resource type="Resource" id="Resource_nu02c"]
+script = ExtResource("14_neugb")
+
+[sub_resource type="Resource" id="Resource_rdxvx"]
+script = ExtResource("10_fmbx2")
+equipment = ExtResource("9_8gskj")
+damage = 0.0
+
+[sub_resource type="Resource" id="Resource_cqugi"]
+script = ExtResource("11_hpkgp")
+ThingInstance = SubResource("Resource_rdxvx")
+
+[sub_resource type="Resource" id="Resource_greke"]
+script = ExtResource("10_fmbx2")
+equipment = ExtResource("9_8gskj")
+damage = 0.0
+
+[sub_resource type="Resource" id="Resource_tljuj"]
+script = ExtResource("12_6qelh")
+ThingInstance = SubResource("Resource_greke")
+
+[node name="World" type="Node3D"]
+script = ExtResource("1_3cq5v")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_co6cg")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment"]
+transform = Transform3D(0.707107, 0.5, 0.5, 0, -0.707107, 0.707107, 0.707107, -0.5, -0.5, 0, 0, 0)
+light_color = Color(1, 1, 0.74902, 1)
+shadow_enabled = true
+sky_mode = 1
+
+[node name="Ground" type="CSGBox3D" parent="."]
+use_collision = true
+collision_layer = 3
+size = Vector3(1024, 0, 1024)
+material = ExtResource("1_01kt7")
+
+[node name="Barrier" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8, -87.5)
+use_collision = true
+collision_layer = 128
+size = Vector3(26, 16, 201)
+material = ExtResource("4_6ulxs")
+
+[node name="Negative" type="CSGBox3D" parent="Barrier"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5)
+operation = 2
+size = Vector3(25, 17, 200)
+material = ExtResource("4_6ulxs")
+
+[node name="MovingBarrier" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8, -15)
+use_collision = true
+collision_layer = 128
+size = Vector3(25, 16, 1)
+material = ExtResource("4_6ulxs")
+
+[node name="Parkour" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -14)
+
+[node name="Column0" type="CSGBox3D" parent="Parkour"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, -1.5, 8.5)
+use_collision = true
+collision_layer = 3
+material = ExtResource("2_ric70")
+
+[node name="Column1" type="CSGBox3D" parent="Parkour"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, -2, 6.5)
+use_collision = true
+collision_layer = 3
+size = Vector3(1, 2, 1)
+material = ExtResource("2_ric70")
+
+[node name="Column2" type="CSGBox3D" parent="Parkour"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, -2.5, 4.5)
+use_collision = true
+collision_layer = 3
+size = Vector3(1, 3, 1)
+material = ExtResource("2_ric70")
+
+[node name="Column3" type="CSGBox3D" parent="Parkour"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, -3, 1.5)
+use_collision = true
+collision_layer = 3
+size = Vector3(1, 4, 1)
+material = ExtResource("2_ric70")
+
+[node name="Column4" type="CSGBox3D" parent="Parkour"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, -3.5, -1.5)
+use_collision = true
+collision_layer = 3
+size = Vector3(1, 5, 1)
+material = ExtResource("2_ric70")
+
+[node name="Column5" type="CSGBox3D" parent="Parkour"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, -4.5, -4.5)
+use_collision = true
+collision_layer = 3
+size = Vector3(1, 5, 1)
+material = ExtResource("2_ric70")
+
+[node name="ColumnPlat" type="CSGBox3D" parent="Parkour/Column5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
+use_collision = true
+collision_layer = 3
+size = Vector3(3, 1, 3)
+material = ExtResource("2_ric70")
+
+[node name="WaypointScene" parent="Parkour/Column5" instance=ExtResource("5_ibxfv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.5, 0)
+
+[node name="OpenDoor" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -30)
+
+[node name="DoorPlate" parent="OpenDoor" instance=ExtResource("6_3h32r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -11, 0)
+
+[node name="Wall" type="CSGBox3D" parent="OpenDoor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -6, 0)
+use_collision = true
+collision_layer = 3
+size = Vector3(25, 10, 0.2)
+material = ExtResource("2_ric70")
+
+[node name="Negative" type="CSGBox3D" parent="OpenDoor/Wall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.85, 0)
+operation = 2
+size = Vector3(1.2, 2.3, 1)
+material = ExtResource("2_ric70")
+
+[node name="PickItem" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -40)
+
+[node name="Booth" type="CSGBox3D" parent="PickItem"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3, 0)
+use_collision = true
+collision_layer = 3
+material = ExtResource("2_ric70")
+
+[node name="TutorialSwordItem" parent="PickItem/Booth" instance=ExtResource("7_vq7yj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+init_behavior = Array[ExtResource("8_h8coa")]([SubResource("Resource_npb1p")])
+interact_behavior = Array[ExtResource("8_h8coa")]([SubResource("Resource_kckcv"), SubResource("Resource_kgf4f")])
+touch_behavior = Array[ExtResource("8_h8coa")]([SubResource("Resource_nu02c")])
+metadata/thing_instance = SubResource("Resource_52jmv")
+
+[node name="Melee" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -45)
+
+[node name="TargetScene" parent="Melee" instance=ExtResource("14_gyusx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3, 0)
+
+[node name="PickSlingshot" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -50)
+
+[node name="Booth" type="CSGBox3D" parent="PickSlingshot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3, 0)
+use_collision = true
+collision_layer = 3
+material = ExtResource("2_ric70")
+
+[node name="TutorialSlingshotItem" parent="PickSlingshot/Booth" instance=ExtResource("7_vq7yj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+init_behavior = Array[ExtResource("8_h8coa")]([SubResource("Resource_cqugi")])
+interact_behavior = Array[ExtResource("8_h8coa")]([SubResource("Resource_tljuj"), SubResource("Resource_kgf4f")])
+touch_behavior = Array[ExtResource("8_h8coa")]([SubResource("Resource_nu02c")])
+metadata/thing_instance = SubResource("Resource_rdxvx")
+
+[node name="Range" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -60)
+
+[node name="TargetScene" parent="Range" instance=ExtResource("14_gyusx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3, 0)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[node name="Player" parent="." instance=ExtResource("2_oeg7p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+isInVR = true
+
+[connection signal="touch" from="Parkour/Column5/WaypointScene" to="." method="_on_parkour_waypoint_touch"]
+[connection signal="interact_signal" from="OpenDoor/DoorPlate" to="." method="_on_door_plate_interact_signal"]
+[connection signal="touch_signal" from="PickItem/Booth/TutorialSwordItem" to="." method="_on_tutorial_sword_item_touch_signal"]
+[connection signal="killed_signal" from="Melee/TargetScene" to="." method="_on_target_scene_killed_signal"]
+[connection signal="touch_signal" from="PickSlingshot/Booth/TutorialSlingshotItem" to="." method="_on_tutorial_sword_item_touch_signal"]
+[connection signal="killed_signal" from="Range/TargetScene" to="." method="_on_target_scene_killed_signal"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
