@@ -1,0 +1,41 @@
+[gd_scene load_steps=4 format=3 uid="uid://8br31mmdvpoh"]
+
+[ext_resource type="Material" uid="uid://dcwav4237d0l3" path="res://Resources/Material/GrassGround.tres" id="1_fboiq"]
+[ext_resource type="Material" uid="uid://4hlgj1u74iny" path="res://Resources/Material/ConcreteBricks.tres" id="2_1blh3"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_1ldni"]
+size = Vector2(80, 80)
+
+[node name="GrassGround" type="CSGMesh3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, 0)
+use_collision = true
+collision_layer = 3
+mesh = SubResource("PlaneMesh_1ldni")
+material = ExtResource("1_fboiq")
+metadata/GroundMaterial = "Grass"
+
+[node name="CenterNegative" type="CSGCylinder3D" parent="."]
+operation = 2
+radius = 20.0
+height = 0.01
+sides = 20
+
+[node name="Road-north" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0.05, 0)
+size = Vector3(20, 0.1, 10)
+material = ExtResource("2_1blh3")
+
+[node name="Road-south" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 0.05, 0)
+size = Vector3(20, 0.1, 10)
+material = ExtResource("2_1blh3")
+
+[node name="Road-west" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, -30)
+size = Vector3(10, 0.1, 20)
+material = ExtResource("2_1blh3")
+
+[node name="Road-east" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 30)
+size = Vector3(10, 0.1, 20)
+material = ExtResource("2_1blh3")

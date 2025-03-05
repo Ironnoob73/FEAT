@@ -1,0 +1,50 @@
+[gd_scene load_steps=4 format=3 uid="uid://dknade660v3bt"]
+
+[ext_resource type="Material" uid="uid://drhehwdeyc38b" path="res://Resources/Material/Concrete.tres" id="1_xje1t"]
+[ext_resource type="Material" uid="uid://d2aru44blbpby" path="res://Resources/Material/SlateBricks.tres" id="2_lubo4"]
+[ext_resource type="Material" uid="uid://cur0jmwbk5e0p" path="res://Resources/Material/YellowStoneBricks.tres" id="3_b0nji"]
+
+[node name="EastGround" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 52, 0, 0)
+
+[node name="MainRoad" type="CSGBox3D" parent="."]
+use_collision = true
+collision_layer = 3
+size = Vector3(24, 0.1, 10)
+material = ExtResource("1_xje1t")
+metadata/GroundMaterial = "Grass"
+
+[node name="Ncurb" type="CSGBox3D" parent="MainRoad"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5.25)
+size = Vector3(24, 0.1, 0.5)
+material = ExtResource("2_lubo4")
+
+[node name="Nsidewalk_S" type="CSGBox3D" parent="MainRoad"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6.5)
+size = Vector3(24, 0.1, 2)
+material = ExtResource("3_b0nji")
+
+[node name="Nsidewalk_N" type="CSGBox3D" parent="MainRoad"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -39)
+size = Vector3(24, 0.1, 2)
+material = ExtResource("3_b0nji")
+
+[node name="Scurb" type="CSGBox3D" parent="MainRoad"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5.25)
+size = Vector3(24, 0.1, 0.5)
+material = ExtResource("2_lubo4")
+
+[node name="Nsidewalk0" type="CSGBox3D" parent="MainRoad"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 0, -22.75)
+size = Vector3(2, 0.1, 30.5)
+material = ExtResource("3_b0nji")
+
+[node name="Nsidewalk1" type="CSGBox3D" parent="MainRoad"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -22.75)
+size = Vector3(2, 0.1, 30.5)
+material = ExtResource("3_b0nji")
+
+[node name="Nsidewalk2" type="CSGBox3D" parent="MainRoad"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0, -22.75)
+size = Vector3(2, 0.1, 30.5)
+material = ExtResource("3_b0nji")

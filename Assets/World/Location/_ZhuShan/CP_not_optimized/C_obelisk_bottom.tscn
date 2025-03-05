@@ -1,0 +1,38 @@
+[gd_scene load_steps=4 format=3 uid="uid://cy8gbl331qhlb"]
+
+[ext_resource type="Material" uid="uid://cur0jmwbk5e0p" path="res://Resources/Material/YellowStoneBricks.tres" id="1_oqedi"]
+[ext_resource type="Material" uid="uid://dcwav4237d0l3" path="res://Resources/Material/GrassGround.tres" id="2_1uegv"]
+[ext_resource type="Material" uid="uid://bfkoreool5vno" path="res://Resources/Material/Water.tres" id="3_omymy"]
+
+[node name="Obelisk_bottom" type="Node3D"]
+
+[node name="Parterre" type="CSGBox3D" parent="."]
+transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 0, -3, 0)
+use_collision = true
+collision_layer = 3
+size = Vector3(7, 2, 7)
+material = ExtResource("1_oqedi")
+
+[node name="ParterreTop" type="CSGTorus3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
+use_collision = true
+collision_layer = 3
+inner_radius = 4.0
+outer_radius = 5.0
+sides = 4
+ring_sides = 4
+smooth_faces = false
+material = ExtResource("1_oqedi")
+
+[node name="Grass" type="CSGBox3D" parent="."]
+transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 0, -2, 0)
+layers = 3
+size = Vector3(6, 0.5, 6)
+material = ExtResource("2_1uegv")
+
+[node name="Water" type="CSGCylinder3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.5, 0)
+radius = 6.5
+height = 0.5
+sides = 20
+material = ExtResource("3_omymy")

@@ -1,0 +1,58 @@
+[gd_resource type="ShaderMaterial" load_steps=7 format=3 uid="uid://d3phou1541jro"]
+
+[ext_resource type="Texture2D" uid="uid://uqbqydf3wncq" path="res://Assets/World/Location/_ZhuShan/Sources/CentralPark/CentralSquareGround.png" id="1_dxwps"]
+[ext_resource type="Texture2D" uid="uid://bpwnl4y4ypxpn" path="res://Assets/World/Location/_ZhuShan/Sources/CentralPark/CentralSquareGround_normal.png" id="2_ffeai"]
+
+[sub_resource type="Shader" id="Shader_vv8jc"]
+code = "// NOTE: Shader automatically converted from Godot Engine 4.2.1.stable's StandardMaterial3D.
+
+shader_type spatial;
+render_mode blend_mix,depth_draw_opaque,cull_back,diffuse_burley,specular_schlick_ggx;
+uniform vec4 albedo : source_color;
+uniform sampler2D texture_albedo : source_color,filter_nearest,repeat_enable;
+uniform float roughness : hint_range(0,1);
+uniform sampler2D texture_roughness : hint_roughness_g,filter_nearest,repeat_enable;
+uniform sampler2D texture_normal : hint_roughness_normal,filter_nearest,repeat_enable;
+uniform float normal_scale : hint_range(-16,16);
+
+varying vec3 world_pos;
+
+void vertex() {
+	world_pos = (MODEL_MATRIX * vec4(VERTEX, 1.0)).xyz;
+}
+
+void fragment() {
+	vec2 base_uv = UV;
+	vec4 albedo_tex = texture(texture_albedo,base_uv);
+	ALBEDO = albedo.rgb * albedo_tex.rgb;
+	vec4 roughness_texture_channel = vec4(0.0,1.0,0.0,0.0);
+	float roughness_tex = dot(texture(texture_roughness,world_pos.xz * 0.1),roughness_texture_channel);
+	ROUGHNESS = roughness_tex * roughness;
+	NORMAL_MAP = texture(texture_normal,base_uv).rgb;
+	NORMAL_MAP_DEPTH = normal_scale;
+}
+"
+
+[sub_resource type="Gradient" id="Gradient_rvcmh"]
+colors = PackedColorArray(0.247059, 0.247059, 0.247059, 1, 0.74902, 0.74902, 0.74902, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_qgn7n"]
+frequency = 0.025
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_q5nek"]
+width = 128
+height = 128
+seamless = true
+seamless_blend_skirt = 1.0
+color_ramp = SubResource("Gradient_rvcmh")
+noise = SubResource("FastNoiseLite_qgn7n")
+
+[resource]
+render_priority = 0
+shader = SubResource("Shader_vv8jc")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/roughness = 1.0
+shader_parameter/normal_scale = 1.0
+shader_parameter/texture_albedo = ExtResource("1_dxwps")
+shader_parameter/texture_roughness = SubResource("NoiseTexture2D_q5nek")
+shader_parameter/texture_normal = ExtResource("2_ffeai")

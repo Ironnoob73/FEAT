@@ -1,6 +1,6 @@
 extends Node3D
 
-@onready var grow_grass_area = $EastGround/MainRoad/GrassGround
+@onready var grow_grass_area = $EastGround/GrassGround
 
 func _ready():
 	for i in 24 : for j in 34 :
