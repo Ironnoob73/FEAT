@@ -1,9 +1,9 @@
 [gd_scene load_steps=11 format=3 uid="uid://ds1bb3oh6akpf"]
 
-[ext_resource type="Script" path="res://addons/abyss_history_lib/Class/Interact/InteractiveClass.gd" id="1_pf086"]
+[ext_resource type="Script" uid="uid://c8ier7k2ohfsp" path="res://addons/abyss_history_lib/Class/Interact/InteractiveClass.gd" id="1_pf086"]
 [ext_resource type="Material" uid="uid://do55163v32q4u" path="res://Resources/Material/Wood.tres" id="3_r0cfm"]
-[ext_resource type="Script" path="res://Resources/Object/Building/Door/PlainDoor/DoorInteraction.gd" id="3_ug2ta"]
-[ext_resource type="Shader" path="res://Resources/Shader/recolor.gdshader" id="5_br3hc"]
+[ext_resource type="Script" uid="uid://7sv6f5llxudh" path="res://Resources/Object/Building/Door/PlainDoor/DoorInteraction.gd" id="3_ug2ta"]
+[ext_resource type="Shader" uid="uid://chmfx8vng2i2v" path="res://Resources/Shader/recolor.gdshader" id="5_br3hc"]
 [ext_resource type="Material" uid="uid://b860lbxbd3ed6" path="res://Resources/Material/GrayMaterial.tres" id="5_x7lst"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_m5r1b"]

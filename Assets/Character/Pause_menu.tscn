@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://bledb03vcydda"]
 
-[ext_resource type="Script" path="res://Assets/Character/Pause_menu.gd" id="1_dd1d4"]
+[ext_resource type="Script" uid="uid://bmr6xec2jjrgt" path="res://Assets/Character/Pause_menu.gd" id="1_dd1d4"]
 [ext_resource type="PackedScene" uid="uid://cnl53v0lrb1mv" path="res://Assets/Character/Options.tscn" id="2_unk1s"]
 
 [sub_resource type="InputEventAction" id="InputEventAction_qotme"]
@@ -348,9 +348,9 @@ tracks/11/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_x1qir"]
 _data = {
-"Exit": SubResource("Animation_wr2on"),
-"Options": SubResource("Animation_ptyy5"),
-"RESET": SubResource("Animation_pfqdl")
+&"Exit": SubResource("Animation_wr2on"),
+&"Options": SubResource("Animation_ptyy5"),
+&"RESET": SubResource("Animation_pfqdl")
 }
 
 [node name="Pause_menu" type="ColorRect"]

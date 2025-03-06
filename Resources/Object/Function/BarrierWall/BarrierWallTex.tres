@@ -1,6 +1,6 @@
 [gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://mlq53v5mtv75"]
 
-[ext_resource type="Shader" path="res://Resources/Object/Function/BarrierWall/BarrierWall.gdshader" id="1_5yvhv"]
+[ext_resource type="Shader" uid="uid://exrkybqk7605" path="res://Resources/Object/Function/BarrierWall/BarrierWall.gdshader" id="1_5yvhv"]
 
 [sub_resource type="Gradient" id="Gradient_v7rs0"]
 interpolation_mode = 1
@@ -14,8 +14,8 @@ width = 2
 render_priority = 0
 shader = ExtResource("1_5yvhv")
 shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/texture_albedo = SubResource("GradientTexture1D_7mkao")
 shader_parameter/uv1_scale = Vector2(0, 6.1)
 shader_parameter/uv1_offset = Vector2(0, 0)
 shader_parameter/speed = 1.0
 shader_parameter/alpha = 1.0
-shader_parameter/texture_albedo = SubResource("GradientTexture1D_7mkao")

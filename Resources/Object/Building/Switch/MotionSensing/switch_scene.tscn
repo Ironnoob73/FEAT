@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://daqmxa7nkfs61"]
 
-[ext_resource type="Script" path="res://Resources/Object/Building/Switch/MotionSensing/MotionDetection.gd" id="1_qsvbg"]
+[ext_resource type="Script" uid="uid://debb20r6jol1c" path="res://Resources/Object/Building/Switch/MotionSensing/MotionDetection.gd" id="1_qsvbg"]
 [ext_resource type="Material" uid="uid://rnxv6hl1w5ul" path="res://Resources/Material/DarkMaterial.tres" id="2_escc1"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ak1up"]

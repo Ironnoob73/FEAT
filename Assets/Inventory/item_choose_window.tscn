@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cwrhekn37toy4"]
 
 [ext_resource type="Theme" uid="uid://cvtgnhbl452vj" path="res://Assets/Inventory/Inventory_theme.tres" id="1_rdcw7"]
-[ext_resource type="Script" path="res://Assets/Inventory/item_choose_window.gd" id="2_jl4gl"]
+[ext_resource type="Script" uid="uid://1jf3vxia4miv" path="res://Assets/Inventory/item_choose_window.gd" id="2_jl4gl"]
 
 [node name="ItemChooseWindow" type="Popup"]
 initial_position = 4

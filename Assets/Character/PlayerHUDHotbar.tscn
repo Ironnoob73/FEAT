@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://cerd3suomf3u2"]
 
-[ext_resource type="Script" path="res://Assets/Character/PlayerHUDHotbar.gd" id="1_n1xen"]
+[ext_resource type="Script" uid="uid://brhm5ra86y1dv" path="res://Assets/Character/PlayerHUDHotbar.gd" id="1_n1xen"]
 [ext_resource type="Texture2D" uid="uid://b83wbfcan3w3n" path="res://Resources/Image/Default/ammo.svg" id="2_s3jgx"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r1otf"]

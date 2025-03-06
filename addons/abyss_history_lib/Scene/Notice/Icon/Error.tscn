@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://jewjuqdob1ta"]
 
-[ext_resource type="Script" path="res://addons/abyss_history_lib/Scene/Notice/Icon/info.gd" id="1_dv55y"]
+[ext_resource type="Script" uid="uid://b1yff0o727hg3" path="res://addons/abyss_history_lib/Scene/Notice/Icon/info.gd" id="1_dv55y"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8exjh"]
 radius = 17.5
@@ -39,8 +39,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_24q6f"]
 _data = {
-"RESET": SubResource("Animation_10uj2"),
-"Show": SubResource("Animation_3ch6r")
+&"RESET": SubResource("Animation_10uj2"),
+&"Show": SubResource("Animation_3ch6r")
 }
 
 [node name="Error" type="Node2D"]

@@ -1,10 +1,10 @@
 [gd_scene load_steps=23 format=3 uid="uid://bp6c7x4dytetk"]
 
-[ext_resource type="Script" path="res://Title/TitleScene.gd" id="1_eqpau"]
+[ext_resource type="Script" uid="uid://c8su3raob8fjo" path="res://Title/TitleScene.gd" id="1_eqpau"]
 [ext_resource type="Theme" uid="uid://cwbdqmvx07r3k" path="res://Title/MainMenuButton_theme.tres" id="2_l7ppy"]
-[ext_resource type="Script" path="res://Title/Options.gd" id="3_5wo52"]
+[ext_resource type="Script" uid="uid://c23f860676eqk" path="res://Title/Options.gd" id="3_5wo52"]
 [ext_resource type="PackedScene" uid="uid://gqwcyi21yhlc" path="res://addons/abyss_history_lib/Scene/Notice/hint_button.tscn" id="5_gpevy"]
-[ext_resource type="Script" path="res://addons/abyss_history_lib/Class/Notice/NoticeInfoClass.gd" id="6_lc4wm"]
+[ext_resource type="Script" uid="uid://dhr8xpmf26e8v" path="res://addons/abyss_history_lib/Class/Notice/NoticeInfoClass.gd" id="6_lc4wm"]
 [ext_resource type="PackedScene" uid="uid://dnof7wcs0plpt" path="res://addons/abyss_history_lib/Scene/DynamicTooltip/tooltip_scene.tscn" id="7_3hhti"]
 
 [sub_resource type="Gradient" id="Gradient_6pyre"]
@@ -609,10 +609,10 @@ tracks/9/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_pqf80"]
 _data = {
-"Exit": SubResource("Animation_epoy7"),
-"Options": SubResource("Animation_joimf"),
-"RESET": SubResource("Animation_4qau0"),
-"ToMainMenu": SubResource("Animation_ie4jr")
+&"Exit": SubResource("Animation_epoy7"),
+&"Options": SubResource("Animation_joimf"),
+&"RESET": SubResource("Animation_4qau0"),
+&"ToMainMenu": SubResource("Animation_ie4jr")
 }
 
 [node name="TitleScreen" type="Control"]

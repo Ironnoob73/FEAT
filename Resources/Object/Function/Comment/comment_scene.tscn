@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://ggr3biv5ly6l"]
 
-[ext_resource type="Script" path="res://addons/abyss_history_lib/Class/Interact/InteractiveClass.gd" id="1_gifr0"]
+[ext_resource type="Script" uid="uid://c8ier7k2ohfsp" path="res://addons/abyss_history_lib/Class/Interact/InteractiveClass.gd" id="1_gifr0"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1k3no"]
 size = Vector3(0.5, 2, 0.5)

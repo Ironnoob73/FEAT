@@ -1,8 +1,8 @@
 [gd_scene load_steps=18 format=3 uid="uid://dtcknsjsvxg38"]
 
 [ext_resource type="Theme" uid="uid://cvtgnhbl452vj" path="res://Assets/Inventory/Inventory_theme.tres" id="1_gewfw"]
-[ext_resource type="Script" path="res://Assets/Inventory/Inventory.gd" id="2_3naci"]
-[ext_resource type="Shader" path="res://Assets/Inventory/Inventory_background.gdshader" id="3_qcbob"]
+[ext_resource type="Script" uid="uid://jeps2byaualt" path="res://Assets/Inventory/Inventory.gd" id="2_3naci"]
+[ext_resource type="Shader" uid="uid://cv75wolnqf00h" path="res://Assets/Inventory/Inventory_background.gdshader" id="3_qcbob"]
 [ext_resource type="PackedScene" uid="uid://nxxw5gbtnejd" path="res://Assets/Inventory/MeshView2d.tscn" id="4_uebq1"]
 [ext_resource type="PackedScene" uid="uid://cwrhekn37toy4" path="res://Assets/Inventory/item_choose_window.tscn" id="5_bckn1"]
 
@@ -529,11 +529,11 @@ tracks/3/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_q4uqo"]
 _data = {
-"Equipment": SubResource("Animation_pgdh6"),
-"Item": SubResource("Animation_ok5pw"),
-"RESET": SubResource("Animation_if8jo"),
-"Show": SubResource("Animation_c23fc"),
-"Status": SubResource("Animation_cajuj")
+&"Equipment": SubResource("Animation_pgdh6"),
+&"Item": SubResource("Animation_ok5pw"),
+&"RESET": SubResource("Animation_if8jo"),
+&"Show": SubResource("Animation_c23fc"),
+&"Status": SubResource("Animation_cajuj")
 }
 
 [node name="Inventory" type="Control"]

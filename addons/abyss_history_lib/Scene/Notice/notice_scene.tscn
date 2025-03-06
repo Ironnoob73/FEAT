@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://1wtmawcb6wcu"]
 
-[ext_resource type="Script" path="res://addons/abyss_history_lib/Scene/Notice/notice_scene.gd" id="1_nkyr1"]
-[ext_resource type="Shader" path="res://addons/abyss_history_lib/Scene/Notice/notice_window.gdshader" id="1_npwpv"]
+[ext_resource type="Script" uid="uid://bjs0q0vx57mji" path="res://addons/abyss_history_lib/Scene/Notice/notice_scene.gd" id="1_nkyr1"]
+[ext_resource type="Shader" uid="uid://dmoufa3lsbrre" path="res://addons/abyss_history_lib/Scene/Notice/notice_window.gdshader" id="1_npwpv"]
 [ext_resource type="Theme" uid="uid://c7r4nopyum74m" path="res://addons/abyss_history_lib/Scene/Notice/notice_theme.tres" id="1_wlnoa"]
 [ext_resource type="PackedScene" uid="uid://bx3yqwkfeu6k0" path="res://addons/abyss_history_lib/Scene/Notice/Icon/Info.tscn" id="3_admhn"]
 [ext_resource type="PackedScene" uid="uid://1mlyansvlmd" path="res://addons/abyss_history_lib/Scene/Notice/Icon/Warning.tscn" id="5_yqe8l"]
@@ -288,9 +288,9 @@ tracks/9/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_2vkxs"]
 _data = {
-"Disappear": SubResource("Animation_6mj21"),
-"RESET": SubResource("Animation_1de8a"),
-"Show": SubResource("Animation_srcoa")
+&"Disappear": SubResource("Animation_6mj21"),
+&"RESET": SubResource("Animation_1de8a"),
+&"Show": SubResource("Animation_srcoa")
 }
 
 [node name="NoticeScene" type="CanvasLayer"]

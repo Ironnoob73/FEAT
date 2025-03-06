@@ -106,8 +106,8 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_edfrw"]
 _data = {
-"Idle": SubResource("Animation_43j4b"),
-"RESET": SubResource("Animation_0uxs2")
+&"Idle": SubResource("Animation_43j4b"),
+&"RESET": SubResource("Animation_0uxs2")
 }
 
 [node name="BodyScene" type="Node3D"]

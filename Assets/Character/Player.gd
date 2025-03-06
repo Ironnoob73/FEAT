@@ -16,12 +16,12 @@ const FRICTION = 0.3
 
 const MAX_STEP_HEIGHT = 0.5
 
-var isDash : float = 0
-var isCrouch : float = 0
-var isClimb : bool = false
-var isSit : bool = false
-var isThirdPerson : bool = false
-var isInTeleport : bool = false
+var isDash: float = 0
+var isCrouch: float = 0
+var isClimb: bool = false
+var isSit: bool = false
+var isThirdPerson: bool = false
+var isInTeleport: bool = false
 
 @onready var player_collision = $PlayerColl
 @onready var player_camera = $PlayerCam
@@ -56,6 +56,15 @@ var perspective_from : Vector2
 @onready var _climb_area = $PlayerColl/ClimbArea
 @onready var _ground_ray_cast: RayCast3D = $GroundRayCast
 var _walk_length: float = 0
+
+#var _cur_frame: int = 0
+#@export var _jump_frame_grace: int = 5
+#var _last_frame_was_on_floor: int = -_jump_frame_grace - 1
+var _last_frame_was_on_floor = -INF
+var _was_on_floor_last_frame: bool = false
+var _snapped_to_stairs_last_frame: bool = false
+
+var DEBUG_LAST_STEP: String
 
 @onready var transition: ColorRect = $Transition
 @onready var caption = $Caption
@@ -216,13 +225,14 @@ func _unhandled_input(_event):
 		isThirdPerson = !isThirdPerson
 		switch_perspectives()
 
-var _was_on_floor_last_frame = false
-var _snapped_to_stairs_last_frame = false
 ## 下楼梯检测。
 ## From : https://github.com/majikayogames/godot-character-controller-stairs/blob/main/entities/Player/Player.gd
-func _snap_down_to_stairs_check():
-	var did_snap = false
-	if not ( is_on_floor() or isClimb ) and velocity.y <= 0 and (_was_on_floor_last_frame or _snapped_to_stairs_last_frame) and $StairsBelowRayCast3D.is_colliding():
+func _snap_down_to_stairs_check() -> void:
+	var did_snap: bool = false
+	$StairsBelowRayCast3D.force_raycast_update()
+	var floor_below : bool = $StairsBelowRayCast3D.is_colliding() and not is_surface_too_steep($StairsBelowRayCast3D.get_collision_normal())
+	_was_on_floor_last_frame = Engine.get_physics_frames() == _last_frame_was_on_floor
+	if not ( is_on_floor() or isClimb ) and velocity.y <= 0 and (_was_on_floor_last_frame or _snapped_to_stairs_last_frame) and floor_below:
 		var body_test_result = PhysicsTestMotionResult3D.new()
 		var params = PhysicsTestMotionParameters3D.new()
 		var max_step_down = -0.5
@@ -234,16 +244,11 @@ func _snap_down_to_stairs_check():
 			apply_floor_snap()
 			did_snap = true
 
-	_was_on_floor_last_frame = is_on_floor() or isClimb
 	_snapped_to_stairs_last_frame = did_snap
-	
-var _cur_frame = 0
-@export var _jump_frame_grace = 5
-var _last_frame_was_on_floor = -_jump_frame_grace - 1
 
 ## 将其他物体推开。
 ## From : https://github.com/majikayogames/SimpleFPSController/blob/main/FPSController/FPSController.gd
-func _push_away_rigid_bodies():
+func _push_away_rigid_bodies() -> void:
 	for i in get_slide_collision_count():
 		var c := get_slide_collision(i)
 		if c.get_collider() is RigidBody3D:
@@ -264,6 +269,7 @@ func _push_away_rigid_bodies():
 ## From : https://github.com/majikayogames/SimpleFPSController/blob/main/FPSController/FPSController.gd
 func is_surface_too_steep(normal : Vector3) -> bool:
 	return normal.angle_to(Vector3.UP) > self.floor_max_angle
+## 上楼梯检测
 func _snap_up_stairs_check(delta) -> bool:
 	if not is_on_floor() and not _snapped_to_stairs_last_frame:
 		return false
@@ -293,65 +299,111 @@ func _snap_up_stairs_check(delta) -> bool:
 	return false
 
 func _physics_process(delta):
+	# !!! DO NOT REMOVE THESE DEBUG PRINT OR `Condition "p_elem->_root != this" is true.` !!!
+	print("!!!# PP_START #!!!")
 	# Record Inerita & Add the gravity.
 	if is_on_floor() or isClimb:
+		print("# IS ON FLOOR 1 # TRUE !!!")
+		_last_frame_was_on_floor = Engine.get_physics_frames()
+		print("!!! LAST FRAME TO ENGINE !!!")
 		INERTIA.x = velocity.x
 		INERTIA.y = velocity.z
+		print("! INERTIA = velocity")
 	else:
+		print("# IS ON FLOOR 1 # FALSE !!!")
 		velocity.y -= gravity * 0.05
+		print("!!! ADD GRAVITY !!!")
 
-	# Handle Jump.
-	_cur_frame += 1
-	if is_on_floor() :
-		_last_frame_was_on_floor = _cur_frame
-	if current_menu == "HUD" \
-	and Input.is_action_just_pressed("jump") and (is_on_floor() or _cur_frame - _last_frame_was_on_floor <= _jump_frame_grace):
-		velocity.y = JUMP_VELOCITY
 	
 	# Move Input.
+	print("# MOVE INPUT #")
 	var input_vec = Vector3.ZERO
+	print("! Input reset to ZERO")
 	if current_menu == "HUD":
+		print("# CURRENT MENU 1 # HUD !!!")
 		input_vec.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
+		print("! INPUT: LEFT - RIGHT")
 		input_vec.z = Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
+		print("! INPUT: UP - DOWN")
 	
 		isDash = Input.get_action_strength("shift")
+		print("! IS DASH")
 		isCrouch = Input.get_action_strength("crouch")
+		print("! IS CROUCH")
 		
 	input_vec = (transform.basis * Vector3(input_vec.x,0,input_vec.z)).normalized()
+	print("! Normalized Input")
 	
 	# Move.
+	print("# MOVE #")
 	velocity.x = lerp(velocity.x,input_vec.x * (SPEED + isDash * DASH * (1 - isCrouch) - isCrouch * CROUCH ) , ACCELERATION)
+	print("!!! MOVE X !!!")
 	velocity.z = lerp(velocity.z,input_vec.z * (SPEED + isDash * DASH * (1 - isCrouch) - isCrouch * CROUCH ) , ACCELERATION)
+	print("!!! MOVE Z !!!")
 	# Stop.
 	if velocity.x * input_vec.x <= 0 and velocity.x!=0:
-		if is_on_floor() or isClimb:	velocity.x = lerp(velocity.x,0.0,FRICTION)
-		else:							velocity.x = lerp(INERTIA.x,0.0,FRICTION)
+		print("# STOP X #")
+		if is_on_floor() or isClimb:
+			print("# IS ON FLOOR 2.X # TRUE !!!")
+			velocity.x = lerp(velocity.x,0.0,FRICTION)
+			print("!!! SET VELOCITY X !!! TRUE !!!")
+		else:
+			print("# IS ON FLOOR 2.X # FALSE !!!")
+			velocity.x = lerp(INERTIA.x,0.0,FRICTION)
+			print("!!! SET VELOCITY X !!! FALSE !!!")
 	if velocity.z * input_vec.z <= 0 and velocity.z!=0:
-		if is_on_floor() or isClimb:	velocity.z = lerp(velocity.z,0.0,FRICTION)
-		else:							velocity.z = lerp(INERTIA.y,0.0,FRICTION)
+		print("# STOP Z #")
+		if is_on_floor() or isClimb:
+			print("# IS ON FLOOR 2.Z # TRUE !!!")
+			velocity.z = lerp(velocity.z,0.0,FRICTION)
+			print("!!! SET VELOCITY Z !!! TRUE !!!")
+		else:
+			print("# IS ON FLOOR 2.Z # FALSE !!!")
+			velocity.z = lerp(INERTIA.y,0.0,FRICTION)
+			print("!!! SET VELOCITY Z !!! FALSE !!!")
 	
 	# Crouch.
+	print("# CROUCH #")
 	player_collision.position.y = player_collision.shape.height * 0.5
+	print("! SET Collision pos")
 	if Input.is_action_pressed("crouch") and !isClimb and !isSit and current_menu == "HUD":
+		print("# IS ACT CROUCH !!! #")
 		player_collision.shape.height = lerp(player_collision.shape.height,1.8 * CROUCH_depth,0.5)
 		player_camera.position.y = lerp(player_camera.position.y,1.8 * CROUCH_depth,0.5)
 	elif !standing_detected.is_colliding() :
+		print("# CANT STAND #")
 		player_collision.shape.height = lerp(player_collision.shape.height,1.8,0.5)
 		player_camera.position.y = lerp(player_camera.position.y,1.7,0.5)
 	# Climb
+	print("# CLIMB #")
 	if isClimb:
 		if current_menu == "HUD":
 			input_vec.y = Input.get_action_strength("jump") - Input.get_action_strength("crouch")
 		velocity.y = lerp(velocity.y,input_vec.y * SPEED , ACCELERATION)
 	if velocity.y * input_vec.y <= 0 and velocity.y!=0 and isClimb:
 		velocity.y = lerp(velocity.y,0.0,FRICTION)
-		
+	# Handle Jump.
+	print("!# JUMP #!")
+	if is_on_floor() or _snapped_to_stairs_last_frame:
+		print("# IS ON FLOOR 4 # TRUE !!! SNAP TO STAIR !!!")
+		if current_menu == "HUD" and Input.is_action_just_pressed("jump"):
+			print("# CURRENT MENU 2 # HUD !!!")
+			velocity.y = JUMP_VELOCITY
+			print("!!! JUMP !!!")
+			
+	print("!# VELOCITY SET END #!")
 	if not _snap_up_stairs_check(delta):
+		print("!# NOT SNAP UP #!")
 		_push_away_rigid_bodies()
+		print("! PUSH BODY")
 		if !isSit && !isInTeleport: move_and_slide()
+		print("!!! MOVE AND SLIDE !!!")
 		_snap_down_to_stairs_check()
+		print("!!! SNAP DOWN !!!")
+	
 
 	#Scroll hotbar
+	print("# SCROLL #")
 	if current_menu == "HUD" and !Input.is_action_pressed("tool_function_switch"):
 		if Input.is_action_just_pressed("roll_down"):
 			if current_hotbar < 4 :	current_hotbar += 1
@@ -361,6 +413,8 @@ func _physics_process(delta):
 			if current_hotbar > 0 :	current_hotbar -= 1
 			else :	current_hotbar = 4
 			refresh_handheld(current_hotbar)
+	
+	print("!!!# PP_END #!!!")
 	
 func _process(_delta):
 	match load_step :
@@ -395,7 +449,7 @@ func _process(_delta):
 				if _ground_ray_cast.get_meta("SoundList","no").has(_ground_ray_cast.get_collider().get_meta("GroundMaterial","Stone")):
 					soundPlayer.stream = _ground_ray_cast.get_meta("SoundList","no").get(_ground_ray_cast.get_collider().get_meta("GroundMaterial","Stone"))
 					soundPlayer.play()
-					soundPlayer.connect("finished",func():soundPlayer.queue_free(),1)
+					soundPlayer.connect("finished",func():soundPlayer.queue_free())
 				else:
 					soundPlayer.queue_free()
 		else:

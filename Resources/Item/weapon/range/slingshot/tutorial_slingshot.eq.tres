@@ -2,12 +2,12 @@
 
 [ext_resource type="Texture2D" uid="uid://ckbeaa0264i7q" path="res://Resources/Item/weapon/range/slingshot/slingshot.svg" id="1_l1yfy"]
 [ext_resource type="Material" uid="uid://dpy1qjkamvh6q" path="res://Resources/Material/Blank.tres" id="2_8g8o1"]
-[ext_resource type="Script" path="res://addons/abyss_history_lib/Class/Interact/Behaviour/_BehaviorClass.gd" id="2_gt2hc"]
+[ext_resource type="Script" uid="uid://xi806lb1q3l3" path="res://addons/abyss_history_lib/Class/Interact/Behaviour/_BehaviorClass.gd" id="2_gt2hc"]
 [ext_resource type="ArrayMesh" uid="uid://c1mwcxkljouib" path="res://Resources/Item/weapon/range/slingshot/y_stick.obj" id="3_3iaes"]
 [ext_resource type="PackedScene" uid="uid://ctmeic4k3kgow" path="res://Resources/Item/consumables/bullet/basic_projectiles/projectiles_scene.tscn" id="3_7iv7k"]
-[ext_resource type="Script" path="res://addons/abyss_history_lib/Class/Inventory/Equipment/EToolClass.gd" id="4_pdci8"]
-[ext_resource type="Script" path="res://addons/abyss_history_lib/Class/Interact/Behaviour/Item/weapon/RangeProjectilesBehaviorClass.gd" id="4_wrgxf"]
-[ext_resource type="Script" path="res://addons/abyss_history_lib/Class/Interact/Behaviour/PlaySoundBehaviorClass.gd" id="5_46g3x"]
+[ext_resource type="Script" uid="uid://rllrrvo8kvh3" path="res://addons/abyss_history_lib/Class/Inventory/Equipment/EToolClass.gd" id="4_pdci8"]
+[ext_resource type="Script" uid="uid://bu587qv54u5iq" path="res://addons/abyss_history_lib/Class/Interact/Behaviour/Item/weapon/RangeProjectilesBehaviorClass.gd" id="4_wrgxf"]
+[ext_resource type="Script" uid="uid://dlk3dqw4yugrr" path="res://addons/abyss_history_lib/Class/Interact/Behaviour/PlaySoundBehaviorClass.gd" id="5_46g3x"]
 [ext_resource type="AudioStream" uid="uid://bsdvyy6xbw7q2" path="res://Resources/Item/weapon/range/slingshot/shoot_sound.sfxr" id="6_o5wl6"]
 
 [sub_resource type="Resource" id="Resource_rwkma"]

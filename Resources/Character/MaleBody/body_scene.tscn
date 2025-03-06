@@ -1,6 +1,6 @@
 [gd_scene load_steps=54 format=3 uid="uid://dbawhokpvesg"]
 
-[ext_resource type="Script" path="res://Resources/Character/MrPicto/body_scene.gd" id="1_knb0p"]
+[ext_resource type="Script" uid="uid://2c0g5mkf2kcq" path="res://Resources/Character/MrPicto/body_scene.gd" id="1_knb0p"]
 [ext_resource type="ArrayMesh" uid="uid://2j0vaweyil3p" path="res://Resources/Character/MaleBody/MaleBodyBody.obj" id="2_cdyld"]
 [ext_resource type="ArrayMesh" uid="uid://b2h1fr1h5e7xj" path="res://Resources/Character/MaleBody/MaleBodyChest.obj" id="3_e4867"]
 [ext_resource type="ArrayMesh" uid="uid://bfa7oy7sq0ds7" path="res://Resources/Character/MaleBody/MaleBodyHead.obj" id="4_t2kyf"]
@@ -1441,19 +1441,19 @@ tracks/8/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7g5dt"]
 _data = {
-"Crouch": SubResource("Animation_5ca1m"),
-"Idle": SubResource("Animation_nr7wl"),
-"MainAttack_BothHandsIdle": SubResource("Animation_cannw"),
-"MainAttack_BothHandsL": SubResource("Animation_jqo6r"),
-"MainAttack_BothHandsR": SubResource("Animation_q43wl"),
-"MainAttack_LightIdle": SubResource("Animation_smexp"),
-"MainAttack_LightL": SubResource("Animation_6vyp7"),
-"MainAttack_LightR": SubResource("Animation_o5acn"),
-"RESET": SubResource("Animation_tvbre"),
-"Run": SubResource("Animation_klwrl"),
-"RunBackward": SubResource("Animation_phkun"),
-"SideDirect": SubResource("Animation_4flo1"),
-"Walk": SubResource("Animation_hynqi")
+&"Crouch": SubResource("Animation_5ca1m"),
+&"Idle": SubResource("Animation_nr7wl"),
+&"MainAttack_BothHandsIdle": SubResource("Animation_cannw"),
+&"MainAttack_BothHandsL": SubResource("Animation_jqo6r"),
+&"MainAttack_BothHandsR": SubResource("Animation_q43wl"),
+&"MainAttack_LightIdle": SubResource("Animation_smexp"),
+&"MainAttack_LightL": SubResource("Animation_6vyp7"),
+&"MainAttack_LightR": SubResource("Animation_o5acn"),
+&"RESET": SubResource("Animation_tvbre"),
+&"Run": SubResource("Animation_klwrl"),
+&"RunBackward": SubResource("Animation_phkun"),
+&"SideDirect": SubResource("Animation_4flo1"),
+&"Walk": SubResource("Animation_hynqi")
 }
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_aquk2"]

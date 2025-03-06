@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://dgryi4o5pkshw"]
 
-[ext_resource type="Script" path="res://addons/abyss_history_lib/Scene/LoadingScreen/loading_scene.gd" id="1_ev2b1"]
+[ext_resource type="Script" uid="uid://n1ibgp4rtwnm" path="res://addons/abyss_history_lib/Scene/LoadingScreen/loading_scene.gd" id="1_ev2b1"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1i3ra"]
 bg_color = Color(0, 0, 0, 1)
@@ -212,8 +212,8 @@ tracks/7/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_p7g76"]
 _data = {
-"Normal": SubResource("Animation_mb368"),
-"RESET": SubResource("Animation_jo1uf")
+&"Normal": SubResource("Animation_mb368"),
+&"RESET": SubResource("Animation_jo1uf")
 }
 
 [sub_resource type="Animation" id="Animation_0q3lx"]
@@ -267,9 +267,9 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_u2w4k"]
 _data = {
-"Intro": SubResource("Animation_0q3lx"),
-"Outro": SubResource("Animation_o6rfh"),
-"RESET": SubResource("Animation_kd3px")
+&"Intro": SubResource("Animation_0q3lx"),
+&"Outro": SubResource("Animation_o6rfh"),
+&"RESET": SubResource("Animation_kd3px")
 }
 
 [node name="LoadingScreen" type="CanvasLayer"]

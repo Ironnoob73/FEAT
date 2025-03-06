@@ -1,8 +1,8 @@
 [gd_scene load_steps=19 format=3 uid="uid://c0hvltjdip61f"]
 
-[ext_resource type="Script" path="res://Assets/World/WorldMain.gd" id="1_4lhai"]
+[ext_resource type="Script" uid="uid://c0181dcofga70" path="res://Assets/World/WorldMain.gd" id="1_4lhai"]
 [ext_resource type="PackedScene" uid="uid://bk6ihg1vf71uf" path="res://Assets/Character/Player.tscn" id="1_ur16q"]
-[ext_resource type="Shader" path="res://Resources/Shader/sky.gdshader" id="2_pgb2y"]
+[ext_resource type="Shader" uid="uid://bvnnp4ot0ebjh" path="res://Resources/Shader/sky.gdshader" id="2_pgb2y"]
 [ext_resource type="Texture2D" uid="uid://dx2blvlx1qx1" path="res://Resources/Image/map/Map001_detailed.png" id="5_61s7l"]
 [ext_resource type="PackedScene" uid="uid://dqyequp22c8rg" path="res://Assets/World/Location/_ZhuShan/_ScenesPackage.tscn" id="7_ort8i"]
 [ext_resource type="ArrayMesh" uid="uid://dsqrubw167opv" path="res://Resources/Object/Terrain/FalordMap.obj" id="8_ko6el"]
@@ -55,8 +55,8 @@ shader_parameter/clouds_cutoff = 0.5
 shader_parameter/clouds_fuzziness = 0.25
 shader_parameter/clouds_weight = 0.0
 shader_parameter/clouds_blur = 0.25
-shader_parameter/stars_speed = 1.0
 shader_parameter/stars_texture = SubResource("NoiseTexture2D_etwj1")
+shader_parameter/stars_speed = 1.0
 shader_parameter/overwritten_time = 0.0
 
 [sub_resource type="Sky" id="Sky_540gf"]
@@ -119,7 +119,6 @@ sky_mode = 2
 transform = Transform3D(-0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, -0.866025, 0, 0, 0)
 light_color = Color(1, 1, 0.937255, 1)
 shadow_enabled = true
-shadow_bias = 0.0
 directional_shadow_mode = 1
 directional_shadow_blend_splits = true
 sky_mode = 1

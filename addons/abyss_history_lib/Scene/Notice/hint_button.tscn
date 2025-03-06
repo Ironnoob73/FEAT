@@ -1,7 +1,7 @@
 [gd_scene load_steps=14 format=3 uid="uid://gqwcyi21yhlc"]
 
 [ext_resource type="Texture2D" uid="uid://dgsap74f5psee" path="res://addons/abyss_history_lib/Class/Notice/Info.svg" id="1_s7aob"]
-[ext_resource type="Script" path="res://addons/abyss_history_lib/Scene/Notice/hint_button.gd" id="2_uoues"]
+[ext_resource type="Script" uid="uid://cscyp8q8koh6b" path="res://addons/abyss_history_lib/Scene/Notice/hint_button.gd" id="2_uoues"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7vbov"]
 

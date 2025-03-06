@@ -1,10 +1,10 @@
 [gd_scene load_steps=14 format=3 uid="uid://dm67jnnf21g1t"]
 
-[ext_resource type="Script" path="res://Resources/Object/Building/OcclusionSetup.gd" id="1_87rkb"]
+[ext_resource type="Script" uid="uid://cp3i1mvdjv4k8" path="res://Resources/Object/Building/OcclusionSetup.gd" id="1_87rkb"]
 [ext_resource type="Material" uid="uid://rnxv6hl1w5ul" path="res://Resources/Material/DarkMaterial.tres" id="1_ae14p"]
 [ext_resource type="ArrayMesh" uid="uid://b6wytugc502th" path="res://Resources/Object/Building/Window/HungWindow/HungWindowFrame.obj" id="2_fmjxt"]
 [ext_resource type="Material" uid="uid://d2kh2k5stcerf" path="res://Resources/Material/Glass.tres" id="3_o62sn"]
-[ext_resource type="Script" path="res://Resources/Object/Building/Window/HungWindow/WindowInteraction.gd" id="4_06ye5"]
+[ext_resource type="Script" uid="uid://cgwcnh8f2abc3" path="res://Resources/Object/Building/Window/HungWindow/WindowInteraction.gd" id="4_06ye5"]
 [ext_resource type="Material" uid="uid://b860lbxbd3ed6" path="res://Resources/Material/GrayMaterial.tres" id="5_cy6bf"]
 [ext_resource type="ArrayMesh" uid="uid://cqless0n8acbt" path="res://Resources/Object/Building/Window/HungWindow/HungWindow.obj" id="6_wtun7"]
 [ext_resource type="Material" uid="uid://cimr26thbt57t" path="res://Resources/Material/WhiteNoshadow.tres" id="8_spxyb"]

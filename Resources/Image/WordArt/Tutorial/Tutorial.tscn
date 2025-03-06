@@ -612,8 +612,8 @@ tracks/24/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_si7se"]
 _data = {
-"RESET": SubResource("Animation_i60st"),
-"Show": SubResource("Animation_1762i")
+&"RESET": SubResource("Animation_i60st"),
+&"Show": SubResource("Animation_1762i")
 }
 
 [node name="Tutorial" type="Node2D"]

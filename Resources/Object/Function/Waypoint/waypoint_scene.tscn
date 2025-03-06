@@ -1,6 +1,6 @@
 [gd_scene load_steps=15 format=3 uid="uid://dvw3hfru3s5m6"]
 
-[ext_resource type="Script" path="res://Resources/Object/Function/Waypoint/WaypointReach.gd" id="1_lj31y"]
+[ext_resource type="Script" uid="uid://dm0le6rfx2hi0" path="res://Resources/Object/Function/Waypoint/WaypointReach.gd" id="1_lj31y"]
 [ext_resource type="Material" uid="uid://cw5qxvyjmvrdc" path="res://Resources/Material/YellowEmissive.tres" id="2_tjesi"]
 [ext_resource type="Material" uid="uid://lyhxo5ka0dp5" path="res://Resources/Object/Function/Waypoint/YellowEmissiveBillboard.tres" id="3_myash"]
 
@@ -97,8 +97,8 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_fkq7k"]
 _data = {
-"Idle": SubResource("Animation_pi6f4"),
-"RESET": SubResource("Animation_ta87r")
+&"Idle": SubResource("Animation_pi6f4"),
+&"RESET": SubResource("Animation_ta87r")
 }
 
 [node name="WaypointScene" type="Area3D"]

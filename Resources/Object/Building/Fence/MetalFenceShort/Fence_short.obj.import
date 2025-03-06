@@ -16,7 +16,10 @@ dest_files=["res://.godot/imported/Fence_short.obj-d694f23aa5f4a5b0b6eaadba9de6d
 [params]
 
 generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
 scale_mesh=Vector3(1, 1, 1)
 offset_mesh=Vector3(0, 0, 0)
-optimize_mesh=true
 force_disable_mesh_compression=false

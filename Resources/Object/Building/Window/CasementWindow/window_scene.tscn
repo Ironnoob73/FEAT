@@ -1,9 +1,9 @@
 [gd_scene load_steps=14 format=3 uid="uid://bgelaund2s486"]
 
-[ext_resource type="Script" path="res://Resources/Object/Building/OcclusionSetup.gd" id="1_6unuo"]
+[ext_resource type="Script" uid="uid://cp3i1mvdjv4k8" path="res://Resources/Object/Building/OcclusionSetup.gd" id="1_6unuo"]
 [ext_resource type="Material" uid="uid://bi2qrop8jfbsf" path="res://Resources/Material/Tree.tres" id="1_ruirv"]
 [ext_resource type="ArrayMesh" uid="uid://cj8yvtn7voah" path="res://Resources/Object/Building/Window/CasementWindow/CasementWindowFrame.obj" id="2_8ujlu"]
-[ext_resource type="Script" path="res://Resources/Object/Building/Window/CasementWindow/WindowInteraction.gd" id="3_50q7s"]
+[ext_resource type="Script" uid="uid://cuiwmk4g765at" path="res://Resources/Object/Building/Window/CasementWindow/WindowInteraction.gd" id="3_50q7s"]
 [ext_resource type="Material" uid="uid://do55163v32q4u" path="res://Resources/Material/Wood.tres" id="4_0g06b"]
 [ext_resource type="ArrayMesh" uid="uid://bk6pj84y4cnv6" path="res://Resources/Object/Building/Window/CasementWindow/CasementWindow.obj" id="5_2202u"]
 [ext_resource type="Material" uid="uid://d2kh2k5stcerf" path="res://Resources/Material/Glass.tres" id="6_jya43"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://ctmeic4k3kgow"]
 
-[ext_resource type="Script" path="res://Resources/Item/weapon/range/slingshot/projectiles_scene.gd" id="1_l5njo"]
+[ext_resource type="Script" uid="uid://d3r0k86tta0tp" path="res://Resources/Item/weapon/range/slingshot/projectiles_scene.gd" id="1_l5njo"]
 [ext_resource type="Material" uid="uid://dpy1qjkamvh6q" path="res://Resources/Material/Blank.tres" id="2_mx5hu"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_re7gj"]

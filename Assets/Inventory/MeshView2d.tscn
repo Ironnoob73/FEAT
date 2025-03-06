@@ -59,8 +59,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8jyh6"]
 _data = {
-"RESET": SubResource("Animation_28ylg"),
-"rotation": SubResource("Animation_h1djh")
+&"RESET": SubResource("Animation_28ylg"),
+&"rotation": SubResource("Animation_h1djh")
 }
 
 [node name="MeshView2d" type="Node3D"]

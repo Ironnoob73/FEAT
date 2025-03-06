@@ -1,10 +1,10 @@
 [gd_scene load_steps=14 format=3 uid="uid://dgamoawgoj1oe"]
 
 [ext_resource type="ArrayMesh" uid="uid://cr666vlwdrkv4" path="res://Resources/Object/Building/Window/SlidingWindow/SlidingWindowFrame.obj" id="1_dgoto"]
-[ext_resource type="Script" path="res://Resources/Object/Building/OcclusionSetup.gd" id="1_toife"]
+[ext_resource type="Script" uid="uid://cp3i1mvdjv4k8" path="res://Resources/Object/Building/OcclusionSetup.gd" id="1_toife"]
 [ext_resource type="Material" uid="uid://bi2qrop8jfbsf" path="res://Resources/Material/Tree.tres" id="1_v1nl8"]
 [ext_resource type="ArrayMesh" uid="uid://mql4jc5dsg7" path="res://Resources/Object/Building/Window/SlidingWindow/SlidingWindow.obj" id="2_8xc2f"]
-[ext_resource type="Script" path="res://Resources/Object/Building/Window/SlidingWindow/WindowInteraction.gd" id="3_pja0v"]
+[ext_resource type="Script" uid="uid://1e151u0twqch" path="res://Resources/Object/Building/Window/SlidingWindow/WindowInteraction.gd" id="3_pja0v"]
 [ext_resource type="Material" uid="uid://do55163v32q4u" path="res://Resources/Material/Wood.tres" id="4_7ppsy"]
 [ext_resource type="Material" uid="uid://d2kh2k5stcerf" path="res://Resources/Material/Glass.tres" id="6_kxcot"]
 [ext_resource type="Material" uid="uid://rnxv6hl1w5ul" path="res://Resources/Material/DarkMaterial.tres" id="8_kmcuh"]

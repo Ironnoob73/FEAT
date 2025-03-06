@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cx8atl2dbskhd"]
 
-[ext_resource type="Script" path="res://Assets/Character/DynamicTooltip/DynamicTooltip.gd" id="1_n6751"]
+[ext_resource type="Script" uid="uid://4yxv6sjvt8is" path="res://Assets/Character/DynamicTooltip/DynamicTooltip.gd" id="1_n6751"]
 
 [node name="DynamicTooltip" type="Window"]
 gui_disable_input = true

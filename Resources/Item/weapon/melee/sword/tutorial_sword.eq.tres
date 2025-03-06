@@ -3,9 +3,9 @@
 [ext_resource type="Material" uid="uid://dpy1qjkamvh6q" path="res://Resources/Material/Blank.tres" id="1_eeniw"]
 [ext_resource type="Texture2D" uid="uid://bq3my6xal5xqm" path="res://Resources/Item/weapon/melee/sword/sword.svg" id="1_q0quc"]
 [ext_resource type="ArrayMesh" uid="uid://dxlwdomll0js1" path="res://Resources/Item/weapon/melee/sword/sword.obj" id="2_75ml1"]
-[ext_resource type="Script" path="res://addons/abyss_history_lib/Class/Interact/Behaviour/_BehaviorClass.gd" id="2_kayxd"]
-[ext_resource type="Script" path="res://addons/abyss_history_lib/Class/Interact/Behaviour/PlaySoundBehaviorClass.gd" id="3_4u32h"]
-[ext_resource type="Script" path="res://addons/abyss_history_lib/Class/Inventory/Equipment/EToolClass.gd" id="3_bwotu"]
+[ext_resource type="Script" uid="uid://xi806lb1q3l3" path="res://addons/abyss_history_lib/Class/Interact/Behaviour/_BehaviorClass.gd" id="2_kayxd"]
+[ext_resource type="Script" uid="uid://dlk3dqw4yugrr" path="res://addons/abyss_history_lib/Class/Interact/Behaviour/PlaySoundBehaviorClass.gd" id="3_4u32h"]
+[ext_resource type="Script" uid="uid://rllrrvo8kvh3" path="res://addons/abyss_history_lib/Class/Inventory/Equipment/EToolClass.gd" id="3_bwotu"]
 [ext_resource type="AudioStream" uid="uid://twtfd5uxrpw6" path="res://Resources/Item/weapon/melee/sword/attack_sound.sfxr" id="4_6k7v0"]
 
 [sub_resource type="Resource" id="Resource_fpfp5"]

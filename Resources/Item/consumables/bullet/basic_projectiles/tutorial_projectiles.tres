@@ -1,10 +1,10 @@
 [gd_resource type="Resource" script_class="AHL_ItemClass" load_steps=6 format=3 uid="uid://bumgcddh1tn4f"]
 
 [ext_resource type="Texture2D" uid="uid://tgauabrc2oa1" path="res://Resources/Image/missing.svg" id="1_e6fiw"]
-[ext_resource type="Script" path="res://addons/abyss_history_lib/Class/Interact/Behaviour/_BehaviorClass.gd" id="2_5sku4"]
+[ext_resource type="Script" uid="uid://xi806lb1q3l3" path="res://addons/abyss_history_lib/Class/Interact/Behaviour/_BehaviorClass.gd" id="2_5sku4"]
 [ext_resource type="Material" uid="uid://dpy1qjkamvh6q" path="res://Resources/Material/Blank.tres" id="3_6xham"]
 [ext_resource type="ArrayMesh" uid="uid://kxchelosyedc" path="res://Resources/Object/Function/Pickable/missing.obj" id="3_cekse"]
-[ext_resource type="Script" path="res://addons/abyss_history_lib/Class/Inventory/Item/ItemClass.gd" id="4_4w2tj"]
+[ext_resource type="Script" uid="uid://di8ikl2vftkbv" path="res://addons/abyss_history_lib/Class/Inventory/Item/ItemClass.gd" id="4_4w2tj"]
 
 [resource]
 script = ExtResource("4_4w2tj")

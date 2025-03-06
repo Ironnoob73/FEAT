@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://dbk7211il6m7g"]
 
-[ext_resource type="Script" path="res://Resources/Object/Furniture/Target/target_gore_scene.gd" id="1_30p8g"]
+[ext_resource type="Script" uid="uid://cjmar5yvi88lq" path="res://Resources/Object/Furniture/Target/target_gore_scene.gd" id="1_30p8g"]
 [ext_resource type="PackedScene" uid="uid://bwrwtacd1hin3" path="res://Resources/Object/Furniture/Target/Target_Gore.glb" id="1_knhsa"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_olkkp"]

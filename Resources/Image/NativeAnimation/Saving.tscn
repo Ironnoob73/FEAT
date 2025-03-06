@@ -177,8 +177,8 @@ tracks/6/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_3noaf"]
 _data = {
-"Playing": SubResource("Animation_o2x57"),
-"RESET": SubResource("Animation_qybeq")
+&"Playing": SubResource("Animation_o2x57"),
+&"RESET": SubResource("Animation_qybeq")
 }
 
 [node name="Saving" type="Node2D"]

@@ -2,7 +2,7 @@
 
 [ext_resource type="Material" uid="uid://rnxv6hl1w5ul" path="res://Resources/Material/DarkMaterial.tres" id="1_o8jl8"]
 [ext_resource type="ArrayMesh" uid="uid://dv7fq1atyhl74" path="res://Resources/Object/Building/Window/AwningWindow/AwningWindowFrame.obj" id="2_iq4me"]
-[ext_resource type="Script" path="res://Resources/Object/Building/Window/AwningWindow/WindowInteraction.gd" id="3_qg5mr"]
+[ext_resource type="Script" uid="uid://nq4a86i2toxm" path="res://Resources/Object/Building/Window/AwningWindow/WindowInteraction.gd" id="3_qg5mr"]
 [ext_resource type="Material" uid="uid://b860lbxbd3ed6" path="res://Resources/Material/GrayMaterial.tres" id="4_hnfnj"]
 [ext_resource type="ArrayMesh" uid="uid://ctvcf54ty3uxv" path="res://Resources/Object/Building/Window/AwningWindow/AwningWindow.obj" id="5_u6gxv"]
 [ext_resource type="Material" uid="uid://d2kh2k5stcerf" path="res://Resources/Material/Glass.tres" id="6_kiqyf"]

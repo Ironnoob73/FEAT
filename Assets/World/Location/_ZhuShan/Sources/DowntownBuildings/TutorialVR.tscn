@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://drgodm207unxt"]
 
 [ext_resource type="Material" uid="uid://lrbpaershnpm" path="res://Resources/Material/BlueGrid.tres" id="1_4xvlj"]
-[ext_resource type="Script" path="res://addons/abyss_history_lib/Class/Interact/InteractiveClass.gd" id="1_n80tj"]
-[ext_resource type="Script" path="res://Assets/World/Location/_ZhuShan/Sources/DowntownBuildings/TutorialVR.gd" id="2_2qjf1"]
+[ext_resource type="Script" uid="uid://c8ier7k2ohfsp" path="res://addons/abyss_history_lib/Class/Interact/InteractiveClass.gd" id="1_n80tj"]
+[ext_resource type="Script" uid="uid://dgd0vxqtbr1xa" path="res://Assets/World/Location/_ZhuShan/Sources/DowntownBuildings/TutorialVR.gd" id="2_2qjf1"]
 
 [node name="TutorialVR" type="Node3D"]
 script = ExtResource("1_n80tj")

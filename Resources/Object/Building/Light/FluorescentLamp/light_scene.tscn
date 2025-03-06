@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://coan3h6n6wobt"]
 
-[ext_resource type="Script" path="res://Resources/Object/Building/Light/FluorescentLamp/LightSwitchover.gd" id="1_bkux0"]
+[ext_resource type="Script" uid="uid://dnwa1lng6c04" path="res://Resources/Object/Building/Light/FluorescentLamp/LightSwitchover.gd" id="1_bkux0"]
 [ext_resource type="ArrayMesh" uid="uid://04r2mc3k2lvq" path="res://Resources/Object/Building/Light/FluorescentLamp/FluorescentLampShell.obj" id="1_k347u"]
 [ext_resource type="Material" uid="uid://b860lbxbd3ed6" path="res://Resources/Material/GrayMaterial.tres" id="2_dc5cg"]
 [ext_resource type="Material" uid="uid://dccfefkmpm8o5" path="res://Resources/Material/WhiteEmissive.tres" id="3_4d3i2"]

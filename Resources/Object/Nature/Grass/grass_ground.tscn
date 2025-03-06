@@ -1,14 +1,14 @@
 [gd_scene load_steps=7 format=3 uid="uid://b2qd8baf3wfdv"]
 
-[ext_resource type="Script" path="res://Resources/Object/Nature/Grass/RandomGrass.gd" id="1_bgcm0"]
+[ext_resource type="Script" uid="uid://dq4elpptqijc2" path="res://Resources/Object/Nature/Grass/RandomGrass.gd" id="1_bgcm0"]
 [ext_resource type="Texture2D" uid="uid://c2v4meklxdsi7" path="res://Resources/Object/Nature/Grass/Grass_32x.png" id="2_2nk78"]
-[ext_resource type="Shader" path="res://Resources/Object/Nature/Grass/Grass.gdshader" id="2_js7jc"]
+[ext_resource type="Shader" uid="uid://b85u3cwsoyb7n" path="res://Resources/Object/Nature/Grass/Grass.gdshader" id="2_js7jc"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_b6qkc"]
 render_priority = 0
 shader = ExtResource("2_js7jc")
-shader_parameter/billboard_y = true
 shader_parameter/texture_albedo = ExtResource("2_2nk78")
+shader_parameter/billboard_y = true
 
 [sub_resource type="QuadMesh" id="QuadMesh_v7arj"]
 material = SubResource("ShaderMaterial_b6qkc")

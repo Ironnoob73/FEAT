@@ -1,9 +1,9 @@
 [gd_scene load_steps=16 format=3 uid="uid://3yd06robq3f8"]
 
-[ext_resource type="Script" path="res://Resources/Object/Building/Door/RollingShutter/RollingShutterInteraction.gd" id="1_dpw5o"]
+[ext_resource type="Script" uid="uid://c5fy1xkbfugu5" path="res://Resources/Object/Building/Door/RollingShutter/RollingShutterInteraction.gd" id="1_dpw5o"]
 [ext_resource type="Material" uid="uid://cw2tppihttki3" path="res://Resources/Material/WhiteMetalPlate.tres" id="3_eyxsr"]
 [ext_resource type="ArrayMesh" uid="uid://456qbx1wjbfr" path="res://Resources/Object/Building/Door/RollingShutter/RollingShutterPlate2.obj" id="3_geg2j"]
-[ext_resource type="Script" path="res://Resources/Object/Building/Door/RollingShutter/DoorPlateInteraction.gd" id="4_6x5w4"]
+[ext_resource type="Script" uid="uid://co841gj3g4gso" path="res://Resources/Object/Building/Door/RollingShutter/DoorPlateInteraction.gd" id="4_6x5w4"]
 [ext_resource type="ArrayMesh" uid="uid://c8ana7owqfsgm" path="res://Resources/Object/Building/Door/RollingShutter/RollingShutterPlate1.obj" id="4_vwvnx"]
 [ext_resource type="ArrayMesh" uid="uid://bv6ktdr86p07n" path="res://Resources/Object/Building/Door/RollingShutter/RollingShutterPlate0.obj" id="6_6s261"]
 [ext_resource type="PackedScene" uid="uid://cuvlmpiixjtym" path="res://Resources/Object/Building/Door/RollingShutter/RollingShutterUp.glb" id="7_vsl45"]

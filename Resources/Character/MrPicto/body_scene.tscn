@@ -1,7 +1,7 @@
 [gd_scene load_steps=68 format=3 uid="uid://c4pg4fa4c3vft"]
 
 [ext_resource type="ArrayMesh" uid="uid://de2qv0d2qap2r" path="res://Resources/Character/MrPicto/Picto_body.obj" id="1_ld67k"]
-[ext_resource type="Script" path="res://Resources/Character/MrPicto/body_scene.gd" id="1_mosu4"]
+[ext_resource type="Script" uid="uid://2c0g5mkf2kcq" path="res://Resources/Character/MrPicto/body_scene.gd" id="1_mosu4"]
 [ext_resource type="ArrayMesh" uid="uid://cu38w8d8vulyy" path="res://Resources/Character/MrPicto/Picto_head.obj" id="2_y5klv"]
 [ext_resource type="ArrayMesh" uid="uid://b2yjcblomanfk" path="res://Resources/Character/MrPicto/Picto_arm.obj" id="3_5m7lj"]
 [ext_resource type="ArrayMesh" uid="uid://batliapo4h84d" path="res://Resources/Character/MrPicto/Picto_chest.obj" id="3_frtji"]
@@ -1478,23 +1478,23 @@ tracks/8/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7g5dt"]
 _data = {
-"AttackPitch": SubResource("Animation_8bs2o"),
-"Crouch": SubResource("Animation_5ca1m"),
-"Idle": SubResource("Animation_nr7wl"),
-"MainAttack_AimIdle": SubResource("Animation_064f2"),
-"MainAttack_BothHandsIdle": SubResource("Animation_cannw"),
-"MainAttack_BothHandsL": SubResource("Animation_jqo6r"),
-"MainAttack_BothHandsR": SubResource("Animation_q43wl"),
-"MainAttack_LightIdle": SubResource("Animation_smexp"),
-"MainAttack_LightL": SubResource("Animation_6vyp7"),
-"MainAttack_LightR": SubResource("Animation_o5acn"),
-"RESET": SubResource("Animation_tvbre"),
-"Run": SubResource("Animation_klwrl"),
-"RunBackward": SubResource("Animation_phkun"),
-"SecondaryAttack_Aim": SubResource("Animation_jisu7"),
-"SideDirect": SubResource("Animation_4flo1"),
-"Sit": SubResource("Animation_di0o5"),
-"Walk": SubResource("Animation_hynqi")
+&"AttackPitch": SubResource("Animation_8bs2o"),
+&"Crouch": SubResource("Animation_5ca1m"),
+&"Idle": SubResource("Animation_nr7wl"),
+&"MainAttack_AimIdle": SubResource("Animation_064f2"),
+&"MainAttack_BothHandsIdle": SubResource("Animation_cannw"),
+&"MainAttack_BothHandsL": SubResource("Animation_jqo6r"),
+&"MainAttack_BothHandsR": SubResource("Animation_q43wl"),
+&"MainAttack_LightIdle": SubResource("Animation_smexp"),
+&"MainAttack_LightL": SubResource("Animation_6vyp7"),
+&"MainAttack_LightR": SubResource("Animation_o5acn"),
+&"RESET": SubResource("Animation_tvbre"),
+&"Run": SubResource("Animation_klwrl"),
+&"RunBackward": SubResource("Animation_phkun"),
+&"SecondaryAttack_Aim": SubResource("Animation_jisu7"),
+&"SideDirect": SubResource("Animation_4flo1"),
+&"Sit": SubResource("Animation_di0o5"),
+&"Walk": SubResource("Animation_hynqi")
 }
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_aquk2"]
@@ -1790,7 +1790,7 @@ skeleton = NodePath("../..")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_7g5dt")
+&"": SubResource("AnimationLibrary_7g5dt")
 }
 autoplay = "Idle"
 

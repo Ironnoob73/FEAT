@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cnl53v0lrb1mv"]
 
-[ext_resource type="Script" path="res://Assets/Character/Options.gd" id="1_54q7r"]
+[ext_resource type="Script" uid="uid://cmgyke5hcxe75" path="res://Assets/Character/Options.gd" id="1_54q7r"]
 [ext_resource type="Theme" uid="uid://bitmw3ij7201m" path="res://Resources/os/fatal_window/fw_theme.tres" id="3_xn7oq"]
 
 [node name="Options" type="TabContainer"]

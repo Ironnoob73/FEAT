@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://b2qrwyulrn3jr"]
 
-[ext_resource type="Script" path="res://addons/abyss_history_lib/Class/Interact/InteractiveClass.gd" id="1_xx5fq"]
-[ext_resource type="Script" path="res://Resources/Object/Building/Switch/BigRed/SwitchInteraction.gd" id="2_2k3xk"]
+[ext_resource type="Script" uid="uid://c8ier7k2ohfsp" path="res://addons/abyss_history_lib/Class/Interact/InteractiveClass.gd" id="1_xx5fq"]
+[ext_resource type="Script" uid="uid://l3uhrmft4yks" path="res://Resources/Object/Building/Switch/BigRed/SwitchInteraction.gd" id="2_2k3xk"]
 [ext_resource type="Material" uid="uid://v4eof5jjlhmn" path="res://Resources/Material/RedEmissiveD.tres" id="2_rx144"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_i6cr2"]

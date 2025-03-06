@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://1mlyansvlmd"]
 
-[ext_resource type="Script" path="res://addons/abyss_history_lib/Scene/Notice/Icon/info.gd" id="1_32a6s"]
+[ext_resource type="Script" uid="uid://b1yff0o727hg3" path="res://addons/abyss_history_lib/Scene/Notice/Icon/info.gd" id="1_32a6s"]
 
 [sub_resource type="Animation" id="Animation_11ox1"]
 length = 0.001
@@ -84,8 +84,8 @@ tracks/2/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ueun8"]
 _data = {
-"RESET": SubResource("Animation_11ox1"),
-"Show": SubResource("Animation_h71c1")
+&"RESET": SubResource("Animation_11ox1"),
+&"Show": SubResource("Animation_h71c1")
 }
 
 [node name="Warning" type="Node2D"]

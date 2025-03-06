@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://clb0ryw2xvcqx"]
 
-[ext_resource type="Script" path="res://Resources/Object/Building/Door/PlainDoor/DoorInteraction.gd" id="1_7eq6e"]
+[ext_resource type="Script" uid="uid://7sv6f5llxudh" path="res://Resources/Object/Building/Door/PlainDoor/DoorInteraction.gd" id="1_7eq6e"]
 [ext_resource type="ArrayMesh" uid="uid://bjw2vjcini6nq" path="res://Resources/Object/Building/Door/ArchDoor/ArchDoor.obj" id="2_5xydl"]
 [ext_resource type="Material" uid="uid://do55163v32q4u" path="res://Resources/Material/Wood.tres" id="2_388il"]
 [ext_resource type="Material" uid="uid://b860lbxbd3ed6" path="res://Resources/Material/GrayMaterial.tres" id="4_0vjnr"]

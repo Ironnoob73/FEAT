@@ -1,6 +1,6 @@
 [gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://bxspvesneuvnj"]
 
-[ext_resource type="Shader" path="res://Resources/Material/Sources/Old_Barrier.gdshader" id="1_1je8o"]
+[ext_resource type="Shader" uid="uid://1dqfyhoocv6x" path="res://Resources/Material/Sources/Old_Barrier.gdshader" id="1_1je8o"]
 
 [sub_resource type="Gradient" id="Gradient_rd8a7"]
 interpolation_mode = 1
@@ -19,8 +19,8 @@ repeat = 2
 render_priority = 0
 shader = ExtResource("1_1je8o")
 shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/texture_albedo = SubResource("GradientTexture2D_tovjk")
 shader_parameter/distance_fade_min = 5.0
 shader_parameter/distance_fade_max = 2.5
 shader_parameter/uv1_scale = Vector3(1, 1, 1)
 shader_parameter/uv1_offset = Vector3(0, 0, 0)
-shader_parameter/texture_albedo = SubResource("GradientTexture2D_tovjk")

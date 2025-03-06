@@ -1,10 +1,10 @@
 [gd_scene load_steps=8 format=3 uid="uid://drxt0mv3ci5ed"]
 
-[ext_resource type="Script" path="res://Resources/Object/Furniture/WoodenChair/ChairInteraction.gd" id="1_anr0g"]
-[ext_resource type="Script" path="res://addons/abyss_history_lib/Class/Interact/InteractiveClass.gd" id="1_doy33"]
+[ext_resource type="Script" uid="uid://cl5qmssb2ia" path="res://Resources/Object/Furniture/WoodenChair/ChairInteraction.gd" id="1_anr0g"]
+[ext_resource type="Script" uid="uid://c8ier7k2ohfsp" path="res://addons/abyss_history_lib/Class/Interact/InteractiveClass.gd" id="1_doy33"]
 [ext_resource type="PackedScene" uid="uid://dtmp43i77p6qp" path="res://Resources/Object/Furniture/WoodenChair/WoodenChair.glb" id="1_g2keg"]
-[ext_resource type="Script" path="res://addons/abyss_history_lib/Class/Interact/Behaviour/_BehaviorClass.gd" id="2_1l8rq"]
-[ext_resource type="Script" path="res://addons/abyss_history_lib/Class/Interact/Behaviour/SitBehaviorClass.gd" id="3_8a761"]
+[ext_resource type="Script" uid="uid://xi806lb1q3l3" path="res://addons/abyss_history_lib/Class/Interact/Behaviour/_BehaviorClass.gd" id="2_1l8rq"]
+[ext_resource type="Script" uid="uid://drdvqmgo8mtws" path="res://addons/abyss_history_lib/Class/Interact/Behaviour/SitBehaviorClass.gd" id="3_8a761"]
 
 [sub_resource type="Resource" id="Resource_4acte"]
 script = ExtResource("3_8a761")

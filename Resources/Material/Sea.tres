@@ -1,6 +1,6 @@
 [gd_resource type="ShaderMaterial" load_steps=9 format=3 uid="uid://dtcokq66lcuki"]
 
-[ext_resource type="Shader" path="res://Resources/Material/Sources/Water.gdshader" id="1_1wyfw"]
+[ext_resource type="Shader" uid="uid://cq0ydqwaafot0" path="res://Resources/Material/Sources/Water.gdshader" id="1_1wyfw"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_3tvdg"]
 noise_type = 2
@@ -48,6 +48,9 @@ shader_parameter/albedo = Color(0, 0.321569, 0.431373, 1)
 shader_parameter/albedo2 = Color(0, 0.47451, 0.764706, 1)
 shader_parameter/metallic = 0.1
 shader_parameter/roughness = 0.15
+shader_parameter/wave = SubResource("NoiseTexture2D_ke3dd")
+shader_parameter/texture_normal = SubResource("NoiseTexture2D_q0cj6")
+shader_parameter/texture_normal2 = SubResource("NoiseTexture2D_6e8wg")
 shader_parameter/wave_direction = Vector2(4, -1)
 shader_parameter/wave_direction2 = Vector2(-3, 5)
 shader_parameter/time_scale = 0.025
@@ -61,6 +64,3 @@ shader_parameter/edge_scale = 0.0
 shader_parameter/near = 1.0
 shader_parameter/far = 100.0
 shader_parameter/edge_color = Color(0, 0, 0, 1)
-shader_parameter/wave = SubResource("NoiseTexture2D_ke3dd")
-shader_parameter/texture_normal = SubResource("NoiseTexture2D_q0cj6")
-shader_parameter/texture_normal2 = SubResource("NoiseTexture2D_6e8wg")
