@@ -146,7 +146,7 @@ float sphere_intersect( vec3 view_dir, vec3 sphere_pos, float radius )
 
 void sky()
 {
-	float time = overwritten_time != 0.0 ? overwritten_time : TIME;
+	float time = overwritten_time < 0.00001 ? overwritten_time : TIME;
 
 	//////////////////// SKY ///////////////////////////////////////////////////////////////////////
 	float _eyedir_y = abs( sin( EYEDIR.y * PI * 0.5 ));

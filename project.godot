@@ -246,11 +246,11 @@ locale/translations=PackedStringArray("res://Language/Main_en_US.po", "res://Lan
 
 [physics]
 
+2d/run_on_separate_thread=true
 3d/run_on_separate_thread=true
 3d/physics_engine="JoltPhysics3D"
 jolt_physics_3d/simulation/areas_detect_static_bodies=true
 3d/default_gravity=10.0
-jolt_3d/collisions/areas_detect_static_bodies=true
 
 [rendering]
 
@@ -259,6 +259,7 @@ textures/canvas_textures/default_texture_filter=0
 textures/vram_compression/import_etc2_astc=true
 lights_and_shadows/directional_shadow/size=10200
 lights_and_shadows/directional_shadow/soft_shadow_filter_quality=5
+shader_compiler/shader_cache/strip_debug=true
 reflections/reflection_atlas/reflection_size=32
 reflections/reflection_atlas/reflection_size.mobile=32
 reflections/reflection_atlas/reflection_count=32

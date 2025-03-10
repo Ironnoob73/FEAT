@@ -181,3 +181,5 @@ layout_mode = 2
 [node name="TextureRect" type="TextureRect" parent="AmmoBg/Ammo/MarginContainer"]
 layout_mode = 2
 texture = ExtResource("2_s3jgx")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

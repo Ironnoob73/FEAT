@@ -4,8 +4,6 @@ shader_type spatial;
 render_mode cull_back;
 
 uniform sampler2D texture_albedo : source_color,filter_nearest_mipmap;
-// Internally capped at 16
-const int TOTAL_GRASS_VARIANTS = 4;
 
 uniform bool billboard_y = true;
 
