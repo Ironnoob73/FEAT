@@ -126,24 +126,6 @@ sky_mode = 1
 [node name="Player" parent="." instance=ExtResource("1_ur16q")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 
-[node name="Options" parent="Player/Pause_menu" index="1"]
-current_tab = 0
-
-[node name="#options_game#" parent="Player/Pause_menu/Options" index="1"]
-metadata/_tab_index = 0
-
-[node name="path_choose" parent="Player/Pause_menu/Options/#options_game#/GameSetting/VSplit/DataPath/datapath_button" index="0"]
-ok_button_text = "Select Current Folder"
-
-[node name="#options_video#" parent="Player/Pause_menu/Options" index="2"]
-metadata/_tab_index = 1
-
-[node name="#options_audio#" parent="Player/Pause_menu/Options" index="3"]
-metadata/_tab_index = 2
-
-[node name="#options_control#" parent="Player/Pause_menu/Options" index="4"]
-metadata/_tab_index = 3
-
 [node name="FalordMap" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 42, 0)
 visible = false
