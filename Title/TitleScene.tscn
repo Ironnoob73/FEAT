@@ -1,10 +1,8 @@
-[gd_scene load_steps=23 format=3 uid="uid://bp6c7x4dytetk"]
+[gd_scene load_steps=16 format=3 uid="uid://bp6c7x4dytetk"]
 
 [ext_resource type="Script" uid="uid://c8su3raob8fjo" path="res://Title/TitleScene.gd" id="1_eqpau"]
 [ext_resource type="Theme" uid="uid://cwbdqmvx07r3k" path="res://Title/MainMenuButton_theme.tres" id="2_l7ppy"]
-[ext_resource type="Script" uid="uid://c23f860676eqk" path="res://Title/Options.gd" id="3_5wo52"]
-[ext_resource type="PackedScene" uid="uid://gqwcyi21yhlc" path="res://addons/abyss_history_lib/Scene/Notice/hint_button.tscn" id="5_gpevy"]
-[ext_resource type="Script" uid="uid://dhr8xpmf26e8v" path="res://addons/abyss_history_lib/Class/Notice/NoticeInfoClass.gd" id="6_lc4wm"]
+[ext_resource type="PackedScene" uid="uid://cnl53v0lrb1mv" path="res://Assets/Character/Options.tscn" id="3_ivwg4"]
 [ext_resource type="PackedScene" uid="uid://dnof7wcs0plpt" path="res://addons/abyss_history_lib/Scene/DynamicTooltip/tooltip_scene.tscn" id="7_3hhti"]
 
 [sub_resource type="Gradient" id="Gradient_6pyre"]
@@ -30,54 +28,6 @@ content_margin_right = 4.0
 content_margin_bottom = 4.0
 bg_color = Color(0.6, 0.6, 0.6, 0)
 corner_detail = 1
-
-[sub_resource type="Resource" id="Resource_dd0px"]
-script = ExtResource("6_lc4wm")
-title = "notice.title.info"
-type = "Info"
-bgColor = Color(0, 0.501961, 1, 1)
-content = "options.game.data.disc"
-choice = false
-yep = "notice.choice.ok"
-nope = "notice.choice.no"
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m6in3"]
-content_margin_left = 8.0
-content_margin_top = 4.0
-content_margin_right = 21.0
-content_margin_bottom = 4.0
-bg_color = Color(0.1, 0.1, 0.1, 0.6)
-corner_detail = 1
-
-[sub_resource type="Resource" id="Resource_44htu"]
-script = ExtResource("6_lc4wm")
-title = "notice.title.info"
-type = "Info"
-bgColor = Color(0, 0.501961, 1, 1)
-content = "options.game.use_sub_threads.disc"
-choice = false
-yep = "notice.choice.ok"
-nope = "notice.choice.no"
-
-[sub_resource type="Resource" id="Resource_u010m"]
-script = ExtResource("6_lc4wm")
-title = "notice.title.info"
-type = "Info"
-bgColor = Color(0, 0.501961, 1, 1)
-content = "options.game.sdfgi.disc"
-choice = false
-yep = "notice.choice.ok"
-nope = "notice.choice.no"
-
-[sub_resource type="Resource" id="Resource_jwxcf"]
-script = ExtResource("6_lc4wm")
-title = "notice.title.info"
-type = "Info"
-bgColor = Color(0, 0.501961, 1, 1)
-content = "options.control.auto_pickup.disc"
-choice = false
-yep = "notice.choice.ok"
-nope = "notice.choice.no"
 
 [sub_resource type="InputEventAction" id="InputEventAction_8q5da"]
 action = &"pause"
@@ -713,7 +663,6 @@ anchor_right = 1.5
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("3_5wo52")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Main/Panel/Control/Options"]
 layout_mode = 2
@@ -728,380 +677,111 @@ theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxFlat_17pvn")
 text = "title.menu.options"
 
-[node name="Options" type="TabContainer" parent="Main/Panel/Control/Options"]
+[node name="Options2" parent="Main/Panel/Control/Options" instance=ExtResource("3_ivwg4")]
 layout_mode = 2
 size_flags_vertical = 3
-current_tab = 0
 
-[node name="#options_game#" type="TabBar" parent="Main/Panel/Control/Options/Options"]
-layout_mode = 2
-metadata/_tab_index = 0
-
-[node name="GameSetting" type="ScrollContainer" parent="Main/Panel/Control/Options/Options/#options_game#"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="VSpilt" type="VBoxContainer" parent="Main/Panel/Control/Options/Options/#options_game#/GameSetting"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="Language" type="HBoxContainer" parent="Main/Panel/Control/Options/Options/#options_game#/GameSetting/VSpilt"]
-layout_mode = 2
-
-[node name="EmptyL" type="Control" parent="Main/Panel/Control/Options/Options/#options_game#/GameSetting/VSpilt/Language"]
+[node name="EmptyL" type="Control" parent="Main/Panel/Control/Options/Options2/#options_game#/GameSetting/VSplit/Language" index="0"]
 custom_minimum_size = Vector2(15, 0)
 layout_mode = 2
 
-[node name="language_text" type="Label" parent="Main/Panel/Control/Options/Options/#options_game#/GameSetting/VSpilt/Language"]
-layout_mode = 2
-text = "options.game.language"
-
-[node name="language_button" type="OptionButton" parent="Main/Panel/Control/Options/Options/#options_game#/GameSetting/VSpilt/Language"]
-custom_minimum_size = Vector2(200, 0)
-layout_mode = 2
-size_flags_horizontal = 10
-selected = 0
-item_count = 2
-popup/item_0/text = "English"
-popup/item_1/text = "中文"
-popup/item_1/id = 1
-
-[node name="EmptyR" type="Control" parent="Main/Panel/Control/Options/Options/#options_game#/GameSetting/VSpilt/Language"]
+[node name="EmptyR" type="Control" parent="Main/Panel/Control/Options/Options2/#options_game#/GameSetting/VSplit/Language" index="3"]
 custom_minimum_size = Vector2(20, 0)
 layout_mode = 2
 
-[node name="DataPath" type="HBoxContainer" parent="Main/Panel/Control/Options/Options/#options_game#/GameSetting/VSpilt"]
-layout_mode = 2
-
-[node name="EmptyL" type="Control" parent="Main/Panel/Control/Options/Options/#options_game#/GameSetting/VSpilt/DataPath"]
+[node name="EmptyL" type="Control" parent="Main/Panel/Control/Options/Options2/#options_game#/GameSetting/VSplit/DataPath" index="0"]
 custom_minimum_size = Vector2(15, 0)
 layout_mode = 2
 
-[node name="datapath_text" type="Label" parent="Main/Panel/Control/Options/Options/#options_game#/GameSetting/VSpilt/DataPath"]
-layout_mode = 2
-text = "options.game.data"
-
-[node name="HintButton" parent="Main/Panel/Control/Options/Options/#options_game#/GameSetting/VSpilt/DataPath" instance=ExtResource("5_gpevy")]
-layout_mode = 2
-notice = SubResource("Resource_dd0px")
-
-[node name="datapath_button" type="Button" parent="Main/Panel/Control/Options/Options/#options_game#/GameSetting/VSpilt/DataPath"]
-custom_minimum_size = Vector2(200, 35)
-layout_mode = 2
-size_flags_horizontal = 10
-focus_neighbor_left = NodePath(".")
-focus_neighbor_top = NodePath("../../Language/language_button")
-focus_neighbor_right = NodePath(".")
-focus_neighbor_bottom = NodePath("../../Language/language_button")
-focus_next = NodePath("../../Language/language_button")
-focus_previous = NodePath("../../Language/language_button")
-theme_override_styles/normal = SubResource("StyleBoxFlat_m6in3")
-text = "PATH"
-alignment = 0
-
-[node name="path_choose" type="FileDialog" parent="Main/Panel/Control/Options/Options/#options_game#/GameSetting/VSpilt/DataPath/datapath_button"]
-gui_embed_subwindows = true
-title = "Open a Directory"
-initial_position = 2
-size = Vector2i(750, 500)
-ok_button_text = "Select Current Folder"
-cancel_button_text = "button.cancel"
-file_mode = 2
-access = 2
-use_native_dialog = true
-
-[node name="EmptyR" type="Control" parent="Main/Panel/Control/Options/Options/#options_game#/GameSetting/VSpilt/DataPath"]
+[node name="EmptyR" type="Control" parent="Main/Panel/Control/Options/Options2/#options_game#/GameSetting/VSplit/DataPath" index="4"]
 custom_minimum_size = Vector2(20, 0)
 layout_mode = 2
 
-[node name="UseSubThreads" type="HBoxContainer" parent="Main/Panel/Control/Options/Options/#options_game#/GameSetting/VSpilt"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="EmptyL" type="Control" parent="Main/Panel/Control/Options/Options/#options_game#/GameSetting/VSpilt/UseSubThreads"]
+[node name="EmptyL" type="Control" parent="Main/Panel/Control/Options/Options2/#options_game#/GameSetting/VSplit/UseSubThreads" index="0"]
 custom_minimum_size = Vector2(15, 0)
 layout_mode = 2
 
-[node name="ust_text" type="Label" parent="Main/Panel/Control/Options/Options/#options_game#/GameSetting/VSpilt/UseSubThreads"]
-layout_mode = 2
-text = "options.game.use_sub_threads"
-
-[node name="HintButton" parent="Main/Panel/Control/Options/Options/#options_game#/GameSetting/VSpilt/UseSubThreads" instance=ExtResource("5_gpevy")]
-layout_mode = 2
-notice = SubResource("Resource_44htu")
-
-[node name="ust_button" type="CheckBox" parent="Main/Panel/Control/Options/Options/#options_game#/GameSetting/VSpilt/UseSubThreads"]
-layout_mode = 2
-size_flags_horizontal = 10
-focus_neighbor_left = NodePath(".")
-focus_neighbor_top = NodePath("../../../..")
-focus_neighbor_right = NodePath(".")
-focus_neighbor_bottom = NodePath(".")
-focus_next = NodePath(".")
-focus_previous = NodePath(".")
-flat = true
-
-[node name="EmptyR" type="Control" parent="Main/Panel/Control/Options/Options/#options_game#/GameSetting/VSpilt/UseSubThreads"]
+[node name="EmptyR" type="Control" parent="Main/Panel/Control/Options/Options2/#options_game#/GameSetting/VSplit/UseSubThreads" index="4"]
 custom_minimum_size = Vector2(20, 0)
 layout_mode = 2
 
-[node name="#options_video#" type="TabBar" parent="Main/Panel/Control/Options/Options"]
-visible = false
-layout_mode = 2
-metadata/_tab_index = 1
-
-[node name="VideoSetting" type="ScrollContainer" parent="Main/Panel/Control/Options/Options/#options_video#"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="VSpilt" type="VBoxContainer" parent="Main/Panel/Control/Options/Options/#options_video#/VideoSetting"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="Fullscreen" type="HBoxContainer" parent="Main/Panel/Control/Options/Options/#options_video#/VideoSetting/VSpilt"]
-layout_mode = 2
-
-[node name="EmptyL" type="Control" parent="Main/Panel/Control/Options/Options/#options_video#/VideoSetting/VSpilt/Fullscreen"]
+[node name="EmptyL" type="Control" parent="Main/Panel/Control/Options/Options2/#options_game#/GameSetting/VSplit/PrintDebugInfo" index="0"]
 custom_minimum_size = Vector2(15, 0)
 layout_mode = 2
 
-[node name="fullscreen_text" type="Label" parent="Main/Panel/Control/Options/Options/#options_video#/VideoSetting/VSpilt/Fullscreen"]
-layout_mode = 2
-text = "options.game.fullscreen"
-
-[node name="fullscreen_button" type="CheckBox" parent="Main/Panel/Control/Options/Options/#options_video#/VideoSetting/VSpilt/Fullscreen"]
-texture_filter = 1
-layout_mode = 2
-size_flags_horizontal = 10
-flat = true
-
-[node name="EmptyR" type="Control" parent="Main/Panel/Control/Options/Options/#options_video#/VideoSetting/VSpilt/Fullscreen"]
+[node name="EmptyR" type="Control" parent="Main/Panel/Control/Options/Options2/#options_game#/GameSetting/VSplit/PrintDebugInfo" index="3"]
 custom_minimum_size = Vector2(20, 0)
 layout_mode = 2
 
-[node name="Scale" type="HBoxContainer" parent="Main/Panel/Control/Options/Options/#options_video#/VideoSetting/VSpilt"]
-layout_mode = 2
-
-[node name="EmptyL" type="Control" parent="Main/Panel/Control/Options/Options/#options_video#/VideoSetting/VSpilt/Scale"]
+[node name="EmptyL" type="Control" parent="Main/Panel/Control/Options/Options2/#options_game#/GameSetting/VSplit/catchPElemIssue" index="0"]
 custom_minimum_size = Vector2(15, 0)
 layout_mode = 2
 
-[node name="scale_text" type="Label" parent="Main/Panel/Control/Options/Options/#options_video#/VideoSetting/VSpilt/Scale"]
-layout_mode = 2
-text = "options.game.scale"
-
-[node name="scale_button" type="SpinBox" parent="Main/Panel/Control/Options/Options/#options_video#/VideoSetting/VSpilt/Scale"]
-custom_minimum_size = Vector2(200, 0)
-layout_mode = 2
-size_flags_horizontal = 10
-step = 0.1
-value = 1.0
-
-[node name="EmptyR" type="Control" parent="Main/Panel/Control/Options/Options/#options_video#/VideoSetting/VSpilt/Scale"]
+[node name="EmptyR" type="Control" parent="Main/Panel/Control/Options/Options2/#options_game#/GameSetting/VSplit/catchPElemIssue" index="3"]
 custom_minimum_size = Vector2(20, 0)
 layout_mode = 2
 
-[node name="SDFGI" type="HBoxContainer" parent="Main/Panel/Control/Options/Options/#options_video#/VideoSetting/VSpilt"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="EmptyL" type="Control" parent="Main/Panel/Control/Options/Options/#options_video#/VideoSetting/VSpilt/SDFGI"]
+[node name="EmptyL" type="Control" parent="Main/Panel/Control/Options/Options2/#options_video#/VideoSetting/VSpilt/Fullscreen" index="0"]
 custom_minimum_size = Vector2(15, 0)
 layout_mode = 2
 
-[node name="sdfgi_text" type="Label" parent="Main/Panel/Control/Options/Options/#options_video#/VideoSetting/VSpilt/SDFGI"]
-layout_mode = 2
-text = "options.game.sdfgi"
-
-[node name="HintButton" parent="Main/Panel/Control/Options/Options/#options_video#/VideoSetting/VSpilt/SDFGI" instance=ExtResource("5_gpevy")]
-layout_mode = 2
-notice = SubResource("Resource_u010m")
-
-[node name="sdfgi_button" type="CheckBox" parent="Main/Panel/Control/Options/Options/#options_video#/VideoSetting/VSpilt/SDFGI"]
-layout_mode = 2
-size_flags_horizontal = 10
-focus_neighbor_left = NodePath(".")
-focus_neighbor_top = NodePath("../../../..")
-focus_neighbor_right = NodePath(".")
-focus_neighbor_bottom = NodePath(".")
-focus_next = NodePath(".")
-focus_previous = NodePath(".")
-flat = true
-
-[node name="EmptyR" type="Control" parent="Main/Panel/Control/Options/Options/#options_video#/VideoSetting/VSpilt/SDFGI"]
+[node name="EmptyR" type="Control" parent="Main/Panel/Control/Options/Options2/#options_video#/VideoSetting/VSpilt/Fullscreen" index="3"]
 custom_minimum_size = Vector2(20, 0)
 layout_mode = 2
 
-[node name="#options_audio#" type="TabBar" parent="Main/Panel/Control/Options/Options"]
-visible = false
-layout_mode = 2
-metadata/_tab_index = 2
-
-[node name="AudioSetting" type="ScrollContainer" parent="Main/Panel/Control/Options/Options/#options_audio#"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="VSpilt" type="VBoxContainer" parent="Main/Panel/Control/Options/Options/#options_audio#/AudioSetting"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="Master" type="HBoxContainer" parent="Main/Panel/Control/Options/Options/#options_audio#/AudioSetting/VSpilt"]
-layout_mode = 2
-
-[node name="EmptyL" type="Control" parent="Main/Panel/Control/Options/Options/#options_audio#/AudioSetting/VSpilt/Master"]
+[node name="EmptyL" type="Control" parent="Main/Panel/Control/Options/Options2/#options_video#/VideoSetting/VSpilt/Scale" index="0"]
 custom_minimum_size = Vector2(15, 0)
 layout_mode = 2
 
-[node name="master_text" type="Label" parent="Main/Panel/Control/Options/Options/#options_audio#/AudioSetting/VSpilt/Master"]
-layout_mode = 2
-text = "options.audio.master"
-
-[node name="master_button" type="HSlider" parent="Main/Panel/Control/Options/Options/#options_audio#/AudioSetting/VSpilt/Master"]
-custom_minimum_size = Vector2(200, 0)
-layout_mode = 2
-size_flags_horizontal = 10
-size_flags_vertical = 1
-max_value = 1.0
-step = 0.01
-value = 1.0
-
-[node name="EmptyR" type="Control" parent="Main/Panel/Control/Options/Options/#options_audio#/AudioSetting/VSpilt/Master"]
+[node name="EmptyR" type="Control" parent="Main/Panel/Control/Options/Options2/#options_video#/VideoSetting/VSpilt/Scale" index="3"]
 custom_minimum_size = Vector2(20, 0)
 layout_mode = 2
 
-[node name="Music" type="HBoxContainer" parent="Main/Panel/Control/Options/Options/#options_audio#/AudioSetting/VSpilt"]
-layout_mode = 2
-
-[node name="EmptyL" type="Control" parent="Main/Panel/Control/Options/Options/#options_audio#/AudioSetting/VSpilt/Music"]
+[node name="EmptyL" type="Control" parent="Main/Panel/Control/Options/Options2/#options_video#/VideoSetting/VSpilt/SDFGI" index="0"]
 custom_minimum_size = Vector2(15, 0)
 layout_mode = 2
 
-[node name="music_text" type="Label" parent="Main/Panel/Control/Options/Options/#options_audio#/AudioSetting/VSpilt/Music"]
-layout_mode = 2
-text = "options.audio.bgm"
-
-[node name="music_button" type="HSlider" parent="Main/Panel/Control/Options/Options/#options_audio#/AudioSetting/VSpilt/Music"]
-custom_minimum_size = Vector2(200, 0)
-layout_mode = 2
-size_flags_horizontal = 10
-size_flags_vertical = 1
-max_value = 1.0
-step = 0.01
-value = 1.0
-
-[node name="EmptyR" type="Control" parent="Main/Panel/Control/Options/Options/#options_audio#/AudioSetting/VSpilt/Music"]
+[node name="EmptyR" type="Control" parent="Main/Panel/Control/Options/Options2/#options_video#/VideoSetting/VSpilt/SDFGI" index="4"]
 custom_minimum_size = Vector2(20, 0)
 layout_mode = 2
 
-[node name="SFX" type="HBoxContainer" parent="Main/Panel/Control/Options/Options/#options_audio#/AudioSetting/VSpilt"]
-layout_mode = 2
-
-[node name="EmptyL" type="Control" parent="Main/Panel/Control/Options/Options/#options_audio#/AudioSetting/VSpilt/SFX"]
+[node name="EmptyL" type="Control" parent="Main/Panel/Control/Options/Options2/#options_audio#/AudioSetting/VSpilt/Master" index="0"]
 custom_minimum_size = Vector2(15, 0)
 layout_mode = 2
 
-[node name="sfx_text" type="Label" parent="Main/Panel/Control/Options/Options/#options_audio#/AudioSetting/VSpilt/SFX"]
-layout_mode = 2
-text = "options.audio.sfx"
-
-[node name="sfx_button" type="HSlider" parent="Main/Panel/Control/Options/Options/#options_audio#/AudioSetting/VSpilt/SFX"]
-custom_minimum_size = Vector2(200, 0)
-layout_mode = 2
-size_flags_horizontal = 10
-size_flags_vertical = 1
-max_value = 1.0
-step = 0.01
-value = 1.0
-
-[node name="EmptyR" type="Control" parent="Main/Panel/Control/Options/Options/#options_audio#/AudioSetting/VSpilt/SFX"]
+[node name="EmptyR" type="Control" parent="Main/Panel/Control/Options/Options2/#options_audio#/AudioSetting/VSpilt/Master" index="3"]
 custom_minimum_size = Vector2(20, 0)
 layout_mode = 2
 
-[node name="#options_control#" type="TabBar" parent="Main/Panel/Control/Options/Options"]
-visible = false
-layout_mode = 2
-metadata/_tab_index = 3
-
-[node name="ControlSetting" type="ScrollContainer" parent="Main/Panel/Control/Options/Options/#options_control#"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="VSpilt" type="VBoxContainer" parent="Main/Panel/Control/Options/Options/#options_control#/ControlSetting"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="MouseSen" type="HBoxContainer" parent="Main/Panel/Control/Options/Options/#options_control#/ControlSetting/VSpilt"]
-layout_mode = 2
-
-[node name="EmptyL" type="Control" parent="Main/Panel/Control/Options/Options/#options_control#/ControlSetting/VSpilt/MouseSen"]
+[node name="EmptyL" type="Control" parent="Main/Panel/Control/Options/Options2/#options_audio#/AudioSetting/VSpilt/Music" index="0"]
 custom_minimum_size = Vector2(15, 0)
 layout_mode = 2
 
-[node name="mouse_text" type="Label" parent="Main/Panel/Control/Options/Options/#options_control#/ControlSetting/VSpilt/MouseSen"]
-layout_mode = 2
-text = "options.control.mouse_sen"
-
-[node name="mouse_button" type="HSlider" parent="Main/Panel/Control/Options/Options/#options_control#/ControlSetting/VSpilt/MouseSen"]
-custom_minimum_size = Vector2(200, 0)
-layout_mode = 2
-size_flags_horizontal = 10
-size_flags_vertical = 1
-max_value = 1.0
-step = 0.1
-value = 0.4
-
-[node name="EmptyR" type="Control" parent="Main/Panel/Control/Options/Options/#options_control#/ControlSetting/VSpilt/MouseSen"]
+[node name="EmptyR" type="Control" parent="Main/Panel/Control/Options/Options2/#options_audio#/AudioSetting/VSpilt/Music" index="3"]
 custom_minimum_size = Vector2(20, 0)
 layout_mode = 2
 
-[node name="AutoPickup" type="HBoxContainer" parent="Main/Panel/Control/Options/Options/#options_control#/ControlSetting/VSpilt"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="EmptyL" type="Control" parent="Main/Panel/Control/Options/Options/#options_control#/ControlSetting/VSpilt/AutoPickup"]
+[node name="EmptyL" type="Control" parent="Main/Panel/Control/Options/Options2/#options_audio#/AudioSetting/VSpilt/SFX" index="0"]
 custom_minimum_size = Vector2(15, 0)
 layout_mode = 2
 
-[node name="auto_pickup_text" type="Label" parent="Main/Panel/Control/Options/Options/#options_control#/ControlSetting/VSpilt/AutoPickup"]
+[node name="EmptyR" type="Control" parent="Main/Panel/Control/Options/Options2/#options_audio#/AudioSetting/VSpilt/SFX" index="3"]
+custom_minimum_size = Vector2(20, 0)
 layout_mode = 2
-text = "options.control.auto_pickup"
 
-[node name="HintButton" parent="Main/Panel/Control/Options/Options/#options_control#/ControlSetting/VSpilt/AutoPickup" instance=ExtResource("5_gpevy")]
+[node name="EmptyL" type="Control" parent="Main/Panel/Control/Options/Options2/#options_control#/ControlSetting/VSpilt/MouseSen" index="0"]
+custom_minimum_size = Vector2(15, 0)
 layout_mode = 2
-notice = SubResource("Resource_jwxcf")
 
-[node name="auto_pickup_button" type="CheckBox" parent="Main/Panel/Control/Options/Options/#options_control#/ControlSetting/VSpilt/AutoPickup"]
+[node name="EmptyR" type="Control" parent="Main/Panel/Control/Options/Options2/#options_control#/ControlSetting/VSpilt/MouseSen" index="3"]
+custom_minimum_size = Vector2(20, 0)
 layout_mode = 2
-size_flags_horizontal = 10
-focus_neighbor_left = NodePath(".")
-focus_neighbor_top = NodePath("../../../..")
-focus_neighbor_right = NodePath(".")
-focus_neighbor_bottom = NodePath(".")
-focus_next = NodePath(".")
-focus_previous = NodePath(".")
-flat = true
 
-[node name="EmptyR" type="Control" parent="Main/Panel/Control/Options/Options/#options_control#/ControlSetting/VSpilt/AutoPickup"]
+[node name="EmptyL" type="Control" parent="Main/Panel/Control/Options/Options2/#options_control#/ControlSetting/VSpilt/AutoPickup" index="0"]
+custom_minimum_size = Vector2(15, 0)
+layout_mode = 2
+
+[node name="EmptyR" type="Control" parent="Main/Panel/Control/Options/Options2/#options_control#/ControlSetting/VSpilt/AutoPickup" index="4"]
 custom_minimum_size = Vector2(20, 0)
 layout_mode = 2
 
@@ -1175,7 +855,7 @@ offset_bottom = 22.9999
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_pqf80")
+&"": SubResource("AnimationLibrary_pqf80")
 }
 
 [connection signal="timeout" from="Main/HBoxContainer/Timer" to="." method="_on_timer_timeout"]
@@ -1183,18 +863,8 @@ libraries = {
 [connection signal="pressed" from="Main/Panel/Control/MainMenu/MainMenu/ContinueButton" to="." method="_on_continue_button_pressed"]
 [connection signal="pressed" from="Main/Panel/Control/MainMenu/MainMenu/OptionsButton" to="." method="_on_options_button_pressed"]
 [connection signal="pressed" from="Main/Panel/Control/MainMenu/MainMenu/ExitButton" to="." method="_on_exit_button_pressed"]
-[connection signal="item_selected" from="Main/Panel/Control/Options/Options/#options_game#/GameSetting/VSpilt/Language/language_button" to="Main/Panel/Control/Options" method="_on_language_button_item_selected"]
-[connection signal="pressed" from="Main/Panel/Control/Options/Options/#options_game#/GameSetting/VSpilt/DataPath/datapath_button" to="Main/Panel/Control/Options" method="_on_datapath_button_pressed"]
-[connection signal="dir_selected" from="Main/Panel/Control/Options/Options/#options_game#/GameSetting/VSpilt/DataPath/datapath_button/path_choose" to="Main/Panel/Control/Options" method="_on_path_choose_dir_selected"]
-[connection signal="toggled" from="Main/Panel/Control/Options/Options/#options_game#/GameSetting/VSpilt/UseSubThreads/ust_button" to="Main/Panel/Control/Options" method="_on_ust_button_toggled"]
-[connection signal="toggled" from="Main/Panel/Control/Options/Options/#options_video#/VideoSetting/VSpilt/Fullscreen/fullscreen_button" to="Main/Panel/Control/Options" method="_on_fullscreen_button_toggled"]
-[connection signal="value_changed" from="Main/Panel/Control/Options/Options/#options_video#/VideoSetting/VSpilt/Scale/scale_button" to="Main/Panel/Control/Options" method="_on_scale_button_value_changed"]
-[connection signal="toggled" from="Main/Panel/Control/Options/Options/#options_video#/VideoSetting/VSpilt/SDFGI/sdfgi_button" to="Main/Panel/Control/Options" method="_on_sdfgi_button_toggled"]
-[connection signal="value_changed" from="Main/Panel/Control/Options/Options/#options_audio#/AudioSetting/VSpilt/Master/master_button" to="Main/Panel/Control/Options" method="_on_master_button_value_changed"]
-[connection signal="value_changed" from="Main/Panel/Control/Options/Options/#options_audio#/AudioSetting/VSpilt/Music/music_button" to="Main/Panel/Control/Options" method="_on_music_button_value_changed"]
-[connection signal="value_changed" from="Main/Panel/Control/Options/Options/#options_audio#/AudioSetting/VSpilt/SFX/sfx_button" to="Main/Panel/Control/Options" method="_on_sfx_button_value_changed"]
-[connection signal="value_changed" from="Main/Panel/Control/Options/Options/#options_control#/ControlSetting/VSpilt/MouseSen/mouse_button" to="Main/Panel/Control/Options" method="_on_mouse_button_value_changed"]
-[connection signal="toggled" from="Main/Panel/Control/Options/Options/#options_control#/ControlSetting/VSpilt/AutoPickup/auto_pickup_button" to="Main/Panel/Control/Options" method="_on_auto_pickup_button_toggled"]
 [connection signal="pressed" from="Main/Panel/Control/Options/BackButton" to="." method="_on_options_back_button_pressed"]
 [connection signal="pressed" from="Main/Panel/Control/ExitConfirm/ConfirmButton" to="." method="_on_confirm_button_pressed"]
 [connection signal="pressed" from="Main/Panel/Control/ExitConfirm/CancelButton" to="." method="_on_cancel_button_pressed"]
+
+[editable path="Main/Panel/Control/Options/Options2"]

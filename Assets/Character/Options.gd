@@ -4,6 +4,11 @@ extends TabContainer
 @onready var DataPath = $"#options_game#/GameSetting/VSplit/DataPath/datapath_button"
 @onready var path_choose = $"#options_game#/GameSetting/VSplit/DataPath/datapath_button/path_choose"
 @onready var UseSubThreads = $"#options_game#/GameSetting/VSplit/UseSubThreads/ust_button"
+@onready var PrintDebugInfoHOS = $"#options_game#/GameSetting/VSplit/PrintDebugInfo"
+@onready var DebugOptionsGroup: Button = $"#options_game#/GameSetting/VSplit/DebugOptGroup"
+@onready var PrintDebugInfo = $"#options_game#/GameSetting/VSplit/PrintDebugInfo/pdi_button"
+@onready var CatchPElemIssueHOS = $"#options_game#/GameSetting/VSplit/catchPElemIssue"
+@onready var CatchPElemIssue = $"#options_game#/GameSetting/VSplit/catchPElemIssue/cpei_button"
 
 @onready var Fullscreen = $"#options_video#/VideoSetting/VSpilt/Fullscreen/fullscreen_button"
 @onready var fullscreen_warn = $"#options_video#/VideoSetting/VSpilt/Fullscreen/fullscreen_button/fullscreen_warn"
@@ -28,6 +33,12 @@ func _ready():
 	DataPath.text = Global.DATA_PATH
 	# Use sub threads
 	UseSubThreads.set_pressed_no_signal(Global.load_use_sub_threads)
+	# Debug
+	if !DebugOptionsGroup.button_pressed:
+		PrintDebugInfoHOS.hide()
+		CatchPElemIssueHOS.hide()
+	PrintDebugInfo.set_pressed_no_signal(Global.printDebugInfo)
+	CatchPElemIssue.set_pressed_no_signal(Global.catchPElemIssue)
 	
 	# Fullscreen
 	match DisplayServer.window_get_mode():
@@ -53,7 +64,7 @@ func _ready():
 
 # Change tab
 func _input(_event):
-	if get_parent().current_menu == "Options":
+	if get_parent().has_method("get_current_menu") and get_parent().get_current_menu() == "Options":
 		if Input.is_action_just_pressed("tab_right"):
 			if current_tab == get_tab_count()-1 :	current_tab = 0
 			else :									current_tab += 1
@@ -79,6 +90,20 @@ func _on_path_choose_dir_selected(dir):
 # Use sub threads to load scene
 func _on_ust_button_toggled(toggled_on):
 	Global.load_use_sub_threads = toggled_on
+	Global.save_config()
+# Debug
+func _on_debug_opt_group_toggled(toggled_on: bool) -> void:
+	if toggled_on:
+		PrintDebugInfoHOS.show()
+		CatchPElemIssueHOS.show()
+	else:
+		PrintDebugInfoHOS.hide()
+		CatchPElemIssueHOS.hide()
+func _on_pdi_button_toggled(toggled_on):
+	Global.printDebugInfo = toggled_on
+	Global.save_config()
+func _on_cpei_button_toggled(toggled_on):
+	Global.catchPElemIssue = toggled_on
 	Global.save_config()
 
 # Fullscreen

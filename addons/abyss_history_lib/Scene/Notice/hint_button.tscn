@@ -26,12 +26,12 @@
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_63er2"]
 
 [node name="HintButton" type="Button"]
-theme_override_colors/icon_normal_color = Color(0.87451, 0.87451, 0.87451, 1)
-theme_override_colors/icon_focus_color = Color(0.94902, 0.94902, 0.94902, 1)
-theme_override_colors/icon_pressed_color = Color(1, 1, 1, 1)
-theme_override_colors/icon_hover_color = Color(1, 1, 0.74902, 1)
-theme_override_colors/icon_hover_pressed_color = Color(1, 1, 1, 1)
 theme_override_colors/icon_disabled_color = Color(0.87451, 0.87451, 0.87451, 0.501961)
+theme_override_colors/icon_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_hover_color = Color(1, 1, 0.74902, 1)
+theme_override_colors/icon_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_focus_color = Color(0.94902, 0.94902, 0.94902, 1)
+theme_override_colors/icon_normal_color = Color(0.87451, 0.87451, 0.87451, 1)
 theme_override_styles/focus = SubResource("StyleBoxEmpty_7vbov")
 theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_0uj5o")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_ayyv1")

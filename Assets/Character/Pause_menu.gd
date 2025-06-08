@@ -51,3 +51,6 @@ func _on_cancel_button_pressed():
 	if current_menu == "Exit":
 		current_menu = "Pause"
 		animation.play_backwards("Exit")
+
+func get_current_menu() -> String:
+	return current_menu

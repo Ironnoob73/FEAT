@@ -20,6 +20,10 @@ var VRDim : String
 var VRPos : Vector3
 var VRRot : Vector3
 
+# Debug
+var printDebugInfo : bool = false
+var catchPElemIssue : bool = false
+
 func _ready():
 	load_config()
 	window_min_limit()
@@ -34,6 +38,8 @@ func save_config():
 	file.set_value("game","language",TranslationServer.get_locale())
 	file.set_value("game","data_path",DATA_PATH)
 	file.set_value("game","load_use_sub_threads",load_use_sub_threads)
+	file.set_value("game","print_debug_info",printDebugInfo)
+	file.set_value("game","catch_p_null_issue",catchPElemIssue)
 	file.set_value("video","fullscreen",DisplayServer.window_get_mode())
 	file.set_value("video","scale",get_window().content_scale_factor)
 	file.set_value("video","sdfgi",Sdfgi)
@@ -51,6 +57,8 @@ func load_config():
 		TranslationServer.set_locale(file.get_value("game","language",TranslationServer.get_locale()))
 		DATA_PATH = file.get_value("game","data_path","user://")
 		load_use_sub_threads = file.get_value("game","load_use_sub_threads",false)
+		printDebugInfo = file.get_value("game","print_debug_info",false)
+		catchPElemIssue = file.get_value("game","catch_p_null_issue",false)
 		DisplayServer.window_set_mode(file.get_value("video","fullscreen",DisplayServer.window_get_mode()))
 		get_window().content_scale_factor = file.get_value("video","scale",1)
 		Sdfgi = file.get_value("video","sdfgi",false)
@@ -70,3 +78,8 @@ func back_to_title():
 func get_world_path(dim : String) :
 	match dim :
 		"Overworld" :	return "res://Assets/World/WorldMain.tscn"
+
+# When "p->elem" issue happened, use this to print tons of text.
+func p_elem_debug(info : String) :
+	if catchPElemIssue:
+		push_warning(info)

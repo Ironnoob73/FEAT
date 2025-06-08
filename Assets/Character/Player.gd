@@ -299,9 +299,9 @@ func _snap_up_stairs_check(delta) -> bool:
 	return false
 
 func _physics_process(delta):
-	push_warning("### PP START ###")
+	Global.p_elem_debug("### PP START ###")
 	# Record Inerita & Add the gravity.
-	push_warning("# GRAVITY #")
+	Global.p_elem_debug("# GRAVITY #")
 	if is_on_floor() or isClimb:
 		_last_frame_was_on_floor = Engine.get_physics_frames()
 		INERTIA.x = velocity.x
@@ -311,7 +311,7 @@ func _physics_process(delta):
 
 	
 	# Move Input.
-	push_warning("# MOVE INPUT #")
+	Global.p_elem_debug("# MOVE INPUT #")
 	var input_vec = Vector3.ZERO
 	if current_menu == "HUD":
 		input_vec.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
@@ -323,11 +323,11 @@ func _physics_process(delta):
 	input_vec = (transform.basis * Vector3(input_vec.x,0,input_vec.z)).normalized()
 	
 	# Move.
-	push_warning("# MOVE #")
+	Global.p_elem_debug("# MOVE #")
 	velocity.x = lerp(velocity.x,input_vec.x * (SPEED + isDash * DASH * (1 - isCrouch) - isCrouch * CROUCH ) , ACCELERATION)
 	velocity.z = lerp(velocity.z,input_vec.z * (SPEED + isDash * DASH * (1 - isCrouch) - isCrouch * CROUCH ) , ACCELERATION)
 	# Stop.
-	push_warning("# STOP #")
+	Global.p_elem_debug("# STOP #")
 	if velocity.x * input_vec.x <= 0 and velocity.x!=0:
 		if is_on_floor() or isClimb:
 			velocity.x = lerp(velocity.x,0.0,FRICTION)
@@ -340,7 +340,7 @@ func _physics_process(delta):
 			velocity.z = lerp(INERTIA.y,0.0,FRICTION)
 	
 	# Crouch.
-	push_warning("# CROUCH #")
+	Global.p_elem_debug("# CROUCH #")
 	player_collision.position.y = player_collision.shape.height * 0.5
 	if Input.is_action_pressed("crouch") and !isClimb and !isSit and current_menu == "HUD":
 		player_collision.shape.height = lerp(player_collision.shape.height,1.8 * CROUCH_depth,0.5)
@@ -349,7 +349,7 @@ func _physics_process(delta):
 		player_collision.shape.height = lerp(player_collision.shape.height,1.8,0.5)
 		player_camera.position.y = lerp(player_camera.position.y,1.7,0.5)
 	# Climb
-	push_warning("# CLIMB #")
+	Global.p_elem_debug("# CLIMB #")
 	if isClimb:
 		if current_menu == "HUD":
 			input_vec.y = Input.get_action_strength("jump") - Input.get_action_strength("crouch")
@@ -357,12 +357,12 @@ func _physics_process(delta):
 	if velocity.y * input_vec.y <= 0 and velocity.y!=0 and isClimb:
 		velocity.y = lerp(velocity.y,0.0,FRICTION)
 	# Handle Jump.
-	push_warning("# JUMP #")
+	Global.p_elem_debug("# JUMP #")
 	if is_on_floor() or _snapped_to_stairs_last_frame:
 		if current_menu == "HUD" and Input.is_action_just_pressed("jump"):
 			velocity.y = JUMP_VELOCITY
 			
-	push_warning("#! MAS !#")
+	Global.p_elem_debug("#! MAS !#")
 	if not _snap_up_stairs_check(delta):
 		_push_away_rigid_bodies()
 		if !isSit && !isInTeleport: move_and_slide()
@@ -370,7 +370,7 @@ func _physics_process(delta):
 	
 
 	#Scroll hotbar
-	push_warning("# SCROLL #")
+	Global.p_elem_debug("# SCROLL #")
 	if current_menu == "HUD" and !Input.is_action_pressed("tool_function_switch"):
 		if Input.is_action_just_pressed("roll_down"):
 			if current_hotbar < 4 :	current_hotbar += 1
@@ -381,7 +381,7 @@ func _physics_process(delta):
 			else :	current_hotbar = 4
 			refresh_handheld(current_hotbar)
 
-	push_warning("### PP END ###")
+	Global.p_elem_debug("### PP END ###")
 	
 func _process(_delta):
 	match load_step :
@@ -422,7 +422,8 @@ func _process(_delta):
 		else:
 			_walk_length += velocity.length()
 	else:
-		print(_walk_length," ",_ground_ray_cast.is_colliding()," ",velocity.length())
+		if Global.printDebugInfo:
+			print(_walk_length," ",_ground_ray_cast.is_colliding()," ",velocity.length())
 	
 func _forward_strength(value:float) -> float:
 	if (-2 * value + 1) > 0:

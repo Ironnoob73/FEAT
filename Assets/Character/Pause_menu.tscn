@@ -381,9 +381,9 @@ text = "pause.title"
 
 [node name="ResumeButton" type="Button" parent="Main"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.74902, 0.74902, 0.74902, 1)
 theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0.74902, 0.74902, 0.74902, 1)
 theme_override_constants/outline_size = 2
 theme_override_font_sizes/font_size = 30
 text = "pause.resume"
@@ -392,9 +392,9 @@ alignment = 0
 
 [node name="OptionsButton" type="Button" parent="Main"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.74902, 0.74902, 0.74902, 1)
 theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0.74902, 0.74902, 0.74902, 1)
 theme_override_constants/outline_size = 2
 theme_override_font_sizes/font_size = 30
 text = "title.menu.options"
@@ -403,9 +403,9 @@ alignment = 0
 
 [node name="ExitButton" type="Button" parent="Main"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.74902, 0.74902, 0.74902, 1)
 theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0.74902, 0.74902, 0.74902, 1)
 theme_override_constants/outline_size = 2
 theme_override_font_sizes/font_size = 30
 text = "title.menu.exit"
@@ -471,25 +471,25 @@ size_flags_horizontal = 4
 [node name="ConfirmButton" type="Button" parent="ExitBox/HBox"]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
-theme_override_colors/font_color = Color(0.74902, 0.74902, 0.74902, 1)
 theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0.74902, 0.74902, 0.74902, 1)
 theme_override_font_sizes/font_size = 30
 text = "button.confirm"
 
 [node name="CancelButton" type="Button" parent="ExitBox/HBox"]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
-theme_override_colors/font_color = Color(0.74902, 0.74902, 0.74902, 1)
 theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0.74902, 0.74902, 0.74902, 1)
 theme_override_font_sizes/font_size = 30
 shortcut = SubResource("Shortcut_0jaa1")
 text = "button.cancel"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_x1qir")
+&"": SubResource("AnimationLibrary_x1qir")
 }
 
 [connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]

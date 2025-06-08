@@ -43,6 +43,15 @@ msgstr "存档路径"
 msgid "options.game.use_sub_threads"
 msgstr "使用子线程加载场景"
 
+msgid "options.game.debug.group"
+msgstr "调试选项..."
+
+msgid "options.game.print_debug_info"
+msgstr "打印调试信息"
+
+msgid "options.game.catch_p_elem_issue"
+msgstr "捕获\"p_elem\"问题"
+
 msgid "#options_video#"
 msgstr "视频"
 

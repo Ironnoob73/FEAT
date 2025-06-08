@@ -294,6 +294,7 @@ _data = {
 }
 
 [node name="NoticeScene" type="CanvasLayer"]
+process_mode = 3
 script = ExtResource("1_nkyr1")
 
 [node name="Background" type="Panel" parent="."]
@@ -400,7 +401,7 @@ size_flags_stretch_ratio = 0.25
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_2vkxs")
+&"": SubResource("AnimationLibrary_2vkxs")
 }
 
 [connection signal="button_down" from="Background/CenterContainer/Window/HBoxContainer/VBoxContainer/HBoxContainer/yep" to="." method="true_choice"]
