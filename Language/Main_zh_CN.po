@@ -50,7 +50,7 @@ msgid "options.game.print_debug_info"
 msgstr "打印调试信息"
 
 msgid "options.game.catch_p_elem_issue"
-msgstr "捕获\"p_elem\"问题"
+msgstr "捕获\"p_elem->_root != this\"问题"
 
 msgid "#options_video#"
 msgstr "视频"

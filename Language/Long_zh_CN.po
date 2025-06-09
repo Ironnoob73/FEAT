@@ -22,8 +22,8 @@ msgstr "这条路径是你存放游戏存档的位置，注意这里不会保存
 msgid "options.game.use_sub_threads.disc"
 msgstr "使用多线程的方式加载场景，在某些情况下能加快加载速度，但也可能更慢甚至导致场景无法加载，如遇以上两种情况请关闭此项。"
 
-msgid "options.game.fullscreen.disc"
-msgstr "让游戏占据你的整个屏幕。需注意由于一个BUG导致你在窗口最大化的情况下...算了，[i]她[/i]会阻止你的。"
+msgid "options.game.catch_p_elem_issue.disc"
+msgstr "该问题会导致游戏无响应。开启此项会在调试器里打印大量的警告来试图捕获该问题发生的时刻。但是似乎在开启此项后再也没发生过这个问题，当你关闭该项后问题又会出现..."
 
 msgid "options.game.sdfgi.disc"
 msgstr "这将使用更加精致的效果渲染场景，但可能会造成一些视觉问题和性能负担。"

@@ -22,8 +22,8 @@ msgstr "This path is where you store your game saves. Note that your game settin
 msgid "options.game.use_sub_threads.disc"
 msgstr "Using multithreading to load scenes can speed up loading in some cases, but it may also be slower or even cause the scene to fail to load. If you encounter the above two situations, please turn this option off."
 
-msgid "options.game.fullscreen.disc"
-msgstr "Make the game take up your entire screen. Note that due to a bug, if you enable this option while the window is maximized... forget it, [i]she[/i] will stop you."
+msgid "options.game.catch_p_elem_issue.disc"
+msgstr "This issue will cause the game to become unresponsive. Turning this on will print a lot of warnings in the debugger to try to catch the moment when this issue occurs. But it seems that this issue never happens again after turning this on, and when you turn it off, the issue will appear again..."
 
 msgid "options.game.sdfgi.disc"
 msgstr "This will render the scene with a more refined effect, but may cause some visual issues and performance overhead."

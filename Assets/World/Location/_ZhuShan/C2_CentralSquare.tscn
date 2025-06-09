@@ -458,3 +458,5 @@ collision_layer = 3
 polygon = PackedVector2Array(55, -52, 36, -60, 27, -64, 64, -64, 64, -49)
 depth = 0.25
 material = ExtResource("18_pfwmm")
+
+[editable path="CENTER/CenteralParkGrass"]

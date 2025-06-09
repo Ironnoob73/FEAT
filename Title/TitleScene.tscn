@@ -717,7 +717,7 @@ layout_mode = 2
 custom_minimum_size = Vector2(15, 0)
 layout_mode = 2
 
-[node name="EmptyR" type="Control" parent="Main/Panel/Control/Options/Options2/#options_game#/GameSetting/VSplit/catchPElemIssue" index="3"]
+[node name="EmptyR" type="Control" parent="Main/Panel/Control/Options/Options2/#options_game#/GameSetting/VSplit/catchPElemIssue" index="4"]
 custom_minimum_size = Vector2(20, 0)
 layout_mode = 2
 

@@ -41,8 +41,8 @@ func _physics_process(_delta):
 		sun.light_color.g = sin(sunlight + PI / 2) * 0.5 + 0.5
 		sun.light_color.b = sin(sunlight + PI / 2) * 0.8 + 0.15
 		sun_visual.light_color = sun.light_color
-		sun.light_angular_distance = sin(sunlight) * 5
-		sun_visual.light_angular_distance = sun.light_angular_distance
+		sun.shadow_blur = sin(sunlight) * 5
+		sun_visual.light_angular_distance = sin(sunlight) * 5
 	elif daytime == 0.75 :
 		sun_visual.light_energy = 1
 		sun_visual.light_color.g = sin(PI / 2) * 0.5 + 0.5

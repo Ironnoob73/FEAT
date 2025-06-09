@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cnl53v0lrb1mv"]
+[gd_scene load_steps=10 format=3 uid="uid://cnl53v0lrb1mv"]
 
 [ext_resource type="Script" uid="uid://cmgyke5hcxe75" path="res://Assets/Character/Options.gd" id="1_54q7r"]
 [ext_resource type="PackedScene" uid="uid://gqwcyi21yhlc" path="res://addons/abyss_history_lib/Scene/Notice/hint_button.tscn" id="2_hwb3r"]
@@ -7,7 +7,7 @@
 
 [sub_resource type="Resource" id="Resource_wnie8"]
 script = ExtResource("3_2vebq")
-title = "notice.title.info"
+title = "options.game.data"
 type = "Info"
 bgColor = Color(0, 0.501961, 1, 1)
 content = "options.game.data.disc"
@@ -17,7 +17,7 @@ nope = "notice.choice.no"
 
 [sub_resource type="Resource" id="Resource_hwb3r"]
 script = ExtResource("3_2vebq")
-title = "notice.title.info"
+title = "options.game.use_sub_threads"
 type = "Info"
 bgColor = Color(0, 0.501961, 1, 1)
 content = "options.game.use_sub_threads.disc"
@@ -25,9 +25,19 @@ choice = false
 yep = "notice.choice.ok"
 nope = "notice.choice.no"
 
+[sub_resource type="Resource" id="Resource_g8qbb"]
+script = ExtResource("3_2vebq")
+title = "options.game.catch_p_elem_issue"
+type = "Info"
+bgColor = Color(0, 0.501961, 1, 1)
+content = "options.game.catch_p_elem_issue.disc"
+choice = false
+yep = "notice.choice.ok"
+nope = "notice.choice.no"
+
 [sub_resource type="Resource" id="Resource_2vebq"]
 script = ExtResource("3_2vebq")
-title = "notice.title.info"
+title = "options.game.sdfgi"
 type = "Info"
 bgColor = Color(0, 0.501961, 1, 1)
 content = "options.game.sdfgi.disc"
@@ -37,7 +47,7 @@ nope = "notice.choice.no"
 
 [sub_resource type="Resource" id="Resource_xu8jr"]
 script = ExtResource("3_2vebq")
-title = "notice.title.info"
+title = "options.control.auto_pickup"
 type = "Info"
 bgColor = Color(0, 0.501961, 1, 1)
 content = "options.control.auto_pickup.disc"
@@ -197,12 +207,15 @@ size_flags_horizontal = 3
 
 [node name="cpei_text" type="Label" parent="#options_game#/GameSetting/VSplit/catchPElemIssue"]
 layout_mode = 2
-size_flags_horizontal = 3
 text = "options.game.catch_p_elem_issue"
+
+[node name="HintButton" parent="#options_game#/GameSetting/VSplit/catchPElemIssue" instance=ExtResource("2_hwb3r")]
+layout_mode = 2
+notice = SubResource("Resource_g8qbb")
 
 [node name="cpei_button" type="CheckBox" parent="#options_game#/GameSetting/VSplit/catchPElemIssue"]
 layout_mode = 2
-size_flags_horizontal = 8
+size_flags_horizontal = 10
 focus_neighbor_left = NodePath(".")
 focus_neighbor_top = NodePath("../../../..")
 focus_neighbor_right = NodePath(".")
