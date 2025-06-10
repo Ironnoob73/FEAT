@@ -365,9 +365,9 @@ func _physics_process(delta):
 	Global.p_elem_debug("#! MAS !#")
 	if not _snap_up_stairs_check(delta):
 		_push_away_rigid_bodies()
-		if !isSit && !isInTeleport: move_and_slide()
+		if !isSit && !isInTeleport:
+			move_and_slide()
 		_snap_down_to_stairs_check()
-	
 
 	#Scroll hotbar
 	Global.p_elem_debug("# SCROLL #")

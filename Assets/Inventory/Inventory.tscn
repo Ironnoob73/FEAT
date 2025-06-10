@@ -881,7 +881,7 @@ visible = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_q4uqo")
+&"": SubResource("AnimationLibrary_q4uqo")
 }
 
 [connection signal="pressed" from="Main/Scroll/ButtonGroup/HBox0/ItemButton" to="." method="_on_item_button_pressed"]
