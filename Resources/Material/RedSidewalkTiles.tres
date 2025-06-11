@@ -5,14 +5,10 @@
 [ext_resource type="Texture2D" uid="uid://bnn76lfcvqx3h" path="res://Resources/Material/Sources/RedSidewalkTiles_orm.png" id="3_rfbgj"]
 
 [resource]
-diffuse_mode = 3
-specular_mode = 1
 albedo_texture = ExtResource("1_ugdmt")
 roughness_texture = ExtResource("3_rfbgj")
 roughness_texture_channel = 1
 normal_enabled = true
 normal_texture = ExtResource("2_tpkg3")
-uv1_scale = Vector3(0.25, 0.25, 0.25)
-uv1_triplanar = true
 uv1_world_triplanar = true
 texture_filter = 0
