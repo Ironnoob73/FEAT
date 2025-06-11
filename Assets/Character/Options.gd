@@ -9,6 +9,8 @@ extends TabContainer
 @onready var PrintDebugInfo = $"#options_game#/GameSetting/VSplit/PrintDebugInfo/pdi_button"
 @onready var CatchPElemIssueHOS = $"#options_game#/GameSetting/VSplit/catchPElemIssue"
 @onready var CatchPElemIssue = $"#options_game#/GameSetting/VSplit/catchPElemIssue/cpei_button"
+@onready var AlwausShowCursorHOS = $"#options_game#/GameSetting/VSplit/alwaysShowCursor"
+@onready var AlwausShowCursor = $"#options_game#/GameSetting/VSplit/alwaysShowCursor/asc_button"
 
 @onready var Fullscreen = $"#options_video#/VideoSetting/VSpilt/Fullscreen/fullscreen_button"
 @onready var fullscreen_warn = $"#options_video#/VideoSetting/VSpilt/Fullscreen/fullscreen_button/fullscreen_warn"
@@ -16,10 +18,14 @@ extends TabContainer
 @onready var Sdfgi = $"#options_video#/VideoSetting/VSpilt/SDFGI/sdfgi_button"
 
 @onready var MasterVolume = $"#options_audio#/AudioSetting/VSpilt/Master/master_button"
+@onready var MasterVolumePercent = $"#options_audio#/AudioSetting/VSpilt/Master/percent"
 @onready var BgmVolume = $"#options_audio#/AudioSetting/VSpilt/Music/bgm_button"
+@onready var BgmVolumePercent = $"#options_audio#/AudioSetting/VSpilt/Music/percent"
 @onready var SfxVolume = $"#options_audio#/AudioSetting/VSpilt/SFX/sfx_button"
+@onready var SfxVolumePercent = $"#options_audio#/AudioSetting/VSpilt/SFX/percent"
 
 @onready var MouseSen = $"#options_control#/ControlSetting/VSpilt/MouseSen/mouse_button"
+@onready var MouseSenPercent = $"#options_control#/ControlSetting/VSpilt/MouseSen/percent"
 @onready var AutoPickup = $"#options_control#/ControlSetting/VSpilt/AutoPickup/auto_pickup_button"
 
 signal SetSdfgi(bool)
@@ -37,8 +43,10 @@ func _ready():
 	if !DebugOptionsGroup.button_pressed:
 		PrintDebugInfoHOS.hide()
 		CatchPElemIssueHOS.hide()
+		AlwausShowCursorHOS.hide()
 	PrintDebugInfo.set_pressed_no_signal(Global.printDebugInfo)
 	CatchPElemIssue.set_pressed_no_signal(Global.catchPElemIssue)
+	AlwausShowCursor.set_pressed_no_signal(Global.alwaysShowCursor)
 	
 	# Fullscreen
 	match DisplayServer.window_get_mode():
@@ -50,14 +58,14 @@ func _ready():
 	Sdfgi.set_pressed_no_signal(Global.Sdfgi)
 	# Volume
 	MasterVolume.value = db_to_linear(AudioServer.get_bus_volume_db(0))
-	MasterVolume.set_tooltip_text( str(db_to_linear(AudioServer.get_bus_volume_db(0))*100) + "%")
+	MasterVolumePercent.text = str(db_to_linear(AudioServer.get_bus_volume_db(0))*100) + "%"
 	BgmVolume.value = db_to_linear(AudioServer.get_bus_volume_db(1))
-	BgmVolume.set_tooltip_text( str(db_to_linear(AudioServer.get_bus_volume_db(1))*100) + "%")
+	BgmVolumePercent.text = str(db_to_linear(AudioServer.get_bus_volume_db(1))*100) + "%"
 	SfxVolume.value = db_to_linear(AudioServer.get_bus_volume_db(2))
-	SfxVolume.set_tooltip_text( str(db_to_linear(AudioServer.get_bus_volume_db(2))*100) + "%")
+	SfxVolumePercent.text = str(db_to_linear(AudioServer.get_bus_volume_db(2))*100) + "%"
 	# Control
 	MouseSen.value = Global.mouse_sens
-	MouseSen.set_tooltip_text( str((Global.mouse_sens)*100) + "%")
+	MouseSenPercent.text = str((Global.mouse_sens)*100) + "%"
 	# AutoPickup
 	AutoPickup.set_pressed_no_signal(Global.auto_pickup)
 	
@@ -96,14 +104,19 @@ func _on_debug_opt_group_toggled(toggled_on: bool) -> void:
 	if toggled_on:
 		PrintDebugInfoHOS.show()
 		CatchPElemIssueHOS.show()
+		AlwausShowCursorHOS.show()
 	else:
 		PrintDebugInfoHOS.hide()
 		CatchPElemIssueHOS.hide()
+		AlwausShowCursorHOS.hide()
 func _on_pdi_button_toggled(toggled_on):
 	Global.printDebugInfo = toggled_on
 	Global.save_config()
 func _on_cpei_button_toggled(toggled_on):
 	Global.catchPElemIssue = toggled_on
+	Global.save_config()
+func _on_asc_button_toggled(toggled_on):
+	Global.alwaysShowCursor = toggled_on
 	Global.save_config()
 
 # Fullscreen
@@ -134,23 +147,23 @@ func _on_sdfgi_button_toggled(toggled_on):
 #Master volume
 func _on_master_button_value_changed(value):
 	AudioServer.set_bus_volume_db(0,linear_to_db(value))
-	MasterVolume.set_tooltip_text( str(value*100) + "%")
+	MasterVolumePercent.text = str(value*100) + "%"
 	Global.save_config()
 #Bgm volume
 func _on_bgm_button_value_changed(value):
 	AudioServer.set_bus_volume_db(1,linear_to_db(value))
-	BgmVolume.set_tooltip_text( str(value*100) + "%")
+	BgmVolumePercent.text = str(value*100) + "%"
 	Global.save_config()
 #Sfx volume
 func _on_sfx_button_value_changed(value):
 	AudioServer.set_bus_volume_db(2,linear_to_db(value))
-	SfxVolume.set_tooltip_text( str(value*100) + "%")
+	SfxVolumePercent.text = str(value*100) + "%"
 	Global.save_config()
 	
 #Mouse sensitivity
 func _on_mouse_button_value_changed(value):
 	Global.mouse_sens = value
-	MouseSen.set_tooltip_text( str(value*100) + "%")
+	MouseSenPercent.text = str(value*100) + "%"
 	Global.save_config()
 #AutoPickup
 func _on_auto_pickup_button_toggled(toggled_on):

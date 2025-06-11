@@ -18,6 +18,8 @@ signal touch_signal
 @export var interact_text : String = "interact.interact"
 @export var interact_behavior : Array[AHL_BehaviorClass]
 @export var Switchable : bool = false
+
+## 当Switchable开启，该项用于控制可交互体的开启状态。
 @export var state : bool = false:
 	set(state_in):
 		state = state_in

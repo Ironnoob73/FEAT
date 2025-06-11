@@ -10,4 +10,4 @@ func do(interactor:Node,sender:Node) -> void:
 	if !unlock:
 		interactor.Interactable = false
 		interactor.interact_icon = "🔒"
-		interactor.interact_text = "locked"
+		interactor.interact_text = "interact.locked"

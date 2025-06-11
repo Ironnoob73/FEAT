@@ -1,23 +1,26 @@
 @tool
 extends AnimatableBody3D
 
-var interact_icon : String = "🤚"
-
-@export var open : bool = false:
-	set(state):
-		open = state
-		if Engine.is_editor_hint():
-			open_setter()
+@export var open : bool = false
 
 func _ready() -> void:
-	if open:	self.rotation.y = deg_to_rad(90)
+	if !get_parent().is_node_ready():
+		await get_parent().ready
+		_state_change()
 			
-func open_setter():
-	if open:	self.rotation.y = deg_to_rad(90)
-	else :	self.rotation.y = 0
+func _interact_signal(_i: Variant, _s: Variant) -> void:
+	if is_node_ready():
+		_state_change()
 	
-func interact(_sender):
-	var tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUART)
-	open = !open
-	if open :	tween.tween_property(self, "rotation:y", deg_to_rad(90), 0.5)
-	else :		tween.tween_property(self, "rotation:y", 0, 0.5)
+func _state_change():
+	if get_parent() is AHL_Interactive:
+		if get_parent().state:
+			get_parent().interact_text = "interact.close"
+			open = true
+			var tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUART)
+			tween.tween_property(self, "rotation:y", deg_to_rad(90), 0.5)
+		else :
+			get_parent().interact_text = "interact.open"
+			open = false
+			var tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUART)
+			tween.tween_property(self, "rotation:y", 0, 0.5)

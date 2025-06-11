@@ -29,7 +29,7 @@ func _physics_process(_delta):
 	elif _cursor.visible == true:
 		_cursor.set_global_position(lerp(_cursor.global_position,Vector3(hit_point)+Vector3(0.5,0.25,0.5),0.5))
 	else:
-		_cursor.show()
+		if Global.alwaysShowCursor: _cursor.show()
 		_cursor.set_global_position(Vector3(hit_point)+Vector3(0.5,0.25,0.5))
 	# Interact
 	if is_colliding() and get_collider().get_parent() is AHL_Interactive:

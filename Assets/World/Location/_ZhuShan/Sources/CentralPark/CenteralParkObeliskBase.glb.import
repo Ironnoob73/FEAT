@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://jynjro245s3t"
-path="res://.godot/imported/CenteralParkGrass.glb-9d5172a77ffbe83aeca3fe5527f668db.scn"
+uid="uid://bl11dxarjxef1"
+path="res://.godot/imported/CenteralParkObeliskBase.glb-abfe7477f18f512600e326768dd192a0.scn"
 
 [deps]
 
-source_file="res://Assets/World/Location/_ZhuShan/Sources/CentralPark/CenteralParkGrass.glb"
-dest_files=["res://.godot/imported/CenteralParkGrass.glb-9d5172a77ffbe83aeca3fe5527f668db.scn"]
+source_file="res://Assets/World/Location/_ZhuShan/Sources/CentralPark/CenteralParkObeliskBase.glb"
+dest_files=["res://.godot/imported/CenteralParkObeliskBase.glb-abfe7477f18f512600e326768dd192a0.scn"]
 
 [params]
 

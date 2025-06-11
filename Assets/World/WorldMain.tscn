@@ -61,6 +61,7 @@ shader_parameter/overwritten_time = 0.0
 
 [sub_resource type="Sky" id="Sky_540gf"]
 sky_material = SubResource("ShaderMaterial_jrs7m")
+radiance_size = 0
 
 [sub_resource type="Environment" id="Environment_kprkk"]
 background_mode = 2
@@ -118,6 +119,7 @@ sky_mode = 2
 transform = Transform3D(-0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, -0.866025, 0, 0, 0)
 light_color = Color(1, 1, 0.937255, 1)
 shadow_enabled = true
+shadow_bias = 0.001
 directional_shadow_mode = 1
 directional_shadow_blend_splits = true
 sky_mode = 1

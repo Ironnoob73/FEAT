@@ -181,6 +181,6 @@ transform = Transform3D(0.866025, 0.5, 0, -0.5, 0.866025, 0, 0, 0, 1, 4.4, 11, 0
 transform = Transform3D(0.984808, 0.173648, 0, -0.173648, 0.984808, 0, 0, 0, 1, 0.9, 15.07, 0)
 
 [node name="Plate1x5" parent="." instance=ExtResource("22_lijkt")]
-transform = Transform3D(-3.78552e-08, 2.18557e-08, 1, 0.5, 0.866025, 0, -0.866025, 0.5, -4.37114e-08, 0.9, 11, 5.4)
+transform = Transform3D(-4.30473e-08, 7.5904e-09, 1, 0.173648, 0.984807, 0, -0.984807, 0.173648, -4.37114e-08, 0.9, 11, 5.5)
 
 [editable path="TravelAgency"]

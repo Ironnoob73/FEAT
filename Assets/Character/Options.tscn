@@ -225,6 +225,27 @@ focus_previous = NodePath(".")
 text = " "
 flat = true
 
+[node name="alwaysShowCursor" type="HBoxContainer" parent="#options_game#/GameSetting/VSplit"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="asc_text" type="Label" parent="#options_game#/GameSetting/VSplit/alwaysShowCursor"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "options.game.always_show_cursor"
+
+[node name="asc_button" type="CheckBox" parent="#options_game#/GameSetting/VSplit/alwaysShowCursor"]
+layout_mode = 2
+size_flags_horizontal = 8
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath("../../..")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath(".")
+focus_next = NodePath(".")
+focus_previous = NodePath(".")
+text = " "
+flat = true
+
 [node name="#options_video#" type="TabBar" parent="."]
 visible = false
 layout_direction = 1
@@ -353,6 +374,10 @@ layout_mode = 2
 size_flags_horizontal = 3
 text = "options.audio.master"
 
+[node name="percent" type="Label" parent="#options_audio#/AudioSetting/VSpilt/Master"]
+layout_mode = 2
+text = "100%"
+
 [node name="master_button" type="HSlider" parent="#options_audio#/AudioSetting/VSpilt/Master"]
 custom_minimum_size = Vector2(200, 35)
 layout_mode = 2
@@ -374,6 +399,10 @@ layout_mode = 2
 size_flags_horizontal = 3
 text = "options.audio.bgm"
 
+[node name="percent" type="Label" parent="#options_audio#/AudioSetting/VSpilt/Music"]
+layout_mode = 2
+text = "100%"
+
 [node name="bgm_button" type="HSlider" parent="#options_audio#/AudioSetting/VSpilt/Music"]
 custom_minimum_size = Vector2(200, 35)
 layout_mode = 2
@@ -394,6 +423,10 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 3
 text = "options.audio.sfx"
+
+[node name="percent" type="Label" parent="#options_audio#/AudioSetting/VSpilt/SFX"]
+layout_mode = 2
+text = "100%"
 
 [node name="sfx_button" type="HSlider" parent="#options_audio#/AudioSetting/VSpilt/SFX"]
 custom_minimum_size = Vector2(200, 35)
@@ -439,6 +472,10 @@ layout_mode = 2
 size_flags_horizontal = 3
 text = "options.control.mouse_sen"
 
+[node name="percent" type="Label" parent="#options_control#/ControlSetting/VSpilt/MouseSen"]
+layout_mode = 2
+text = "40%"
+
 [node name="mouse_button" type="HSlider" parent="#options_control#/ControlSetting/VSpilt/MouseSen"]
 custom_minimum_size = Vector2(200, 35)
 layout_mode = 2
@@ -480,6 +517,7 @@ flat = true
 [connection signal="toggled" from="#options_game#/GameSetting/VSplit/DebugOptGroup" to="." method="_on_debug_opt_group_toggled"]
 [connection signal="toggled" from="#options_game#/GameSetting/VSplit/PrintDebugInfo/pdi_button" to="." method="_on_pdi_button_toggled"]
 [connection signal="toggled" from="#options_game#/GameSetting/VSplit/catchPElemIssue/cpei_button" to="." method="_on_cpei_button_toggled"]
+[connection signal="toggled" from="#options_game#/GameSetting/VSplit/alwaysShowCursor/asc_button" to="." method="_on_asc_button_toggled"]
 [connection signal="toggled" from="#options_video#/VideoSetting/VSpilt/Fullscreen/fullscreen_button" to="." method="_on_fullscreen_button_toggled"]
 [connection signal="close_requested" from="#options_video#/VideoSetting/VSpilt/Fullscreen/fullscreen_button/fullscreen_warn" to="." method="_on_fullscreen_warn_close_requested"]
 [connection signal="value_changed" from="#options_video#/VideoSetting/VSpilt/Scale/scale_button" to="." method="_on_scale_button_value_changed"]

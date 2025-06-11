@@ -23,6 +23,7 @@ var VRRot : Vector3
 # Debug
 var printDebugInfo : bool = false
 var catchPElemIssue : bool = false
+var alwaysShowCursor : bool = false
 
 func _ready():
 	load_config()
@@ -40,6 +41,7 @@ func save_config():
 	file.set_value("game","load_use_sub_threads",load_use_sub_threads)
 	file.set_value("game","print_debug_info",printDebugInfo)
 	file.set_value("game","catch_p_null_issue",catchPElemIssue)
+	file.set_value("game","always_show_cursor",alwaysShowCursor)
 	file.set_value("video","fullscreen",DisplayServer.window_get_mode())
 	file.set_value("video","scale",get_window().content_scale_factor)
 	file.set_value("video","sdfgi",Sdfgi)
@@ -59,6 +61,7 @@ func load_config():
 		load_use_sub_threads = file.get_value("game","load_use_sub_threads",false)
 		printDebugInfo = file.get_value("game","print_debug_info",false)
 		catchPElemIssue = file.get_value("game","catch_p_null_issue",false)
+		alwaysShowCursor = file.get_value("game","always_show_cursor",false)
 		DisplayServer.window_set_mode(file.get_value("video","fullscreen",DisplayServer.window_get_mode()))
 		get_window().content_scale_factor = file.get_value("video","scale",1)
 		Sdfgi = file.get_value("video","sdfgi",false)

@@ -52,6 +52,9 @@ msgstr "Print debug info"
 msgid "options.game.catch_p_elem_issue"
 msgstr "Catch \"p_elem->_root != this\" issue"
 
+msgid "options.game.always_show_cursor"
+msgstr "Always show cursor"
+
 msgid "#options_video#"
 msgstr "Video"
 

@@ -1,10 +1,11 @@
-[gd_scene load_steps=14 format=3 uid="uid://bgelaund2s486"]
+[gd_scene load_steps=15 format=3 uid="uid://bgelaund2s486"]
 
 [ext_resource type="Script" uid="uid://cp3i1mvdjv4k8" path="res://Resources/Object/Building/OcclusionSetup.gd" id="1_6unuo"]
 [ext_resource type="Material" uid="uid://bi2qrop8jfbsf" path="res://Resources/Material/Tree.tres" id="1_ruirv"]
 [ext_resource type="ArrayMesh" uid="uid://cj8yvtn7voah" path="res://Resources/Object/Building/Window/CasementWindow/CasementWindowFrame.obj" id="2_8ujlu"]
 [ext_resource type="Script" uid="uid://cuiwmk4g765at" path="res://Resources/Object/Building/Window/CasementWindow/WindowInteraction.gd" id="3_50q7s"]
 [ext_resource type="Material" uid="uid://do55163v32q4u" path="res://Resources/Material/Wood.tres" id="4_0g06b"]
+[ext_resource type="Script" uid="uid://c8ier7k2ohfsp" path="res://addons/abyss_history_lib/Class/Interact/InteractiveClass.gd" id="4_7xqpq"]
 [ext_resource type="ArrayMesh" uid="uid://bk6pj84y4cnv6" path="res://Resources/Object/Building/Window/CasementWindow/CasementWindow.obj" id="5_2202u"]
 [ext_resource type="Material" uid="uid://d2kh2k5stcerf" path="res://Resources/Material/Glass.tres" id="6_jya43"]
 [ext_resource type="Material" uid="uid://rnxv6hl1w5ul" path="res://Resources/Material/DarkMaterial.tres" id="7_0gtub"]
@@ -34,22 +35,31 @@ mesh = ExtResource("2_8ujlu")
 [node name="CollisionShape" type="CollisionShape3D" parent="."]
 shape = SubResource("ConcavePolygonShape3D_kdmmy")
 
-[node name="Window" type="AnimatableBody3D" parent="." groups=["Interactive"]]
+[node name="AHL_Interactive" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4, 0.1, 0)
+script = ExtResource("4_7xqpq")
+DisplayName = "Wooden Casement Window"
+Interactable = true
+interact_text = "interact.open"
+Switchable = true
+current_health = 100.0
+metadata/_custom_type_script = "uid://c8ier7k2ohfsp"
+
+[node name="Window" type="AnimatableBody3D" parent="AHL_Interactive"]
 collision_layer = 9
 script = ExtResource("3_50q7s")
 
-[node name="Mesh" type="MeshInstance3D" parent="Window"]
+[node name="Mesh" type="MeshInstance3D" parent="AHL_Interactive/Window"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4, -0.1, 0.05)
 material_override = ExtResource("4_0g06b")
 mesh = ExtResource("5_2202u")
-skeleton = NodePath("../..")
+skeleton = NodePath("../../..")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Window"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AHL_Interactive/Window"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.65, 0.9, 0)
 shape = SubResource("BoxShape3D_pv265")
 
-[node name="Glass" type="MeshInstance3D" parent="Window"]
+[node name="Glass" type="MeshInstance3D" parent="AHL_Interactive/Window"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.65, 0.9, 0)
 material_override = ExtResource("6_jya43")
 mesh = SubResource("BoxMesh_g4re0")
@@ -70,3 +80,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0.1)
 shadow_enabled = true
 shadow_bias = 0.0
 shadow_normal_bias = 10.0
+
+[connection signal="interact_signal" from="AHL_Interactive" to="AHL_Interactive/Window" method="_interact_signal"]

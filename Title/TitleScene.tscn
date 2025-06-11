@@ -721,6 +721,14 @@ layout_mode = 2
 custom_minimum_size = Vector2(20, 0)
 layout_mode = 2
 
+[node name="EmptyL" type="Control" parent="Main/Panel/Control/Options/Options2/#options_game#/GameSetting/VSplit/alwaysShowCursor" index="0"]
+custom_minimum_size = Vector2(15, 0)
+layout_mode = 2
+
+[node name="EmptyR" type="Control" parent="Main/Panel/Control/Options/Options2/#options_game#/GameSetting/VSplit/alwaysShowCursor" index="3"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
 [node name="EmptyL" type="Control" parent="Main/Panel/Control/Options/Options2/#options_video#/VideoSetting/VSpilt/Fullscreen" index="0"]
 custom_minimum_size = Vector2(15, 0)
 layout_mode = 2
@@ -749,7 +757,7 @@ layout_mode = 2
 custom_minimum_size = Vector2(15, 0)
 layout_mode = 2
 
-[node name="EmptyR" type="Control" parent="Main/Panel/Control/Options/Options2/#options_audio#/AudioSetting/VSpilt/Master" index="3"]
+[node name="EmptyR" type="Control" parent="Main/Panel/Control/Options/Options2/#options_audio#/AudioSetting/VSpilt/Master" index="4"]
 custom_minimum_size = Vector2(20, 0)
 layout_mode = 2
 
@@ -757,7 +765,7 @@ layout_mode = 2
 custom_minimum_size = Vector2(15, 0)
 layout_mode = 2
 
-[node name="EmptyR" type="Control" parent="Main/Panel/Control/Options/Options2/#options_audio#/AudioSetting/VSpilt/Music" index="3"]
+[node name="EmptyR" type="Control" parent="Main/Panel/Control/Options/Options2/#options_audio#/AudioSetting/VSpilt/Music" index="4"]
 custom_minimum_size = Vector2(20, 0)
 layout_mode = 2
 
@@ -765,7 +773,7 @@ layout_mode = 2
 custom_minimum_size = Vector2(15, 0)
 layout_mode = 2
 
-[node name="EmptyR" type="Control" parent="Main/Panel/Control/Options/Options2/#options_audio#/AudioSetting/VSpilt/SFX" index="3"]
+[node name="EmptyR" type="Control" parent="Main/Panel/Control/Options/Options2/#options_audio#/AudioSetting/VSpilt/SFX" index="4"]
 custom_minimum_size = Vector2(20, 0)
 layout_mode = 2
 
@@ -773,7 +781,7 @@ layout_mode = 2
 custom_minimum_size = Vector2(15, 0)
 layout_mode = 2
 
-[node name="EmptyR" type="Control" parent="Main/Panel/Control/Options/Options2/#options_control#/ControlSetting/VSpilt/MouseSen" index="3"]
+[node name="EmptyR" type="Control" parent="Main/Panel/Control/Options/Options2/#options_control#/ControlSetting/VSpilt/MouseSen" index="4"]
 custom_minimum_size = Vector2(20, 0)
 layout_mode = 2
 

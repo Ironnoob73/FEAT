@@ -52,6 +52,9 @@ msgstr "打印调试信息"
 msgid "options.game.catch_p_elem_issue"
 msgstr "捕获\"p_elem->_root != this\"问题"
 
+msgid "options.game.always_show_cursor"
+msgstr "总是显示光标"
+
 msgid "#options_video#"
 msgstr "视频"
 
