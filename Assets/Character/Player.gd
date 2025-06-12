@@ -384,6 +384,8 @@ func _physics_process(delta):
 	Global.p_elem_debug("### PP END ###")
 	
 func _process(_delta):
+	Global.p_elem_debug("### P START ###")
+	Global.p_elem_debug("# LOAD STEP #")
 	match load_step :
 		0 :
 			load_step += 1
@@ -393,6 +395,7 @@ func _process(_delta):
 	world_actual_cam.global_transform = player_camera.global_transform
 	
 	# Animation
+	Global.p_elem_debug("# ANIMATION #")
 	var _move_direct = (abs(Vector2(cos(mesh.global_rotation.y + PI/2),sin(mesh.global_rotation.y + PI/2)).angle_to(Vector2(-velocity.x , velocity.z))) /PI )
 	if !isSit:
 		mesh.animation_tree["parameters/Movement/blend_position"] = _forward_strength(_move_direct) * Vector2(velocity.x , velocity.z).length()
@@ -401,10 +404,12 @@ func _process(_delta):
 		mesh.animation_tree["parameters/PitchMix/add_amount"] = - player_camera.rotation.x
 	
 	# Hitbox Debug
+	Global.p_elem_debug("# HITBOX DEBUG #")
 	hitbox_debug.position = hitbox.position
 	hitbox_debug.mesh.size = hitbox.shape.size
 	
 	# Play walk sound
+	Global.p_elem_debug("# WALK SOUND #")
 	if _ground_ray_cast.is_colliding() and velocity.length() > 0:
 		if _walk_length >= 200:
 			_walk_length = 0
@@ -424,6 +429,7 @@ func _process(_delta):
 	else:
 		if Global.printDebugInfo:
 			print(_walk_length," ",_ground_ray_cast.is_colliding()," ",velocity.length())
+	Global.p_elem_debug("### P END ###")
 	
 func _forward_strength(value:float) -> float:
 	if (-2 * value + 1) > 0:
