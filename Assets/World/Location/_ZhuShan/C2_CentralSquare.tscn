@@ -377,13 +377,11 @@ material = ExtResource("25_agoe1")
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -5, 0, 2.5)
 
 [node name="DoorScene" parent="SEBuilding0/ArchDoorFrameScene1" instance=ExtResource("27_nixbe")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6, 0, 0)
 
 [node name="ArchDoorFrameScene2" parent="SEBuilding0" instance=ExtResource("25_8jt7r")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 5, 5)
 
 [node name="DoorScene" parent="SEBuilding0/ArchDoorFrameScene2" instance=ExtResource("27_nixbe")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6, 0, 0)
 
 [node name="ArchWindowScene1" parent="SEBuilding0" instance=ExtResource("27_doda0")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -5, 5.5, -3.5)
@@ -417,15 +415,43 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 3, 5.5
 
 [node name="HungWindowScene" parent="SEBuilding0" instance=ExtResource("30_lk2ah")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 2, 1, 5)
+occlusion = "none"
 
 [node name="SEBuilding1" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28, 0, 55)
 collision_layer = 3
 
+[node name="Coll" type="CollisionShape3D" parent="SEBuilding1"]
+shape = SubResource("ConcavePolygonShape3D_efei8")
+
 [node name="CsSeBuilding-room1" parent="SEBuilding1" instance=ExtResource("31_7te5a")]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="SEBuilding1"]
-shape = SubResource("ConcavePolygonShape3D_efei8")
+[node name="ArchDoorFrameScene" parent="SEBuilding1" instance=ExtResource("25_8jt7r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, -1)
+
+[node name="DoorPlate" parent="SEBuilding1/ArchDoorFrameScene" instance=ExtResource("27_nixbe")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+
+[node name="ArchDoorFrameScene2" parent="SEBuilding1" instance=ExtResource("25_8jt7r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 5, -1)
+
+[node name="DoorPlate" parent="SEBuilding1/ArchDoorFrameScene2" instance=ExtResource("27_nixbe")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+
+[node name="ArchWindowFrameScene" parent="SEBuilding1" instance=ExtResource("27_doda0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0.5, 6)
+
+[node name="InnerFenceScene" parent="SEBuilding1/ArchWindowFrameScene" instance=ExtResource("28_qn4rb")]
+
+[node name="ArchWindowFrameScene2" parent="SEBuilding1" instance=ExtResource("27_doda0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 5.5, 6)
+
+[node name="InnerFenceScene2" parent="SEBuilding1/ArchWindowFrameScene2" instance=ExtResource("28_qn4rb")]
+
+[node name="ArchWindowFrameScene3" parent="SEBuilding1" instance=ExtResource("27_doda0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 5.5, 6)
+
+[node name="InnerFenceScene" parent="SEBuilding1/ArchWindowFrameScene3" instance=ExtResource("28_qn4rb")]
 
 [node name="SidePath" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36, -0.025, 51)
