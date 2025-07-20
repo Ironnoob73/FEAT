@@ -47,4 +47,7 @@ mesh = SubResource("BoxMesh_8hndt")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.05)
 shape = SubResource("BoxShape3D_upsxn")
 
+[node name="VisibleOnScreenEnabler3D" type="VisibleOnScreenEnabler3D" parent="."]
+aabb = AABB(-0.1, -0.1, 0.1, 0.2, 0.2, 0.1)
+
 [connection signal="interact_signal" from="." to="Body" method="_interact_signal"]

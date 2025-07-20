@@ -14,10 +14,9 @@ var open : bool = false
 			material_setter()
 var lock = func () : return get_parent().get_meta('lock_int',0)
 
-@onready var mesh = $Hinge/Mesh
-@onready var hinge = $Hinge
-@onready var lock_tip_f = $Hinge/LockTipF
-@onready var lock_tip_b = $Hinge/LockTipB
+@onready var mesh = $Mesh
+@onready var lock_tip_f = $LockTipF
+@onready var lock_tip_b = $LockTipB
 
 func _ready():
 	if get_c_color() != Color(0,0,0,0) :	MaterialUtil.recolor(mesh,get_c_color())

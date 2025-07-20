@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://r7qqd074k2u7"
+path="res://.godot/imported/SceneChangerBottom.obj-482fd53d1d2e59bf4fa4ddac76427ad1.mesh"
+
+[deps]
+
+files=["res://.godot/imported/SceneChangerBottom.obj-482fd53d1d2e59bf4fa4ddac76427ad1.mesh"]
+
+source_file="res://Resources/Object/Function/SceneChanger/SceneChangerBottom.obj"
+dest_files=["res://.godot/imported/SceneChangerBottom.obj-482fd53d1d2e59bf4fa4ddac76427ad1.mesh", "res://.godot/imported/SceneChangerBottom.obj-482fd53d1d2e59bf4fa4ddac76427ad1.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

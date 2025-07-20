@@ -1,0 +1,72 @@
+[gd_scene load_steps=9 format=3 uid="uid://l5crfk031an5"]
+
+[ext_resource type="Script" uid="uid://gjv8c0b0wvyb" path="res://Resources/Object/Function/SceneChanger/SceneChangerReach.gd" id="1_7xs35"]
+[ext_resource type="ArrayMesh" uid="uid://r7qqd074k2u7" path="res://Resources/Object/Function/SceneChanger/SceneChangerBottom.obj" id="1_wfftc"]
+[ext_resource type="Material" uid="uid://ci1v8gtn0xbr" path="res://Resources/Material/EmissiveGlass.tres" id="1_yc1hy"]
+[ext_resource type="ArrayMesh" uid="uid://cnybrqy2gsp1g" path="res://Resources/Object/Function/SceneChanger/SceneChangerTop.obj" id="2_yc1hy"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7xs35"]
+
+[sub_resource type="Animation" id="Animation_a2xxv"]
+resource_name = "Idle"
+length = 5.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SceneChangerBottom:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 6.28319, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_0odqx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SceneChangerBottom:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hiuta"]
+_data = {
+&"Idle": SubResource("Animation_a2xxv"),
+&"RESET": SubResource("Animation_0odqx")
+}
+
+[node name="SceneChangerScene" type="Area3D"]
+collision_mask = 4
+script = ExtResource("1_7xs35")
+
+[node name="SceneChangerBottom" type="MeshInstance3D" parent="."]
+material_override = ExtResource("1_yc1hy")
+mesh = ExtResource("1_wfftc")
+
+[node name="SceneChangerTop" type="MeshInstance3D" parent="SceneChangerBottom"]
+transform = Transform3D(0.984808, -0.173648, 0, 0.173648, 0.984808, 0, 0, 0, 1, -0.5, 0.6, 0)
+material_override = ExtResource("1_yc1hy")
+mesh = ExtResource("2_yc1hy")
+skeleton = NodePath("../..")
+
+[node name="Coll" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_7xs35")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_hiuta")
+}
+autoplay = "Idle"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

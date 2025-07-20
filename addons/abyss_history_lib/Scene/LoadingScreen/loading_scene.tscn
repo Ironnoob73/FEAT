@@ -338,12 +338,12 @@ polygon = PackedVector2Array(-5, -5, 5, -5, 5, 5, -5, 5)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Background/LoadingAnimation"]
 libraries = {
-"": SubResource("AnimationLibrary_p7g76")
+&"": SubResource("AnimationLibrary_p7g76")
 }
 autoplay = "Normal"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_u2w4k")
+&"": SubResource("AnimationLibrary_u2w4k")
 }
 autoplay = "Intro"

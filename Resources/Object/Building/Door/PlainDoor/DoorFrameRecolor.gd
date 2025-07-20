@@ -2,6 +2,7 @@
 extends StaticBody3D
 
 @onready var mesh = $DoorFrame
+@onready var bottom_mesh = $Bottom
 @export var mesh_color : Color = Color(0,0,0,0):
 	set(color):
 		mesh_color = color
@@ -16,6 +17,10 @@ extends StaticBody3D
 	set(state):
 		occlusion = state
 		OcclusionLogic.occlusion_setter(self)
+@export var bottom : bool = false :
+	set(state):
+		bottom = state
+		bottom_mesh.visible = state
 @export var ToLocation : String = "null"
 @export var ToLocationPos : Vector3 = Vector3(0,0,0)
 @onready var occlusion_obj: MeshInstance3D = $Occlusion

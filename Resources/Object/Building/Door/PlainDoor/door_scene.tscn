@@ -37,29 +37,25 @@ collision_layer = 24
 collision_mask = 15
 script = ExtResource("3_ug2ta")
 
-[node name="Hinge" type="Node3D" parent="Body"]
-
-[node name="Mesh" type="MeshInstance3D" parent="Body/Hinge"]
+[node name="Mesh" type="MeshInstance3D" parent="Body"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6, 1.2, 0)
 material_override = ExtResource("3_r0cfm")
 material_overlay = SubResource("ShaderMaterial_m5r1b")
 mesh = SubResource("BoxMesh_f3de0")
-skeleton = NodePath("../..")
 
-[node name="Handle" type="MeshInstance3D" parent="Body/Hinge"]
+[node name="Handle" type="MeshInstance3D" parent="Body"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1.1, 0)
 material_override = ExtResource("5_x7lst")
 mesh = SubResource("BoxMesh_pcbij")
-skeleton = NodePath("../..")
 
-[node name="LockTipF" type="Label3D" parent="Body/Hinge"]
+[node name="LockTipF" type="Label3D" parent="Body"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 0.11)
 modulate = Color(1, 1, 1, 0)
 text = "🔒"
 font_size = 50
 outline_size = 0
 
-[node name="LockTipB" type="Label3D" parent="Body/Hinge"]
+[node name="LockTipB" type="Label3D" parent="Body"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, -0.11)
 modulate = Color(1, 1, 1, 0)
 text = "🔒"

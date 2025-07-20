@@ -1,0 +1,36 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://cwsr3qb6inr7o"
+path.s3tc="res://.godot/imported/BlueTiles_normal.png-8cc1bc1d161435c3d1b6bc96b8404017.s3tc.ctex"
+path.etc2="res://.godot/imported/BlueTiles_normal.png-8cc1bc1d161435c3d1b6bc96b8404017.etc2.ctex"
+metadata={
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
+"vram_texture": true
+}
+
+[deps]
+
+source_file="res://Resources/Material/Sources/BlueTiles_normal.png"
+dest_files=["res://.godot/imported/BlueTiles_normal.png-8cc1bc1d161435c3d1b6bc96b8404017.s3tc.ctex", "res://.godot/imported/BlueTiles_normal.png-8cc1bc1d161435c3d1b6bc96b8404017.etc2.ctex"]
+
+[params]
+
+compress/mode=2
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/normal_map=1
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+roughness/mode=1
+roughness/src_normal="res://Resources/Material/BlueTiles_normal.png"
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=0

@@ -1,0 +1,17 @@
+[gd_resource type="StandardMaterial3D" load_steps=4 format=3 uid="uid://c3wjyj0cue8ti"]
+
+[ext_resource type="Texture2D" uid="uid://bnwcxhggj7anu" path="res://Resources/Material/Sources/WhiteTiles_albedo.png" id="1_1wh8g"]
+[ext_resource type="Texture2D" uid="uid://ceukfm0lo16a8" path="res://Resources/Material/Sources/WhiteTiles_orm.png" id="2_esave"]
+[ext_resource type="Texture2D" uid="uid://s7kse3h428f" path="res://Resources/Material/Sources/WhiteTiles_normal.png" id="3_bgvio"]
+
+[resource]
+albedo_texture = ExtResource("1_1wh8g")
+metallic = 0.75
+metallic_texture = ExtResource("2_esave")
+metallic_texture_channel = 2
+roughness = 1.06
+roughness_texture = ExtResource("2_esave")
+roughness_texture_channel = 1
+normal_enabled = true
+normal_texture = ExtResource("3_bgvio")
+texture_filter = 0

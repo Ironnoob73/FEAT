@@ -16,7 +16,7 @@ size = Vector3(2.8, 1.8, 0.1)
 [sub_resource type="QuadMesh" id="QuadMesh_pht77"]
 size = Vector2(2.8, 1.8)
 
-[node name="StaticBody3D" type="StaticBody3D"]
+[node name="StaticGlass" type="StaticBody3D"]
 collision_layer = 2
 script = ExtResource("1_083ap")
 

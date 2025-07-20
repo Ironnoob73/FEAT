@@ -17,8 +17,10 @@ extends Node3D
 func _ready():
 	_on_options_set_sdfgi(Global.Sdfgi)
 	if !Global.playerTeleported :
-		player0.position = Global.playerPos
-		player0.rotation = Global.playerRot
+		if Global.playerWillPos:
+			player0.position = Global.playerPos
+		if Global.playerWillRot:
+			player0.rotation = Global.playerRot
 		Global.playerTeleported = true
 
 func _on_options_set_sdfgi(value : bool):
@@ -26,6 +28,14 @@ func _on_options_set_sdfgi(value : bool):
 		$WorldEnvironment.environment.set_sdfgi_enabled(value)
 
 func _physics_process(_delta):
+	if Global.next_scene_package:
+		SCENES_PACKAGE.queue_free()
+		var load_scene = func():
+			SCENES_PACKAGE= Global.next_scene_package.instantiate()
+			add_child(SCENES_PACKAGE)
+			Global.next_scene_package = null
+		load_scene.call_deferred()
+		_ready()
 	global_time += time_speed
 	# Day Circle
 	# Time of a day : 129600

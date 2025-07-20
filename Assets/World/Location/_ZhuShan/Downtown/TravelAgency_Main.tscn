@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://3yd06robq3f8" path="res://Resources/Object/Building/Door/RollingShutter/door_scene.tscn" id="1_mvlr0"]
 [ext_resource type="PackedScene" uid="uid://lixd4xll3bl0" path="res://Resources/Object/Building/Window/StaticGlass/glass_scene.tscn" id="2_qsc8l"]
 [ext_resource type="PackedScene" uid="uid://c5nkwuac4jut0" path="res://Resources/Object/Building/Door/PlainDoor/frame_scene.tscn" id="3_f6wq3"]
-[ext_resource type="PackedScene" uid="uid://dolx4mc7cel7q" path="res://Resources/Object/Building/Door/PlainDoor/door0_scene.tscn" id="4_7eld8"]
+[ext_resource type="PackedScene" uid="uid://dolx4mc7cel7q" path="res://Resources/Object/Building/Door/PlainDoor/door_with_glass_scene.tscn" id="4_7eld8"]
 [ext_resource type="Texture2D" uid="uid://dx2blvlx1qx1" path="res://Resources/Image/map/Map001_detailed.png" id="6_gpas7"]
 [ext_resource type="PackedScene" uid="uid://drgodm207unxt" path="res://Assets/World/Location/_ZhuShan/Sources/DowntownBuildings/TutorialVR.tscn" id="7_elm17"]
 [ext_resource type="PackedScene" uid="uid://c3mhx4rgcj41a" path="res://Resources/Character/Tom/tom_scene.tscn" id="8_63kpw"]
