@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=3 uid="uid://dqyequp22c8rg"]
+[gd_scene load_steps=55 format=3 uid="uid://dqyequp22c8rg"]
 
 [ext_resource type="Script" uid="uid://8h1wxcdqk41f" path="res://addons/abyss_history_lib/Class/World/ScenesPackageClass.gd" id="1_p1ge1"]
 [ext_resource type="PackedScene" uid="uid://bcp40gisqlrka" path="res://Assets/World/Location/_ZhuShan/C2_CentralSquare.tscn" id="2_fegob"]
@@ -30,9 +30,8 @@
 [ext_resource type="PackedScene" uid="uid://b2qrwyulrn3jr" path="res://Resources/Object/Building/Switch/BigRed/switch_scene.tscn" id="27_fbl8d"]
 [ext_resource type="Script" uid="uid://ct37bepdmcijg" path="res://addons/abyss_history_lib/Class/Interact/Behaviour/SummonObjBehaviorClass.gd" id="28_73dn1"]
 [ext_resource type="PackedScene" uid="uid://l5crfk031an5" path="res://Resources/Object/Function/SceneChanger/scene_changer_scene.tscn" id="30_57yar"]
-[ext_resource type="Texture2D" uid="uid://dx2blvlx1qx1" path="res://Resources/Image/map/Map001_detailed.png" id="31_1rv1b"]
-[ext_resource type="ArrayMesh" uid="uid://dsqrubw167opv" path="res://Resources/Object/Terrain/FalordMap.obj" id="32_gk8m3"]
-[ext_resource type="Material" uid="uid://dtcokq66lcuki" path="res://Resources/Material/Sea.tres" id="33_x0bp5"]
+[ext_resource type="Script" uid="uid://wwmk2kpu63br" path="res://Assets/World/Location/_ZhuShan/SceneBackground.gd" id="32_en255"]
+[ext_resource type="PackedScene" uid="uid://di6md5fqb3dlr" path="res://Assets/World/Location/_ZhuShan/SceneBackground.tscn" id="32_tsstw"]
 [ext_resource type="Shader" uid="uid://cyxv26lgbbfge" path="res://Assets/World/Environments/background_shader.gdshader" id="34_wn7f3"]
 
 [sub_resource type="Resource" id="Resource_l6lr1"]
@@ -116,30 +115,11 @@ flip_faces = true
 radius = 2048.0
 height = 4096.0
 
-[sub_resource type="World3D" id="World3D_njqsy"]
+[sub_resource type="Environment" id="Environment_tsstw"]
+ambient_light_source = 2
 
-[sub_resource type="GDScript" id="GDScript_b2mv1"]
-script/source = "extends SubViewport
-
-@onready var bg_cam: Camera3D = $BgCam
-@onready var player0: player = $\"../../../Player\"
-
-func _process(_delta: float) -> void:
-	size = get_window().size
-	bg_cam.global_position = (player0.first_person_cam.global_position + Vector3(4352,0,-4352)) / 12288
-	bg_cam.global_rotation = player0.first_person_cam.global_rotation
-"
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_th13s"]
-shading_mode = 0
-albedo_texture = ExtResource("31_1rv1b")
-texture_filter = 0
-proximity_fade_distance = 128.0
-distance_fade_min_distance = 128.0
-distance_fade_max_distance = 512.0
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_8i45d"]
-size = Vector2(200, 200)
+[sub_resource type="World3D" id="World3D_en255"]
+environment = SubResource("Environment_tsstw")
 
 [node name="Packed" type="Node3D"]
 script = ExtResource("1_p1ge1")
@@ -235,25 +215,14 @@ mesh = SubResource("SphereMesh_hukf5")
 
 [node name="BackgroundTexture" type="SubViewport" parent="ExtraSkybox"]
 own_world_3d = true
-world_3d = SubResource("World3D_njqsy")
+world_3d = SubResource("World3D_en255")
 transparent_bg = true
-script = SubResource("GDScript_b2mv1")
+script = ExtResource("32_en255")
 
 [node name="BgCam" type="Camera3D" parent="ExtraSkybox/BackgroundTexture"]
 cull_mask = 32
 current = true
 near = 0.001
 
-[node name="FalordMap" type="MeshInstance3D" parent="ExtraSkybox/BackgroundTexture"]
+[node name="FalordMap" parent="ExtraSkybox/BackgroundTexture" instance=ExtResource("32_tsstw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.003, 0)
-layers = 33
-material_override = SubResource("StandardMaterial3D_th13s")
-mesh = ExtResource("32_gk8m3")
-skeleton = NodePath("../../..")
-
-[node name="Sea" type="MeshInstance3D" parent="ExtraSkybox/BackgroundTexture/FalordMap"]
-transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, 0, 0)
-layers = 32
-material_override = ExtResource("33_x0bp5")
-mesh = SubResource("PlaneMesh_8i45d")
-skeleton = NodePath("../../../..")

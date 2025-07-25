@@ -1,7 +1,8 @@
 extends Node3D
 
-@export var global_time : int = 0
-@export var time_speed : int = 1
+@export var global_time: int = 0
+var day_percent: float = 0 
+@export var time_speed: int = 1
 
 @onready var player0 = $Player
 #@onready var background = $FalordMap
@@ -9,12 +10,14 @@ extends Node3D
 @onready var SCENES_PACKAGE: Node3D = $ScenesPackage
 @onready var next_scene: Node3D = null
 
-@onready var env = $WorldEnvironment
+@onready var env: WorldEnvironment = $WorldEnvironment
 @onready var sun_axis = $WorldEnvironment/SunAxis
 @onready var sun = $WorldEnvironment/SunAxis/SunLight
 @onready var sun_visual = $WorldEnvironment/SunAxis/SunVisual
 
-func _ready():
+var ambient_color: Color = Color(0,0,0)
+
+func _ready() -> void:
 	_on_options_set_sdfgi(Global.Sdfgi)
 	if !Global.playerTeleported :
 		if Global.has_meta("to_pos"):
@@ -25,11 +28,11 @@ func _ready():
 			Global.remove_meta("to_rot")
 		Global.playerTeleported = true
 
-func _on_options_set_sdfgi(value : bool):
+func _on_options_set_sdfgi(value : bool) -> void:
 	if Global.isInGame:
-		$WorldEnvironment.environment.set_sdfgi_enabled(value)
+		env.environment.set_sdfgi_enabled(value)
 
-func _physics_process(_delta):
+func _physics_process(_delta: float) -> void:
 	if Global.has_meta("next_scene"):
 		SCENES_PACKAGE.queue_free()
 		var load_scene = func():
@@ -41,11 +44,13 @@ func _physics_process(_delta):
 	global_time += time_speed
 	# Day Circle
 	# Time of a day : 129600
-	var sunlight = (global_time - 32400) % 129600 / 129600.0 * PI
-	var daytime : float = (global_time - 32400) % 129600 / 129600.0
+	day_percent = (global_time - 32400) % 129600 / 129600.0
+		
+func _process(_delta: float) -> void:
+	var sunlight = day_percent * PI
 	# Sun
-	sun_axis.rotation.z = deg_to_rad((global_time - 32400) % 129600 / 360.0)
-	sun.rotation.y = deg_to_rad( 80 - sin(sunlight * 2) * 30)
+	sun_axis.rotation.z = deg_to_rad(day_percent * 360.0)
+	sun.rotation.y = deg_to_rad(80 - sin(sunlight * 2) * 30)
 	sun_visual.rotation.y = sun.rotation.y
 	if sin(sunlight * 2) >= 0 :
 		sun.visible = true
@@ -55,20 +60,38 @@ func _physics_process(_delta):
 		sun_visual.light_color = sun.light_color
 		sun.shadow_blur = sin(sunlight) * 5
 		sun_visual.light_angular_distance = sin(sunlight) * 5
-	elif daytime == 0.75 :
+	elif day_percent == 0.75 :
 		sun_visual.light_energy = 1
 		sun_visual.light_color.g = sin(PI / 2) * 0.5 + 0.5
 		sun_visual.light_color.b = sin(PI / 2) * 0.8 + 0.15
 		sun_visual.light_angular_distance = 0
 	else :
 		sun.visible = false
-		
-#func _process(delta: float) -> void:
-	#background.position.x = player0.position.x - (player0.position.x + 4352)/12288
-	#background.position.y = player0.position.y - player0.position.y/12288 + 0.5
-	#background.position.z = player0.position.z - (player0.position.z - 4352)/12288
+	# Reflected
+	if day_percent < 0.5:
+		env.environment.reflected_light_source = Environment.REFLECTION_SOURCE_BG
+	else:
+		env.environment.reflected_light_source = Environment.REFLECTION_SOURCE_DISABLED
+	# Ambient Color
+	var day_offset: float = 0
+	if day_percent >= 0.2:
+		day_offset = day_percent - 0.2
+	else:
+		day_offset = day_percent + 0.8
+	if day_offset <= 0.25:
+		ambient_color.r = 0.63 + (0.37 * day_offset * 4)
+		ambient_color.g = 0.64 - (0.02 * day_offset * 4)
+		ambient_color.b = 0.67 - (0.12 * day_offset * 4)
+	elif day_offset > 0.25 and day_offset <= 0.3:
+		ambient_color.r = 1 - (1 * (day_offset - 0.25) * 20)
+		ambient_color.g = 0.62 - (0.52 * (day_offset - 0.25) * 20)
+		ambient_color.b = 0.55 - (0.38 * (day_offset - 0.25) * 20)
+	elif day_offset > 0.75 and day_offset <= 1:
+		ambient_color.r = 0.63 * (day_offset - 0.75) * 4
+		ambient_color.g = 0.1 + (0.54 * (day_offset - 0.75) * 4)
+		ambient_color.b = 0.17 + (0.5 * (day_offset - 0.75) * 4)
 	
-func change_scene(location:String,pos:Vector3):
+func change_scene(location:String,pos:Vector3) -> void:
 	match location :
 		"":	return
 		"null":	return

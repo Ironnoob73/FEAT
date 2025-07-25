@@ -11,8 +11,7 @@ noise_type = 2
 frequency = 0.75
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_bud40"]
-width = 128
-height = 128
+generate_mipmaps = false
 color_ramp = SubResource("Gradient_m5iry")
 noise = SubResource("FastNoiseLite_wtrdv")
 

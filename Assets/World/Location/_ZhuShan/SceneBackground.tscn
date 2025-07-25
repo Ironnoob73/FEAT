@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://di6md5fqb3dlr"]
+
+[ext_resource type="Texture2D" uid="uid://dx2blvlx1qx1" path="res://Resources/Image/map/Map001_detailed.png" id="1_4mefr"]
+[ext_resource type="ArrayMesh" uid="uid://dsqrubw167opv" path="res://Resources/Object/Terrain/FalordMap.obj" id="2_cuooe"]
+[ext_resource type="Material" uid="uid://dtcokq66lcuki" path="res://Resources/Material/Sea.tres" id="3_n0c2l"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_th13s"]
+albedo_texture = ExtResource("1_4mefr")
+texture_filter = 0
+proximity_fade_distance = 128.0
+distance_fade_min_distance = 128.0
+distance_fade_max_distance = 512.0
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_8i45d"]
+size = Vector2(200, 200)
+
+[node name="FalordMap" type="MeshInstance3D"]
+layers = 33
+material_override = SubResource("StandardMaterial3D_th13s")
+mesh = ExtResource("2_cuooe")
+skeleton = NodePath("../../..")
+
+[node name="Sea" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, 0, 0)
+layers = 32
+material_override = ExtResource("3_n0c2l")
+mesh = SubResource("PlaneMesh_8i45d")
+skeleton = NodePath("../../../..")
