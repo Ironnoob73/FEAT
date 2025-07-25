@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://b5mvataygruft"]
+
+[ext_resource type="PackedScene" uid="uid://b5ra3ei6fag3h" path="res://Assets/World/Location/~Sandbox/Apartment0/SourceModel.glb" id="1_funtk"]
+
+[node name="Background" type="Node3D"]
+
+[node name="SourceModel" parent="." instance=ExtResource("1_funtk")]
+
+[node name="Hall2" parent="SourceModel" index="0"]
+layers = 32
+
+[editable path="SourceModel"]

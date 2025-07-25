@@ -6,18 +6,12 @@ var Sdfgi : bool = false
 
 # Load options
 var load_use_sub_threads : bool = false
-# Change scene package
-var next_scene_package : Resource = null
 
 # In game control
 var mouse_sens = 0.4
 var auto_pickup : bool = true
 
 var isInGame : bool = false
-var playerWillPos : bool = false
-var playerPos : Vector3
-var playerWillRot : bool = false
-var playerRot : Vector3
 var playerTeleported : bool = true
 
 var VRDim : String

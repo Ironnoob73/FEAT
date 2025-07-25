@@ -24,6 +24,7 @@ script = ExtResource("4_pdci8")
 tool_type = "shot"
 hitbox = Vector3(0.25, 0.25, 1)
 attack_type = "Aimable"
+group = "weapon"
 send_type = "Range"
 ammo_total = -1
 damage_type = "Normal"

@@ -15,13 +15,11 @@ func load_scene(scene_path : String,
 	change_pos = false, pos = Vector3(), change_rot = false, rot = Vector3(), replace_main = true):
 	_scene_path = scene_path
 	_replace_main = replace_main
-	Global.playerWillPos = change_pos
-	Global.playerWillRot = change_rot
-	if pos:
-		Global.playerPos = pos
-		Global.playerTeleported = false
-	if rot:
-		Global.playerRot = rot
+	if change_pos:
+		Global.set_meta("to_pos", pos)
+	if change_rot:
+		Global.set_meta("to_rot", rot)
+	Global.playerTeleported = false
 	var loading_screen = _load_screen.instantiate()
 	get_tree().get_root().add_child(loading_screen)
 	self.progress_changed.connect(loading_screen._update_progress)
@@ -48,4 +46,4 @@ func _process(_delta):
 			if _replace_main:
 				get_tree().change_scene_to_packed(_loaded_resource)
 			else:
-				Global.next_scene_package = _loaded_resource
+				Global.set_meta("next_scene",_loaded_resource)

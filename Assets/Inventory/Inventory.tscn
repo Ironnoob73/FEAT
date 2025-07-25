@@ -693,7 +693,6 @@ layout_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 2
 theme_override_font_sizes/font_size = 35
-text = "test"
 
 [node name="View" type="SubViewportContainer" parent="ItemInv/Preview"]
 layout_mode = 2
@@ -754,19 +753,15 @@ layout_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 2
 theme_override_font_sizes/font_size = 50
-text = "test"
 
 [node name="Subname" type="Label" parent="EquipmentInv/Preview/Container/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 1
 theme_override_font_sizes/font_size = 30
-text = "Sub"
 
 [node name="Info" type="Label" parent="EquipmentInv/Preview/Container/VBoxContainer"]
 layout_mode = 2
-text = "Info
-Info2"
 
 [node name="View" type="SubViewportContainer" parent="EquipmentInv/Preview"]
 layout_mode = 2

@@ -144,7 +144,11 @@ func equipment_inv_update():
 	armor_group.set_text(0,tr("inventory.equipment.armor"))
 	for i in get_parent().Inventory.eqMeta:
 		var group : Object
-		if i.equipment is AHL_EToolClass :	group = tool_group
+		if i.equipment is AHL_EToolClass :
+			if i.equipment.group == "weapon" :
+				group = weapon_group
+			else :
+				group = tool_group
 		var subitem = equipment_list.create_item(group)
 		subitem.set_icon(0,i.equipment.icon)
 		subitem.set_icon_max_width(0,30)

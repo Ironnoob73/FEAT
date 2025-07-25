@@ -1,0 +1,53 @@
+[gd_resource type="Sky" load_steps=6 format=3 uid="uid://c0svnh6327igu"]
+
+[ext_resource type="Shader" uid="uid://bvnnp4ot0ebjh" path="res://Resources/Shader/sky.gdshader" id="1_21nuy"]
+
+[sub_resource type="Gradient" id="Gradient_m5iry"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.9)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_wtrdv"]
+noise_type = 2
+frequency = 0.75
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_bud40"]
+width = 128
+height = 128
+color_ramp = SubResource("Gradient_m5iry")
+noise = SubResource("FastNoiseLite_wtrdv")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jrs7m"]
+shader = ExtResource("1_21nuy")
+shader_parameter/day_top_color = Color(0.38, 0.45, 0.55, 1)
+shader_parameter/day_bottom_color = Color(0.64, 0.65, 0.67, 1)
+shader_parameter/sunset_top_color = Color(0.74, 0.49, 0.1, 1)
+shader_parameter/sunset_bottom_color = Color(1, 0.62, 0.55, 1)
+shader_parameter/night_top_color = Color(0, 0.11, 0.17, 1)
+shader_parameter/night_bottom_color = Color(0.01, 0.02, 0.03, 1)
+shader_parameter/horizon_color = Color(0.64, 0.65, 0.67, 1)
+shader_parameter/horizon_blur = 0.05
+shader_parameter/sun_color = Color(10, 8, 1, 1)
+shader_parameter/sun_sunset_color = Color(5, 0.5, 0.15, 1)
+shader_parameter/sun_size = 0.2
+shader_parameter/sun_blur = 10.0
+shader_parameter/moon_color = Color(1, 0.95, 0.7, 1)
+shader_parameter/moon_size = 0.06
+shader_parameter/moon_blur = 0.1
+shader_parameter/clouds_edge_color = Color(0.8, 0.8, 0.98, 1)
+shader_parameter/clouds_top_color = Color(1, 1, 1, 1)
+shader_parameter/clouds_middle_color = Color(0.92, 0.92, 0.98, 1)
+shader_parameter/clouds_bottom_color = Color(0.83, 0.83, 0.94, 1)
+shader_parameter/clouds_speed = 7.2
+shader_parameter/clouds_direction = -0.25
+shader_parameter/clouds_scale = 0.5
+shader_parameter/clouds_cutoff = 0.45
+shader_parameter/clouds_fuzziness = 0.25
+shader_parameter/clouds_weight = 0.0
+shader_parameter/clouds_blur = 0.25
+shader_parameter/stars_texture = SubResource("NoiseTexture2D_bud40")
+shader_parameter/stars_speed = 1.0
+shader_parameter/overwritten_time = 0.0
+
+[resource]
+sky_material = SubResource("ShaderMaterial_jrs7m")
+radiance_size = 0

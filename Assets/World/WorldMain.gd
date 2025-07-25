@@ -4,7 +4,7 @@ extends Node3D
 @export var time_speed : int = 1
 
 @onready var player0 = $Player
-@onready var background = $FalordMap
+#@onready var background = $FalordMap
 
 @onready var SCENES_PACKAGE: Node3D = $ScenesPackage
 @onready var next_scene: Node3D = null
@@ -17,10 +17,12 @@ extends Node3D
 func _ready():
 	_on_options_set_sdfgi(Global.Sdfgi)
 	if !Global.playerTeleported :
-		if Global.playerWillPos:
-			player0.position = Global.playerPos
-		if Global.playerWillRot:
-			player0.rotation = Global.playerRot
+		if Global.has_meta("to_pos"):
+			player0.position = Global.get_meta("to_pos")
+			Global.remove_meta("to_pos")
+		if Global.has_meta("to_rot"):
+			player0.rotation = Global.get_meta("to_rot")
+			Global.remove_meta("to_rot")
 		Global.playerTeleported = true
 
 func _on_options_set_sdfgi(value : bool):
@@ -28,12 +30,12 @@ func _on_options_set_sdfgi(value : bool):
 		$WorldEnvironment.environment.set_sdfgi_enabled(value)
 
 func _physics_process(_delta):
-	if Global.next_scene_package:
+	if Global.has_meta("next_scene"):
 		SCENES_PACKAGE.queue_free()
 		var load_scene = func():
-			SCENES_PACKAGE= Global.next_scene_package.instantiate()
+			SCENES_PACKAGE= Global.get_meta("next_scene").instantiate()
 			add_child(SCENES_PACKAGE)
-			Global.next_scene_package = null
+			Global.remove_meta("next_scene")
 		load_scene.call_deferred()
 		_ready()
 	global_time += time_speed
