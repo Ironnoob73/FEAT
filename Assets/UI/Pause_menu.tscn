@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://bledb03vcydda"]
 
-[ext_resource type="Script" uid="uid://bmr6xec2jjrgt" path="res://Assets/Character/Pause_menu.gd" id="1_dd1d4"]
-[ext_resource type="PackedScene" uid="uid://cnl53v0lrb1mv" path="res://Assets/Character/Options.tscn" id="2_unk1s"]
+[ext_resource type="Script" uid="uid://bmr6xec2jjrgt" path="res://Assets/UI/Pause_menu.gd" id="1_dd1d4"]
+[ext_resource type="PackedScene" uid="uid://cnl53v0lrb1mv" path="res://Assets/UI/Options/Options.tscn" id="2_unk1s"]
 
 [sub_resource type="InputEventAction" id="InputEventAction_qotme"]
 action = &"ui_cancel"
@@ -426,6 +426,9 @@ offset_right = 0.0
 offset_bottom = 0.0
 
 [node name="DataPath" parent="Options/#options_game#/GameSetting/VSplit" index="1"]
+visible = false
+
+[node name="keyDebugScene" parent="Options/#options_game#/GameSetting/VSplit/DebugOptContainer" index="3"]
 visible = false
 
 [node name="BackButton" type="Button" parent="."]

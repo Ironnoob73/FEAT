@@ -4,13 +4,11 @@ extends TabContainer
 @onready var DataPath = $"#options_game#/GameSetting/VSplit/DataPath/datapath_button"
 @onready var path_choose = $"#options_game#/GameSetting/VSplit/DataPath/datapath_button/path_choose"
 @onready var UseSubThreads = $"#options_game#/GameSetting/VSplit/UseSubThreads/ust_button"
-@onready var PrintDebugInfoHOS = $"#options_game#/GameSetting/VSplit/PrintDebugInfo"
 @onready var DebugOptionsGroup: Button = $"#options_game#/GameSetting/VSplit/DebugOptGroup"
-@onready var PrintDebugInfo = $"#options_game#/GameSetting/VSplit/PrintDebugInfo/pdi_button"
-@onready var CatchPElemIssueHOS = $"#options_game#/GameSetting/VSplit/catchPElemIssue"
-@onready var CatchPElemIssue = $"#options_game#/GameSetting/VSplit/catchPElemIssue/cpei_button"
-@onready var AlwausShowCursorHOS = $"#options_game#/GameSetting/VSplit/alwaysShowCursor"
-@onready var AlwausShowCursor = $"#options_game#/GameSetting/VSplit/alwaysShowCursor/asc_button"
+@onready var DebugOptionsContainer: VBoxContainer = $"#options_game#/GameSetting/VSplit/DebugOptContainer"
+@onready var PrintDebugInfo = $"#options_game#/GameSetting/VSplit/DebugOptContainer/PrintDebugInfo/pdi_button"
+@onready var CatchPElemIssue = $"#options_game#/GameSetting/VSplit/DebugOptContainer/catchPElemIssue/cpei_button"
+@onready var AlwausShowCursor = $"#options_game#/GameSetting/VSplit/DebugOptContainer/alwaysShowCursor/asc_button"
 
 @onready var Fullscreen = $"#options_video#/VideoSetting/VSpilt/Fullscreen/fullscreen_button"
 @onready var fullscreen_warn = $"#options_video#/VideoSetting/VSpilt/Fullscreen/fullscreen_button/fullscreen_warn"
@@ -27,6 +25,8 @@ extends TabContainer
 @onready var MouseSen = $"#options_control#/ControlSetting/VSpilt/MouseSen/mouse_button"
 @onready var MouseSenPercent = $"#options_control#/ControlSetting/VSpilt/MouseSen/percent"
 @onready var AutoPickup = $"#options_control#/ControlSetting/VSpilt/AutoPickup/auto_pickup_button"
+@onready var KeybindingsGroup: Button = $"#options_control#/ControlSetting/VSpilt/KeybindingsGroup"
+@onready var KeybingdingsContainer: VBoxContainer = $"#options_control#/ControlSetting/VSpilt/KeybindingsContainer"
 
 signal SetSdfgi(bool)
 
@@ -41,9 +41,9 @@ func _ready():
 	UseSubThreads.set_pressed_no_signal(Global.load_use_sub_threads)
 	# Debug
 	if !DebugOptionsGroup.button_pressed:
-		PrintDebugInfoHOS.hide()
-		CatchPElemIssueHOS.hide()
-		AlwausShowCursorHOS.hide()
+		DebugOptionsContainer.hide()
+	if !KeybindingsGroup.button_pressed:
+		KeybingdingsContainer.hide()
 	PrintDebugInfo.set_pressed_no_signal(Global.printDebugInfo)
 	CatchPElemIssue.set_pressed_no_signal(Global.catchPElemIssue)
 	AlwausShowCursor.set_pressed_no_signal(Global.alwaysShowCursor)
@@ -86,38 +86,37 @@ func _on_option_button_item_selected(index):
 	match index:
 		0:	TranslationServer.set_locale("en_US")
 		1:	TranslationServer.set_locale("zh_CN")
-	Global.save_config()
+	Global.save_settings_to_file("game","language",TranslationServer.get_locale())
 	Global.window_min_limit()
 # Choose data path
 func _on_datapath_button_pressed():
 	path_choose.show()
 func _on_path_choose_dir_selected(dir):
 	Global.DATA_PATH = dir
-	DataPath.text = Global.DATA_PATH
-	Global.save_config()
+	DataPath.text = dir
+	Global.save_settings_to_file("game","data_path",dir)
 # Use sub threads to load scene
 func _on_ust_button_toggled(toggled_on):
 	Global.load_use_sub_threads = toggled_on
-	Global.save_config()
+	Global.save_settings_to_file("game","load_use_sub_threads",toggled_on)
 # Debug
 func _on_debug_opt_group_toggled(toggled_on: bool) -> void:
 	if toggled_on:
-		PrintDebugInfoHOS.show()
-		CatchPElemIssueHOS.show()
-		AlwausShowCursorHOS.show()
+		DebugOptionsContainer.show()
 	else:
-		PrintDebugInfoHOS.hide()
-		CatchPElemIssueHOS.hide()
-		AlwausShowCursorHOS.hide()
+		DebugOptionsContainer.hide()
 func _on_pdi_button_toggled(toggled_on):
 	Global.printDebugInfo = toggled_on
-	Global.save_config()
+	Global.save_settings_to_file("game","print_debug_info",toggled_on)
 func _on_cpei_button_toggled(toggled_on):
 	Global.catchPElemIssue = toggled_on
-	Global.save_config()
+	Global.save_settings_to_file("game","catch_p_null_issue",toggled_on)
 func _on_asc_button_toggled(toggled_on):
 	Global.alwaysShowCursor = toggled_on
-	Global.save_config()
+	Global.save_settings_to_file("game","always_show_cursor",toggled_on)
+	
+func _key_debug_scene() -> void:
+	pass # Replace with function body.
 
 # Fullscreen
 func _on_fullscreen_button_toggled(toggled_on):
@@ -130,45 +129,51 @@ func _on_fullscreen_button_toggled(toggled_on):
 			#DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_MAXIMIZED)
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 			DisplayServer.window_set_size(Vector2(1600,900))
-	Global.save_config()
+	Global.save_settings_to_file("video","fullscreen",DisplayServer.window_get_mode())
 func _on_fullscreen_warn_close_requested():
 	await get_tree().create_timer(0.0001).timeout
 	fullscreen_warn.show()
 # Scale
 func _on_scale_button_value_changed(value):
 	get_window().content_scale_factor = value
-	Global.save_config()
+	Global.save_settings_to_file("video","scale",get_window().content_scale_factor)
 # SDFGI
 func _on_sdfgi_button_toggled(toggled_on):
 	Global.Sdfgi = toggled_on
 	SetSdfgi.emit(toggled_on)
-	Global.save_config()
+	Global.save_settings_to_file("video","sdfgi",toggled_on)
 	
-#Master volume
+# Master volume
 func _on_master_button_value_changed(value):
 	AudioServer.set_bus_volume_db(0,linear_to_db(value))
 	MasterVolumePercent.text = str(value*100) + "%"
-	Global.save_config()
-#Bgm volume
+	Global.save_settings_to_file("audio","master",AudioServer.get_bus_volume_db(0))
+# Bgm volume
 func _on_bgm_button_value_changed(value):
 	AudioServer.set_bus_volume_db(1,linear_to_db(value))
 	BgmVolumePercent.text = str(value*100) + "%"
-	Global.save_config()
-#Sfx volume
+	Global.save_settings_to_file("audio","bgm",AudioServer.get_bus_volume_db(1))
+# Sfx volume
 func _on_sfx_button_value_changed(value):
 	AudioServer.set_bus_volume_db(2,linear_to_db(value))
 	SfxVolumePercent.text = str(value*100) + "%"
-	Global.save_config()
+	Global.save_settings_to_file("audio","sfx",AudioServer.get_bus_volume_db(2))
 	
-#Mouse sensitivity
+# Mouse sensitivity
 func _on_mouse_button_value_changed(value):
 	Global.mouse_sens = value
 	MouseSenPercent.text = str(value*100) + "%"
-	Global.save_config()
-#AutoPickup
+	Global.save_settings_to_file("control","mouse_sens",value)
+# AutoPickup
 func _on_auto_pickup_button_toggled(toggled_on):
 	Global.auto_pickup = toggled_on
-	Global.save_config()
+	Global.save_settings_to_file("control","auto_pickup",toggled_on)
+# Keybindings
+func _on_keybindings_group_toggled(toggled_on: bool) -> void:
+	if toggled_on:
+		KeybingdingsContainer.show()
+	else:
+		KeybingdingsContainer.hide()
 
 func _on_tab_changed(_tab):
 	tab_focus()

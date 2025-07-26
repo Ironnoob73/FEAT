@@ -52,6 +52,9 @@ msgstr "打印调试信息"
 msgid "options.game.catch_p_elem_issue"
 msgstr "捕获\"p_elem->_root != this\"问题"
 
+msgid "options.game.key_debug_scene"
+msgstr "键位测试场景"
+
 msgid "options.game.always_show_cursor"
 msgstr "总是显示光标"
 
@@ -88,28 +91,14 @@ msgstr "鼠标灵敏度"
 msgid "options.control.auto_pickup"
 msgstr "自动拾取"
 
-#Beginning
-msgid "beginning.title"
-msgstr " 选择一个开始..."
+msgid "options.control.keybindings.group"
+msgstr "键位设置..."
 
-msgid "beginning.demo"
-msgstr "演示"
+msgid "options.control.keybindings.listen"
+msgstr "点此对按键进行监听"
 
-msgid "beginning.demo.tutorial"
-msgstr " 教程"
-
-msgid "beginning.original"
-msgstr "原版故事"
-
-msgid "beginning.original.spare_time"
-msgstr " 闲暇时光"
-
-msgid "beginning.original.body_of_metal"
-msgstr " 金属之躯"
-
-#Beginning launch
-msgid "beginning.launch"
-msgstr "启动"
+msgid "options.control.keybindings.listening"
+msgstr "按下任意键..."
 
 #Saves
 msgid "save.title"
@@ -309,3 +298,16 @@ msgstr "错误"
 
 msgid "notice.title.ban"
 msgstr "禁令"
+
+####----------Keybindings----------####
+msgid "keybind.ui_up"
+msgstr "上、前"
+
+msgid "keybind.ui_down"
+msgstr "下、后"
+
+msgid "keybind.ui_left"
+msgstr "左"
+
+msgid "keybind.ui_right"
+msgstr "右"

@@ -1,8 +1,9 @@
-[gd_scene load_steps=16 format=3 uid="uid://bp6c7x4dytetk"]
+[gd_scene load_steps=17 format=3 uid="uid://bp6c7x4dytetk"]
 
 [ext_resource type="Script" uid="uid://c8su3raob8fjo" path="res://Title/TitleScene.gd" id="1_eqpau"]
 [ext_resource type="Theme" uid="uid://cwbdqmvx07r3k" path="res://Title/MainMenuButton_theme.tres" id="2_l7ppy"]
-[ext_resource type="PackedScene" uid="uid://cnl53v0lrb1mv" path="res://Assets/Character/Options.tscn" id="3_ivwg4"]
+[ext_resource type="PackedScene" uid="uid://cnl53v0lrb1mv" path="res://Assets/UI/Options/Options.tscn" id="3_ivwg4"]
+[ext_resource type="Theme" uid="uid://cn2j0svnal77l" path="res://Title/Option_theme.tres" id="4_nftbt"]
 [ext_resource type="PackedScene" uid="uid://dnof7wcs0plpt" path="res://addons/abyss_history_lib/Scene/DynamicTooltip/tooltip_scene.tscn" id="7_3hhti"]
 
 [sub_resource type="Gradient" id="Gradient_6pyre"]
@@ -680,122 +681,10 @@ text = "title.menu.options"
 [node name="Options2" parent="Main/Panel/Control/Options" instance=ExtResource("3_ivwg4")]
 layout_mode = 2
 size_flags_vertical = 3
-
-[node name="EmptyL" type="Control" parent="Main/Panel/Control/Options/Options2/#options_game#/GameSetting/VSplit/Language" index="0"]
-custom_minimum_size = Vector2(15, 0)
-layout_mode = 2
-
-[node name="EmptyR" type="Control" parent="Main/Panel/Control/Options/Options2/#options_game#/GameSetting/VSplit/Language" index="3"]
-custom_minimum_size = Vector2(20, 0)
-layout_mode = 2
-
-[node name="EmptyL" type="Control" parent="Main/Panel/Control/Options/Options2/#options_game#/GameSetting/VSplit/DataPath" index="0"]
-custom_minimum_size = Vector2(15, 0)
-layout_mode = 2
-
-[node name="EmptyR" type="Control" parent="Main/Panel/Control/Options/Options2/#options_game#/GameSetting/VSplit/DataPath" index="4"]
-custom_minimum_size = Vector2(20, 0)
-layout_mode = 2
-
-[node name="EmptyL" type="Control" parent="Main/Panel/Control/Options/Options2/#options_game#/GameSetting/VSplit/UseSubThreads" index="0"]
-custom_minimum_size = Vector2(15, 0)
-layout_mode = 2
-
-[node name="EmptyR" type="Control" parent="Main/Panel/Control/Options/Options2/#options_game#/GameSetting/VSplit/UseSubThreads" index="4"]
-custom_minimum_size = Vector2(20, 0)
-layout_mode = 2
-
-[node name="EmptyL" type="Control" parent="Main/Panel/Control/Options/Options2/#options_game#/GameSetting/VSplit/PrintDebugInfo" index="0"]
-custom_minimum_size = Vector2(15, 0)
-layout_mode = 2
-
-[node name="EmptyR" type="Control" parent="Main/Panel/Control/Options/Options2/#options_game#/GameSetting/VSplit/PrintDebugInfo" index="3"]
-custom_minimum_size = Vector2(20, 0)
-layout_mode = 2
-
-[node name="EmptyL" type="Control" parent="Main/Panel/Control/Options/Options2/#options_game#/GameSetting/VSplit/catchPElemIssue" index="0"]
-custom_minimum_size = Vector2(15, 0)
-layout_mode = 2
-
-[node name="EmptyR" type="Control" parent="Main/Panel/Control/Options/Options2/#options_game#/GameSetting/VSplit/catchPElemIssue" index="4"]
-custom_minimum_size = Vector2(20, 0)
-layout_mode = 2
-
-[node name="EmptyL" type="Control" parent="Main/Panel/Control/Options/Options2/#options_game#/GameSetting/VSplit/alwaysShowCursor" index="0"]
-custom_minimum_size = Vector2(15, 0)
-layout_mode = 2
-
-[node name="EmptyR" type="Control" parent="Main/Panel/Control/Options/Options2/#options_game#/GameSetting/VSplit/alwaysShowCursor" index="3"]
-custom_minimum_size = Vector2(20, 0)
-layout_mode = 2
-
-[node name="EmptyL" type="Control" parent="Main/Panel/Control/Options/Options2/#options_video#/VideoSetting/VSpilt/Fullscreen" index="0"]
-custom_minimum_size = Vector2(15, 0)
-layout_mode = 2
-
-[node name="EmptyR" type="Control" parent="Main/Panel/Control/Options/Options2/#options_video#/VideoSetting/VSpilt/Fullscreen" index="3"]
-custom_minimum_size = Vector2(20, 0)
-layout_mode = 2
-
-[node name="EmptyL" type="Control" parent="Main/Panel/Control/Options/Options2/#options_video#/VideoSetting/VSpilt/Scale" index="0"]
-custom_minimum_size = Vector2(15, 0)
-layout_mode = 2
-
-[node name="EmptyR" type="Control" parent="Main/Panel/Control/Options/Options2/#options_video#/VideoSetting/VSpilt/Scale" index="3"]
-custom_minimum_size = Vector2(20, 0)
-layout_mode = 2
-
-[node name="EmptyL" type="Control" parent="Main/Panel/Control/Options/Options2/#options_video#/VideoSetting/VSpilt/SDFGI" index="0"]
-custom_minimum_size = Vector2(15, 0)
-layout_mode = 2
-
-[node name="EmptyR" type="Control" parent="Main/Panel/Control/Options/Options2/#options_video#/VideoSetting/VSpilt/SDFGI" index="4"]
-custom_minimum_size = Vector2(20, 0)
-layout_mode = 2
-
-[node name="EmptyL" type="Control" parent="Main/Panel/Control/Options/Options2/#options_audio#/AudioSetting/VSpilt/Master" index="0"]
-custom_minimum_size = Vector2(15, 0)
-layout_mode = 2
-
-[node name="EmptyR" type="Control" parent="Main/Panel/Control/Options/Options2/#options_audio#/AudioSetting/VSpilt/Master" index="4"]
-custom_minimum_size = Vector2(20, 0)
-layout_mode = 2
-
-[node name="EmptyL" type="Control" parent="Main/Panel/Control/Options/Options2/#options_audio#/AudioSetting/VSpilt/Music" index="0"]
-custom_minimum_size = Vector2(15, 0)
-layout_mode = 2
-
-[node name="EmptyR" type="Control" parent="Main/Panel/Control/Options/Options2/#options_audio#/AudioSetting/VSpilt/Music" index="4"]
-custom_minimum_size = Vector2(20, 0)
-layout_mode = 2
-
-[node name="EmptyL" type="Control" parent="Main/Panel/Control/Options/Options2/#options_audio#/AudioSetting/VSpilt/SFX" index="0"]
-custom_minimum_size = Vector2(15, 0)
-layout_mode = 2
-
-[node name="EmptyR" type="Control" parent="Main/Panel/Control/Options/Options2/#options_audio#/AudioSetting/VSpilt/SFX" index="4"]
-custom_minimum_size = Vector2(20, 0)
-layout_mode = 2
-
-[node name="EmptyL" type="Control" parent="Main/Panel/Control/Options/Options2/#options_control#/ControlSetting/VSpilt/MouseSen" index="0"]
-custom_minimum_size = Vector2(15, 0)
-layout_mode = 2
-
-[node name="EmptyR" type="Control" parent="Main/Panel/Control/Options/Options2/#options_control#/ControlSetting/VSpilt/MouseSen" index="4"]
-custom_minimum_size = Vector2(20, 0)
-layout_mode = 2
-
-[node name="EmptyL" type="Control" parent="Main/Panel/Control/Options/Options2/#options_control#/ControlSetting/VSpilt/AutoPickup" index="0"]
-custom_minimum_size = Vector2(15, 0)
-layout_mode = 2
-
-[node name="EmptyR" type="Control" parent="Main/Panel/Control/Options/Options2/#options_control#/ControlSetting/VSpilt/AutoPickup" index="4"]
-custom_minimum_size = Vector2(20, 0)
-layout_mode = 2
+theme = ExtResource("4_nftbt")
 
 [node name="BackButton" type="Button" parent="Main/Panel/Control/Options"]
 layout_mode = 2
-shortcut = SubResource("Shortcut_elb6v")
 shortcut_in_tooltip = false
 text = "button.back"
 alignment = 0
@@ -874,5 +763,3 @@ libraries = {
 [connection signal="pressed" from="Main/Panel/Control/Options/BackButton" to="." method="_on_options_back_button_pressed"]
 [connection signal="pressed" from="Main/Panel/Control/ExitConfirm/ConfirmButton" to="." method="_on_confirm_button_pressed"]
 [connection signal="pressed" from="Main/Panel/Control/ExitConfirm/CancelButton" to="." method="_on_cancel_button_pressed"]
-
-[editable path="Main/Panel/Control/Options/Options2"]

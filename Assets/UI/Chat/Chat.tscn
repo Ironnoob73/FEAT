@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cgea2weecephm"]
 
-[ext_resource type="Script" uid="uid://c6wsy8twgdvhi" path="res://Assets/Character/Chat/Chat.gd" id="1_84ph4"]
+[ext_resource type="Script" uid="uid://c6wsy8twgdvhi" path="res://Assets/UI/Chat/Chat.gd" id="1_84ph4"]
 
 [node name="Chat" type="PanelContainer"]
 anchors_preset = 15

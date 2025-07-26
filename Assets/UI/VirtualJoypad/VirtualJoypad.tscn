@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://tnlamai5w4yx"]
 
-[ext_resource type="Script" uid="uid://bv7k2lkfqhyhn" path="res://Assets/Character/VirtualJoypad/Knob.gd" id="1_vyge3"]
+[ext_resource type="Script" uid="uid://bv7k2lkfqhyhn" path="res://Assets/UI/VirtualJoypad/Knob.gd" id="1_vyge3"]
 
 [sub_resource type="Gradient" id="Gradient_gboyf"]
 interpolation_mode = 1

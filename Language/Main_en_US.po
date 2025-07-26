@@ -52,6 +52,9 @@ msgstr "Print debug info"
 msgid "options.game.catch_p_elem_issue"
 msgstr "Catch \"p_elem->_root != this\" issue"
 
+msgid "options.game.key_debug_scene"
+msgstr "Keybinding debug scene"
+
 msgid "options.game.always_show_cursor"
 msgstr "Always show cursor"
 
@@ -88,28 +91,14 @@ msgstr "Mouse Sensitivity"
 msgid "options.control.auto_pickup"
 msgstr "Auto Pickup"
 
-#Beginning
-msgid "beginning.title"
-msgstr " Select a beginning..."
+msgid "options.control.keybindings.group"
+msgstr "Keybindings..."
 
-msgid "beginning.demo"
-msgstr "Demo"
+msgid "options.control.keybindings.listen"
+msgstr "Click here to monitor the key"
 
-msgid "beginning.demo.tutorial"
-msgstr " Tutorial"
-
-msgid "beginning.original"
-msgstr "Original Story"
-
-msgid "beginning.original.spare_time"
-msgstr " Spare Time"
-
-msgid "beginning.original.body_of_metal"
-msgstr " Body of Metal"
-
-#Beginning launch
-msgid "beginning.launch"
-msgstr "Launch"
+msgid "options.control.keybindings.listening"
+msgstr "Press any key..."
 
 #Saves
 msgid "save.title"
@@ -310,3 +299,16 @@ msgstr "ERROR"
 
 msgid "notice.title.ban"
 msgstr "BAN"
+
+####----------Keybindings----------####
+msgid "keybind.ui_up"
+msgstr "Up \ Forward"
+
+msgid "keybind.ui_down"
+msgstr "Down \ Backward"
+
+msgid "keybind.ui_left"
+msgstr "Left"
+
+msgid "keybind.ui_right"
+msgstr "Right"

@@ -1,6 +1,7 @@
 extends Node
 
 const CONFIG_PATH = "user://settings.cfg"
+const KEYBINDINGS_PATH = "user://keybindings.cfg"
 var DATA_PATH : String = "user://"
 var Sdfgi : bool = false
 
@@ -27,11 +28,11 @@ func _ready():
 	load_config()
 	window_min_limit()
 	
-#Limit min window size
+## Limit min window size.
 func window_min_limit():
 	DisplayServer.window_set_min_size(Vector2(500,500),0)
 	
-#Config
+## Save the config by creating a new file.
 func save_config():
 	var file = ConfigFile.new()
 	file.set_value("game","language",TranslationServer.get_locale())
@@ -49,7 +50,9 @@ func save_config():
 	file.set_value("control","mouse_sens",mouse_sens)
 	file.set_value("control","auto_pickup",auto_pickup)
 	var err = file.save(CONFIG_PATH)
-	if err != OK:	push_error("Fail to save config: %d" % err)
+	if err != OK:
+		push_error("Fail to save config: %d" % err)
+
 func load_config():
 	var file = ConfigFile.new()
 	var err = file.load(CONFIG_PATH)
@@ -68,19 +71,56 @@ func load_config():
 		AudioServer.set_bus_volume_db(2,file.get_value("audio","sfx",AudioServer.get_bus_volume_db(2)))
 		mouse_sens = file.get_value("control","mouse_sens",0.4)
 		auto_pickup = file.get_value("control","auto_pickup",true)
-	else:			push_warning("Fail to load config: %d" % err)
+	else:
+		push_warning("Fail to load config: %d" % err)
+		
+func save_settings_to_file(section: String, key: String, value: Variant) -> void:
+	var file = ConfigFile.new()
+	var err = file.load(CONFIG_PATH)
+	if err == OK:
+		file.set_value(section, key, value)
+		var err_s = file.save(CONFIG_PATH)
+		if err_s != OK:
+			push_error("Fail to save config: %d" % err)
+	else:
+		push_warning("Fail to load config: %d" % err)
+		save_config()
 
-# Back to title
+func load_settings_from_file(section: String, key: String, default_value: Variant):
+	var file = ConfigFile.new()
+	var err = file.load(CONFIG_PATH)
+	if err == OK:
+		return file.get_value(section,key,default_value)
+	else:
+		push_warning("Fail to load config: %d" % err)
+		return default_value
+		
+# For Keybindings
+func get_key_array(action: String) -> Array:
+	var key_array : Array = []
+	for i in InputMap.action_get_events(action):
+		if i is InputEventKey:
+			key_array.append(i.as_text())
+	return key_array
+	
+func get_key_event_array(action: String) -> Array:
+	var key_array : Array = []
+	for i in InputMap.action_get_events(action):
+		key_array.append(i)
+	return key_array
+	
+## Back to title
 func back_to_title():
 	AHL_LoadManager.load_scene("res://Title/TitleScene.tscn")
 	isInGame = false
 	
-# Get World Path
+## Get World Path
 func get_world_path(dim : String) :
 	match dim :
 		"Overworld" :	return "res://Assets/World/WorldMain.tscn"
 
-# When "p->elem" issue happened, use this to print tons of text.
+## When "p->elem" issue happened, use this to print tons of text.
 func p_elem_debug(info : String) :
 	if catchPElemIssue:
 		push_warning(info)
+		

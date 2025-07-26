@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://cnl53v0lrb1mv"]
+[gd_scene load_steps=11 format=3 uid="uid://cnl53v0lrb1mv"]
 
-[ext_resource type="Script" uid="uid://cmgyke5hcxe75" path="res://Assets/Character/Options.gd" id="1_54q7r"]
+[ext_resource type="Script" uid="uid://cmgyke5hcxe75" path="res://Assets/UI/Options/Options.gd" id="1_54q7r"]
 [ext_resource type="PackedScene" uid="uid://gqwcyi21yhlc" path="res://addons/abyss_history_lib/Scene/Notice/hint_button.tscn" id="2_hwb3r"]
 [ext_resource type="Script" uid="uid://dhr8xpmf26e8v" path="res://addons/abyss_history_lib/Class/Notice/NoticeInfoClass.gd" id="3_2vebq"]
 [ext_resource type="Theme" uid="uid://bitmw3ij7201m" path="res://Resources/os/fatal_window/fw_theme.tres" id="3_xn7oq"]
+[ext_resource type="Script" uid="uid://xu6i6p3rtur6" path="res://Assets/UI/Options/keybindings.gd" id="5_ms344"]
 
 [sub_resource type="Resource" id="Resource_wnie8"]
 script = ExtResource("3_2vebq")
@@ -174,77 +175,98 @@ focus_next = NodePath(".")
 focus_previous = NodePath(".")
 text = " "
 flat = true
+clip_text = true
 
 [node name="DebugOptGroup" type="Button" parent="#options_game#/GameSetting/VSplit"]
 layout_mode = 2
 toggle_mode = true
 text = "options.game.debug.group"
 
-[node name="PrintDebugInfo" type="HBoxContainer" parent="#options_game#/GameSetting/VSplit"]
+[node name="DebugOptContainer" type="VBoxContainer" parent="#options_game#/GameSetting/VSplit"]
+layout_mode = 2
+
+[node name="PrintDebugInfo" type="HBoxContainer" parent="#options_game#/GameSetting/VSplit/DebugOptContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="pdi_text" type="Label" parent="#options_game#/GameSetting/VSplit/PrintDebugInfo"]
+[node name="pdi_text" type="Label" parent="#options_game#/GameSetting/VSplit/DebugOptContainer/PrintDebugInfo"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "options.game.print_debug_info"
 
-[node name="pdi_button" type="CheckBox" parent="#options_game#/GameSetting/VSplit/PrintDebugInfo"]
+[node name="pdi_button" type="CheckBox" parent="#options_game#/GameSetting/VSplit/DebugOptContainer/PrintDebugInfo"]
 layout_mode = 2
 size_flags_horizontal = 8
 focus_neighbor_left = NodePath(".")
-focus_neighbor_top = NodePath("../../../..")
+focus_neighbor_top = NodePath("../../../../..")
 focus_neighbor_right = NodePath(".")
 focus_neighbor_bottom = NodePath(".")
 focus_next = NodePath(".")
 focus_previous = NodePath(".")
 text = " "
 flat = true
+clip_text = true
 
-[node name="catchPElemIssue" type="HBoxContainer" parent="#options_game#/GameSetting/VSplit"]
+[node name="catchPElemIssue" type="HBoxContainer" parent="#options_game#/GameSetting/VSplit/DebugOptContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="cpei_text" type="Label" parent="#options_game#/GameSetting/VSplit/catchPElemIssue"]
+[node name="cpei_text" type="Label" parent="#options_game#/GameSetting/VSplit/DebugOptContainer/catchPElemIssue"]
 layout_mode = 2
 text = "options.game.catch_p_elem_issue"
 
-[node name="HintButton" parent="#options_game#/GameSetting/VSplit/catchPElemIssue" instance=ExtResource("2_hwb3r")]
+[node name="HintButton" parent="#options_game#/GameSetting/VSplit/DebugOptContainer/catchPElemIssue" instance=ExtResource("2_hwb3r")]
 layout_mode = 2
 notice = SubResource("Resource_g8qbb")
 
-[node name="cpei_button" type="CheckBox" parent="#options_game#/GameSetting/VSplit/catchPElemIssue"]
+[node name="cpei_button" type="CheckBox" parent="#options_game#/GameSetting/VSplit/DebugOptContainer/catchPElemIssue"]
 layout_mode = 2
 size_flags_horizontal = 10
 focus_neighbor_left = NodePath(".")
-focus_neighbor_top = NodePath("../../../..")
+focus_neighbor_top = NodePath("../../../../..")
 focus_neighbor_right = NodePath(".")
 focus_neighbor_bottom = NodePath(".")
 focus_next = NodePath(".")
 focus_previous = NodePath(".")
 text = " "
 flat = true
+clip_text = true
 
-[node name="alwaysShowCursor" type="HBoxContainer" parent="#options_game#/GameSetting/VSplit"]
+[node name="alwaysShowCursor" type="HBoxContainer" parent="#options_game#/GameSetting/VSplit/DebugOptContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="asc_text" type="Label" parent="#options_game#/GameSetting/VSplit/alwaysShowCursor"]
+[node name="asc_text" type="Label" parent="#options_game#/GameSetting/VSplit/DebugOptContainer/alwaysShowCursor"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "options.game.always_show_cursor"
 
-[node name="asc_button" type="CheckBox" parent="#options_game#/GameSetting/VSplit/alwaysShowCursor"]
+[node name="asc_button" type="CheckBox" parent="#options_game#/GameSetting/VSplit/DebugOptContainer/alwaysShowCursor"]
 layout_mode = 2
 size_flags_horizontal = 8
 focus_neighbor_left = NodePath(".")
-focus_neighbor_top = NodePath("../../..")
+focus_neighbor_top = NodePath("../../../..")
 focus_neighbor_right = NodePath(".")
 focus_neighbor_bottom = NodePath(".")
 focus_next = NodePath(".")
 focus_previous = NodePath(".")
 text = " "
 flat = true
+clip_text = true
+
+[node name="keyDebugScene" type="HBoxContainer" parent="#options_game#/GameSetting/VSplit/DebugOptContainer"]
+layout_mode = 2
+metadata/_tab_index = 12
+
+[node name="kds_text" type="Label" parent="#options_game#/GameSetting/VSplit/DebugOptContainer/keyDebugScene"]
+layout_mode = 2
+text = "options.game.key_debug_scene"
+
+[node name="kds_button" type="Button" parent="#options_game#/GameSetting/VSplit/DebugOptContainer/keyDebugScene"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 10
+text = ">>>"
 
 [node name="#options_video#" type="TabBar" parent="."]
 visible = false
@@ -290,6 +312,7 @@ focus_next = NodePath(".")
 focus_previous = NodePath(".")
 text = " "
 flat = true
+clip_text = true
 
 [node name="fullscreen_warn" type="AcceptDialog" parent="#options_video#/VideoSetting/VSpilt/Fullscreen/fullscreen_button"]
 title = ""
@@ -341,6 +364,7 @@ focus_next = NodePath(".")
 focus_previous = NodePath(".")
 text = " "
 flat = true
+clip_text = true
 
 [node name="#options_audio#" type="TabBar" parent="."]
 visible = false
@@ -508,6 +532,16 @@ focus_next = NodePath(".")
 focus_previous = NodePath(".")
 text = " "
 flat = true
+clip_text = true
+
+[node name="KeybindingsGroup" type="Button" parent="#options_control#/ControlSetting/VSpilt"]
+layout_mode = 2
+toggle_mode = true
+text = "options.control.keybindings.group"
+
+[node name="KeybindingsContainer" type="VBoxContainer" parent="#options_control#/ControlSetting/VSpilt"]
+layout_mode = 2
+script = ExtResource("5_ms344")
 
 [connection signal="tab_changed" from="." to="." method="_on_tab_changed"]
 [connection signal="item_selected" from="#options_game#/GameSetting/VSplit/Language/language_button" to="." method="_on_option_button_item_selected"]
@@ -515,9 +549,10 @@ flat = true
 [connection signal="dir_selected" from="#options_game#/GameSetting/VSplit/DataPath/datapath_button/path_choose" to="." method="_on_path_choose_dir_selected"]
 [connection signal="toggled" from="#options_game#/GameSetting/VSplit/UseSubThreads/ust_button" to="." method="_on_ust_button_toggled"]
 [connection signal="toggled" from="#options_game#/GameSetting/VSplit/DebugOptGroup" to="." method="_on_debug_opt_group_toggled"]
-[connection signal="toggled" from="#options_game#/GameSetting/VSplit/PrintDebugInfo/pdi_button" to="." method="_on_pdi_button_toggled"]
-[connection signal="toggled" from="#options_game#/GameSetting/VSplit/catchPElemIssue/cpei_button" to="." method="_on_cpei_button_toggled"]
-[connection signal="toggled" from="#options_game#/GameSetting/VSplit/alwaysShowCursor/asc_button" to="." method="_on_asc_button_toggled"]
+[connection signal="toggled" from="#options_game#/GameSetting/VSplit/DebugOptContainer/PrintDebugInfo/pdi_button" to="." method="_on_pdi_button_toggled"]
+[connection signal="toggled" from="#options_game#/GameSetting/VSplit/DebugOptContainer/catchPElemIssue/cpei_button" to="." method="_on_cpei_button_toggled"]
+[connection signal="toggled" from="#options_game#/GameSetting/VSplit/DebugOptContainer/alwaysShowCursor/asc_button" to="." method="_on_asc_button_toggled"]
+[connection signal="pressed" from="#options_game#/GameSetting/VSplit/DebugOptContainer/keyDebugScene/kds_button" to="." method="_key_debug_scene"]
 [connection signal="toggled" from="#options_video#/VideoSetting/VSpilt/Fullscreen/fullscreen_button" to="." method="_on_fullscreen_button_toggled"]
 [connection signal="close_requested" from="#options_video#/VideoSetting/VSpilt/Fullscreen/fullscreen_button/fullscreen_warn" to="." method="_on_fullscreen_warn_close_requested"]
 [connection signal="value_changed" from="#options_video#/VideoSetting/VSpilt/Scale/scale_button" to="." method="_on_scale_button_value_changed"]
@@ -527,3 +562,4 @@ flat = true
 [connection signal="value_changed" from="#options_audio#/AudioSetting/VSpilt/SFX/sfx_button" to="." method="_on_sfx_button_value_changed"]
 [connection signal="value_changed" from="#options_control#/ControlSetting/VSpilt/MouseSen/mouse_button" to="." method="_on_mouse_button_value_changed"]
 [connection signal="toggled" from="#options_control#/ControlSetting/VSpilt/AutoPickup/auto_pickup_button" to="." method="_on_auto_pickup_button_toggled"]
+[connection signal="toggled" from="#options_control#/ControlSetting/VSpilt/KeybindingsGroup" to="." method="_on_keybindings_group_toggled"]

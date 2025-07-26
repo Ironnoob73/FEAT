@@ -1,0 +1,61 @@
+[gd_scene load_steps=3 format=3 uid="uid://bsgfw3mk218h"]
+
+[ext_resource type="Script" uid="uid://dkrimqsjv0k4w" path="res://Assets/UI/Options/keybind_scene.gd" id="1_smqhq"]
+[ext_resource type="Theme" uid="uid://dabcnt1f5vyb5" path="res://Assets/UI/Options/keybind_theme.tres" id="2_t5dja"]
+
+[node name="KeybindScene" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_smqhq")
+
+[node name="Background" type="Panel" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_t5dja")
+
+[node name="PanelContainer" type="PanelContainer" parent="Background"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBox" type="VBoxContainer" parent="Background/PanelContainer"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+
+[node name="ActionName" type="Label" parent="Background/PanelContainer/VBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Action"
+horizontal_alignment = 1
+
+[node name="HBox" type="HBoxContainer" parent="Background/PanelContainer/VBox"]
+layout_mode = 2
+
+[node name="KeyRead" type="Button" parent="Background/PanelContainer/VBox/HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "options.control.keybindings.listen"
+
+[node name="AddButton" type="Button" parent="Background/PanelContainer/VBox/HBox"]
+custom_minimum_size = Vector2(35, 0)
+layout_mode = 2
+text = "+"
+
+[node name="ExitButton" type="Button" parent="Background/PanelContainer/VBox"]
+layout_mode = 2
+text = "title.menu.exit"
+
+[connection signal="pressed" from="Background/PanelContainer/VBox/HBox/KeyRead" to="." method="_on_key_read_pressed"]
+[connection signal="pressed" from="Background/PanelContainer/VBox/HBox/AddButton" to="." method="_on_add_button_pressed"]
+[connection signal="pressed" from="Background/PanelContainer/VBox/ExitButton" to="." method="exit"]
