@@ -23,7 +23,7 @@ func _on_options_button_pressed():
 		animation.play("Options")
 		current_menu = "Options"
 func _on_options_back_button_pressed():
-	if current_menu == "Options":
+	if current_menu == "Options" and !AHL_NoticeManager.is_notice_show and !Global.block_escape:
 		animation.play_backwards("Options")
 		current_menu = "Main"
 

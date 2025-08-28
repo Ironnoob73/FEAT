@@ -8,6 +8,9 @@ var Sdfgi : bool = false
 # Load options
 var load_use_sub_threads : bool = false
 
+# UI Control
+var block_escape : bool = false
+
 # In game control
 var mouse_sens = 0.4
 var auto_pickup : bool = true

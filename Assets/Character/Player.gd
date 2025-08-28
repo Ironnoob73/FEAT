@@ -158,7 +158,7 @@ func switch_perspectives():
 	
 func _unhandled_input(_event):
 	# Pause.
-	if Input.is_action_just_pressed("pause"):
+	if Input.is_action_just_pressed("ui_cancel"):
 		match current_menu :
 			"HUD":
 				current_menu = "Pause"

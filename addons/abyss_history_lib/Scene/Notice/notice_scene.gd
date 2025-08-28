@@ -40,6 +40,7 @@ func get_notice_info(notice_info:AHL_NoticeInfo = AHL_NoticeInfo.new()) -> void:
 func close() -> void:
 	yep.disabled = true
 	nope.disabled = true
+	AHL_NoticeManager.is_notice_show = false
 	anim.play("Disappear")
 	await Signal(anim, "animation_finished")
 	self.queue_free()

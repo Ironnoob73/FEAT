@@ -11,6 +11,7 @@ var candidate_event: InputEvent = null
 var listening: bool = false
 
 func _ready() -> void:
+	Global.block_escape = true
 	key_read.grab_focus()
 
 func setup_keybind(action: String) -> void:
@@ -42,14 +43,18 @@ func refresh_list() -> void:
 	Global.save_settings_to_file("keybindings",_action,InputMap.action_get_events(_action))
 	
 func _input(event: InputEvent) -> void:
-	if listening and event is not InputEventMouseMotion:
-		key_read.text = event.as_text()
-		candidate_event = event
-		listening = false
-		await get_tree().create_timer(1).timeout
-		key_read.grab_focus()
+	if listening:
+		if event is not InputEventMouseMotion:
+			key_read.text = event.as_text()
+			candidate_event = event
+			listening = false
+			await get_tree().create_timer(1).timeout
+			key_read.grab_focus()
+	elif event.is_action_pressed("ui_cancel"):
+		exit.call_deferred()
 
 func exit() -> void:
+	Global.block_escape = false
 	self.queue_free()
 
 func _on_add_button_pressed() -> void:

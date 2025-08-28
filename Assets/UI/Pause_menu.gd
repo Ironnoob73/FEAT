@@ -18,7 +18,7 @@ func _on_visibility_changed():
 	get_tree().paused = visible
 
 func _unhandled_input(_event):
-	if Input.is_action_just_released("pause") :
+	if Input.is_action_just_released("ui_cancel") :
 		if escape_released == false :
 			escape_released = true
 		elif current_menu == "Pause":
@@ -34,7 +34,7 @@ func _on_options_button_pressed():
 	escape_released = false
 	animation.play("Options")
 func _on_back_button_pressed():
-	if current_menu == "Options":
+	if current_menu == "Options" and !AHL_NoticeManager.is_notice_show and !Global.block_escape:
 		current_menu = "Pause"
 		animation.play_backwards("Options")
 	

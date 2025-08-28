@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bp6c7x4dytetk"]
+[gd_scene load_steps=19 format=3 uid="uid://bp6c7x4dytetk"]
 
 [ext_resource type="Script" uid="uid://c8su3raob8fjo" path="res://Title/TitleScene.gd" id="1_eqpau"]
 [ext_resource type="Theme" uid="uid://cwbdqmvx07r3k" path="res://Title/MainMenuButton_theme.tres" id="2_l7ppy"]
@@ -30,8 +30,15 @@ content_margin_bottom = 4.0
 bg_color = Color(0.6, 0.6, 0.6, 0)
 corner_detail = 1
 
+[sub_resource type="InputEventAction" id="InputEventAction_nftbt"]
+action = &"ui_cancel"
+
+[sub_resource type="Shortcut" id="Shortcut_xqydv"]
+events = [SubResource("InputEventAction_nftbt")]
+
 [sub_resource type="InputEventAction" id="InputEventAction_8q5da"]
-action = &"pause"
+action = &"ui_cancel"
+pressed = true
 
 [sub_resource type="Shortcut" id="Shortcut_elb6v"]
 events = [SubResource("InputEventAction_8q5da")]
@@ -685,6 +692,7 @@ theme = ExtResource("4_nftbt")
 
 [node name="BackButton" type="Button" parent="Main/Panel/Control/Options"]
 layout_mode = 2
+shortcut = SubResource("Shortcut_xqydv")
 shortcut_in_tooltip = false
 text = "button.back"
 alignment = 0

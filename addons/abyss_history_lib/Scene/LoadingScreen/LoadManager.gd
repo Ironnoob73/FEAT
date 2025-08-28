@@ -4,6 +4,7 @@ extends Node
 
 signal progress_changed(progress)
 signal load_done
+signal load_failed(info)
 
 var _load_screen =  preload("loading_scene.tscn")
 var _replace_main = true
@@ -12,7 +13,8 @@ var _scene_path : String
 var _progress : Array = []
 
 func load_scene(scene_path : String,
-	change_pos = false, pos = Vector3(), change_rot = false, rot = Vector3(), replace_main = true):
+	change_pos = false, pos = Vector3(), change_rot = false, rot = Vector3(),
+	replace_main = true) -> void:
 	_scene_path = scene_path
 	_replace_main = replace_main
 	if change_pos:
@@ -24,18 +26,22 @@ func load_scene(scene_path : String,
 	get_tree().get_root().add_child(loading_screen)
 	self.progress_changed.connect(loading_screen._update_progress)
 	self.load_done.connect(loading_screen._outro)
+	self.load_failed.connect(loading_screen._fail)
 	start_load()
 	
-func start_load():
+func start_load() -> void:
 	var state = ResourceLoader.load_threaded_request(_scene_path, "PackedScene", Global.load_use_sub_threads)
 	if state == OK:
 		set_process(true)
+	else:
+		load_failed.emit(state)
 
-func _process(_delta):
+func _process(_delta) -> void:
 	var load_status = ResourceLoader.load_threaded_get_status(_scene_path, _progress)
 	match load_status:
 		ResourceLoader.THREAD_LOAD_INVALID_RESOURCE,ResourceLoader.THREAD_LOAD_FAILED:
 			set_process(false)
+			load_failed.emit(load_status)
 			return
 		ResourceLoader.THREAD_LOAD_IN_PROGRESS:
 			progress_changed.emit(_progress[0])
