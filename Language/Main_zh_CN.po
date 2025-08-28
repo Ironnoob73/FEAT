@@ -47,16 +47,16 @@ msgid "options.game.debug.group"
 msgstr "调试选项..."
 
 msgid "options.game.print_debug_info"
-msgstr "打印调试信息"
+msgstr "在调试器内打印调试信息"
 
 msgid "options.game.catch_p_elem_issue"
 msgstr "捕获\"p_elem->_root != this\"问题"
 
+msgid "options.game.always_show_cursor"
+msgstr "总是显示三维光标"
+
 msgid "options.game.key_debug_scene"
 msgstr "键位测试场景"
-
-msgid "options.game.always_show_cursor"
-msgstr "总是显示光标"
 
 msgid "#options_video#"
 msgstr "视频"
@@ -204,7 +204,7 @@ msgid "button.cancel"
 msgstr "取消"
 
 msgid "file.open_directory"
-msgstr "选择文件夹"
+msgstr "选择一个文件夹"
 
 #----------In game----------#
 msgid "list.name"
@@ -311,3 +311,6 @@ msgstr "左"
 
 msgid "keybind.ui_right"
 msgstr "右"
+
+msgid "keybind.ui_cancel"
+msgstr "暂停、返回、退出、取消"

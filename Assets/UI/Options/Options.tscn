@@ -1,7 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://cnl53v0lrb1mv"]
+[gd_scene load_steps=13 format=3 uid="uid://cnl53v0lrb1mv"]
 
 [ext_resource type="Script" uid="uid://cmgyke5hcxe75" path="res://Assets/UI/Options/Options.gd" id="1_54q7r"]
+[ext_resource type="Theme" uid="uid://4vg46hb8hsti" path="res://Assets/UI/Options/restore_button_scene.tres" id="2_8vm80"]
 [ext_resource type="PackedScene" uid="uid://gqwcyi21yhlc" path="res://addons/abyss_history_lib/Scene/Notice/hint_button.tscn" id="2_hwb3r"]
+[ext_resource type="Texture2D" uid="uid://7yqunet0nhxt" path="res://Resources/Image/UI/Restore.svg" id="2_j0l55"]
 [ext_resource type="Script" uid="uid://dhr8xpmf26e8v" path="res://addons/abyss_history_lib/Class/Notice/NoticeInfoClass.gd" id="3_2vebq"]
 [ext_resource type="Theme" uid="uid://bitmw3ij7201m" path="res://Resources/os/fatal_window/fw_theme.tres" id="3_xn7oq"]
 [ext_resource type="Script" uid="uid://xu6i6p3rtur6" path="res://Assets/UI/Options/keybindings.gd" id="5_ms344"]
@@ -102,9 +104,16 @@ layout_mode = 2
 size_flags_horizontal = 3
 text = "options.game.language"
 
+[node name="language_restore" type="Button" parent="#options_game#/GameSetting/VSplit/Language"]
+layout_mode = 2
+theme = ExtResource("2_8vm80")
+icon = ExtResource("2_j0l55")
+flat = true
+
 [node name="language_button" type="OptionButton" parent="#options_game#/GameSetting/VSplit/Language"]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
+size_flags_horizontal = 8
 focus_neighbor_left = NodePath(".")
 focus_neighbor_top = NodePath("../../../..")
 focus_neighbor_right = NodePath(".")
@@ -128,12 +137,19 @@ text = "options.game.data"
 
 [node name="HintButton" parent="#options_game#/GameSetting/VSplit/DataPath" instance=ExtResource("2_hwb3r")]
 layout_mode = 2
+text = "不要修改容器大小，这个改成填充会导致按钮太大。"
 notice = SubResource("Resource_wnie8")
+
+[node name="datapath_restore" type="Button" parent="#options_game#/GameSetting/VSplit/DataPath"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme = ExtResource("2_8vm80")
+icon = ExtResource("2_j0l55")
+flat = true
 
 [node name="datapath_button" type="Button" parent="#options_game#/GameSetting/VSplit/DataPath"]
 custom_minimum_size = Vector2(200, 35)
 layout_mode = 2
-size_flags_horizontal = 10
 focus_neighbor_left = NodePath(".")
 focus_neighbor_top = NodePath("../../Language/language_button")
 focus_neighbor_right = NodePath(".")
@@ -143,11 +159,12 @@ focus_previous = NodePath("../../Language/language_button")
 
 [node name="path_choose" type="FileDialog" parent="#options_game#/GameSetting/VSplit/DataPath/datapath_button"]
 gui_embed_subwindows = true
-title = "Open a Directory"
+title = "file.open_directory"
 initial_position = 2
 size = Vector2i(750, 500)
 ok_button_text = "Select Current Folder"
 cancel_button_text = "button.cancel"
+mode_overrides_title = false
 file_mode = 2
 access = 2
 use_native_dialog = true
@@ -164,9 +181,15 @@ text = "options.game.use_sub_threads"
 layout_mode = 2
 notice = SubResource("Resource_hwb3r")
 
-[node name="ust_button" type="CheckBox" parent="#options_game#/GameSetting/VSplit/UseSubThreads"]
+[node name="ust_restore" type="Button" parent="#options_game#/GameSetting/VSplit/UseSubThreads"]
 layout_mode = 2
 size_flags_horizontal = 10
+theme = ExtResource("2_8vm80")
+icon = ExtResource("2_j0l55")
+flat = true
+
+[node name="ust_button" type="CheckBox" parent="#options_game#/GameSetting/VSplit/UseSubThreads"]
+layout_mode = 2
 focus_neighbor_left = NodePath(".")
 focus_neighbor_top = NodePath("../../../..")
 focus_neighbor_right = NodePath(".")
@@ -194,9 +217,14 @@ layout_mode = 2
 size_flags_horizontal = 3
 text = "options.game.print_debug_info"
 
+[node name="pdi_restore" type="Button" parent="#options_game#/GameSetting/VSplit/DebugOptContainer/PrintDebugInfo"]
+layout_mode = 2
+theme = ExtResource("2_8vm80")
+icon = ExtResource("2_j0l55")
+flat = true
+
 [node name="pdi_button" type="CheckBox" parent="#options_game#/GameSetting/VSplit/DebugOptContainer/PrintDebugInfo"]
 layout_mode = 2
-size_flags_horizontal = 8
 focus_neighbor_left = NodePath(".")
 focus_neighbor_top = NodePath("../../../../..")
 focus_neighbor_right = NodePath(".")
@@ -219,9 +247,15 @@ text = "options.game.catch_p_elem_issue"
 layout_mode = 2
 notice = SubResource("Resource_g8qbb")
 
-[node name="cpei_button" type="CheckBox" parent="#options_game#/GameSetting/VSplit/DebugOptContainer/catchPElemIssue"]
+[node name="cpei_restore" type="Button" parent="#options_game#/GameSetting/VSplit/DebugOptContainer/catchPElemIssue"]
 layout_mode = 2
 size_flags_horizontal = 10
+theme = ExtResource("2_8vm80")
+icon = ExtResource("2_j0l55")
+flat = true
+
+[node name="cpei_button" type="CheckBox" parent="#options_game#/GameSetting/VSplit/DebugOptContainer/catchPElemIssue"]
+layout_mode = 2
 focus_neighbor_left = NodePath(".")
 focus_neighbor_top = NodePath("../../../../..")
 focus_neighbor_right = NodePath(".")
@@ -241,9 +275,14 @@ layout_mode = 2
 size_flags_horizontal = 3
 text = "options.game.always_show_cursor"
 
+[node name="asc_restore" type="Button" parent="#options_game#/GameSetting/VSplit/DebugOptContainer/alwaysShowCursor"]
+layout_mode = 2
+theme = ExtResource("2_8vm80")
+icon = ExtResource("2_j0l55")
+flat = true
+
 [node name="asc_button" type="CheckBox" parent="#options_game#/GameSetting/VSplit/DebugOptContainer/alwaysShowCursor"]
 layout_mode = 2
-size_flags_horizontal = 8
 focus_neighbor_left = NodePath(".")
 focus_neighbor_top = NodePath("../../../..")
 focus_neighbor_right = NodePath(".")
@@ -544,13 +583,19 @@ layout_mode = 2
 script = ExtResource("5_ms344")
 
 [connection signal="tab_changed" from="." to="." method="_on_tab_changed"]
-[connection signal="item_selected" from="#options_game#/GameSetting/VSplit/Language/language_button" to="." method="_on_option_button_item_selected"]
+[connection signal="pressed" from="#options_game#/GameSetting/VSplit/Language/language_restore" to="." method="_on_language_restore_pressed"]
+[connection signal="item_selected" from="#options_game#/GameSetting/VSplit/Language/language_button" to="." method="_on_language_button_item_selected"]
+[connection signal="pressed" from="#options_game#/GameSetting/VSplit/DataPath/datapath_restore" to="." method="_on_datapath_restore_pressed"]
 [connection signal="pressed" from="#options_game#/GameSetting/VSplit/DataPath/datapath_button" to="." method="_on_datapath_button_pressed"]
 [connection signal="dir_selected" from="#options_game#/GameSetting/VSplit/DataPath/datapath_button/path_choose" to="." method="_on_path_choose_dir_selected"]
+[connection signal="pressed" from="#options_game#/GameSetting/VSplit/UseSubThreads/ust_restore" to="." method="_on_ust_restore_pressed"]
 [connection signal="toggled" from="#options_game#/GameSetting/VSplit/UseSubThreads/ust_button" to="." method="_on_ust_button_toggled"]
 [connection signal="toggled" from="#options_game#/GameSetting/VSplit/DebugOptGroup" to="." method="_on_debug_opt_group_toggled"]
+[connection signal="pressed" from="#options_game#/GameSetting/VSplit/DebugOptContainer/PrintDebugInfo/pdi_restore" to="." method="_on_pdi_restore_pressed"]
 [connection signal="toggled" from="#options_game#/GameSetting/VSplit/DebugOptContainer/PrintDebugInfo/pdi_button" to="." method="_on_pdi_button_toggled"]
+[connection signal="pressed" from="#options_game#/GameSetting/VSplit/DebugOptContainer/catchPElemIssue/cpei_restore" to="." method="_on_cpei_restore_pressed"]
 [connection signal="toggled" from="#options_game#/GameSetting/VSplit/DebugOptContainer/catchPElemIssue/cpei_button" to="." method="_on_cpei_button_toggled"]
+[connection signal="pressed" from="#options_game#/GameSetting/VSplit/DebugOptContainer/alwaysShowCursor/asc_restore" to="." method="_on_asc_restore_pressed"]
 [connection signal="toggled" from="#options_game#/GameSetting/VSplit/DebugOptContainer/alwaysShowCursor/asc_button" to="." method="_on_asc_button_toggled"]
 [connection signal="pressed" from="#options_game#/GameSetting/VSplit/DebugOptContainer/keyDebugScene/kds_button" to="." method="_key_debug_scene"]
 [connection signal="toggled" from="#options_video#/VideoSetting/VSpilt/Fullscreen/fullscreen_button" to="." method="_on_fullscreen_button_toggled"]

@@ -252,7 +252,7 @@ void sky()
 	if( EYEDIR.y > 0.0 )
 	{
 		// Clouds UV movement direction
-		float _clouds_speed = time * clouds_speed * 0.01;
+		float _clouds_speed = time * clouds_speed * 0.1;
 		float _sin_x = sin( clouds_direction * PI * 2.0 );
 		float _cos_y = cos( clouds_direction * PI * 2.0 );
 		// I using 3 levels of clouds. Top is the lightes and botom the darkest.

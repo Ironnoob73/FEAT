@@ -1,14 +1,22 @@
 extends TabContainer
 
+@onready var HintButtonComment = $"#options_game#/GameSetting/VSplit/DataPath/HintButton"
+
 @onready var GameLanguage = $"#options_game#/GameSetting/VSplit/Language/language_button"
+@onready var GameLanguageRB: Button = $"#options_game#/GameSetting/VSplit/Language/language_restore"
 @onready var DataPath = $"#options_game#/GameSetting/VSplit/DataPath/datapath_button"
+@onready var DataPathRB: Button = $"#options_game#/GameSetting/VSplit/DataPath/datapath_restore"
 @onready var path_choose = $"#options_game#/GameSetting/VSplit/DataPath/datapath_button/path_choose"
 @onready var UseSubThreads = $"#options_game#/GameSetting/VSplit/UseSubThreads/ust_button"
+@onready var UseSubThreadsRB: Button = $"#options_game#/GameSetting/VSplit/UseSubThreads/ust_restore"
 @onready var DebugOptionsGroup: Button = $"#options_game#/GameSetting/VSplit/DebugOptGroup"
 @onready var DebugOptionsContainer: VBoxContainer = $"#options_game#/GameSetting/VSplit/DebugOptContainer"
 @onready var PrintDebugInfo = $"#options_game#/GameSetting/VSplit/DebugOptContainer/PrintDebugInfo/pdi_button"
+@onready var PrintDebugInfoRB: Button = $"#options_game#/GameSetting/VSplit/DebugOptContainer/PrintDebugInfo/pdi_restore"
 @onready var CatchPElemIssue = $"#options_game#/GameSetting/VSplit/DebugOptContainer/catchPElemIssue/cpei_button"
-@onready var AlwausShowCursor = $"#options_game#/GameSetting/VSplit/DebugOptContainer/alwaysShowCursor/asc_button"
+@onready var CatchPElemIssueRB: Button = $"#options_game#/GameSetting/VSplit/DebugOptContainer/catchPElemIssue/cpei_restore"
+@onready var AlwaysShowCursor = $"#options_game#/GameSetting/VSplit/DebugOptContainer/alwaysShowCursor/asc_button"
+@onready var AlwaysShowCursorRB: Button = $"#options_game#/GameSetting/VSplit/DebugOptContainer/alwaysShowCursor/asc_restore"
 
 @onready var Fullscreen = $"#options_video#/VideoSetting/VSpilt/Fullscreen/fullscreen_button"
 @onready var fullscreen_warn = $"#options_video#/VideoSetting/VSpilt/Fullscreen/fullscreen_button/fullscreen_warn"
@@ -31,22 +39,30 @@ extends TabContainer
 signal SetSdfgi(bool)
 
 func _ready():
+	HintButtonComment.text = ""
 	# Language
 	match TranslationServer.get_locale():
 		"en_US":	GameLanguage.set_indexed("selected",0)
 		"zh_CN":	GameLanguage.set_indexed("selected",1)
+	if Global.is_os_language_supported():
+		GameLanguageRB.set_disabled(is_language_match())
 	# Data path
 	DataPath.text = Global.DATA_PATH
+	DataPathRB.set_disabled(Global.DATA_PATH == "user://")
 	# Use sub threads
 	UseSubThreads.set_pressed_no_signal(Global.load_use_sub_threads)
+	UseSubThreadsRB.set_disabled(Global.load_use_sub_threads == false)
 	# Debug
 	if !DebugOptionsGroup.button_pressed:
 		DebugOptionsContainer.hide()
 	if !KeybindingsGroup.button_pressed:
 		KeybingdingsContainer.hide()
 	PrintDebugInfo.set_pressed_no_signal(Global.printDebugInfo)
+	PrintDebugInfoRB.set_disabled(Global.printDebugInfo == false)
 	CatchPElemIssue.set_pressed_no_signal(Global.catchPElemIssue)
-	AlwausShowCursor.set_pressed_no_signal(Global.alwaysShowCursor)
+	CatchPElemIssueRB.set_disabled(Global.catchPElemIssue == false)
+	AlwaysShowCursor.set_pressed_no_signal(Global.alwaysShowCursor)
+	AlwaysShowCursorRB.set_disabled(Global.alwaysShowCursor == false)
 	
 	# Fullscreen
 	match DisplayServer.window_get_mode():
@@ -68,7 +84,6 @@ func _ready():
 	MouseSenPercent.text = str((Global.mouse_sens)*100) + "%"
 	# AutoPickup
 	AutoPickup.set_pressed_no_signal(Global.auto_pickup)
-	
 
 # Change tab
 func _input(_event):
@@ -82,23 +97,41 @@ func _input(_event):
 			else :					current_tab -= 1
 			tab_focus()
 # Language
-func _on_option_button_item_selected(index):
+func _on_language_button_item_selected(index: int) -> void:
 	match index:
 		0:	TranslationServer.set_locale("en_US")
 		1:	TranslationServer.set_locale("zh_CN")
+	GameLanguageRB.set_disabled(is_language_match() or index == 0)
 	Global.save_settings_to_file("game","language",TranslationServer.get_locale())
 	Global.window_min_limit()
+func is_language_match() -> bool:
+	return TranslationServer.get_locale() == OS.get_locale()
+func _on_language_restore_pressed() -> void:
+	if Global.is_os_language_supported():
+		GameLanguage.select(Global.LanguageList.find(OS.get_locale()))
+	else:
+		GameLanguage.select(0)
 # Choose data path
 func _on_datapath_button_pressed():
+	path_choose.set_current_dir(Global.DATA_PATH)
 	path_choose.show()
 func _on_path_choose_dir_selected(dir):
 	Global.DATA_PATH = dir
 	DataPath.text = dir
 	Global.save_settings_to_file("game","data_path",dir)
+	DataPathRB.set_disabled(Global.DATA_PATH == "user://")
+func _on_datapath_restore_pressed() -> void:
+	DataPathRB.set_disabled(true)
+	Global.DATA_PATH = "user://"
+	DataPath.text = "user://"
+	Global.save_settings_to_file("game","data_path","user://")
 # Use sub threads to load scene
 func _on_ust_button_toggled(toggled_on):
 	Global.load_use_sub_threads = toggled_on
 	Global.save_settings_to_file("game","load_use_sub_threads",toggled_on)
+	UseSubThreadsRB.set_disabled(Global.load_use_sub_threads == false)
+func _on_ust_restore_pressed() -> void:
+	UseSubThreads.set_pressed(false)
 # Debug
 func _on_debug_opt_group_toggled(toggled_on: bool) -> void:
 	if toggled_on:
@@ -108,15 +141,24 @@ func _on_debug_opt_group_toggled(toggled_on: bool) -> void:
 func _on_pdi_button_toggled(toggled_on):
 	Global.printDebugInfo = toggled_on
 	Global.save_settings_to_file("game","print_debug_info",toggled_on)
+	PrintDebugInfoRB.set_disabled(Global.printDebugInfo == false)
+func _on_pdi_restore_pressed() -> void:
+	PrintDebugInfo.set_pressed(false)
 func _on_cpei_button_toggled(toggled_on):
 	Global.catchPElemIssue = toggled_on
 	Global.save_settings_to_file("game","catch_p_null_issue",toggled_on)
+	CatchPElemIssueRB.set_disabled(Global.catchPElemIssue == false)
+func _on_cpei_restore_pressed() -> void:
+	CatchPElemIssue.set_pressed(false)
 func _on_asc_button_toggled(toggled_on):
 	Global.alwaysShowCursor = toggled_on
 	Global.save_settings_to_file("game","always_show_cursor",toggled_on)
+	AlwaysShowCursorRB.set_disabled(Global.alwaysShowCursor == false)
+func _on_asc_restore_pressed() -> void:
+	AlwaysShowCursor.set_pressed(false)
 	
 func _key_debug_scene() -> void:
-	pass # Replace with function body.
+	AHL_LoadManager.load_scene("res://Title/debug/KeyDebug.tscn")
 
 # Fullscreen
 func _on_fullscreen_button_toggled(toggled_on):

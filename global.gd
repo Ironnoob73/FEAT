@@ -2,6 +2,7 @@ extends Node
 
 const CONFIG_PATH = "user://settings.cfg"
 const KEYBINDINGS_PATH = "user://keybindings.cfg"
+var LanguageList : Array[String] = ["en_US","zh_CN"]
 var DATA_PATH : String = "user://"
 var Sdfgi : bool = false
 
@@ -127,3 +128,6 @@ func p_elem_debug(info : String) :
 	if catchPElemIssue:
 		push_warning(info)
 		
+## If the OS Language is supported.
+func is_os_language_supported() -> bool:
+	return LanguageList.has(OS.get_locale())

@@ -2,7 +2,10 @@ extends VBoxContainer
 
 var _keybind_screen = preload("res://Assets/UI/Options/KeybindScene.tscn")
 
-var action_group: Array[String] = ["ui_up","ui_down","ui_left","ui_right"]
+var action_group: Array[String] = [
+	"ui_up","ui_down","ui_left","ui_right",
+	"ui_cancel"
+	]
 
 func _ready() -> void:
 	for i in get_children():

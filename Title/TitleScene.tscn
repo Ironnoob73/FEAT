@@ -1,8 +1,9 @@
-[gd_scene load_steps=19 format=3 uid="uid://bp6c7x4dytetk"]
+[gd_scene load_steps=20 format=3 uid="uid://bp6c7x4dytetk"]
 
 [ext_resource type="Script" uid="uid://c8su3raob8fjo" path="res://Title/TitleScene.gd" id="1_eqpau"]
 [ext_resource type="Theme" uid="uid://cwbdqmvx07r3k" path="res://Title/MainMenuButton_theme.tres" id="2_l7ppy"]
 [ext_resource type="PackedScene" uid="uid://cnl53v0lrb1mv" path="res://Assets/UI/Options/Options.tscn" id="3_ivwg4"]
+[ext_resource type="Script" uid="uid://bmcciuklfskm1" path="res://Title/options_container.gd" id="3_xqydv"]
 [ext_resource type="Theme" uid="uid://cn2j0svnal77l" path="res://Title/Option_theme.tres" id="4_nftbt"]
 [ext_resource type="PackedScene" uid="uid://dnof7wcs0plpt" path="res://addons/abyss_history_lib/Scene/DynamicTooltip/tooltip_scene.tscn" id="7_3hhti"]
 
@@ -187,7 +188,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Main/Panel/Control/Options:anchor_left")
+tracks/3/path = NodePath("Main/Panel/Control/OptionsContainer:anchor_left")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -199,7 +200,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Main/Panel/Control/Options:anchor_right")
+tracks/4/path = NodePath("Main/Panel/Control/OptionsContainer:anchor_right")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -211,7 +212,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("Main/Panel/Control/Options:visible")
+tracks/5/path = NodePath("Main/Panel/Control/OptionsContainer:visible")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -358,7 +359,7 @@ tracks/8/keys = {
 tracks/9/type = "value"
 tracks/9/imported = false
 tracks/9/enabled = true
-tracks/9/path = NodePath("Main/Panel/Control/Options:anchor_left")
+tracks/9/path = NodePath("Main/Panel/Control/OptionsContainer:anchor_left")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
@@ -370,7 +371,7 @@ tracks/9/keys = {
 tracks/10/type = "value"
 tracks/10/imported = false
 tracks/10/enabled = true
-tracks/10/path = NodePath("Main/Panel/Control/Options:anchor_right")
+tracks/10/path = NodePath("Main/Panel/Control/OptionsContainer:anchor_right")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
@@ -382,7 +383,7 @@ tracks/10/keys = {
 tracks/11/type = "value"
 tracks/11/imported = false
 tracks/11/enabled = true
-tracks/11/path = NodePath("Main/Panel/Control/Options:visible")
+tracks/11/path = NodePath("Main/Panel/Control/OptionsContainer:visible")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/keys = {
@@ -663,7 +664,7 @@ layout_mode = 2
 text = "title.menu.exit"
 alignment = 0
 
-[node name="Options" type="VBoxContainer" parent="Main/Panel/Control"]
+[node name="OptionsContainer" type="VBoxContainer" parent="Main/Panel/Control"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 1.0
@@ -671,33 +672,34 @@ anchor_right = 1.5
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("3_xqydv")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Main/Panel/Control/Options"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Main/Panel/Control/OptionsContainer"]
 layout_mode = 2
 
-[node name="EmptyL" type="Control" parent="Main/Panel/Control/Options/HBoxContainer"]
+[node name="EmptyL" type="Control" parent="Main/Panel/Control/OptionsContainer/HBoxContainer"]
 custom_minimum_size = Vector2(10, 0)
 layout_mode = 2
 
-[node name="OptionsTitle" type="Label" parent="Main/Panel/Control/Options/HBoxContainer"]
+[node name="OptionsTitle" type="Label" parent="Main/Panel/Control/OptionsContainer/HBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxFlat_17pvn")
 text = "title.menu.options"
 
-[node name="Options2" parent="Main/Panel/Control/Options" instance=ExtResource("3_ivwg4")]
+[node name="Options" parent="Main/Panel/Control/OptionsContainer" instance=ExtResource("3_ivwg4")]
 layout_mode = 2
 size_flags_vertical = 3
 theme = ExtResource("4_nftbt")
 
-[node name="BackButton" type="Button" parent="Main/Panel/Control/Options"]
+[node name="BackButton" type="Button" parent="Main/Panel/Control/OptionsContainer"]
 layout_mode = 2
 shortcut = SubResource("Shortcut_xqydv")
 shortcut_in_tooltip = false
 text = "button.back"
 alignment = 0
 
-[node name="Empty" type="Control" parent="Main/Panel/Control/Options"]
+[node name="Empty" type="Control" parent="Main/Panel/Control/OptionsContainer"]
 custom_minimum_size = Vector2(0, 5)
 layout_mode = 2
 
@@ -768,6 +770,6 @@ libraries = {
 [connection signal="pressed" from="Main/Panel/Control/MainMenu/MainMenu/ContinueButton" to="." method="_on_continue_button_pressed"]
 [connection signal="pressed" from="Main/Panel/Control/MainMenu/MainMenu/OptionsButton" to="." method="_on_options_button_pressed"]
 [connection signal="pressed" from="Main/Panel/Control/MainMenu/MainMenu/ExitButton" to="." method="_on_exit_button_pressed"]
-[connection signal="pressed" from="Main/Panel/Control/Options/BackButton" to="." method="_on_options_back_button_pressed"]
+[connection signal="pressed" from="Main/Panel/Control/OptionsContainer/BackButton" to="." method="_on_options_back_button_pressed"]
 [connection signal="pressed" from="Main/Panel/Control/ExitConfirm/ConfirmButton" to="." method="_on_confirm_button_pressed"]
 [connection signal="pressed" from="Main/Panel/Control/ExitConfirm/CancelButton" to="." method="_on_cancel_button_pressed"]

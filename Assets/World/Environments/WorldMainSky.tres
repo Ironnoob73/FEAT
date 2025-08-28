@@ -36,7 +36,7 @@ shader_parameter/clouds_edge_color = Color(0.8, 0.8, 0.98, 1)
 shader_parameter/clouds_top_color = Color(1, 1, 1, 1)
 shader_parameter/clouds_middle_color = Color(0.92, 0.92, 0.98, 1)
 shader_parameter/clouds_bottom_color = Color(0.83, 0.83, 0.94, 1)
-shader_parameter/clouds_speed = 7.2
+shader_parameter/clouds_speed = 0.1
 shader_parameter/clouds_direction = -0.25
 shader_parameter/clouds_scale = 0.5
 shader_parameter/clouds_cutoff = 0.45
@@ -45,7 +45,7 @@ shader_parameter/clouds_weight = 0.0
 shader_parameter/clouds_blur = 0.25
 shader_parameter/stars_texture = SubResource("NoiseTexture2D_bud40")
 shader_parameter/stars_speed = 1.0
-shader_parameter/overwritten_time = 0.0
+shader_parameter/overwritten_time = 0.1
 
 [resource]
 sky_material = SubResource("ShaderMaterial_jrs7m")

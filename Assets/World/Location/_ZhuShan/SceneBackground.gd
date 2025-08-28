@@ -3,6 +3,10 @@ extends SubViewport
 @onready var bg_cam: Camera3D = $BgCam
 @onready var player0: player = $"../../../Player"
 @onready var world0 = $"../../../"
+@onready var falord_map: MeshInstance3D = $FalordMap
+
+func _ready() -> void:
+	falord_map.show()
 
 func _process(_delta: float) -> void:
 	size = get_window().size

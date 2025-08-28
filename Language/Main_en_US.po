@@ -47,16 +47,16 @@ msgid "options.game.debug.group"
 msgstr "Debug options..."
 
 msgid "options.game.print_debug_info"
-msgstr "Print debug info"
+msgstr "Print debug info in debugger"
 
 msgid "options.game.catch_p_elem_issue"
 msgstr "Catch \"p_elem->_root != this\" issue"
 
+msgid "options.game.always_show_cursor"
+msgstr "Always show 3D cursor"
+
 msgid "options.game.key_debug_scene"
 msgstr "Keybinding debug scene"
-
-msgid "options.game.always_show_cursor"
-msgstr "Always show cursor"
 
 msgid "#options_video#"
 msgstr "Video"
@@ -312,3 +312,6 @@ msgstr "Left"
 
 msgid "keybind.ui_right"
 msgstr "Right"
+
+msgid "keybind.ui_cancel"
+msgstr "Pause \ Back \ Escape \ Cancel"
