@@ -1,7 +1,6 @@
 extends Node
 
 const CONFIG_PATH = "user://settings.cfg"
-const KEYBINDINGS_PATH = "user://keybindings.cfg"
 var LanguageList : Array[String] = ["en_US","zh_CN"]
 var DATA_PATH : String = "user://"
 var Sdfgi : bool = false

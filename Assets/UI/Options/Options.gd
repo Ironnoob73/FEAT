@@ -36,8 +36,10 @@ extends TabContainer
 @onready var SfxVolumePercent = $"#options_audio#/AudioSetting/VSpilt/SFX/sfx_percent"
 
 @onready var MouseSen = $"#options_control#/ControlSetting/VSpilt/MouseSen/mouse_button"
-@onready var MouseSenPercent = $"#options_control#/ControlSetting/VSpilt/MouseSen/percent"
+@onready var MouseSenRestore: Button = $"#options_control#/ControlSetting/VSpilt/MouseSen/mouse_restore"
+@onready var MouseSenPercent = $"#options_control#/ControlSetting/VSpilt/MouseSen/mouse_percent"
 @onready var AutoPickup = $"#options_control#/ControlSetting/VSpilt/AutoPickup/auto_pickup_button"
+@onready var AutoPickupRestore: Button = $"#options_control#/ControlSetting/VSpilt/AutoPickup/auto_pickup_restore"
 @onready var KeybindingsGroup: Button = $"#options_control#/ControlSetting/VSpilt/KeybindingsGroup"
 @onready var KeybingdingsContainer: VBoxContainer = $"#options_control#/ControlSetting/VSpilt/KeybindingsContainer"
 
@@ -51,6 +53,8 @@ func _ready():
 		"zh_CN":	GameLanguage.set_indexed("selected",1)
 	if Global.is_os_language_supported():
 		GameLanguageRestore.set_disabled(is_language_match())
+	elif TranslationServer.get_locale() == "en_US":
+		GameLanguageRestore.set_disabled(false)
 	# Data path
 	DataPath.text = Global.DATA_PATH
 	DataPathRestore.set_disabled(Global.DATA_PATH == "user://")
@@ -96,9 +100,11 @@ func _ready():
 	
 	# Control
 	MouseSen.value = Global.mouse_sens
-	MouseSenPercent.text = str((Global.mouse_sens)*100) + "%"
+	MouseSenPercent.text = str("%.0f" %((Global.mouse_sens)*100)) + "%"
+	MouseSenRestore.set_disabled(Global.mouse_sens == 0.4)
 	# AutoPickup
 	AutoPickup.set_pressed_no_signal(Global.auto_pickup)
+	AutoPickupRestore.set_disabled(Global.auto_pickup == true)
 
 # Change tab
 func _input(_event):
@@ -116,7 +122,7 @@ func _on_language_button_item_selected(index: int) -> void:
 	match index:
 		0:	TranslationServer.set_locale("en_US")
 		1:	TranslationServer.set_locale("zh_CN")
-	GameLanguageRestore.set_disabled(is_language_match() or index == 0)
+	GameLanguageRestore.set_disabled(is_language_match() or (!Global.is_os_language_supported() and index == 0))
 	Global.save_settings_to_file("game","language",TranslationServer.get_locale())
 	Global.window_min_limit()
 func is_language_match() -> bool:
@@ -124,8 +130,10 @@ func is_language_match() -> bool:
 func _on_language_restore_pressed() -> void:
 	if Global.is_os_language_supported():
 		GameLanguage.select(Global.LanguageList.find(OS.get_locale()))
+		_on_language_button_item_selected(Global.LanguageList.find(OS.get_locale()))
 	else:
 		GameLanguage.select(0)
+		_on_language_button_item_selected(0)
 # Choose data path
 func _on_datapath_button_pressed():
 	path_choose.set_current_dir(Global.DATA_PATH)
@@ -233,12 +241,18 @@ func _on_sfx_restore_pressed() -> void:
 # Mouse sensitivity
 func _on_mouse_button_value_changed(value):
 	Global.mouse_sens = value
-	MouseSenPercent.text = str(value*100) + "%"
+	MouseSenPercent.text = str("%.0f" %(value*100)) + "%"
 	Global.save_settings_to_file("control","mouse_sens",value)
+	MouseSenRestore.set_disabled(Global.mouse_sens == 0.4)
+func _on_mouse_restore_pressed() -> void:
+	MouseSen.set_value(0.4)
 # AutoPickup
 func _on_auto_pickup_button_toggled(toggled_on):
 	Global.auto_pickup = toggled_on
 	Global.save_settings_to_file("control","auto_pickup",toggled_on)
+	AutoPickupRestore.set_disabled(Global.auto_pickup == true)
+func _on_auto_pickup_restore_pressed() -> void:
+	AutoPickup.set_pressed(true)
 # Keybindings
 func _on_keybindings_group_toggled(toggled_on: bool) -> void:
 	if toggled_on:

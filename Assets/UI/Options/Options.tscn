@@ -69,11 +69,10 @@ offset_right = 600.0
 offset_bottom = 375.0
 grow_horizontal = 2
 grow_vertical = 2
-current_tab = 2
+current_tab = 0
 script = ExtResource("1_54q7r")
 
 [node name="#options_game#" type="TabBar" parent="."]
-visible = false
 layout_mode = 2
 focus_neighbor_left = NodePath("../#options_control#")
 focus_neighbor_top = NodePath(".")
@@ -414,6 +413,7 @@ flat = true
 clip_text = true
 
 [node name="#options_audio#" type="TabBar" parent="."]
+visible = false
 layout_mode = 2
 focus_neighbor_left = NodePath("../#options_video#")
 focus_neighbor_top = NodePath(".")
@@ -566,7 +566,14 @@ layout_mode = 2
 size_flags_horizontal = 3
 text = "options.control.mouse_sen"
 
-[node name="percent" type="Label" parent="#options_control#/ControlSetting/VSpilt/MouseSen"]
+[node name="mouse_restore" type="Button" parent="#options_control#/ControlSetting/VSpilt/MouseSen"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme = ExtResource("2_8vm80")
+icon = ExtResource("2_j0l55")
+flat = true
+
+[node name="mouse_percent" type="Label" parent="#options_control#/ControlSetting/VSpilt/MouseSen"]
 layout_mode = 2
 text = "40%"
 
@@ -591,9 +598,15 @@ text = "options.control.auto_pickup"
 layout_mode = 2
 notice = SubResource("Resource_xu8jr")
 
-[node name="auto_pickup_button" type="CheckBox" parent="#options_control#/ControlSetting/VSpilt/AutoPickup"]
+[node name="auto_pickup_restore" type="Button" parent="#options_control#/ControlSetting/VSpilt/AutoPickup"]
 layout_mode = 2
 size_flags_horizontal = 10
+theme = ExtResource("2_8vm80")
+icon = ExtResource("2_j0l55")
+flat = true
+
+[node name="auto_pickup_button" type="CheckBox" parent="#options_control#/ControlSetting/VSpilt/AutoPickup"]
+layout_mode = 2
 focus_neighbor_left = NodePath(".")
 focus_neighbor_top = NodePath("../../../..")
 focus_neighbor_right = NodePath(".")
@@ -641,6 +654,8 @@ script = ExtResource("5_ms344")
 [connection signal="value_changed" from="#options_audio#/AudioSetting/VSpilt/Music/bgm_button" to="." method="_on_bgm_button_value_changed"]
 [connection signal="pressed" from="#options_audio#/AudioSetting/VSpilt/SFX/sfx_restore" to="." method="_on_sfx_restore_pressed"]
 [connection signal="value_changed" from="#options_audio#/AudioSetting/VSpilt/SFX/sfx_button" to="." method="_on_sfx_button_value_changed"]
+[connection signal="pressed" from="#options_control#/ControlSetting/VSpilt/MouseSen/mouse_restore" to="." method="_on_mouse_restore_pressed"]
 [connection signal="value_changed" from="#options_control#/ControlSetting/VSpilt/MouseSen/mouse_button" to="." method="_on_mouse_button_value_changed"]
+[connection signal="pressed" from="#options_control#/ControlSetting/VSpilt/AutoPickup/auto_pickup_restore" to="." method="_on_auto_pickup_restore_pressed"]
 [connection signal="toggled" from="#options_control#/ControlSetting/VSpilt/AutoPickup/auto_pickup_button" to="." method="_on_auto_pickup_button_toggled"]
 [connection signal="toggled" from="#options_control#/ControlSetting/VSpilt/KeybindingsGroup" to="." method="_on_keybindings_group_toggled"]

@@ -11,29 +11,48 @@ func _ready() -> void:
 	for i in get_children():
 		i.queue_free()
 	for i in action_group:
-		var event_array = Global.load_settings_from_file("keybindings",i,null)
-		if event_array != null:
-			InputMap.action_erase_events(i)
-			for j in event_array:
-				InputMap.action_add_event(i,j)
 		var container: HBoxContainer = HBoxContainer.new()
 		add_child(container)
 		container.name = i
 		var text: Label = Label.new()
 		container.add_child(text)
 		text.text = "keybind." + i
+		var restore: Button = Button.new()
+		container.add_child(restore)
+		restore.icon = preload("res://Resources/Image/UI/Restore.svg")
+		restore.flat = true
+		restore.set_h_size_flags(SIZE_SHRINK_END + SIZE_EXPAND)
+		restore.theme = preload("res://Assets/UI/Options/restore_button_scene.tres")
+		restore.pressed.connect(keybingding_restore.bind(i))
 		var button: Button = Button.new()
 		container.add_child(button)
-		button.text = key_array_to_string(i)
 		button.alignment = HORIZONTAL_ALIGNMENT_LEFT
 		button.clip_text = true
 		button.custom_minimum_size.x = 200
-		button.set_h_size_flags(SIZE_SHRINK_END + SIZE_EXPAND)
 		button.pressed.connect(start_keybind.bind(i))
+		
+		# Overwrite keybindings from custom settings
+		var event_array = Global.load_settings_from_file("keybindings",i,ProjectSettings.get_setting("input/"+i)["events"])
+		print(event_array, ProjectSettings.get_setting("input/"+i)["events"], event_array == ProjectSettings.get_setting("input/"+i)["events"])
+		if event_array != ProjectSettings.get_setting("input/"+i)["events"]:
+			InputMap.action_erase_events(i)
+			for j in event_array:
+				InputMap.action_add_event(i,j)
+		else:
+			restore.set_disabled(true)
+			
+		button.text = key_array_to_string(i)
 
 func key_array_to_string(action: String) -> String:
 	var array = Global.get_key_array(action)
 	return str(array).replacen("\"","").replacen("[","").replacen("]","")
+	
+func keybingding_restore(action: String) -> void:
+	InputMap.action_erase_events(action)
+	for i in ProjectSettings.get_setting("input/"+action)["events"]:
+		InputMap.action_add_event(action,i)
+	Global.save_settings_to_file("keybindings",action,InputMap.action_get_events(action))
+	_ready()
 
 func start_keybind(action: String) -> void:
 	var keybind_screen = _keybind_screen.instantiate()
