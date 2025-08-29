@@ -11,6 +11,7 @@ var load_use_sub_threads : bool = false
 
 # UI Control
 var block_escape : bool = false
+var current_menu : String = "null"
 
 # In game control
 var mouse_sens = 0.4

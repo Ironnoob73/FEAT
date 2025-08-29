@@ -1,9 +1,8 @@
-[gd_scene load_steps=20 format=3 uid="uid://bp6c7x4dytetk"]
+[gd_scene load_steps=19 format=3 uid="uid://bp6c7x4dytetk"]
 
 [ext_resource type="Script" uid="uid://c8su3raob8fjo" path="res://Title/TitleScene.gd" id="1_eqpau"]
 [ext_resource type="Theme" uid="uid://cwbdqmvx07r3k" path="res://Title/MainMenuButton_theme.tres" id="2_l7ppy"]
 [ext_resource type="PackedScene" uid="uid://cnl53v0lrb1mv" path="res://Assets/UI/Options/Options.tscn" id="3_ivwg4"]
-[ext_resource type="Script" uid="uid://bmcciuklfskm1" path="res://Title/options_container.gd" id="3_xqydv"]
 [ext_resource type="Theme" uid="uid://cn2j0svnal77l" path="res://Title/Option_theme.tres" id="4_nftbt"]
 [ext_resource type="PackedScene" uid="uid://dnof7wcs0plpt" path="res://addons/abyss_history_lib/Scene/DynamicTooltip/tooltip_scene.tscn" id="7_3hhti"]
 
@@ -672,7 +671,6 @@ anchor_right = 1.5
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("3_xqydv")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Main/Panel/Control/OptionsContainer"]
 layout_mode = 2

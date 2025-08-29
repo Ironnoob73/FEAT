@@ -1,11 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://cnl53v0lrb1mv"]
+[gd_scene load_steps=12 format=3 uid="uid://cnl53v0lrb1mv"]
 
 [ext_resource type="Script" uid="uid://cmgyke5hcxe75" path="res://Assets/UI/Options/Options.gd" id="1_54q7r"]
 [ext_resource type="Theme" uid="uid://4vg46hb8hsti" path="res://Assets/UI/Options/restore_button_scene.tres" id="2_8vm80"]
 [ext_resource type="PackedScene" uid="uid://gqwcyi21yhlc" path="res://addons/abyss_history_lib/Scene/Notice/hint_button.tscn" id="2_hwb3r"]
 [ext_resource type="Texture2D" uid="uid://7yqunet0nhxt" path="res://Resources/Image/UI/Restore.svg" id="2_j0l55"]
 [ext_resource type="Script" uid="uid://dhr8xpmf26e8v" path="res://addons/abyss_history_lib/Class/Notice/NoticeInfoClass.gd" id="3_2vebq"]
-[ext_resource type="Theme" uid="uid://bitmw3ij7201m" path="res://Resources/os/fatal_window/fw_theme.tres" id="3_xn7oq"]
 [ext_resource type="Script" uid="uid://xu6i6p3rtur6" path="res://Assets/UI/Options/keybindings.gd" id="5_ms344"]
 
 [sub_resource type="Resource" id="Resource_wnie8"]
@@ -70,10 +69,11 @@ offset_right = 600.0
 offset_bottom = 375.0
 grow_horizontal = 2
 grow_vertical = 2
-current_tab = 0
+current_tab = 2
 script = ExtResource("1_54q7r")
 
 [node name="#options_game#" type="TabBar" parent="."]
+visible = false
 layout_mode = 2
 focus_neighbor_left = NodePath("../#options_control#")
 focus_neighbor_top = NodePath(".")
@@ -340,6 +340,12 @@ layout_mode = 2
 size_flags_horizontal = 3
 text = "options.game.fullscreen"
 
+[node name="fullscreen_restore" type="Button" parent="#options_video#/VideoSetting/VSpilt/Fullscreen"]
+layout_mode = 2
+theme = ExtResource("2_8vm80")
+icon = ExtResource("2_j0l55")
+flat = true
+
 [node name="fullscreen_button" type="CheckBox" parent="#options_video#/VideoSetting/VSpilt/Fullscreen"]
 layout_mode = 2
 size_flags_horizontal = 8
@@ -353,16 +359,6 @@ text = " "
 flat = true
 clip_text = true
 
-[node name="fullscreen_warn" type="AcceptDialog" parent="#options_video#/VideoSetting/VSpilt/Fullscreen/fullscreen_button"]
-title = ""
-initial_position = 2
-size = Vector2i(500, 250)
-unresizable = true
-theme = ExtResource("3_xn7oq")
-ok_button_text = "button.confirm"
-dialog_text = "fatal_window.fullscreen_warning"
-dialog_autowrap = true
-
 [node name="Scale" type="HBoxContainer" parent="#options_video#/VideoSetting/VSpilt"]
 layout_mode = 2
 
@@ -370,6 +366,12 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 3
 text = "options.game.scale"
+
+[node name="scale_restore" type="Button" parent="#options_video#/VideoSetting/VSpilt/Scale"]
+layout_mode = 2
+theme = ExtResource("2_8vm80")
+icon = ExtResource("2_j0l55")
+flat = true
 
 [node name="scale_button" type="SpinBox" parent="#options_video#/VideoSetting/VSpilt/Scale"]
 custom_minimum_size = Vector2(200, 35)
@@ -392,9 +394,15 @@ text = "options.game.sdfgi"
 layout_mode = 2
 notice = SubResource("Resource_2vebq")
 
-[node name="sdfgi_button" type="CheckBox" parent="#options_video#/VideoSetting/VSpilt/SDFGI"]
+[node name="sdfgi_restore" type="Button" parent="#options_video#/VideoSetting/VSpilt/SDFGI"]
 layout_mode = 2
 size_flags_horizontal = 10
+theme = ExtResource("2_8vm80")
+icon = ExtResource("2_j0l55")
+flat = true
+
+[node name="sdfgi_button" type="CheckBox" parent="#options_video#/VideoSetting/VSpilt/SDFGI"]
+layout_mode = 2
 focus_neighbor_left = NodePath(".")
 focus_neighbor_top = NodePath("../../../..")
 focus_neighbor_right = NodePath(".")
@@ -406,7 +414,6 @@ flat = true
 clip_text = true
 
 [node name="#options_audio#" type="TabBar" parent="."]
-visible = false
 layout_mode = 2
 focus_neighbor_left = NodePath("../#options_video#")
 focus_neighbor_top = NodePath(".")
@@ -437,7 +444,14 @@ layout_mode = 2
 size_flags_horizontal = 3
 text = "options.audio.master"
 
-[node name="percent" type="Label" parent="#options_audio#/AudioSetting/VSpilt/Master"]
+[node name="master_restore" type="Button" parent="#options_audio#/AudioSetting/VSpilt/Master"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme = ExtResource("2_8vm80")
+icon = ExtResource("2_j0l55")
+flat = true
+
+[node name="master_percent" type="Label" parent="#options_audio#/AudioSetting/VSpilt/Master"]
 layout_mode = 2
 text = "100%"
 
@@ -453,6 +467,7 @@ focus_previous = NodePath("../../SFX/sfx_button")
 max_value = 1.0
 step = 0.01
 value = 1.0
+allow_greater = true
 
 [node name="Music" type="HBoxContainer" parent="#options_audio#/AudioSetting/VSpilt"]
 layout_mode = 2
@@ -462,7 +477,14 @@ layout_mode = 2
 size_flags_horizontal = 3
 text = "options.audio.bgm"
 
-[node name="percent" type="Label" parent="#options_audio#/AudioSetting/VSpilt/Music"]
+[node name="bgm_restore" type="Button" parent="#options_audio#/AudioSetting/VSpilt/Music"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme = ExtResource("2_8vm80")
+icon = ExtResource("2_j0l55")
+flat = true
+
+[node name="bgm_percent" type="Label" parent="#options_audio#/AudioSetting/VSpilt/Music"]
 layout_mode = 2
 text = "100%"
 
@@ -478,6 +500,7 @@ focus_previous = NodePath("../../Master/master_button")
 max_value = 1.0
 step = 0.01
 value = 1.0
+allow_greater = true
 
 [node name="SFX" type="HBoxContainer" parent="#options_audio#/AudioSetting/VSpilt"]
 layout_mode = 2
@@ -487,7 +510,14 @@ layout_mode = 2
 size_flags_horizontal = 3
 text = "options.audio.sfx"
 
-[node name="percent" type="Label" parent="#options_audio#/AudioSetting/VSpilt/SFX"]
+[node name="sfx_restore" type="Button" parent="#options_audio#/AudioSetting/VSpilt/SFX"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme = ExtResource("2_8vm80")
+icon = ExtResource("2_j0l55")
+flat = true
+
+[node name="sfx_percent" type="Label" parent="#options_audio#/AudioSetting/VSpilt/SFX"]
 layout_mode = 2
 text = "100%"
 
@@ -503,6 +533,7 @@ focus_previous = NodePath("../../Music/bgm_button")
 max_value = 1.0
 step = 0.01
 value = 1.0
+allow_greater = true
 
 [node name="#options_control#" type="TabBar" parent="."]
 visible = false
@@ -598,12 +629,17 @@ script = ExtResource("5_ms344")
 [connection signal="pressed" from="#options_game#/GameSetting/VSplit/DebugOptContainer/alwaysShowCursor/asc_restore" to="." method="_on_asc_restore_pressed"]
 [connection signal="toggled" from="#options_game#/GameSetting/VSplit/DebugOptContainer/alwaysShowCursor/asc_button" to="." method="_on_asc_button_toggled"]
 [connection signal="pressed" from="#options_game#/GameSetting/VSplit/DebugOptContainer/keyDebugScene/kds_button" to="." method="_key_debug_scene"]
+[connection signal="pressed" from="#options_video#/VideoSetting/VSpilt/Fullscreen/fullscreen_restore" to="." method="_on_fullscreen_restore_pressed"]
 [connection signal="toggled" from="#options_video#/VideoSetting/VSpilt/Fullscreen/fullscreen_button" to="." method="_on_fullscreen_button_toggled"]
-[connection signal="close_requested" from="#options_video#/VideoSetting/VSpilt/Fullscreen/fullscreen_button/fullscreen_warn" to="." method="_on_fullscreen_warn_close_requested"]
+[connection signal="pressed" from="#options_video#/VideoSetting/VSpilt/Scale/scale_restore" to="." method="_on_scale_restore_pressed"]
 [connection signal="value_changed" from="#options_video#/VideoSetting/VSpilt/Scale/scale_button" to="." method="_on_scale_button_value_changed"]
+[connection signal="pressed" from="#options_video#/VideoSetting/VSpilt/SDFGI/sdfgi_restore" to="." method="_on_sdfgi_restore_pressed"]
 [connection signal="toggled" from="#options_video#/VideoSetting/VSpilt/SDFGI/sdfgi_button" to="." method="_on_sdfgi_button_toggled"]
+[connection signal="pressed" from="#options_audio#/AudioSetting/VSpilt/Master/master_restore" to="." method="_on_master_restore_pressed"]
 [connection signal="value_changed" from="#options_audio#/AudioSetting/VSpilt/Master/master_button" to="." method="_on_master_button_value_changed"]
+[connection signal="pressed" from="#options_audio#/AudioSetting/VSpilt/Music/bgm_restore" to="." method="_on_bgm_restore_pressed"]
 [connection signal="value_changed" from="#options_audio#/AudioSetting/VSpilt/Music/bgm_button" to="." method="_on_bgm_button_value_changed"]
+[connection signal="pressed" from="#options_audio#/AudioSetting/VSpilt/SFX/sfx_restore" to="." method="_on_sfx_restore_pressed"]
 [connection signal="value_changed" from="#options_audio#/AudioSetting/VSpilt/SFX/sfx_button" to="." method="_on_sfx_button_value_changed"]
 [connection signal="value_changed" from="#options_control#/ControlSetting/VSpilt/MouseSen/mouse_button" to="." method="_on_mouse_button_value_changed"]
 [connection signal="toggled" from="#options_control#/ControlSetting/VSpilt/AutoPickup/auto_pickup_button" to="." method="_on_auto_pickup_button_toggled"]
