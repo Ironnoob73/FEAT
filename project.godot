@@ -18,7 +18,7 @@ config/name_localized={
 config/version="0.0.1"
 run/main_scene="res://Title/TitleScene.tscn"
 config/custom_user_dir_name="FEAT"
-config/features=PackedStringArray("4.4", "Forward Plus")
+config/features=PackedStringArray("4.5", "Forward Plus")
 run/flush_stdout_on_print.debug=false
 boot_splash/bg_color=Color(0, 0, 0, 1)
 boot_splash/fullsize=false
@@ -250,8 +250,8 @@ locale/translations=PackedStringArray("res://Language/Main_en_US.po", "res://Lan
 2d/run_on_separate_thread=true
 3d/run_on_separate_thread=true
 3d/physics_engine="JoltPhysics3D"
-jolt_physics_3d/simulation/areas_detect_static_bodies=true
 3d/default_gravity=10.0
+jolt_physics_3d/simulation/areas_detect_static_bodies=true
 
 [rendering]
 

@@ -42,10 +42,10 @@ frequency = 0.025
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_q5nek"]
 width = 128
 height = 128
+noise = SubResource("FastNoiseLite_qgn7n")
+color_ramp = SubResource("Gradient_rvcmh")
 seamless = true
 seamless_blend_skirt = 1.0
-color_ramp = SubResource("Gradient_rvcmh")
-noise = SubResource("FastNoiseLite_qgn7n")
 
 [resource]
 render_priority = 0

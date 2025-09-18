@@ -10,52 +10,32 @@
 [sub_resource type="Resource" id="Resource_wnie8"]
 script = ExtResource("3_2vebq")
 title = "options.game.data"
-type = "Info"
 bgColor = Color(0, 0.501961, 1, 1)
 content = "options.game.data.disc"
-choice = false
-yep = "notice.choice.ok"
-nope = "notice.choice.no"
 
 [sub_resource type="Resource" id="Resource_hwb3r"]
 script = ExtResource("3_2vebq")
 title = "options.game.use_sub_threads"
-type = "Info"
 bgColor = Color(0, 0.501961, 1, 1)
 content = "options.game.use_sub_threads.disc"
-choice = false
-yep = "notice.choice.ok"
-nope = "notice.choice.no"
 
 [sub_resource type="Resource" id="Resource_g8qbb"]
 script = ExtResource("3_2vebq")
 title = "options.game.catch_p_elem_issue"
-type = "Info"
 bgColor = Color(0, 0.501961, 1, 1)
 content = "options.game.catch_p_elem_issue.disc"
-choice = false
-yep = "notice.choice.ok"
-nope = "notice.choice.no"
 
 [sub_resource type="Resource" id="Resource_2vebq"]
 script = ExtResource("3_2vebq")
 title = "options.game.sdfgi"
-type = "Info"
 bgColor = Color(0, 0.501961, 1, 1)
 content = "options.game.sdfgi.disc"
-choice = false
-yep = "notice.choice.ok"
-nope = "notice.choice.no"
 
 [sub_resource type="Resource" id="Resource_xu8jr"]
 script = ExtResource("3_2vebq")
 title = "options.control.auto_pickup"
-type = "Info"
 bgColor = Color(0, 0.501961, 1, 1)
 content = "options.control.auto_pickup.disc"
-choice = false
-yep = "notice.choice.ok"
-nope = "notice.choice.no"
 
 [node name="Options" type="TabContainer"]
 anchors_preset = 8

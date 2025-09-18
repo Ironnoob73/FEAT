@@ -10,12 +10,12 @@ cellular_distance_function = 3
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_q0cj6"]
 width = 128
 height = 128
-seamless = true
-seamless_blend_skirt = 0.5
-as_normal_map = true
-bump_strength = 3.0
-normalize = false
 noise = SubResource("FastNoiseLite_3tvdg")
+seamless = true
+as_normal_map = true
+normalize = false
+seamless_blend_skirt = 0.5
+bump_strength = 3.0
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_oix2l"]
 frequency = 0.025
@@ -23,12 +23,12 @@ frequency = 0.025
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_6e8wg"]
 width = 128
 height = 128
-seamless = true
-seamless_blend_skirt = 0.5
-as_normal_map = true
-bump_strength = 3.0
-normalize = false
 noise = SubResource("FastNoiseLite_oix2l")
+seamless = true
+as_normal_map = true
+normalize = false
+seamless_blend_skirt = 0.5
+bump_strength = 3.0
 
 [sub_resource type="Gradient" id="Gradient_tf0jh"]
 
@@ -38,8 +38,8 @@ frequency = 0.025
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ke3dd"]
 width = 128
 height = 128
-color_ramp = SubResource("Gradient_tf0jh")
 noise = SubResource("FastNoiseLite_3no6h")
+color_ramp = SubResource("Gradient_tf0jh")
 
 [resource]
 render_priority = 0

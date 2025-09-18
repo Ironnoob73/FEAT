@@ -12,8 +12,8 @@ frequency = 0.75
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_bud40"]
 generate_mipmaps = false
-color_ramp = SubResource("Gradient_m5iry")
 noise = SubResource("FastNoiseLite_wtrdv")
+color_ramp = SubResource("Gradient_m5iry")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_jrs7m"]
 shader = ExtResource("1_21nuy")
