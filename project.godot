@@ -39,6 +39,7 @@ LocationPreload="*res://Assets/World/Location/LocationPreload.gd"
 Commands="*res://Assets/Script/Commands.gd"
 AHL_NoticeManager="*res://addons/abyss_history_lib/Scene/Notice/NoticeManager.gd"
 AHL_LoadManager="*res://addons/abyss_history_lib/Scene/LoadingScreen/LoadManager.gd"
+KCT_kmTranslator="*res://addons/key_controls_translator/Keyboard&Mouse/km_translator.gd"
 
 [debug]
 
@@ -52,7 +53,7 @@ window/size/viewport_height=900
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/abyss_history_lib/plugin.cfg", "res://addons/gdfxr/plugin.cfg")
+enabled=PackedStringArray("res://addons/abyss_history_lib/plugin.cfg", "res://addons/gdfxr/plugin.cfg", "res://addons/key_controls_translator/plugin.cfg")
 
 [file_customization]
 

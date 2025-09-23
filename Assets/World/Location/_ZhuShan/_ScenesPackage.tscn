@@ -68,7 +68,6 @@ text = "Text"
 [sub_resource type="Resource" id="Resource_d1jr3"]
 script = ExtResource("14_acjhv")
 equipment = ExtResource("13_qk5mw")
-damage = 0.0
 
 [sub_resource type="Resource" id="Resource_mh07o"]
 script = ExtResource("21_2eydf")
@@ -83,7 +82,6 @@ script = ExtResource("23_5r8x0")
 [sub_resource type="Resource" id="Resource_kib5r"]
 script = ExtResource("14_acjhv")
 equipment = ExtResource("20_5hfey")
-damage = 0.0
 
 [sub_resource type="Resource" id="Resource_nd87l"]
 script = ExtResource("21_2eydf")

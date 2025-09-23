@@ -31,7 +31,11 @@ func refresh_list() -> void:
 		# Key name label
 		var KeyLabel: Label = Label.new()
 		previous_node.add_child(KeyLabel)
-		KeyLabel.text = i.as_text()
+		var keyName: String = i.as_text()
+		var keyIcon = KCT_kmTranslator.get_key_from_name(keyName)
+		KeyLabel.text = keyName if keyIcon == null else keyIcon
+		if keyIcon or keyName.length() == 1:
+			KeyLabel.set_theme(preload("res://addons/key_controls_translator/Keyboard&Mouse/km_font_theme.tres"))
 		KeyLabel.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 		KeyLabel.set_h_size_flags(Control.SIZE_SHRINK_CENTER + Control.SIZE_EXPAND)
 		# Unbind button

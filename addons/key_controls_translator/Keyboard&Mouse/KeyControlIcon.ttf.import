@@ -1,0 +1,42 @@
+[remap]
+
+importer="font_data_dynamic"
+type="FontFile"
+uid="uid://cfd5huce8sylo"
+path="res://.godot/imported/KeyControlIcon.ttf-5ef06421391fd9079b8bdcb221fb9111.fontdata"
+
+[deps]
+
+source_file="res://addons/key_controls_translator/Keyboard&Mouse/KeyControlIcon.ttf"
+dest_files=["res://.godot/imported/KeyControlIcon.ttf-5ef06421391fd9079b8bdcb221fb9111.fontdata"]
+
+[params]
+
+Rendering=null
+antialiasing=0
+generate_mipmaps=false
+disable_embedded_bitmaps=true
+multichannel_signed_distance_field=false
+msdf_pixel_range=8
+msdf_size=48
+allow_system_fallback=true
+force_autohinter=false
+modulate_color_glyphs=false
+hinting=1
+subpixel_positioning=0
+keep_rounding_remainders=true
+oversampling=0.0
+Fallbacks=null
+fallbacks=[]
+Compress=null
+compress=true
+preload=[{
+"chars": [],
+"glyphs": [],
+"name": "新建配置",
+&"size": Vector2i(127, 0),
+&"variation_embolden": 0.0
+}]
+language_support={}
+script_support={}
+opentype_features={}
