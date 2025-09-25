@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://b4ymmrsi2t2s0"]
+[gd_scene load_steps=3 format=3 uid="uid://b4ymmrsi2t2s0"]
 
 [ext_resource type="Script" uid="uid://cfp7gchb0mnuk" path="res://Title/debug/key_debug.gd" id="1_is2c1"]
+[ext_resource type="FontFile" uid="uid://cfd5huce8sylo" path="res://addons/key_controls_translator/Keyboard&Mouse/KeyControlIcon.ttf" id="2_rksoe"]
 
 [node name="KeyDebug" type="Control"]
 layout_mode = 3
@@ -40,5 +41,18 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_font_sizes/font_size = 50
 text = "title.menu.exit"
+
+[node name="KeyboardExample" type="Label" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_fonts/font = ExtResource("2_rksoe")
+theme_override_font_sizes/font_size = 50
+text = "~||ÀÁÂÃ||ÄÅÆÇ||ÈÉÊË|pqr
+`1234567890-=!|ih{|n%*¯
+#QWERTYUIOP[]\\|dz}|yugÎ
+$ASDFGHJKL;'@||||||||||||||(?)Í
+&ZXCVBNM,./&|||||^|||||¹²³Ì
++wa\"awm+|<_>|ºxÏ"
 
 [connection signal="pressed" from="ExitButton" to="." method="_on_exit_button_pressed"]
