@@ -72,3 +72,9 @@ var F12 = "\u00CB"
 
 func get_key_from_name(key_name:String):
 	return get(key_name.replace(" ",""))
+
+func get_key_from_event(event:InputEvent):
+	if event is InputEventKey:
+		return get_key_from_name(event.as_text())
+	else:
+		return null

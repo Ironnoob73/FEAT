@@ -5,7 +5,6 @@
 
 [node name="KeybindScene" type="CanvasLayer"]
 process_mode = 3
-script = ExtResource("1_smqhq")
 
 [node name="Background" type="Panel" parent="."]
 anchors_preset = 15
@@ -15,47 +14,63 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_t5dja")
 
-[node name="PanelContainer" type="PanelContainer" parent="Background"]
-layout_mode = 1
+[node name="Window" type="Window" parent="Background"]
+transparent_bg = true
+oversampling_override = 1.0
+initial_position = 1
+size = Vector2i(406, 123)
+transient = true
+transient_to_focused = true
+unresizable = true
+always_on_top = true
+transparent = true
+popup_window = true
+popup_wm_hint = true
+minimize_disabled = true
+maximize_disabled = true
+script = ExtResource("1_smqhq")
+
+[node name="PanelContainer" type="PanelContainer" parent="Background/Window"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
+offset_left = -254.0
+offset_top = -65.0
+offset_right = 254.0
+offset_bottom = 65.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBox" type="VBoxContainer" parent="Background/PanelContainer"]
+[node name="VBox" type="VBoxContainer" parent="Background/Window/PanelContainer"]
 custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
 
-[node name="ActionName" type="Label" parent="Background/PanelContainer/VBox"]
+[node name="ActionName" type="Label" parent="Background/Window/PanelContainer/VBox"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "Action"
 horizontal_alignment = 1
 
-[node name="HBox" type="HBoxContainer" parent="Background/PanelContainer/VBox"]
+[node name="HBox" type="HBoxContainer" parent="Background/Window/PanelContainer/VBox"]
 layout_mode = 2
 
-[node name="KeyRead" type="Button" parent="Background/PanelContainer/VBox/HBox"]
+[node name="KeyRead" type="Button" parent="Background/Window/PanelContainer/VBox/HBox"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "options.control.keybindings.listen"
 
-[node name="AddButton" type="Button" parent="Background/PanelContainer/VBox/HBox"]
+[node name="AddButton" type="Button" parent="Background/Window/PanelContainer/VBox/HBox"]
 custom_minimum_size = Vector2(35, 0)
 layout_mode = 2
 text = "+"
 
-[node name="ExitButton" type="Button" parent="Background/PanelContainer/VBox"]
+[node name="ExitButton" type="Button" parent="Background/Window/PanelContainer/VBox"]
 layout_mode = 2
 text = "title.menu.exit"
 
-[connection signal="pressed" from="Background/PanelContainer/VBox/HBox/KeyRead" to="." method="_on_key_read_pressed"]
-[connection signal="pressed" from="Background/PanelContainer/VBox/HBox/AddButton" to="." method="_on_add_button_pressed"]
-[connection signal="pressed" from="Background/PanelContainer/VBox/ExitButton" to="." method="exit"]
+[connection signal="close_requested" from="Background/Window" to="Background/Window" method="exit"]
+[connection signal="pressed" from="Background/Window/PanelContainer/VBox/HBox/KeyRead" to="Background/Window" method="_on_key_read_pressed"]
+[connection signal="pressed" from="Background/Window/PanelContainer/VBox/HBox/AddButton" to="Background/Window" method="_on_add_button_pressed"]
+[connection signal="pressed" from="Background/Window/PanelContainer/VBox/ExitButton" to="Background/Window" method="exit"]

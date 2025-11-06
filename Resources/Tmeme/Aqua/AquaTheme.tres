@@ -1,0 +1,105 @@
+[gd_resource type="Theme" load_steps=10 format=3 uid="uid://dq0cw6cso7mok"]
+
+[ext_resource type="Texture2D" uid="uid://4hngm7ph2mwb" path="res://Resources/Tmeme/Aqua/button.webp" id="1_lipup"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_lipup"]
+load_path = "res://.godot/imported/button.webp-3e1c44be164ba7927ee2fe36de246e18.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sbsql"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+texture = SubResource("CompressedTexture2D_lipup")
+texture_margin_left = 25.0
+texture_margin_top = 25.0
+texture_margin_right = 25.0
+texture_margin_bottom = 25.0
+expand_margin_left = 15.0
+expand_margin_top = 10.0
+expand_margin_right = 15.0
+expand_margin_bottom = 10.0
+modulate_color = Color(0.49803922, 0.49803922, 0.49803922, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lipup"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+draw_center = false
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(1, 1, 0.7490196, 1)
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+expand_margin_left = 10.0
+expand_margin_top = 5.0
+expand_margin_right = 10.0
+expand_margin_bottom = 5.0
+anti_aliasing = false
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_5n8u2"]
+load_path = "res://.godot/imported/button.webp-3e1c44be164ba7927ee2fe36de246e18.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_75ft4"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+texture = SubResource("CompressedTexture2D_5n8u2")
+texture_margin_left = 25.0
+texture_margin_top = 25.0
+texture_margin_right = 25.0
+texture_margin_bottom = 25.0
+expand_margin_left = 15.0
+expand_margin_top = 10.0
+expand_margin_right = 15.0
+expand_margin_bottom = 10.0
+modulate_color = Color(0.43137255, 0.85882354, 1, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lnrnt"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+texture = ExtResource("1_lipup")
+texture_margin_left = 25.0
+texture_margin_top = 25.0
+texture_margin_right = 25.0
+texture_margin_bottom = 25.0
+expand_margin_left = 15.0
+expand_margin_top = 10.0
+expand_margin_right = 15.0
+expand_margin_bottom = 10.0
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_sbsql"]
+load_path = "res://.godot/imported/button.webp-3e1c44be164ba7927ee2fe36de246e18.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5n8u2"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+texture = SubResource("CompressedTexture2D_sbsql")
+texture_margin_left = 25.0
+texture_margin_top = 25.0
+texture_margin_right = 25.0
+texture_margin_bottom = 25.0
+expand_margin_left = 15.0
+expand_margin_top = 10.0
+expand_margin_right = 15.0
+expand_margin_bottom = 10.0
+modulate_color = Color(0, 0.49803922, 0.7490196, 1)
+
+[resource]
+Button/colors/font_outline_color = Color(0, 0, 0, 1)
+Button/constants/outline_size = 2
+Button/styles/disabled = SubResource("StyleBoxTexture_sbsql")
+Button/styles/focus = SubResource("StyleBoxFlat_lipup")
+Button/styles/hover = SubResource("StyleBoxTexture_75ft4")
+Button/styles/normal = SubResource("StyleBoxTexture_lnrnt")
+Button/styles/pressed = SubResource("StyleBoxTexture_5n8u2")

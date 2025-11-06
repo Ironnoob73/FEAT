@@ -1,11 +1,12 @@
-extends CanvasLayer
+extends Window
 
 var _action: String = ""
 
-@onready var v_list: VBoxContainer = $Background/PanelContainer/VBox
-@onready var action_name: Label = $Background/PanelContainer/VBox/ActionName
-@onready var key_read: Button = $Background/PanelContainer/VBox/HBox/KeyRead
-@onready var add_button: Button = $Background/PanelContainer/VBox/HBox/AddButton
+@onready var panel_container: PanelContainer = $PanelContainer
+@onready var v_list: VBoxContainer = $PanelContainer/VBox
+@onready var action_name: Label = $PanelContainer/VBox/ActionName
+@onready var key_read: Button = $PanelContainer/VBox/HBox/KeyRead
+@onready var add_button: Button = $PanelContainer/VBox/HBox/AddButton
 
 var candidate_event: InputEvent = null
 var listening: bool = false
@@ -13,6 +14,10 @@ var listening: bool = false
 func _ready() -> void:
 	Global.block_escape = true
 	key_read.grab_focus()
+	
+func _process(_delta: float) -> void:
+	self.call_deferred("set_size",panel_container.size)
+	self.call_deferred("set_position",( get_parent().get_viewport().get_visible_rect().size - Vector2(self.size) ) / 2)
 
 func setup_keybind(action: String) -> void:
 	_action = action
@@ -46,7 +51,7 @@ func refresh_list() -> void:
 		UnbindButton.pressed.connect(_on_remove_event.bind(i))
 	Global.save_settings_to_file("keybindings",_action,InputMap.action_get_events(_action))
 	
-func _input(event: InputEvent) -> void:
+func _unhandled_input(event: InputEvent) -> void:
 	if listening:
 		if event is not InputEventMouseMotion:
 			key_read.text = event.as_text()
@@ -59,7 +64,7 @@ func _input(event: InputEvent) -> void:
 
 func exit() -> void:
 	Global.block_escape = false
-	self.queue_free()
+	self.get_parent().get_parent().queue_free()
 
 func _on_add_button_pressed() -> void:
 	if InputMap.action_get_events(_action).find(candidate_event) == -1:

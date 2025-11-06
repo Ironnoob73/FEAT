@@ -5,17 +5,17 @@
 [ext_resource type="Material" uid="uid://b70uhgp32byqb" path="res://Resources/Object/Function/Pickable/DefaultMaterial.tres" id="2_ga5f3"]
 [ext_resource type="Script" uid="uid://xi806lb1q3l3" path="res://addons/abyss_history_lib/Class/Interact/Behaviour/_BehaviorClass.gd" id="2_r1chq"]
 [ext_resource type="Script" uid="uid://c151vg7t876tl" path="res://addons/abyss_history_lib/Class/Interact/Behaviour/DoInteractBehaviorClass.gd" id="3_hrhc0"]
-[ext_resource type="Shader" uid="uid://737w2aaa0vkx" path="res://Resources/Shader/outline.gdshader" id="4_2v5m8"]
 [ext_resource type="ArrayMesh" uid="uid://kxchelosyedc" path="res://Resources/Object/Function/Pickable/missing.obj" id="5_3ku75"]
+[ext_resource type="Shader" uid="uid://737w2aaa0vkx" path="res://Resources/Shader/outline.gdshader" id="6_7qjux"]
 
 [sub_resource type="Resource" id="Resource_ork06"]
 script = ExtResource("3_hrhc0")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_g6v25"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mhjwf"]
 render_priority = 0
-shader = ExtResource("4_2v5m8")
+shader = ExtResource("6_7qjux")
 shader_parameter/active = true
-shader_parameter/outline_color = Color(1, 1, 1, 1)
+shader_parameter/outline_color = Color(0, 0, 0, 1)
 shader_parameter/outline_width = 5.0
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ao11c"]
@@ -41,7 +41,7 @@ collision_mask = 4
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Body/PickableArea"]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 material_override = ExtResource("2_ga5f3")
-material_overlay = SubResource("ShaderMaterial_g6v25")
+material_overlay = SubResource("ShaderMaterial_mhjwf")
 mesh = ExtResource("5_3ku75")
 
 [node name="CollisionShape" type="CollisionShape3D" parent="Body/PickableArea"]

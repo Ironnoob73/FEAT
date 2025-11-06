@@ -15,3 +15,4 @@ repeat = 2
 albedo_texture = SubResource("GradientTexture2D_fkuym")
 uv1_triplanar = true
 texture_filter = 0
+stencil_flags = 2

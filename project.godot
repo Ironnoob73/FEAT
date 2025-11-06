@@ -66,11 +66,6 @@ folder_colors={
 "res://script_templates/": "orange"
 }
 
-[gui]
-
-theme/default_font_antialiasing=0
-theme/default_font_hinting=0
-
 [importer_defaults]
 
 scene={

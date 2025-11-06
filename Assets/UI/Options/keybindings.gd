@@ -33,7 +33,7 @@ func _ready() -> void:
 		
 		# Overwrite keybindings from custom settings
 		var event_array = Global.load_settings_from_file("keybindings",i,ProjectSettings.get_setting("input/"+i)["events"])
-		print(event_array, ProjectSettings.get_setting("input/"+i)["events"], event_array == ProjectSettings.get_setting("input/"+i)["events"])
+		#print(event_array, ProjectSettings.get_setting("input/"+i)["events"], event_array == ProjectSettings.get_setting("input/"+i)["events"])
 		if event_array != ProjectSettings.get_setting("input/"+i)["events"]:
 			InputMap.action_erase_events(i)
 			for j in event_array:
@@ -42,10 +42,17 @@ func _ready() -> void:
 			restore.set_disabled(true)
 			
 		button.text = key_array_to_string(i)
+		button.set_theme(preload("res://addons/key_controls_translator/Keyboard&Mouse/km_font_theme.tres"))
 
 func key_array_to_string(action: String) -> String:
-	var array = Global.get_key_array(action)
-	return str(array).replacen("\"","").replacen("[","").replacen("]","")
+	var result = ""
+	var array = Global.get_key_event_array(action)
+	for i in array:
+		var keyName: String = i.as_text()
+		var keyIcon = KCT_kmTranslator.get_key_from_name(keyName)
+		if keyIcon or keyName.length() == 1:
+			result += keyName if keyIcon == null else keyIcon
+	return result
 	
 func keybingding_restore(action: String) -> void:
 	InputMap.action_erase_events(action)
@@ -57,5 +64,5 @@ func keybingding_restore(action: String) -> void:
 func start_keybind(action: String) -> void:
 	var keybind_screen = _keybind_screen.instantiate()
 	get_tree().get_root().add_child(keybind_screen)
-	keybind_screen.setup_keybind(action)
+	keybind_screen.get_child(0).get_child(0).setup_keybind(action)
 	keybind_screen.tree_exited.connect(_ready)

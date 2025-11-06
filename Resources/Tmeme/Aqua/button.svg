@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="50"
+   height="50"
+   viewBox="0 0 50 50"
+   version="1.1"
+   id="svg1"
+   inkscape:export-filename="button.webp"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96"
+   inkscape:version="1.4.2 (f4327f4, 2025-05-13)"
+   sodipodi:docname="button.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="true"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="px"
+     labelstyle="below"
+     inkscape:antialias-rendering="false"
+     inkscape:zoom="5.8336309"
+     inkscape:cx="12.942197"
+     inkscape:cy="23.570226"
+     inkscape:window-width="1920"
+     inkscape:window-height="1027"
+     inkscape:window-x="1272"
+     inkscape:window-y="630"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs1">
+    <inkscape:path-effect
+       effect="rough_hatches"
+       id="path-effect9"
+       is_visible="true"
+       lpeversion="1.2"
+       direction="25,20 , 11.25,0"
+       dist_rdm="75;1"
+       growth="0"
+       do_bend="true"
+       bender="25,25 , 5,0"
+       bottom_edge_variation="4.5;1"
+       top_edge_variation="4.5;1"
+       bottom_tgt_variation="0;1"
+       top_tgt_variation="0;1"
+       scale_bf="1"
+       scale_bb="1"
+       scale_tf="1"
+       scale_tb="1"
+       top_smth_variation="0;1"
+       bottom_smth_variation="0;1"
+       fat_output="true"
+       stroke_width_top="1"
+       stroke_width_bottom="1"
+       front_thickness="1"
+       back_thickness="0.25" />
+    <linearGradient
+       id="linearGradient9"
+       inkscape:collect="always">
+      <stop
+         style="stop-color:#ffffff;stop-opacity:1;"
+         offset="0.15114234"
+         id="stop8" />
+      <stop
+         style="stop-color:#ffffff;stop-opacity:0;"
+         offset="0.35193321"
+         id="stop9" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient3"
+       inkscape:collect="always">
+      <stop
+         style="stop-color:#000000;stop-opacity:1;"
+         offset="0"
+         id="stop3" />
+      <stop
+         style="stop-color:#000000;stop-opacity:0;"
+         offset="1"
+         id="stop4" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient1"
+       inkscape:collect="always">
+      <stop
+         style="stop-color:#bfbfbf;stop-opacity:1;"
+         offset="0"
+         id="stop1" />
+      <stop
+         style="stop-color:#ffffff;stop-opacity:1;"
+         offset="1"
+         id="stop2" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient1"
+       id="linearGradient2"
+       x1="25.000008"
+       y1="1.9999969"
+       x2="25.000008"
+       y2="47.000015"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(-5,-4.5)" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3"
+       id="linearGradient4"
+       x1="2.5"
+       y1="24.5"
+       x2="47.5"
+       y2="24.5"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(-5,-4.5)" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient9"
+       id="linearGradient6"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(-0.07999988,0.42000019)"
+       x1="24.999996"
+       y1="2.0000012"
+       x2="24.999996"
+       y2="47" />
+    <filter
+       inkscape:collect="always"
+       style="color-interpolation-filters:sRGB;"
+       id="filter7"
+       x="-0.172"
+       y="-0.172"
+       width="1.344"
+       height="1.344"
+       inkscape:label="Drop Shadow">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="0.225"
+         id="feGaussianBlur7"
+         result="fbSourceGraphic" />
+      <feColorMatrix
+         result="fbSourceGraphicAlpha"
+         in="fbSourceGraphic"
+         values="0 0 0 -1 0 0 0 0 -1 0 0 0 0 -1 0 0 0 0 1 0"
+         id="feColorMatrix9" />
+      <feFlood
+         id="feFlood9"
+         result="flood"
+         in="fbSourceGraphic"
+         flood-opacity="0.498039"
+         flood-color="rgb(0,0,0)" />
+      <feGaussianBlur
+         id="feGaussianBlur9"
+         result="blur"
+         in="fbSourceGraphic"
+         stdDeviation="3.000000" />
+      <feOffset
+         id="feOffset9"
+         result="offset"
+         in="blur"
+         dx="0.000000"
+         dy="0.000000" />
+      <feComposite
+         id="feComposite9"
+         result="comp1"
+         operator="in"
+         in="flood"
+         in2="offset" />
+      <feComposite
+         id="feComposite10"
+         result="comp2"
+         operator="over"
+         in="fbSourceGraphic"
+         in2="comp1" />
+    </filter>
+    <filter
+       inkscape:collect="always"
+       style="color-interpolation-filters:sRGB"
+       id="filter8"
+       x="-0.12628572"
+       y="-0.12628572"
+       width="1.2525714"
+       height="1.2525714">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="0.8"
+         id="feGaussianBlur8" />
+    </filter>
+  </defs>
+  <g
+     inkscape:label="图层 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <path
+       style="opacity:0.5;fill:url(#linearGradient2);stroke:url(#linearGradient4);stroke-width:0;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4.5;stroke-dasharray:none;stroke-dashoffset:0;paint-order:normal;filter:url(#filter7)"
+       id="rect1"
+       width="45"
+       height="45"
+       x="2.5"
+       y="2.5"
+       rx="20"
+       sodipodi:type="rect" />
+    <rect
+       style="opacity:1;fill:none;stroke:url(#linearGradient6);stroke-width:5;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4.5;stroke-dasharray:none;stroke-dashoffset:0;paint-order:normal;filter:url(#filter8)"
+       id="rect1-5"
+       width="35"
+       height="35"
+       x="7.4200001"
+       y="7.4200001"
+       rx="20" />
+  </g>
+</svg>
