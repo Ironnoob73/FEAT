@@ -3,21 +3,23 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://b5ra3ei6fag3h"
-path="res://.godot/imported/SourceModel.glb-cd02c566a9b5b12da431f6129a34f964.scn"
+uid="uid://cqi0rbp5vmcr0"
+path="res://.godot/imported/Outwall.glb-99d2d95d3517993c7661cd3c4b25819f.scn"
 
 [deps]
 
-source_file="res://Assets/World/Location/~Sandbox/Apartment0/SourceModel.glb"
-dest_files=["res://.godot/imported/SourceModel.glb-cd02c566a9b5b12da431f6129a34f964.scn"]
+source_file="res://Assets/World/Location/~Sandbox/Apartment0/Outwall.glb"
+dest_files=["res://.godot/imported/Outwall.glb-99d2d95d3517993c7661cd3c4b25819f.scn"]
 
 [params]
 
 nodes/root_type=""
 nodes/root_name=""
+nodes/root_script=null
 nodes/apply_root_scale=true
 nodes/root_scale=1.0
 nodes/import_as_skeleton_bones=false
+nodes/use_name_suffixes=true
 nodes/use_node_type_suffixes=true
 meshes/ensure_tangents=true
 meshes/generate_lods=true
@@ -32,6 +34,9 @@ animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path="res://Assets/Script/Import/GlbBuilding.gd"
+materials/extract=0
+materials/extract_format=0
+materials/extract_path=""
 _subresources={}
-gltf/naming_version=1
+gltf/naming_version=2
 gltf/embedded_image_handling=0

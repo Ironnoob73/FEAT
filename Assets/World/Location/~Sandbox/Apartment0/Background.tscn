@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://b5mvataygruft"]
 
-[ext_resource type="PackedScene" uid="uid://b5ra3ei6fag3h" path="res://Assets/World/Location/~Sandbox/Apartment0/SourceModel.glb" id="1_funtk"]
+[ext_resource type="PackedScene" uid="uid://b5ra3ei6fag3h" path="res://Assets/World/Location/~Sandbox/Apartment0/Inner.glb" id="1_funtk"]
 
 [node name="Background" type="Node3D"]
 

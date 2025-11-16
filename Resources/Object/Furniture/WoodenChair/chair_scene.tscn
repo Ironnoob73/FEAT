@@ -19,7 +19,6 @@ Interactable = true
 interact_icon = "🪑"
 interact_behavior = Array[ExtResource("2_1l8rq")]([SubResource("Resource_4acte")])
 current_health = 100.0
-killed_behavior = null
 
 [node name="Body" type="StaticBody3D" parent="."]
 collision_layer = 16
