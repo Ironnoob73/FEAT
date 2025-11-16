@@ -10,6 +10,7 @@ const DASH = 8
 const CROUCH = 3
 const CROUCH_depth = 0.5
 const JUMP_VELOCITY = 8
+const SIT_depth = 0.75
 
 const ACCELERATION = 0.1
 const FRICTION = 0.3
@@ -339,15 +340,18 @@ func _physics_process(delta):
 		else:
 			velocity.z = lerp(INERTIA.y,0.0,FRICTION)
 	
-	# Crouch.
+	# Crouch & Sit (Collision shape & Camera Pos)
 	Global.p_elem_debug("# CROUCH #")
 	player_collision.position.y = player_collision.shape.height * 0.5
-	if Input.is_action_pressed("crouch") and !isClimb and !isSit and current_menu == "HUD":
-		player_collision.shape.height = lerp(player_collision.shape.height,1.8 * CROUCH_depth,0.5)
-		player_camera.position.y = lerp(player_camera.position.y,1.8 * CROUCH_depth,0.5)
-	elif !standing_detected.is_colliding() :
-		player_collision.shape.height = lerp(player_collision.shape.height,1.8,0.5)
-		player_camera.position.y = lerp(player_camera.position.y,1.7,0.5)
+	if !isSit:
+		if isCrouch and !isClimb and current_menu == "HUD":
+			player_collision.shape.height = lerp(player_collision.shape.height,1.8 * CROUCH_depth,0.5)
+			player_camera.position.y = lerp(player_camera.position.y,1.8 * CROUCH_depth,0.5)
+		elif !standing_detected.is_colliding():
+			player_collision.shape.height = lerp(player_collision.shape.height,1.8,0.5)
+			player_camera.position.y = lerp(player_camera.position.y,1.7,0.5)
+	else:
+		player_camera.position.y = 1.8 * SIT_depth
 	# Climb
 	Global.p_elem_debug("# CLIMB #")
 	if isClimb:
@@ -410,7 +414,7 @@ func _process(_delta):
 	
 	# Play walk sound
 	Global.p_elem_debug("# WALK SOUND #")
-	if _ground_ray_cast.is_colliding() and velocity.length() > 0:
+	if _ground_ray_cast.is_colliding() and velocity.length() > 0 and !isSit:
 		if _walk_length >= 200:
 			_walk_length = 0
 			if _ground_ray_cast.get_meta("SoundList","no") is Dictionary:
@@ -523,7 +527,7 @@ func _on_motion_area_area_exited(area):
 		area.detected_player = null
 
 # Sit
-func sit( chair_position, chair_rotation):
+func sit(chair_position, chair_rotation):
 	var tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUART).set_parallel(true)
 	if !isSit :
 		tween.tween_property(self, "position", chair_position, 0.5)
