@@ -131,3 +131,14 @@ func p_elem_debug(info : String) :
 ## If the OS Language is supported.
 func is_os_language_supported() -> bool:
 	return LanguageList.has(OS.get_locale())
+	
+# Multiplayer
+func host(port:int):
+	if isInGame:
+		get_node("/root/World").host(port)
+		get_node("/root/World/Player").chat_menu.append_message("[Global]Host at port:" + str(port))
+
+func join(address:String,port:int):
+	if isInGame:
+		get_node("/root/World").join(address,port)
+		get_node("/root/World/Player").chat_menu.append_message("[Global]Join to:" + address + ":" + str(port))

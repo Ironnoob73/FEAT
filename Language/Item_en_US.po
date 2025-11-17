@@ -53,3 +53,16 @@ msgstr "Tutorial Slingshot"
 
 msgid "weapon.tutorial_slingshot.description"
 msgstr "Range weapon for beginner tutorials only"
+
+####----------Interaction----------####
+msgid "interact.sit"
+msgstr "Sit down"
+
+msgid "interact.stand_up"
+msgstr "Stand up"
+
+msgid "interact.lie_down"
+msgstr "Lie down"
+
+msgid "interact.sleep"
+msgstr "Sleep"

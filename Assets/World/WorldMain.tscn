@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://c0hvltjdip61f"]
+[gd_scene load_steps=9 format=3 uid="uid://c0hvltjdip61f"]
 
 [ext_resource type="Script" uid="uid://c0181dcofga70" path="res://Assets/World/WorldMain.gd" id="1_4lhai"]
 [ext_resource type="PackedScene" uid="uid://bk6ihg1vf71uf" path="res://Assets/Character/Player.tscn" id="1_ur16q"]
@@ -12,6 +12,11 @@ texture_filter = 0
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_l72iu"]
 size = Vector2(200, 200)
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_espus"]
+properties/0/path = NodePath("Player:position")
+properties/0/spawn = true
+properties/0/replication_mode = 1
 
 [node name="World" type="Node3D"]
 script = ExtResource("1_4lhai")
@@ -54,6 +59,9 @@ material_override = SubResource("StandardMaterial3D_qoha8")
 mesh = SubResource("PlaneMesh_l72iu")
 
 [node name="ScenesPackage" parent="." instance=ExtResource("7_ort8i")]
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_espus")
 
 [connection signal="SetSdfgi" from="Player/Pause_menu/Options" to="." method="_on_options_set_sdfgi"]
 

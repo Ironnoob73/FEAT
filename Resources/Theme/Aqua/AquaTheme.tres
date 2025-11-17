@@ -1,6 +1,6 @@
 [gd_resource type="Theme" load_steps=10 format=3 uid="uid://dq0cw6cso7mok"]
 
-[ext_resource type="Texture2D" uid="uid://4hngm7ph2mwb" path="res://Resources/Tmeme/Aqua/button.webp" id="1_lipup"]
+[ext_resource type="Texture2D" uid="uid://4hngm7ph2mwb" path="res://Resources/Theme/Aqua/button.webp" id="1_lipup"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_lipup"]
 load_path = "res://.godot/imported/button.webp-3e1c44be164ba7927ee2fe36de246e18.ctex"

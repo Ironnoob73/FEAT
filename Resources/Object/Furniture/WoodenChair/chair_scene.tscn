@@ -16,6 +16,7 @@ script = ExtResource("1_doy33")
 DisplayName = "Chair"
 Interactable = true
 interact_icon = "🪑"
+interact_text = "interact.sit"
 interact_behavior = Array[ExtResource("2_1l8rq")]([SubResource("Resource_4acte")])
 current_health = 100.0
 
@@ -26,3 +27,5 @@ collision_layer = 16
 
 [node name="CollisionShape" type="CollisionShape3D" parent="Body"]
 shape = SubResource("ConcavePolygonShape3D_bro60")
+
+[connection signal="interact_signal" from="." to="Body" method="_interact_signal"]

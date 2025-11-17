@@ -108,3 +108,21 @@ func change_scene(location:String,pos:Vector3) -> void:
 			next_scene = SCENES_PACKAGE.room_scenes.get(location)
 			add_child(next_scene)
 	player0.position = pos
+
+func host(port:int):
+	var peer = ENetMultiplayerPeer.new()
+	var state = peer.create_server(port)
+	if state == OK:
+		multiplayer.multiplayer_peer = peer
+		player0.chat_menu.append_message("[World]Host at port successed:" + str(port))
+	else:
+		player0.chat_menu.append_message("[World]Host at port failed:" + str(port), state)
+
+func join(address:String,port:int):
+	var peer = ENetMultiplayerPeer.new()
+	var state = peer.create_client(address,port)
+	if state == OK:
+		multiplayer.multiplayer_peer = peer
+		player0.chat_menu.append_message("[World]Join successed:" + address + ":" + str(port))
+	else:
+		player0.chat_menu.append_message("[World]Join Failed:" + str(port), state)

@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://dwd8fst5ha7qm"]
+
+[ext_resource type="Texture2D" uid="uid://bwbw200xoxanj" path="res://Resources/Material/Sources/SmoothCotton_albedo.png" id="1_dygef"]
+[ext_resource type="Texture2D" uid="uid://ct8p6tpd62ira" path="res://Resources/Material/Sources/SmoothCotton_normal.png" id="2_8hjpx"]
+
+[resource]
+albedo_texture = ExtResource("1_dygef")
+normal_enabled = true
+normal_texture = ExtResource("2_8hjpx")
+texture_filter = 0

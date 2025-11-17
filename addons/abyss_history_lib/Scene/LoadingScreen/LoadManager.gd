@@ -41,7 +41,7 @@ func _process(_delta) -> void:
 	match load_status:
 		ResourceLoader.THREAD_LOAD_INVALID_RESOURCE,ResourceLoader.THREAD_LOAD_FAILED:
 			set_process(false)
-			load_failed.emit(load_status)
+			load_failed.emit(str(load_status))
 			return
 		ResourceLoader.THREAD_LOAD_IN_PROGRESS:
 			progress_changed.emit(_progress[0])

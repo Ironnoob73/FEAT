@@ -20,7 +20,7 @@ const MAX_STEP_HEIGHT = 0.5
 var isDash: float = 0
 var isCrouch: float = 0
 var isClimb: bool = false
-var isSit: bool = false
+var isSit: Node = null
 var isThirdPerson: bool = false
 var isInTeleport: bool = false
 
@@ -216,10 +216,8 @@ func _unhandled_input(_event):
 			current_hotbar = 4
 			refresh_handheld(current_hotbar)
 	# UnSit
-	if isSit and ( Input.is_action_pressed("jump") or Input.is_action_pressed("crouch")) :
-		var tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUART).set_parallel(true)
-		tween.tween_property(mesh.animation_tree,"parameters/Sit/add_amount",0,0.5)
-		isSit = false
+	if isSit and (Input.is_action_pressed("jump") or Input.is_action_pressed("crouch")) :
+		_un_sit()
 		
 	# Switch perspectives
 	if Input.is_action_just_pressed("switch_perspectives") and current_menu == "HUD":
@@ -533,12 +531,20 @@ func sit(chair_position, chair_rotation):
 		tween.tween_property(self, "position", chair_position, 0.5)
 		tween.tween_property(mesh.animation_tree,"parameters/Sit/add_amount",1,0.5)
 		if !isThirdPerson:
-			tween.tween_property(self, "rotation:y", chair_rotation.y - deg_to_rad(180), 0.5)
+			print(rad_to_deg(chair_rotation.y - deg_to_rad(180) - rotation.y),":",chair_rotation.y - deg_to_rad(180) - rotation.y)
+			var target : float = chair_rotation.y - deg_to_rad(180)
+			if chair_rotation.y - rotation.y - deg_to_rad(180) < deg_to_rad(-180):
+				target = chair_rotation.y + deg_to_rad(180)
+			tween.tween_property(self, "rotation:y", target, 0.5)
 			tween.tween_property(player_camera, "rotation:x", chair_rotation.x, 0.5)
-		isSit = true
+		#isSit = true
 	else :
-		tween.tween_property(mesh.animation_tree,"parameters/Sit/add_amount",0,0.5)
-		isSit = false
+		_un_sit()
+func _un_sit():
+	var tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUART).set_parallel(true)
+	tween.tween_property(mesh.animation_tree,"parameters/Sit/add_amount",0,0.5)
+	isSit.remove_meta("user")
+	isSit = null
 
 # Caption
 func add_caption(text_in:String):

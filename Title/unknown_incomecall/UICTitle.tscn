@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bmlutqh8p47g5"]
 
-[ext_resource type="Theme" uid="uid://dq0cw6cso7mok" path="res://Resources/Tmeme/Aqua/AquaTheme.tres" id="1_6au51"]
+[ext_resource type="Theme" uid="uid://dq0cw6cso7mok" path="res://Resources/Theme/Aqua/AquaTheme.tres" id="1_6au51"]
 
 [node name="UicTitle" type="Control"]
 layout_mode = 3

@@ -52,3 +52,16 @@ msgstr "教程弹弓"
 
 msgid "weapon.tutorial_slingshot.description"
 msgstr "仅用于新手教程的远程武器"
+
+####----------Interaction----------####
+msgid "interact.sit"
+msgstr "坐下"
+
+msgid "interact.stand_up"
+msgstr "起身"
+
+msgid "interact.lie_down"
+msgstr "躺下"
+
+msgid "interact.sleep"
+msgstr "睡觉"
