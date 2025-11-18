@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://bjtidvrl0deer"]
+[gd_scene load_steps=43 format=3 uid="uid://bjtidvrl0deer"]
 
 [ext_resource type="PackedScene" uid="uid://bk6ihg1vf71uf" path="res://Assets/Character/Player.tscn" id="1_1kegx"]
 [ext_resource type="Script" uid="uid://cdg6s4jmypkb0" path="res://Assets/Character/Local/LocalPlayer.gd" id="2_ksjhd"]
@@ -76,6 +76,139 @@ border_color = Color(0.8, 0.8, 0.8, 0)
 corner_detail = 1
 expand_margin_top = 4.0
 
+[sub_resource type="Animation" id="Animation_wkhgt"]
+resource_name = "HideHUD"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HudHotbar:offset_bottom")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 128.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HudStatesBar:offset_top")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.099999994),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -48.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("HudHotbar:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.09950864, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("HudStatesBar:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.09950864, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CrossHair:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_3t4w8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HudHotbar:offset_bottom")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HudStatesBar:offset_top")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("HudHotbar:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("HudStatesBar:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CrossHair:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_61s2r"]
+_data = {
+&"HideHUD": SubResource("Animation_wkhgt"),
+&"RESET": SubResource("Animation_3t4w8")
+}
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_co7mu"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_l3s1l"]
@@ -111,7 +244,7 @@ height = 0.4
 
 [node name="Player" instance=ExtResource("1_1kegx")]
 script = ExtResource("2_ksjhd")
-isInVR = false
+isInDream = false
 
 [node name="ClimbArea" type="Area3D" parent="PlayerColl" index="0" groups=["PlayerMotion"]]
 collision_layer = 4
@@ -335,11 +468,18 @@ vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="HudHotbar" parent="." index="11" instance=ExtResource("8_xs2dv")]
+anchors_preset = -1
 mouse_filter = 1
 
 [node name="HudStatesBar" parent="." index="12" instance=ExtResource("9_u6vxd")]
+anchors_preset = -1
 
-[node name="Chat" parent="." index="13" instance=ExtResource("10_8rxfh")]
+[node name="HUDHider" type="AnimationPlayer" parent="." index="13"]
+libraries = {
+&"": SubResource("AnimationLibrary_61s2r")
+}
+
+[node name="Chat" parent="." index="14" instance=ExtResource("10_8rxfh")]
 custom_minimum_size = Vector2(500, 250)
 anchors_preset = 2
 anchor_top = 1.0
@@ -349,14 +489,14 @@ offset_right = 500.0
 grow_horizontal = 1
 grow_vertical = 0
 
-[node name="VirtualJoypad" parent="." index="14" instance=ExtResource("11_grqft")]
+[node name="VirtualJoypad" parent="." index="15" instance=ExtResource("11_grqft")]
 visible = false
 
-[node name="Inventory" parent="." index="15" instance=ExtResource("12_eueh2")]
+[node name="Inventory" parent="." index="16" instance=ExtResource("12_eueh2")]
 
-[node name="Pause_menu" parent="." index="16" instance=ExtResource("13_vy4sj")]
+[node name="Pause_menu" parent="." index="17" instance=ExtResource("13_vy4sj")]
 
-[node name="Cursor" type="CSGMesh3D" parent="." index="17"]
+[node name="Cursor" type="CSGMesh3D" parent="." index="18"]
 top_level = true
 layers = 6
 mesh = SubResource("BoxMesh_l3s1l")
@@ -369,20 +509,20 @@ collision_mask = 10
 [node name="CollisionShape" type="CollisionShape3D" parent="Cursor/DetectionArea" index="0"]
 shape = SubResource("BoxShape3D_qd1xy")
 
-[node name="Cursor3" type="MeshInstance3D" parent="." index="18"]
+[node name="Cursor3" type="MeshInstance3D" parent="." index="19"]
 top_level = true
 visible = false
 material_override = ExtResource("15_1xbts")
 mesh = SubResource("SphereMesh_qrieq")
 
-[node name="InteractLowerLimit" type="StaticBody3D" parent="." index="19"]
+[node name="InteractLowerLimit" type="StaticBody3D" parent="." index="20"]
 collision_layer = 32
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="InteractLowerLimit" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
 shape = SubResource("WorldBoundaryShape3D_ekknx")
 
-[node name="TooltipScene" parent="." index="20" instance=ExtResource("16_87nuh")]
+[node name="TooltipScene" parent="." index="21" instance=ExtResource("16_87nuh")]
 
 [connection signal="mouse_mode_signal" from="Inventory" to="." method="mouse_mode"]
 [connection signal="mouse_mode_signal" from="Pause_menu" to="." method="mouse_mode"]

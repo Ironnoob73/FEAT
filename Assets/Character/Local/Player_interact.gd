@@ -32,17 +32,19 @@ func _physics_process(_delta):
 		if Global.alwaysShowCursor: _cursor.show()
 		_cursor.set_global_position(Vector3(hit_point)+Vector3(0.5,0.25,0.5))
 	# Interact
-	if is_colliding() and get_collider().get_parent() is AHL_Interactive:
+	if Player.current_menu == "HUD" and is_colliding() and get_collider().get_parent() is AHL_Interactive:
 		tooltip_icon.text = get_collider().get_parent().interact_icon
-		if get_collider().get_parent().Interactable == true:
+		var isInteractable: bool = get_collider().get_parent().Interactable
+		if isInteractable:
 			var key_array : Array = []
 			for i in InputMap.action_get_events("interact"):
 				key_array.append(i.as_text().rsplit(" ", true, 1)[0])
 			tooltip_text.text = str(key_array).replacen("\"","") + tr(get_collider().get_parent().interact_text)
 		else: tooltip_text.text = tr(get_collider().get_parent().interact_text)
-		if Input.is_action_just_pressed("interact") && Player.current_menu == "HUD":
+		if Input.is_action_just_pressed("interact") and isInteractable:
 			get_collider().get_parent().interact(Player)
-		tooltip.visible = true
+		if !get_collider().get_parent().Hidden:
+			tooltip.visible = true
 	else:	tooltip.visible = false
 		
 func can_place_voxel_at(pos: Vector3i):

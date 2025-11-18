@@ -1,20 +1,15 @@
-[gd_resource type="Environment" load_steps=5 format=3 uid="uid://ns2gq60t8sp1"]
+[gd_resource type="Environment" load_steps=4 format=3 uid="uid://7cevbjkq6fto"]
+
+[ext_resource type="Sky" uid="uid://c0svnh6327igu" path="res://Assets/World/Environments/WorldMainSky.tres" id="1_8fcji"]
 
 [sub_resource type="Gradient" id="Gradient_imnon"]
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_slkoq"]
 gradient = SubResource("Gradient_imnon")
 
-[sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_03vjd"]
-ground_color = Color(0.53242886, 0.6858643, 0.5337185, 1)
-
-[sub_resource type="Sky" id="Sky_k8o80"]
-sky_material = SubResource("PhysicalSkyMaterial_03vjd")
-radiance_size = 0
-
 [resource]
 background_mode = 2
-sky = SubResource("Sky_k8o80")
+sky = ExtResource("1_8fcji")
 ambient_light_sky_contribution = 0.25
 reflected_light_source = 1
 ssr_enabled = true

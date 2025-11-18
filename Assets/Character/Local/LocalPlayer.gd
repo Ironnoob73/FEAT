@@ -1,5 +1,5 @@
 extends player
-class_name local_player
+class_name LocalPlayer
 
 @onready var player_camera = $PlayerCam
 @onready var standing_detected= $StandingDetected
@@ -46,10 +46,16 @@ var DEBUG_LAST_STEP: String
 
 var INERTIA:Vector2 = Vector2.ZERO
 
-var current_menu = "HUD"
-@export var isInVR : bool = false
+var current_menu = "HUD":
+	set(menu_name):
+		current_menu = menu_name
+		emit_signal("on_menu_change")
+signal on_menu_change
+var hud_hidden : bool = false
+@export var isInDream : bool = false
 
 @onready var HUD_hotbar = $HudHotbar
+@onready var HUD_hider: AnimationPlayer = $HUDHider
 
 func _ready():
 	super._ready()
@@ -127,6 +133,8 @@ func _unhandled_input(_event):
 				current_menu = "HUD"
 				mouse_mode(false)
 				chat_menu.isInput = false
+			_:
+				current_menu = "HUD"
 	# Chat
 	if Input.is_action_just_pressed("chat"):
 		match current_menu:
@@ -151,6 +159,9 @@ func _unhandled_input(_event):
 				current_menu = "Inventory"
 				mouse_mode(true)
 				inventory_menu.open_inventory()
+	# Hide HUD
+	if Input.is_action_just_pressed("hide_hud") and current_menu == "HUD":
+		hide_hud(!hud_hidden)
 	# Hotbar
 	if !Input.is_action_pressed("tool_function_switch") and current_menu == "HUD":
 		if Input.is_action_just_pressed("hotbar_tool_0") :
@@ -427,7 +438,7 @@ func refresh_player_mesh():
 func _on_climb_area_area_entered(area):
 	if area.is_in_group("ClimbAble"):
 		isClimb = true
-	if area.is_in_group("Teleporter") && area.get_parent().ToLocation not in ["null",""]:
+	if area.is_in_group("Teleporter") and area.get_parent().ToLocation not in ["null",""]:
 		var tween = create_tween().set_trans(Tween.TRANS_LINEAR)
 		tween.tween_callback(func():isInTeleport=true)
 		tween.tween_property(transition, "color:a", 1, 0.25)
@@ -455,7 +466,6 @@ func sit(chair_position, chair_rotation):
 		tween.tween_property(self, "position", chair_position, 0.5)
 		tween.tween_property(mesh.animation_tree,"parameters/Sit/add_amount",1,0.5)
 		if !isThirdPerson:
-			print(rad_to_deg(chair_rotation.y - deg_to_rad(180) - rotation.y),":",chair_rotation.y - deg_to_rad(180) - rotation.y)
 			var target : float = chair_rotation.y - deg_to_rad(180)
 			if chair_rotation.y - rotation.y - deg_to_rad(180) < deg_to_rad(-180):
 				target = chair_rotation.y + deg_to_rad(180)
@@ -480,6 +490,11 @@ func add_caption(text_in:String):
 func clear_caption():
 	for i in caption.get_child_count():
 		caption.get_child(i)._on_timer_timeout()
+		
+# HUD Hidden
+func hide_hud(do_hide:bool):
+	hud_hidden = do_hide
+	HUD_hider.play("HideHUD", -1, 1 if do_hide else -1, !do_hide)
 
 func mouse_mode(isVisible:bool)->void:
 	if !isThirdPerson :

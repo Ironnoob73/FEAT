@@ -1,18 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://c0hvltjdip61f"]
+[gd_scene load_steps=6 format=3 uid="uid://c0hvltjdip61f"]
 
 [ext_resource type="Script" uid="uid://c0181dcofga70" path="res://Assets/World/WorldMain.gd" id="1_4lhai"]
 [ext_resource type="Environment" uid="uid://ns2gq60t8sp1" path="res://Assets/World/Environments/WorldMainEnvironment.tres" id="2_m5iry"]
 [ext_resource type="PackedScene" uid="uid://bjtidvrl0deer" path="res://Assets/Character/Local/LocalPlayer.tscn" id="3_oiwhx"]
 [ext_resource type="Resource" uid="uid://dnyk7pm4cqskj" path="res://Assets/Inventory/Player_inventory.tres" id="4_m5iry"]
-[ext_resource type="Texture2D" uid="uid://dx2blvlx1qx1" path="res://Resources/Image/map/Map001_detailed.png" id="5_61s7l"]
-[ext_resource type="PackedScene" uid="uid://dqyequp22c8rg" path="res://Assets/World/Location/_ZhuShan/_ScenesPackage.tscn" id="7_ort8i"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qoha8"]
-albedo_texture = ExtResource("5_61s7l")
-texture_filter = 0
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_l72iu"]
-size = Vector2(200, 200)
+[ext_resource type="PackedScene" uid="uid://ryitjhnhr4hi" path="res://Assets/World/Location/_Reality/Apartment0/ScenePackage.tscn" id="5_espus"]
 
 [node name="World" type="Node3D"]
 script = ExtResource("1_4lhai")
@@ -47,10 +39,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 collision_mask = 143
 Inventory = ExtResource("4_m5iry")
 
-[node name="Map" type="MeshInstance3D" parent="."]
-transform = Transform3D(12288, 0, 0, 0, 12288, 0, 0, 0, 12288, -4352, -40, 4352)
-visible = false
-material_override = SubResource("StandardMaterial3D_qoha8")
-mesh = SubResource("PlaneMesh_l72iu")
-
-[node name="ScenesPackage" parent="." instance=ExtResource("7_ort8i")]
+[node name="ScenesPackage" parent="." instance=ExtResource("5_espus")]

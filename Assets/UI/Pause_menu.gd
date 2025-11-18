@@ -11,7 +11,7 @@ signal mouse_mode_signal(bool)
 func _ready():
 	Global.current_menu = "Pause"
 	animation.play("RESET")
-	if get_parent().isInVR :
+	if get_parent().isInDream :
 		exit_button.text = "pause.quit"
 		exit_text1.text = "exit.quit_vr"
 
@@ -54,7 +54,7 @@ func _on_exit_button_pressed():
 	animation.play("Exit")
 func _on_confirm_button_pressed():
 	hide()
-	if !get_parent().isInVR :	Global.back_to_title()
+	if !get_parent().isInDream :	Global.back_to_title()
 	else :
 		AHL_LoadManager.load_scene(Global.get_world_path(Global.VRDim),Global.VRPos,Global.VRRot)
 func _on_cancel_button_pressed():

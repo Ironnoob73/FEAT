@@ -13,6 +13,7 @@ signal touch_signal
 		init_behavior = behavior_in
 		init_behavior_signal.emit()
 @export_group("Interact")
+@export var Hidden : bool = false
 @export var Interactable : bool = false
 @export var interact_icon : String = "\U01F91A"
 @export var interact_text : String = "interact.interact"
