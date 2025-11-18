@@ -85,6 +85,18 @@ tracks/5/keys = {
 "update": 0,
 "values": [1.5, 0.5]
 }
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("MultiPlayerList:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_ptyy5"]
 resource_name = "Options"
@@ -197,6 +209,18 @@ tracks/8/keys = {
 "transitions": PackedFloat32Array(-2, 1),
 "update": 0,
 "values": [1.9, 0.9]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("MultiPlayerList:modulate")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_pfqdl"]
@@ -345,6 +369,18 @@ tracks/11/keys = {
 "update": 0,
 "values": [1.5]
 }
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("MultiPlayerList:modulate")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_x1qir"]
 _data = {
@@ -354,7 +390,7 @@ _data = {
 }
 
 [node name="Pause_menu" type="ColorRect"]
-process_mode = 2
+process_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -381,9 +417,9 @@ text = "pause.title"
 
 [node name="ResumeButton" type="Button" parent="Main"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.74902, 0.74902, 0.74902, 1)
 theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_colors/font_color = Color(0.74902, 0.74902, 0.74902, 1)
 theme_override_constants/outline_size = 2
 theme_override_font_sizes/font_size = 30
 text = "pause.resume"
@@ -392,9 +428,9 @@ alignment = 0
 
 [node name="OptionsButton" type="Button" parent="Main"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.74902, 0.74902, 0.74902, 1)
 theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_colors/font_color = Color(0.74902, 0.74902, 0.74902, 1)
 theme_override_constants/outline_size = 2
 theme_override_font_sizes/font_size = 30
 text = "title.menu.options"
@@ -403,14 +439,25 @@ alignment = 0
 
 [node name="ExitButton" type="Button" parent="Main"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.74902, 0.74902, 0.74902, 1)
 theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_colors/font_color = Color(0.74902, 0.74902, 0.74902, 1)
 theme_override_constants/outline_size = 2
 theme_override_font_sizes/font_size = 30
 text = "title.menu.exit"
 flat = true
 alignment = 0
+
+[node name="MultiPlayerList" type="Tree" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -500.0
+grow_horizontal = 0
+grow_vertical = 2
+allow_search = false
 
 [node name="Options" parent="." instance=ExtResource("2_unk1s")]
 visible = false
@@ -474,18 +521,18 @@ size_flags_horizontal = 4
 [node name="ConfirmButton" type="Button" parent="ExitBox/HBox"]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
+theme_override_colors/font_color = Color(0.74902, 0.74902, 0.74902, 1)
 theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_colors/font_color = Color(0.74902, 0.74902, 0.74902, 1)
 theme_override_font_sizes/font_size = 30
 text = "button.confirm"
 
 [node name="CancelButton" type="Button" parent="ExitBox/HBox"]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
+theme_override_colors/font_color = Color(0.74902, 0.74902, 0.74902, 1)
 theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_colors/font_color = Color(0.74902, 0.74902, 0.74902, 1)
 theme_override_font_sizes/font_size = 30
 shortcut = SubResource("Shortcut_0jaa1")
 text = "button.cancel"

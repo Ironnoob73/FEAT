@@ -115,6 +115,7 @@ func host(port:int):
 	if state == OK:
 		multiplayer.multiplayer_peer = peer
 		player0.chat_menu.append_message("[World]Host at port successed:" + str(port))
+		Global.isMultiplayer = true
 	else:
 		player0.chat_menu.append_message("[World]Host at port failed:" + str(port), state)
 
@@ -124,5 +125,6 @@ func join(address:String,port:int):
 	if state == OK:
 		multiplayer.multiplayer_peer = peer
 		player0.chat_menu.append_message("[World]Join successed:" + address + ":" + str(port))
+		Global.isMultiplayer = true
 	else:
 		player0.chat_menu.append_message("[World]Join Failed:" + str(port), state)

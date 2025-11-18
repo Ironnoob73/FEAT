@@ -17,6 +17,7 @@ var mouse_sens = 0.4
 var auto_pickup : bool = true
 
 var isInGame : bool = false
+var isMultiplayer : bool = false
 var playerTeleported : bool = true
 
 var VRDim : String
@@ -136,9 +137,7 @@ func is_os_language_supported() -> bool:
 func host(port:int):
 	if isInGame:
 		get_node("/root/World").host(port)
-		get_node("/root/World/Player").chat_menu.append_message("[Global]Host at port:" + str(port))
 
 func join(address:String,port:int):
 	if isInGame:
 		get_node("/root/World").join(address,port)
-		get_node("/root/World/Player").chat_menu.append_message("[Global]Join to:" + address + ":" + str(port))

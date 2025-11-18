@@ -1,0 +1,390 @@
+[gd_scene load_steps=40 format=3 uid="uid://bjtidvrl0deer"]
+
+[ext_resource type="PackedScene" uid="uid://bk6ihg1vf71uf" path="res://Assets/Character/Player.tscn" id="1_1kegx"]
+[ext_resource type="Script" uid="uid://cdg6s4jmypkb0" path="res://Assets/Character/Local/LocalPlayer.gd" id="2_ksjhd"]
+[ext_resource type="Script" uid="uid://iqw3gdxk6m6i" path="res://Assets/Character/Local/Player_FPCinteract.gd" id="3_8e6h3"]
+[ext_resource type="Script" uid="uid://dw0euofyi2jef" path="res://Assets/Character/Local/HandHeldAnimation.gd" id="4_6j1wo"]
+[ext_resource type="Script" uid="uid://cx0twk821bdgm" path="res://Assets/Character/Local/Player_interact.gd" id="5_wkhgt"]
+[ext_resource type="Script" uid="uid://clf52nonuwfkf" path="res://Assets/Character/Local/Mouse.gd" id="6_3t4w8"]
+[ext_resource type="Shader" uid="uid://depqco5k012u1" path="res://Assets/Character/Local/CrossHair.gdshader" id="7_61s2r"]
+[ext_resource type="PackedScene" uid="uid://cerd3suomf3u2" path="res://Assets/Character/Local/PlayerHUDHotbar.tscn" id="8_xs2dv"]
+[ext_resource type="PackedScene" uid="uid://v2j546pk6a4k" path="res://Assets/Character/Local/PlayerHUDStatesBar.tscn" id="9_u6vxd"]
+[ext_resource type="PackedScene" uid="uid://cgea2weecephm" path="res://Assets/UI/Chat/Chat.tscn" id="10_8rxfh"]
+[ext_resource type="PackedScene" uid="uid://tnlamai5w4yx" path="res://Assets/UI/VirtualJoypad/VirtualJoypad.tscn" id="11_grqft"]
+[ext_resource type="PackedScene" uid="uid://dtcknsjsvxg38" path="res://Assets/Inventory/Inventory.tscn" id="12_eueh2"]
+[ext_resource type="PackedScene" uid="uid://bledb03vcydda" path="res://Assets/UI/Pause_menu.tscn" id="13_vy4sj"]
+[ext_resource type="Shader" uid="uid://bqra68olqj7u5" path="res://Assets/Character/Local/Cursor.gdshader" id="14_6c1eo"]
+[ext_resource type="Material" uid="uid://b0vyuvvjptrtg" path="res://Resources/Material/RedAlpha.tres" id="15_1xbts"]
+[ext_resource type="PackedScene" uid="uid://dnof7wcs0plpt" path="res://addons/abyss_history_lib/Scene/DynamicTooltip/tooltip_scene.tscn" id="16_87nuh"]
+[ext_resource type="AudioStream" uid="uid://boa5kcdgiypnr" path="res://Resources/Sound/Walk/Grass.sfxr" id="17_wkhgt"]
+[ext_resource type="AudioStream" uid="uid://bv2prris0qtxv" path="res://Resources/Sound/Walk/Stone.sfxr" id="18_3t4w8"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8e6h3"]
+radius = 0.4
+height = 1.8
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_6j1wo"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wkhgt"]
+size = Vector3(0.25, 0.25, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_3t4w8"]
+size = Vector3(0.25, 0.25, 1)
+
+[sub_resource type="Gradient" id="Gradient_7j3po"]
+interpolation_mode = 2
+interpolation_color_space = 2
+offsets = PackedFloat32Array(0.25, 0.75)
+colors = PackedColorArray(0, 1, 1, 1, 0, 0.560784, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_qby3e"]
+gradient = SubResource("Gradient_7j3po")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p3ied"]
+shading_mode = 0
+albedo_texture = SubResource("GradientTexture1D_qby3e")
+
+[sub_resource type="QuadMesh" id="QuadMesh_7i5hv"]
+size = Vector2(20, 25)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_61s2r"]
+size = Vector3(0.5, 0.5, 0.5)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vsxa4"]
+shader = ExtResource("7_61s2r")
+
+[sub_resource type="Gradient" id="Gradient_srgr6"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.5)
+colors = PackedColorArray(0, 0, 0, 0, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_3txlv"]
+gradient = SubResource("Gradient_srgr6")
+width = 3
+height = 3
+fill_to = Vector2(0.5, 0.5)
+repeat = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hwgf4"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.1, 0.1, 0.1, 0.6)
+border_width_bottom = 4
+border_color = Color(0.8, 0.8, 0.8, 0)
+corner_detail = 1
+expand_margin_top = 4.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_co7mu"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_l3s1l"]
+material = SubResource("StandardMaterial3D_co7mu")
+size = Vector3(1.01, 0.51, 1.01)
+
+[sub_resource type="Gradient" id="Gradient_gb4vr"]
+offsets = PackedFloat32Array(0.9, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_f0825"]
+gradient = SubResource("Gradient_gb4vr")
+width = 32
+height = 32
+fill = 2
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8o5kk"]
+render_priority = 0
+shader = ExtResource("14_6c1eo")
+shader_parameter/albedo = SubResource("GradientTexture2D_f0825")
+shader_parameter/color = Color(1, 1, 1, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qd1xy"]
+margin = 0.0
+size = Vector3(0.79, 0.19, 0.79)
+
+[sub_resource type="SphereMesh" id="SphereMesh_qrieq"]
+radius = 0.2
+height = 0.4
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_ekknx"]
+
+[node name="Player" instance=ExtResource("1_1kegx")]
+script = ExtResource("2_ksjhd")
+isInVR = false
+
+[node name="ClimbArea" type="Area3D" parent="PlayerColl" index="0" groups=["PlayerMotion"]]
+collision_layer = 4
+collision_mask = 27
+
+[node name="Coll" type="CollisionShape3D" parent="PlayerColl/ClimbArea" index="0"]
+shape = SubResource("CapsuleShape3D_8e6h3")
+
+[node name="MotionArea" type="Area3D" parent="PlayerColl" index="1" groups=["PlayerMotion"]]
+collision_layer = 4
+collision_mask = 27
+
+[node name="Coll" type="CollisionShape3D" parent="PlayerColl/MotionArea" index="0"]
+shape = SubResource("CapsuleShape3D_6j1wo")
+
+[node name="AttackArea" type="Area3D" parent="PlayerColl" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
+collision_layer = 0
+collision_mask = 31
+
+[node name="Coll" type="CollisionShape3D" parent="PlayerColl/AttackArea" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5)
+shape = SubResource("BoxShape3D_wkhgt")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="PlayerColl/AttackArea" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5)
+visible = false
+material_override = ExtResource("15_1xbts")
+mesh = SubResource("BoxMesh_3t4w8")
+
+[node name="ThirdPerosnCam" type="Camera3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 0.7071068, 0.7071068, 0, -0.7071068, 0.7071068, 0, 100.9, 100)
+cull_mask = 47
+projection = 1
+current = true
+fov = 72.7
+near = 0.001
+
+[node name="InteractRayTP" type="RayCast3D" parent="ThirdPerosnCam" index="0"]
+target_position = Vector3(0, 0, -10000)
+collision_mask = 26
+
+[node name="InteractRayTPTest" type="RayCast3D" parent="ThirdPerosnCam/InteractRayTP" index="0"]
+target_position = Vector3(0, 0, -10000)
+collision_mask = 26
+
+[node name="Background" type="MeshInstance3D" parent="ThirdPerosnCam" index="1"]
+transform = Transform3D(-0.5, -0.866025, 0, 0.866025, -0.5, 0, 0, 0, 1, 0, 0, -1000)
+material_override = SubResource("StandardMaterial3D_p3ied")
+mesh = SubResource("QuadMesh_7i5hv")
+
+[node name="PlayerCam" type="Camera3D" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
+cull_mask = 27
+doppler_tracking = 1
+size = 0.001
+
+[node name="FirstPersonHandled" type="SubViewportContainer" parent="PlayerCam" index="0"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+metadata/_edit_use_anchors_ = true
+
+[node name="SubViewport" type="SubViewport" parent="PlayerCam/FirstPersonHandled" index="0"]
+transparent_bg = true
+handle_input_locally = false
+canvas_cull_mask = 4293918736
+size = Vector2i(1600, 900)
+render_target_update_mode = 4
+
+[node name="FirstPersonCam" type="Camera3D" parent="PlayerCam/FirstPersonHandled/SubViewport" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
+cull_mask = 16
+script = ExtResource("3_8e6h3")
+
+[node name="HandHeldRight" type="Marker3D" parent="PlayerCam/FirstPersonHandled/SubViewport/FirstPersonCam" index="0"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.45, -0.35, -0.5)
+script = ExtResource("4_6j1wo")
+
+[node name="WorldActual" type="SubViewportContainer" parent="PlayerCam" index="1"]
+visible = false
+visibility_layer = 15
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="PlayerCam/WorldActual" index="0"]
+transparent_bg = true
+handle_input_locally = false
+canvas_cull_mask = 4293918735
+size = Vector2i(1600, 900)
+render_target_update_mode = 0
+
+[node name="WorldActualCam" type="Camera3D" parent="PlayerCam/WorldActual/SubViewport" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+visible = false
+cull_mask = 0
+
+[node name="InteractRay" type="RayCast3D" parent="PlayerCam" index="2"]
+target_position = Vector3(0, 0, -2)
+collision_mask = 26
+script = ExtResource("5_wkhgt")
+
+[node name="Facing" type="RayCast3D" parent="PlayerCam" index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5)
+target_position = Vector3(0, 0, -1)
+
+[node name="FacingTarget" type="Node3D" parent="PlayerCam/Facing" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
+
+[node name="StandingDetected" type="ShapeCast3D" parent="." index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+shape = SubResource("BoxShape3D_61s2r")
+target_position = Vector3(0, 0, 0)
+collision_mask = 11
+
+[node name="StairsAheadRayCast3D" type="RayCast3D" parent="." index="5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.3499999, -0.41)
+target_position = Vector3(0, -0.55, 0)
+collision_mask = 11
+
+[node name="StairsBelowRayCast3D" type="RayCast3D" parent="." index="6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.89999986, 0)
+target_position = Vector3(0, -0.5, 0)
+collision_mask = 11
+
+[node name="GroundRayCast" type="RayCast3D" parent="." index="7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.100000024, 0)
+target_position = Vector3(0, -0.5, 0)
+collision_mask = 11
+metadata/SoundList = {
+"Grass": ExtResource("17_wkhgt"),
+"Stone": ExtResource("18_3t4w8")
+}
+
+[node name="Transition" type="ColorRect" parent="." index="8"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0)
+
+[node name="Caption" type="Control" parent="." index="9"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("6_3t4w8")
+
+[node name="CrossHair" type="TextureRect" parent="." index="10"]
+texture_filter = 1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_vsxa4")
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.5
+offset_top = -4.5
+offset_right = 4.5
+offset_bottom = 4.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_3txlv")
+metadata/_edit_use_anchors_ = true
+
+[node name="InteractionTip" type="Control" parent="CrossHair" index="0"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Icon" type="Label" parent="CrossHair/InteractionTip" index="0"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.5
+offset_top = -21.0
+offset_right = 20.5
+offset_bottom = 21.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_hwgf4")
+text = "✅"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Text" type="Label" parent="CrossHair/InteractionTip" index="1"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+offset_top = 30.0
+grow_horizontal = 2
+theme_override_constants/outline_size = 4
+text = "[E]"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="HudHotbar" parent="." index="11" instance=ExtResource("8_xs2dv")]
+mouse_filter = 1
+
+[node name="HudStatesBar" parent="." index="12" instance=ExtResource("9_u6vxd")]
+
+[node name="Chat" parent="." index="13" instance=ExtResource("10_8rxfh")]
+custom_minimum_size = Vector2(500, 250)
+anchors_preset = 2
+anchor_top = 1.0
+anchor_right = 0.0
+offset_top = -250.0
+offset_right = 500.0
+grow_horizontal = 1
+grow_vertical = 0
+
+[node name="VirtualJoypad" parent="." index="14" instance=ExtResource("11_grqft")]
+visible = false
+
+[node name="Inventory" parent="." index="15" instance=ExtResource("12_eueh2")]
+
+[node name="Pause_menu" parent="." index="16" instance=ExtResource("13_vy4sj")]
+
+[node name="Cursor" type="CSGMesh3D" parent="." index="17"]
+top_level = true
+layers = 6
+mesh = SubResource("BoxMesh_l3s1l")
+material = SubResource("ShaderMaterial_8o5kk")
+
+[node name="DetectionArea" type="Area3D" parent="Cursor" index="0"]
+collision_layer = 0
+collision_mask = 10
+
+[node name="CollisionShape" type="CollisionShape3D" parent="Cursor/DetectionArea" index="0"]
+shape = SubResource("BoxShape3D_qd1xy")
+
+[node name="Cursor3" type="MeshInstance3D" parent="." index="18"]
+top_level = true
+visible = false
+material_override = ExtResource("15_1xbts")
+mesh = SubResource("SphereMesh_qrieq")
+
+[node name="InteractLowerLimit" type="StaticBody3D" parent="." index="19"]
+collision_layer = 32
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractLowerLimit" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
+shape = SubResource("WorldBoundaryShape3D_ekknx")
+
+[node name="TooltipScene" parent="." index="20" instance=ExtResource("16_87nuh")]
+
+[connection signal="mouse_mode_signal" from="Inventory" to="." method="mouse_mode"]
+[connection signal="mouse_mode_signal" from="Pause_menu" to="." method="mouse_mode"]
+
+[editable path="HudHotbar"]

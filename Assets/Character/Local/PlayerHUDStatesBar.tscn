@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://v2j546pk6a4k"]
 
-[ext_resource type="Script" uid="uid://dacwk4f4tb77r" path="res://Assets/Character/PlayerHUDStatesBar.gd" id="1_5dexk"]
+[ext_resource type="Script" uid="uid://dacwk4f4tb77r" path="res://Assets/Character/Local/PlayerHUDStatesBar.gd" id="1_5dexk"]
 [ext_resource type="Texture2D" uid="uid://b4soesc0r8cwl" path="res://Resources/Image/hp_type/hp_t0.svg" id="1_gcjl0"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i0115"]

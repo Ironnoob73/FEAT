@@ -4,6 +4,7 @@ var escape_released = false
 @onready var animation = $AnimationPlayer
 @onready var exit_button = $Main/ExitButton
 @onready var exit_text1 = $ExitBox/exit_text1
+@onready var multi_player_list: Tree = $MultiPlayerList
 
 signal mouse_mode_signal(bool)
 
@@ -16,6 +17,8 @@ func _ready():
 
 func _on_visibility_changed():
 	get_tree().paused = visible
+	if multi_player_list:
+		refresh_multiplayer_list()
 
 func _unhandled_input(_event):
 	if Input.is_action_just_released("ui_cancel") :
@@ -28,6 +31,13 @@ func _on_resume_button_pressed():
 	mouse_mode_signal.emit(false)
 	get_parent().current_menu = "HUD"
 	hide()
+	
+func refresh_multiplayer_list():
+	multi_player_list.visible = Global.isMultiplayer
+	multi_player_list.clear()
+	for i in multiplayer.get_peers():
+		var player_name: TreeItem = multi_player_list.create_item()
+		player_name.set_text(0,str(i))
 	
 func _on_options_button_pressed():
 	Global.current_menu = "Options"
