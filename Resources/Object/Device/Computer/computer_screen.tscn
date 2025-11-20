@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://ivqad25m6mqq"]
+
+[ext_resource type="Theme" uid="uid://bv3atmtrqii4a" path="res://Resources/Theme/computer_default_theme.tres" id="1_pb7l0"]
+
+[sub_resource type="Gradient" id="Gradient_e6lxs"]
+colors = PackedColorArray(0, 0, 1, 1, 0, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_03fal"]
+gradient = SubResource("Gradient_e6lxs")
+width = 720
+height = 512
+fill_from = Vector2(0, 1)
+
+[node name="ComputerScreen" type="TextureRect"]
+offset_right = 720.0
+offset_bottom = 512.0
+texture = SubResource("GradientTexture2D_03fal")
+
+[node name="BottomTab" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -32.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("1_pb7l0")
+theme_type_variation = &"BottomTab"

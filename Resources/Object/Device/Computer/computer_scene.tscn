@@ -1,0 +1,55 @@
+[gd_scene load_steps=9 format=3 uid="uid://hqorbjiwa286"]
+
+[ext_resource type="Script" uid="uid://c8ier7k2ohfsp" path="res://addons/abyss_history_lib/Class/Interact/InteractiveClass.gd" id="1_ihl0y"]
+[ext_resource type="PackedScene" uid="uid://dd3e17to3riu" path="res://Resources/Object/Device/Computer/Computer.glb" id="2_6wpru"]
+[ext_resource type="PackedScene" uid="uid://ivqad25m6mqq" path="res://Resources/Object/Device/Computer/computer_screen.tscn" id="3_6wpru"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ihl0y"]
+size = Vector3(0.8, 0.8, 0.5)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_6wpru"]
+viewport_path = NodePath("Screen/ScreenViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ihl0y"]
+resource_local_to_scene = true
+albedo_texture = SubResource("ViewportTexture_6wpru")
+emission_enabled = true
+emission_texture = SubResource("ViewportTexture_6wpru")
+
+[sub_resource type="QuadMesh" id="QuadMesh_ihl0y"]
+size = Vector2(0.7, 0.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6wpru"]
+size = Vector3(0.7, 0.5, 0.001)
+
+[node name="ComputerScene" type="Node3D"]
+script = ExtResource("1_ihl0y")
+DisplayName = "Computer"
+current_health = 100.0
+metadata/_custom_type_script = "uid://c8ier7k2ohfsp"
+
+[node name="Body" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Body"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, -0.15)
+shape = SubResource("BoxShape3D_ihl0y")
+
+[node name="Computer" parent="." instance=ExtResource("2_6wpru")]
+
+[node name="Screen" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0.07)
+material_override = SubResource("StandardMaterial3D_ihl0y")
+mesh = SubResource("QuadMesh_ihl0y")
+skeleton = NodePath("../Body/CollisionShape3D")
+
+[node name="Body" type="StaticBody3D" parent="Screen"]
+collision_layer = 257
+
+[node name="CollisionShape" type="CollisionShape3D" parent="Screen/Body"]
+shape = SubResource("BoxShape3D_6wpru")
+
+[node name="ScreenViewport" type="SubViewport" parent="Screen"]
+own_world_3d = true
+size = Vector2i(720, 512)
+
+[node name="ComputerScreen" parent="Screen/ScreenViewport" instance=ExtResource("3_6wpru")]

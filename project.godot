@@ -245,6 +245,7 @@ locale/translations=PackedStringArray("res://Language/Main_en_US.po", "res://Lan
 3d_physics/layer_6="LowerLimit"
 3d_physics/layer_7="Projectiles"
 3d_physics/layer_8="Barrier-PlayerOnly"
+3d_physics/layer_9="MouseTouch"
 
 [physics]
 
