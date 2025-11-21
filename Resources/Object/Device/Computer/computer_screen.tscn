@@ -1,14 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://ivqad25m6mqq"]
+[gd_scene load_steps=5 format=3 uid="uid://ivqad25m6mqq"]
 
 [ext_resource type="Theme" uid="uid://bv3atmtrqii4a" path="res://Resources/Theme/computer_default_theme.tres" id="1_pb7l0"]
+[ext_resource type="Texture2D" uid="uid://cng3354m6puie" path="res://Resources/Image/UI/cursor.svg" id="2_e6lxs"]
 
 [sub_resource type="Gradient" id="Gradient_e6lxs"]
 colors = PackedColorArray(0, 0, 1, 1, 0, 1, 1, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_03fal"]
 gradient = SubResource("Gradient_e6lxs")
-width = 720
-height = 512
+width = 1080
+height = 768
 fill_from = Vector2(0, 1)
 
 [node name="ComputerScreen" type="TextureRect"]
@@ -27,3 +28,7 @@ grow_horizontal = 2
 grow_vertical = 0
 theme = ExtResource("1_pb7l0")
 theme_type_variation = &"BottomTab"
+
+[node name="Cursor" type="Sprite2D" parent="."]
+texture = ExtResource("2_e6lxs")
+centered = false

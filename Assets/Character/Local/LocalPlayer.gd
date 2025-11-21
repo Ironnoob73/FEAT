@@ -10,6 +10,7 @@ class_name LocalPlayer
 @onready var first_person_cam = $PlayerCam/FirstPersonHandled/SubViewport/FirstPersonCam
 @onready var world_actual_cam = $PlayerCam/WorldActual/SubViewport/WorldActualCam
 @onready var hand_held_fp = $PlayerCam/FirstPersonHandled/SubViewport/FirstPersonCam/HandHeldRight
+@onready var lerp_cam: Camera3D = $PlayerCam/LerpCam
 @onready var attack_area = $PlayerColl/AttackArea
 @onready var hitbox = $PlayerColl/AttackArea/Coll
 @onready var hitbox_debug: MeshInstance3D = $PlayerColl/AttackArea/MeshInstance3D
@@ -26,6 +27,7 @@ var perspective_from : Vector2
 @onready var interact_ray_tp: RayCast3D = $ThirdPerosnCam/InteractRayTP
 @onready var interact_ray_tp_test: RayCast3D = $ThirdPerosnCam/InteractRayTP/InteractRayTPTest
 @onready var cursor3: MeshInstance3D = $Cursor3
+var isUsing : AHL_Interactive = null
 # Environment interact
 @onready var _climb_area = $PlayerColl/ClimbArea
 @onready var _ground_ray_cast: RayCast3D = $GroundRayCast
@@ -369,6 +371,19 @@ func _process(_delta):
 		mesh.animation_tree["parameters/CrouchMix/add_amount"] = lerp(mesh.animation_tree["parameters/CrouchMix/add_amount"],(1.8 - player_collision.shape.height)*1.5,0.5)
 		mesh.animation_tree["parameters/PitchMix/add_amount"] = - player_camera.rotation.x
 	
+	# Lerp Camera Animation
+	Global.p_elem_debug("# LERP CAMERA #")
+	if lerp_cam.current:
+		if lerp_cam.global_position.distance_to(player_camera.global_position) < 0.01 \
+		and abs(lerp_cam.global_rotation.x - player_camera.global_rotation.x) < 0.01 \
+		and abs(lerp_cam.global_rotation.y - player_camera.global_rotation.y) < 0.01 \
+		and abs(lerp_cam.global_rotation.z - player_camera.global_rotation.z) < 0.01 :
+			player_camera.make_current()
+		lerp_cam.global_position = lerp_cam.position.lerp(player_camera.global_position,0.25)
+		lerp_cam.global_rotation.x = lerp_angle(lerp_cam.rotation.x,player_camera.global_rotation.x,0.25)
+		lerp_cam.global_rotation.y = lerp_angle(lerp_cam.rotation.y,player_camera.global_rotation.y,0.25)
+		lerp_cam.global_rotation.z = lerp_angle(lerp_cam.rotation.z,player_camera.global_rotation.z,0.25)
+	
 	# Hitbox Debug
 	Global.p_elem_debug("# HITBOX DEBUG #")
 	hitbox_debug.position = hitbox.position
@@ -395,6 +410,7 @@ func _process(_delta):
 	else:
 		if Global.printDebugInfo:
 			print(_walk_length," ",_ground_ray_cast.is_colliding()," ",velocity.length())
+			
 	Global.p_elem_debug("### P END ###")
 	
 func _forward_strength(value:float) -> float:
@@ -466,10 +482,7 @@ func sit(chair_position, chair_rotation):
 		tween.tween_property(self, "position", chair_position, 0.5)
 		tween.tween_property(mesh.animation_tree,"parameters/Sit/add_amount",1,0.5)
 		if !isThirdPerson:
-			var target : float = chair_rotation.y - deg_to_rad(180)
-			if chair_rotation.y - rotation.y - deg_to_rad(180) < deg_to_rad(-180):
-				target = chair_rotation.y + deg_to_rad(180)
-			tween.tween_property(self, "rotation:y", target, 0.5)
+			tween.tween_property(self, "rotation:y", MathUtil.smaller_rotate(rotation.y, chair_rotation.y - deg_to_rad(180)), 0.5)
 			tween.tween_property(player_camera, "rotation:x", chair_rotation.x, 0.5)
 		#isSit = true
 	else :
@@ -550,3 +563,10 @@ func get_player_name() -> String:
 		return player_name
 	else:
 		return self.to_string()
+
+# Visual
+## 从给定位置移动到玩家相机的实际位置的相机动画。
+func lerp_camera(pos:Vector3,rot:Vector3) -> void:
+	lerp_cam.global_position = pos
+	lerp_cam.global_rotation = rot
+	lerp_cam.make_current()

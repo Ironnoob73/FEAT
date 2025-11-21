@@ -302,7 +302,11 @@ cull_mask = 27
 doppler_tracking = 1
 size = 0.001
 
-[node name="FirstPersonHandled" type="SubViewportContainer" parent="PlayerCam" index="0"]
+[node name="LerpCam" type="Camera3D" parent="PlayerCam" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
+top_level = true
+
+[node name="FirstPersonHandled" type="SubViewportContainer" parent="PlayerCam" index="1"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -327,7 +331,7 @@ script = ExtResource("3_8e6h3")
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.45, -0.35, -0.5)
 script = ExtResource("4_6j1wo")
 
-[node name="WorldActual" type="SubViewportContainer" parent="PlayerCam" index="1"]
+[node name="WorldActual" type="SubViewportContainer" parent="PlayerCam" index="2"]
 visible = false
 visibility_layer = 15
 anchors_preset = 15
@@ -349,12 +353,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 visible = false
 cull_mask = 0
 
-[node name="InteractRay" type="RayCast3D" parent="PlayerCam" index="2"]
+[node name="InteractRay" type="RayCast3D" parent="PlayerCam" index="3"]
 target_position = Vector3(0, 0, -2)
 collision_mask = 26
 script = ExtResource("5_wkhgt")
 
-[node name="Facing" type="RayCast3D" parent="PlayerCam" index="3"]
+[node name="Facing" type="RayCast3D" parent="PlayerCam" index="4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5)
 target_position = Vector3(0, 0, -1)
 
