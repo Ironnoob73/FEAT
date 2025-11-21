@@ -1,7 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://ivqad25m6mqq"]
+[gd_scene load_steps=8 format=3 uid="uid://ivqad25m6mqq"]
 
 [ext_resource type="Theme" uid="uid://bv3atmtrqii4a" path="res://Resources/Theme/computer_default_theme.tres" id="1_pb7l0"]
 [ext_resource type="Texture2D" uid="uid://cng3354m6puie" path="res://Resources/Image/UI/cursor.svg" id="2_e6lxs"]
+[ext_resource type="Texture2D" uid="uid://b1711on1np5tg" path="res://Resources/Image/Icon/files.svg" id="3_pqvda"]
+[ext_resource type="Texture2D" uid="uid://dvk5m314xmdrg" path="res://Resources/Image/Icon/network.svg" id="4_pqvda"]
+[ext_resource type="Texture2D" uid="uid://pfjefeuxsaq7" path="res://Resources/Image/Icon/settings.svg" id="5_pqvda"]
 
 [sub_resource type="Gradient" id="Gradient_e6lxs"]
 colors = PackedColorArray(0, 0, 1, 1, 0, 1, 1, 1)
@@ -15,7 +18,81 @@ fill_from = Vector2(0, 1)
 [node name="ComputerScreen" type="TextureRect"]
 offset_right = 720.0
 offset_bottom = 512.0
+theme = ExtResource("1_pb7l0")
 texture = SubResource("GradientTexture2D_03fal")
+
+[node name="Cursor" type="Sprite2D" parent="."]
+top_level = true
+texture = ExtResource("2_e6lxs")
+centered = false
+
+[node name="DesktopIcons" type="VFlowContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="FilesIcon" type="Button" parent="DesktopIcons"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+icon = ExtResource("3_pqvda")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="NameTag" type="Label" parent="DesktopIcons/FilesIcon"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -23.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Files"
+horizontal_alignment = 1
+
+[node name="NetworkIcon" type="Button" parent="DesktopIcons"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+icon = ExtResource("4_pqvda")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="NameTag" type="Label" parent="DesktopIcons/NetworkIcon"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -23.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Network"
+horizontal_alignment = 1
+
+[node name="Settings" type="Button" parent="DesktopIcons"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+icon = ExtResource("5_pqvda")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="NameTag" type="Label" parent="DesktopIcons/Settings"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -23.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Settings"
+horizontal_alignment = 1
 
 [node name="BottomTab" type="PanelContainer" parent="."]
 layout_mode = 1
@@ -23,12 +100,7 @@ anchors_preset = -1
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -32.0
+offset_top = -50.0
 grow_horizontal = 2
 grow_vertical = 0
-theme = ExtResource("1_pb7l0")
 theme_type_variation = &"BottomTab"
-
-[node name="Cursor" type="Sprite2D" parent="."]
-texture = ExtResource("2_e6lxs")
-centered = false

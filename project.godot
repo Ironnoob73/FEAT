@@ -66,6 +66,10 @@ folder_colors={
 "res://script_templates/": "orange"
 }
 
+[global_group]
+
+Switchable=""
+
 [importer_defaults]
 
 scene={

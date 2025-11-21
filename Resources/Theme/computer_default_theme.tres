@@ -15,3 +15,4 @@ texture = SubResource("GradientTexture2D_lown7")
 [resource]
 BottomTab/base_type = &"PanelContainer"
 BottomTab/styles/panel = SubResource("StyleBoxTexture_ynjm2")
+Label/colors/font_shadow_color = Color(0, 0, 0, 1)
