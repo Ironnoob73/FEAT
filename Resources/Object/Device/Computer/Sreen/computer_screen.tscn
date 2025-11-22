@@ -1,0 +1,168 @@
+[gd_scene load_steps=9 format=3 uid="uid://ivqad25m6mqq"]
+
+[ext_resource type="Theme" uid="uid://bv3atmtrqii4a" path="res://Resources/Theme/computer_default_theme.tres" id="1_hrvfu"]
+[ext_resource type="Script" uid="uid://cyg8uj7pa14ba" path="res://Resources/Object/Device/Computer/Sreen/computer_screen.gd" id="2_wjw8o"]
+[ext_resource type="Texture2D" uid="uid://cng3354m6puie" path="res://Resources/Image/UI/cursor.svg" id="3_6ra4b"]
+[ext_resource type="Texture2D" uid="uid://b1711on1np5tg" path="res://Resources/Image/Icon/files.svg" id="4_njps7"]
+[ext_resource type="Texture2D" uid="uid://dvk5m314xmdrg" path="res://Resources/Image/Icon/network.svg" id="5_b14wj"]
+[ext_resource type="Texture2D" uid="uid://pfjefeuxsaq7" path="res://Resources/Image/Icon/settings.svg" id="6_ypevc"]
+
+[sub_resource type="Gradient" id="Gradient_e6lxs"]
+colors = PackedColorArray(0, 0, 1, 1, 0, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_03fal"]
+gradient = SubResource("Gradient_e6lxs")
+width = 1080
+height = 768
+fill_from = Vector2(0, 1)
+
+[node name="ComputerScreen" type="TextureRect"]
+offset_right = 720.0
+offset_bottom = 512.0
+theme = ExtResource("1_hrvfu")
+texture = SubResource("GradientTexture2D_03fal")
+script = ExtResource("2_wjw8o")
+
+[node name="Cursor" type="Sprite2D" parent="."]
+top_level = true
+texture = ExtResource("3_6ra4b")
+centered = false
+
+[node name="DesktopIcons" type="VFlowContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="FilesIcon" type="Button" parent="DesktopIcons"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+icon = ExtResource("4_njps7")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="NameTag" type="Label" parent="DesktopIcons/FilesIcon"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -23.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Files"
+horizontal_alignment = 1
+
+[node name="NetworkIcon" type="Button" parent="DesktopIcons"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+icon = ExtResource("5_b14wj")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="NameTag" type="Label" parent="DesktopIcons/NetworkIcon"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -23.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Network"
+horizontal_alignment = 1
+
+[node name="Settings" type="Button" parent="DesktopIcons"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+icon = ExtResource("6_ypevc")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="NameTag" type="Label" parent="DesktopIcons/Settings"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -23.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Settings"
+horizontal_alignment = 1
+
+[node name="BottomTab" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -50.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_type_variation = &"BottomTab"
+
+[node name="HBox" type="HBoxContainer" parent="BottomTab"]
+layout_mode = 2
+
+[node name="Time" type="Label" parent="BottomTab/HBox"]
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 24
+text = "00:00 "
+vertical_alignment = 1
+
+[node name="Window" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -400.0
+offset_top = -256.0
+offset_right = 400.0
+offset_bottom = 256.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_type_variation = &"WindowBackground"
+
+[node name="VBox" type="VBoxContainer" parent="Window"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBox" type="HBoxContainer" parent="Window/VBox"]
+layout_mode = 2
+
+[node name="MinimizeButton" type="Button" parent="Window/VBox/HBox"]
+custom_minimum_size = Vector2(32, 0)
+layout_mode = 2
+size_flags_horizontal = 10
+text = "🗕"
+
+[node name="MaximizeButton" type="Button" parent="Window/VBox/HBox"]
+custom_minimum_size = Vector2(32, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+text = "🗖"
+
+[node name="CloseButton" type="Button" parent="Window/VBox/HBox"]
+custom_minimum_size = Vector2(32, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+theme_type_variation = &"ButtonRed"
+text = "🗙"
+
+[node name="WindowContainer" type="PanelContainer" parent="Window/VBox"]
+layout_mode = 2
+size_flags_vertical = 3

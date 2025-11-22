@@ -3,9 +3,9 @@
 [ext_resource type="Script" uid="uid://c8ier7k2ohfsp" path="res://addons/abyss_history_lib/Class/Interact/InteractiveClass.gd" id="1_ihl0y"]
 [ext_resource type="PackedScene" uid="uid://dd3e17to3riu" path="res://Resources/Object/Device/Computer/Computer.glb" id="2_6wpru"]
 [ext_resource type="Script" uid="uid://xi806lb1q3l3" path="res://addons/abyss_history_lib/Class/Interact/Behaviour/_BehaviorClass.gd" id="2_vgh4c"]
-[ext_resource type="PackedScene" uid="uid://ivqad25m6mqq" path="res://Resources/Object/Device/Computer/computer_screen.tscn" id="3_6wpru"]
+[ext_resource type="PackedScene" uid="uid://ivqad25m6mqq" path="res://Resources/Object/Device/Computer/Sreen/computer_screen.tscn" id="3_6wpru"]
 [ext_resource type="Script" uid="uid://by0ffhltuiu40" path="res://Resources/Object/Device/Computer/UseScreenBehavior.gd" id="3_us46h"]
-[ext_resource type="Script" uid="uid://kvblvqmmderc" path="res://Resources/Object/Device/Computer/ScreenFunc.gd" id="5_us46h"]
+[ext_resource type="Script" uid="uid://kvblvqmmderc" path="res://Resources/Object/Device/Computer/Sreen/ScreenInput.gd" id="5_us46h"]
 
 [sub_resource type="Resource" id="Resource_yosiq"]
 script = ExtResource("3_us46h")

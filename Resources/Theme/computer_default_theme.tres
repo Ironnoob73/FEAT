@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=4 format=3 uid="uid://bv3atmtrqii4a"]
+[gd_resource type="Theme" load_steps=12 format=3 uid="uid://bv3atmtrqii4a"]
 
 [sub_resource type="Gradient" id="Gradient_ynjm2"]
 offsets = PackedFloat32Array(0, 0.8, 1)
@@ -12,7 +12,122 @@ fill_to = Vector2(0, 0)
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ynjm2"]
 texture = SubResource("GradientTexture2D_lown7")
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_luw20"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0, 0.62352943, 0.8745098, 1)
+border_width_top = 16
+border_color = Color(0, 0.7490196, 1, 1)
+border_blend = true
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+shadow_color = Color(0, 0.7490196, 1, 0.6)
+shadow_size = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7mb6s"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0, 0.49803922, 0.7490196, 1)
+border_width_top = 16
+border_color = Color(0, 0.7490196, 1, 1)
+border_blend = true
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+shadow_color = Color(0, 0.7490196, 1, 0.6)
+shadow_size = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_35loj"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0, 0.24705882, 0.49803922, 1)
+border_width_top = 16
+border_color = Color(0, 0.49803922, 0.7490196, 1)
+border_blend = true
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+shadow_color = Color(0, 0.7490196, 1, 0.6)
+shadow_size = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_383e3"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.7490196, 0.24705882, 0.24705882, 1)
+border_width_top = 16
+border_color = Color(1, 0.24705882, 0.24705882, 1)
+border_blend = true
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+shadow_color = Color(1, 0.49803922, 0.49803922, 0.6)
+shadow_size = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ed2dv"]
+bg_color = Color(0.8745098, 0.8745098, 0.7490196, 1)
+border_color = Color(0, 0.24705882, 0.7490196, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e0cyg"]
+bg_color = Color(0.8745098, 0.8745098, 0.7490196, 1)
+border_color = Color(0, 0.24705882, 0.7490196, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ynjm2"]
+bg_color = Color(0, 0.24705882, 0.7490196, 1)
+border_width_top = 32
+border_color = Color(0, 0.49803922, 1, 1)
+border_blend = true
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0
+shadow_color = Color(0, 0, 0.49803922, 1)
+shadow_size = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lown7"]
+bg_color = Color(0, 0.20331232, 7.494118, 1)
+border_color = Color(0, 0.49803922, 1, 1)
+border_blend = true
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+
 [resource]
-BottomTab/base_type = &"PanelContainer"
+BottomTab/base_type = &"WindowTitle"
 BottomTab/styles/panel = SubResource("StyleBoxTexture_ynjm2")
+Button/font_sizes/font_size = 24
+Button/styles/hover = SubResource("StyleBoxFlat_luw20")
+Button/styles/normal = SubResource("StyleBoxFlat_7mb6s")
+Button/styles/pressed = SubResource("StyleBoxFlat_35loj")
+ButtonRed/base_type = &"Button"
+ButtonRed/styles/normal = SubResource("StyleBoxFlat_383e3")
 Label/colors/font_shadow_color = Color(0, 0, 0, 1)
+Panel/styles/panel = SubResource("StyleBoxFlat_ed2dv")
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_e0cyg")
+WindowBackground/base_type = &"Panel"
+WindowBackground/styles/panel = SubResource("StyleBoxFlat_ynjm2")
+WindowTitle/base_type = &"PanelContainer"
+WindowTitle/styles/panel = SubResource("StyleBoxFlat_lown7")

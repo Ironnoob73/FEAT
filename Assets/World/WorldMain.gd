@@ -3,6 +3,7 @@ extends Node3D
 @export var global_time: int = 0
 var day_percent: float = 0 
 @export var time_speed: int = 1
+@export var real_time: bool = true
 
 @onready var player0 = $Player
 #@onready var background = $FalordMap
@@ -41,10 +42,21 @@ func _physics_process(_delta: float) -> void:
 			Global.remove_meta("next_scene")
 		load_scene.call_deferred()
 		_ready()
-	global_time += time_speed
+	if !real_time:
+		global_time += time_speed
 	# Day Circle
 	# Time of a day : 129600
-	day_percent = (global_time - 32400) % 129600 / 129600.0
+	if !real_time:
+		day_percent = (global_time - 32400) % 129600 / 129600.0
+	else:
+		var time_dict: Dictionary = Time.get_time_dict_from_system()
+		var hour_convert: int = time_dict.get("hour") - 8
+		if hour_convert < 0:
+			hour_convert += 24
+		day_percent = (
+			hour_convert * 3600 + 
+			time_dict.get("minute") * 60 + 
+			time_dict.get("second")) / 86400.0
 		
 func _process(_delta: float) -> void:
 	var sunlight = day_percent * PI
