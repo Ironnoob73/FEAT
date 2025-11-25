@@ -1,10 +1,10 @@
 [gd_scene load_steps=6 format=3 uid="uid://c0hvltjdip61f"]
 
 [ext_resource type="Script" uid="uid://c0181dcofga70" path="res://Assets/World/WorldMain.gd" id="1_4lhai"]
-[ext_resource type="Environment" uid="uid://7cevbjkq6fto" path="res://Assets/World/Environments/WorldMainEnvironment_Old.tres" id="2_espus"]
+[ext_resource type="Environment" uid="uid://7cevbjkq6fto" path="res://Assets/World/Environments/FancyRealityEnv.tres" id="2_espus"]
 [ext_resource type="PackedScene" uid="uid://bjtidvrl0deer" path="res://Assets/Character/Local/LocalPlayer.tscn" id="3_oiwhx"]
 [ext_resource type="Resource" uid="uid://dnyk7pm4cqskj" path="res://Assets/Inventory/Player_inventory.tres" id="4_m5iry"]
-[ext_resource type="PackedScene" uid="uid://ryitjhnhr4hi" path="res://Assets/World/Location/_Reality/Apartment0/ScenePackage.tscn" id="5_espus"]
+[ext_resource type="PackedScene" uid="uid://ryitjhnhr4hi" path="res://Assets/World/Location/_Home/Reality/ScenePackage.tscn" id="5_espus"]
 
 [node name="World" type="Node3D"]
 script = ExtResource("1_4lhai")
@@ -35,7 +35,7 @@ directional_shadow_blend_splits = true
 sky_mode = 1
 
 [node name="Player" parent="." instance=ExtResource("3_oiwhx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -4.5, 0, 6.5)
 collision_mask = 143
 Inventory = ExtResource("4_m5iry")
 

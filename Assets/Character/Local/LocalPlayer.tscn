@@ -277,6 +277,7 @@ mesh = SubResource("BoxMesh_3t4w8")
 
 [node name="ThirdPerosnCam" type="Camera3D" parent="." index="1"]
 transform = Transform3D(1, 0, 0, 0, 0.7071068, 0.7071068, 0, -0.7071068, 0.7071068, 0, 100.9, 100)
+visible = false
 cull_mask = 47
 projection = 1
 current = true
@@ -502,6 +503,7 @@ visible = false
 
 [node name="Cursor" type="CSGMesh3D" parent="." index="18"]
 top_level = true
+visible = false
 layers = 6
 mesh = SubResource("BoxMesh_l3s1l")
 material = SubResource("ShaderMaterial_8o5kk")

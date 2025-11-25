@@ -50,6 +50,7 @@ file_logging/enable_file_logging=true
 
 window/size/viewport_width=1600
 window/size/viewport_height=900
+window/size/sharp_corners=true
 
 [editor_plugins]
 
@@ -263,6 +264,7 @@ jolt_physics_3d/simulation/areas_detect_static_bodies=true
 
 rendering_device/staging_buffer/texture_upload_region_size_px=32
 textures/canvas_textures/default_texture_filter=0
+textures/canvas_textures/default_texture_repeat=1
 textures/vram_compression/import_etc2_astc=true
 lights_and_shadows/directional_shadow/size=10200
 lights_and_shadows/directional_shadow/soft_shadow_filter_quality=5

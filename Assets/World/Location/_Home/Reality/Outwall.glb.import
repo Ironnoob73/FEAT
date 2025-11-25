@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://cqi0rbp5vmcr0"
-path="res://.godot/imported/Outwall.glb-31d74ad3437f94b8b0bcac861044d529.scn"
+path="res://.godot/imported/Outwall.glb-887d8ac9f9d89f61ab62b33317fd0da9.scn"
 
 [deps]
 
-source_file="res://Assets/World/Location/_Reality/Apartment0/Outwall.glb"
-dest_files=["res://.godot/imported/Outwall.glb-31d74ad3437f94b8b0bcac861044d529.scn"]
+source_file="res://Assets/World/Location/_Home/Reality/Outwall.glb"
+dest_files=["res://.godot/imported/Outwall.glb-887d8ac9f9d89f61ab62b33317fd0da9.scn"]
 
 [params]
 

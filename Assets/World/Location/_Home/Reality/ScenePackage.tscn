@@ -1,11 +1,11 @@
 [gd_scene load_steps=19 format=3 uid="uid://ryitjhnhr4hi"]
 
 [ext_resource type="Script" uid="uid://8h1wxcdqk41f" path="res://addons/abyss_history_lib/Class/World/ScenesPackageClass.gd" id="1_l8c88"]
-[ext_resource type="PackedScene" uid="uid://b5ra3ei6fag3h" path="res://Assets/World/Location/_Reality/Apartment0/Inner.glb" id="2_3tx6o"]
+[ext_resource type="PackedScene" uid="uid://b5ra3ei6fag3h" path="res://Assets/World/Location/_Home/Reality/Inner.glb" id="2_3tx6o"]
 [ext_resource type="PackedScene" uid="uid://l5crfk031an5" path="res://Resources/Object/Function/SceneChanger/scene_changer_scene.tscn" id="3_aw5aa"]
 [ext_resource type="PackedScene" uid="uid://lixd4xll3bl0" path="res://Resources/Object/Building/Window/StaticGlass/glass_scene.tscn" id="4_8i6mg"]
 [ext_resource type="PackedScene" uid="uid://c5nkwuac4jut0" path="res://Resources/Object/Building/Door/PlainDoor/frame_scene.tscn" id="5_ema15"]
-[ext_resource type="PackedScene" uid="uid://cqi0rbp5vmcr0" path="res://Assets/World/Location/_Reality/Apartment0/Outwall.glb" id="6_3tx6o"]
+[ext_resource type="PackedScene" uid="uid://cqi0rbp5vmcr0" path="res://Assets/World/Location/_Home/Reality/Outwall.glb" id="6_3tx6o"]
 [ext_resource type="PackedScene" uid="uid://ds1bb3oh6akpf" path="res://Resources/Object/Building/Door/PlainDoor/door_scene.tscn" id="6_aw5aa"]
 [ext_resource type="PackedScene" uid="uid://c88lp2cksihym" path="res://Resources/Object/Furniture/WoodenBed/bed_scene.tscn" id="7_8i6mg"]
 [ext_resource type="PackedScene" uid="uid://drxt0mv3ci5ed" path="res://Resources/Object/Furniture/WoodenChair/chair_scene.tscn" id="10_88u2w"]

@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://b5ra3ei6fag3h"
-path="res://.godot/imported/Inner.glb-9c684e46fdfccc0d073718e65c2ccec2.scn"
+path="res://.godot/imported/Inner.glb-55624ecf1bbf14e0294d77727793ce1e.scn"
 
 [deps]
 
-source_file="res://Assets/World/Location/_Reality/Apartment0/Inner.glb"
-dest_files=["res://.godot/imported/Inner.glb-9c684e46fdfccc0d073718e65c2ccec2.scn"]
+source_file="res://Assets/World/Location/_Home/Reality/Inner.glb"
+dest_files=["res://.godot/imported/Inner.glb-55624ecf1bbf14e0294d77727793ce1e.scn"]
 
 [params]
 

@@ -39,6 +39,8 @@ func _physics_process(_delta: float) -> void:
 		var load_scene = func():
 			SCENES_PACKAGE= Global.get_meta("next_scene").instantiate()
 			add_child(SCENES_PACKAGE)
+			if SCENES_PACKAGE.environment != null:
+				env.environment = SCENES_PACKAGE.environment
 			Global.remove_meta("next_scene")
 		load_scene.call_deferred()
 		_ready()

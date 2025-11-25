@@ -54,9 +54,12 @@ func _on_exit_button_pressed():
 	animation.play("Exit")
 func _on_confirm_button_pressed():
 	hide()
-	if !get_parent().isInDream :	Global.back_to_title()
+	if !get_parent().isInDream :
+		Global.back_to_title()
 	else :
-		AHL_LoadManager.load_scene(Global.get_world_path(Global.VRDim),Global.VRPos,Global.VRRot)
+		AHL_LoadManager.load_scene("res://Assets/World/WorldMain.tscn",
+			true, Vector3(-5.5,0,5.5), true, Vector3(0,deg_to_rad(180),0))
+		get_parent().isInDream = false
 func _on_cancel_button_pressed():
 	if Global.current_menu == "Exit":
 		Global.current_menu = "Pause"

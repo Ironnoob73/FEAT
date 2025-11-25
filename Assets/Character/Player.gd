@@ -45,7 +45,6 @@ var att_sec : bool = false
 var att_order : bool = false
 
 func _ready():
-	
 	if !Inventory:
 		Inventory = CInventoryClass.new()
 		Inventory.ItemHotbar.append_array([null,null,null,null,null])

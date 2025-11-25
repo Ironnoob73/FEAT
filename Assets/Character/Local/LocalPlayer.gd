@@ -65,7 +65,7 @@ func _ready():
 	inventory_menu.hide()
 	inventory_menu.init()
 
-	tird_person_setup(true,false)
+	tird_person_setup(false,false)
 	switch_perspectives()
 
 func _input(event):

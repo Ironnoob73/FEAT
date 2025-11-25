@@ -4,6 +4,7 @@ extends Node3D
 @export var chunks : Array[AHL_ChunkPath]
 @export var rooms : Array[AHL_RoomInstance]
 @export var background : Texture2D
+@export var environment : Environment
 
 var room_scenes : Dictionary = {}
 

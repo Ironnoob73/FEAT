@@ -21,6 +21,7 @@ func do(interactor:Node,sender:Node) -> void:
 		sender.hide_hud(true)
 		if can_sleep:
 			tween.tween_callback(func():sleeping_count.show())
+			tween.tween_property(sleeping_count, "modulate:a", 1, 0)
 			tween.set_parallel().tween_property(sender.transition, "color:a", 1, 3).set_trans(Tween.TRANS_LINEAR)
 			tween.tween_callback(func():sleeping_count.text = "💤3")
 			tween.tween_callback(func():sleeping_count.text = "3").set_delay(0.5)
@@ -28,7 +29,14 @@ func do(interactor:Node,sender:Node) -> void:
 			tween.tween_callback(func():sleeping_count.text = "2").set_delay(1.5)
 			tween.tween_callback(func():sleeping_count.text = "💤1").set_delay(2)
 			tween.tween_callback(func():sleeping_count.text = "1").set_delay(2.5)
-		
+			tween.tween_callback(func():sleeping_count.text = "💤0").set_delay(3)
+			tween.tween_property(sleeping_count, "modulate:a", 0, 0.25).set_delay(3)
+			tween.tween_callback(func():
+				AHL_LoadManager.load_scene(LocationPreload.get_path_from_name("DreamApartment"),
+					true, Vector3(0,0,8), true, Vector3(0,deg_to_rad(180),0), false)
+				sender.disconnect("on_menu_change",interactor.get_meta("meta_getup_func"))
+				sender.isInDream = true
+					).set_delay(3.25)
 		# Get up
 		var getup_func : Callable = func():
 			tween.kill()
