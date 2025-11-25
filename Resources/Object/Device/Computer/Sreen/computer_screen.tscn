@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://ivqad25m6mqq"]
+[gd_scene load_steps=13 format=3 uid="uid://ivqad25m6mqq"]
 
 [ext_resource type="Theme" uid="uid://bv3atmtrqii4a" path="res://Resources/Theme/computer_default_theme.tres" id="1_hrvfu"]
 [ext_resource type="Script" uid="uid://cyg8uj7pa14ba" path="res://Resources/Object/Device/Computer/Sreen/computer_screen.gd" id="2_wjw8o"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://b1711on1np5tg" path="res://Resources/Image/Icon/files.svg" id="4_njps7"]
 [ext_resource type="Texture2D" uid="uid://dvk5m314xmdrg" path="res://Resources/Image/Icon/network.svg" id="5_b14wj"]
 [ext_resource type="Texture2D" uid="uid://pfjefeuxsaq7" path="res://Resources/Image/Icon/settings.svg" id="6_ypevc"]
+[ext_resource type="Shader" uid="uid://hnsab2jm617a" path="res://Resources/Shader/TwoDim/invert.gdshader" id="7_wjw8o"]
 
 [sub_resource type="Gradient" id="Gradient_e6lxs"]
 colors = PackedColorArray(0, 0, 1, 1, 0, 1, 1, 1)
@@ -15,6 +16,23 @@ gradient = SubResource("Gradient_e6lxs")
 width = 1080
 height = 768
 fill_from = Vector2(0, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6ra4b"]
+shader = ExtResource("7_wjw8o")
+
+[sub_resource type="Gradient" id="Gradient_hrvfu"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.75)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_wjw8o"]
+gradient = SubResource("Gradient_hrvfu")
+width = 50
+height = 50
+fill = 2
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 1)
+repeat = 1
 
 [node name="ComputerScreen" type="TextureRect"]
 offset_right = 720.0
@@ -110,59 +128,29 @@ theme_type_variation = &"BottomTab"
 [node name="HBox" type="HBoxContainer" parent="BottomTab"]
 layout_mode = 2
 
+[node name="StartButton" type="Button" parent="BottomTab/HBox"]
+layout_mode = 2
+theme_type_variation = &"StartButton"
+text = "💠"
+
 [node name="Time" type="Label" parent="BottomTab/HBox"]
 layout_mode = 2
 size_flags_horizontal = 10
 size_flags_vertical = 1
-theme_override_font_sizes/font_size = 24
+theme_type_variation = &"LargerLabel"
 text = "00:00 "
 vertical_alignment = 1
 
-[node name="Window" type="Panel" parent="."]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -400.0
-offset_top = -256.0
-offset_right = 400.0
-offset_bottom = 256.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_type_variation = &"WindowBackground"
+[node name="WindowFrameAnim" type="NinePatchRect" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_6ra4b")
+layout_mode = 0
+offset_right = 50.0
+offset_bottom = 50.0
+texture = SubResource("GradientTexture2D_wjw8o")
+patch_margin_left = 25
+patch_margin_top = 25
+patch_margin_right = 25
+patch_margin_bottom = 25
 
-[node name="VBox" type="VBoxContainer" parent="Window"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="HBox" type="HBoxContainer" parent="Window/VBox"]
-layout_mode = 2
-
-[node name="MinimizeButton" type="Button" parent="Window/VBox/HBox"]
-custom_minimum_size = Vector2(32, 0)
-layout_mode = 2
-size_flags_horizontal = 10
-text = "🗕"
-
-[node name="MaximizeButton" type="Button" parent="Window/VBox/HBox"]
-custom_minimum_size = Vector2(32, 0)
-layout_mode = 2
-size_flags_horizontal = 8
-text = "🗖"
-
-[node name="CloseButton" type="Button" parent="Window/VBox/HBox"]
-custom_minimum_size = Vector2(32, 0)
-layout_mode = 2
-size_flags_horizontal = 8
-theme_type_variation = &"ButtonRed"
-text = "🗙"
-
-[node name="WindowContainer" type="PanelContainer" parent="Window/VBox"]
-layout_mode = 2
-size_flags_vertical = 3
+[connection signal="pressed" from="DesktopIcons/FilesIcon" to="." method="_on_files_icon_pressed"]

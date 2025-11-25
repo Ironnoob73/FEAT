@@ -1,0 +1,66 @@
+[gd_scene load_steps=3 format=3 uid="uid://3lvf15nrn1iy"]
+
+[ext_resource type="Script" uid="uid://d0n5pkcl6t4uc" path="res://Resources/Object/Device/Computer/Sreen/window.gd" id="1_5c3pm"]
+[ext_resource type="Texture2D" uid="uid://b1711on1np5tg" path="res://Resources/Image/Icon/files.svg" id="1_ta228"]
+
+[node name="Window" type="Panel"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -400.0
+offset_top = -256.0
+offset_right = 400.0
+offset_bottom = 256.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_type_variation = &"WindowBackground"
+script = ExtResource("1_5c3pm")
+
+[node name="VBox" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBox" type="HBoxContainer" parent="VBox"]
+layout_mode = 2
+
+[node name="Icon" type="TextureRect" parent="VBox/HBox"]
+layout_mode = 2
+texture = ExtResource("1_ta228")
+expand_mode = 3
+
+[node name="Title" type="Label" parent="VBox/HBox"]
+layout_mode = 2
+theme_type_variation = &"LargerLabel"
+text = "Title"
+
+[node name="MinimizeButton" type="Button" parent="VBox/HBox"]
+custom_minimum_size = Vector2(32, 0)
+layout_mode = 2
+size_flags_horizontal = 10
+text = "🗕"
+
+[node name="MaximizeButton" type="Button" parent="VBox/HBox"]
+custom_minimum_size = Vector2(32, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+text = "🗖"
+
+[node name="CloseButton" type="Button" parent="VBox/HBox"]
+custom_minimum_size = Vector2(32, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+theme_type_variation = &"ButtonRed"
+text = "🗙"
+
+[node name="WindowContainer" type="PanelContainer" parent="VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[connection signal="gui_input" from="VBox/HBox" to="." method="_on_title_gui_input"]
+[connection signal="pressed" from="VBox/HBox/CloseButton" to="." method="_on_close_button_pressed"]
