@@ -65,3 +65,13 @@ msgstr "躺下"
 
 msgid "interact.sleep"
 msgstr "睡觉"
+
+####----------Icon----------####
+msgid "icon.files"
+msgstr "文件"
+
+msgid "icon.network"
+msgstr "网络"
+
+msgid "icon.settings"
+msgstr "设置"

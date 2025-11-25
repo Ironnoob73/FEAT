@@ -71,7 +71,7 @@ anchor_bottom = 1.0
 offset_top = -23.0
 grow_horizontal = 2
 grow_vertical = 0
-text = "Files"
+text = "icon.files"
 horizontal_alignment = 1
 
 [node name="NetworkIcon" type="Button" parent="DesktopIcons"]
@@ -91,7 +91,7 @@ anchor_bottom = 1.0
 offset_top = -23.0
 grow_horizontal = 2
 grow_vertical = 0
-text = "Network"
+text = "icon.network"
 horizontal_alignment = 1
 
 [node name="Settings" type="Button" parent="DesktopIcons"]
@@ -111,7 +111,7 @@ anchor_bottom = 1.0
 offset_top = -23.0
 grow_horizontal = 2
 grow_vertical = 0
-text = "Settings"
+text = "icon.settings"
 horizontal_alignment = 1
 
 [node name="BottomTab" type="PanelContainer" parent="."]

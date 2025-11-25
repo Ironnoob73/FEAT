@@ -2,6 +2,9 @@ extends Panel
 
 ## @tutorial(From): https://github.com/popcar2/GodotOS/blob/main/Scenes/Window/window.gd
 
+@onready var icon: TextureRect = $VBox/HBox/Icon
+@onready var title: Label = $VBox/HBox/Title
+
 var is_dragging: bool
 var start_drag_position: Vector2
 var mouse_start_drag_position: Vector2

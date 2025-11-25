@@ -66,3 +66,13 @@ msgstr "Lie down"
 
 msgid "interact.sleep"
 msgstr "Sleep"
+
+####----------Icon----------####
+msgid "icon.files"
+msgstr "Files"
+
+msgid "icon.network"
+msgstr "Network"
+
+msgid "icon.settings"
+msgstr "Settings"

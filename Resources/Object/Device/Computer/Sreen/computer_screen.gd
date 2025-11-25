@@ -3,6 +3,7 @@ extends TextureRect
 @onready var time_label: Label = $BottomTab/HBox/Time
 
 @onready var files_icon: Button = $DesktopIcons/FilesIcon
+@onready var files_icon_name: Label = $DesktopIcons/FilesIcon/NameTag
 
 @onready var window_class = preload("res://Resources/Object/Device/Computer/Sreen/window.tscn")
 @onready var window_frame_anim: NinePatchRect = $WindowFrameAnim
@@ -19,6 +20,8 @@ func _on_files_icon_pressed() -> void:
 	var window = window_class.instantiate()
 	window.hide()
 	add_child(window)
+	window.icon.texture = files_icon.icon
+	window.title.text = files_icon_name.text
 	var tween = create_tween()
 	tween.tween_property(window_frame_anim,"size",window.size,0.25)
 	tween.set_parallel().tween_property(window_frame_anim,"position",window.position,0.25)

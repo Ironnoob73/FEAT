@@ -75,6 +75,7 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -2, 0,
 occlusion = "none"
 
 [node name="DoorPlate" parent="FrameScene3" instance=ExtResource("6_aw5aa")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0, 0)
 
 [node name="Outwall0" parent="." instance=ExtResource("6_3tx6o")]
 

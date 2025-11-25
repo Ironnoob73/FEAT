@@ -49,4 +49,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.5)
 material_override = ExtResource("3_2qlw0")
 mesh = ExtResource("6_s784u")
 
+[node name="SleepingCount" type="Label" parent="."]
+visible = false
+custom_minimum_size = Vector2(100, 0)
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 50
+text = "💤3"
+horizontal_alignment = 2
+
 [editable path="Body/WoodenBed"]

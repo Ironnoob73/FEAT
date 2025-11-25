@@ -6,6 +6,7 @@ class_name LiedownBehavior
 func do(interactor:Node,sender:Node) -> void:
 	if sender is LocalPlayer:
 		# Can't sleep when in dream world.
+		var sleeping_count: Label = interactor.get_node("SleepingCount")
 		if sender.isInDream:
 			can_sleep = false
 		var use_time : int = 3 if can_sleep else 1
@@ -19,11 +20,19 @@ func do(interactor:Node,sender:Node) -> void:
 		tween.parallel().tween_property(sender, "rotation:x", deg_to_rad(90), use_time)
 		sender.hide_hud(true)
 		if can_sleep:
-			tween.tween_property(sender.transition, "color:a", 1, 3).set_trans(Tween.TRANS_LINEAR)
+			tween.tween_callback(func():sleeping_count.show())
+			tween.set_parallel().tween_property(sender.transition, "color:a", 1, 3).set_trans(Tween.TRANS_LINEAR)
+			tween.tween_callback(func():sleeping_count.text = "💤3")
+			tween.tween_callback(func():sleeping_count.text = "3").set_delay(0.5)
+			tween.tween_callback(func():sleeping_count.text = "💤2").set_delay(1)
+			tween.tween_callback(func():sleeping_count.text = "2").set_delay(1.5)
+			tween.tween_callback(func():sleeping_count.text = "💤1").set_delay(2)
+			tween.tween_callback(func():sleeping_count.text = "1").set_delay(2.5)
 		
 		# Get up
 		var getup_func : Callable = func():
 			tween.kill()
+			sleeping_count.hide()
 			sender.hide_hud(false)
 			if can_sleep:
 				var esc_tween = interactor.create_tween()
