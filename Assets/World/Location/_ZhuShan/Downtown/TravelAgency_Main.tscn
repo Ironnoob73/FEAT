@@ -16,7 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://coan3h6n6wobt" path="res://Resources/Object/Building/Light/FluorescentLamp/light_scene.tscn" id="13_vw08j"]
 [ext_resource type="Script" uid="uid://bcmxxhlef12pk" path="res://addons/abyss_history_lib/Class/Interact/Behaviour/SwitchBehaviorClass.gd" id="14_nom32"]
 [ext_resource type="PackedScene" uid="uid://bgelaund2s486" path="res://Resources/Object/Building/Window/CasementWindow/window_scene.tscn" id="18_3sxdb"]
-[ext_resource type="PackedScene" uid="uid://dgamoawgoj1oe" path="res://Resources/Object/Building/Window/SlidingWindow/window_scene.tscn" id="19_21xvc"]
+[ext_resource type="PackedScene" uid="uid://dgamoawgoj1oe" path="res://Resources/Object/Building/Window/SlidingWindow/Wooden/window_scene.tscn" id="19_21xvc"]
 [ext_resource type="PackedScene" uid="uid://wj4b36ji8ir2" path="res://Resources/Object/Building/Plates/BlueMetalPlate1x10.tscn" id="20_m78al"]
 [ext_resource type="PackedScene" uid="uid://be4fl50meaf7a" path="res://Resources/Object/Building/Plates/BlueMetalPlate10x10.tscn" id="21_0yl2k"]
 [ext_resource type="PackedScene" uid="uid://d08sy213gr0cf" path="res://Resources/Object/Building/Plates/BlueMetalPlate1x5.tscn" id="22_lijkt"]
@@ -95,12 +95,10 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 3.5, 0
 [node name="WoodenChairScene1" parent="LV0" instance=ExtResource("11_uvgp4")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 3.5, 0, 3.5)
 state = true
-killed_behavior = Array[ExtResource("13_8evp1")]([])
 
 [node name="WoodenChairScene2" parent="LV0" instance=ExtResource("11_uvgp4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 0, 1.5)
 state = true
-killed_behavior = Array[ExtResource("13_8evp1")]([])
 
 [node name="SwitchScene" parent="LV0" instance=ExtResource("12_53pvo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 1.5, 0)

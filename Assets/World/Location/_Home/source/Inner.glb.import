@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cqi0rbp5vmcr0"
-path="res://.godot/imported/Outwall.glb-887d8ac9f9d89f61ab62b33317fd0da9.scn"
+uid="uid://b5ra3ei6fag3h"
+path="res://.godot/imported/Inner.glb-c19cb99f93317fea9040597689409f4b.scn"
 
 [deps]
 
-source_file="res://Assets/World/Location/_Home/Reality/Outwall.glb"
-dest_files=["res://.godot/imported/Outwall.glb-887d8ac9f9d89f61ab62b33317fd0da9.scn"]
+source_file="res://Assets/World/Location/_Home/source/Inner.glb"
+dest_files=["res://.godot/imported/Inner.glb-c19cb99f93317fea9040597689409f4b.scn"]
 
 [params]
 
@@ -38,5 +38,5 @@ materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
 _subresources={}
-gltf/naming_version=2
+gltf/naming_version=1
 gltf/embedded_image_handling=0

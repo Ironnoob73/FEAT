@@ -1,15 +1,14 @@
-[gd_scene load_steps=15 format=3 uid="uid://dgamoawgoj1oe"]
+[gd_scene load_steps=14 format=3 uid="uid://dfmtp3c8wtlii"]
 
-[ext_resource type="ArrayMesh" uid="uid://cr666vlwdrkv4" path="res://Resources/Object/Building/Window/SlidingWindow/SlidingWindowFrame.obj" id="1_dgoto"]
-[ext_resource type="Script" uid="uid://cp3i1mvdjv4k8" path="res://Resources/Object/Building/OcclusionSetup.gd" id="1_toife"]
-[ext_resource type="Material" uid="uid://bi2qrop8jfbsf" path="res://Resources/Material/Tree.tres" id="1_v1nl8"]
-[ext_resource type="ArrayMesh" uid="uid://mql4jc5dsg7" path="res://Resources/Object/Building/Window/SlidingWindow/SlidingWindow.obj" id="2_8xc2f"]
-[ext_resource type="Script" uid="uid://1e151u0twqch" path="res://Resources/Object/Building/Window/SlidingWindow/WindowInteraction.gd" id="3_pja0v"]
-[ext_resource type="Material" uid="uid://do55163v32q4u" path="res://Resources/Material/Wood.tres" id="4_7ppsy"]
-[ext_resource type="Script" uid="uid://c8ier7k2ohfsp" path="res://addons/abyss_history_lib/Class/Interact/InteractiveClass.gd" id="4_pforl"]
-[ext_resource type="Material" uid="uid://d2kh2k5stcerf" path="res://Resources/Material/Glass.tres" id="6_kxcot"]
-[ext_resource type="Material" uid="uid://rnxv6hl1w5ul" path="res://Resources/Material/DarkMaterial.tres" id="8_kmcuh"]
-[ext_resource type="Material" uid="uid://cimr26thbt57t" path="res://Resources/Material/WhiteNoshadow.tres" id="9_7t05y"]
+[ext_resource type="Script" uid="uid://cp3i1mvdjv4k8" path="res://Resources/Object/Building/OcclusionSetup.gd" id="1_rtj1e"]
+[ext_resource type="ArrayMesh" uid="uid://cr666vlwdrkv4" path="res://Resources/Object/Building/Window/SlidingWindow/SlidingWindowFrame.obj" id="3_bm2hi"]
+[ext_resource type="Script" uid="uid://c8ier7k2ohfsp" path="res://addons/abyss_history_lib/Class/Interact/InteractiveClass.gd" id="4_hung4"]
+[ext_resource type="Script" uid="uid://1e151u0twqch" path="res://Resources/Object/Building/Window/SlidingWindow/WindowInteraction.gd" id="5_32h3m"]
+[ext_resource type="Material" uid="uid://b860lbxbd3ed6" path="res://Resources/Material/GrayMaterial.tres" id="6_id1i0"]
+[ext_resource type="ArrayMesh" uid="uid://bxo4ui4c2kvdn" path="res://Resources/Object/Building/Window/SlidingWindow/Metal/SlidingWindow.obj" id="7_rtj1e"]
+[ext_resource type="Material" uid="uid://d2kh2k5stcerf" path="res://Resources/Material/Glass.tres" id="8_gwimj"]
+[ext_resource type="Material" uid="uid://rnxv6hl1w5ul" path="res://Resources/Material/DarkMaterial.tres" id="9_l8uo2"]
+[ext_resource type="Material" uid="uid://cimr26thbt57t" path="res://Resources/Material/WhiteNoshadow.tres" id="10_bee3v"]
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_1wjhv"]
 data = PackedVector3Array(-1.5, 2, -0.1, 1.5, 2, -0.1, -1.5, 2, 0.1, -1.5, 2, 0.1, 1.5, 2, -0.1, 1.5, 2, 0.1, 1.4, 0.1, 0.1, 1.4, 0.1, -0.1, 1.4, 1.9, 0.1, 1.4, 1.9, 0.1, 1.4, 0.1, -0.1, 1.4, 1.9, -0.1, -1.5, 2, 0.1, -1.5, 0, 0.1, -1.5, 2, -0.1, -1.5, 2, -0.1, -1.5, 0, 0.1, -1.5, 0, -0.1, 1.5, 0, -0.1, -1.5, 0, -0.1, 1.5, 0, 0.1, 1.5, 0, 0.1, -1.5, 0, -0.1, -1.5, 0, 0.1, 1.5, 2, -0.1, 1.5, 0, -0.1, 1.5, 2, 0.1, 1.5, 2, 0.1, 1.5, 0, -0.1, 1.5, 0, 0.1, -1.4, 0.1, -0.1, 1.4, 0.1, -0.1, -1.4, 0.1, 0.1, -1.4, 0.1, 0.1, 1.4, 0.1, -0.1, 1.4, 0.1, 0.1, 1.4, 0.1, -0.1, -1.4, 0.1, -0.1, 1.5, 0, -0.1, 1.5, 0, -0.1, -1.4, 0.1, -0.1, -1.5, 0, -0.1, 1.4, 1.9, -0.1, 1.4, 0.1, -0.1, 1.5, 2, -0.1, 1.5, 2, -0.1, 1.4, 0.1, -0.1, 1.5, 0, -0.1, -1.4, 1.9, 0.1, -1.4, 0.1, 0.1, -1.5, 2, 0.1, -1.5, 2, 0.1, -1.4, 0.1, 0.1, -1.5, 0, 0.1, 1.4, 0.1, 0.1, 1.4, 1.9, 0.1, 1.5, 0, 0.1, 1.5, 0, 0.1, 1.4, 1.9, 0.1, 1.5, 2, 0.1, -1.4, 0.1, -0.1, -1.4, 1.9, -0.1, -1.5, 0, -0.1, -1.5, 0, -0.1, -1.4, 1.9, -0.1, -1.5, 2, -0.1, 1.4, 1.9, 0.1, -1.4, 1.9, 0.1, 1.5, 2, 0.1, 1.5, 2, 0.1, -1.4, 1.9, 0.1, -1.5, 2, 0.1, -1.4, 0.1, 0.1, 1.4, 0.1, 0.1, -1.5, 0, 0.1, -1.5, 0, 0.1, 1.4, 0.1, 0.1, 1.5, 0, 0.1, -1.4, 1.9, -0.1, 1.4, 1.9, -0.1, -1.5, 2, -0.1, -1.5, 2, -0.1, 1.4, 1.9, -0.1, 1.5, 2, -0.1, -1.4, 1.9, 0.1, 1.4, 1.9, 0.1, -1.4, 1.9, -0.1, -1.4, 1.9, -0.1, 1.4, 1.9, 0.1, 1.4, 1.9, -0.1, -1.4, 0.1, -0.1, -1.4, 0.1, 0.1, -1.4, 1.9, -0.1, -1.4, 1.9, -0.1, -1.4, 0.1, 0.1, -1.4, 1.9, 0.1)
@@ -25,17 +24,17 @@ size = Vector2(2.8, 1.8)
 
 [node name="SlidingWindowScene" type="StaticBody3D"]
 collision_layer = 3
-script = ExtResource("1_toife")
+script = ExtResource("1_rtj1e")
 
 [node name="Frame" type="MeshInstance3D" parent="."]
-material_override = ExtResource("1_v1nl8")
-mesh = ExtResource("1_dgoto")
+material_override = ExtResource("9_l8uo2")
+mesh = ExtResource("3_bm2hi")
 
 [node name="CollisionShape" type="CollisionShape3D" parent="."]
 shape = SubResource("ConcavePolygonShape3D_1wjhv")
 
 [node name="LeftInteractive" type="Node3D" parent="."]
-script = ExtResource("4_pforl")
+script = ExtResource("4_hung4")
 DisplayName = "Left Wooden Sliding Window"
 Interactable = true
 interact_text = "interact.open"
@@ -45,11 +44,11 @@ metadata/_custom_type_script = "uid://c8ier7k2ohfsp"
 
 [node name="LeftWindow" type="AnimatableBody3D" parent="LeftInteractive"]
 collision_layer = 9
-script = ExtResource("3_pja0v")
+script = ExtResource("5_32h3m")
 
 [node name="SlidingWindow" type="MeshInstance3D" parent="LeftInteractive/LeftWindow"]
-material_override = ExtResource("4_7ppsy")
-mesh = ExtResource("2_8xc2f")
+material_override = ExtResource("6_id1i0")
+mesh = ExtResource("7_rtj1e")
 skeleton = NodePath("../../..")
 
 [node name="CollisionShape" type="CollisionShape3D" parent="LeftInteractive/LeftWindow"]
@@ -58,11 +57,11 @@ shape = SubResource("BoxShape3D_iodqi")
 
 [node name="Glass" type="MeshInstance3D" parent="LeftInteractive/LeftWindow"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.7, 1, 0.05)
-material_override = ExtResource("6_kxcot")
+material_override = ExtResource("8_gwimj")
 mesh = SubResource("BoxMesh_vnwig")
 
 [node name="RightInteractive" type="Node3D" parent="."]
-script = ExtResource("4_pforl")
+script = ExtResource("4_hung4")
 DisplayName = "Right Wooden Sliding Window"
 Interactable = true
 interact_text = "interact.open"
@@ -72,12 +71,12 @@ metadata/_custom_type_script = "uid://c8ier7k2ohfsp"
 
 [node name="RightWindow" type="AnimatableBody3D" parent="RightInteractive"]
 collision_layer = 9
-script = ExtResource("3_pja0v")
+script = ExtResource("5_32h3m")
 
 [node name="SlidingWindow" type="MeshInstance3D" parent="RightInteractive/RightWindow"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4, 0, -0.1)
-material_override = ExtResource("4_7ppsy")
-mesh = ExtResource("2_8xc2f")
+material_override = ExtResource("6_id1i0")
+mesh = ExtResource("7_rtj1e")
 skeleton = NodePath("../../..")
 
 [node name="CollisionShape" type="CollisionShape3D" parent="RightInteractive/RightWindow"]
@@ -86,18 +85,18 @@ shape = SubResource("BoxShape3D_iodqi")
 
 [node name="Glass" type="MeshInstance3D" parent="RightInteractive/RightWindow"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7, 1, -0.05)
-material_override = ExtResource("6_kxcot")
+material_override = ExtResource("8_gwimj")
 mesh = SubResource("BoxMesh_vnwig")
 
 [node name="Occlusion" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -0.1)
-material_override = ExtResource("8_kmcuh")
+material_override = ExtResource("9_l8uo2")
 mesh = SubResource("QuadMesh_7ri7e")
 
 [node name="Occlusion_light" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -0.1)
 visible = false
-material_override = ExtResource("9_7t05y")
+material_override = ExtResource("10_bee3v")
 mesh = SubResource("QuadMesh_7ri7e")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Occlusion_light"]

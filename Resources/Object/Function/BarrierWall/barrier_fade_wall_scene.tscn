@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://cn0vdsnev3254"]
+
+[ext_resource type="PackedScene" uid="uid://bn7io11r2qhyi" path="res://Resources/Object/Function/BarrierWall/barrier_wall_scene.tscn" id="1_0tuj7"]
+[ext_resource type="Script" uid="uid://b3131mk2qi23j" path="res://barrier_fade.gd" id="2_dwst4"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_0tuj7"]
+height = 7.0
+radius = 2.0
+
+[node name="Barrier" instance=ExtResource("1_0tuj7")]
+script = ExtResource("2_dwst4")
+
+[node name="Area3D" type="Area3D" parent="." index="2"]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+shape = SubResource("CylinderShape3D_0tuj7")
+
+[node name="Marker3D" type="Marker3D" parent="." index="3"]
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]

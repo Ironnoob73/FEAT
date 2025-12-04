@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://ds1bb3oh6akpf" path="res://Resources/Object/Building/Door/PlainDoor/door_scene.tscn" id="3_0g6xs"]
 [ext_resource type="PackedScene" uid="uid://bgelaund2s486" path="res://Resources/Object/Building/Window/CasementWindow/window_scene.tscn" id="4_idiah"]
 [ext_resource type="Script" uid="uid://xi806lb1q3l3" path="res://addons/abyss_history_lib/Class/Interact/Behaviour/_BehaviorClass.gd" id="4_le32w"]
-[ext_resource type="PackedScene" uid="uid://dgamoawgoj1oe" path="res://Resources/Object/Building/Window/SlidingWindow/window_scene.tscn" id="5_coceq"]
+[ext_resource type="PackedScene" uid="uid://dgamoawgoj1oe" path="res://Resources/Object/Building/Window/SlidingWindow/Wooden/window_scene.tscn" id="5_coceq"]
 [ext_resource type="PackedScene" uid="uid://ogtwuy5brc0t" path="res://Resources/Object/Building/Switch/Common/switch_scene.tscn" id="6_4jyuc"]
 [ext_resource type="PackedScene" uid="uid://coan3h6n6wobt" path="res://Resources/Object/Building/Light/FluorescentLamp/light_scene.tscn" id="7_0twap"]
 [ext_resource type="Script" uid="uid://bcmxxhlef12pk" path="res://addons/abyss_history_lib/Class/Interact/Behaviour/SwitchBehaviorClass.gd" id="8_mxyjl"]

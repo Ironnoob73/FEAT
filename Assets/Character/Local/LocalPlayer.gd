@@ -64,9 +64,15 @@ func _ready():
 	pause_menu.hide()
 	inventory_menu.hide()
 	inventory_menu.init()
+	if !get_meta("FullReady",true):
+		HUD_hotbar.hide()
+		$HudStatesBar.hide()
 
 	tird_person_setup(false,false)
 	switch_perspectives()
+	
+	# Side process
+	_snap_down_to_stairs_check()
 
 func _input(event):
 	# Perspective
@@ -191,6 +197,7 @@ func _unhandled_input(_event):
 		switch_perspectives()
 
 ## 下楼梯检测。
+## 暂时不使其起作用了
 ## From : https://github.com/majikayogames/godot-character-controller-stairs/blob/main/entities/Player/Player.gd
 func _snap_down_to_stairs_check() -> void:
 	var did_snap: bool = false
@@ -210,6 +217,11 @@ func _snap_down_to_stairs_check() -> void:
 			did_snap = true
 
 	_snapped_to_stairs_last_frame = did_snap
+	
+	#if self.is_physics_processing():
+	#	print("check")
+	#	await get_tree().create_timer(0.1,false,true,false).timeout
+	#	_snap_down_to_stairs_check()
 
 ## 将其他物体推开。
 ## From : https://github.com/majikayogames/SimpleFPSController/blob/main/FPSController/FPSController.gd
@@ -335,7 +347,7 @@ func _physics_process(delta):
 		_push_away_rigid_bodies()
 		if !isSit && !isInTeleport:
 			move_and_slide()
-		_snap_down_to_stairs_check()
+		#_snap_down_to_stairs_check()
 
 	#Scroll hotbar
 	Global.p_elem_debug("# SCROLL #")
@@ -507,7 +519,17 @@ func clear_caption():
 # HUD Hidden
 func hide_hud(do_hide:bool):
 	hud_hidden = do_hide
-	HUD_hider.play("HideHUD", -1, 1 if do_hide else -1, !do_hide)
+	# 不希望在游戏刚开始时就显示血量
+	var state_hud_hide : bool = false
+	if !self.get_meta("FullReady",true):
+		state_hud_hide = true
+	else:
+		state_hud_hide = do_hide
+	HUD_hider.play("HideHUD", -1, 1 if state_hud_hide else -1, !state_hud_hide)
+	
+	var tween = create_tween()
+	tween.tween_property($CrossHair, "modulate",
+		Color(1,1,1,0) if do_hide else Color(1,1,1,1), 0.1)
 
 func mouse_mode(isVisible:bool)->void:
 	if !isThirdPerson :
