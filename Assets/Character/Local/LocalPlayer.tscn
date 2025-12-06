@@ -23,7 +23,7 @@
 radius = 0.4
 height = 1.8
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_6j1wo"]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_wkhgt"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_wkhgt"]
 size = Vector3(0.25, 0.25, 1)
@@ -235,7 +235,7 @@ collision_layer = 4
 collision_mask = 27
 
 [node name="Coll" type="CollisionShape3D" parent="PlayerColl/MotionArea" index="0"]
-shape = SubResource("CapsuleShape3D_6j1wo")
+shape = SubResource("CapsuleShape3D_wkhgt")
 
 [node name="AttackArea" type="Area3D" parent="PlayerColl" index="2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
@@ -507,6 +507,10 @@ shape = SubResource("WorldBoundaryShape3D_ekknx")
 
 [node name="TooltipScene" parent="." index="21" instance=ExtResource("16_87nuh")]
 
+[connection signal="area_entered" from="PlayerColl/ClimbArea" to="." method="_on_climb_area_area_entered"]
+[connection signal="area_exited" from="PlayerColl/ClimbArea" to="." method="_on_climb_area_area_exited"]
+[connection signal="area_entered" from="PlayerColl/MotionArea" to="." method="_on_motion_area_area_entered"]
+[connection signal="area_exited" from="PlayerColl/MotionArea" to="." method="_on_motion_area_area_exited"]
 [connection signal="mouse_mode_signal" from="Inventory" to="." method="mouse_mode"]
 [connection signal="mouse_mode_signal" from="Pause_menu" to="." method="mouse_mode"]
 

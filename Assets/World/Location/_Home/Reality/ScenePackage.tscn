@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://ryitjhnhr4hi"]
+[gd_scene load_steps=27 format=3 uid="uid://ryitjhnhr4hi"]
 
 [ext_resource type="Script" uid="uid://8h1wxcdqk41f" path="res://addons/abyss_history_lib/Class/World/ScenesPackageClass.gd" id="1_l8c88"]
 [ext_resource type="PackedScene" uid="uid://cyesacqu3i41p" path="res://Assets/World/Location/_Home/Reality/inner_solid.tscn" id="2_3lex0"]
@@ -19,30 +19,217 @@
 [ext_resource type="Script" uid="uid://bcmxxhlef12pk" path="res://addons/abyss_history_lib/Class/Interact/Behaviour/SwitchBehaviorClass.gd" id="16_me8th"]
 [ext_resource type="PackedScene" uid="uid://bgar67py461my" path="res://Resources/Object/Building/Fence/MetalFenceShort/fence_scene.tscn" id="17_cpiu2"]
 [ext_resource type="PackedScene" uid="uid://cq0fptst1ma54" path="res://Assets/World/Location/_Home/Reality/corridor_solid.tscn" id="17_ovdeb"]
-[ext_resource type="PackedScene" uid="uid://cqi0rbp5vmcr0" path="res://Assets/World/Location/_Home/source/Outwall.glb" id="18_jfaus"]
 [ext_resource type="Material" uid="uid://rnxv6hl1w5ul" path="res://Resources/Material/DarkMaterial.tres" id="18_tqptv"]
+[ext_resource type="PackedScene" uid="uid://b8dvqq3ll8sdr" path="res://Assets/World/Location/_Home/Reality/outwall_fake.tscn" id="21_4exlk"]
 [ext_resource type="Material" uid="uid://dcwav4237d0l3" path="res://Resources/Material/GrassGround.tres" id="22_jfaus"]
+[ext_resource type="PackedScene" uid="uid://er22co5l4pot" path="res://Assets/World/Location/_Home/source/ElevatorCorridor.glb" id="23_4exlk"]
+[ext_resource type="Script" uid="uid://dco1y8a3oxqmg" path="res://Assets/World/Location/_Home/Reality/drop_area.gd" id="24_mqkrg"]
 
 [sub_resource type="Resource" id="Resource_tnxtw"]
 script = ExtResource("16_me8th")
 connected_node = Array[NodePath]([NodePath("../WoodenCeilingLampScene")])
 metadata/_custom_type_script = "uid://bcmxxhlef12pk"
 
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_mqkrg"]
+
 [node name="Packed" type="Node3D"]
 script = ExtResource("1_l8c88")
 metadata/_custom_type_script = "uid://8h1wxcdqk41f"
 
 [node name="Corridor0" parent="." instance=ExtResource("17_ovdeb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6)
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -6)
 
-[node name="Corridor2" parent="Corridor0" instance=ExtResource("17_ovdeb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17, 0, 0)
+[node name="Corridor1" parent="Corridor0" instance=ExtResource("17_ovdeb")]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 0, 0)
+
+[node name="ElevatorCorridor2" parent="Corridor0" instance=ExtResource("23_4exlk")]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0, 0)
 
 [node name="Corridor3" parent="Corridor0" instance=ExtResource("17_ovdeb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 0, 0)
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 0, 0)
 
 [node name="Corridor4" parent="Corridor0" instance=ExtResource("17_ovdeb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -41, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42, 0, 0)
+
+[node name="Outwall_fake0" parent="Corridor0" instance=ExtResource("21_4exlk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 0, 6)
+
+[node name="Outwall_fake1" parent="Corridor0" instance=ExtResource("21_4exlk")]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, -41, 0, 6)
+
+[node name="Outwall_fake2" parent="Corridor0" instance=ExtResource("21_4exlk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, -4, 6)
+
+[node name="Outwall_fake3" parent="Corridor0" instance=ExtResource("21_4exlk")]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, -41, -4, 6)
+
+[node name="Outwall_fake4" parent="Corridor0" instance=ExtResource("21_4exlk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, -8, 6)
+
+[node name="Outwall_fake5" parent="Corridor0" instance=ExtResource("21_4exlk")]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, -41, -8, 6)
+
+[node name="Outwall_fake6" parent="Corridor0" instance=ExtResource("21_4exlk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, -12, 6)
+
+[node name="Outwall_fake7" parent="Corridor0" instance=ExtResource("21_4exlk")]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, -41, -12, 6)
+
+[node name="Outwall_fake8" parent="Corridor0" instance=ExtResource("21_4exlk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, -16, 6)
+
+[node name="Outwall_fake9" parent="Corridor0" instance=ExtResource("21_4exlk")]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, -41, -16, 6)
+
+[node name="Outwall_fake10" parent="Corridor0" instance=ExtResource("21_4exlk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, -20, 6)
+
+[node name="Outwall_fake11" parent="Corridor0" instance=ExtResource("21_4exlk")]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, -41, -20, 6)
+
+[node name="Outwall_fake12" parent="Corridor0" instance=ExtResource("21_4exlk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, -24, 6)
+
+[node name="Outwall_fake13" parent="Corridor0" instance=ExtResource("21_4exlk")]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, -41, -24, 6)
+
+[node name="Outwall_fake14" parent="Corridor0" instance=ExtResource("21_4exlk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, -28, 6)
+
+[node name="Outwall_fake15" parent="Corridor0" instance=ExtResource("21_4exlk")]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, -41, -28, 6)
+
+[node name="Outwall_fake16" parent="Corridor0" instance=ExtResource("21_4exlk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, -32, 6)
+
+[node name="Outwall_fake17" parent="Corridor0" instance=ExtResource("21_4exlk")]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, -41, -32, 6)
+
+[node name="Outwall_fake18" parent="Corridor0" instance=ExtResource("21_4exlk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, -36, 6)
+
+[node name="Outwall_fake19" parent="Corridor0" instance=ExtResource("21_4exlk")]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, -41, -36, 6)
+
+[node name="Outwall_fake20" parent="Corridor0" instance=ExtResource("21_4exlk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, -40, 6)
+
+[node name="Outwall_fake21" parent="Corridor0" instance=ExtResource("21_4exlk")]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, -41, -40, 6)
+
+[node name="Outwall_fake22" parent="Corridor0" instance=ExtResource("21_4exlk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, -44, 6)
+
+[node name="Outwall_fake23" parent="Corridor0" instance=ExtResource("21_4exlk")]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, -41, -44, 6)
+
+[node name="Outwall_fake24" parent="Corridor0" instance=ExtResource("21_4exlk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, -48, 6)
+
+[node name="Outwall_fake25" parent="Corridor0" instance=ExtResource("21_4exlk")]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, -41, -48, 6)
+
+[node name="Outwall_fake26" parent="Corridor0" instance=ExtResource("21_4exlk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, -52, 6)
+
+[node name="Outwall_fake27" parent="Corridor0" instance=ExtResource("21_4exlk")]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, -41, -52, 6)
+
+[node name="Outwall_fake28" parent="Corridor0" instance=ExtResource("21_4exlk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, -56, 6)
+
+[node name="Outwall_fake29" parent="Corridor0" instance=ExtResource("21_4exlk")]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, -41, -56, 6)
+
+[node name="Outwall_fake30" parent="Corridor0" instance=ExtResource("21_4exlk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, -60, 6)
+
+[node name="Outwall_fake31" parent="Corridor0" instance=ExtResource("21_4exlk")]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, -41, -60, 6)
+
+[node name="Outwall_fake32" parent="Corridor0" instance=ExtResource("21_4exlk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, -64, 6)
+
+[node name="Outwall_fake33" parent="Corridor0" instance=ExtResource("21_4exlk")]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, -41, -64, 6)
+
+[node name="Outwall_fake34" parent="Corridor0" instance=ExtResource("21_4exlk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, -68, 6)
+
+[node name="Outwall_fake35" parent="Corridor0" instance=ExtResource("21_4exlk")]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, -41, -68, 6)
+
+[node name="Outwall_fake36" parent="Corridor0" instance=ExtResource("21_4exlk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 48, 6)
+
+[node name="Outwall_fake37" parent="Corridor0" instance=ExtResource("21_4exlk")]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, -41, 48, 6)
+
+[node name="Outwall_fake38" parent="Corridor0" instance=ExtResource("21_4exlk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 44, 6)
+
+[node name="Outwall_fake39" parent="Corridor0" instance=ExtResource("21_4exlk")]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, -41, 44, 6)
+
+[node name="Outwall_fake40" parent="Corridor0" instance=ExtResource("21_4exlk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 40, 6)
+
+[node name="Outwall_fake41" parent="Corridor0" instance=ExtResource("21_4exlk")]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, -41, 40, 6)
+
+[node name="Outwall_fake42" parent="Corridor0" instance=ExtResource("21_4exlk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 36, 6)
+
+[node name="Outwall_fake43" parent="Corridor0" instance=ExtResource("21_4exlk")]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, -41, 36, 6)
+
+[node name="Outwall_fake44" parent="Corridor0" instance=ExtResource("21_4exlk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 32, 6)
+
+[node name="Outwall_fake45" parent="Corridor0" instance=ExtResource("21_4exlk")]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, -41, 32, 6)
+
+[node name="Outwall_fake46" parent="Corridor0" instance=ExtResource("21_4exlk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 28, 6)
+
+[node name="Outwall_fake47" parent="Corridor0" instance=ExtResource("21_4exlk")]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, -41, 28, 6)
+
+[node name="Outwall_fake48" parent="Corridor0" instance=ExtResource("21_4exlk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 24, 6)
+
+[node name="Outwall_fake49" parent="Corridor0" instance=ExtResource("21_4exlk")]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, -41, 24, 6)
+
+[node name="Outwall_fake50" parent="Corridor0" instance=ExtResource("21_4exlk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 20, 6)
+
+[node name="Outwall_fake51" parent="Corridor0" instance=ExtResource("21_4exlk")]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, -41, 20, 6)
+
+[node name="Outwall_fake52" parent="Corridor0" instance=ExtResource("21_4exlk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 16, 6)
+
+[node name="Outwall_fake53" parent="Corridor0" instance=ExtResource("21_4exlk")]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, -41, 16, 6)
+
+[node name="Outwall_fake54" parent="Corridor0" instance=ExtResource("21_4exlk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 12, 6)
+
+[node name="Outwall_fake55" parent="Corridor0" instance=ExtResource("21_4exlk")]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, -41, 12, 6)
+
+[node name="Outwall_fake56" parent="Corridor0" instance=ExtResource("21_4exlk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 8, 6)
+
+[node name="Outwall_fake57" parent="Corridor0" instance=ExtResource("21_4exlk")]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, -41, 8, 6)
+
+[node name="Outwall_fake58" parent="Corridor0" instance=ExtResource("21_4exlk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 4, 6)
+
+[node name="Outwall_fake59" parent="Corridor0" instance=ExtResource("21_4exlk")]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, -41, 4, 6)
 
 [node name="Inner" parent="." instance=ExtResource("2_3lex0")]
 
@@ -116,210 +303,30 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -2, 
 interact_behavior = Array[ExtResource("15_j4cn1")]([SubResource("Resource_tnxtw")])
 state = true
 
-[node name="Outwall0" parent="." instance=ExtResource("16_10fv7")]
+[node name="Outwall" parent="." instance=ExtResource("16_10fv7")]
 
-[node name="Outwall1" parent="Outwall0" instance=ExtResource("16_10fv7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
-
-[node name="Outwall2" parent="Outwall0" instance=ExtResource("16_10fv7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4, 0)
-
-[node name="OutwallNC3" parent="Outwall0" instance=ExtResource("18_jfaus")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8, 0)
-
-[node name="OutwallNC4" parent="Outwall0" instance=ExtResource("18_jfaus")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -8, 0)
-
-[node name="Outwall5" parent="Outwall0" instance=ExtResource("16_10fv7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17, 0, 0)
-
-[node name="SlidingWindowScene0" parent="Outwall0/Outwall5" instance=ExtResource("4_cpiu2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0.5, 8)
-
-[node name="Outwall6" parent="Outwall0" instance=ExtResource("16_10fv7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17, 4, 0)
-
-[node name="Outwall7" parent="Outwall0" instance=ExtResource("16_10fv7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17, -4, 0)
-
-[node name="OutwallNC8" parent="Outwall0" instance=ExtResource("18_jfaus")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17, -8, 0)
-
-[node name="OutwallNC9" parent="Outwall0" instance=ExtResource("18_jfaus")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17, 8, 0)
-
-[node name="OutwallNC10" parent="Outwall0" instance=ExtResource("18_jfaus")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -8, 0)
-
-[node name="OutwallNC11" parent="Outwall0" instance=ExtResource("18_jfaus")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17, -8, 0)
-
-[node name="OutwallNC12" parent="Outwall0" instance=ExtResource("18_jfaus")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -12, 0)
-
-[node name="OutwallNC13" parent="Outwall0" instance=ExtResource("18_jfaus")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17, -12, 0)
-
-[node name="OutwallNC14" parent="Outwall0" instance=ExtResource("18_jfaus")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -16, 0)
-
-[node name="OutwallNC15" parent="Outwall0" instance=ExtResource("18_jfaus")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17, -16, 0)
-
-[node name="OutwallNC16" parent="Outwall0" instance=ExtResource("18_jfaus")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -20, 0)
-
-[node name="OutwallNC17" parent="Outwall0" instance=ExtResource("18_jfaus")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17, -20, 0)
-
-[node name="OutwallNC18" parent="Outwall0" instance=ExtResource("18_jfaus")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -24, 0)
-
-[node name="OutwallNC19" parent="Outwall0" instance=ExtResource("18_jfaus")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17, -24, 0)
-
-[node name="OutwallNC20" parent="Outwall0" instance=ExtResource("18_jfaus")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -28, 0)
-
-[node name="OutwallNC21" parent="Outwall0" instance=ExtResource("18_jfaus")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17, -28, 0)
-
-[node name="OutwallNC22" parent="Outwall0" instance=ExtResource("18_jfaus")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -32, 0)
-
-[node name="OutwallNC23" parent="Outwall0" instance=ExtResource("18_jfaus")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17, -32, 0)
-
-[node name="OutwallNC24" parent="Outwall0" instance=ExtResource("18_jfaus")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -36, 0)
-
-[node name="OutwallNC25" parent="Outwall0" instance=ExtResource("18_jfaus")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17, -36, 0)
-
-[node name="OutwallNC26" parent="Outwall0" instance=ExtResource("18_jfaus")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -40, 0)
-
-[node name="OutwallNC27" parent="Outwall0" instance=ExtResource("18_jfaus")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17, -40, 0)
-
-[node name="OutwallNC28" parent="Outwall0" instance=ExtResource("18_jfaus")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -44, 0)
-
-[node name="OutwallNC29" parent="Outwall0" instance=ExtResource("18_jfaus")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17, -44, 0)
-
-[node name="OutwallNC30" parent="Outwall0" instance=ExtResource("18_jfaus")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -48, 0)
-
-[node name="OutwallNC31" parent="Outwall0" instance=ExtResource("18_jfaus")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17, -48, 0)
-
-[node name="OutwallNC32" parent="Outwall0" instance=ExtResource("18_jfaus")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -52, 0)
-
-[node name="OutwallNC33" parent="Outwall0" instance=ExtResource("18_jfaus")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17, -52, 0)
-
-[node name="OutwallNC34" parent="Outwall0" instance=ExtResource("18_jfaus")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -56, 0)
-
-[node name="OutwallNC35" parent="Outwall0" instance=ExtResource("18_jfaus")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17, -56, 0)
-
-[node name="OutwallNC36" parent="Outwall0" instance=ExtResource("18_jfaus")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -60, 0)
-
-[node name="OutwallNC37" parent="Outwall0" instance=ExtResource("18_jfaus")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17, -60, 0)
-
-[node name="OutwallNC38" parent="Outwall0" instance=ExtResource("18_jfaus")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -64, 0)
-
-[node name="OutwallNC39" parent="Outwall0" instance=ExtResource("18_jfaus")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17, -64, 0)
-
-[node name="OutwallNC40" parent="Outwall0" instance=ExtResource("18_jfaus")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -68, 0)
-
-[node name="OutwallNC41" parent="Outwall0" instance=ExtResource("18_jfaus")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17, -68, 0)
-
-[node name="OutwallNC42" parent="Outwall0" instance=ExtResource("18_jfaus")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 48, 0)
-
-[node name="OutwallNC43" parent="Outwall0" instance=ExtResource("18_jfaus")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17, 48, 0)
-
-[node name="OutwallNC44" parent="Outwall0" instance=ExtResource("18_jfaus")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 44, 0)
-
-[node name="OutwallNC45" parent="Outwall0" instance=ExtResource("18_jfaus")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17, 44, 0)
-
-[node name="OutwallNC46" parent="Outwall0" instance=ExtResource("18_jfaus")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 40, 0)
-
-[node name="OutwallNC47" parent="Outwall0" instance=ExtResource("18_jfaus")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17, 40, 0)
-
-[node name="OutwallNC48" parent="Outwall0" instance=ExtResource("18_jfaus")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 36, 0)
-
-[node name="OutwallNC49" parent="Outwall0" instance=ExtResource("18_jfaus")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17, 36, 0)
-
-[node name="OutwallNC50" parent="Outwall0" instance=ExtResource("18_jfaus")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 32, 0)
-
-[node name="OutwallNC51" parent="Outwall0" instance=ExtResource("18_jfaus")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17, 32, 0)
-
-[node name="OutwallNC52" parent="Outwall0" instance=ExtResource("18_jfaus")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 28, 0)
-
-[node name="OutwallNC53" parent="Outwall0" instance=ExtResource("18_jfaus")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17, 28, 0)
-
-[node name="OutwallNC54" parent="Outwall0" instance=ExtResource("18_jfaus")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 24, 0)
-
-[node name="OutwallNC55" parent="Outwall0" instance=ExtResource("18_jfaus")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17, 24, 0)
-
-[node name="OutwallNC56" parent="Outwall0" instance=ExtResource("18_jfaus")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 20, 0)
-
-[node name="OutwallNC57" parent="Outwall0" instance=ExtResource("18_jfaus")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17, 20, 0)
-
-[node name="OutwallNC58" parent="Outwall0" instance=ExtResource("18_jfaus")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 16, 0)
-
-[node name="OutwallNC59" parent="Outwall0" instance=ExtResource("18_jfaus")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17, 16, 0)
-
-[node name="OutwallNC60" parent="Outwall0" instance=ExtResource("18_jfaus")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12, 0)
-
-[node name="OutwallNC61" parent="Outwall0" instance=ExtResource("18_jfaus")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17, 12, 0)
-
-[node name="FenceScene0" parent="Outwall0" instance=ExtResource("17_cpiu2")]
+[node name="FenceScene0" parent="Outwall" instance=ExtResource("17_cpiu2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 0, 9)
 
-[node name="FenceScene1" parent="Outwall0" instance=ExtResource("17_cpiu2")]
+[node name="FenceScene1" parent="Outwall" instance=ExtResource("17_cpiu2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5, 0, 9)
 
-[node name="FenceScene2" parent="Outwall0" instance=ExtResource("17_cpiu2")]
+[node name="FenceScene2" parent="Outwall" instance=ExtResource("17_cpiu2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0, 9)
 
-[node name="FenceScene3" parent="Outwall0" instance=ExtResource("17_cpiu2")]
+[node name="FenceScene3" parent="Outwall" instance=ExtResource("17_cpiu2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.5, 0, 9)
 
-[node name="FenceScene4" parent="Outwall0" instance=ExtResource("17_cpiu2")]
+[node name="FenceScene4" parent="Outwall" instance=ExtResource("17_cpiu2")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 9, 0, 8.5)
 
-[node name="FencePole" type="CSGBox3D" parent="Outwall0"]
+[node name="FenceScene5" parent="Outwall" instance=ExtResource("17_cpiu2")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 9, 0, 7.5)
+
+[node name="FenceScene6" parent="Outwall" instance=ExtResource("17_cpiu2")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 9, 0, 6.5)
+
+[node name="FencePole" type="CSGBox3D" parent="Outwall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0.5, 9)
 layers = 3
 use_collision = true
@@ -327,7 +334,198 @@ collision_layer = 3
 size = Vector3(0.125, 1, 0.125)
 material = ExtResource("18_tqptv")
 
+[node name="Outwall_fake0" parent="Outwall" instance=ExtResource("21_4exlk")]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 0, 0)
+
+[node name="Outwall_fake1" parent="Outwall" instance=ExtResource("21_4exlk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
+
+[node name="Outwall_fake2" parent="Outwall" instance=ExtResource("21_4exlk")]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 4, 0)
+
+[node name="Outwall_fake3" parent="Outwall" instance=ExtResource("21_4exlk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4, 0)
+
+[node name="Outwall_fake4" parent="Outwall" instance=ExtResource("21_4exlk")]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, -16, -4, 0)
+
+[node name="Outwall_fake5" parent="Outwall" instance=ExtResource("21_4exlk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -8, 0)
+
+[node name="Outwall_fake6" parent="Outwall" instance=ExtResource("21_4exlk")]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, -16, -8, 0)
+
+[node name="Outwall_fake7" parent="Outwall" instance=ExtResource("21_4exlk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -12, 0)
+
+[node name="Outwall_fake8" parent="Outwall" instance=ExtResource("21_4exlk")]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, -16, -12, 0)
+
+[node name="Outwall_fake9" parent="Outwall" instance=ExtResource("21_4exlk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -16, 0)
+
+[node name="Outwall_fake10" parent="Outwall" instance=ExtResource("21_4exlk")]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, -16, -16, 0)
+
+[node name="Outwall_fake11" parent="Outwall" instance=ExtResource("21_4exlk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -20, 0)
+
+[node name="Outwall_fake12" parent="Outwall" instance=ExtResource("21_4exlk")]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, -16, -20, 0)
+
+[node name="Outwall_fake13" parent="Outwall" instance=ExtResource("21_4exlk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -24, 0)
+
+[node name="Outwall_fake14" parent="Outwall" instance=ExtResource("21_4exlk")]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, -16, -24, 0)
+
+[node name="Outwall_fake15" parent="Outwall" instance=ExtResource("21_4exlk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -28, 0)
+
+[node name="Outwall_fake16" parent="Outwall" instance=ExtResource("21_4exlk")]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, -16, -28, 0)
+
+[node name="Outwall_fake17" parent="Outwall" instance=ExtResource("21_4exlk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -32, 0)
+
+[node name="Outwall_fake18" parent="Outwall" instance=ExtResource("21_4exlk")]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, -16, -32, 0)
+
+[node name="Outwall_fake19" parent="Outwall" instance=ExtResource("21_4exlk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -36, 0)
+
+[node name="Outwall_fake20" parent="Outwall" instance=ExtResource("21_4exlk")]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, -16, -36, 0)
+
+[node name="Outwall_fake21" parent="Outwall" instance=ExtResource("21_4exlk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -40, 0)
+
+[node name="Outwall_fake22" parent="Outwall" instance=ExtResource("21_4exlk")]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, -16, -40, 0)
+
+[node name="Outwall_fake23" parent="Outwall" instance=ExtResource("21_4exlk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -44, 0)
+
+[node name="Outwall_fake24" parent="Outwall" instance=ExtResource("21_4exlk")]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, -16, -44, 0)
+
+[node name="Outwall_fake25" parent="Outwall" instance=ExtResource("21_4exlk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -48, 0)
+
+[node name="Outwall_fake26" parent="Outwall" instance=ExtResource("21_4exlk")]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, -16, -48, 0)
+
+[node name="Outwall_fake27" parent="Outwall" instance=ExtResource("21_4exlk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -52, 0)
+
+[node name="Outwall_fake28" parent="Outwall" instance=ExtResource("21_4exlk")]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, -16, -52, 0)
+
+[node name="Outwall_fake29" parent="Outwall" instance=ExtResource("21_4exlk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -56, 0)
+
+[node name="Outwall_fake30" parent="Outwall" instance=ExtResource("21_4exlk")]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, -16, -56, 0)
+
+[node name="Outwall_fake31" parent="Outwall" instance=ExtResource("21_4exlk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -60, 0)
+
+[node name="Outwall_fake32" parent="Outwall" instance=ExtResource("21_4exlk")]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, -16, -60, 0)
+
+[node name="Outwall_fake33" parent="Outwall" instance=ExtResource("21_4exlk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -64, 0)
+
+[node name="Outwall_fake34" parent="Outwall" instance=ExtResource("21_4exlk")]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, -16, -64, 0)
+
+[node name="Outwall_fake35" parent="Outwall" instance=ExtResource("21_4exlk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -68, 0)
+
+[node name="Outwall_fake36" parent="Outwall" instance=ExtResource("21_4exlk")]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, -16, -68, 0)
+
+[node name="Outwall_fake37" parent="Outwall" instance=ExtResource("21_4exlk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 48, 0)
+
+[node name="Outwall_fake38" parent="Outwall" instance=ExtResource("21_4exlk")]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 48, 0)
+
+[node name="Outwall_fake39" parent="Outwall" instance=ExtResource("21_4exlk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 44, 0)
+
+[node name="Outwall_fake40" parent="Outwall" instance=ExtResource("21_4exlk")]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 44, 0)
+
+[node name="Outwall_fake41" parent="Outwall" instance=ExtResource("21_4exlk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 40, 0)
+
+[node name="Outwall_fake42" parent="Outwall" instance=ExtResource("21_4exlk")]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 40, 0)
+
+[node name="Outwall_fake43" parent="Outwall" instance=ExtResource("21_4exlk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 36, 0)
+
+[node name="Outwall_fake44" parent="Outwall" instance=ExtResource("21_4exlk")]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 36, 0)
+
+[node name="Outwall_fake45" parent="Outwall" instance=ExtResource("21_4exlk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 32, 0)
+
+[node name="Outwall_fake46" parent="Outwall" instance=ExtResource("21_4exlk")]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 32, 0)
+
+[node name="Outwall_fake47" parent="Outwall" instance=ExtResource("21_4exlk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 28, 0)
+
+[node name="Outwall_fake48" parent="Outwall" instance=ExtResource("21_4exlk")]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 28, 0)
+
+[node name="Outwall_fake49" parent="Outwall" instance=ExtResource("21_4exlk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 24, 0)
+
+[node name="Outwall_fake50" parent="Outwall" instance=ExtResource("21_4exlk")]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 24, 0)
+
+[node name="Outwall_fake51" parent="Outwall" instance=ExtResource("21_4exlk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 20, 0)
+
+[node name="Outwall_fake52" parent="Outwall" instance=ExtResource("21_4exlk")]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 20, 0)
+
+[node name="Outwall_fake53" parent="Outwall" instance=ExtResource("21_4exlk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 16, 0)
+
+[node name="Outwall_fake54" parent="Outwall" instance=ExtResource("21_4exlk")]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 16, 0)
+
+[node name="Outwall_fake55" parent="Outwall" instance=ExtResource("21_4exlk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12, 0)
+
+[node name="Outwall_fake56" parent="Outwall" instance=ExtResource("21_4exlk")]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 12, 0)
+
+[node name="Outwall_fake57" parent="Outwall" instance=ExtResource("21_4exlk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8, 0)
+
+[node name="Outwall_fake58" parent="Outwall" instance=ExtResource("21_4exlk")]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 8, 0)
+
 [node name="Ground" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -69, 0)
 size = Vector3(100, 1, 100)
 material = ExtResource("22_jfaus")
+
+[node name="DropArea" type="Area3D" parent="."]
+collision_layer = 3
+collision_mask = 5
+gravity_space_override = 3
+gravity = 0.1
+linear_damp_space_override = 1
+script = ExtResource("24_mqkrg")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DropArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, -3, 8)
+shape = SubResource("WorldBoundaryShape3D_mqkrg")
+
+[connection signal="body_entered" from="DropArea" to="DropArea" method="_on_body_entered"]

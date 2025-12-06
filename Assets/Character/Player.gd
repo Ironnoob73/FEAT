@@ -13,19 +13,21 @@ const JUMP_VELOCITY = 8
 const SIT_depth = 0.75
 
 const ACCELERATION = 0.1
-const FRICTION = 0.3
+var FRICTION: float = ProjectSettings.get_setting("physics/3d/default_linear_damp")
 
 const MAX_STEP_HEIGHT = 0.5
 
 var isDash: float = 0
 var isCrouch: float = 0
 var isClimb: bool = false
+var isGravityOverrided: bool = false
 var isSit: Node = null
 var isThirdPerson: bool = false
 var isInTeleport: bool = false
 
 @onready var player_collision = $PlayerColl
 @onready var mesh = $BodyScene
+@onready var motion_area: Area3D = $PlayerColl/MotionArea
 
 @onready var hand_held : Node
 var hand_held_group : Array[Node]
@@ -36,9 +38,6 @@ var handheld_tool : AHL_EqMetaClass
 
 @export var MaxHealth : float = 100
 @export var current_health : float = 100
-
-# Get the gravity from the project settings to be synced with RigidBody nodes.
-var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 var att_idle : bool = true
 var att_sec : bool = false

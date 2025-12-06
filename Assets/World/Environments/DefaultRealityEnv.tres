@@ -1,9 +1,4 @@
-[gd_resource type="Environment" load_steps=5 format=3 uid="uid://ns2gq60t8sp1"]
-
-[sub_resource type="Gradient" id="Gradient_imnon"]
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_slkoq"]
-gradient = SubResource("Gradient_imnon")
+[gd_resource type="Environment" load_steps=3 format=3 uid="uid://ns2gq60t8sp1"]
 
 [sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_03vjd"]
 ground_color = Color(0.53242886, 0.6858643, 0.5337185, 1)
@@ -29,4 +24,4 @@ fog_density = 0.0005
 fog_sky_affect = 0.0
 volumetric_fog_density = 0.0
 adjustment_enabled = true
-adjustment_color_correction = SubResource("GradientTexture1D_slkoq")
+adjustment_saturation = 0.5

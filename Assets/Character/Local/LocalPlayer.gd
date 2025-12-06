@@ -27,7 +27,7 @@ var perspective_from : Vector2
 @onready var interact_ray_tp: RayCast3D = $ThirdPerosnCam/InteractRayTP
 @onready var interact_ray_tp_test: RayCast3D = $ThirdPerosnCam/InteractRayTP/InteractRayTPTest
 @onready var cursor3: MeshInstance3D = $Cursor3
-var isUsing : AHL_Interactive = null
+var isUsing: AHL_Interactive = null
 # Environment interact
 @onready var _climb_area = $PlayerColl/ClimbArea
 @onready var _ground_ray_cast: RayCast3D = $GroundRayCast
@@ -40,13 +40,17 @@ var _last_frame_was_on_floor = -INF
 var _was_on_floor_last_frame: bool = false
 var _snapped_to_stairs_last_frame: bool = false
 
+# Get the gravity from the project settings to be synced with RigidBody nodes.
+var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
+var gravity_dir: Vector3 = ProjectSettings.get_setting("physics/3d/default_gravity_vector")
+
 var DEBUG_LAST_STEP: String
 
 @onready var transition: ColorRect = $Transition
 @onready var caption = $Caption
 @onready var gradient_background: MeshInstance3D = $ThirdPerosnCam/Background
 
-var INERTIA:Vector2 = Vector2.ZERO
+var INERTIA: Vector2 = Vector2.ZERO
 
 var current_menu = "HUD":
 	set(menu_name):
@@ -84,7 +88,7 @@ func _input(event):
 			perspective_in_rotate = false
 		
 	# Player camera.
-	if event is InputEventMouseMotion and current_menu == "HUD":
+	if event is InputEventMouseMotion and current_menu in ["HUD"]:
 		if isThirdPerson :
 			tird_person_setup(perspective_in_rotate)
 		else :
@@ -168,7 +172,9 @@ func _unhandled_input(_event):
 				mouse_mode(true)
 				inventory_menu.open_inventory()
 	# Hide HUD
-	if Input.is_action_just_pressed("hide_hud") and current_menu == "HUD":
+	if Input.is_action_just_pressed("hide_hud")\
+		and current_menu == "HUD"\
+		and !self.get_meta("lock_hud_hidden",false):
 		hide_hud(!hud_hidden)
 	# Hotbar
 	if !Input.is_action_pressed("tool_function_switch") and current_menu == "HUD":
@@ -219,7 +225,6 @@ func _snap_down_to_stairs_check() -> void:
 	_snapped_to_stairs_last_frame = did_snap
 	
 	#if self.is_physics_processing():
-	#	print("check")
 	#	await get_tree().create_timer(0.1,false,true,false).timeout
 	#	_snap_down_to_stairs_check()
 
@@ -284,8 +289,8 @@ func _physics_process(delta):
 		INERTIA.x = velocity.x
 		INERTIA.y = velocity.z
 	else:
-		velocity.y -= gravity * 0.05
-
+		#velocity *= (1.1 - FRICTION) 
+		velocity += gravity * 0.05 * gravity_dir
 	
 	# Move Input.
 	Global.p_elem_debug("# MOVE INPUT #")
@@ -380,8 +385,12 @@ func _process(_delta):
 	if !isSit:
 		mesh.animation_tree["parameters/Movement/blend_position"] = _forward_strength(_move_direct) * Vector2(velocity.x , velocity.z).length()
 		mesh.animation_tree["parameters/SideMix/add_amount"] = _move_direct * Vector2(velocity.x , velocity.z).length() / 10
-		mesh.animation_tree["parameters/CrouchMix/add_amount"] = lerp(mesh.animation_tree["parameters/CrouchMix/add_amount"],(1.8 - player_collision.shape.height)*1.5,0.5)
+		mesh.animation_tree["parameters/CrouchMix/add_amount"] = lerpf(mesh.animation_tree["parameters/CrouchMix/add_amount"],(1.8 - player_collision.shape.height)*1.5,0.5)
 		mesh.animation_tree["parameters/PitchMix/add_amount"] = - player_camera.rotation.x
+	if velocity.y < 0:
+		mesh.animation_tree["parameters/FallMix/blend_amount"] = lerpf(mesh.animation_tree["parameters/FallMix/blend_amount"],min(abs(velocity.y),0.8),0.1)
+	else:
+		mesh.animation_tree["parameters/FallMix/blend_amount"] = lerpf(mesh.animation_tree["parameters/FallMix/blend_amount"],0,0.1)
 	
 	# Lerp Camera Animation
 	Global.p_elem_debug("# LERP CAMERA #")
@@ -463,7 +472,7 @@ func refresh_player_mesh():
 	hand_held_group = [hand_held,hand_held_fp]
 	
 # Climb Detection & Teleport
-func _on_climb_area_area_entered(area):
+func _on_climb_area_area_entered(area: Area3D):
 	if area.is_in_group("ClimbAble"):
 		isClimb = true
 	if area.is_in_group("Teleporter") and area.get_parent().ToLocation not in ["null",""]:
@@ -473,19 +482,27 @@ func _on_climb_area_area_entered(area):
 		tween.tween_callback(func():get_node("/root/World").change_scene(area.get_parent().ToLocation,area.get_parent().ToLocationPos))
 		tween.tween_callback(func():isInTeleport=false)
 		tween.tween_property(transition, "color:a", 0, 0.25)
-func _on_climb_area_area_exited(area):
+func _on_climb_area_area_exited(area: Area3D):
 	if area.is_in_group("ClimbAble"):
 		isClimb = false
 		for i in _climb_area.get_overlapping_areas():
 			if i.is_in_group("ClimbAble"):
 				isClimb = true
 # Motion Detection
-func _on_motion_area_area_entered(area):
+func _on_motion_area_area_entered(area: Area3D):
 	if area.is_in_group("MotionSensing"):
 		area.detected_player = self
-func _on_motion_area_area_exited(area):
+	if area.gravity_space_override != 0:
+		self.gravity = area.gravity
+		self.gravity_dir = area.gravity_direction
+	if area.linear_damp_space_override != 0:
+		self.FRICTION = area.linear_damp
+func _on_motion_area_area_exited(area: Area3D):
 	if area.is_in_group("MotionSensing"):
 		area.detected_player = null
+	self.gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
+	self.gravity_dir = ProjectSettings.get_setting("physics/3d/default_gravity_vector")
+	self.FRICTION = ProjectSettings.get_setting("physics/3d/default_linear_damp")
 
 # Sit
 func sit(chair_position, chair_rotation):
