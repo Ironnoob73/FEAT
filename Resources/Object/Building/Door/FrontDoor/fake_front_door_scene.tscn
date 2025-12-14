@@ -1,0 +1,33 @@
+[gd_scene load_steps=7 format=3 uid="uid://iitf507qkg7t"]
+
+[ext_resource type="ArrayMesh" uid="uid://b038mhgawqof6" path="res://Resources/Object/Building/Door/FrontDoor/DoorFrame.obj" id="1_n3gwt"]
+[ext_resource type="Material" uid="uid://dvhli2ihhy2nx" path="res://Resources/Material/BrownMaterial.tres" id="2_478jn"]
+[ext_resource type="Material" uid="uid://b860lbxbd3ed6" path="res://Resources/Material/GrayMaterial.tres" id="3_v6g7i"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_348ut"]
+size = Vector3(1.2, 2.4, 0.1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_anyci"]
+size = Vector3(0.1, 0.2, 0.2)
+
+[sub_resource type="BoxMesh" id="BoxMesh_l2qwi"]
+size = Vector3(0.6, 2.4, 0.1)
+
+[node name="FakeFrontDoorScene" type="MeshInstance3D"]
+mesh = ExtResource("1_n3gwt")
+surface_material_override/0 = ExtResource("2_478jn")
+
+[node name="Mesh0" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3, 1.2, 0)
+mesh = SubResource("BoxMesh_348ut")
+surface_material_override/0 = ExtResource("2_478jn")
+
+[node name="Handle" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, 1.1, 0)
+material_override = ExtResource("3_v6g7i")
+mesh = SubResource("BoxMesh_anyci")
+
+[node name="Mesh1" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6, 1.2, 0)
+mesh = SubResource("BoxMesh_l2qwi")
+surface_material_override/0 = ExtResource("2_478jn")

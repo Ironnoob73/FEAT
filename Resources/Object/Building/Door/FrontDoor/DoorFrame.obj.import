@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://b038mhgawqof6"
+path="res://.godot/imported/DoorFrame.obj-7b83f1a88c7da742220c08a453dc8879.mesh"
+
+[deps]
+
+files=["res://.godot/imported/DoorFrame.obj-7b83f1a88c7da742220c08a453dc8879.mesh"]
+
+source_file="res://Resources/Object/Building/Door/FrontDoor/DoorFrame.obj"
+dest_files=["res://.godot/imported/DoorFrame.obj-7b83f1a88c7da742220c08a453dc8879.mesh", "res://.godot/imported/DoorFrame.obj-7b83f1a88c7da742220c08a453dc8879.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

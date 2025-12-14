@@ -1,0 +1,70 @@
+[gd_scene load_steps=14 format=3 uid="uid://donuwqtg3w83f"]
+
+[ext_resource type="Script" uid="uid://8d7jpktk4f43" path="res://Resources/Object/Building/Door/PlainDoor/DoorFrameRecolor.gd" id="1_7kfsd"]
+[ext_resource type="Material" uid="uid://bi2qrop8jfbsf" path="res://Resources/Material/Tree.tres" id="2_phslh"]
+[ext_resource type="Shader" uid="uid://chmfx8vng2i2v" path="res://Resources/Shader/recolor.gdshader" id="3_746h3"]
+[ext_resource type="ArrayMesh" uid="uid://b038mhgawqof6" path="res://Resources/Object/Building/Door/FrontDoor/DoorFrame.obj" id="4_7kfsd"]
+[ext_resource type="Material" uid="uid://rnxv6hl1w5ul" path="res://Resources/Material/DarkMaterial.tres" id="5_85xtr"]
+[ext_resource type="Material" uid="uid://cimr26thbt57t" path="res://Resources/Material/WhiteNoshadow.tres" id="6_j4w3u"]
+[ext_resource type="Material" uid="uid://b860lbxbd3ed6" path="res://Resources/Material/GrayMaterial.tres" id="7_2a133"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rq84c"]
+render_priority = 0
+shader = ExtResource("3_746h3")
+shader_parameter/color = Color(0, 0, 0, 0)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_phslh"]
+data = PackedVector3Array(-1, 2.5, 0.099999994, -1, 0, 0.099999994, -1, 2.5, -0.099999994, -1, 2.5, -0.099999994, -1, 0, 0.099999994, -1, 0, -0.099999994, -1, 2.5, -0.099999994, -1, 0, -0.099999994, -0.9, 2.3999999, -0.099999994, -0.9, 2.3999999, -0.099999994, -1, 0, -0.099999994, -0.9, 0, -0.099999994, -1, 2.5, -0.099999994, -0.9, 2.3999999, -0.099999994, 1, 2.5, -0.099999994, 1, 2.5, -0.099999994, -0.9, 2.3999999, -0.099999994, 0.9, 2.3999999, -0.099999994, 1, 2.5, -0.099999994, 0.9, 2.3999999, -0.099999994, 1, 0, -0.099999994, 1, 0, -0.099999994, 0.9, 2.3999999, -0.099999994, 0.9, 0, -0.099999994, -0.9, 2.3999999, -0.099999994, -0.9, 0, -0.099999994, -0.9, 2.3999999, 0.099999994, -0.9, 2.3999999, 0.099999994, -0.9, 0, -0.099999994, -0.9, 0, 0.099999994, -0.9, 2.3999999, 0.099999994, -0.9, 0, 0.099999994, -1, 2.5, 0.099999994, -1, 2.5, 0.099999994, -0.9, 0, 0.099999994, -1, 0, 0.099999994, -0.9, 2.3999999, 0.099999994, -1, 2.5, 0.099999994, 0.9, 2.3999999, 0.099999994, 0.9, 2.3999999, 0.099999994, -1, 2.5, 0.099999994, 1, 2.5, 0.099999994, 0.9, 2.3999999, 0.099999994, 1, 2.5, 0.099999994, 0.9, 0, 0.099999994, 0.9, 0, 0.099999994, 1, 2.5, 0.099999994, 1, 0, 0.099999994, -0.9, 0, -0.099999994, -1, 0, -0.099999994, -0.9, 0, 0.099999994, -0.9, 0, 0.099999994, -1, 0, -0.099999994, -1, 0, 0.099999994, -0.9, 2.3999999, -0.099999994, -0.9, 2.3999999, 0.099999994, 0.9, 2.3999999, -0.099999994, 0.9, 2.3999999, -0.099999994, -0.9, 2.3999999, 0.099999994, 0.9, 2.3999999, 0.099999994, -1, 2.5, 0.099999994, -1, 2.5, -0.099999994, 1, 2.5, 0.099999994, 1, 2.5, 0.099999994, -1, 2.5, -0.099999994, 1, 2.5, -0.099999994, 1, 0, -0.099999994, 0.9, 0, -0.099999994, 1, 0, 0.099999994, 1, 0, 0.099999994, 0.9, 0, -0.099999994, 0.9, 0, 0.099999994, 0.9, 2.3999999, -0.099999994, 0.9, 2.3999999, 0.099999994, 0.9, 0, -0.099999994, 0.9, 0, -0.099999994, 0.9, 2.3999999, 0.099999994, 0.9, 0, 0.099999994, 1, 2.5, 0.099999994, 1, 2.5, -0.099999994, 1, 0, 0.099999994, 1, 0, 0.099999994, 1, 2.5, -0.099999994, 1, 0, -0.099999994)
+
+[sub_resource type="QuadMesh" id="QuadMesh_63jro"]
+size = Vector2(1.8, 2.4)
+
+[sub_resource type="QuadMesh" id="QuadMesh_cgvbv"]
+size = Vector2(1.8, 2.4)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vgq7w"]
+size = Vector3(1.8, 2.4, 0.1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_8ckeh"]
+size = Vector2(1.8, 0.2)
+
+[node name="FrameScene" type="StaticBody3D"]
+collision_layer = 3
+script = ExtResource("1_7kfsd")
+occlusion = "light"
+ToLocationPos = Vector3(0, 1, 0)
+
+[node name="DoorFrame" type="MeshInstance3D" parent="."]
+material_override = ExtResource("2_phslh")
+material_overlay = SubResource("ShaderMaterial_rq84c")
+mesh = ExtResource("4_7kfsd")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("ConcavePolygonShape3D_phslh")
+
+[node name="Occlusion" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 1.2, 0.1)
+visible = false
+material_override = ExtResource("5_85xtr")
+mesh = SubResource("QuadMesh_63jro")
+
+[node name="Occlusion_light" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 1.2, 0.1)
+material_override = ExtResource("6_j4w3u")
+mesh = SubResource("QuadMesh_cgvbv")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Occlusion_light"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -0.9)
+shadow_enabled = true
+shadow_normal_bias = 10.0
+
+[node name="Teleporter" type="Area3D" parent="." groups=["Teleporter"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Teleporter"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, 0.15)
+shape = SubResource("BoxShape3D_vgq7w")
+
+[node name="Bottom" type="MeshInstance3D" parent="."]
+visible = false
+material_override = ExtResource("7_2a133")
+mesh = SubResource("PlaneMesh_8ckeh")

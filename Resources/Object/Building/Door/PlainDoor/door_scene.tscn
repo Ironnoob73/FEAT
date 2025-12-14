@@ -74,6 +74,7 @@ collision_mask = 4
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, 0)
 shape = SubResource("BoxShape3D_pdnkw")
 
+[connection signal="init_behavior_signal" from="." to="Body" method="init"]
 [connection signal="interact_signal" from="." to="Body" method="_interact_signal"]
 [connection signal="area_entered" from="AutoOpenArea" to="Body" method="_on_auto_open_area_area_entered"]
 [connection signal="area_exited" from="AutoOpenArea" to="Body" method="_on_auto_open_area_area_exited"]

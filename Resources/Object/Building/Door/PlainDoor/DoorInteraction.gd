@@ -18,7 +18,7 @@ var lock = func () : return get_parent().get_meta('lock_int',0)
 @onready var lock_tip_f = $LockTipF
 @onready var lock_tip_b = $LockTipB
 
-func _ready():
+func init():
 	if get_c_color() != Color(0,0,0,0) :	MaterialUtil.recolor(mesh,get_c_color())
 	#if mesh_color != Color(0,0,0,0) :	MaterialUtil.recolor(mesh,mesh_color)
 	if get_c_material(): MaterialUtil.change_material(mesh,get_c_material())

@@ -1,0 +1,44 @@
+[gd_scene load_steps=7 format=3 uid="uid://c8rdniten0l2h"]
+
+[ext_resource type="Script" uid="uid://dnwa1lng6c04" path="res://Resources/Object/Building/Light/LightSwitchover.gd" id="1_5h4np"]
+[ext_resource type="Material" uid="uid://b860lbxbd3ed6" path="res://Resources/Material/GrayMaterial.tres" id="2_5h4np"]
+[ext_resource type="Material" uid="uid://dccfefkmpm8o5" path="res://Resources/Material/WhiteEmissive.tres" id="3_3xq5u"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_th8rf"]
+size = Vector3(1, 0.01, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lfjtk"]
+size = Vector3(1, 0.01, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_1x1vd"]
+flip_faces = true
+size = Vector2(0.9, 0.9)
+
+[node name="WoodenCeilingLampScene" type="StaticBody3D" groups=["Switchable"]]
+script = ExtResource("1_5h4np")
+
+[node name="Mesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.005, 0)
+material_override = ExtResource("2_5h4np")
+mesh = SubResource("BoxMesh_th8rf")
+
+[node name="CollisionShape" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.005, 0)
+shape = SubResource("BoxShape3D_lfjtk")
+
+[node name="On" type="Node3D" parent="."]
+
+[node name="OmniLight3D" type="OmniLight3D" parent="On"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2, 0)
+shadow_enabled = true
+
+[node name="Mesh" type="MeshInstance3D" parent="On"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.011, 0)
+material_override = ExtResource("3_3xq5u")
+mesh = SubResource("PlaneMesh_1x1vd")
+
+[node name="Off" type="Node3D" parent="."]
+
+[node name="Mesh" type="MeshInstance3D" parent="Off"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.011, 0)
+mesh = SubResource("PlaneMesh_1x1vd")
