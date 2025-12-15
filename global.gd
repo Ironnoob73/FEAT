@@ -5,6 +5,9 @@ var LanguageList : Array[String] = ["en_US","zh_CN"]
 var DATA_PATH : String = "user://"
 var Sdfgi : bool = false
 
+# Important objects
+var THE_PLAYER : LocalPlayer = null
+
 # Load options
 var load_use_sub_threads : bool = false
 

@@ -1,0 +1,124 @@
+[gd_scene load_steps=17 format=3 uid="uid://deue8e3ut26s4"]
+
+[ext_resource type="PackedScene" uid="uid://cq0fptst1ma54" path="res://Assets/World/Location/_Home/Reality/corridor_solid.tscn" id="1_khq8m"]
+[ext_resource type="Script" uid="uid://ilybs8hyghla" path="res://Assets/World/Location/_Home/Dream/room_connector.gd" id="1_xhdx5"]
+[ext_resource type="PackedScene" uid="uid://o7ycdpol2i7h" path="res://Assets/World/Location/_Home/Reality/elevator_corridor_solid.tscn" id="2_xhdx5"]
+[ext_resource type="PackedScene" uid="uid://donuwqtg3w83f" path="res://Resources/Object/Building/Door/FrontDoor/frame_scene.tscn" id="3_65yf4"]
+[ext_resource type="PackedScene" uid="uid://coan3h6n6wobt" path="res://Resources/Object/Building/Light/FluorescentLamp/light_scene.tscn" id="4_65yf4"]
+[ext_resource type="Material" uid="uid://dvhli2ihhy2nx" path="res://Resources/Material/BrownMaterial.tres" id="4_mh8nc"]
+[ext_resource type="PackedScene" uid="uid://ds1bb3oh6akpf" path="res://Resources/Object/Building/Door/PlainDoor/door_scene.tscn" id="5_11pt0"]
+[ext_resource type="Script" uid="uid://xi806lb1q3l3" path="res://addons/abyss_history_lib/Class/Interact/Behaviour/_BehaviorClass.gd" id="6_shdyq"]
+[ext_resource type="Script" uid="uid://bawnnel5w6hxg" path="res://addons/abyss_history_lib/Class/Interact/Behaviour/ChangeMaterialBehaviorClass.gd" id="7_bdjbn"]
+[ext_resource type="ArrayMesh" uid="uid://35r3l2ggep57" path="res://Assets/World/Location/_Home/source/RoomView.obj" id="8_8lytu"]
+[ext_resource type="Shader" uid="uid://cyxv26lgbbfge" path="res://Assets/World/Environments/background_shader.gdshader" id="9_jn1r0"]
+[ext_resource type="PackedScene" uid="uid://2jr0tjnjphjq" path="res://Assets/World/Location/_ZhuShan/Sources/DowntownBuildings/TravelAgencySideStairPart.tscn" id="10_kslcc"]
+
+[sub_resource type="Resource" id="Resource_e7spv"]
+script = ExtResource("7_bdjbn")
+mesh_material = ExtResource("4_mh8nc")
+metadata/_custom_type_script = "uid://bawnnel5w6hxg"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ktlp0"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("9_jn1r0")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ktlp0"]
+size = Vector3(2, 0.1, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_65yf4"]
+
+[node name="TheCorridor" type="Node3D"]
+script = ExtResource("1_xhdx5")
+
+[node name="Corridor0" parent="." instance=ExtResource("1_khq8m")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 13, 0, 0)
+
+[node name="Corridor1" parent="Corridor0" instance=ExtResource("1_khq8m")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 18, 0, -0.99999994)
+
+[node name="ElevatorCorridorSolid" parent="Corridor0" instance=ExtResource("2_xhdx5")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -12, 0, -0.99999994)
+
+[node name="Corridor2" parent="Corridor0" instance=ExtResource("1_khq8m")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -24, 0, -1)
+
+[node name="Corridor3" parent="Corridor0" instance=ExtResource("1_khq8m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42, 0, 0)
+
+[node name="FluorescentLampScene0" parent="Corridor0" instance=ExtResource("4_65yf4")]
+transform = Transform3D(1, 0, -1.7484555e-07, 0, 1, 0, 1.7484555e-07, 0, 1, -28, 3, -0.50000197)
+
+[node name="FluorescentLampScene1" parent="Corridor0" instance=ExtResource("4_65yf4")]
+transform = Transform3D(1, 0, -1.7484555e-07, 0, 1, 0, 1.7484555e-07, 0, 1, -38, 3, -0.50000286)
+
+[node name="FluorescentLampScene2" parent="Corridor0" instance=ExtResource("4_65yf4")]
+transform = Transform3D(1, 0, -1.7484555e-07, 0, 1, 0, 1.7484555e-07, 0, 1, 14, 3, -0.49999496)
+
+[node name="FluorescentLampScene3" parent="Corridor0" instance=ExtResource("4_65yf4")]
+transform = Transform3D(1, 0, -1.7484555e-07, 0, 1, 0, 1.7484555e-07, 0, 1, 4, 3, -0.4999963)
+
+[node name="FluorescentLampScene4" parent="Corridor0" instance=ExtResource("4_65yf4")]
+transform = Transform3D(1, 0, -1.7484555e-07, 0, 1, 0, 1.7484555e-07, 0, 1, -12, 3, -0.49999917)
+
+[node name="FluorescentLampScene5" parent="Corridor0" instance=ExtResource("4_65yf4")]
+transform = Transform3D(1, 0, -1.7484555e-07, 0, 1, 0, 1.7484555e-07, 0, 1, -20, 3, -0.5000003)
+
+[node name="FluorescentLampScene6" parent="Corridor0" instance=ExtResource("4_65yf4")]
+transform = Transform3D(1, 0, -1.7484555e-07, 0, 1, 0, 1.7484555e-07, 0, 1, -4, 3, -0.49999702)
+
+[node name="FluorescentLampScene7" parent="Corridor0" instance=ExtResource("4_65yf4")]
+transform = Transform3D(1, 0, -1.7484555e-07, 0, 1, 0, 1.7484555e-07, 0, 1, 23, 3, -0.4999918)
+
+[node name="FluorescentLampScene8" parent="Corridor0" instance=ExtResource("4_65yf4")]
+transform = Transform3D(1, 0, -1.7484555e-07, 0, 1, 0, 1.7484555e-07, 0, 1, -47, 3, -0.5000046)
+
+[node name="TravelAgencySideStairPart0" parent="Corridor0" instance=ExtResource("10_kslcc")]
+transform = Transform3D(-1.27, 0, 8.742278e-08, 0, 1, 0, -1.1102693e-07, 0, -1, -12, -4, -3.000001)
+
+[node name="TravelAgencySideStairPart1" parent="Corridor0" instance=ExtResource("10_kslcc")]
+transform = Transform3D(-1.27, 0, 8.742278e-08, 0, 1, 0, -1.1102693e-07, 0, -1, -12, -8, -3.000001)
+
+[node name="TravelAgencySideStairPart2" parent="Corridor0" instance=ExtResource("10_kslcc")]
+transform = Transform3D(-1.27, 0, 8.742278e-08, 0, 1, 0, -1.1102693e-07, 0, -1, -12, 0, -3.000001)
+
+[node name="FrameScene0" parent="." instance=ExtResource("3_65yf4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, 3.0000002)
+mesh_material = ExtResource("4_mh8nc")
+occlusion = "none"
+
+[node name="DoorPlate" parent="FrameScene0" instance=ExtResource("5_11pt0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.29999995, 0, 0)
+init_behavior = Array[ExtResource("6_shdyq")]([SubResource("Resource_e7spv")])
+
+[node name="CSGBox3D" type="CSGBox3D" parent="FrameScene0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6, 1.2, 0)
+layers = 3
+use_collision = true
+collision_layer = 3
+size = Vector3(0.6, 2.4, 0.1)
+material = ExtResource("4_mh8nc")
+
+[node name="RoomView" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 9, 0, 2.9999998)
+material_override = SubResource("ShaderMaterial_ktlp0")
+mesh = ExtResource("8_8lytu")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="RoomView"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 2.9999993)
+collision_layer = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RoomView/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, -0.05, -3.4999917)
+shape = SubResource("BoxShape3D_ktlp0")
+
+[node name="Area3D" type="Area3D" parent="RoomView"]
+collision_mask = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RoomView/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -1)
+shape = SubResource("BoxShape3D_65yf4")
+
+[connection signal="interact_signal" from="FrameScene0/DoorPlate" to="." method="_on_door_plate_interact_signal"]
+[connection signal="body_entered" from="RoomView/Area3D" to="." method="_on_area_3d_body_entered"]

@@ -1,187 +1,39 @@
-[gd_scene load_steps=26 format=3 uid="uid://bt2o31b4bxe48"]
+[gd_scene load_steps=9 format=3 uid="uid://bt2o31b4bxe48"]
 
 [ext_resource type="Script" uid="uid://8h1wxcdqk41f" path="res://addons/abyss_history_lib/Class/World/ScenesPackageClass.gd" id="1_8d6gw"]
 [ext_resource type="Script" uid="uid://bc8n7468se2im" path="res://Assets/World/Location/_Home/Dream/ready_func.gd" id="2_62m8d"]
 [ext_resource type="Environment" uid="uid://bj0yndyb432ki" path="res://Assets/World/Environments/DreamWorldDefaultEnv.tres" id="2_tkejd"]
-[ext_resource type="PackedScene" uid="uid://cyesacqu3i41p" path="res://Assets/World/Location/_Home/Reality/inner_solid.tscn" id="4_ktlp0"]
-[ext_resource type="PackedScene" uid="uid://c5nkwuac4jut0" path="res://Resources/Object/Building/Door/PlainDoor/frame_scene.tscn" id="5_ktlp0"]
-[ext_resource type="PackedScene" uid="uid://dfmtp3c8wtlii" path="res://Resources/Object/Building/Window/SlidingWindow/Metal/window_scene.tscn" id="5_li43c"]
-[ext_resource type="PackedScene" uid="uid://ds1bb3oh6akpf" path="res://Resources/Object/Building/Door/PlainDoor/door_scene.tscn" id="6_x8x1p"]
-[ext_resource type="PackedScene" uid="uid://c88lp2cksihym" path="res://Resources/Object/Furniture/WoodenBed/bed_scene.tscn" id="8_pfwyh"]
-[ext_resource type="PackedScene" uid="uid://drxt0mv3ci5ed" path="res://Resources/Object/Furniture/WoodenChair/chair_scene.tscn" id="9_nrwjt"]
-[ext_resource type="PackedScene" uid="uid://big4v34tly2m8" path="res://Resources/Object/Furniture/WoodenTable/small_table_scene.tscn" id="10_5mnmp"]
-[ext_resource type="PackedScene" uid="uid://bfnknq7q64y87" path="res://Resources/Object/Furniture/WoodenTable/long_table_scene.tscn" id="11_lk80v"]
-[ext_resource type="PackedScene" uid="uid://hqorbjiwa286" path="res://Resources/Object/Device/Computer/computer_scene.tscn" id="12_eby6e"]
-[ext_resource type="PackedScene" uid="uid://cilrxiahcsdqu" path="res://Resources/Object/Building/Light/WoodenCeilingLamp/light_scene.tscn" id="13_jeprg"]
-[ext_resource type="PackedScene" uid="uid://ogtwuy5brc0t" path="res://Resources/Object/Building/Switch/Common/switch_scene.tscn" id="14_sktqw"]
-[ext_resource type="Script" uid="uid://xi806lb1q3l3" path="res://addons/abyss_history_lib/Class/Interact/Behaviour/_BehaviorClass.gd" id="15_j6bsa"]
-[ext_resource type="Script" uid="uid://bcmxxhlef12pk" path="res://addons/abyss_history_lib/Class/Interact/Behaviour/SwitchBehaviorClass.gd" id="16_kxwds"]
-[ext_resource type="PackedScene" uid="uid://dolx4mc7cel7q" path="res://Resources/Object/Building/Door/PlainDoor/door_with_glass_scene.tscn" id="17_pfwyh"]
-[ext_resource type="PackedScene" uid="uid://bw84t8iylhanf" path="res://Assets/World/Location/_Home/Reality/outwall_solid.tscn" id="17_x8x1p"]
-[ext_resource type="PackedScene" uid="uid://cq0fptst1ma54" path="res://Assets/World/Location/_Home/Reality/corridor_solid.tscn" id="18_62m8d"]
-[ext_resource type="PackedScene" uid="uid://bgar67py461my" path="res://Resources/Object/Building/Fence/MetalFenceShort/fence_scene.tscn" id="18_x8x1p"]
-[ext_resource type="Material" uid="uid://rnxv6hl1w5ul" path="res://Resources/Material/DarkMaterial.tres" id="19_li43c"]
-[ext_resource type="PackedScene" uid="uid://2jr0tjnjphjq" path="res://Assets/World/Location/_ZhuShan/Sources/DowntownBuildings/TravelAgencySideStairPart.tscn" id="19_tkejd"]
-[ext_resource type="PackedScene" uid="uid://o7ycdpol2i7h" path="res://Assets/World/Location/_Home/Reality/elevator_corridor_solid.tscn" id="22_nrwjt"]
-[ext_resource type="PackedScene" uid="uid://cn0vdsnev3254" path="res://Resources/Object/Function/BarrierWall/barrier_fade_wall_scene.tscn" id="23_pfwyh"]
+[ext_resource type="PackedScene" uid="uid://cq8yj4ire6bd" path="res://Assets/World/Location/_Home/Dream/DefaultRoom.tscn" id="3_4ed7q"]
+[ext_resource type="Environment" uid="uid://ns2gq60t8sp1" path="res://Assets/World/Environments/DefaultRealityEnv.tres" id="4_31aoj"]
+[ext_resource type="Script" uid="uid://tf3tkep6w0wr" path="res://Assets/World/Location/_Home/Dream/sub_viewport.gd" id="6_8d6gw"]
+[ext_resource type="PackedScene" uid="uid://deue8e3ut26s4" path="res://Assets/World/Location/_Home/Dream/TheCorridor.tscn" id="7_wcnku"]
 
-[sub_resource type="Resource" id="Resource_tnxtw"]
-script = ExtResource("16_kxwds")
-connected_node = Array[NodePath]([NodePath("../WoodenCeilingLampScene")])
-metadata/_custom_type_script = "uid://bcmxxhlef12pk"
+[sub_resource type="World3D" id="World3D_8d6gw"]
+environment = ExtResource("2_tkejd")
 
 [node name="Packed" type="Node3D"]
 script = ExtResource("1_8d6gw")
-environment = ExtResource("2_tkejd")
+environment = ExtResource("4_31aoj")
 metadata/_custom_type_script = "uid://8h1wxcdqk41f"
 
 [node name="ReadyFunc" type="Node" parent="."]
 script = ExtResource("2_62m8d")
 
-[node name="Inner" parent="." instance=ExtResource("4_ktlp0")]
+[node name="SubScene" type="SubViewport" parent="."]
+own_world_3d = true
+world_3d = SubResource("World3D_8d6gw")
+script = ExtResource("6_8d6gw")
+
+[node name="Camera3D" type="Camera3D" parent="SubScene"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 1, 9)
+current = true
+
+[node name="Room0" parent="SubScene" instance=ExtResource("3_4ed7q")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 7)
 
-[node name="SlidingWindowScene0" parent="Inner" instance=ExtResource("5_li43c")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0.5, 8)
-occlusion = "none"
+[node name="TheCorridor" parent="." instance=ExtResource("7_wcnku")]
 
-[node name="SlidingWindowScene1" parent="Inner" instance=ExtResource("5_li43c")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 9)
-occlusion = "none"
-
-[node name="SlidingWindowScene2" parent="Inner" instance=ExtResource("5_li43c")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0.5, 9)
-occlusion = "none"
-
-[node name="SlidingWindowScene3" parent="Inner" instance=ExtResource("5_li43c")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0.5, 6)
-occlusion = "none"
-
-[node name="FrameScene0" parent="Inner" instance=ExtResource("5_ktlp0")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 5, 0, -2.5)
-occlusion = "none"
-
-[node name="DoorPlate" parent="Inner/FrameScene0" instance=ExtResource("6_x8x1p")]
-
-[node name="FrameScene2" parent="Inner" instance=ExtResource("5_ktlp0")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -1, 0, 0.5)
-occlusion = "none"
-
-[node name="DoorPlate" parent="Inner/FrameScene2" instance=ExtResource("6_x8x1p")]
-
-[node name="FrameScene3" parent="Inner" instance=ExtResource("5_ktlp0")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -2, 0, 4.5)
-occlusion = "none"
-
-[node name="DoorPlate" parent="Inner/FrameScene3" instance=ExtResource("6_x8x1p")]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0, 0)
-
-[node name="TheBed" parent="Inner" instance=ExtResource("8_pfwyh")]
-transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, -5.5, 0, 4)
-
-[node name="WoodenChairScene" parent="Inner" instance=ExtResource("9_nrwjt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 0, 6.5)
-
-[node name="Table" parent="Inner" instance=ExtResource("10_5mnmp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, 7.5)
-
-[node name="Table2" parent="Inner" instance=ExtResource("11_lk80v")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 0, 7.5)
-
-[node name="ComputerScene" parent="Inner" instance=ExtResource("12_eby6e")]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -4.5, 1, 7.5)
-
-[node name="WoodenCeilingLampScene" parent="Inner" instance=ExtResource("13_jeprg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 3, 5.5)
-
-[node name="SwitchScene" parent="Inner" instance=ExtResource("14_sktqw")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -2, 1.5, 5.5)
-interact_behavior = Array[ExtResource("15_j6bsa")]([SubResource("Resource_tnxtw")])
-state = true
-
-[node name="FrameScene4" parent="Inner" instance=ExtResource("5_ktlp0")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5, 0, 7.5)
-occlusion = "none"
-
-[node name="Door0Plate" parent="Inner/FrameScene4" instance=ExtResource("17_pfwyh")]
-transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
-
-[node name="Startpos" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0, 15)
-
-[node name="Outwall0" parent="." instance=ExtResource("17_x8x1p")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 7)
-
-[node name="FenceScene0" parent="Outwall0" instance=ExtResource("18_x8x1p")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 0, 9)
-
-[node name="FenceScene1" parent="Outwall0" instance=ExtResource("18_x8x1p")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5, 0, 9)
-
-[node name="FenceScene2" parent="Outwall0" instance=ExtResource("18_x8x1p")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0, 9)
-
-[node name="FenceScene3" parent="Outwall0" instance=ExtResource("18_x8x1p")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.5, 0, 9)
-
-[node name="FenceScene4" parent="Outwall0" instance=ExtResource("18_x8x1p")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 9, 0, 8.5)
-
-[node name="FenceScene5" parent="Outwall0" instance=ExtResource("18_x8x1p")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 9, 0, 7.5)
-
-[node name="FenceScene6" parent="Outwall0" instance=ExtResource("18_x8x1p")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 9, 0, 6.5)
-
-[node name="FencePole" type="CSGBox3D" parent="Outwall0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0.5, 9)
-layers = 3
-use_collision = true
-collision_layer = 3
-size = Vector3(0.125, 1, 0.125)
-material = ExtResource("19_li43c")
-
-[node name="Corridor0" parent="." instance=ExtResource("18_62m8d")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 13, 0, 0)
-
-[node name="Corridor1" parent="Corridor0" instance=ExtResource("18_62m8d")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 18, 0, -0.99999994)
-
-[node name="ElevatorCorridorSolid" parent="Corridor0" instance=ExtResource("22_nrwjt")]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -12, 0, -0.99999994)
-
-[node name="Corridor2" parent="Corridor0" instance=ExtResource("18_62m8d")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -24, 0, -1)
-
-[node name="Corridor3" parent="Corridor0" instance=ExtResource("18_62m8d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42, 0, 0)
-
-[node name="TravelAgencySideStairPart0" parent="." instance=ExtResource("19_tkejd")]
-transform = Transform3D(1.27, 0, 0, 0, 1, 0, 0, 0, 1, 25, -4, 3)
-
-[node name="TravelAgencySideStairPart1" parent="." instance=ExtResource("19_tkejd")]
-transform = Transform3D(1.27, 0, 0, 0, 1, 0, 0, 0, 1, 25, -8, 3)
-
-[node name="TravelAgencySideStairPart2" parent="." instance=ExtResource("19_tkejd")]
-transform = Transform3D(1.27, 0, 0, 0, 1, 0, 0, 0, 1, 25, 0, 3)
-
-[node name="Barrier0" parent="." instance=ExtResource("23_pfwyh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 0, 16)
-
-[node name="Barrier1" parent="." instance=ExtResource("23_pfwyh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.5, 0, 16)
-
-[node name="Barrier2" parent="." instance=ExtResource("23_pfwyh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.5, 0, 16)
-
-[node name="Barrier3" parent="." instance=ExtResource("23_pfwyh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.5, 0, 16)
-
-[node name="Barrier4" parent="." instance=ExtResource("23_pfwyh")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 21, 0, 15.5)
-
-[node name="Barrier5" parent="." instance=ExtResource("23_pfwyh")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 21, 0, 14.5)
-
-[node name="Barrier6" parent="." instance=ExtResource("23_pfwyh")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 21, 0, 13.5)
+[connection signal="open_door" from="SubScene/Room0" to="TheCorridor" method="_open_door"]
+[connection signal="to_room" from="SubScene/Room0" to="ReadyFunc" method="exit_room_to_corridor"]
+[connection signal="open_door" from="TheCorridor" to="SubScene/Room0" method="_on_the_corridor_open_door"]
+[connection signal="to_room" from="TheCorridor" to="ReadyFunc" method="change_room"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://ryitjhnhr4hi"]
+[gd_scene load_steps=46 format=3 uid="uid://ryitjhnhr4hi"]
 
 [ext_resource type="Script" uid="uid://8h1wxcdqk41f" path="res://addons/abyss_history_lib/Class/World/ScenesPackageClass.gd" id="1_l8c88"]
 [ext_resource type="PackedScene" uid="uid://cyesacqu3i41p" path="res://Assets/World/Location/_Home/Reality/inner_solid.tscn" id="2_3lex0"]
@@ -44,6 +44,36 @@ metadata/_custom_type_script = "uid://bawnnel5w6hxg"
 [sub_resource type="Resource" id="Resource_tnxtw"]
 script = ExtResource("16_me8th")
 connected_node = Array[NodePath]([NodePath("../WoodenCeilingLampScene")])
+metadata/_custom_type_script = "uid://bcmxxhlef12pk"
+
+[sub_resource type="Resource" id="Resource_ilfl7"]
+script = ExtResource("16_me8th")
+connected_node = Array[NodePath]([NodePath("../WoodenCeilingLampScene2")])
+metadata/_custom_type_script = "uid://bcmxxhlef12pk"
+
+[sub_resource type="Resource" id="Resource_fjltd"]
+script = ExtResource("16_me8th")
+connected_node = Array[NodePath]([NodePath("../WoodenCeilingLampScene3")])
+metadata/_custom_type_script = "uid://bcmxxhlef12pk"
+
+[sub_resource type="Resource" id="Resource_lqy43"]
+script = ExtResource("16_me8th")
+connected_node = Array[NodePath]([NodePath("../WoodenCeilingLampScene4")])
+metadata/_custom_type_script = "uid://bcmxxhlef12pk"
+
+[sub_resource type="Resource" id="Resource_4ge3f"]
+script = ExtResource("16_me8th")
+connected_node = Array[NodePath]([NodePath("../CeilingLampScene")])
+metadata/_custom_type_script = "uid://bcmxxhlef12pk"
+
+[sub_resource type="Resource" id="Resource_b0idw"]
+script = ExtResource("16_me8th")
+connected_node = Array[NodePath]([NodePath("../MetalCeilingLampScene0")])
+metadata/_custom_type_script = "uid://bcmxxhlef12pk"
+
+[sub_resource type="Resource" id="Resource_mjqdt"]
+script = ExtResource("16_me8th")
+connected_node = Array[NodePath]([NodePath("../MetalCeilingLampScene1")])
 metadata/_custom_type_script = "uid://bcmxxhlef12pk"
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_g88dj"]
@@ -370,7 +400,7 @@ transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -4.5
 [node name="WoodenCeilingLampScene" parent="Inner" instance=ExtResource("13_36fuy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 3, 5.5)
 
-[node name="SwitchScene" parent="Inner" instance=ExtResource("14_jhkpw")]
+[node name="SwitchScene0" parent="Inner" instance=ExtResource("14_jhkpw")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -2, 1.5, 5.5)
 interact_behavior = Array[ExtResource("15_j4cn1")]([SubResource("Resource_tnxtw")])
 state = true
@@ -378,20 +408,50 @@ state = true
 [node name="WoodenCeilingLampScene2" parent="Inner" instance=ExtResource("31_3me75")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 3, -0.5)
 
+[node name="SwitchScene1" parent="Inner" instance=ExtResource("14_jhkpw")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -1.5, 1.5, -1)
+interact_behavior = Array[ExtResource("15_j4cn1")]([SubResource("Resource_ilfl7")])
+state = true
+
 [node name="WoodenCeilingLampScene3" parent="Inner" instance=ExtResource("32_g8j5q")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 3, -2.5)
+
+[node name="SwitchScene2" parent="Inner" instance=ExtResource("14_jhkpw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 1.5, -4)
+interact_behavior = Array[ExtResource("15_j4cn1")]([SubResource("Resource_fjltd")])
+state = true
 
 [node name="WoodenCeilingLampScene4" parent="Inner" instance=ExtResource("27_ejgib")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 3, 6.5)
 
+[node name="SwitchScene3" parent="Inner" instance=ExtResource("14_jhkpw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.75, 1.5, 3)
+interact_behavior = Array[ExtResource("15_j4cn1")]([SubResource("Resource_lqy43")])
+state = true
+
 [node name="CeilingLampScene" parent="Inner" instance=ExtResource("28_ilfl7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 3.5, 7.5)
 
-[node name="WoodenCeilingLampScene5" parent="Inner" instance=ExtResource("29_ilfl7")]
+[node name="SwitchScene4" parent="Inner" instance=ExtResource("14_jhkpw")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 5, 1.5, 6.5)
+interact_behavior = Array[ExtResource("15_j4cn1")]([SubResource("Resource_4ge3f")])
+state = true
+
+[node name="MetalCeilingLampScene0" parent="Inner" instance=ExtResource("29_ilfl7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5, 3, 0.5)
 
-[node name="WoodenCeilingLampScene6" parent="Inner" instance=ExtResource("29_ilfl7")]
+[node name="SwitchScene5" parent="Inner" instance=ExtResource("14_jhkpw")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -1, 1.5, 1.5)
+interact_behavior = Array[ExtResource("15_j4cn1")]([SubResource("Resource_b0idw")])
+state = true
+
+[node name="MetalCeilingLampScene1" parent="Inner" instance=ExtResource("29_ilfl7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 3, 2.5)
+
+[node name="SwitchScene6" parent="Inner" instance=ExtResource("14_jhkpw")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5, 1.5, 2.75)
+interact_behavior = Array[ExtResource("15_j4cn1")]([SubResource("Resource_mjqdt")])
+state = true
 
 [node name="Outwall" parent="." instance=ExtResource("16_10fv7")]
 

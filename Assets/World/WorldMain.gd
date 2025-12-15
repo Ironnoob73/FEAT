@@ -19,6 +19,8 @@ var day_percent: float = 0
 var ambient_color: Color = Color(0,0,0)
 
 func _ready() -> void:
+	Global.THE_PLAYER = player0
+	
 	_on_options_set_sdfgi(Global.Sdfgi)
 	if !Global.playerTeleported :
 		if Global.has_meta("to_pos"):

@@ -8,13 +8,12 @@ noise_type = 2
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_oyc0e"]
 width = 128
-height = 32
+height = 48
 noise = SubResource("FastNoiseLite_oqrks")
 color_ramp = SubResource("Gradient_27rn6")
-in_3d_space = true
 
 [resource]
 albedo_texture = SubResource("NoiseTexture2D_oyc0e")
 metallic = 1.0
-roughness = 0.75
+roughness = 0.25
 texture_filter = 0
