@@ -134,6 +134,7 @@ func _unhandled_input(_event):
 		match current_menu :
 			"HUD":
 				current_menu = "Pause"
+				Global.current_menu = "Pause"
 				mouse_mode(true)
 				pause_menu.show()
 			"Inventory":
@@ -146,7 +147,8 @@ func _unhandled_input(_event):
 				mouse_mode(false)
 				chat_menu.isInput = false
 			_:
-				current_menu = "HUD"
+				if !self.get_meta("lock_menu",false):
+					current_menu = "HUD"
 	# Chat
 	if Input.is_action_just_pressed("chat"):
 		match current_menu:

@@ -9,7 +9,7 @@ var escape_released = false
 signal mouse_mode_signal(bool)
 
 func _ready():
-	Global.current_menu = "Pause"
+	#Global.current_menu = "Pause" # Don't know why I write this...
 	animation.play("RESET")
 	if get_parent().isInDream :
 		exit_button.text = "pause.quit"
@@ -30,6 +30,7 @@ func _unhandled_input(_event):
 func _on_resume_button_pressed():
 	mouse_mode_signal.emit(false)
 	get_parent().current_menu = "HUD"
+	Global.current_menu = "Main"
 	hide()
 	
 func refresh_multiplayer_list():
