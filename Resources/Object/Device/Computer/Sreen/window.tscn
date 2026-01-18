@@ -65,6 +65,9 @@ text = "🗙"
 [node name="WindowContainer" type="PanelContainer" parent="VBox"]
 layout_mode = 2
 size_flags_vertical = 3
+mouse_filter = 2
 
+[connection signal="gui_input" from="." to="." method="_on_window_gui_input"]
 [connection signal="gui_input" from="VBox/HBox" to="." method="_on_title_gui_input"]
+[connection signal="gui_input" from="VBox/HBox/CloseButton" to="." method="_on_window_gui_input"]
 [connection signal="pressed" from="VBox/HBox/CloseButton" to="." method="_on_close_button_pressed"]

@@ -67,3 +67,8 @@ msgstr "Use the [color=yellow]Mouse wheel[/color] or the [color=yellow]Number ke
 
 msgid "tutorial.range.1"
 msgstr "Aim at the target with a ranged weapon (This time projectiles will pass through barriers)"
+
+#----------Lore----------#
+#Reality
+msgid "reality.exit"
+msgstr "You Exited"

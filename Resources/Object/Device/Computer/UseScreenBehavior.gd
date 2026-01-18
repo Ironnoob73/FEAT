@@ -3,7 +3,7 @@ class_name UseScreenBehavior
 
 func do(interactor:Node,sender:Node) -> void:
 	if sender is LocalPlayer:
-		Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+		Input.set_mouse_mode(Input.MOUSE_MODE_CONFINED_HIDDEN)
 		interactor.user = sender
 		sender.current_menu = "Computer"
 		sender.hide_hud(true)

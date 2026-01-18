@@ -22,7 +22,7 @@ func _on_visibility_changed():
 
 func _unhandled_input(_event):
 	if Input.is_action_just_released("ui_cancel") :
-		if escape_released == false :
+		if escape_released == false and is_visible_in_tree():
 			escape_released = true
 		elif Global.current_menu == "Pause":
 			escape_released = false

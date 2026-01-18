@@ -16,7 +16,7 @@ config/name_localized={
 "zh_CN": "纭碌实践"
 }
 config/version="0.0.1"
-run/main_scene="res://Title/TitleScene.tscn"
+run/main_scene="uid://c0hvltjdip61f"
 config/custom_user_dir_name="FEAT"
 config/features=PackedStringArray("4.5", "Forward Plus")
 run/flush_stdout_on_print.debug=false

@@ -67,3 +67,8 @@ msgstr "使用[color=yellow]鼠标滚轮[/color]或[color=yellow]数字键1~5[/c
 
 msgid "tutorial.range.1"
 msgstr "瞄准目标使用远程武器（此时射弹可以穿过屏障）"
+
+#----------Lore----------#
+#Reality
+msgid "reality.exit"
+msgstr "你退出了"

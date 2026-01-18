@@ -1,7 +1,8 @@
-[gd_scene load_steps=48 format=3 uid="uid://ryitjhnhr4hi"]
+[gd_scene load_steps=49 format=3 uid="uid://ryitjhnhr4hi"]
 
 [ext_resource type="Script" uid="uid://8h1wxcdqk41f" path="res://addons/abyss_history_lib/Class/World/ScenesPackageClass.gd" id="1_l8c88"]
 [ext_resource type="PackedScene" uid="uid://cyesacqu3i41p" path="res://Assets/World/Location/_Home/Reality/inner_solid.tscn" id="2_3lex0"]
+[ext_resource type="Script" uid="uid://cimdd8vkkv8w8" path="res://Assets/World/Location/_Home/Reality/scene_func.gd" id="2_4ge3f"]
 [ext_resource type="PackedScene" uid="uid://l5crfk031an5" path="res://Resources/Object/Function/SceneChanger/scene_changer_scene.tscn" id="3_aw5aa"]
 [ext_resource type="PackedScene" uid="uid://donuwqtg3w83f" path="res://Resources/Object/Building/Door/FrontDoor/frame_scene.tscn" id="3_yfurw"]
 [ext_resource type="Material" uid="uid://dvhli2ihhy2nx" path="res://Resources/Material/BrownMaterial.tres" id="4_7aooe"]
@@ -28,14 +29,14 @@
 [ext_resource type="PackedScene" uid="uid://b8dvqq3ll8sdr" path="res://Assets/World/Location/_Home/Reality/outwall_fake.tscn" id="21_4exlk"]
 [ext_resource type="Material" uid="uid://dcwav4237d0l3" path="res://Resources/Material/GrassGround.tres" id="22_jfaus"]
 [ext_resource type="PackedScene" uid="uid://er22co5l4pot" path="res://Assets/World/Location/_Home/source/ElevatorCorridor.glb" id="23_4exlk"]
-[ext_resource type="Script" uid="uid://dco1y8a3oxqmg" path="res://Assets/World/Location/_Home/Reality/drop_area.gd" id="24_mqkrg"]
 [ext_resource type="PackedScene" uid="uid://n4mvu6pjwdnn" path="res://Assets/World/Location/_Home/source/StairWall.glb" id="25_g88dj"]
 [ext_resource type="PackedScene" uid="uid://loox8pt3yy0b" path="res://Resources/Object/Building/Light/WoodenCeilingLamp/light_scene_2.tscn" id="27_ejgib"]
 [ext_resource type="PackedScene" uid="uid://bgt17ft12aj8t" path="res://Resources/Object/Building/Light/GeometryLamp/light_scene.tscn" id="28_ilfl7"]
 [ext_resource type="PackedScene" uid="uid://c8rdniten0l2h" path="res://Resources/Object/Building/Light/MetalCeilingLamp/light_scene.tscn" id="29_ilfl7"]
 [ext_resource type="PackedScene" uid="uid://cjhgr5ycp14um" path="res://Resources/Object/Building/Light/WoodenCeilingLamp/light_scene_1.tscn" id="31_3me75"]
 [ext_resource type="PackedScene" uid="uid://cjacr4clrjwvl" path="res://Resources/Object/Building/Light/WoodenCeilingLamp/light_scene_0.tscn" id="32_g8j5q"]
-[ext_resource type="Script" uid="uid://d0x8eciqix4db" path="res://Assets/World/Location/_Home/Reality/exit_area.gd" id="36_fjltd"]
+[ext_resource type="Texture2D" uid="uid://itleu3ibe7cv" path="res://Title/present.png" id="37_4ge3f"]
+[ext_resource type="Texture2D" uid="uid://ddhij21bol48p" path="res://Assets/World/Location/_Home/Reality/exit.svg" id="37_lqy43"]
 
 [sub_resource type="Resource" id="Resource_e7spv"]
 script = ExtResource("7_7aooe")
@@ -88,6 +89,9 @@ size = Vector3(2, 2, 1)
 [node name="Packed" type="Node3D"]
 script = ExtResource("1_l8c88")
 metadata/_custom_type_script = "uid://8h1wxcdqk41f"
+
+[node name="SceneFunc" type="Node" parent="."]
+script = ExtResource("2_4ge3f")
 
 [node name="Corridor0" parent="." instance=ExtResource("17_ovdeb")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 1, 0, -7)
@@ -774,7 +778,6 @@ collision_mask = 5
 gravity_space_override = 3
 gravity = 0.1
 linear_damp_space_override = 1
-script = ExtResource("24_mqkrg")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="DropArea"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, -3, 8)
@@ -784,7 +787,6 @@ shape = SubResource("WorldBoundaryShape3D_mqkrg")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 1, -4.5)
 collision_layer = 3
 collision_mask = 5
-script = ExtResource("36_fjltd")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ExitArea"]
 shape = SubResource("BoxShape3D_lqy43")
@@ -798,5 +800,36 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(1, 1, 1, 0)
 
-[connection signal="body_entered" from="DropArea" to="DropArea" method="_on_body_entered"]
+[node name="VBoxContainer" type="VBoxContainer" parent="ExitArea/ColorRect"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -136.5
+offset_bottom = 136.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="ExitArea/ColorRect/VBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("37_lqy43")
+expand_mode = 4
+
+[node name="Label" type="Label" parent="ExitArea/ColorRect/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "reality.exit"
+horizontal_alignment = 1
+
+[node name="StartScreen" type="Sprite2D" parent="."]
+texture = ExtResource("37_4ge3f")
+centered = false
+
+[connection signal="body_entered" from="DropArea" to="SceneFunc" method="_on_drop_area_body_entered"]
+[connection signal="body_entered" from="ExitArea" to="SceneFunc" method="_on_exit_area_body_entered"]
 [connection signal="body_entered" from="ExitArea" to="ExitArea" method="_on_body_entered"]

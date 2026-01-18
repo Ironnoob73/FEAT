@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=23 format=3 uid="uid://bv3atmtrqii4a"]
+[gd_resource type="Theme" load_steps=24 format=3 uid="uid://bv3atmtrqii4a"]
 
 [sub_resource type="Gradient" id="Gradient_ynjm2"]
 offsets = PackedFloat32Array(0, 0.8, 1)
@@ -176,6 +176,22 @@ expand_margin_bottom = 5.0
 shadow_color = Color(0, 0, 0.49803922, 1)
 shadow_size = 2
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o5rh8"]
+bg_color = Color(0.24705882, 0.37254903, 0.7490196, 1)
+border_width_top = 32
+border_color = Color(0.37254903, 0.49803922, 0.7490196, 1)
+border_blend = true
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0
+shadow_color = Color(0.24705882, 0.24705882, 0.49803922, 1)
+shadow_size = 2
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lown7"]
 bg_color = Color(0, 0.20331232, 7.494118, 1)
 border_color = Color(0, 0.49803922, 1, 1)
@@ -206,5 +222,7 @@ StartButton/styles/normal = SubResource("StyleBoxTexture_e0cyg")
 StartButton/styles/pressed = SubResource("StyleBoxTexture_luw20")
 WindowBackground/base_type = &"Panel"
 WindowBackground/styles/panel = SubResource("StyleBoxFlat_ynjm2")
+WindowBackgroundUnf/base_type = &"Panel"
+WindowBackgroundUnf/styles/panel = SubResource("StyleBoxFlat_o5rh8")
 WindowTitle/base_type = &"PanelContainer"
 WindowTitle/styles/panel = SubResource("StyleBoxFlat_lown7")
