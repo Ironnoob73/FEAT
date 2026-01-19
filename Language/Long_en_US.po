@@ -98,3 +98,9 @@ msgstr "No need to worry about your username being the same as other users; we u
 
 msgid "oobe.name.uid"
 msgstr "Your current UID is: %s"
+
+msgid "oobe.avatar"
+msgstr "Set your avatar"
+
+msgid "oobe.avatar.0"
+msgstr "Set your avatar"

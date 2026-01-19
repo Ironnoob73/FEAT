@@ -171,6 +171,7 @@ size_flags_vertical = 10
 text = "oobe.next_hint"
 
 [node name="NamePage" type="VBoxContainer" parent="VBoxContainer/Contents"]
+visible = false
 layout_mode = 2
 
 [node name="Title" type="Label" parent="VBoxContainer/Contents/NamePage"]
@@ -199,6 +200,21 @@ text = "oobe.name.1"
 layout_mode = 2
 size_flags_vertical = 10
 text = "oobe.name.uid"
+
+[node name="AvatarPage" type="VBoxContainer" parent="VBoxContainer/Contents"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="VBoxContainer/Contents/AvatarPage"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 1, 0.49803922)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_font_sizes/font_size = 50
+text = "oobe.avatar"
+
+[node name="SubText0" type="Label" parent="VBoxContainer/Contents/AvatarPage"]
+layout_mode = 2
+text = "oobe.avatar.0"
 
 [node name="DownLine" type="TextureRect" parent="VBoxContainer"]
 custom_minimum_size = Vector2(0, 5)

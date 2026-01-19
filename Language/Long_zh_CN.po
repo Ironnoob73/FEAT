@@ -98,3 +98,9 @@ msgstr "无需担心您的用户名和其他用户重复，我们使用UID对账
 
 msgid "oobe.name.uid"
 msgstr "您当前的UID为：%s"
+
+msgid "oobe.avatar"
+msgstr "设置您的头像"
+
+msgid "oobe.avatar.0"
+msgstr "The image you select will appear before your username."

@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=36 format=3 uid="uid://bv3atmtrqii4a"]
+[gd_resource type="Theme" load_steps=39 format=3 uid="uid://bv3atmtrqii4a"]
 
 [sub_resource type="Gradient" id="Gradient_ynjm2"]
 offsets = PackedFloat32Array(0, 0.8, 1)
@@ -59,6 +59,51 @@ corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 shadow_color = Color(0, 0.7490196, 1, 0.6)
 shadow_size = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j5l3d"]
+content_margin_left = 2.0
+content_margin_top = 2.0
+content_margin_right = 2.0
+content_margin_bottom = 2.0
+bg_color = Color(1, 1, 1, 1)
+border_width_top = 27
+border_color = Color(0.7490196, 0.7490196, 0.7490196, 1)
+border_blend = true
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+shadow_size = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_payto"]
+content_margin_left = 2.0
+content_margin_top = 2.0
+content_margin_right = 2.0
+content_margin_bottom = 2.0
+bg_color = Color(0.7490196, 0.7490196, 0.7490196, 1)
+border_width_top = 27
+border_color = Color(0.49803922, 0.49803922, 0.49803922, 1)
+border_blend = true
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+shadow_size = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f7mcu"]
+content_margin_left = 2.0
+content_margin_top = 2.0
+content_margin_right = 2.0
+content_margin_bottom = 2.0
+bg_color = Color(0.49803922, 0.49803922, 0.49803922, 1)
+border_width_top = 27
+border_color = Color(0.7490196, 0.7490196, 0.7490196, 1)
+border_blend = true
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+shadow_size = 5
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bg63j"]
 content_margin_left = 3.0
@@ -357,6 +402,10 @@ Button/font_sizes/font_size = 24
 Button/styles/hover = SubResource("StyleBoxFlat_luw20")
 Button/styles/normal = SubResource("StyleBoxFlat_7mb6s")
 Button/styles/pressed = SubResource("StyleBoxFlat_35loj")
+ButtonAvatarBase/base_type = &"Button"
+ButtonAvatarBase/styles/hover = SubResource("StyleBoxFlat_j5l3d")
+ButtonAvatarBase/styles/normal = SubResource("StyleBoxFlat_payto")
+ButtonAvatarBase/styles/pressed = SubResource("StyleBoxFlat_f7mcu")
 ButtonForListMenu/base_type = &"Button"
 ButtonForListMenu/colors/font_color = Color(0, 0, 0, 1)
 ButtonForListMenu/colors/font_disabled_color = Color(0.7490196, 0.7490196, 0.7490196, 1)

@@ -4,13 +4,16 @@ extends TextureRect
 @onready var page_button: MarginContainer = $VBoxContainer/DownBoard/PageButton
 
 @onready var contents: MarginContainer = $VBoxContainer/Contents
-@onready var welocme_page: VBoxContainer = $VBoxContainer/Contents/WelocmePage
-@onready var name_page: VBoxContainer = $VBoxContainer/Contents/NamePage
 
+@onready var welocme_page: VBoxContainer = $VBoxContainer/Contents/WelocmePage
 @onready var language_button: Button = $VBoxContainer/Contents/WelocmePage/OptionButton
 @onready var language_choose: PanelContainer = $VBoxContainer/Contents/WelocmePage/OptionButton/PanelContainer
 var isLanguagePanelFocused: bool = false
+
+@onready var name_page: VBoxContainer = $VBoxContainer/Contents/NamePage
 @onready var name_edit: LineEdit = $VBoxContainer/Contents/NamePage/LineEdit
+
+@onready var avatar_page: VBoxContainer = $VBoxContainer/Contents/AvatarPage
 
 @onready var uid: Label = $VBoxContainer/Contents/NamePage/UID
 
@@ -49,6 +52,7 @@ func _change_page(number: int):
 	
 	match page_number:
 		1:name_page.show()
+		2:avatar_page.show()
 		_:welocme_page.show()
 
 func _on_previous_pressed() -> void:
