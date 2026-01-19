@@ -68,6 +68,9 @@ msgid "interact.sleep"
 msgstr "Sleep"
 
 ####----------Icon----------####
+msgid "os.name"
+msgstr "[i]Nonsense[/i]© OS"
+
 msgid "icon.files"
 msgstr "Files"
 

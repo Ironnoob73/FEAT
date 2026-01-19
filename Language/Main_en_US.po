@@ -209,6 +209,19 @@ msgstr "Name"
 msgid "file.open_directory"
 msgstr "Choose a folder"
 
+#----------Page----------#
+msgid "button.next_page"
+msgstr "Next Page"
+
+msgid "button.previous_page"
+msgstr "Previous Page"
+
+msgid "button.next_step"
+msgstr "Next Step"
+
+msgid "button.previous_step"
+msgstr "Previous Step"
+
 #----------In game----------#
 
 msgid "list.count"

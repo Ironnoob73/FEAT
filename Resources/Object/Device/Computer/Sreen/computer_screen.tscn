@@ -1,9 +1,10 @@
-[gd_scene load_steps=17 format=3 uid="uid://ivqad25m6mqq"]
+[gd_scene load_steps=22 format=3 uid="uid://ivqad25m6mqq"]
 
-[ext_resource type="Theme" uid="uid://bv3atmtrqii4a" path="res://Resources/Theme/computer_default_theme.tres" id="1_hrvfu"]
+[ext_resource type="Theme" uid="uid://bv3atmtrqii4a" path="res://Resources/Theme/luna.tres" id="1_hrvfu"]
 [ext_resource type="Script" uid="uid://bh2841k2gtp81" path="res://Resources/Object/Device/Computer/Sreen/computer_screen.gd" id="2_wjw8o"]
 [ext_resource type="Texture2D" uid="uid://cng3354m6puie" path="res://Resources/Image/UI/cursor.svg" id="3_6ra4b"]
 [ext_resource type="Script" uid="uid://cyg8uj7pa14ba" path="res://Resources/Object/Device/Computer/Sreen/desktop.gd" id="3_b14wj"]
+[ext_resource type="Texture2D" uid="uid://6aal2onumy7s" path="res://Resources/Image/Desktop/default.tres" id="3_fhfra"]
 [ext_resource type="Texture2D" uid="uid://b1711on1np5tg" path="res://Resources/Image/Icon/files.svg" id="4_njps7"]
 [ext_resource type="Texture2D" uid="uid://dvk5m314xmdrg" path="res://Resources/Image/Icon/network.svg" id="5_b14wj"]
 [ext_resource type="Texture2D" uid="uid://pfjefeuxsaq7" path="res://Resources/Image/Icon/settings.svg" id="6_ypevc"]
@@ -11,15 +12,6 @@
 [ext_resource type="Shader" uid="uid://hnsab2jm617a" path="res://Resources/Shader/TwoDim/invert.gdshader" id="7_wjw8o"]
 [ext_resource type="Texture2D" uid="uid://dfmnyruyxkv0p" path="res://Resources/Image/off.svg" id="8_njps7"]
 [ext_resource type="Texture2D" uid="uid://itleu3ibe7cv" path="res://Title/present.png" id="11_ypevc"]
-
-[sub_resource type="Gradient" id="Gradient_e6lxs"]
-colors = PackedColorArray(0, 0, 1, 1, 0, 1, 1, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_03fal"]
-gradient = SubResource("Gradient_e6lxs")
-width = 1080
-height = 768
-fill_from = Vector2(0, 1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6ra4b"]
 shader = ExtResource("7_wjw8o")
@@ -38,12 +30,48 @@ fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(1, 1)
 repeat = 1
 
+[sub_resource type="FontVariation" id="FontVariation_ypevc"]
+
+[sub_resource type="SystemFont" id="SystemFont_ypevc"]
+fallbacks = Array[Font]([SubResource("FontVariation_ypevc")])
+font_names = PackedStringArray("SimSun", "Times New Roman")
+font_italic = true
+subpixel_positioning = 0
+
+[sub_resource type="SystemFont" id="SystemFont_fhfra"]
+fallbacks = Array[Font]([SubResource("FontVariation_ypevc")])
+font_names = PackedStringArray("SimSun", "Times New Roman")
+font_italic = true
+subpixel_positioning = 0
+
+[sub_resource type="FontVariation" id="FontVariation_p748u"]
+base_font = SubResource("SystemFont_fhfra")
+variation_embolden = 1.0
+variation_transform = Transform2D(1, 0.25, 0, 1, 0, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ypevc"]
+draw_center = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fhfra"]
+content_margin_left = 2.0
+content_margin_top = 2.0
+content_margin_right = 2.0
+content_margin_bottom = 2.0
+bg_color = Color(1, 1, 1, 1)
+
 [node name="ComputerScreen" type="Control"]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 1080.0
 offset_bottom = 768.0
 script = ExtResource("2_wjw8o")
+
+[node name="Cursor" type="Sprite2D" parent="."]
+top_level = true
+z_index = 255
+position = Vector2(540, 384)
+texture = ExtResource("3_6ra4b")
+centered = false
 
 [node name="Desktop" type="TextureRect" parent="."]
 layout_mode = 1
@@ -53,7 +81,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_hrvfu")
-texture = SubResource("GradientTexture2D_03fal")
+texture = ExtResource("3_fhfra")
 script = ExtResource("3_b14wj")
 
 [node name="DesktopIcons" type="VFlowContainer" parent="Desktop"]
@@ -218,10 +246,6 @@ patch_margin_top = 25
 patch_margin_right = 25
 patch_margin_bottom = 25
 
-[node name="Cursor" type="Sprite2D" parent="Desktop"]
-texture = ExtResource("3_6ra4b")
-centered = false
-
 [node name="StartScreen" type="Control" parent="."]
 visible = false
 layout_mode = 1
@@ -234,8 +258,44 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="StartScreen"]
+visible = false
 scale = Vector2(0.675, 0.675)
 texture = ExtResource("11_ypevc")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="StartScreen"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -163.5
+offset_top = -25.5
+offset_right = 163.5
+offset_bottom = 25.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="OS" type="RichTextLabel" parent="StartScreen/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/normal_font = SubResource("SystemFont_ypevc")
+theme_override_fonts/italics_font = SubResource("FontVariation_p748u")
+theme_override_font_sizes/normal_font_size = 50
+theme_override_font_sizes/italics_font_size = 50
+bbcode_enabled = true
+text = "os.name"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+
+[node name="ProgressBar" type="ProgressBar" parent="StartScreen/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_ypevc")
+theme_override_styles/fill = SubResource("StyleBoxFlat_fhfra")
+show_percentage = false
+indeterminate = true
+editor_preview_indeterminate = true
 
 [connection signal="pressed" from="Desktop/DesktopIcons/FilesIcon" to="Desktop" method="_on_files_icon_pressed"]
 [connection signal="mouse_entered" from="Desktop/StartMenu" to="Desktop" method="_on_start_menu_mouse_entered"]

@@ -1,0 +1,271 @@
+[gd_scene load_steps=15 format=3 uid="uid://henk88t1h8y2"]
+
+[ext_resource type="Theme" uid="uid://bv3atmtrqii4a" path="res://Resources/Theme/luna.tres" id="1_1jk3b"]
+[ext_resource type="Texture2D" uid="uid://6aal2onumy7s" path="res://Resources/Image/Desktop/default.tres" id="2_deyrj"]
+[ext_resource type="Script" uid="uid://b2680156src04" path="res://Assets/UI/Computer/oobe.gd" id="3_deyrj"]
+[ext_resource type="Texture2D" uid="uid://cd10lecgpielv" path="res://Resources/Image/UI/DownArrow.svg" id="4_b1gv2"]
+
+[sub_resource type="FontVariation" id="FontVariation_ypevc"]
+
+[sub_resource type="SystemFont" id="SystemFont_ypevc"]
+fallbacks = Array[Font]([SubResource("FontVariation_ypevc")])
+font_names = PackedStringArray("SimSun", "Times New Roman")
+font_italic = true
+subpixel_positioning = 0
+
+[sub_resource type="SystemFont" id="SystemFont_fhfra"]
+fallbacks = Array[Font]([SubResource("FontVariation_ypevc")])
+font_names = PackedStringArray("SimSun", "Times New Roman")
+font_italic = true
+subpixel_positioning = 0
+
+[sub_resource type="FontVariation" id="FontVariation_p748u"]
+base_font = SubResource("SystemFont_fhfra")
+variation_embolden = 1.0
+variation_transform = Transform2D(1, 0.25, 0, 1, 0, 0)
+
+[sub_resource type="Gradient" id="Gradient_fhfra"]
+offsets = PackedFloat32Array(0, 0.5, 1)
+colors = PackedColorArray(1, 1, 0, 0, 1, 1, 0, 1, 1, 1, 0, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_p748u"]
+gradient = SubResource("Gradient_fhfra")
+width = 1080
+
+[sub_resource type="InputEventAction" id="InputEventAction_deyrj"]
+action = &"tab_left"
+
+[sub_resource type="Shortcut" id="Shortcut_b1gv2"]
+events = [SubResource("InputEventAction_deyrj")]
+
+[sub_resource type="InputEventAction" id="InputEventAction_fl8u4"]
+action = &"tab_right"
+
+[sub_resource type="Shortcut" id="Shortcut_kylj4"]
+events = [SubResource("InputEventAction_fl8u4")]
+
+[node name="OOBE" type="TextureRect"]
+offset_right = 1080.0
+offset_bottom = 768.0
+theme = ExtResource("1_1jk3b")
+texture = ExtResource("2_deyrj")
+script = ExtResource("3_deyrj")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="UpBoard" type="ColorRect" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 75)
+layout_mode = 2
+color = Color(0, 0, 1, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/UpBoard"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 0
+
+[node name="OS" type="RichTextLabel" parent="VBoxContainer/UpBoard/MarginContainer"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = SubResource("SystemFont_ypevc")
+theme_override_fonts/italics_font = SubResource("FontVariation_p748u")
+theme_override_font_sizes/normal_font_size = 50
+theme_override_font_sizes/italics_font_size = 50
+bbcode_enabled = true
+text = "os.name"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+vertical_alignment = 1
+
+[node name="UpLine" type="TextureRect" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 5)
+layout_mode = 2
+texture = SubResource("GradientTexture1D_p748u")
+
+[node name="Contents" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 10
+
+[node name="WelocmePage" type="VBoxContainer" parent="VBoxContainer/Contents"]
+visible = false
+layout_mode = 2
+
+[node name="Title" type="Label" parent="VBoxContainer/Contents/WelocmePage"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 1, 0.49803922)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_font_sizes/font_size = 50
+text = "oobe.welcome"
+
+[node name="SubText0" type="Label" parent="VBoxContainer/Contents/WelocmePage"]
+layout_mode = 2
+text = "oobe.welcome.0"
+
+[node name="SubText1" type="Label" parent="VBoxContainer/Contents/WelocmePage"]
+layout_mode = 2
+text = "oobe.welcome.1"
+
+[node name="OptionButton" type="Button" parent="VBoxContainer/Contents/WelocmePage"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_type_variation = &"ButtonForMenu"
+text = "English"
+icon = ExtResource("4_b1gv2")
+alignment = 0
+icon_alignment = 2
+expand_icon = true
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/Contents/WelocmePage/OptionButton"]
+visible = false
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -3589.0
+grow_horizontal = 2
+theme_type_variation = &"PanelLittleMenu"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/Contents/WelocmePage/OptionButton/PanelContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_constants/separation = 0
+alignment = 2
+
+[node name="EnglishButton" type="Button" parent="VBoxContainer/Contents/WelocmePage/OptionButton/PanelContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"ButtonForListMenu"
+text = "English"
+alignment = 0
+
+[node name="MandarinButton" type="Button" parent="VBoxContainer/Contents/WelocmePage/OptionButton/PanelContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"ButtonForListMenu"
+text = "中文"
+alignment = 0
+
+[node name="NextStepHint" type="Label" parent="VBoxContainer/Contents/WelocmePage"]
+layout_mode = 2
+size_flags_vertical = 10
+text = "oobe.next_hint"
+
+[node name="NamePage" type="VBoxContainer" parent="VBoxContainer/Contents"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="VBoxContainer/Contents/NamePage"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 1, 0.49803922)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_font_sizes/font_size = 50
+text = "oobe.name"
+
+[node name="SubText0" type="Label" parent="VBoxContainer/Contents/NamePage"]
+layout_mode = 2
+text = "oobe.name.0"
+
+[node name="LineEdit" type="LineEdit" parent="VBoxContainer/Contents/NamePage"]
+custom_minimum_size = Vector2(350, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+placeholder_text = "Anonymous"
+
+[node name="SubText1" type="Label" parent="VBoxContainer/Contents/NamePage"]
+layout_mode = 2
+text = "oobe.name.1"
+
+[node name="UID" type="Label" parent="VBoxContainer/Contents/NamePage"]
+layout_mode = 2
+size_flags_vertical = 10
+text = "oobe.name.uid"
+
+[node name="DownLine" type="TextureRect" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 5)
+layout_mode = 2
+texture = SubResource("GradientTexture1D_p748u")
+
+[node name="DownBoard" type="ColorRect" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 75)
+layout_mode = 2
+color = Color(0, 0, 1, 1)
+
+[node name="PageButton" type="MarginContainer" parent="VBoxContainer/DownBoard"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/DownBoard/PageButton"]
+layout_mode = 2
+
+[node name="PreviousIcon" type="Button" parent="VBoxContainer/DownBoard/PageButton/HBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(35, 35)
+layout_mode = 2
+theme_type_variation = &"ButtonRed"
+shortcut = SubResource("Shortcut_b1gv2")
+text = "🢀"
+
+[node name="PreviousText" type="LinkButton" parent="VBoxContainer/DownBoard/PageButton/HBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 4
+text = "button.previous_step"
+underline = 1
+
+[node name="Control" type="Control" parent="VBoxContainer/DownBoard/PageButton/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="NextText" type="LinkButton" parent="VBoxContainer/DownBoard/PageButton/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+text = "button.next_step"
+underline = 1
+
+[node name="NextIcon" type="Button" parent="VBoxContainer/DownBoard/PageButton/HBoxContainer"]
+custom_minimum_size = Vector2(35, 35)
+layout_mode = 2
+theme_type_variation = &"ButtonGreen"
+shortcut = SubResource("Shortcut_kylj4")
+text = "🡺"
+
+[connection signal="mouse_entered" from="VBoxContainer/Contents/WelocmePage/OptionButton" to="." method="match_language"]
+[connection signal="mouse_exited" from="VBoxContainer/Contents/WelocmePage/OptionButton" to="." method="match_language"]
+[connection signal="pressed" from="VBoxContainer/Contents/WelocmePage/OptionButton" to="." method="_on_language_pressed"]
+[connection signal="mouse_entered" from="VBoxContainer/Contents/WelocmePage/OptionButton/PanelContainer" to="." method="_on_language_panel_entered"]
+[connection signal="mouse_exited" from="VBoxContainer/Contents/WelocmePage/OptionButton/PanelContainer" to="." method="_on_language_panel_exited"]
+[connection signal="pressed" from="VBoxContainer/Contents/WelocmePage/OptionButton/PanelContainer/VBoxContainer/EnglishButton" to="." method="_on_english_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/Contents/WelocmePage/OptionButton/PanelContainer/VBoxContainer/MandarinButton" to="." method="_on_mandarin_button_pressed"]
+[connection signal="text_changed" from="VBoxContainer/Contents/NamePage/LineEdit" to="." method="_on_user_name_text_changed"]
+[connection signal="pressed" from="VBoxContainer/DownBoard/PageButton/HBoxContainer/PreviousIcon" to="." method="_on_previous_pressed"]
+[connection signal="pressed" from="VBoxContainer/DownBoard/PageButton/HBoxContainer/PreviousText" to="." method="_on_previous_pressed"]
+[connection signal="pressed" from="VBoxContainer/DownBoard/PageButton/HBoxContainer/NextText" to="." method="_on_next_pressed"]
+[connection signal="pressed" from="VBoxContainer/DownBoard/PageButton/HBoxContainer/NextIcon" to="." method="_on_next_pressed"]

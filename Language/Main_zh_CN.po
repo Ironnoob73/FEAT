@@ -206,6 +206,19 @@ msgstr "取消"
 msgid "file.open_directory"
 msgstr "选择一个文件夹"
 
+#----------Page----------#
+msgid "button.next_page"
+msgstr "下一页"
+
+msgid "button.previous_page"
+msgstr "上一页"
+
+msgid "button.next_step"
+msgstr "下一步"
+
+msgid "button.previous_step"
+msgstr "上一步"
+
 #----------In game----------#
 msgid "list.name"
 msgstr "名称"

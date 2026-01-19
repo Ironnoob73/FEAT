@@ -1,36 +1,44 @@
 extends Node
 
 const CONFIG_PATH = "user://settings.cfg"
-var LanguageList : Array[String] = ["en_US","zh_CN"]
-var DATA_PATH : String = "user://"
-var Sdfgi : bool = false
+var LanguageList: Array[String] = ["en_US","zh_CN"]
+var DATA_PATH: String = "user://"
+var Sdfgi: bool = false
+
+var FastBoot: bool = false
+var oobe: bool = true
 
 # Important objects
-var THE_PLAYER : LocalPlayer = null
+var THE_PLAYER: LocalPlayer = null
 
 # Load options
 var load_use_sub_threads : bool = false
 
 # UI Control
-var block_escape : bool = false
-var current_menu : String = "null"
+var block_escape: bool = false
+var current_menu: String = "null"
 
 # In game control
 var mouse_sens = 0.4
-var auto_pickup : bool = true
+var auto_pickup: bool = true
 
-var isInGame : bool = false
-var isMultiplayer : bool = false
-var playerTeleported : bool = true
+var playerName: String = "Anonymous":
+	set(name_string):
+		playerName = name_string
+		if THE_PLAYER != null:
+			THE_PLAYER.player_name = name_string
+var isInGame: bool = false
+var isMultiplayer: bool = false
+var playerTeleported: bool = true
 
-var VRDim : String
-var VRPos : Vector3
-var VRRot : Vector3
+var VRDim: String
+var VRPos: Vector3
+var VRRot: Vector3
 
 # Debug
-var printDebugInfo : bool = false
-var catchPElemIssue : bool = false
-var alwaysShowCursor : bool = false
+var printDebugInfo: bool = false
+var catchPElemIssue: bool = false
+var alwaysShowCursor: bool = false
 
 func _ready():
 	load_config()
@@ -57,6 +65,8 @@ func save_config():
 	file.set_value("audio","sfx",AudioServer.get_bus_volume_db(2))
 	file.set_value("control","mouse_sens",mouse_sens)
 	file.set_value("control","auto_pickup",auto_pickup)
+	file.set_value("computer","fast_boot",FastBoot)
+	file.set_value("computer","oobe",oobe)
 	var err = file.save(CONFIG_PATH)
 	if err != OK:
 		push_error("Fail to save config: %d" % err)
@@ -79,6 +89,8 @@ func load_config():
 		AudioServer.set_bus_volume_db(2,file.get_value("audio","sfx",AudioServer.get_bus_volume_db(2)))
 		mouse_sens = file.get_value("control","mouse_sens",0.4)
 		auto_pickup = file.get_value("control","auto_pickup",true)
+		FastBoot = file.get_value("computer","fast_boot",false)
+		oobe = file.get_value("computer","oobe",true)
 	else:
 		push_warning("Fail to load config: %d" % err)
 		

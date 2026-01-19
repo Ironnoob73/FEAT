@@ -18,9 +18,16 @@ func _process(_delta: float) -> void:
 		Global.THE_PLAYER.set_meta("lock_hud_hidden",true)
 		Global.THE_PLAYER.set_meta("lock_menu",true)
 		computer_scene.interact(Global.THE_PLAYER)
-		var tween = create_tween().set_trans(Tween.TRANS_LINEAR)
-		tween.tween_property(start_screen, "modulate:a", 0, 1).set_delay(1)
-		tween.tween_property(start_screen, "visible", false, 0)
+		if !Global.FastBoot or Global.oobe:
+			var tween = create_tween().set_trans(Tween.TRANS_LINEAR)
+			tween.tween_property(start_screen, "modulate:a", 0, 1).set_delay(1)
+			tween.tween_property(start_screen, "visible", false, 0)
+		else:
+			var tween = create_tween().set_trans(Tween.TRANS_LINEAR)
+			tween.tween_property(start_screen, "modulate:a", 0, 0.1).set_delay(1)
+			tween.tween_property(start_screen, "visible", false, 0)
+			tween.tween_callback(func():Global.THE_PLAYER.remove_meta("lock_hud_hidden"))
+			tween.tween_callback(func():Global.THE_PLAYER.remove_meta("lock_menu"))
 		
 	if player_is_falling:
 		current_vel = lerpf(current_vel, 0.005, 0.05)

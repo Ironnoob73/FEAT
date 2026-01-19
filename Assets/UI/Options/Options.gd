@@ -17,6 +17,10 @@ extends TabContainer
 @onready var CatchPElemIssueRestore: Button = $"#options_game#/GameSetting/VSplit/DebugOptContainer/catchPElemIssue/cpei_restore"
 @onready var AlwaysShowCursor = $"#options_game#/GameSetting/VSplit/DebugOptContainer/alwaysShowCursor/asc_button"
 @onready var AlwaysShowCursorRestore: Button = $"#options_game#/GameSetting/VSplit/DebugOptContainer/alwaysShowCursor/asc_restore"
+@onready var FastBoot: CheckBox = $"#options_game#/GameSetting/VSplit/DebugOptContainer/FastBoot/fb_button"
+@onready var FastBootRestore: Button = $"#options_game#/GameSetting/VSplit/DebugOptContainer/FastBoot/fb_restore"
+@onready var OOBE: CheckBox = $"#options_game#/GameSetting/VSplit/DebugOptContainer/OOBE/oobe_button"
+@onready var OOBERestore: Button = $"#options_game#/GameSetting/VSplit/DebugOptContainer/OOBE/oobe_restore"
 
 @onready var Fullscreen = $"#options_video#/VideoSetting/VSpilt/Fullscreen/fullscreen_button"
 @onready var FullscreenRestore: Button = $"#options_video#/VideoSetting/VSpilt/Fullscreen/fullscreen_restore"
@@ -72,6 +76,10 @@ func _ready():
 	CatchPElemIssueRestore.set_disabled(Global.catchPElemIssue == false)
 	AlwaysShowCursor.set_pressed_no_signal(Global.alwaysShowCursor)
 	AlwaysShowCursorRestore.set_disabled(Global.alwaysShowCursor == false)
+	FastBoot.set_pressed_no_signal(Global.FastBoot)
+	FastBootRestore.set_disabled(Global.FastBoot == false)
+	OOBE.set_pressed_no_signal(Global.oobe)
+	OOBERestore.set_disabled(Global.oobe == false)
 	
 	# Fullscreen
 	match DisplayServer.window_get_mode():
@@ -179,6 +187,19 @@ func _on_asc_button_toggled(toggled_on):
 	AlwaysShowCursorRestore.set_disabled(Global.alwaysShowCursor == false)
 func _on_asc_restore_pressed() -> void:
 	AlwaysShowCursor.set_pressed(false)
+# Fast Boot and OOBE, only for test
+func _on_fb_button_toggled(toggled_on: bool) -> void:
+	Global.FastBoot = toggled_on
+	Global.save_settings_to_file("computer","fast_boot",toggled_on)
+	FastBootRestore.set_disabled(Global.FastBoot == false)
+func _on_fb_restore_pressed() -> void:
+	FastBoot.set_pressed(false)
+func _on_oobe_button_toggled(toggled_on: bool) -> void:
+	Global.oobe = toggled_on
+	Global.save_settings_to_file("computer","oobe",toggled_on)
+	OOBERestore.set_disabled(Global.oobe == true)
+func _on_oobe_restore_pressed() -> void:
+	OOBE.set_pressed(true)
 	
 func _key_debug_scene() -> void:
 	AHL_LoadManager.load_scene("res://Title/debug/KeyDebug.tscn")

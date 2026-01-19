@@ -72,3 +72,29 @@ msgstr "瞄准目标使用远程武器（此时射弹可以穿过屏障）"
 #Reality
 msgid "reality.exit"
 msgstr "你退出了"
+
+#----------Computer----------#
+#OOBE
+msgid "oobe.welcome"
+msgstr "欢迎使用呓语©操作系统"
+
+msgid "oobe.welcome.0"
+msgstr "让我们花几分钟来设置您的计算机。"
+
+msgid "oobe.welcome.1"
+msgstr "首先，请设置您的语言。"
+
+msgid "oobe.next_hint"
+msgstr "要继续，请单击“下一步”。你也可以使用Q、E键进行翻页。"
+
+msgid "oobe.name"
+msgstr "设置您的用户名"
+
+msgid "oobe.name.0"
+msgstr "用户名用于向其他用户展示你是谁。"
+
+msgid "oobe.name.1"
+msgstr "无需担心您的用户名和其他用户重复，我们使用UID对账户进行区分。"
+
+msgid "oobe.name.uid"
+msgstr "您当前的UID为：%s"

@@ -72,3 +72,29 @@ msgstr "Aim at the target with a ranged weapon (This time projectiles will pass 
 #Reality
 msgid "reality.exit"
 msgstr "You Exited"
+
+#----------Computer----------#
+#OOBE
+msgid "oobe.welcome"
+msgstr "Welcome to the\nNonsense© Operating System"
+
+msgid "oobe.welcome.0"
+msgstr "Let us take a few minutes to set up your computer."
+
+msgid "oobe.welcome.1"
+msgstr "Please set your language first."
+
+msgid "oobe.next_hint"
+msgstr "To continue, please click \"Next Step\".You can also use the Q and E keys to turn pages."
+
+msgid "oobe.name"
+msgstr "Set your user name"
+
+msgid "oobe.name.0"
+msgstr "Usernames are used to show other users who you are."
+
+msgid "oobe.name.1"
+msgstr "No need to worry about your username being the same as other users; we use UUIDs to distinguish accounts."
+
+msgid "oobe.name.uid"
+msgstr "Your current UID is: %s"

@@ -6,6 +6,8 @@ var escape_released = false
 @onready var exit_text1 = $ExitBox/exit_text1
 @onready var multi_player_list: Tree = $MultiPlayerList
 
+@onready var options: TabContainer = $Options
+
 signal mouse_mode_signal(bool)
 
 func _ready():
@@ -44,6 +46,7 @@ func _on_options_button_pressed():
 	Global.current_menu = "Options"
 	escape_released = false
 	animation.play("Options")
+	options._ready()
 func _on_back_button_pressed():
 	if Global.current_menu == "Options" and !AHL_NoticeManager.is_notice_show and !Global.block_escape:
 		Global.current_menu = "Pause"

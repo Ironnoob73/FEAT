@@ -286,6 +286,60 @@ layout_mode = 2
 size_flags_horizontal = 10
 text = ">>>"
 
+[node name="FastBoot" type="HBoxContainer" parent="#options_game#/GameSetting/VSplit/DebugOptContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="fb_text" type="Label" parent="#options_game#/GameSetting/VSplit/DebugOptContainer/FastBoot"]
+layout_mode = 2
+text = "options.game.fast_boot"
+
+[node name="fb_restore" type="Button" parent="#options_game#/GameSetting/VSplit/DebugOptContainer/FastBoot"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme = ExtResource("2_8vm80")
+icon = ExtResource("2_j0l55")
+flat = true
+
+[node name="fb_button" type="CheckBox" parent="#options_game#/GameSetting/VSplit/DebugOptContainer/FastBoot"]
+layout_mode = 2
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath("../../../../..")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath(".")
+focus_next = NodePath(".")
+focus_previous = NodePath(".")
+text = " "
+flat = true
+clip_text = true
+
+[node name="OOBE" type="HBoxContainer" parent="#options_game#/GameSetting/VSplit/DebugOptContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="oobe_text" type="Label" parent="#options_game#/GameSetting/VSplit/DebugOptContainer/OOBE"]
+layout_mode = 2
+text = "options.game.oobe"
+
+[node name="oobe_restore" type="Button" parent="#options_game#/GameSetting/VSplit/DebugOptContainer/OOBE"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme = ExtResource("2_8vm80")
+icon = ExtResource("2_j0l55")
+flat = true
+
+[node name="oobe_button" type="CheckBox" parent="#options_game#/GameSetting/VSplit/DebugOptContainer/OOBE"]
+layout_mode = 2
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath("../../../../..")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath(".")
+focus_next = NodePath(".")
+focus_previous = NodePath(".")
+text = " "
+flat = true
+clip_text = true
+
 [node name="#options_video#" type="TabBar" parent="."]
 visible = false
 layout_direction = 1
@@ -622,6 +676,10 @@ script = ExtResource("5_ms344")
 [connection signal="pressed" from="#options_game#/GameSetting/VSplit/DebugOptContainer/alwaysShowCursor/asc_restore" to="." method="_on_asc_restore_pressed"]
 [connection signal="toggled" from="#options_game#/GameSetting/VSplit/DebugOptContainer/alwaysShowCursor/asc_button" to="." method="_on_asc_button_toggled"]
 [connection signal="pressed" from="#options_game#/GameSetting/VSplit/DebugOptContainer/keyDebugScene/kds_button" to="." method="_key_debug_scene"]
+[connection signal="pressed" from="#options_game#/GameSetting/VSplit/DebugOptContainer/FastBoot/fb_restore" to="." method="_on_fb_restore_pressed"]
+[connection signal="toggled" from="#options_game#/GameSetting/VSplit/DebugOptContainer/FastBoot/fb_button" to="." method="_on_fb_button_toggled"]
+[connection signal="pressed" from="#options_game#/GameSetting/VSplit/DebugOptContainer/OOBE/oobe_restore" to="." method="_on_oobe_restore_pressed"]
+[connection signal="toggled" from="#options_game#/GameSetting/VSplit/DebugOptContainer/OOBE/oobe_button" to="." method="_on_oobe_button_toggled"]
 [connection signal="pressed" from="#options_video#/VideoSetting/VSpilt/Fullscreen/fullscreen_restore" to="." method="_on_fullscreen_restore_pressed"]
 [connection signal="toggled" from="#options_video#/VideoSetting/VSpilt/Fullscreen/fullscreen_button" to="." method="_on_fullscreen_button_toggled"]
 [connection signal="pressed" from="#options_video#/VideoSetting/VSpilt/Scale/scale_restore" to="." method="_on_scale_restore_pressed"]
