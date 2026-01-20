@@ -27,6 +27,8 @@ var playerName: String = "Anonymous":
 		playerName = name_string
 		if THE_PLAYER != null:
 			THE_PLAYER.player_name = name_string
+var duid: String = "00000000-0000-9000-0000-000000000000"
+var avatar: Texture2D = preload("res://Resources/Image/avatar/default.png")
 var isInGame: bool = false
 var isMultiplayer: bool = false
 var playerTeleported: bool = true
@@ -65,6 +67,9 @@ func save_config():
 	file.set_value("audio","sfx",AudioServer.get_bus_volume_db(2))
 	file.set_value("control","mouse_sens",mouse_sens)
 	file.set_value("control","auto_pickup",auto_pickup)
+	file.set_value("profile","user_name",playerName)
+	file.set_value("profile","user_duid",duid)
+	file.set_value("profile","user_avatar",avatar)
 	file.set_value("computer","fast_boot",FastBoot)
 	file.set_value("computer","oobe",oobe)
 	var err = file.save(CONFIG_PATH)
@@ -89,6 +94,9 @@ func load_config():
 		AudioServer.set_bus_volume_db(2,file.get_value("audio","sfx",AudioServer.get_bus_volume_db(2)))
 		mouse_sens = file.get_value("control","mouse_sens",0.4)
 		auto_pickup = file.get_value("control","auto_pickup",true)
+		playerName = file.get_value("profile","user_name","Anonymous")
+		duid = file.get_value("profile","user_duid","00000000-0000-9000-0000-000000000000")
+		avatar = file.get_value("profile","user_avatar",preload("res://Resources/Image/avatar/default.png"))
 		FastBoot = file.get_value("computer","fast_boot",false)
 		oobe = file.get_value("computer","oobe",true)
 	else:
@@ -156,3 +164,17 @@ func host(port:int):
 func join(address:String,port:int):
 	if isInGame:
 		get_node("/root/World").join(address,port)
+
+# DUID
+## Like UUID but not.
+func generate_duid(variant: int = 0) -> String:
+	var time: String = "%011X" % (Time.get_unix_time_from_system() * 1000)
+	var launch: String = "%04X" % Time.get_ticks_msec()
+	var bias: String = "%03X" % (Time.get_time_zone_from_system()["bias"] + 1440)
+	var variantf: String = "%X" % variant
+	var uid: String = "%016X" % ResourceUID.create_id()
+	return str(time.substr(0,8),"-",\
+	time.substr(8,3),launch.substr(launch.length()-1),"-9",\
+	bias,"-",\
+	variantf.substr(variantf.length()-1),uid.substr(1,3),"-",\
+	uid.substr(4,12))

@@ -203,6 +203,9 @@ msgstr "确认"
 msgid "button.cancel"
 msgstr "取消"
 
+msgid "button.done"
+msgstr "完成"
+
 msgid "file.open_directory"
 msgstr "选择一个文件夹"
 

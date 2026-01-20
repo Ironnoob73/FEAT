@@ -180,7 +180,7 @@ grow_vertical = 2
 [node name="Title" type="HBoxContainer" parent="Desktop/StartMenu/VBoxContainer"]
 layout_mode = 2
 
-[node name="AvatarBase" type="Button" parent="Desktop/StartMenu/VBoxContainer/Title"]
+[node name="Avatar" type="Button" parent="Desktop/StartMenu/VBoxContainer/Title"]
 custom_minimum_size = Vector2(55, 55)
 layout_mode = 2
 mouse_filter = 1
@@ -188,9 +188,20 @@ theme_type_variation = &"ButtonAvatarBase"
 icon = ExtResource("9_fhfra")
 expand_icon = true
 
-[node name="Name" type="Label" parent="Desktop/StartMenu/VBoxContainer/Title"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Desktop/StartMenu/VBoxContainer/Title"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Name" type="Label" parent="Desktop/StartMenu/VBoxContainer/Title/VBoxContainer"]
 layout_mode = 2
 text = "PLAYERNAME"
+
+[node name="DUID" type="Label" parent="Desktop/StartMenu/VBoxContainer/Title/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 0.7490196)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.49803922)
+theme_override_font_sizes/font_size = 12
+text = "00000000-0000-9000-0000-000000000000"
 
 [node name="PanelContainer" type="PanelContainer" parent="Desktop/StartMenu/VBoxContainer"]
 layout_mode = 2

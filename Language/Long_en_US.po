@@ -94,13 +94,28 @@ msgid "oobe.name.0"
 msgstr "Usernames are used to show other users who you are."
 
 msgid "oobe.name.1"
-msgstr "No need to worry about your username being the same as other users; we use UUIDs to distinguish accounts."
+msgstr "No need to worry about your username being the same as other users; we use DUIDs to distinguish accounts."
 
 msgid "oobe.name.uid"
-msgstr "Your current UID is: %s"
+msgstr "Your current DUID is: %s"
 
 msgid "oobe.avatar"
 msgstr "Set your avatar"
 
 msgid "oobe.avatar.0"
-msgstr "Set your avatar"
+msgstr "The image you select will appear before your username"
+
+msgid "oobe.ready"
+msgstr "Everything is ready!"
+
+msgid "oobe.ready.0"
+msgstr "You have completed the basic account setup."
+
+msgid "oobe.ready.1"
+msgstr "Click \"Done\" to end the unboxing experience."
+
+msgid "oobe.ready.2"
+msgstr "If you want to change the settings, click \"Back\"."
+
+msgid "oobe.ready.3"
+msgstr "You can still change these settings in \"Settings\" at any time."

@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=39 format=3 uid="uid://bv3atmtrqii4a"]
+[gd_resource type="Theme" load_steps=40 format=3 uid="uid://bv3atmtrqii4a"]
 
 [sub_resource type="Gradient" id="Gradient_ynjm2"]
 offsets = PackedFloat32Array(0, 0.8, 1)
@@ -320,6 +320,12 @@ border_color = Color(0, 0.24705882, 0.49803922, 1)
 shadow_color = Color(0, 0, 0, 0.24705882)
 shadow_size = 2
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_utw0c"]
+content_margin_left = 5.0
+content_margin_top = 5.0
+content_margin_right = 5.0
+content_margin_bottom = 5.0
+
 [sub_resource type="Gradient" id="Gradient_o5rh8"]
 offsets = PackedFloat32Array(0, 0.8, 1)
 colors = PackedColorArray(0, 0.49803922, 0, 1, 0.24705882, 1, 0.49803922, 1, 0, 1, 0.24705882, 1)
@@ -447,6 +453,7 @@ Panel/styles/panel = SubResource("StyleBoxFlat_ed2dv")
 PanelContainer/styles/panel = SubResource("StyleBoxFlat_e0cyg")
 PanelLittleMenu/base_type = &"PanelContainer"
 PanelLittleMenu/styles/panel = SubResource("StyleBoxFlat_fp2fm")
+ScrollContainer/styles/panel = SubResource("StyleBoxEmpty_utw0c")
 StartButton/base_type = &"Button"
 StartButton/font_sizes/font_size = 32
 StartButton/styles/hover = SubResource("StyleBoxTexture_nlfed")

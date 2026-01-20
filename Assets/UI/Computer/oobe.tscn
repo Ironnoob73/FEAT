@@ -1,9 +1,23 @@
-[gd_scene load_steps=15 format=3 uid="uid://henk88t1h8y2"]
+[gd_scene load_steps=31 format=3 uid="uid://henk88t1h8y2"]
 
 [ext_resource type="Theme" uid="uid://bv3atmtrqii4a" path="res://Resources/Theme/luna.tres" id="1_1jk3b"]
 [ext_resource type="Texture2D" uid="uid://6aal2onumy7s" path="res://Resources/Image/Desktop/default.tres" id="2_deyrj"]
 [ext_resource type="Script" uid="uid://b2680156src04" path="res://Assets/UI/Computer/oobe.gd" id="3_deyrj"]
 [ext_resource type="Texture2D" uid="uid://cd10lecgpielv" path="res://Resources/Image/UI/DownArrow.svg" id="4_b1gv2"]
+[ext_resource type="Texture2D" uid="uid://cnlb1synj0mmp" path="res://Resources/Image/avatar/default.png" id="5_fl8u4"]
+[ext_resource type="Texture2D" uid="uid://cthrhf37hsxfd" path="res://Resources/Image/avatar/nonsense.png" id="6_i122j"]
+[ext_resource type="Texture2D" uid="uid://b42cpv7543en7" path="res://Resources/Image/avatar/square.png" id="6_voeh1"]
+[ext_resource type="Texture2D" uid="uid://dyc0pu15y7dmf" path="res://Resources/Image/avatar/circle.png" id="7_umv6y"]
+[ext_resource type="Texture2D" uid="uid://b57r5ai30vq7u" path="res://Resources/Image/avatar/fall.png" id="7_voeh1"]
+[ext_resource type="Texture2D" uid="uid://c7txxn60ct2kb" path="res://Resources/Image/avatar/line.png" id="8_8yh57"]
+[ext_resource type="Texture2D" uid="uid://cn7nf82dmrt0k" path="res://Resources/Image/avatar/dream.png" id="8_umv6y"]
+[ext_resource type="Texture2D" uid="uid://823eyu8tp6lb" path="res://Resources/Image/avatar/dog.png" id="9_ypwgg"]
+[ext_resource type="Texture2D" uid="uid://bfygcjaaiu7nl" path="res://Resources/Image/avatar/piano.png" id="10_pd63v"]
+[ext_resource type="Texture2D" uid="uid://b8aottue8k0p4" path="res://Resources/Image/avatar/keyboard.png" id="11_05lbc"]
+[ext_resource type="Texture2D" uid="uid://dtcm2quadbvsh" path="res://Resources/Image/avatar/pen.png" id="12_qocph"]
+[ext_resource type="Texture2D" uid="uid://cy8e25gqqmvtq" path="res://Resources/Image/avatar/mountain.png" id="13_05lbc"]
+[ext_resource type="Texture2D" uid="uid://bm0dm4yref7uq" path="res://Resources/Image/avatar/cat.png" id="13_qocph"]
+[ext_resource type="Texture2D" uid="uid://dbh2yd8w7npfc" path="res://Resources/Image/avatar/structure.png" id="15_hug7m"]
 
 [sub_resource type="FontVariation" id="FontVariation_ypevc"]
 
@@ -31,6 +45,15 @@ colors = PackedColorArray(1, 1, 0, 0, 1, 1, 0, 1, 1, 1, 0, 0)
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_p748u"]
 gradient = SubResource("Gradient_fhfra")
 width = 1080
+
+[sub_resource type="Gradient" id="Gradient_kylj4"]
+offsets = PackedFloat32Array(0, 0.5, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_3scdh"]
+gradient = SubResource("Gradient_kylj4")
+width = 4
+fill_from = Vector2(1, 1)
 
 [sub_resource type="InputEventAction" id="InputEventAction_deyrj"]
 action = &"tab_left"
@@ -202,6 +225,7 @@ size_flags_vertical = 10
 text = "oobe.name.uid"
 
 [node name="AvatarPage" type="VBoxContainer" parent="VBoxContainer/Contents"]
+visible = false
 layout_mode = 2
 
 [node name="Title" type="Label" parent="VBoxContainer/Contents/AvatarPage"]
@@ -215,6 +239,170 @@ text = "oobe.avatar"
 [node name="SubText0" type="Label" parent="VBoxContainer/Contents/AvatarPage"]
 layout_mode = 2
 text = "oobe.avatar.0"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Contents/AvatarPage"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 16
+
+[node name="MainAvatar" type="Button" parent="VBoxContainer/Contents/AvatarPage/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_type_variation = &"ButtonAvatarBase"
+icon = ExtResource("5_fl8u4")
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/Contents/AvatarPage/HBoxContainer"]
+layout_mode = 2
+texture = SubResource("GradientTexture2D_3scdh")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/Contents/AvatarPage/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="AvatarList" type="HFlowContainer" parent="VBoxContainer/Contents/AvatarPage/HBoxContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 10
+
+[node name="Default" type="Button" parent="VBoxContainer/Contents/AvatarPage/HBoxContainer/ScrollContainer/AvatarList"]
+custom_minimum_size = Vector2(55, 55)
+layout_mode = 2
+size_flags_vertical = 0
+theme_type_variation = &"ButtonAvatarBase"
+icon = ExtResource("5_fl8u4")
+expand_icon = true
+
+[node name="Square" type="Button" parent="VBoxContainer/Contents/AvatarPage/HBoxContainer/ScrollContainer/AvatarList"]
+custom_minimum_size = Vector2(55, 55)
+layout_mode = 2
+size_flags_vertical = 0
+theme_type_variation = &"ButtonAvatarBase"
+icon = ExtResource("6_voeh1")
+expand_icon = true
+
+[node name="Circle" type="Button" parent="VBoxContainer/Contents/AvatarPage/HBoxContainer/ScrollContainer/AvatarList"]
+custom_minimum_size = Vector2(55, 55)
+layout_mode = 2
+size_flags_vertical = 0
+theme_type_variation = &"ButtonAvatarBase"
+icon = ExtResource("7_umv6y")
+expand_icon = true
+
+[node name="Line" type="Button" parent="VBoxContainer/Contents/AvatarPage/HBoxContainer/ScrollContainer/AvatarList"]
+custom_minimum_size = Vector2(55, 55)
+layout_mode = 2
+size_flags_vertical = 0
+theme_type_variation = &"ButtonAvatarBase"
+icon = ExtResource("8_8yh57")
+expand_icon = true
+
+[node name="Piano" type="Button" parent="VBoxContainer/Contents/AvatarPage/HBoxContainer/ScrollContainer/AvatarList"]
+custom_minimum_size = Vector2(55, 55)
+layout_mode = 2
+size_flags_vertical = 0
+theme_type_variation = &"ButtonAvatarBase"
+icon = ExtResource("10_pd63v")
+expand_icon = true
+
+[node name="Keyboard" type="Button" parent="VBoxContainer/Contents/AvatarPage/HBoxContainer/ScrollContainer/AvatarList"]
+custom_minimum_size = Vector2(55, 55)
+layout_mode = 2
+size_flags_vertical = 0
+theme_type_variation = &"ButtonAvatarBase"
+icon = ExtResource("11_05lbc")
+expand_icon = true
+
+[node name="Pen" type="Button" parent="VBoxContainer/Contents/AvatarPage/HBoxContainer/ScrollContainer/AvatarList"]
+custom_minimum_size = Vector2(55, 55)
+layout_mode = 2
+size_flags_vertical = 0
+theme_type_variation = &"ButtonAvatarBase"
+icon = ExtResource("12_qocph")
+expand_icon = true
+
+[node name="Dog" type="Button" parent="VBoxContainer/Contents/AvatarPage/HBoxContainer/ScrollContainer/AvatarList"]
+custom_minimum_size = Vector2(55, 55)
+layout_mode = 2
+size_flags_vertical = 0
+theme_type_variation = &"ButtonAvatarBase"
+icon = ExtResource("9_ypwgg")
+expand_icon = true
+
+[node name="Cat" type="Button" parent="VBoxContainer/Contents/AvatarPage/HBoxContainer/ScrollContainer/AvatarList"]
+custom_minimum_size = Vector2(55, 55)
+layout_mode = 2
+size_flags_vertical = 0
+theme_type_variation = &"ButtonAvatarBase"
+icon = ExtResource("13_qocph")
+expand_icon = true
+
+[node name="Mountain" type="Button" parent="VBoxContainer/Contents/AvatarPage/HBoxContainer/ScrollContainer/AvatarList"]
+custom_minimum_size = Vector2(55, 55)
+layout_mode = 2
+size_flags_vertical = 0
+theme_type_variation = &"ButtonAvatarBase"
+icon = ExtResource("13_05lbc")
+expand_icon = true
+
+[node name="Structure" type="Button" parent="VBoxContainer/Contents/AvatarPage/HBoxContainer/ScrollContainer/AvatarList"]
+custom_minimum_size = Vector2(55, 55)
+layout_mode = 2
+size_flags_vertical = 0
+theme_type_variation = &"ButtonAvatarBase"
+icon = ExtResource("15_hug7m")
+expand_icon = true
+
+[node name="Nonsense" type="Button" parent="VBoxContainer/Contents/AvatarPage/HBoxContainer/ScrollContainer/AvatarList"]
+custom_minimum_size = Vector2(55, 55)
+layout_mode = 2
+size_flags_vertical = 0
+theme_type_variation = &"ButtonAvatarBase"
+icon = ExtResource("6_i122j")
+expand_icon = true
+
+[node name="Fall" type="Button" parent="VBoxContainer/Contents/AvatarPage/HBoxContainer/ScrollContainer/AvatarList"]
+custom_minimum_size = Vector2(55, 55)
+layout_mode = 2
+size_flags_vertical = 0
+theme_type_variation = &"ButtonAvatarBase"
+icon = ExtResource("7_voeh1")
+expand_icon = true
+
+[node name="Dream" type="Button" parent="VBoxContainer/Contents/AvatarPage/HBoxContainer/ScrollContainer/AvatarList"]
+custom_minimum_size = Vector2(55, 55)
+layout_mode = 2
+size_flags_vertical = 0
+theme_type_variation = &"ButtonAvatarBase"
+icon = ExtResource("8_umv6y")
+expand_icon = true
+
+[node name="ReadyPage" type="VBoxContainer" parent="VBoxContainer/Contents"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="VBoxContainer/Contents/ReadyPage"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 1, 0.49803922)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_font_sizes/font_size = 50
+text = "oobe.ready"
+
+[node name="SubText0" type="Label" parent="VBoxContainer/Contents/ReadyPage"]
+layout_mode = 2
+text = "oobe.ready.0"
+
+[node name="SubText1" type="Label" parent="VBoxContainer/Contents/ReadyPage"]
+layout_mode = 2
+text = "oobe.ready.1"
+
+[node name="SubText2" type="Label" parent="VBoxContainer/Contents/ReadyPage"]
+layout_mode = 2
+text = "oobe.ready.2"
+
+[node name="SubText3" type="Label" parent="VBoxContainer/Contents/ReadyPage"]
+layout_mode = 2
+text = "oobe.ready.3"
 
 [node name="DownLine" type="TextureRect" parent="VBoxContainer"]
 custom_minimum_size = Vector2(0, 5)

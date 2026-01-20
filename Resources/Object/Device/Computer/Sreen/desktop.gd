@@ -13,12 +13,13 @@ extends TextureRect
 var isStartMenuOpen: bool = false
 var isStartMenuHover: bool = false
 @onready var start_menu: Panel = $StartMenu
-@onready var user_name: Label = $StartMenu/VBoxContainer/Title/Name
+@onready var user_avatar: Button = $StartMenu/VBoxContainer/Title/Avatar
+@onready var user_name: Label = $StartMenu/VBoxContainer/Title/VBoxContainer/Name
+@onready var user_duid: Label = $StartMenu/VBoxContainer/Title/VBoxContainer/DUID
 # Off icon from: https://www.svgrepo.com/svg/391925/off
 
 func _ready() -> void:
-	if Global.THE_PLAYER != null:
-		user_name.text = Global.THE_PLAYER.player_name
+	start_menu.hide()
 
 func _process(_delta: float) -> void:
 	var time_dict : Dictionary = Time.get_time_dict_from_system()
@@ -44,9 +45,14 @@ func _on_start_button_toggled(toggled_on: bool) -> void:
 	var tween = create_tween()
 	isStartMenuOpen = toggled_on
 	if toggled_on:
+		tween.tween_callback(func():start_menu.show())
 		tween.tween_property(start_menu,"position:y",215,0.25)
+		user_name.text = Global.playerName
+		user_duid.text = Global.duid
+		user_avatar.icon = Global.avatar
 	else:
 		tween.tween_property(start_menu,"position:y",768,0.25)
+		tween.tween_callback(func():start_menu.hide())
 		
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton\

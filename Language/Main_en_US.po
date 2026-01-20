@@ -206,6 +206,9 @@ msgstr "Cancel"
 msgid "list.name"
 msgstr "Name"
 
+msgid "button.done"
+msgstr "Done"
+
 msgid "file.open_directory"
 msgstr "Choose a folder"
 
@@ -217,10 +220,10 @@ msgid "button.previous_page"
 msgstr "Previous Page"
 
 msgid "button.next_step"
-msgstr "Next Step"
+msgstr "Next"
 
 msgid "button.previous_step"
-msgstr "Previous Step"
+msgstr "Back"
 
 #----------In game----------#
 

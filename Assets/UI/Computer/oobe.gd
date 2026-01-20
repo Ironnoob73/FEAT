@@ -12,13 +12,17 @@ var isLanguagePanelFocused: bool = false
 
 @onready var name_page: VBoxContainer = $VBoxContainer/Contents/NamePage
 @onready var name_edit: LineEdit = $VBoxContainer/Contents/NamePage/LineEdit
+@onready var uid: Label = $VBoxContainer/Contents/NamePage/UID
 
 @onready var avatar_page: VBoxContainer = $VBoxContainer/Contents/AvatarPage
+@onready var main_avatar: Button = $VBoxContainer/Contents/AvatarPage/HBoxContainer/MainAvatar
+@onready var avatar_list: HFlowContainer = $VBoxContainer/Contents/AvatarPage/HBoxContainer/ScrollContainer/AvatarList
 
-@onready var uid: Label = $VBoxContainer/Contents/NamePage/UID
+@onready var ready_page: VBoxContainer = $VBoxContainer/Contents/ReadyPage
 
 @onready var previous_icon: Button = $VBoxContainer/DownBoard/PageButton/HBoxContainer/PreviousIcon
 @onready var previous_text: LinkButton = $VBoxContainer/DownBoard/PageButton/HBoxContainer/PreviousText
+@onready var next_text: LinkButton = $VBoxContainer/DownBoard/PageButton/HBoxContainer/NextText
 
 var page_number: int = 0:
 	set(number):
@@ -38,21 +42,38 @@ func _ready() -> void:
 	tween.tween_callback(func():interface.show()).set_delay(0.5)
 	tween.tween_callback(func():welocme_page.show()).set_delay(0.5)
 	tween.tween_callback(func():page_button.show()).set_delay(0.1)
-	tween.tween_callback(func():Global.THE_PLAYER.remove_meta("lock_hud_hidden"))
-	tween.tween_callback(func():Global.THE_PLAYER.remove_meta("lock_menu"))
 	
 	match_language()
-	uid.text = tr("oobe.name.uid") % str(ResourceUID.create_id())
+	Global.duid = Global.generate_duid()
+	avatar_init()
 
 func _change_page(number: int):
 	for i in contents.get_children():
 		i.hide()
 	previous_icon.visible = number != 0
 	previous_text.visible = number != 0
+	if page_number != 3:
+		next_text.text = "button.next_step"
+	else:
+		next_text.text = "button.done"
+		
 	
 	match page_number:
-		1:name_page.show()
-		2:avatar_page.show()
+		1:
+			name_page.show()
+			uid.text = tr("oobe.name.uid") % Global.duid
+		2:
+			avatar_page.show()
+			var tween = create_tween().set_trans(Tween.TRANS_LINEAR)
+			for i in avatar_list.get_children():
+				tween.tween_callback(func():i.show()).set_delay(0.1)
+		3:ready_page.show()
+		4:
+			Global.oobe = false
+			Global.FastBoot = false
+			get_parent().ready_desktop()
+			Global.save_config()
+			queue_free()
 		_:welocme_page.show()
 
 func _on_previous_pressed() -> void:
@@ -98,3 +119,17 @@ func _on_user_name_text_changed(new_text: String) -> void:
 		Global.playerName = new_text
 	else:
 		Global.playerName = "Anonymous"
+
+# Avatar
+func avatar_init() -> void:
+	for i in avatar_list.get_children():
+		if i is Button:
+			i.connect("pressed", func():change_avatar(i.icon))
+			i.hide()
+func change_avatar(image: Texture2D) -> void:
+	main_avatar.icon = image
+	Global.avatar = image
+# Dog: https://pixabay.com/zh/photos/labrador-dog-animal-brown-fur-5762115/
+# Cat: https://pixabay.com/zh/photos/cat-grace-animals-kitten-house-cat-5001517/
+# Mountain: https://pixabay.com/zh/photos/cholatse-nepal-mountain-2875106/
+# Structure: https://pixabay.com/zh/photos/architecture-skyscrapers-windows-7549184/

@@ -94,13 +94,28 @@ msgid "oobe.name.0"
 msgstr "用户名用于向其他用户展示你是谁。"
 
 msgid "oobe.name.1"
-msgstr "无需担心您的用户名和其他用户重复，我们使用UID对账户进行区分。"
+msgstr "无需担心您的用户名和其他用户重复，我们使用DUID对账户进行区分。"
 
 msgid "oobe.name.uid"
-msgstr "您当前的UID为：%s"
+msgstr "您当前的DUID为：%s"
 
 msgid "oobe.avatar"
 msgstr "设置您的头像"
 
 msgid "oobe.avatar.0"
-msgstr "The image you select will appear before your username."
+msgstr "您选择的图像将会显示在您的用户名前。"
+
+msgid "oobe.ready"
+msgstr "大功告成！"
+
+msgid "oobe.ready.0"
+msgstr "您已经完成了基本账户设置。"
+
+msgid "oobe.ready.1"
+msgstr "单击“完成”结束开箱体验。"
+
+msgid "oobe.ready.2"
+msgstr "如果您想更改设置，单击“上一步”。"
+
+msgid "oobe.ready.3"
+msgstr "随后您依旧可以随时在“设置”中更改这些设置。"
