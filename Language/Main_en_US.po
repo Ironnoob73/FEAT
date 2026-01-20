@@ -58,6 +58,12 @@ msgstr "Always show 3D cursor"
 msgid "options.game.key_debug_scene"
 msgstr "Keybinding debug scene"
 
+msgid "options.game.fast_boot"
+msgstr "Fast Boot"
+
+msgid "options.game.oobe"
+msgstr "Unboxing Experience"
+
 msgid "#options_video#"
 msgstr "Video"
 

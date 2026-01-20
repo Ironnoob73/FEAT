@@ -18,6 +18,9 @@ var isLanguagePanelFocused: bool = false
 @onready var main_avatar: Button = $VBoxContainer/Contents/AvatarPage/HBoxContainer/MainAvatar
 @onready var avatar_list: HFlowContainer = $VBoxContainer/Contents/AvatarPage/HBoxContainer/ScrollContainer/AvatarList
 
+@onready var fb_yes_check_box: CheckBox = $VBoxContainer/Contents/FastBootPage/YesButton/HBoxContainer/CheckBox
+@onready var fb_no_check_box: CheckBox = $VBoxContainer/Contents/FastBootPage/NoButton/HBoxContainer/CheckBox
+
 @onready var ready_page: VBoxContainer = $VBoxContainer/Contents/ReadyPage
 
 @onready var previous_icon: Button = $VBoxContainer/DownBoard/PageButton/HBoxContainer/PreviousIcon
@@ -52,29 +55,18 @@ func _change_page(number: int):
 		i.hide()
 	previous_icon.visible = number != 0
 	previous_text.visible = number != 0
-	if page_number != 3:
+	if page_number != contents.get_child_count() -1:
 		next_text.text = "button.next_step"
 	else:
 		next_text.text = "button.done"
-		
 	
-	match page_number:
-		1:
-			name_page.show()
-			uid.text = tr("oobe.name.uid") % Global.duid
-		2:
-			avatar_page.show()
-			var tween = create_tween().set_trans(Tween.TRANS_LINEAR)
-			for i in avatar_list.get_children():
-				tween.tween_callback(func():i.show()).set_delay(0.1)
-		3:ready_page.show()
-		4:
-			Global.oobe = false
-			Global.FastBoot = false
-			get_parent().ready_desktop()
-			Global.save_config()
-			queue_free()
-		_:welocme_page.show()
+	if page_number >= 0 and page_number + 1 <= contents.get_child_count():
+		contents.get_child(page_number).show()
+	elif page_number == contents.get_child_count():
+		Global.oobe = false
+		get_parent().ready_desktop()
+		Global.save_config()
+		queue_free()
 
 func _on_previous_pressed() -> void:
 	page_number -= 1
@@ -114,6 +106,9 @@ func _on_language_panel_exited() -> void:
 	isLanguagePanelFocused = false
 	
 # User name
+func _on_name_page_visibility_changed() -> void:
+	if name_page.visible:
+		uid.text = tr("oobe.name.uid") % Global.duid
 func _on_user_name_text_changed(new_text: String) -> void:
 	if new_text != "":
 		Global.playerName = new_text
@@ -121,6 +116,12 @@ func _on_user_name_text_changed(new_text: String) -> void:
 		Global.playerName = "Anonymous"
 
 # Avatar
+func _on_avatar_page_visibility_changed() -> void:
+	if avatar_page.visible:
+		var tween = create_tween().set_trans(Tween.TRANS_LINEAR)
+		for i in avatar_list.get_children():
+			tween.tween_callback(func():i.show()).set_delay(0.1)
+
 func avatar_init() -> void:
 	for i in avatar_list.get_children():
 		if i is Button:
@@ -133,3 +134,14 @@ func change_avatar(image: Texture2D) -> void:
 # Cat: https://pixabay.com/zh/photos/cat-grace-animals-kitten-house-cat-5001517/
 # Mountain: https://pixabay.com/zh/photos/cholatse-nepal-mountain-2875106/
 # Structure: https://pixabay.com/zh/photos/architecture-skyscrapers-windows-7549184/
+
+# Fast Boot
+func _on_fast_boot_page_visibility_changed() -> void:
+	fb_yes_check_box.set_pressed_no_signal(Global.FastBoot)
+	fb_no_check_box.set_pressed_no_signal(!Global.FastBoot)
+func _on_fast_boot_yes_button_pressed() -> void:
+	Global.FastBoot = true
+	_on_fast_boot_page_visibility_changed()
+func _on_fast_boot_no_button_pressed() -> void:
+	Global.FastBoot = false
+	_on_fast_boot_page_visibility_changed()

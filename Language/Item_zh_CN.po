@@ -70,6 +70,9 @@ msgstr "睡觉"
 msgid "os.name"
 msgstr "[i]呓语[/i]©操作系统"
 
+msgid "os.welcome"
+msgstr "[i]欢迎使用[/i]"
+
 msgid "icon.files"
 msgstr "文件"
 

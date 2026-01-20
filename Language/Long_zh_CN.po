@@ -105,6 +105,18 @@ msgstr "设置您的头像"
 msgid "oobe.avatar.0"
 msgstr "您选择的图像将会显示在您的用户名前。"
 
+msgid "oobe.fast_boot"
+msgstr "设置快速启动"
+
+msgid "oobe.fast_boot.0"
+msgstr "顾名思义，开启快速启动将会加快您看到桌面的速度。"
+
+msgid "oobe.fast_boot.yes"
+msgstr "是，开启快速启动。"
+
+msgid "oobe.fast_boot.no"
+msgstr "否，不要开启快速启动。"
+
 msgid "oobe.ready"
 msgstr "大功告成！"
 

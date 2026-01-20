@@ -79,7 +79,7 @@ func _ready():
 	FastBoot.set_pressed_no_signal(Global.FastBoot)
 	FastBootRestore.set_disabled(Global.FastBoot == false)
 	OOBE.set_pressed_no_signal(Global.oobe)
-	OOBERestore.set_disabled(Global.oobe == false)
+	OOBERestore.set_disabled(Global.oobe == true)
 	
 	# Fullscreen
 	match DisplayServer.window_get_mode():

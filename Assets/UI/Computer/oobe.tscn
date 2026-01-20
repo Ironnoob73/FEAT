@@ -19,31 +19,31 @@
 [ext_resource type="Texture2D" uid="uid://bm0dm4yref7uq" path="res://Resources/Image/avatar/cat.png" id="13_qocph"]
 [ext_resource type="Texture2D" uid="uid://dbh2yd8w7npfc" path="res://Resources/Image/avatar/structure.png" id="15_hug7m"]
 
-[sub_resource type="FontVariation" id="FontVariation_ypevc"]
+[sub_resource type="FontVariation" id="FontVariation_s1us0"]
 
 [sub_resource type="SystemFont" id="SystemFont_ypevc"]
-fallbacks = Array[Font]([SubResource("FontVariation_ypevc")])
+fallbacks = Array[Font]([SubResource("FontVariation_s1us0")])
 font_names = PackedStringArray("SimSun", "Times New Roman")
 font_italic = true
 subpixel_positioning = 0
 
-[sub_resource type="SystemFont" id="SystemFont_fhfra"]
-fallbacks = Array[Font]([SubResource("FontVariation_ypevc")])
+[sub_resource type="SystemFont" id="SystemFont_hug7m"]
+fallbacks = Array[Font]([SubResource("FontVariation_s1us0")])
 font_names = PackedStringArray("SimSun", "Times New Roman")
 font_italic = true
 subpixel_positioning = 0
 
 [sub_resource type="FontVariation" id="FontVariation_p748u"]
-base_font = SubResource("SystemFont_fhfra")
+base_font = SubResource("SystemFont_hug7m")
 variation_embolden = 1.0
 variation_transform = Transform2D(1, 0.25, 0, 1, 0, 0)
 
-[sub_resource type="Gradient" id="Gradient_fhfra"]
+[sub_resource type="Gradient" id="Gradient_j1vce"]
 offsets = PackedFloat32Array(0, 0.5, 1)
 colors = PackedColorArray(1, 1, 0, 0, 1, 1, 0, 1, 1, 1, 0, 0)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_p748u"]
-gradient = SubResource("Gradient_fhfra")
+gradient = SubResource("Gradient_j1vce")
 width = 1080
 
 [sub_resource type="Gradient" id="Gradient_kylj4"]
@@ -377,7 +377,78 @@ theme_type_variation = &"ButtonAvatarBase"
 icon = ExtResource("8_umv6y")
 expand_icon = true
 
+[node name="FastBootPage" type="VBoxContainer" parent="VBoxContainer/Contents"]
+visible = false
+layout_mode = 2
+
+[node name="Title" type="Label" parent="VBoxContainer/Contents/FastBootPage"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 1, 0.49803922)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_font_sizes/font_size = 50
+text = "oobe.fast_boot"
+
+[node name="SubText0" type="Label" parent="VBoxContainer/Contents/FastBootPage"]
+layout_mode = 2
+text = "oobe.fast_boot.0"
+
+[node name="YesButton" type="Button" parent="VBoxContainer/Contents/FastBootPage"]
+custom_minimum_size = Vector2(0, 75)
+layout_mode = 2
+flat = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Contents/FastBootPage/YesButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Icon" type="Label" parent="VBoxContainer/Contents/FastBootPage/YesButton/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "🐇"
+
+[node name="CheckBox" type="CheckBox" parent="VBoxContainer/Contents/FastBootPage/YesButton/HBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+flat = true
+
+[node name="Label" type="Label" parent="VBoxContainer/Contents/FastBootPage/YesButton/HBoxContainer"]
+layout_mode = 2
+text = "oobe.fast_boot.yes"
+
+[node name="NoButton" type="Button" parent="VBoxContainer/Contents/FastBootPage"]
+custom_minimum_size = Vector2(0, 75)
+layout_mode = 2
+flat = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Contents/FastBootPage/NoButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Icon" type="Label" parent="VBoxContainer/Contents/FastBootPage/NoButton/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "🐌"
+
+[node name="CheckBox" type="CheckBox" parent="VBoxContainer/Contents/FastBootPage/NoButton/HBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+flat = true
+
+[node name="Label" type="Label" parent="VBoxContainer/Contents/FastBootPage/NoButton/HBoxContainer"]
+layout_mode = 2
+text = "oobe.fast_boot.no"
+
 [node name="ReadyPage" type="VBoxContainer" parent="VBoxContainer/Contents"]
+visible = false
 layout_mode = 2
 
 [node name="Title" type="Label" parent="VBoxContainer/Contents/ReadyPage"]
@@ -390,6 +461,7 @@ text = "oobe.ready"
 
 [node name="SubText0" type="Label" parent="VBoxContainer/Contents/ReadyPage"]
 layout_mode = 2
+size_flags_vertical = 3
 text = "oobe.ready.0"
 
 [node name="SubText1" type="Label" parent="VBoxContainer/Contents/ReadyPage"]
@@ -468,7 +540,12 @@ text = "🡺"
 [connection signal="mouse_exited" from="VBoxContainer/Contents/WelocmePage/OptionButton/PanelContainer" to="." method="_on_language_panel_exited"]
 [connection signal="pressed" from="VBoxContainer/Contents/WelocmePage/OptionButton/PanelContainer/VBoxContainer/EnglishButton" to="." method="_on_english_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/Contents/WelocmePage/OptionButton/PanelContainer/VBoxContainer/MandarinButton" to="." method="_on_mandarin_button_pressed"]
+[connection signal="visibility_changed" from="VBoxContainer/Contents/NamePage" to="." method="_on_name_page_visibility_changed"]
 [connection signal="text_changed" from="VBoxContainer/Contents/NamePage/LineEdit" to="." method="_on_user_name_text_changed"]
+[connection signal="visibility_changed" from="VBoxContainer/Contents/AvatarPage" to="." method="_on_avatar_page_visibility_changed"]
+[connection signal="visibility_changed" from="VBoxContainer/Contents/FastBootPage" to="." method="_on_fast_boot_page_visibility_changed"]
+[connection signal="pressed" from="VBoxContainer/Contents/FastBootPage/YesButton" to="." method="_on_fast_boot_yes_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/Contents/FastBootPage/NoButton" to="." method="_on_fast_boot_no_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/DownBoard/PageButton/HBoxContainer/PreviousIcon" to="." method="_on_previous_pressed"]
 [connection signal="pressed" from="VBoxContainer/DownBoard/PageButton/HBoxContainer/PreviousText" to="." method="_on_previous_pressed"]
 [connection signal="pressed" from="VBoxContainer/DownBoard/PageButton/HBoxContainer/NextText" to="." method="_on_next_pressed"]

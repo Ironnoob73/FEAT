@@ -71,6 +71,9 @@ msgstr "Sleep"
 msgid "os.name"
 msgstr "[i]Nonsense[/i]© OS"
 
+msgid "os.welcome"
+msgstr "[i]Welcome[/i]"
+
 msgid "icon.files"
 msgstr "Files"
 

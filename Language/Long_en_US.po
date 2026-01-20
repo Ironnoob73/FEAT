@@ -105,6 +105,18 @@ msgstr "Set your avatar"
 msgid "oobe.avatar.0"
 msgstr "The image you select will appear before your username"
 
+msgid "oobe.fast_boot"
+msgstr "Set up Fast Boot"
+
+msgid "oobe.fast_boot.0"
+msgstr "As the name suggests, enabling Fast Boot will speed up the process of seeing your desktop."
+
+msgid "oobe.fast_boot.yes"
+msgstr "Yes, enable Fast Boot."
+
+msgid "oobe.fast_boot.no"
+msgstr "No, do not enable Fast Boot."
+
 msgid "oobe.ready"
 msgstr "Everything is ready!"
 

@@ -58,6 +58,12 @@ msgstr "总是显示三维光标"
 msgid "options.game.key_debug_scene"
 msgstr "键位测试场景"
 
+msgid "options.game.fast_boot"
+msgstr "快速启动"
+
+msgid "options.game.oobe"
+msgstr "开箱体验"
+
 msgid "#options_video#"
 msgstr "视频"
 

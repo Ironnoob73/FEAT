@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://ivqad25m6mqq"]
+[gd_scene load_steps=30 format=3 uid="uid://ivqad25m6mqq"]
 
 [ext_resource type="Theme" uid="uid://bv3atmtrqii4a" path="res://Resources/Theme/luna.tres" id="1_hrvfu"]
 [ext_resource type="Script" uid="uid://bh2841k2gtp81" path="res://Resources/Object/Device/Computer/Sreen/computer_screen.gd" id="2_wjw8o"]
@@ -58,6 +58,41 @@ content_margin_top = 2.0
 content_margin_right = 2.0
 content_margin_bottom = 2.0
 bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="Gradient" id="Gradient_fhfra"]
+offsets = PackedFloat32Array(0, 0.5, 1)
+colors = PackedColorArray(1, 1, 0, 0, 1, 1, 0, 1, 1, 1, 0, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_fhfra"]
+gradient = SubResource("Gradient_fhfra")
+width = 1080
+
+[sub_resource type="FontVariation" id="FontVariation_s1us0"]
+
+[sub_resource type="SystemFont" id="SystemFont_q5cpy"]
+fallbacks = Array[Font]([SubResource("FontVariation_s1us0")])
+font_names = PackedStringArray("SimSun", "Times New Roman")
+font_italic = true
+subpixel_positioning = 0
+
+[sub_resource type="SystemFont" id="SystemFont_auyww"]
+fallbacks = Array[Font]([SubResource("FontVariation_s1us0")])
+font_names = PackedStringArray("SimSun", "Times New Roman")
+font_italic = true
+subpixel_positioning = 0
+
+[sub_resource type="FontVariation" id="FontVariation_fxsym"]
+base_font = SubResource("SystemFont_auyww")
+variation_embolden = 0.5
+variation_transform = Transform2D(1, 0.25, 0, 1, 0, 0)
+
+[sub_resource type="Gradient" id="Gradient_cwk87"]
+offsets = PackedFloat32Array(0, 0.5, 1)
+colors = PackedColorArray(1, 1, 0, 0, 1, 1, 0, 1, 1, 1, 0, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_13txe"]
+gradient = SubResource("Gradient_cwk87")
+width = 1080
 
 [node name="ComputerScreen" type="Control"]
 layout_mode = 3
@@ -309,6 +344,60 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_fhfra")
 show_percentage = false
 indeterminate = true
 editor_preview_indeterminate = true
+
+[node name="WelcomeScreen" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_fhfra")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="WelcomeScreen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="UpBoard" type="ColorRect" parent="WelcomeScreen/VBoxContainer"]
+custom_minimum_size = Vector2(0, 75)
+layout_mode = 2
+color = Color(0, 0, 1, 1)
+
+[node name="UpLine" type="TextureRect" parent="WelcomeScreen/VBoxContainer"]
+custom_minimum_size = Vector2(0, 5)
+layout_mode = 2
+texture = SubResource("GradientTexture1D_fhfra")
+
+[node name="Welcome" type="RichTextLabel" parent="WelcomeScreen/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = SubResource("SystemFont_q5cpy")
+theme_override_fonts/italics_font = SubResource("FontVariation_fxsym")
+theme_override_font_sizes/normal_font_size = 50
+theme_override_font_sizes/italics_font_size = 50
+bbcode_enabled = true
+text = "os.welcome"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DownLine" type="TextureRect" parent="WelcomeScreen/VBoxContainer"]
+custom_minimum_size = Vector2(0, 5)
+layout_mode = 2
+texture = SubResource("GradientTexture1D_13txe")
+
+[node name="DownBoard" type="ColorRect" parent="WelcomeScreen/VBoxContainer"]
+custom_minimum_size = Vector2(0, 75)
+layout_mode = 2
+color = Color(0, 0, 1, 1)
 
 [connection signal="pressed" from="Desktop/DesktopIcons/FilesIcon" to="Desktop" method="_on_files_icon_pressed"]
 [connection signal="mouse_entered" from="Desktop/StartMenu" to="Desktop" method="_on_start_menu_mouse_entered"]
