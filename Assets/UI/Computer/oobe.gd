@@ -10,6 +10,9 @@ extends TextureRect
 @onready var language_choose: PanelContainer = $VBoxContainer/Contents/WelocmePage/OptionButton/PanelContainer
 var isLanguagePanelFocused: bool = false
 
+@onready var saves_location: Button = $VBoxContainer/Contents/LocationPage/HBoxContainer/SavesLocation
+@onready var file_dialog: FileDialog = $VBoxContainer/Contents/LocationPage/HBoxContainer/SavesLocation/FileDialog
+
 @onready var name_page: VBoxContainer = $VBoxContainer/Contents/NamePage
 @onready var name_edit: LineEdit = $VBoxContainer/Contents/NamePage/LineEdit
 @onready var uid: Label = $VBoxContainer/Contents/NamePage/UID
@@ -38,17 +41,18 @@ func _ready() -> void:
 	hide()
 	interface.hide()
 	page_button.hide()
-	for i in contents.get_children():
-		i.hide()
-	var tween = create_tween().set_trans(Tween.TRANS_LINEAR)
-	tween.tween_callback(func():show()).set_delay(1)
-	tween.tween_callback(func():interface.show()).set_delay(0.5)
-	tween.tween_callback(func():welocme_page.show()).set_delay(0.5)
-	tween.tween_callback(func():page_button.show()).set_delay(0.1)
-	
+	ready_animation.call_deferred()
 	match_language()
 	Global.duid = Global.generate_duid()
 	avatar_init()
+	
+func ready_animation() -> void:
+	var tween = create_tween().set_trans(Tween.TRANS_LINEAR)
+	tween.tween_callback(func():show()).set_delay(1)
+	tween.tween_callback(func():for i in contents.get_children(): i.hide()).set_delay(1)
+	tween.tween_callback(func():interface.show()).set_delay(0.5)
+	tween.tween_callback(func():welocme_page.show()).set_delay(0.5)
+	tween.tween_callback(func():page_button.show()).set_delay(0.1)
 
 func _change_page(number: int):
 	for i in contents.get_children():
@@ -105,9 +109,25 @@ func _on_language_panel_entered() -> void:
 func _on_language_panel_exited() -> void:
 	isLanguagePanelFocused = false
 	
+# File Location
+func _on_location_page_visibility_changed() -> void:
+	if saves_location != null:
+		saves_location.text = Global.DATA_PATH
+func _on_saves_location_pressed() -> void:
+	file_dialog.set_current_dir(Global.DATA_PATH)
+	file_dialog.show()
+func _on_file_dialog_dir_selected(dir: String) -> void:
+	Global.DATA_PATH = dir
+	saves_location.text = dir
+	Global.save_settings_to_file("game","data_path",dir)
+func _on_file_path_restore_button_pressed() -> void:
+	Global.DATA_PATH = "user://"
+	saves_location.text = "user://"
+	Global.save_settings_to_file("game","data_path","user://")
+
 # User name
 func _on_name_page_visibility_changed() -> void:
-	if name_page.visible:
+	if name_page != null and name_page.visible:
 		uid.text = tr("oobe.name.uid") % Global.duid
 func _on_user_name_text_changed(new_text: String) -> void:
 	if new_text != "":
@@ -117,7 +137,7 @@ func _on_user_name_text_changed(new_text: String) -> void:
 
 # Avatar
 func _on_avatar_page_visibility_changed() -> void:
-	if avatar_page.visible:
+	if avatar_page != null and avatar_page.visible:
 		var tween = create_tween().set_trans(Tween.TRANS_LINEAR)
 		for i in avatar_list.get_children():
 			tween.tween_callback(func():i.show()).set_delay(0.1)
@@ -137,8 +157,10 @@ func change_avatar(image: Texture2D) -> void:
 
 # Fast Boot
 func _on_fast_boot_page_visibility_changed() -> void:
-	fb_yes_check_box.set_pressed_no_signal(Global.FastBoot)
-	fb_no_check_box.set_pressed_no_signal(!Global.FastBoot)
+	if fb_yes_check_box != null:
+		fb_yes_check_box.set_pressed_no_signal(Global.FastBoot)
+	if fb_no_check_box != null:
+		fb_no_check_box.set_pressed_no_signal(!Global.FastBoot)
 func _on_fast_boot_yes_button_pressed() -> void:
 	Global.FastBoot = true
 	_on_fast_boot_page_visibility_changed()

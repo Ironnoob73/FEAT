@@ -1,10 +1,11 @@
-[gd_scene load_steps=31 format=3 uid="uid://henk88t1h8y2"]
+[gd_scene load_steps=32 format=3 uid="uid://henk88t1h8y2"]
 
 [ext_resource type="Theme" uid="uid://bv3atmtrqii4a" path="res://Resources/Theme/luna.tres" id="1_1jk3b"]
 [ext_resource type="Texture2D" uid="uid://6aal2onumy7s" path="res://Resources/Image/Desktop/default.tres" id="2_deyrj"]
 [ext_resource type="Script" uid="uid://b2680156src04" path="res://Assets/UI/Computer/oobe.gd" id="3_deyrj"]
 [ext_resource type="Texture2D" uid="uid://cd10lecgpielv" path="res://Resources/Image/UI/DownArrow.svg" id="4_b1gv2"]
 [ext_resource type="Texture2D" uid="uid://cnlb1synj0mmp" path="res://Resources/Image/avatar/default.png" id="5_fl8u4"]
+[ext_resource type="Texture2D" uid="uid://7yqunet0nhxt" path="res://Resources/Image/UI/Restore.svg" id="5_j1vce"]
 [ext_resource type="Texture2D" uid="uid://cthrhf37hsxfd" path="res://Resources/Image/avatar/nonsense.png" id="6_i122j"]
 [ext_resource type="Texture2D" uid="uid://b42cpv7543en7" path="res://Resources/Image/avatar/square.png" id="6_voeh1"]
 [ext_resource type="Texture2D" uid="uid://dyc0pu15y7dmf" path="res://Resources/Image/avatar/circle.png" id="7_umv6y"]
@@ -192,6 +193,55 @@ alignment = 0
 layout_mode = 2
 size_flags_vertical = 10
 text = "oobe.next_hint"
+
+[node name="LocationPage" type="VBoxContainer" parent="VBoxContainer/Contents"]
+visible = false
+layout_mode = 2
+
+[node name="Title" type="Label" parent="VBoxContainer/Contents/LocationPage"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 1, 0.49803922)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_font_sizes/font_size = 50
+text = "oobe.location"
+
+[node name="SubText0" type="Label" parent="VBoxContainer/Contents/LocationPage"]
+layout_mode = 2
+text = "oobe.location.0"
+
+[node name="SubText1" type="Label" parent="VBoxContainer/Contents/LocationPage"]
+layout_mode = 2
+text = "oobe.location.1"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Contents/LocationPage"]
+layout_mode = 2
+
+[node name="SavesLocation" type="Button" parent="VBoxContainer/Contents/LocationPage/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "C"
+alignment = 0
+
+[node name="FileDialog" type="FileDialog" parent="VBoxContainer/Contents/LocationPage/HBoxContainer/SavesLocation"]
+oversampling_override = 1.0
+title = "file.open_directory"
+initial_position = 2
+size = Vector2i(750, 500)
+cancel_button_text = "button.cancel"
+file_mode = 2
+access = 2
+use_native_dialog = true
+
+[node name="RestoreButton" type="Button" parent="VBoxContainer/Contents/LocationPage/HBoxContainer"]
+custom_minimum_size = Vector2(35, 0)
+layout_mode = 2
+icon = ExtResource("5_j1vce")
+expand_icon = true
+
+[node name="SubText2" type="Label" parent="VBoxContainer/Contents/LocationPage"]
+layout_mode = 2
+text = "oobe.location.2"
 
 [node name="NamePage" type="VBoxContainer" parent="VBoxContainer/Contents"]
 visible = false
@@ -414,11 +464,8 @@ text = "🐇"
 [node name="CheckBox" type="CheckBox" parent="VBoxContainer/Contents/FastBootPage/YesButton/HBoxContainer"]
 layout_mode = 2
 mouse_filter = 2
-flat = true
-
-[node name="Label" type="Label" parent="VBoxContainer/Contents/FastBootPage/YesButton/HBoxContainer"]
-layout_mode = 2
 text = "oobe.fast_boot.yes"
+flat = true
 
 [node name="NoButton" type="Button" parent="VBoxContainer/Contents/FastBootPage"]
 custom_minimum_size = Vector2(0, 75)
@@ -441,11 +488,8 @@ text = "🐌"
 [node name="CheckBox" type="CheckBox" parent="VBoxContainer/Contents/FastBootPage/NoButton/HBoxContainer"]
 layout_mode = 2
 mouse_filter = 2
-flat = true
-
-[node name="Label" type="Label" parent="VBoxContainer/Contents/FastBootPage/NoButton/HBoxContainer"]
-layout_mode = 2
 text = "oobe.fast_boot.no"
+flat = true
 
 [node name="ReadyPage" type="VBoxContainer" parent="VBoxContainer/Contents"]
 visible = false
@@ -540,6 +584,10 @@ text = "🡺"
 [connection signal="mouse_exited" from="VBoxContainer/Contents/WelocmePage/OptionButton/PanelContainer" to="." method="_on_language_panel_exited"]
 [connection signal="pressed" from="VBoxContainer/Contents/WelocmePage/OptionButton/PanelContainer/VBoxContainer/EnglishButton" to="." method="_on_english_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/Contents/WelocmePage/OptionButton/PanelContainer/VBoxContainer/MandarinButton" to="." method="_on_mandarin_button_pressed"]
+[connection signal="visibility_changed" from="VBoxContainer/Contents/LocationPage" to="." method="_on_location_page_visibility_changed"]
+[connection signal="pressed" from="VBoxContainer/Contents/LocationPage/HBoxContainer/SavesLocation" to="." method="_on_saves_location_pressed"]
+[connection signal="dir_selected" from="VBoxContainer/Contents/LocationPage/HBoxContainer/SavesLocation/FileDialog" to="." method="_on_file_dialog_dir_selected"]
+[connection signal="pressed" from="VBoxContainer/Contents/LocationPage/HBoxContainer/RestoreButton" to="." method="_on_file_path_restore_button_pressed"]
 [connection signal="visibility_changed" from="VBoxContainer/Contents/NamePage" to="." method="_on_name_page_visibility_changed"]
 [connection signal="text_changed" from="VBoxContainer/Contents/NamePage/LineEdit" to="." method="_on_user_name_text_changed"]
 [connection signal="visibility_changed" from="VBoxContainer/Contents/AvatarPage" to="." method="_on_avatar_page_visibility_changed"]

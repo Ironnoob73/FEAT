@@ -87,6 +87,15 @@ msgstr "Please set your language first."
 msgid "oobe.next_hint"
 msgstr "To continue, please click \"Next Step\".You can also use the Q and E keys to turn pages."
 
+msgid "oobe.location"
+msgstr "Set file save path"
+
+msgid "oobe.location.0"
+msgstr "This determines where your files are stored."
+
+msgid "oobe.location.1"
+msgstr "Your personal files (such as documents and pictures) storage location:"
+
 msgid "oobe.name"
 msgstr "Set your user name"
 
@@ -95,6 +104,9 @@ msgstr "Usernames are used to show other users who you are."
 
 msgid "oobe.name.1"
 msgstr "No need to worry about your username being the same as other users; we use DUIDs to distinguish accounts."
+
+msgid "oobe.location.2"
+msgstr "Your user profile and settings are stored on the system drive, but you can import and export them at any time."
 
 msgid "oobe.name.uid"
 msgstr "Your current DUID is: %s"
@@ -121,7 +133,7 @@ msgid "oobe.ready"
 msgstr "Everything is ready!"
 
 msgid "oobe.ready.0"
-msgstr "You have completed the basic account setup."
+msgstr "You have completed the basic setup."
 
 msgid "oobe.ready.1"
 msgstr "Click \"Done\" to end the unboxing experience."

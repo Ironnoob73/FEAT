@@ -130,6 +130,7 @@ grow_vertical = 2
 [node name="FilesIcon" type="Button" parent="Desktop/DesktopIcons"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
+theme_type_variation = &"ButtonBlue"
 icon = ExtResource("4_njps7")
 flat = true
 icon_alignment = 1
@@ -150,6 +151,7 @@ horizontal_alignment = 1
 [node name="NetworkIcon" type="Button" parent="Desktop/DesktopIcons"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
+theme_type_variation = &"ButtonBlue"
 icon = ExtResource("5_b14wj")
 flat = true
 icon_alignment = 1
@@ -170,6 +172,7 @@ horizontal_alignment = 1
 [node name="Settings" type="Button" parent="Desktop/DesktopIcons"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
+theme_type_variation = &"ButtonBlue"
 icon = ExtResource("6_ypevc")
 flat = true
 icon_alignment = 1
@@ -346,6 +349,7 @@ indeterminate = true
 editor_preview_indeterminate = true
 
 [node name="WelcomeScreen" type="TextureRect" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

@@ -47,6 +47,7 @@ size_flags_horizontal = 10
 visible = false
 custom_minimum_size = Vector2(32, 0)
 layout_mode = 2
+theme_type_variation = &"ButtonBlue"
 text = "🗕"
 
 [node name="MaximizeButton" type="Button" parent="VBox/HBox"]
@@ -54,6 +55,7 @@ visible = false
 custom_minimum_size = Vector2(32, 0)
 layout_mode = 2
 size_flags_horizontal = 8
+theme_type_variation = &"ButtonBlue"
 text = "🗖"
 
 [node name="CloseButton" type="Button" parent="VBox/HBox"]
