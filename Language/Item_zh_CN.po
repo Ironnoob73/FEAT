@@ -81,3 +81,6 @@ msgstr "网络"
 
 msgid "icon.settings"
 msgstr "设置"
+
+msgid "os.offing"
+msgstr "正在关机..."

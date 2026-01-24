@@ -87,6 +87,9 @@ msgstr "Please set your language first."
 msgid "oobe.next_hint"
 msgstr "To continue, please click \"Next Step\".You can also use the Q and E keys to turn pages."
 
+msgid "oobe.paused"
+msgstr "The process has been paused.\nClick anywhere to resume the process."
+
 msgid "oobe.location"
 msgstr "Set file save path"
 

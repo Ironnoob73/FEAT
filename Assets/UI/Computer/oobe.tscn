@@ -225,7 +225,7 @@ alignment = 0
 
 [node name="FileDialog" type="FileDialog" parent="VBoxContainer/Contents/LocationPage/HBoxContainer/SavesLocation"]
 oversampling_override = 1.0
-title = "file.open_directory"
+title = "Open a Directory"
 initial_position = 2
 size = Vector2i(750, 500)
 cancel_button_text = "button.cancel"
@@ -576,6 +576,26 @@ layout_mode = 2
 theme_type_variation = &"ButtonGreen"
 shortcut = SubResource("Shortcut_kylj4")
 text = "🡺"
+
+[node name="PauseScreen" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.49803922)
+
+[node name="Label" type="Label" parent="PauseScreen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "oobe.paused"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="mouse_entered" from="VBoxContainer/Contents/WelocmePage/OptionButton" to="." method="match_language"]
 [connection signal="mouse_exited" from="VBoxContainer/Contents/WelocmePage/OptionButton" to="." method="match_language"]

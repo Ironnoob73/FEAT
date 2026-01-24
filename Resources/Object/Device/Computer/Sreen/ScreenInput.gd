@@ -31,3 +31,10 @@ func _process(_delta: float) -> void:
 		var mouse_pos = get_parent().get_viewport().get_mouse_position() / Vector2(get_parent().get_viewport().get_window().size)
 		%CameraPose.rotation.y = lerp(%CameraPose.rotation.y, - (mouse_pos.x - 0.5) * 0.1, 0.01)
 		%CameraPose.rotation.x = lerp(%CameraPose.rotation.x, - (mouse_pos.y - 0.5) * 0.1, 0.01)
+	else:
+		%CameraPose.rotation.y = lerp(%CameraPose.rotation.y, 0.0, 0.01)
+		%CameraPose.rotation.x = lerp(%CameraPose.rotation.x, 0.0, 0.01)
+		
+func _on_computer_screen_offing() -> void:
+	var tween = create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	tween.tween_property(camera_3d, "fov", 61.5, 10)

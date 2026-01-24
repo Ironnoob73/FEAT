@@ -87,6 +87,9 @@ msgstr "首先，请设置您的语言。"
 msgid "oobe.next_hint"
 msgstr "要继续，请单击“下一步”。你也可以使用Q、E键进行翻页。"
 
+msgid "oobe.paused"
+msgstr "进程已暂停\n点击任意处恢复进程"
+
 msgid "oobe.location"
 msgstr "设置文件保存路径"
 

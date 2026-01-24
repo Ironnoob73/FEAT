@@ -27,7 +27,7 @@ corner_radius_bottom_left = 5
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qg1fx"]
 content_margin_left = 5.0
 content_margin_top = 0.0
-content_margin_right = 0.0
+content_margin_right = 5.0
 content_margin_bottom = 0.0
 bg_color = Color(0.8745098, 0.8745098, 0.8745098, 1)
 border_width_top = 16
@@ -59,7 +59,7 @@ shadow_size = 2
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5x7oh"]
 content_margin_left = 5.0
 content_margin_top = 0.0
-content_margin_right = 0.0
+content_margin_right = 5.0
 content_margin_bottom = 0.0
 bg_color = Color(0.7490196, 0.7490196, 0.7490196, 1)
 border_width_bottom = 16

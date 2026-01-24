@@ -75,5 +75,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0.4)
 [node name="Camera3D" type="Camera3D" parent="CameraPose"]
 
 [connection signal="on_user_change" from="." to="Screen" method="when_captured"]
+[connection signal="offing" from="Screen/ScreenViewport/ComputerScreen" to="Screen" method="_on_computer_screen_offing"]
 
 [editable path="Screen/ScreenViewport/ComputerScreen"]

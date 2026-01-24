@@ -10,9 +10,14 @@ extends Control
 @onready var time: Label = $Desktop/BottomTab/HBox/Time
 @onready var desktop_icons: VFlowContainer = $Desktop/DesktopIcons
 
+var is_offing: bool = false
+@onready var off_screen: TextureRect = $OffScreen
+signal offing
+
 func _ready() -> void:
 	start_screen.hide()
 	welcome_screen.hide()
+	off_screen.hide()
 	if !Global.FastBoot or Global.oobe:
 		cursor.hide()
 		desktop.hide()
@@ -50,3 +55,20 @@ func ready_desktop() -> void:
 	tween.tween_callback(func():time.show()).set_delay(0.1)
 	for i in desktop_icons.get_children():
 		tween.tween_callback(func():i.show()).set_delay(0.1)
+
+func _on_off_button_pressed() -> void:
+	if !is_offing:
+		Global.THE_PLAYER.remove_meta("lock_hud_hidden")
+		Global.THE_PLAYER.remove_meta("lock_menu")
+		start_button.button_pressed = false
+		is_offing = true
+		var tween = create_tween().set_trans(Tween.TRANS_LINEAR)
+		tween.tween_callback(func():offing.emit())
+		tween.tween_callback(func():desktop_icons.hide()).set_delay(1)
+		tween.tween_callback(func():start_button.hide()).set_delay(1)
+		tween.tween_callback(func():time.hide()).set_delay(0.1)
+		tween.tween_callback(func():bottom_tab.hide()).set_delay(0.5)
+		tween.tween_callback(func():cursor.hide()).set_delay(0.5)
+		tween.tween_callback(func():off_screen.show()).set_delay(1)
+		tween.tween_callback(func():hide()).set_delay(5)
+		tween.tween_callback(func():get_tree().quit()).set_delay(0.5)

@@ -30,6 +30,8 @@ var isLanguagePanelFocused: bool = false
 @onready var previous_text: LinkButton = $VBoxContainer/DownBoard/PageButton/HBoxContainer/PreviousText
 @onready var next_text: LinkButton = $VBoxContainer/DownBoard/PageButton/HBoxContainer/NextText
 
+@onready var pause_screen: ColorRect = $PauseScreen
+
 var page_number: int = 0:
 	set(number):
 		page_number = number
@@ -41,6 +43,7 @@ func _ready() -> void:
 	hide()
 	interface.hide()
 	page_button.hide()
+	pause_screen.hide()
 	ready_animation.call_deferred()
 	match_language()
 	Global.duid = Global.generate_duid()
@@ -78,9 +81,15 @@ func _on_next_pressed() -> void:
 	page_number += 1
 
 func _input(event: InputEvent) -> void:
+	if event.is_action("ui_cancel") and event.is_pressed() and !pause_screen.visible:
+		pause_screen.show()
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	elif event is not InputEventMouseMotion and event.is_pressed() and pause_screen.visible:
+		pause_screen.hide()
+		Input.set_mouse_mode(Input.MOUSE_MODE_CONFINED_HIDDEN)
+		
 	if event is InputEventMouseButton\
-	and event.button_index == 1\
-	and event.is_pressed\
+	and event.button_index == 1 and event.is_pressed\
 	and !isLanguagePanelFocused and language_choose.visible == true:
 		_on_language_pressed()
 	

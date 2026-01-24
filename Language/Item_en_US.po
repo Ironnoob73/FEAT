@@ -82,3 +82,6 @@ msgstr "Network"
 
 msgid "icon.settings"
 msgstr "Settings"
+
+msgid "os.offing"
+msgstr "Powering off..."

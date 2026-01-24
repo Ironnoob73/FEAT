@@ -403,9 +403,76 @@ custom_minimum_size = Vector2(0, 75)
 layout_mode = 2
 color = Color(0, 0, 1, 1)
 
+[node name="OffScreen" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_fhfra")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="OffScreen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="UpBoard" type="ColorRect" parent="OffScreen/VBoxContainer"]
+custom_minimum_size = Vector2(0, 75)
+layout_mode = 2
+color = Color(0, 0, 1, 1)
+
+[node name="UpLine" type="TextureRect" parent="OffScreen/VBoxContainer"]
+custom_minimum_size = Vector2(0, 5)
+layout_mode = 2
+texture = SubResource("GradientTexture1D_fhfra")
+
+[node name="Control" type="Control" parent="OffScreen/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Welcome" type="RichTextLabel" parent="OffScreen/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = SubResource("SystemFont_q5cpy")
+theme_override_fonts/italics_font = SubResource("FontVariation_fxsym")
+theme_override_font_sizes/normal_font_size = 50
+theme_override_font_sizes/italics_font_size = 50
+bbcode_enabled = true
+text = "os.name"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="OffScreen/VBoxContainer"]
+layout_mode = 2
+text = "os.offing"
+horizontal_alignment = 1
+
+[node name="Control2" type="Control" parent="OffScreen/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="DownLine" type="TextureRect" parent="OffScreen/VBoxContainer"]
+custom_minimum_size = Vector2(0, 5)
+layout_mode = 2
+texture = SubResource("GradientTexture1D_13txe")
+
+[node name="DownBoard" type="ColorRect" parent="OffScreen/VBoxContainer"]
+custom_minimum_size = Vector2(0, 75)
+layout_mode = 2
+color = Color(0, 0, 1, 1)
+
 [connection signal="pressed" from="Desktop/DesktopIcons/FilesIcon" to="Desktop" method="_on_files_icon_pressed"]
 [connection signal="mouse_entered" from="Desktop/StartMenu" to="Desktop" method="_on_start_menu_mouse_entered"]
 [connection signal="mouse_exited" from="Desktop/StartMenu" to="Desktop" method="_on_start_menu_mouse_exited"]
+[connection signal="pressed" from="Desktop/StartMenu/VBoxContainer/Bottom/OffButton" to="." method="_on_off_button_pressed"]
 [connection signal="mouse_entered" from="Desktop/BottomTab/HBox/StartButton" to="Desktop" method="_on_start_menu_mouse_entered"]
 [connection signal="mouse_exited" from="Desktop/BottomTab/HBox/StartButton" to="Desktop" method="_on_start_menu_mouse_exited"]
 [connection signal="toggled" from="Desktop/BottomTab/HBox/StartButton" to="Desktop" method="_on_start_button_toggled"]
