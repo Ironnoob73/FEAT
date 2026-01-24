@@ -9,6 +9,7 @@ extends Control
 @onready var start_button: Button = $Desktop/BottomTab/HBox/StartButton
 @onready var time: Label = $Desktop/BottomTab/HBox/Time
 @onready var desktop_icons: VFlowContainer = $Desktop/DesktopIcons
+@onready var window_group: Control = $Desktop/WindowGroup
 
 var is_offing: bool = false
 @onready var off_screen: TextureRect = $OffScreen
@@ -65,6 +66,7 @@ func _on_off_button_pressed() -> void:
 		var tween = create_tween().set_trans(Tween.TRANS_LINEAR)
 		tween.tween_callback(func():offing.emit())
 		tween.tween_callback(func():desktop_icons.hide()).set_delay(1)
+		tween.tween_callback(func():window_group.hide()).set_delay(1)
 		tween.tween_callback(func():start_button.hide()).set_delay(1)
 		tween.tween_callback(func():time.hide()).set_delay(0.1)
 		tween.tween_callback(func():bottom_tab.hide()).set_delay(0.5)
