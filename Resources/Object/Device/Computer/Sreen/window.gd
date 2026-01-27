@@ -5,6 +5,8 @@ extends Panel
 @onready var icon: TextureRect = $VBox/HBox/Icon
 @onready var title: Label = $VBox/HBox/Title
 
+var tab_bar_index: int = 0
+
 var is_focus: bool
 var is_dragging: bool
 var start_drag_position: Vector2

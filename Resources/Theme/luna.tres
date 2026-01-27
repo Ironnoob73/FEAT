@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=43 format=3 uid="uid://bv3atmtrqii4a"]
+[gd_resource type="Theme" load_steps=47 format=3 uid="uid://bv3atmtrqii4a"]
 
 [sub_resource type="Gradient" id="Gradient_ynjm2"]
 offsets = PackedFloat32Array(0, 0.8, 1)
@@ -406,6 +406,66 @@ fill_to = Vector2(0, 0)
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_luw20"]
 texture = SubResource("GradientTexture2D_7mb6s")
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ria71"]
+draw_center = false
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.24705882, 0.24705882, 0.24705882, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kxam6"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0, 0.62352943, 0.8745098, 1)
+border_width_top = 16
+border_color = Color(0, 0.7490196, 1, 1)
+border_blend = true
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+shadow_color = Color(0, 0.7490196, 1, 0.6)
+shadow_size = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_et668"]
+content_margin_left = 10.0
+content_margin_top = 0.0
+content_margin_right = 10.0
+content_margin_bottom = 0.0
+bg_color = Color(0, 0.24705882, 0.49803922, 1)
+border_width_bottom = 16
+border_color = Color(0, 0.49803922, 0.7490196, 1)
+border_blend = true
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+shadow_color = Color(0, 0.49803922, 0.7490196, 0.6)
+shadow_size = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nm1j8"]
+content_margin_left = 10.0
+content_margin_top = 0.0
+content_margin_right = 10.0
+content_margin_bottom = 0.0
+bg_color = Color(0, 0.49803922, 0.7490196, 1)
+border_width_top = 16
+border_color = Color(0, 0.7490196, 1, 1)
+border_blend = true
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+shadow_color = Color(0, 0.24705882, 0.49803922, 0.6)
+shadow_size = 2
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ynjm2"]
 bg_color = Color(0, 0.24705882, 0.7490196, 1)
 border_width_top = 32
@@ -530,6 +590,14 @@ StartButton/font_sizes/font_size = 32
 StartButton/styles/hover = SubResource("StyleBoxTexture_nlfed")
 StartButton/styles/normal = SubResource("StyleBoxTexture_e0cyg")
 StartButton/styles/pressed = SubResource("StyleBoxTexture_luw20")
+TabBar/colors/font_hovered_color = Color(1, 1, 1, 1)
+TabBar/colors/font_unselected_color = Color(0.9490196, 0.9490196, 0.9490196, 1)
+TabBar/constants/icon_max_width = 0
+TabBar/constants/tab_separation = 3
+TabBar/styles/tab_focus = SubResource("StyleBoxFlat_ria71")
+TabBar/styles/tab_hovered = SubResource("StyleBoxFlat_kxam6")
+TabBar/styles/tab_selected = SubResource("StyleBoxFlat_et668")
+TabBar/styles/tab_unselected = SubResource("StyleBoxFlat_nm1j8")
 WindowBackground/base_type = &"Panel"
 WindowBackground/styles/panel = SubResource("StyleBoxFlat_ynjm2")
 WindowBackgroundUnf/base_type = &"Panel"

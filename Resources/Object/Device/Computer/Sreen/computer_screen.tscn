@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://ivqad25m6mqq"]
+[gd_scene load_steps=31 format=3 uid="uid://ivqad25m6mqq"]
 
 [ext_resource type="Theme" uid="uid://bv3atmtrqii4a" path="res://Resources/Theme/luna.tres" id="1_hrvfu"]
 [ext_resource type="Script" uid="uid://bh2841k2gtp81" path="res://Resources/Object/Device/Computer/Sreen/computer_screen.gd" id="2_wjw8o"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://pfjefeuxsaq7" path="res://Resources/Image/Icon/settings.svg" id="6_ypevc"]
 [ext_resource type="Shader" uid="uid://hnsab2jm617a" path="res://Resources/Shader/TwoDim/invert.gdshader" id="7_wjw8o"]
 [ext_resource type="Texture2D" uid="uid://dfmnyruyxkv0p" path="res://Resources/Image/off.svg" id="8_njps7"]
+[ext_resource type="Texture2D" uid="uid://bwqh4njdknstt" path="res://Resources/Image/Icon/gallery.svg" id="8_p748u"]
 [ext_resource type="Texture2D" uid="uid://cnlb1synj0mmp" path="res://Resources/Image/avatar/default.png" id="9_fhfra"]
 [ext_resource type="Texture2D" uid="uid://itleu3ibe7cv" path="res://Title/present.png" id="11_ypevc"]
 
@@ -169,6 +170,27 @@ grow_vertical = 0
 text = "icon.network"
 horizontal_alignment = 1
 
+[node name="GalleryIcon" type="Button" parent="Desktop/DesktopIcons"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme_type_variation = &"ButtonBlue"
+icon = ExtResource("8_p748u")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="NameTag" type="Label" parent="Desktop/DesktopIcons/GalleryIcon"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -23.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "icon.gallery"
+horizontal_alignment = 1
+
 [node name="Settings" type="Button" parent="Desktop/DesktopIcons"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
@@ -277,9 +299,21 @@ theme_type_variation = &"StartButton"
 toggle_mode = true
 text = "💠"
 
+[node name="MarginContainer" type="MarginContainer" parent="Desktop/BottomTab/HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="TabBar" type="TabBar" parent="Desktop/BottomTab/HBox/MarginContainer"]
+layout_mode = 2
+current_tab = 0
+tab_count = 2
+tab_0/icon = ExtResource("8_p748u")
+
 [node name="Time" type="Label" parent="Desktop/BottomTab/HBox"]
 layout_mode = 2
-size_flags_horizontal = 10
+size_flags_horizontal = 8
 size_flags_vertical = 1
 theme_type_variation = &"LargerLabel"
 text = "00:00 "
@@ -404,6 +438,7 @@ layout_mode = 2
 color = Color(0, 0, 1, 1)
 
 [node name="OffScreen" type="TextureRect" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

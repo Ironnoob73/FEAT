@@ -80,6 +80,9 @@ msgstr "Files"
 msgid "icon.network"
 msgstr "Network"
 
+msgid "icon.gallery"
+msgstr "Gallery"
+
 msgid "icon.settings"
 msgstr "Settings"
 
