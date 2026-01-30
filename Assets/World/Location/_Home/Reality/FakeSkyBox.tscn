@@ -1,0 +1,130 @@
+[gd_scene format=3 uid="uid://cfc8jgatk5nvc"]
+
+[ext_resource type="Script" uid="uid://xevwy683j5wt" path="res://Assets/World/Location/_Home/Reality/scene_background.gd" id="1_3pyl4"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_7ma6c"]
+flip_faces = true
+size = Vector2(50, 50)
+
+[sub_resource type="Gradient" id="Gradient_3pyl4"]
+offsets = PackedFloat32Array(0.5, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_7ma6c"]
+noise_type = 3
+fractal_type = 3
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_3xx18"]
+generate_mipmaps = false
+noise = SubResource("FastNoiseLite_7ma6c")
+color_ramp = SubResource("Gradient_3pyl4")
+seamless = true
+in_3d_space = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eyqdw"]
+transparency = 1
+shading_mode = 0
+albedo_texture = SubResource("NoiseTexture2D_3xx18")
+proximity_fade_enabled = true
+distance_fade_mode = 1
+distance_fade_min_distance = 30.0
+distance_fade_max_distance = 0.0
+
+[sub_resource type="Gradient" id="Gradient_4qm5f"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0.3, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 0.49803922)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_u5dww"]
+noise_type = 4
+fractal_type = 3
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_m8gh1"]
+noise = SubResource("FastNoiseLite_u5dww")
+color_ramp = SubResource("Gradient_4qm5f")
+seamless = true
+in_3d_space = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_djtpt"]
+transparency = 1
+shading_mode = 0
+albedo_texture = SubResource("NoiseTexture2D_m8gh1")
+distance_fade_mode = 1
+distance_fade_min_distance = 30.0
+distance_fade_max_distance = 0.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_3pyl4"]
+flip_faces = true
+radius = 25.0
+height = 50.0
+
+[sub_resource type="Gradient" id="Gradient_3xx18"]
+offsets = PackedFloat32Array(0.8, 0.9)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_18tmj"]
+noise_type = 2
+frequency = 0.75
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_q7aph"]
+generate_mipmaps = false
+noise = SubResource("FastNoiseLite_18tmj")
+color_ramp = SubResource("Gradient_3xx18")
+in_3d_space = true
+seamless_blend_skirt = 1.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4qm5f"]
+transparency = 1
+shading_mode = 0
+albedo_texture = SubResource("NoiseTexture2D_q7aph")
+uv1_scale = Vector3(0.05, 0.05, 0.05)
+uv1_triplanar = true
+uv1_triplanar_sharpness = 150.0
+distance_fade_min_distance = 30.0
+distance_fade_max_distance = 0.0
+
+[sub_resource type="QuadMesh" id="QuadMesh_3pyl4"]
+size = Vector2(10, 10)
+
+[sub_resource type="Gradient" id="Gradient_7ma6c"]
+offsets = PackedFloat32Array(0.25, 0.75)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_3xx18"]
+gradient = SubResource("Gradient_7ma6c")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_18tmj"]
+transparency = 1
+shading_mode = 0
+albedo_texture = SubResource("GradientTexture2D_3xx18")
+
+[node name="SceneBackground" type="Node3D" unique_id=447745979]
+script = ExtResource("1_3pyl4")
+
+[node name="Cloud0" type="MeshInstance3D" parent="." unique_id=1429456133]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7, 0)
+layers = 32
+mesh = SubResource("PlaneMesh_7ma6c")
+surface_material_override/0 = SubResource("StandardMaterial3D_eyqdw")
+
+[node name="Cloud1" type="MeshInstance3D" parent="." unique_id=1607790469]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8, 0)
+layers = 32
+mesh = SubResource("PlaneMesh_7ma6c")
+surface_material_override/0 = SubResource("StandardMaterial3D_djtpt")
+
+[node name="Star" type="MeshInstance3D" parent="." unique_id=447882680]
+layers = 32
+mesh = SubResource("SphereMesh_3pyl4")
+surface_material_override/0 = SubResource("StandardMaterial3D_4qm5f")
+
+[node name="SunAxis" type="Node3D" parent="." unique_id=462072704]
+
+[node name="Sun" type="MeshInstance3D" parent="SunAxis" unique_id=1231855716]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -50)
+layers = 32
+mesh = SubResource("QuadMesh_3pyl4")
+surface_material_override/0 = SubResource("StandardMaterial3D_18tmj")

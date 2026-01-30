@@ -5,16 +5,16 @@ var day_percent: float = 0
 @export var time_speed: int = 1
 @export var real_time: bool = true
 
-@onready var player0 = $Player
+@onready var player0: LocalPlayer = $Player
 #@onready var background = $FalordMap
 
 @onready var SCENES_PACKAGE: Node3D = $ScenesPackage
 @onready var next_scene: Node3D = null
 
 @onready var env: WorldEnvironment = $WorldEnvironment
-@onready var sun_axis = $WorldEnvironment/SunAxis
-@onready var sun = $WorldEnvironment/SunAxis/SunLight
-@onready var sun_visual = $WorldEnvironment/SunAxis/SunVisual
+@onready var sun_axis: Node3D = $WorldEnvironment/SunAxis
+@onready var sun: DirectionalLight3D = $WorldEnvironment/SunAxis/SunLight
+@onready var sun_visual: DirectionalLight3D = $WorldEnvironment/SunAxis/SunVisual
 
 var ambient_color: Color = Color(0,0,0)
 

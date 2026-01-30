@@ -8,7 +8,7 @@ extends TextureRect
 @onready var window_group: Control = $WindowGroup
 @onready var window_class = preload("res://Resources/Object/Device/Computer/Sreen/window.tscn")
 @onready var window_frame_anim: NinePatchRect = $WindowFrameAnim
-@onready var windows_tab_bar: TabBar = $BottomTab/HBox/MarginContainer/TabBar
+#@onready var windows_tab_bar: TabBar = $BottomTab/HBox/MarginContainer/TabBar
 
 @onready var start_button: Button = $BottomTab/HBox/StartButton
 var isStartMenuOpen: bool = false
@@ -41,7 +41,7 @@ func _on_files_icon_pressed() -> void:
 	tween.set_parallel().tween_property(window_frame_anim,"position",window.position,0.25)
 	tween.set_parallel(false).tween_callback(func():window_frame_anim.hide())
 	tween.tween_callback(func():window.show())
-	windows_tab_bar.add_tab(files_icon_name.text, files_icon.icon)
+	#windows_tab_bar.add_tab(files_icon_name.text, files_icon.icon)
 
 func _on_start_button_toggled(toggled_on: bool) -> void:
 	if !get_parent().is_offing:

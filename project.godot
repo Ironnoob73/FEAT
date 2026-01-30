@@ -8,6 +8,10 @@
 
 config_version=5
 
+[animation]
+
+compatibility/default_parent_skeleton_in_mesh_instance_3d=true
+
 [application]
 
 config/name="F.E.A.T."
@@ -18,10 +22,10 @@ config/name_localized={
 config/version="0.0.1"
 run/main_scene="uid://c0hvltjdip61f"
 config/custom_user_dir_name="FEAT"
-config/features=PackedStringArray("4.5", "Forward Plus")
+config/features=PackedStringArray("4.6", "Forward Plus")
 run/flush_stdout_on_print.debug=false
 boot_splash/bg_color=Color(0, 0, 0, 1)
-boot_splash/fullsize=false
+boot_splash/stretch_mode=0
 boot_splash/use_filter=false
 boot_splash/image="res://Title/present.png"
 config/icon="res://icon.svg"
@@ -37,14 +41,22 @@ Global="*res://global.gd"
 AllItems="*res://Resources/Item/AllItems.gd"
 LocationPreload="*res://Assets/World/Location/LocationPreload.gd"
 Commands="*res://Assets/Script/Commands.gd"
-AHL_NoticeManager="*res://addons/abyss_history_lib/Scene/Notice/NoticeManager.gd"
-AHL_LoadManager="*res://addons/abyss_history_lib/Scene/LoadingScreen/LoadManager.gd"
-KCT_kmTranslator="*res://addons/key_controls_translator/Keyboard&Mouse/km_translator.gd"
+AHL_NoticeManager="*uid://lyuhdcccjj8g"
+AHL_LoadManager="*uid://v3dmelk2q7u5"
+KCT_kmTranslator="*uid://b57i8ga3qhv3y"
 
 [debug]
 
 settings/stdout/verbose_stdout=true
 file_logging/enable_file_logging=true
+gdscript/warnings/untyped_declaration=1
+gdscript/warnings/inferred_declaration=1
+gdscript/warnings/unsafe_property_access=1
+gdscript/warnings/unsafe_method_access=1
+gdscript/warnings/unsafe_cast=1
+gdscript/warnings/unsafe_call_argument=1
+gdscript/warnings/return_value_discarded=1
+gdscript/warnings/missing_await=1
 
 [display]
 
@@ -262,22 +274,16 @@ jolt_physics_3d/simulation/areas_detect_static_bodies=true
 
 [rendering]
 
-rendering_device/staging_buffer/texture_upload_region_size_px=32
 textures/canvas_textures/default_texture_filter=0
 textures/canvas_textures/default_texture_repeat=1
+driver/threads/thread_model=2
 textures/vram_compression/import_etc2_astc=true
-lights_and_shadows/directional_shadow/size=10200
 lights_and_shadows/directional_shadow/soft_shadow_filter_quality=5
-shader_compiler/shader_cache/strip_debug=true
 reflections/reflection_atlas/reflection_size=32
 reflections/reflection_atlas/reflection_size.mobile=32
 reflections/reflection_atlas/reflection_count=32
-global_illumination/gi/use_half_resolution=true
-shading/overrides/force_lambert_over_burley=true
 camera/depth_of_field/depth_of_field_use_jitter=true
-anti_aliasing/screen_space_roughness_limiter/enabled=false
 environment/glow/upscale_mode=0
-environment/subsurface_scattering/subsurface_scattering_quality=0
 environment/volumetric_fog/volume_size=32
 environment/volumetric_fog/volume_depth=32
 occlusion_culling/use_occlusion_culling=true

@@ -1,30 +1,31 @@
-[gd_scene load_steps=6 format=3 uid="uid://c0hvltjdip61f"]
+[gd_scene format=3 uid="uid://c0hvltjdip61f"]
 
 [ext_resource type="Script" uid="uid://c0181dcofga70" path="res://Assets/World/WorldMain.gd" id="1_4lhai"]
-[ext_resource type="Environment" uid="uid://7cevbjkq6fto" path="res://Assets/World/Environments/FancyRealityEnv.tres" id="2_espus"]
+[ext_resource type="Environment" uid="uid://ns2gq60t8sp1" path="res://Assets/World/Environments/DefaultRealityEnv.tres" id="2_espus"]
 [ext_resource type="PackedScene" uid="uid://bjtidvrl0deer" path="res://Assets/Character/Local/LocalPlayer.tscn" id="3_oiwhx"]
 [ext_resource type="Resource" uid="uid://dnyk7pm4cqskj" path="res://Assets/Inventory/Player_inventory.tres" id="4_m5iry"]
 [ext_resource type="PackedScene" uid="uid://ryitjhnhr4hi" path="res://Assets/World/Location/_Home/Reality/ScenePackage.tscn" id="5_espus"]
 
-[node name="World" type="Node3D"]
+[node name="World" type="Node3D" unique_id=1038144871]
 script = ExtResource("1_4lhai")
 global_time = 46500
 metadata/Dim = "Overworld"
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1079999843]
 environment = ExtResource("2_espus")
 
-[node name="SunAxis" type="Node3D" parent="WorldEnvironment"]
+[node name="SunAxis" type="Node3D" parent="WorldEnvironment" unique_id=743731374]
 transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
 
-[node name="SunVisual" type="DirectionalLight3D" parent="WorldEnvironment/SunAxis"]
-transform = Transform3D(-0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, -0.866025, 0, 0, 0)
+[node name="SunVisual" type="DirectionalLight3D" parent="WorldEnvironment/SunAxis" unique_id=1293697748]
+transform = Transform3D(-0.8660249, 0, 0.5, 0, 1, 0, -0.5, 0, -0.8660249, 0, 0, 0)
+visible = false
 shadow_enabled = true
 shadow_bias = 0.0
 directional_shadow_blend_splits = true
 sky_mode = 2
 
-[node name="SunLight" type="DirectionalLight3D" parent="WorldEnvironment/SunAxis"]
+[node name="SunLight" type="DirectionalLight3D" parent="WorldEnvironment/SunAxis" unique_id=242695867]
 transform = Transform3D(-0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, -0.866025, 0, 0, 0)
 light_color = Color(1, 1, 0.937255, 1)
 shadow_enabled = true
@@ -34,9 +35,9 @@ directional_shadow_mode = 1
 directional_shadow_blend_splits = true
 sky_mode = 1
 
-[node name="Player" parent="." instance=ExtResource("3_oiwhx")]
+[node name="Player" parent="." unique_id=1959358014 instance=ExtResource("3_oiwhx")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -4.5, 0, 6.5)
 collision_mask = 143
 Inventory = ExtResource("4_m5iry")
 
-[node name="ScenesPackage" parent="." instance=ExtResource("5_espus")]
+[node name="ScenesPackage" parent="." unique_id=2027734777 instance=ExtResource("5_espus")]

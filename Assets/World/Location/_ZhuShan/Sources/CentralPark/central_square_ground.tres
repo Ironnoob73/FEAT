@@ -1,4 +1,4 @@
-[gd_resource type="ShaderMaterial" load_steps=7 format=3 uid="uid://d3phou1541jro"]
+[gd_resource type="ShaderMaterial" format=3 uid="uid://d3phou1541jro"]
 
 [ext_resource type="Texture2D" uid="uid://uqbqydf3wncq" path="res://Assets/World/Location/_ZhuShan/Sources/CentralPark/CentralSquareGround.png" id="1_dxwps"]
 [ext_resource type="Texture2D" uid="uid://bpwnl4y4ypxpn" path="res://Assets/World/Location/_ZhuShan/Sources/CentralPark/CentralSquareGround_normal.png" id="2_ffeai"]

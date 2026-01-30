@@ -1,4 +1,4 @@
-[gd_resource type="Sky" load_steps=6 format=3 uid="uid://c0svnh6327igu"]
+[gd_resource type="Sky" format=3 uid="uid://c0svnh6327igu"]
 
 [ext_resource type="Shader" uid="uid://bvnnp4ot0ebjh" path="res://Resources/Shader/sky.gdshader" id="1_21nuy"]
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://ivqad25m6mqq"]
+[gd_scene format=3 uid="uid://ivqad25m6mqq"]
 
 [ext_resource type="Theme" uid="uid://bv3atmtrqii4a" path="res://Resources/Theme/luna.tres" id="1_hrvfu"]
 [ext_resource type="Script" uid="uid://bh2841k2gtp81" path="res://Resources/Object/Device/Computer/Sreen/computer_screen.gd" id="2_wjw8o"]
@@ -95,21 +95,21 @@ colors = PackedColorArray(1, 1, 0, 0, 1, 1, 0, 1, 1, 1, 0, 0)
 gradient = SubResource("Gradient_cwk87")
 width = 1080
 
-[node name="ComputerScreen" type="Control"]
+[node name="ComputerScreen" type="Control" unique_id=637908791]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 1080.0
 offset_bottom = 768.0
 script = ExtResource("2_wjw8o")
 
-[node name="Cursor" type="Sprite2D" parent="."]
+[node name="Cursor" type="Sprite2D" parent="." unique_id=607571709]
 top_level = true
 z_index = 255
 position = Vector2(540, 384)
 texture = ExtResource("3_6ra4b")
 centered = false
 
-[node name="Desktop" type="TextureRect" parent="."]
+[node name="Desktop" type="TextureRect" parent="." unique_id=1145542061]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -120,7 +120,7 @@ theme = ExtResource("1_hrvfu")
 texture = ExtResource("3_fhfra")
 script = ExtResource("3_b14wj")
 
-[node name="DesktopIcons" type="VFlowContainer" parent="Desktop"]
+[node name="DesktopIcons" type="VFlowContainer" parent="Desktop" unique_id=645694450]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -128,7 +128,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="FilesIcon" type="Button" parent="Desktop/DesktopIcons"]
+[node name="FilesIcon" type="Button" parent="Desktop/DesktopIcons" unique_id=1222009831]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 theme_type_variation = &"ButtonBlue"
@@ -137,7 +137,7 @@ flat = true
 icon_alignment = 1
 expand_icon = true
 
-[node name="NameTag" type="Label" parent="Desktop/DesktopIcons/FilesIcon"]
+[node name="NameTag" type="Label" parent="Desktop/DesktopIcons/FilesIcon" unique_id=1284794414]
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
@@ -149,7 +149,7 @@ grow_vertical = 0
 text = "icon.files"
 horizontal_alignment = 1
 
-[node name="NetworkIcon" type="Button" parent="Desktop/DesktopIcons"]
+[node name="NetworkIcon" type="Button" parent="Desktop/DesktopIcons" unique_id=1100124859]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 theme_type_variation = &"ButtonBlue"
@@ -158,7 +158,7 @@ flat = true
 icon_alignment = 1
 expand_icon = true
 
-[node name="NameTag" type="Label" parent="Desktop/DesktopIcons/NetworkIcon"]
+[node name="NameTag" type="Label" parent="Desktop/DesktopIcons/NetworkIcon" unique_id=1322674967]
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
@@ -170,7 +170,7 @@ grow_vertical = 0
 text = "icon.network"
 horizontal_alignment = 1
 
-[node name="GalleryIcon" type="Button" parent="Desktop/DesktopIcons"]
+[node name="GalleryIcon" type="Button" parent="Desktop/DesktopIcons" unique_id=1722569057]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 theme_type_variation = &"ButtonBlue"
@@ -179,7 +179,7 @@ flat = true
 icon_alignment = 1
 expand_icon = true
 
-[node name="NameTag" type="Label" parent="Desktop/DesktopIcons/GalleryIcon"]
+[node name="NameTag" type="Label" parent="Desktop/DesktopIcons/GalleryIcon" unique_id=2069605437]
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
@@ -191,7 +191,7 @@ grow_vertical = 0
 text = "icon.gallery"
 horizontal_alignment = 1
 
-[node name="Settings" type="Button" parent="Desktop/DesktopIcons"]
+[node name="Settings" type="Button" parent="Desktop/DesktopIcons" unique_id=1255292510]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 theme_type_variation = &"ButtonBlue"
@@ -200,7 +200,7 @@ flat = true
 icon_alignment = 1
 expand_icon = true
 
-[node name="NameTag" type="Label" parent="Desktop/DesktopIcons/Settings"]
+[node name="NameTag" type="Label" parent="Desktop/DesktopIcons/Settings" unique_id=757652667]
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
@@ -212,7 +212,7 @@ grow_vertical = 0
 text = "icon.settings"
 horizontal_alignment = 1
 
-[node name="WindowGroup" type="Control" parent="Desktop"]
+[node name="WindowGroup" type="Control" parent="Desktop" unique_id=588298361]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -221,7 +221,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="StartMenu" type="Panel" parent="Desktop"]
+[node name="StartMenu" type="Panel" parent="Desktop" unique_id=2006370675]
 layout_mode = 0
 offset_left = 5.0
 offset_top = 768.0
@@ -229,7 +229,7 @@ offset_right = 355.0
 offset_bottom = 1268.0
 theme_type_variation = &"WindowBackground"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Desktop/StartMenu"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Desktop/StartMenu" unique_id=432478360]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -237,10 +237,10 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Title" type="HBoxContainer" parent="Desktop/StartMenu/VBoxContainer"]
+[node name="Title" type="HBoxContainer" parent="Desktop/StartMenu/VBoxContainer" unique_id=104846691]
 layout_mode = 2
 
-[node name="Avatar" type="Button" parent="Desktop/StartMenu/VBoxContainer/Title"]
+[node name="Avatar" type="Button" parent="Desktop/StartMenu/VBoxContainer/Title" unique_id=942726750]
 custom_minimum_size = Vector2(55, 55)
 layout_mode = 2
 mouse_filter = 1
@@ -248,30 +248,30 @@ theme_type_variation = &"ButtonAvatarBase"
 icon = ExtResource("9_fhfra")
 expand_icon = true
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Desktop/StartMenu/VBoxContainer/Title"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Desktop/StartMenu/VBoxContainer/Title" unique_id=1308943550]
 layout_mode = 2
 size_flags_vertical = 4
 
-[node name="Name" type="Label" parent="Desktop/StartMenu/VBoxContainer/Title/VBoxContainer"]
+[node name="Name" type="Label" parent="Desktop/StartMenu/VBoxContainer/Title/VBoxContainer" unique_id=1074550873]
 layout_mode = 2
 text = "PLAYERNAME"
 
-[node name="DUID" type="Label" parent="Desktop/StartMenu/VBoxContainer/Title/VBoxContainer"]
+[node name="DUID" type="Label" parent="Desktop/StartMenu/VBoxContainer/Title/VBoxContainer" unique_id=1269198053]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 0.7490196)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.49803922)
 theme_override_font_sizes/font_size = 12
 text = "00000000-0000-9000-0000-000000000000"
 
-[node name="PanelContainer" type="PanelContainer" parent="Desktop/StartMenu/VBoxContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="Desktop/StartMenu/VBoxContainer" unique_id=1247763394]
 layout_mode = 2
 size_flags_vertical = 3
 mouse_filter = 2
 
-[node name="Bottom" type="HBoxContainer" parent="Desktop/StartMenu/VBoxContainer"]
+[node name="Bottom" type="HBoxContainer" parent="Desktop/StartMenu/VBoxContainer" unique_id=1743998974]
 layout_mode = 2
 
-[node name="OffButton" type="Button" parent="Desktop/StartMenu/VBoxContainer/Bottom"]
+[node name="OffButton" type="Button" parent="Desktop/StartMenu/VBoxContainer/Bottom" unique_id=887499515]
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
 mouse_filter = 1
@@ -279,7 +279,7 @@ theme_type_variation = &"ButtonRed"
 icon = ExtResource("8_njps7")
 icon_alignment = 1
 
-[node name="BottomTab" type="PanelContainer" parent="Desktop"]
+[node name="BottomTab" type="PanelContainer" parent="Desktop" unique_id=842685236]
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 1.0
@@ -290,28 +290,22 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_type_variation = &"BottomTab"
 
-[node name="HBox" type="HBoxContainer" parent="Desktop/BottomTab"]
+[node name="HBox" type="HBoxContainer" parent="Desktop/BottomTab" unique_id=716126735]
 layout_mode = 2
 
-[node name="StartButton" type="Button" parent="Desktop/BottomTab/HBox"]
+[node name="StartButton" type="Button" parent="Desktop/BottomTab/HBox" unique_id=1465165569]
 layout_mode = 2
 theme_type_variation = &"StartButton"
 toggle_mode = true
 text = "💠"
 
-[node name="MarginContainer" type="MarginContainer" parent="Desktop/BottomTab/HBox"]
+[node name="MarginContainer" type="MarginContainer" parent="Desktop/BottomTab/HBox" unique_id=1361053366]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/margin_top = 5
 theme_override_constants/margin_bottom = 5
 
-[node name="TabBar" type="TabBar" parent="Desktop/BottomTab/HBox/MarginContainer"]
-layout_mode = 2
-current_tab = 0
-tab_count = 2
-tab_0/icon = ExtResource("8_p748u")
-
-[node name="Time" type="Label" parent="Desktop/BottomTab/HBox"]
+[node name="Time" type="Label" parent="Desktop/BottomTab/HBox" unique_id=810009385]
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 1
@@ -319,7 +313,7 @@ theme_type_variation = &"LargerLabel"
 text = "00:00 "
 vertical_alignment = 1
 
-[node name="WindowFrameAnim" type="NinePatchRect" parent="Desktop"]
+[node name="WindowFrameAnim" type="NinePatchRect" parent="Desktop" unique_id=2147407487]
 visible = false
 material = SubResource("ShaderMaterial_6ra4b")
 layout_mode = 0
@@ -331,7 +325,7 @@ patch_margin_top = 25
 patch_margin_right = 25
 patch_margin_bottom = 25
 
-[node name="StartScreen" type="Control" parent="."]
+[node name="StartScreen" type="Control" parent="." unique_id=1514913898]
 visible = false
 layout_mode = 1
 anchors_preset = 8
@@ -342,12 +336,12 @@ anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Sprite2D" type="Sprite2D" parent="StartScreen"]
+[node name="Sprite2D" type="Sprite2D" parent="StartScreen" unique_id=128306835]
 visible = false
 scale = Vector2(0.675, 0.675)
 texture = ExtResource("11_ypevc")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="StartScreen"]
+[node name="VBoxContainer" type="VBoxContainer" parent="StartScreen" unique_id=123985392]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -361,7 +355,7 @@ offset_bottom = 25.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="OS" type="RichTextLabel" parent="StartScreen/VBoxContainer"]
+[node name="OS" type="RichTextLabel" parent="StartScreen/VBoxContainer" unique_id=1287527531]
 layout_mode = 2
 theme_override_fonts/normal_font = SubResource("SystemFont_ypevc")
 theme_override_fonts/italics_font = SubResource("FontVariation_p748u")
@@ -374,7 +368,7 @@ scroll_active = false
 autowrap_mode = 0
 horizontal_alignment = 1
 
-[node name="ProgressBar" type="ProgressBar" parent="StartScreen/VBoxContainer"]
+[node name="ProgressBar" type="ProgressBar" parent="StartScreen/VBoxContainer" unique_id=1655111477]
 layout_mode = 2
 theme_override_styles/background = SubResource("StyleBoxFlat_ypevc")
 theme_override_styles/fill = SubResource("StyleBoxFlat_fhfra")
@@ -382,7 +376,7 @@ show_percentage = false
 indeterminate = true
 editor_preview_indeterminate = true
 
-[node name="WelcomeScreen" type="TextureRect" parent="."]
+[node name="WelcomeScreen" type="TextureRect" parent="." unique_id=1260196277]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -392,7 +386,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("3_fhfra")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="WelcomeScreen"]
+[node name="VBoxContainer" type="VBoxContainer" parent="WelcomeScreen" unique_id=31195309]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -401,17 +395,17 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 0
 
-[node name="UpBoard" type="ColorRect" parent="WelcomeScreen/VBoxContainer"]
+[node name="UpBoard" type="ColorRect" parent="WelcomeScreen/VBoxContainer" unique_id=982551137]
 custom_minimum_size = Vector2(0, 75)
 layout_mode = 2
 color = Color(0, 0, 1, 1)
 
-[node name="UpLine" type="TextureRect" parent="WelcomeScreen/VBoxContainer"]
+[node name="UpLine" type="TextureRect" parent="WelcomeScreen/VBoxContainer" unique_id=415669661]
 custom_minimum_size = Vector2(0, 5)
 layout_mode = 2
 texture = SubResource("GradientTexture1D_fhfra")
 
-[node name="Welcome" type="RichTextLabel" parent="WelcomeScreen/VBoxContainer"]
+[node name="Welcome" type="RichTextLabel" parent="WelcomeScreen/VBoxContainer" unique_id=1564217130]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
@@ -427,17 +421,17 @@ autowrap_mode = 0
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="DownLine" type="TextureRect" parent="WelcomeScreen/VBoxContainer"]
+[node name="DownLine" type="TextureRect" parent="WelcomeScreen/VBoxContainer" unique_id=67788446]
 custom_minimum_size = Vector2(0, 5)
 layout_mode = 2
 texture = SubResource("GradientTexture1D_13txe")
 
-[node name="DownBoard" type="ColorRect" parent="WelcomeScreen/VBoxContainer"]
+[node name="DownBoard" type="ColorRect" parent="WelcomeScreen/VBoxContainer" unique_id=267421617]
 custom_minimum_size = Vector2(0, 75)
 layout_mode = 2
 color = Color(0, 0, 1, 1)
 
-[node name="OffScreen" type="TextureRect" parent="."]
+[node name="OffScreen" type="TextureRect" parent="." unique_id=681856498]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -447,7 +441,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("3_fhfra")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="OffScreen"]
+[node name="VBoxContainer" type="VBoxContainer" parent="OffScreen" unique_id=1816645702]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -456,21 +450,21 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 0
 
-[node name="UpBoard" type="ColorRect" parent="OffScreen/VBoxContainer"]
+[node name="UpBoard" type="ColorRect" parent="OffScreen/VBoxContainer" unique_id=1447280741]
 custom_minimum_size = Vector2(0, 75)
 layout_mode = 2
 color = Color(0, 0, 1, 1)
 
-[node name="UpLine" type="TextureRect" parent="OffScreen/VBoxContainer"]
+[node name="UpLine" type="TextureRect" parent="OffScreen/VBoxContainer" unique_id=612090517]
 custom_minimum_size = Vector2(0, 5)
 layout_mode = 2
 texture = SubResource("GradientTexture1D_fhfra")
 
-[node name="Control" type="Control" parent="OffScreen/VBoxContainer"]
+[node name="Control" type="Control" parent="OffScreen/VBoxContainer" unique_id=505720012]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Welcome" type="RichTextLabel" parent="OffScreen/VBoxContainer"]
+[node name="Welcome" type="RichTextLabel" parent="OffScreen/VBoxContainer" unique_id=1905453055]
 layout_mode = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_fonts/normal_font = SubResource("SystemFont_q5cpy")
@@ -485,21 +479,21 @@ autowrap_mode = 0
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Label" type="Label" parent="OffScreen/VBoxContainer"]
+[node name="Label" type="Label" parent="OffScreen/VBoxContainer" unique_id=1599493074]
 layout_mode = 2
 text = "os.offing"
 horizontal_alignment = 1
 
-[node name="Control2" type="Control" parent="OffScreen/VBoxContainer"]
+[node name="Control2" type="Control" parent="OffScreen/VBoxContainer" unique_id=670077915]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="DownLine" type="TextureRect" parent="OffScreen/VBoxContainer"]
+[node name="DownLine" type="TextureRect" parent="OffScreen/VBoxContainer" unique_id=1116178905]
 custom_minimum_size = Vector2(0, 5)
 layout_mode = 2
 texture = SubResource("GradientTexture1D_13txe")
 
-[node name="DownBoard" type="ColorRect" parent="OffScreen/VBoxContainer"]
+[node name="DownBoard" type="ColorRect" parent="OffScreen/VBoxContainer" unique_id=654743376]
 custom_minimum_size = Vector2(0, 75)
 layout_mode = 2
 color = Color(0, 0, 1, 1)

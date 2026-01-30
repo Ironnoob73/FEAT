@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=3 uid="uid://dqyequp22c8rg"]
+[gd_scene format=3 uid="uid://dqyequp22c8rg"]
 
 [ext_resource type="Script" uid="uid://8h1wxcdqk41f" path="res://addons/abyss_history_lib/Class/World/ScenesPackageClass.gd" id="1_p1ge1"]
 [ext_resource type="PackedScene" uid="uid://bcp40gisqlrka" path="res://Assets/World/Location/_ZhuShan/C2_CentralSquare.tscn" id="2_fegob"]
@@ -113,115 +113,115 @@ flip_faces = true
 radius = 2048.0
 height = 4096.0
 
-[sub_resource type="Environment" id="Environment_tsstw"]
+[sub_resource type="Environment" id="Environment_en255"]
 ambient_light_source = 2
 
 [sub_resource type="World3D" id="World3D_en255"]
-environment = SubResource("Environment_tsstw")
+environment = SubResource("Environment_en255")
 
-[node name="Packed" type="Node3D"]
+[node name="Packed" type="Node3D" unique_id=1096641381]
 script = ExtResource("1_p1ge1")
 chunks = Array[ExtResource("2_qcrhu")]([SubResource("Resource_l6lr1")])
 rooms = Array[ExtResource("3_3i2ga")]([SubResource("Resource_ukkmt"), SubResource("Resource_481ws"), SubResource("Resource_7yb1x")])
 
-[node name="C2_CentralSquare" parent="." instance=ExtResource("2_fegob")]
+[node name="C2_CentralSquare" parent="." unique_id=428388957 instance=ExtResource("2_fegob")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 64, 0, 64)
 
-[node name="B2_Downtown" parent="." instance=ExtResource("3_28cl2")]
+[node name="B2_Downtown" parent="." unique_id=1164718300 instance=ExtResource("3_28cl2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 64, 0, -64)
 
-[node name="Marker3D" type="Marker3D" parent="B2_Downtown"]
+[node name="Marker3D" type="Marker3D" parent="B2_Downtown" unique_id=1115212941]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19, 2, 55)
 
-[node name="C3" parent="." instance=ExtResource("4_6ehde")]
+[node name="C3" parent="." unique_id=2050968356 instance=ExtResource("4_6ehde")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 192, 0, 64)
 
-[node name="D2" parent="." instance=ExtResource("5_waao1")]
+[node name="D2" parent="." unique_id=1559739892 instance=ExtResource("5_waao1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 64, 0, 192)
 
-[node name="C1" parent="." instance=ExtResource("6_pbgil")]
+[node name="C1" parent="." unique_id=1541887074 instance=ExtResource("6_pbgil")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -64, 0, 64)
 
-[node name="D1" parent="." instance=ExtResource("7_df2lm")]
+[node name="D1" parent="." unique_id=1476438235 instance=ExtResource("7_df2lm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -64, 0, 192)
 
-[node name="CV" type="MeshInstance3D" parent="."]
+[node name="CV" type="MeshInstance3D" parent="." unique_id=1781259843]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -40, 0)
 material_override = ExtResource("8_f68hc")
 cast_shadow = 2
 mesh = ExtResource("9_38psb")
 skeleton = NodePath("../..")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="CV"]
+[node name="StaticBody3D" type="StaticBody3D" parent="CV" unique_id=1885857647]
 collision_layer = 3
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="CV/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CV/StaticBody3D" unique_id=1151921882]
 shape = SubResource("ConcavePolygonShape3D_51jb8")
 
-[node name="Road" parent="." instance=ExtResource("10_hk4cb")]
+[node name="Road" parent="." unique_id=1704306001 instance=ExtResource("10_hk4cb")]
 visible = false
 
-[node name="CommentScene" parent="." instance=ExtResource("11_48slv")]
+[node name="CommentScene" parent="." unique_id=1420768260 instance=ExtResource("11_48slv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -3)
 interact_behavior = Array[ExtResource("18_dhv8b")]([SubResource("Resource_61ylp")])
 state = true
 
-[node name="CommentScene2" parent="." instance=ExtResource("11_48slv")]
+[node name="CommentScene2" parent="." unique_id=1784302391 instance=ExtResource("11_48slv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, -3)
 interact_behavior = Array[ExtResource("18_dhv8b")]([SubResource("Resource_xey1x")])
 state = true
 
-[node name="TutorialSwordItem" parent="." instance=ExtResource("12_7rje5")]
+[node name="TutorialSwordItem" parent="." unique_id=1631705976 instance=ExtResource("12_7rje5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 5, -3)
 init_behavior = Array[ExtResource("18_dhv8b")]([SubResource("Resource_mh07o")])
 interact_behavior = Array[ExtResource("18_dhv8b")]([SubResource("Resource_met4i"), SubResource("Resource_j1x7l")])
 state = true
 metadata/thing_instance = SubResource("Resource_d1jr3")
 
-[node name="TutorialSlingshotItem" parent="." instance=ExtResource("12_7rje5")]
+[node name="TutorialSlingshotItem" parent="." unique_id=1302995660 instance=ExtResource("12_7rje5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 5, -3)
 init_behavior = Array[ExtResource("18_dhv8b")]([SubResource("Resource_nd87l")])
 interact_behavior = Array[ExtResource("18_dhv8b")]([SubResource("Resource_6v0so"), SubResource("Resource_pi28q")])
 state = true
 metadata/thing_instance = SubResource("Resource_kib5r")
 
-[node name="TargetScene" parent="." instance=ExtResource("15_jcahf")]
+[node name="TargetScene" parent="." unique_id=1258079619 instance=ExtResource("15_jcahf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 1.5, -3)
 
-[node name="Barrier" parent="." instance=ExtResource("26_o81tg")]
+[node name="Barrier" parent="." unique_id=768606347 instance=ExtResource("26_o81tg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -24)
 
-[node name="Barrier2" parent="." instance=ExtResource("26_o81tg")]
+[node name="Barrier2" parent="." unique_id=1936290735 instance=ExtResource("26_o81tg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -24)
 
-[node name="Barrier3" parent="." instance=ExtResource("26_o81tg")]
+[node name="Barrier3" parent="." unique_id=1261549978 instance=ExtResource("26_o81tg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -24)
 
-[node name="SwitchScene" parent="." instance=ExtResource("27_fbl8d")]
+[node name="SwitchScene" parent="." unique_id=1620238783 instance=ExtResource("27_fbl8d")]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 6, 0.4, -2)
 interact_behavior = Array[ExtResource("18_dhv8b")]([SubResource("Resource_cb2gx")])
 
-[node name="SceneChangerScene" parent="." instance=ExtResource("30_57yar")]
+[node name="SceneChangerScene" parent="." unique_id=2030737922 instance=ExtResource("30_57yar")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 1, 27)
 next_scene = "Apartment0"
 pos = Vector3(-3, 0, -3)
 
-[node name="ExtraSkybox" type="MeshInstance3D" parent="."]
+[node name="ExtraSkybox" type="MeshInstance3D" parent="." unique_id=1738838082]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.7, -56)
 material_override = SubResource("ShaderMaterial_1qyhl")
 mesh = SubResource("SphereMesh_hukf5")
 
-[node name="BackgroundTexture" type="SubViewport" parent="ExtraSkybox"]
+[node name="BackgroundTexture" type="SubViewport" parent="ExtraSkybox" unique_id=435141015]
 own_world_3d = true
 world_3d = SubResource("World3D_en255")
 transparent_bg = true
 script = ExtResource("32_en255")
 
-[node name="BgCam" type="Camera3D" parent="ExtraSkybox/BackgroundTexture"]
+[node name="BgCam" type="Camera3D" parent="ExtraSkybox/BackgroundTexture" unique_id=1774745632]
 cull_mask = 32
 current = true
 near = 0.001
 
-[node name="FalordMap" parent="ExtraSkybox/BackgroundTexture" instance=ExtResource("32_tsstw")]
+[node name="FalordMap" parent="ExtraSkybox/BackgroundTexture" unique_id=1415063027 instance=ExtResource("32_tsstw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.003, 0)
 visible = false

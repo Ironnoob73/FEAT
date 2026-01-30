@@ -1,12 +1,12 @@
-[gd_resource type="Environment" load_steps=2 format=3 uid="uid://7cevbjkq6fto"]
+[gd_resource type="Environment" format=3 uid="uid://7cevbjkq6fto"]
 
 [ext_resource type="Sky" uid="uid://c0svnh6327igu" path="res://Assets/World/Environments/WorldMainSky.tres" id="1_8fcji"]
 
 [resource]
 background_mode = 2
 sky = ExtResource("1_8fcji")
+ambient_light_source = 3
 ambient_light_sky_contribution = 0.25
-reflected_light_source = 1
 ssr_enabled = true
 ssr_max_steps = 1
 ssao_enabled = true

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cilrxiahcsdqu"]
+[gd_scene format=3 uid="uid://cilrxiahcsdqu"]
 
 [ext_resource type="Script" uid="uid://dnwa1lng6c04" path="res://Resources/Object/Building/Light/LightSwitchover.gd" id="1_86i8x"]
 [ext_resource type="Material" uid="uid://do55163v32q4u" path="res://Resources/Material/Wood.tres" id="2_6lxwr"]
@@ -13,31 +13,31 @@ size = Vector3(1, 0.2, 1)
 [sub_resource type="BoxMesh" id="BoxMesh_c8tkn"]
 size = Vector3(0.8, 0.1, 0.8)
 
-[node name="WoodenCeilingLampScene" type="StaticBody3D" groups=["Switchable"]]
+[node name="WoodenCeilingLampScene" type="StaticBody3D" unique_id=1157692582 groups=["Switchable"]]
 script = ExtResource("1_86i8x")
 
-[node name="Mesh" type="MeshInstance3D" parent="."]
+[node name="Mesh" type="MeshInstance3D" parent="." unique_id=2074836260]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, 0)
 material_override = ExtResource("2_6lxwr")
 mesh = SubResource("BoxMesh_th8rf")
 
-[node name="CollisionShape" type="CollisionShape3D" parent="."]
+[node name="CollisionShape" type="CollisionShape3D" parent="." unique_id=668041507]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
 shape = SubResource("BoxShape3D_lfjtk")
 
-[node name="On" type="Node3D" parent="."]
+[node name="On" type="Node3D" parent="." unique_id=1949350370]
 
-[node name="OmniLight3D" type="OmniLight3D" parent="On"]
+[node name="OmniLight3D" type="OmniLight3D" parent="On" unique_id=420283458]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2, 0)
 shadow_enabled = true
 
-[node name="Mesh" type="MeshInstance3D" parent="On"]
+[node name="Mesh" type="MeshInstance3D" parent="On" unique_id=2049422642]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.15, 0)
 material_override = ExtResource("3_8r6wi")
 mesh = SubResource("BoxMesh_c8tkn")
 
-[node name="Off" type="Node3D" parent="."]
+[node name="Off" type="Node3D" parent="." unique_id=1114590302]
 
-[node name="Mesh" type="MeshInstance3D" parent="Off"]
+[node name="Mesh" type="MeshInstance3D" parent="Off" unique_id=1312881859]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.15, 0)
 mesh = SubResource("BoxMesh_c8tkn")

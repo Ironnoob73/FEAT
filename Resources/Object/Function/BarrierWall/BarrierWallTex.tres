@@ -1,4 +1,4 @@
-[gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://mlq53v5mtv75"]
+[gd_resource type="ShaderMaterial" format=3 uid="uid://mlq53v5mtv75"]
 
 [ext_resource type="Shader" uid="uid://exrkybqk7605" path="res://Resources/Object/Function/BarrierWall/BarrierWall.gdshader" id="1_5yvhv"]
 
