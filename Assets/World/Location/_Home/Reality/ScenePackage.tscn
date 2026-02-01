@@ -867,7 +867,6 @@ script = ExtResource("39_pyug8")
 [node name="BgCam" type="Camera3D" parent="ExtraSkybox/BackgroundTexture" unique_id=1238119155]
 cull_mask = 32
 current = true
-near = 0.001
 
 [node name="SceneBackground" parent="ExtraSkybox/BackgroundTexture" unique_id=447745979 instance=ExtResource("40_jk5bb")]
 

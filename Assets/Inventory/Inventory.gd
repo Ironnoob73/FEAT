@@ -1,4 +1,5 @@
 extends Control
+class_name PlayerInventory
 
 @onready var animation = $AnimationPlayer
 @onready var title = $Panel_u/Title

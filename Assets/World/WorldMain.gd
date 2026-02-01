@@ -1,14 +1,15 @@
 extends Node3D
+class_name World
 
 @export var global_time: int = 0
-var day_percent: float = 0 
+## Half before is day, and after is night?
+var day_percent: float = 0
 @export var time_speed: int = 1
 @export var real_time: bool = true
 
 @onready var player0: LocalPlayer = $Player
-#@onready var background = $FalordMap
 
-@onready var SCENES_PACKAGE: Node3D = $ScenesPackage
+@onready var SCENES_PACKAGE: AHL_ScenePackage = $ScenesPackage
 @onready var next_scene: Node3D = null
 
 @onready var env: WorldEnvironment = $WorldEnvironment
@@ -18,8 +19,15 @@ var day_percent: float = 0
 
 var ambient_color: Color = Color(0,0,0)
 
+var day_top_color: Color = Color("61738c")
+var day_bottom_color: Color = Color("a3a6ab")
+var sunset_top_color: Color = Color("bd7d1a")
+var sunset_bottom_color: Color = Color("ff9e8c")
+var night_top_color: Color = Color("001c2b")
+var night_bottom_color: Color = Color("030508")
+
 func _ready() -> void:
-	Global.THE_PLAYER = player0
+	Global.CurrentWorld = self
 	
 	_on_options_set_sdfgi(Global.Sdfgi)
 	if !Global.playerTeleported :
@@ -38,8 +46,9 @@ func _on_options_set_sdfgi(value : bool) -> void:
 func _physics_process(_delta: float) -> void:
 	if Global.has_meta("next_scene"):
 		SCENES_PACKAGE.queue_free()
-		var load_scene = func():
-			SCENES_PACKAGE= Global.get_meta("next_scene").instantiate()
+		var load_scene: Callable = func() -> void:
+			var next_scene_ins: PackedScene = Global.get_meta("next_scene")
+			SCENES_PACKAGE = next_scene_ins.instantiate()
 			add_child(SCENES_PACKAGE)
 			if SCENES_PACKAGE.environment != null:
 				env.environment = SCENES_PACKAGE.environment
@@ -63,7 +72,7 @@ func _physics_process(_delta: float) -> void:
 			time_dict.get("second")) / 86400.0
 		
 func _process(_delta: float) -> void:
-	var sunlight = day_percent * PI
+	var sunlight: float = day_percent * PI
 	# Sun
 	sun_axis.rotation.z = deg_to_rad(day_percent * 360.0)
 	sun.rotation.y = deg_to_rad(80 - sin(sunlight * 2) * 30)
@@ -83,17 +92,13 @@ func _process(_delta: float) -> void:
 		sun_visual.light_angular_distance = 0
 	else :
 		sun.visible = false
-	# Reflected
-	if day_percent < 0.5:
-		env.environment.reflected_light_source = Environment.REFLECTION_SOURCE_BG
-	else:
-		env.environment.reflected_light_source = Environment.REFLECTION_SOURCE_DISABLED
 	# Ambient Color
 	var day_offset: float = 0
 	if day_percent >= 0.2:
 		day_offset = day_percent - 0.2
 	else:
 		day_offset = day_percent + 0.8
+	print(day_offset)
 	if day_offset <= 0.25:
 		ambient_color.r = 0.63 + (0.37 * day_offset * 4)
 		ambient_color.g = 0.64 - (0.02 * day_offset * 4)
@@ -102,11 +107,32 @@ func _process(_delta: float) -> void:
 		ambient_color.r = 1 - (1 * (day_offset - 0.25) * 20)
 		ambient_color.g = 0.62 - (0.52 * (day_offset - 0.25) * 20)
 		ambient_color.b = 0.55 - (0.38 * (day_offset - 0.25) * 20)
-	elif day_offset > 0.75 and day_offset <= 1:
+	elif day_offset > 0.3 and day_offset <= 0.75:
+		ambient_color = Color(0,0.1,0.17)
+	elif day_offset > 0.75:
 		ambient_color.r = 0.63 * (day_offset - 0.75) * 4
 		ambient_color.g = 0.1 + (0.54 * (day_offset - 0.75) * 4)
 		ambient_color.b = 0.17 + (0.5 * (day_offset - 0.75) * 4)
 	
+	var current_env: Environment = env.get_environment()
+	var current_sky: Sky = current_env.get_sky()
+	if current_sky.get_material() is ProceduralSkyMaterial:
+		var current_sky_material: ProceduralSkyMaterial = current_sky.get_material()
+		current_sky_material.ground_horizon_color = current_sky_material.sky_horizon_color
+		current_sky_material.ground_bottom_color = ambient_color
+		if day_offset <= 0.25:
+			current_sky_material.sky_top_color = day_top_color + ((sunset_top_color - day_top_color) * (day_offset / 0.25))
+			current_sky_material.sky_horizon_color = day_bottom_color + ((sunset_bottom_color - day_bottom_color) * (day_offset / 0.25))
+		elif day_offset > 0.25 and day_offset <= 0.3:
+			current_sky_material.sky_top_color = sunset_top_color + ((night_top_color - sunset_top_color) * ((day_offset - 0.25) / 0.05))
+			current_sky_material.sky_horizon_color = sunset_bottom_color + ((night_bottom_color - sunset_bottom_color) * ((day_offset - 0.25) / 0.05))
+		elif day_offset > 0.3 and day_offset <= 0.75:
+			current_sky_material.sky_top_color = night_top_color
+			current_sky_material.sky_horizon_color = night_bottom_color
+		elif day_offset > 0.75:
+			current_sky_material.sky_top_color = night_top_color + ((day_top_color - night_top_color) * ((day_offset - 0.75) / 0.25))
+			current_sky_material.sky_horizon_color = night_bottom_color + ((day_bottom_color - night_bottom_color) * ((day_offset - 0.75) / 0.25))
+			
 func change_scene(location:String,pos:Vector3) -> void:
 	match location :
 		"":	return
@@ -125,22 +151,24 @@ func change_scene(location:String,pos:Vector3) -> void:
 			add_child(next_scene)
 	player0.position = pos
 
-func host(port:int):
-	var peer = ENetMultiplayerPeer.new()
-	var state = peer.create_server(port)
+func host(port:int) -> void:
+	var peer: ENetMultiplayerPeer = ENetMultiplayerPeer.new()
+	var state: int = peer.create_server(port)
+	var chat: PlayerChat = player0.chat_menu
 	if state == OK:
 		multiplayer.multiplayer_peer = peer
-		player0.chat_menu.append_message("[World]Host at port successed:" + str(port))
+		chat.append_message(str("[World]Host at port successed:", port))
 		Global.isMultiplayer = true
 	else:
-		player0.chat_menu.append_message("[World]Host at port failed:" + str(port), state)
+		chat.append_message(str("[World]Host at port failed:", port, state))
 
-func join(address:String,port:int):
-	var peer = ENetMultiplayerPeer.new()
-	var state = peer.create_client(address,port)
+func join(address:String,port:int) -> void:
+	var peer: ENetMultiplayerPeer = ENetMultiplayerPeer.new()
+	var state: int = peer.create_client(address,port)
+	var chat: PlayerChat = player0.chat_menu
 	if state == OK:
 		multiplayer.multiplayer_peer = peer
-		player0.chat_menu.append_message("[World]Join successed:" + address + ":" + str(port))
+		chat.append_message(str("[World]Join successed:", address, ":", port))
 		Global.isMultiplayer = true
 	else:
-		player0.chat_menu.append_message("[World]Join Failed:" + str(port), state)
+		chat.append_message(str("[World]Join Failed:", port, state))

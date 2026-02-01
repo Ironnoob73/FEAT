@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://bjtidvrl0deer"]
+[gd_scene format=3 uid="uid://bjtidvrl0deer"]
 
 [ext_resource type="PackedScene" uid="uid://bk6ihg1vf71uf" path="res://Assets/Character/Player.tscn" id="1_1kegx"]
 [ext_resource type="Script" uid="uid://cdg6s4jmypkb0" path="res://Assets/Character/Local/LocalPlayer.gd" id="2_ksjhd"]
@@ -218,41 +218,41 @@ height = 0.4
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_ekknx"]
 
-[node name="Player" instance=ExtResource("1_1kegx")]
+[node name="Player" unique_id=199667217 instance=ExtResource("1_1kegx")]
 script = ExtResource("2_ksjhd")
 isInDream = false
 metadata/FullReady = false
 
-[node name="ClimbArea" type="Area3D" parent="PlayerColl" index="0" groups=["PlayerMotion"]]
+[node name="ClimbArea" type="Area3D" parent="PlayerColl" index="0" unique_id=1073655030 groups=["PlayerMotion"]]
 collision_layer = 4
 collision_mask = 27
 
-[node name="Coll" type="CollisionShape3D" parent="PlayerColl/ClimbArea" index="0"]
+[node name="Coll" type="CollisionShape3D" parent="PlayerColl/ClimbArea" index="0" unique_id=248731188]
 shape = SubResource("CapsuleShape3D_8e6h3")
 
-[node name="MotionArea" type="Area3D" parent="PlayerColl" index="1" groups=["PlayerMotion"]]
+[node name="MotionArea" type="Area3D" parent="PlayerColl" index="1" unique_id=1057045897 groups=["PlayerMotion"]]
 collision_layer = 4
 collision_mask = 27
 
-[node name="Coll" type="CollisionShape3D" parent="PlayerColl/MotionArea" index="0"]
+[node name="Coll" type="CollisionShape3D" parent="PlayerColl/MotionArea" index="0" unique_id=2100943710]
 shape = SubResource("CapsuleShape3D_wkhgt")
 
-[node name="AttackArea" type="Area3D" parent="PlayerColl" index="2"]
+[node name="AttackArea" type="Area3D" parent="PlayerColl" index="2" unique_id=1724935767]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
 collision_layer = 0
 collision_mask = 31
 
-[node name="Coll" type="CollisionShape3D" parent="PlayerColl/AttackArea" index="0"]
+[node name="Coll" type="CollisionShape3D" parent="PlayerColl/AttackArea" index="0" unique_id=2136325868]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5)
 shape = SubResource("BoxShape3D_wkhgt")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="PlayerColl/AttackArea" index="1"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="PlayerColl/AttackArea" index="1" unique_id=1951682699]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5)
 visible = false
 material_override = ExtResource("15_1xbts")
 mesh = SubResource("BoxMesh_3t4w8")
 
-[node name="ThirdPerosnCam" type="Camera3D" parent="." index="1"]
+[node name="ThirdPerosnCam" type="Camera3D" parent="." index="1" unique_id=1321304959]
 transform = Transform3D(1, 0, 0, 0, 0.7071068, 0.7071068, 0, -0.7071068, 0.7071068, 0, 100.9, 100)
 visible = false
 cull_mask = 47
@@ -261,30 +261,30 @@ current = true
 fov = 72.7
 near = 0.001
 
-[node name="InteractRayTP" type="RayCast3D" parent="ThirdPerosnCam" index="0"]
+[node name="InteractRayTP" type="RayCast3D" parent="ThirdPerosnCam" index="0" unique_id=959466497]
 target_position = Vector3(0, 0, -10000)
 collision_mask = 26
 
-[node name="InteractRayTPTest" type="RayCast3D" parent="ThirdPerosnCam/InteractRayTP" index="0"]
+[node name="InteractRayTPTest" type="RayCast3D" parent="ThirdPerosnCam/InteractRayTP" index="0" unique_id=1725787748]
 target_position = Vector3(0, 0, -10000)
 collision_mask = 26
 
-[node name="Background" type="MeshInstance3D" parent="ThirdPerosnCam" index="1"]
+[node name="Background" type="MeshInstance3D" parent="ThirdPerosnCam" index="1" unique_id=532672511]
 transform = Transform3D(-0.5, -0.866025, 0, 0.866025, -0.5, 0, 0, 0, 1, 0, 0, -1000)
 material_override = SubResource("StandardMaterial3D_p3ied")
 mesh = SubResource("QuadMesh_7i5hv")
 
-[node name="PlayerCam" type="Camera3D" parent="." index="2"]
+[node name="PlayerCam" type="Camera3D" parent="." index="2" unique_id=350457061]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
 cull_mask = 27
 doppler_tracking = 1
 size = 0.001
 
-[node name="LerpCam" type="Camera3D" parent="PlayerCam" index="0"]
+[node name="LerpCam" type="Camera3D" parent="PlayerCam" index="0" unique_id=1366397800]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
 top_level = true
 
-[node name="FirstPersonHandled" type="SubViewportContainer" parent="PlayerCam" index="1"]
+[node name="FirstPersonHandled" type="SubViewportContainer" parent="PlayerCam" index="1" unique_id=1933916878]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -293,23 +293,23 @@ grow_vertical = 2
 stretch = true
 metadata/_edit_use_anchors_ = true
 
-[node name="SubViewport" type="SubViewport" parent="PlayerCam/FirstPersonHandled" index="0"]
+[node name="SubViewport" type="SubViewport" parent="PlayerCam/FirstPersonHandled" index="0" unique_id=147654148]
 transparent_bg = true
 handle_input_locally = false
 canvas_cull_mask = 4293918736
 size = Vector2i(1600, 900)
 render_target_update_mode = 4
 
-[node name="FirstPersonCam" type="Camera3D" parent="PlayerCam/FirstPersonHandled/SubViewport" index="0"]
+[node name="FirstPersonCam" type="Camera3D" parent="PlayerCam/FirstPersonHandled/SubViewport" index="0" unique_id=1462754549]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
 cull_mask = 16
 script = ExtResource("3_8e6h3")
 
-[node name="HandHeldRight" type="Marker3D" parent="PlayerCam/FirstPersonHandled/SubViewport/FirstPersonCam" index="0"]
+[node name="HandHeldRight" type="Marker3D" parent="PlayerCam/FirstPersonHandled/SubViewport/FirstPersonCam" index="0" unique_id=1204889045]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.45, -0.35, -0.5)
 script = ExtResource("4_6j1wo")
 
-[node name="WorldActual" type="SubViewportContainer" parent="PlayerCam" index="2"]
+[node name="WorldActual" type="SubViewportContainer" parent="PlayerCam" index="2" unique_id=1463047049]
 visible = false
 visibility_layer = 15
 anchors_preset = 15
@@ -319,47 +319,47 @@ grow_horizontal = 2
 grow_vertical = 2
 stretch = true
 
-[node name="SubViewport" type="SubViewport" parent="PlayerCam/WorldActual" index="0"]
+[node name="SubViewport" type="SubViewport" parent="PlayerCam/WorldActual" index="0" unique_id=2133711210]
 transparent_bg = true
 handle_input_locally = false
 canvas_cull_mask = 4293918735
 size = Vector2i(1600, 900)
 render_target_update_mode = 0
 
-[node name="WorldActualCam" type="Camera3D" parent="PlayerCam/WorldActual/SubViewport" index="0"]
+[node name="WorldActualCam" type="Camera3D" parent="PlayerCam/WorldActual/SubViewport" index="0" unique_id=1485667738]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 visible = false
 cull_mask = 0
 
-[node name="InteractRay" type="RayCast3D" parent="PlayerCam" index="3"]
+[node name="InteractRay" type="RayCast3D" parent="PlayerCam" index="3" unique_id=940067931]
 target_position = Vector3(0, 0, -2)
 collision_mask = 26
 script = ExtResource("5_wkhgt")
 
-[node name="Facing" type="RayCast3D" parent="PlayerCam" index="4"]
+[node name="Facing" type="RayCast3D" parent="PlayerCam" index="4" unique_id=76582300]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5)
 target_position = Vector3(0, 0, -1)
 
-[node name="FacingTarget" type="Node3D" parent="PlayerCam/Facing" index="0"]
+[node name="FacingTarget" type="Node3D" parent="PlayerCam/Facing" index="0" unique_id=217320308]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
 
-[node name="StandingDetected" type="ShapeCast3D" parent="." index="4"]
+[node name="StandingDetected" type="ShapeCast3D" parent="." index="4" unique_id=1962192441]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
 shape = SubResource("BoxShape3D_61s2r")
 target_position = Vector3(0, 0, 0)
 collision_mask = 11
 
-[node name="StairsAheadRayCast3D" type="RayCast3D" parent="." index="5"]
+[node name="StairsAheadRayCast3D" type="RayCast3D" parent="." index="5" unique_id=514149878]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.3499999, -0.41)
 target_position = Vector3(0, -0.55, 0)
 collision_mask = 11
 
-[node name="StairsBelowRayCast3D" type="RayCast3D" parent="." index="6"]
+[node name="StairsBelowRayCast3D" type="RayCast3D" parent="." index="6" unique_id=1104440981]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.89999986, 0)
 target_position = Vector3(0, -0.5, 0)
 collision_mask = 11
 
-[node name="GroundRayCast" type="RayCast3D" parent="." index="7"]
+[node name="GroundRayCast" type="RayCast3D" parent="." index="7" unique_id=1510683333]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.100000024, 0)
 target_position = Vector3(0, -0.5, 0)
 collision_mask = 11
@@ -368,7 +368,7 @@ metadata/SoundList = {
 "Stone": ExtResource("18_3t4w8")
 }
 
-[node name="Transition" type="ColorRect" parent="." index="8"]
+[node name="Transition" type="ColorRect" parent="." index="8" unique_id=277475260]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -376,7 +376,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0)
 
-[node name="Caption" type="Control" parent="." index="9"]
+[node name="Caption" type="Control" parent="." index="9" unique_id=1886485352]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -385,7 +385,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("6_3t4w8")
 
-[node name="CrossHair" type="TextureRect" parent="." index="10"]
+[node name="CrossHair" type="TextureRect" parent="." index="10" unique_id=1588424210]
 texture_filter = 1
 texture_repeat = 2
 material = SubResource("ShaderMaterial_vsxa4")
@@ -403,7 +403,7 @@ grow_vertical = 2
 texture = SubResource("GradientTexture2D_3txlv")
 metadata/_edit_use_anchors_ = true
 
-[node name="InteractionTip" type="Control" parent="CrossHair" index="0"]
+[node name="InteractionTip" type="Control" parent="CrossHair" index="0" unique_id=695624070]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -417,7 +417,7 @@ offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Icon" type="Label" parent="CrossHair/InteractionTip" index="0"]
+[node name="Icon" type="Label" parent="CrossHair/InteractionTip" index="0" unique_id=73314938]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -436,7 +436,7 @@ text = "✅"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Text" type="Label" parent="CrossHair/InteractionTip" index="1"]
+[node name="Text" type="Label" parent="CrossHair/InteractionTip" index="1" unique_id=1083645115]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -449,19 +449,17 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="HudHotbar" parent="." index="11" instance=ExtResource("8_xs2dv")]
+[node name="HudHotbar" parent="." index="11" unique_id=482532323 instance=ExtResource("8_xs2dv")]
 anchors_preset = -1
 mouse_filter = 1
 
-[node name="HudStatesBar" parent="." index="12" instance=ExtResource("9_u6vxd")]
+[node name="HudStatesBar" parent="." index="12" unique_id=400399734 instance=ExtResource("9_u6vxd")]
 anchors_preset = -1
 
-[node name="HUDHider" type="AnimationPlayer" parent="." index="13"]
-libraries = {
-&"": SubResource("AnimationLibrary_61s2r")
-}
+[node name="HUDHider" type="AnimationPlayer" parent="." index="13" unique_id=257806969]
+libraries/ = SubResource("AnimationLibrary_61s2r")
 
-[node name="Chat" parent="." index="14" instance=ExtResource("10_8rxfh")]
+[node name="Chat" parent="." index="14" unique_id=1510723724 instance=ExtResource("10_8rxfh")]
 custom_minimum_size = Vector2(500, 250)
 anchors_preset = 2
 anchor_top = 1.0
@@ -471,41 +469,41 @@ offset_right = 500.0
 grow_horizontal = 1
 grow_vertical = 0
 
-[node name="VirtualJoypad" parent="." index="15" instance=ExtResource("11_grqft")]
+[node name="VirtualJoypad" parent="." index="15" unique_id=657673159 instance=ExtResource("11_grqft")]
 visible = false
 
-[node name="Inventory" parent="." index="16" instance=ExtResource("12_eueh2")]
+[node name="Inventory" parent="." index="16" unique_id=1835655211 instance=ExtResource("12_eueh2")]
 
-[node name="Pause_menu" parent="." index="17" instance=ExtResource("13_vy4sj")]
+[node name="Pause_menu" parent="." index="17" unique_id=444832472 instance=ExtResource("13_vy4sj")]
 
-[node name="Cursor" type="CSGMesh3D" parent="." index="18"]
+[node name="Cursor" type="CSGMesh3D" parent="." index="18" unique_id=434804944]
 top_level = true
 visible = false
 layers = 6
 mesh = SubResource("BoxMesh_l3s1l")
 material = SubResource("ShaderMaterial_8o5kk")
 
-[node name="DetectionArea" type="Area3D" parent="Cursor" index="0"]
+[node name="DetectionArea" type="Area3D" parent="Cursor" index="0" unique_id=1506311415]
 collision_layer = 0
 collision_mask = 10
 
-[node name="CollisionShape" type="CollisionShape3D" parent="Cursor/DetectionArea" index="0"]
+[node name="CollisionShape" type="CollisionShape3D" parent="Cursor/DetectionArea" index="0" unique_id=1647782854]
 shape = SubResource("BoxShape3D_qd1xy")
 
-[node name="Cursor3" type="MeshInstance3D" parent="." index="19"]
+[node name="Cursor3" type="MeshInstance3D" parent="." index="19" unique_id=846495996]
 top_level = true
 visible = false
 material_override = ExtResource("15_1xbts")
 mesh = SubResource("SphereMesh_qrieq")
 
-[node name="InteractLowerLimit" type="StaticBody3D" parent="." index="20"]
+[node name="InteractLowerLimit" type="StaticBody3D" parent="." index="20" unique_id=1979246692]
 collision_layer = 32
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractLowerLimit" index="0"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractLowerLimit" index="0" unique_id=294139298]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
 shape = SubResource("WorldBoundaryShape3D_ekknx")
 
-[node name="TooltipScene" parent="." index="21" instance=ExtResource("16_87nuh")]
+[node name="TooltipScene" parent="." index="21" unique_id=1392873991 instance=ExtResource("16_87nuh")]
 
 [connection signal="area_entered" from="PlayerColl/ClimbArea" to="." method="_on_climb_area_area_entered"]
 [connection signal="area_exited" from="PlayerColl/ClimbArea" to="." method="_on_climb_area_area_exited"]

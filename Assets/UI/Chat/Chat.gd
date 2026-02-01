@@ -1,4 +1,5 @@
 extends PanelContainer
+class_name PlayerChat
 
 @onready var input_bar: HBoxContainer = $VBoxContainer/InputBar
 @onready var edit: LineEdit = $VBoxContainer/InputBar/Edit

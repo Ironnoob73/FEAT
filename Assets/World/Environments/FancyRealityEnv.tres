@@ -5,7 +5,6 @@
 [resource]
 background_mode = 2
 sky = ExtResource("1_8fcji")
-ambient_light_source = 3
 ambient_light_sky_contribution = 0.25
 ssr_enabled = true
 ssr_max_steps = 1

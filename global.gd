@@ -1,6 +1,6 @@
 extends Node
 
-const CONFIG_PATH = "user://settings.cfg"
+const CONFIG_PATH: String = "user://settings.cfg"
 var LanguageList: Array[String] = ["en_US","zh_CN"]
 var DATA_PATH: String = "user://"
 var Sdfgi: bool = false
@@ -9,7 +9,9 @@ var FastBoot: bool = false
 var oobe: bool = true
 
 # Important objects
-var THE_PLAYER: LocalPlayer = null
+# But now will load from the Main World
+# var THE_PLAYER: LocalPlayer = null
+var CurrentWorld: World = null
 
 # Load options
 var load_use_sub_threads : bool = false
@@ -19,14 +21,14 @@ var block_escape: bool = false
 var current_menu: String = "null"
 
 # In game control
-var mouse_sens = 0.4
+var mouse_sens: float = 0.4
 var auto_pickup: bool = true
 
 var playerName: String = "Anonymous":
 	set(name_string):
 		playerName = name_string
-		if THE_PLAYER != null:
-			THE_PLAYER.player_name = name_string
+		if CurrentWorld != null and CurrentWorld.player0 != null:
+			CurrentWorld.player0.player_name = name_string
 var duid: String = "00000000-0000-9000-0000-000000000000"
 var avatar: Texture2D = preload("res://Resources/Image/avatar/default.png")
 var isInGame: bool = false
@@ -42,17 +44,17 @@ var printDebugInfo: bool = false
 var catchPElemIssue: bool = false
 var alwaysShowCursor: bool = false
 
-func _ready():
+func _ready() -> void:
 	load_config()
 	window_min_limit()
 	
 ## Limit min window size.
-func window_min_limit():
+func window_min_limit() -> void:
 	DisplayServer.window_set_min_size(Vector2(500,500),0)
 	
 ## Save the config by creating a new file.
-func save_config():
-	var file = ConfigFile.new()
+func save_config() -> void:
+	var file: ConfigFile = ConfigFile.new()
 	file.set_value("game","language",TranslationServer.get_locale())
 	file.set_value("game","data_path",DATA_PATH)
 	file.set_value("game","load_use_sub_threads",load_use_sub_threads)
@@ -72,13 +74,13 @@ func save_config():
 	file.set_value("profile","user_avatar",avatar)
 	file.set_value("computer","fast_boot",FastBoot)
 	file.set_value("computer","oobe",oobe)
-	var err = file.save(CONFIG_PATH)
+	var err: Error = file.save(CONFIG_PATH)
 	if err != OK:
 		push_error("Fail to save config: %d" % err)
 
-func load_config():
-	var file = ConfigFile.new()
-	var err = file.load(CONFIG_PATH)
+func load_config() -> void:
+	var file: ConfigFile = ConfigFile.new()
+	var err: Error = file.load(CONFIG_PATH)
 	if err == OK:
 		TranslationServer.set_locale(file.get_value("game","language",TranslationServer.get_locale()))
 		DATA_PATH = file.get_value("game","data_path","user://")
@@ -103,20 +105,20 @@ func load_config():
 		push_warning("Fail to load config: %d" % err)
 		
 func save_settings_to_file(section: String, key: String, value: Variant) -> void:
-	var file = ConfigFile.new()
-	var err = file.load(CONFIG_PATH)
+	var file: ConfigFile = ConfigFile.new()
+	var err: Error = file.load(CONFIG_PATH)
 	if err == OK:
 		file.set_value(section, key, value)
-		var err_s = file.save(CONFIG_PATH)
+		var err_s: Error = file.save(CONFIG_PATH)
 		if err_s != OK:
 			push_error("Fail to save config: %d" % err)
 	else:
 		push_warning("Fail to load config: %d" % err)
 		save_config()
 
-func load_settings_from_file(section: String, key: String, default_value: Variant):
-	var file = ConfigFile.new()
-	var err = file.load(CONFIG_PATH)
+func load_settings_from_file(section: String, key: String, default_value: Variant) -> Variant:
+	var file: ConfigFile = ConfigFile.new()
+	var err: Error = file.load(CONFIG_PATH)
 	if err == OK:
 		return file.get_value(section,key,default_value)
 	else:
@@ -126,29 +128,29 @@ func load_settings_from_file(section: String, key: String, default_value: Varian
 # For Keybindings
 func get_key_array(action: String) -> Array:
 	var key_array : Array = []
-	for i in InputMap.action_get_events(action):
+	for i: InputEvent in InputMap.action_get_events(action):
 		if i is InputEventKey:
 			key_array.append(i.as_text())
 	return key_array
 	
 func get_key_event_array(action: String) -> Array:
 	var key_array : Array = []
-	for i in InputMap.action_get_events(action):
+	for i: InputEvent in InputMap.action_get_events(action):
 		key_array.append(i)
 	return key_array
 	
 ## Back to title
-func back_to_title():
+func back_to_title() -> void:
 	AHL_LoadManager.load_scene("res://Title/TitleScene.tscn")
 	isInGame = false
 	
 ## Get World Path
-func get_world_path(dim : String) :
+func get_world_path(dim : String) -> String:
 	match dim :
-		"Overworld" :	return "res://Assets/World/WorldMain.tscn"
+		_:	return "res://Assets/World/WorldMain.tscn"
 
 ## When "p->elem" issue happened, use this to print tons of text.
-func p_elem_debug(info : String) :
+func p_elem_debug(info : String) -> void:
 	if catchPElemIssue:
 		push_warning(info)
 		
@@ -157,11 +159,11 @@ func is_os_language_supported() -> bool:
 	return LanguageList.has(OS.get_locale())
 	
 # Multiplayer
-func host(port:int):
+func host(port:int) -> void:
 	if isInGame:
 		get_node("/root/World").host(port)
 
-func join(address:String,port:int):
+func join(address:String,port:int) -> void:
 	if isInGame:
 		get_node("/root/World").join(address,port)
 

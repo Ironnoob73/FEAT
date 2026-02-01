@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://bk6ihg1vf71uf"]
+[gd_scene format=3 uid="uid://bk6ihg1vf71uf"]
 
 [ext_resource type="Script" uid="uid://cqshqrk45jc44" path="res://Assets/Character/Player.gd" id="1_twfth"]
 [ext_resource type="PackedScene" uid="uid://c4pg4fa4c3vft" path="res://Resources/Character/MrPicto/body_scene.tscn" id="2_c5t80"]
@@ -7,14 +7,14 @@
 radius = 0.4
 height = 1.8
 
-[node name="Player" type="CharacterBody3D" groups=["Hurtable"]]
+[node name="Player" type="CharacterBody3D" unique_id=2125532009 groups=["Hurtable"]]
 collision_layer = 4
 collision_mask = 139
 floor_max_angle = 0.872665
 script = ExtResource("1_twfth")
 
-[node name="PlayerColl" type="CollisionShape3D" parent="."]
+[node name="PlayerColl" type="CollisionShape3D" parent="." unique_id=559408119]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
 shape = SubResource("CapsuleShape3D_a500n")
 
-[node name="BodyScene" parent="." instance=ExtResource("2_c5t80")]
+[node name="BodyScene" parent="." unique_id=364567620 instance=ExtResource("2_c5t80")]

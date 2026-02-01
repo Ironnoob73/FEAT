@@ -13,11 +13,11 @@ var current_vel: float = 0
 # Exit icon from: https://www.svgrepo.com/svg/509594/ja301-emergency-exit
 
 func _process(_delta: float) -> void:
-	if !isStart and Global.THE_PLAYER != null:
+	if !isStart and Global.CurrentWorld.player0 != null:
 		isStart = true
-		Global.THE_PLAYER.set_meta("lock_hud_hidden",true)
-		Global.THE_PLAYER.set_meta("lock_menu",true)
-		computer_scene.interact(Global.THE_PLAYER)
+		Global.CurrentWorld.player0.set_meta("lock_hud_hidden",true)
+		Global.CurrentWorld.player0.set_meta("lock_menu",true)
+		computer_scene.interact(Global.CurrentWorld.player0)
 		if !Global.FastBoot or Global.oobe:
 			var tween = create_tween().set_trans(Tween.TRANS_LINEAR)
 			tween.tween_property(start_screen, "modulate:a", 0, 1).set_delay(1)
@@ -26,13 +26,13 @@ func _process(_delta: float) -> void:
 			var tween = create_tween().set_trans(Tween.TRANS_LINEAR)
 			tween.tween_property(start_screen, "modulate:a", 0, 0.1).set_delay(1)
 			tween.tween_property(start_screen, "visible", false, 0)
-			tween.tween_callback(func():Global.THE_PLAYER.remove_meta("lock_hud_hidden"))
-			tween.tween_callback(func():Global.THE_PLAYER.remove_meta("lock_menu"))
+			tween.tween_callback(func():Global.CurrentWorld.player0.remove_meta("lock_hud_hidden"))
+			tween.tween_callback(func():Global.CurrentWorld.player0.remove_meta("lock_menu"))
 		
 	if player_is_falling:
 		current_vel = lerpf(current_vel, 0.005, 0.05)
 		current_pos.y -= current_vel
-		Global.THE_PLAYER.position = current_pos
+		Global.CurrentWorld.player0.position = current_pos
 
 func _on_drop_area_body_entered(body: Node3D) -> void:
 	if body is LocalPlayer:

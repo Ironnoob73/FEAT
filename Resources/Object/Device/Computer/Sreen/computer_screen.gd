@@ -25,13 +25,13 @@ func _ready() -> void:
 		
 		desktop.process_mode = Node.PROCESS_MODE_DISABLED
 		start_screen.show()
-		var tween = create_tween().set_trans(Tween.TRANS_LINEAR)
-		tween.tween_callback(func():start_screen.hide()).set_delay(5)
-		tween.tween_callback(func():cursor.show()).set_delay(1)
+		var tween: Tween = create_tween().set_trans(Tween.TRANS_LINEAR)
+		tween.tween_callback(func()->void:start_screen.hide()).set_delay(5)
+		tween.tween_callback(func()->void:cursor.show()).set_delay(1)
 		if !Global.oobe:
-			tween.tween_callback(func():ready_desktop()).set_delay(1)
+			tween.tween_callback(func()->void:ready_desktop()).set_delay(1)
 		else:
-			tween.tween_callback(func():add_child(load("res://Assets/UI/Computer/oobe.tscn").instantiate()))
+			tween.tween_callback(func()->void:add_child(load("res://Assets/UI/Computer/oobe.tscn").instantiate()))
 	else:
 		cursor.show()
 		desktop.show()
@@ -45,12 +45,12 @@ func ready_desktop() -> void:
 	for i in desktop_icons.get_children():
 		i.hide()
 	desktop.show()
-	var tween = create_tween().set_trans(Tween.TRANS_LINEAR)
-	tween.tween_callback(func():welcome_screen.hide()).set_delay(3)
-	tween.tween_callback(func():desktop.show())
+	var tween: Tween = create_tween().set_trans(Tween.TRANS_LINEAR)
+	tween.tween_callback(func()->void:welcome_screen.hide()).set_delay(3)
+	tween.tween_callback(func()->void:desktop.show())
 	tween.tween_callback(func():desktop.process_mode = Node.PROCESS_MODE_INHERIT)
-	tween.tween_callback(func():Global.THE_PLAYER.remove_meta("lock_hud_hidden"))
-	tween.tween_callback(func():Global.THE_PLAYER.remove_meta("lock_menu"))
+	tween.tween_callback(func():Global.CurrentWorld.player0.remove_meta("lock_hud_hidden"))
+	tween.tween_callback(func():Global.CurrentWorld.player0.remove_meta("lock_menu"))
 	tween.tween_callback(func():bottom_tab.show()).set_delay(0.5)
 	tween.tween_callback(func():start_button.show()).set_delay(0.5)
 	tween.tween_callback(func():time.show()).set_delay(0.1)
@@ -59,8 +59,8 @@ func ready_desktop() -> void:
 
 func _on_off_button_pressed() -> void:
 	if !is_offing:
-		Global.THE_PLAYER.remove_meta("lock_hud_hidden")
-		Global.THE_PLAYER.remove_meta("lock_menu")
+		Global.CurrentWorld.player0.remove_meta("lock_hud_hidden")
+		Global.CurrentWorld.player0.remove_meta("lock_menu")
 		start_button.button_pressed = false
 		is_offing = true
 		var tween = create_tween().set_trans(Tween.TRANS_LINEAR)

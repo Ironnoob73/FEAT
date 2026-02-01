@@ -1,42 +1,42 @@
 extends player
 class_name LocalPlayer
 
-@onready var player_camera = $PlayerCam
-@onready var standing_detected= $StandingDetected
-@onready var pause_menu = $Pause_menu
-@onready var chat_menu = $Chat
-@onready var inventory_menu = $Inventory
+@onready var player_camera: Camera3D = $PlayerCam
+@onready var standing_detected: ShapeCast3D = $StandingDetected
+@onready var pause_menu: ColorRect = $Pause_menu
+@onready var chat_menu: PlayerChat = $Chat
+@onready var inventory_menu: PlayerInventory = $Inventory
 
-@onready var first_person_cam = $PlayerCam/FirstPersonHandled/SubViewport/FirstPersonCam
-@onready var world_actual_cam = $PlayerCam/WorldActual/SubViewport/WorldActualCam
-@onready var hand_held_fp = $PlayerCam/FirstPersonHandled/SubViewport/FirstPersonCam/HandHeldRight
+@onready var first_person_cam: Camera3D = $PlayerCam/FirstPersonHandled/SubViewport/FirstPersonCam
+@onready var world_actual_cam: Camera3D = $PlayerCam/WorldActual/SubViewport/WorldActualCam
+@onready var hand_held_fp: Marker3D = $PlayerCam/FirstPersonHandled/SubViewport/FirstPersonCam/HandHeldRight
 @onready var lerp_cam: Camera3D = $PlayerCam/LerpCam
-@onready var attack_area = $PlayerColl/AttackArea
-@onready var hitbox = $PlayerColl/AttackArea/Coll
+@onready var attack_area: Area3D = $PlayerColl/AttackArea
+@onready var hitbox: CollisionShape3D = $PlayerColl/AttackArea/Coll
 @onready var hitbox_debug: MeshInstance3D = $PlayerColl/AttackArea/MeshInstance3D
 @onready var third_perosn_cam: Camera3D = $ThirdPerosnCam
 
-var perspective_in_rotate : bool = false
-var perspective_rad : float = 0
-var perspective_size : float = 10
-var perspective_from : Vector2
+var perspective_in_rotate: bool = false
+var perspective_rad: float = 0
+var perspective_size: float = 10
+var perspective_from: Vector2
 # Interact
-@onready var interact_ray = $PlayerCam/InteractRay
-@onready var Facing = $PlayerCam/Facing
-@onready var FacingTarget = $PlayerCam/Facing/FacingTarget
+@onready var interact_ray: RayCast3D = $PlayerCam/InteractRay
+@onready var Facing: RayCast3D = $PlayerCam/Facing
+@onready var FacingTarget: Node3D = $PlayerCam/Facing/FacingTarget
 @onready var interact_ray_tp: RayCast3D = $ThirdPerosnCam/InteractRayTP
 @onready var interact_ray_tp_test: RayCast3D = $ThirdPerosnCam/InteractRayTP/InteractRayTPTest
 @onready var cursor3: MeshInstance3D = $Cursor3
 var isUsing: AHL_Interactive = null
 # Environment interact
-@onready var _climb_area = $PlayerColl/ClimbArea
+@onready var _climb_area: Area3D = $PlayerColl/ClimbArea
 @onready var _ground_ray_cast: RayCast3D = $GroundRayCast
 var _walk_length: float = 0
 
 #var _cur_frame: int = 0
 #@export var _jump_frame_grace: int = 5
 #var _last_frame_was_on_floor: int = -_jump_frame_grace - 1
-var _last_frame_was_on_floor = -INF
+var _last_frame_was_on_floor: float = -INF
 var _was_on_floor_last_frame: bool = false
 var _snapped_to_stairs_last_frame: bool = false
 
@@ -47,30 +47,33 @@ var gravity_dir: Vector3 = ProjectSettings.get_setting("physics/3d/default_gravi
 var DEBUG_LAST_STEP: String
 
 @onready var transition: ColorRect = $Transition
-@onready var caption = $Caption
+@onready var caption: PlayerHUDCaption = $Caption
 @onready var gradient_background: MeshInstance3D = $ThirdPerosnCam/Background
 
 var INERTIA: Vector2 = Vector2.ZERO
 
-var current_menu = "HUD":
+var current_menu: String = "HUD":
 	set(menu_name):
 		current_menu = menu_name
-		emit_signal("on_menu_change")
+		var error: Error = emit_signal("on_menu_change")
+		if error != OK:
+			push_warning("Signal \"on_menu_change\" caused an error: ", error)
 signal on_menu_change
 var hud_hidden : bool = false
 @export var isInDream : bool = false
 
-@onready var HUD_hotbar = $HudHotbar
+@onready var HUD_hotbar: Control = $HudHotbar
+@onready var HUD_states_bar: Control = $HudStatesBar
 @onready var HUD_hider: AnimationPlayer = $HUDHider
 
-func _ready():
+func _ready() -> void:
 	super._ready()
 	pause_menu.hide()
 	inventory_menu.hide()
 	inventory_menu.init()
 	if !get_meta("FullReady",true):
 		HUD_hotbar.hide()
-		$HudStatesBar.hide()
+		HUD_states_bar.hide()
 
 	tird_person_setup(false,false)
 	switch_perspectives()
@@ -78,7 +81,7 @@ func _ready():
 	# Side process
 	_snap_down_to_stairs_check()
 
-func _input(event):
+func _input(event: InputEvent) -> void:
 	# Perspective
 	if isThirdPerson:
 		if Input.is_action_just_pressed("perspective"):
@@ -89,15 +92,17 @@ func _input(event):
 		
 	# Player camera.
 	if event is InputEventMouseMotion and current_menu in ["HUD"]:
+		var mouse_motion_event: InputEventMouseMotion = event
 		if isThirdPerson :
 			tird_person_setup(perspective_in_rotate)
 		else :
-			rotate_y(-deg_to_rad(event.relative.x * Global.mouse_sens))
-			player_camera.rotate_x(-deg_to_rad(event.relative.y * Global.mouse_sens))
+			var mouse_motion: Vector2 = mouse_motion_event.relative * Global.mouse_sens
+			rotate_y(-deg_to_rad(mouse_motion.x))
+			player_camera.rotate_x(-deg_to_rad(mouse_motion.y))
 			player_camera.rotation.x = clamp(player_camera.rotation.x,deg_to_rad(-90),deg_to_rad(90))
 		attack_area.rotation.x = player_camera.rotation.x
 	
-func tird_person_setup(is_rotate:bool,not_init:bool = true):
+func tird_person_setup(is_rotate:bool,not_init:bool = true) -> void:
 	interact_ray_tp.global_position = third_perosn_cam.project_position(caption.get_global_mouse_position(),0)
 	interact_ray_tp.set_collision_mask_value(6,!interact_ray_tp_test.is_colliding())
 	var pos : Vector2 = caption.get_mouse_pos()
@@ -112,12 +117,13 @@ func tird_person_setup(is_rotate:bool,not_init:bool = true):
 		third_perosn_cam.size = clamp(perspective_size + ((pos.y if not_init else 0.0) - perspective_from.y) * 0.1,5,50)
 		third_perosn_cam.position.y = third_perosn_cam.size + 0.9
 		third_perosn_cam.position.z = third_perosn_cam.size
-		gradient_background.mesh.size.x = third_perosn_cam.size * 2
-		gradient_background.mesh.size.y = third_perosn_cam.size * 2.5
+		var background_mesh: QuadMesh = gradient_background.mesh
+		background_mesh.size.x = third_perosn_cam.size * 2
+		background_mesh.size.y = third_perosn_cam.size * 2.5
 	else:
 		perspective_rad = self.global_rotation.y
 		perspective_size = third_perosn_cam.size
-func switch_perspectives():
+func switch_perspectives() -> void:
 	mesh.rotation.y = PI
 	attack_area.rotation.y = 0
 	player_camera.rotation.y = 0
@@ -128,9 +134,9 @@ func switch_perspectives():
 	mesh.change_visible(mesh,isThirdPerson)
 	caption.get_mouse_pos()
 	
-func _unhandled_input(_event):
+func _unhandled_input(event: InputEvent) -> void:
 	# Pause.
-	if Input.is_action_just_pressed("ui_cancel"):
+	if event.is_action_pressed("ui_cancel"):
 		match current_menu :
 			"HUD":
 				current_menu = "Pause"
@@ -150,7 +156,7 @@ func _unhandled_input(_event):
 				if !self.get_meta("lock_menu",false):
 					current_menu = "HUD"
 	# Chat
-	if Input.is_action_just_pressed("chat"):
+	if event.is_action_pressed("chat"):
 		match current_menu:
 			"HUD":
 				current_menu = "Chat"
@@ -160,7 +166,7 @@ func _unhandled_input(_event):
 			#	current_menu = "HUD"
 			#	chat_menu.isInput = false
 	# Inventory
-	if Input.is_action_just_pressed("inventory"):
+	if event.is_action_pressed("inventory"):
 		match current_menu :
 			"HUD":
 				current_menu = "Inventory"
@@ -174,33 +180,33 @@ func _unhandled_input(_event):
 				mouse_mode(true)
 				inventory_menu.open_inventory()
 	# Hide HUD
-	if Input.is_action_just_pressed("hide_hud")\
+	if event.is_action_pressed("hide_hud")\
 		and current_menu == "HUD"\
 		and !self.get_meta("lock_hud_hidden",false):
 		hide_hud(!hud_hidden)
 	# Hotbar
-	if !Input.is_action_pressed("tool_function_switch") and current_menu == "HUD":
-		if Input.is_action_just_pressed("hotbar_tool_0") :
+	if !event.is_action_pressed("tool_function_switch") and current_menu == "HUD":
+		if event.is_action_pressed("hotbar_tool_0") :
 			current_hotbar = 0
 			refresh_handheld(current_hotbar)
-		if Input.is_action_just_pressed("hotbar_tool_1") :
+		if event.is_action_pressed("hotbar_tool_1") :
 			current_hotbar = 1
 			refresh_handheld(current_hotbar)
-		if Input.is_action_just_pressed("hotbar_tool_2") :
+		if event.is_action_pressed("hotbar_tool_2") :
 			current_hotbar = 2
 			refresh_handheld(current_hotbar)
-		if Input.is_action_just_pressed("hotbar_tool_3") :
+		if event.is_action_pressed("hotbar_tool_3") :
 			current_hotbar = 3
 			refresh_handheld(current_hotbar)
-		if Input.is_action_just_pressed("hotbar_tool_4") :
+		if event.is_action_pressed("hotbar_tool_4") :
 			current_hotbar = 4
 			refresh_handheld(current_hotbar)
 	# UnSit
-	if isSit and (Input.is_action_pressed("jump") or Input.is_action_pressed("crouch")) :
+	if isSit and (event.is_action_pressed("jump") or event.is_action_pressed("crouch")) :
 		_un_sit()
 		
 	# Switch perspectives
-	if Input.is_action_just_pressed("switch_perspectives") and current_menu == "HUD":
+	if event.is_action_pressed("switch_perspectives") and current_menu == "HUD":
 		isThirdPerson = !isThirdPerson
 		switch_perspectives()
 
@@ -282,7 +288,7 @@ func _snap_up_stairs_check(delta) -> bool:
 			return true
 	return false
 
-func _physics_process(delta):
+func _physics_process(delta) -> void:
 	Global.p_elem_debug("### PP START ###")
 	# Record Inerita & Add the gravity.
 	Global.p_elem_debug("# GRAVITY #")

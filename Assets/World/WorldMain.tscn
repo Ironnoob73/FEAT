@@ -8,14 +8,14 @@
 
 [node name="World" type="Node3D" unique_id=1038144871]
 script = ExtResource("1_4lhai")
-global_time = 46500
+time_speed = 100
 metadata/Dim = "Overworld"
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1079999843]
 environment = ExtResource("2_espus")
 
 [node name="SunAxis" type="Node3D" parent="WorldEnvironment" unique_id=743731374]
-transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="SunVisual" type="DirectionalLight3D" parent="WorldEnvironment/SunAxis" unique_id=1293697748]
 transform = Transform3D(-0.8660249, 0, 0.5, 0, 1, 0, -0.5, 0, -0.8660249, 0, 0, 0)

@@ -9,7 +9,7 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	size = get_window().size
-	bg_cam.global_position = (Global.THE_PLAYER.first_person_cam.global_position + Vector3(4352,0,-4352)) / 12288
-	bg_cam.global_rotation = Global.THE_PLAYER.first_person_cam.global_rotation
+	bg_cam.global_position = (Global.CurrentWorld.player0.first_person_cam.global_position + Vector3(4352,0,-4352)) / 12288
+	bg_cam.global_rotation = Global.CurrentWorld.player0.first_person_cam.global_rotation
 	@warning_ignore("unsafe_property_access")
 	world_3d.environment.ambient_light_color = world0.ambient_color

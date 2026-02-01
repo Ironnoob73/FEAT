@@ -1,5 +1,6 @@
 @tool
 extends Node3D
+class_name AHL_ScenePackage
 
 @export var chunks : Array[AHL_ChunkPath]
 @export var rooms : Array[AHL_RoomInstance]

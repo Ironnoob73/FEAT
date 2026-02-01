@@ -12,11 +12,11 @@ var mid_env: Environment = null
 func _ready() -> void:
 	get_parent().get_parent().real_time = false
 	#var player_i: LocalPlayer = get_parent().get_parent().get_node("Player")
-	Global.THE_PLAYER.hide_hud(false)
+	Global.CurrentWorld.player0.hide_hud(false)
 	var esc_tween = create_tween()
-	esc_tween.tween_property(Global.THE_PLAYER.transition, "color:a", 0, 0.1)
-	Global.THE_PLAYER.rotation.x = 0
-	Global.THE_PLAYER.current_menu = "HUD"
+	esc_tween.tween_property(Global.CurrentWorld.player0.transition, "color:a", 0, 0.1)
+	Global.CurrentWorld.player0.rotation.x = 0
+	Global.CurrentWorld.player0.current_menu = "HUD"
 	
 	change_room.call_deferred()
 	
@@ -30,7 +30,7 @@ func change_room() -> void:
 	Global.get_node("/root/World").env.environment = sub_scene.world_3d.environment.duplicate(true)
 	sub_scene.world_3d.environment = mid_env
 	
-	Global.THE_PLAYER.player_camera.set_current(true)
+	Global.CurrentWorld.player0.player_camera.set_current(true)
 
 func exit_room_to_corridor() -> void:
 	the_corridor.reparent(main_scene)

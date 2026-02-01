@@ -7,7 +7,7 @@ flip_faces = true
 size = Vector2(50, 50)
 
 [sub_resource type="Gradient" id="Gradient_3pyl4"]
-offsets = PackedFloat32Array(0.5, 1)
+offsets = PackedFloat32Array(0, 0.75)
 colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1)
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_7ma6c"]
@@ -22,17 +22,17 @@ seamless = true
 in_3d_space = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eyqdw"]
-transparency = 1
+transparency = 4
+blend_mode = 1
 shading_mode = 0
 albedo_texture = SubResource("NoiseTexture2D_3xx18")
 proximity_fade_enabled = true
 distance_fade_mode = 1
-distance_fade_min_distance = 30.0
+distance_fade_min_distance = 25.0
 distance_fade_max_distance = 0.0
 
 [sub_resource type="Gradient" id="Gradient_4qm5f"]
 interpolation_mode = 2
-offsets = PackedFloat32Array(0.3, 1)
 colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 0.49803922)
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_u5dww"]
@@ -46,11 +46,11 @@ seamless = true
 in_3d_space = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_djtpt"]
-transparency = 1
+transparency = 4
 shading_mode = 0
 albedo_texture = SubResource("NoiseTexture2D_m8gh1")
 distance_fade_mode = 1
-distance_fade_min_distance = 30.0
+distance_fade_min_distance = 25.0
 distance_fade_max_distance = 0.0
 
 [sub_resource type="SphereMesh" id="SphereMesh_3pyl4"]
@@ -84,6 +84,7 @@ distance_fade_min_distance = 30.0
 distance_fade_max_distance = 0.0
 
 [sub_resource type="QuadMesh" id="QuadMesh_3pyl4"]
+flip_faces = true
 size = Vector2(10, 10)
 
 [sub_resource type="Gradient" id="Gradient_7ma6c"]
@@ -98,6 +99,7 @@ fill_to = Vector2(1, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_18tmj"]
 transparency = 1
+blend_mode = 1
 shading_mode = 0
 albedo_texture = SubResource("GradientTexture2D_3xx18")
 
@@ -105,13 +107,13 @@ albedo_texture = SubResource("GradientTexture2D_3xx18")
 script = ExtResource("1_3pyl4")
 
 [node name="Cloud0" type="MeshInstance3D" parent="." unique_id=1429456133]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
 layers = 32
 mesh = SubResource("PlaneMesh_7ma6c")
 surface_material_override/0 = SubResource("StandardMaterial3D_eyqdw")
 
 [node name="Cloud1" type="MeshInstance3D" parent="." unique_id=1607790469]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
 layers = 32
 mesh = SubResource("PlaneMesh_7ma6c")
 surface_material_override/0 = SubResource("StandardMaterial3D_djtpt")
@@ -121,10 +123,15 @@ layers = 32
 mesh = SubResource("SphereMesh_3pyl4")
 surface_material_override/0 = SubResource("StandardMaterial3D_4qm5f")
 
-[node name="SunAxis" type="Node3D" parent="." unique_id=462072704]
+[node name="SunAxisZ" type="Node3D" parent="." unique_id=462072704]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, 0, 0)
 
-[node name="Sun" type="MeshInstance3D" parent="SunAxis" unique_id=1231855716]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -50)
+[node name="SunAxisY" type="Marker3D" parent="SunAxisZ" unique_id=1781510234]
+transform = Transform3D(-0.8660254, 0, 0.50000006, 0, 1, 0, -0.50000006, 0, -0.8660254, 0, 0, 0)
+
+[node name="Sun" type="MeshInstance3D" parent="SunAxisZ/SunAxisY" unique_id=1231855716]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 50)
 layers = 32
 mesh = SubResource("QuadMesh_3pyl4")
+skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_18tmj")

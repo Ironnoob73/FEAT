@@ -1,4 +1,6 @@
 extends Control
+class_name PlayerHUDCaption
+
 @onready var cross_hair: TextureRect = $"../CrossHair"
 
 func get_mouse_pos() -> Vector2:
