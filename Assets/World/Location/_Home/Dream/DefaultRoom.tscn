@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cq8yj4ire6bd"]
 
 [ext_resource type="Script" uid="uid://ilybs8hyghla" path="res://Assets/World/Location/_Home/Dream/room_connector.gd" id="1_hxcpd"]
-[ext_resource type="PackedScene" uid="uid://cyesacqu3i41p" path="res://Assets/World/Location/_Home/Reality/inner_solid.tscn" id="1_ovru6"]
+[ext_resource type="PackedScene" uid="uid://cyesacqu3i41p" path="res://Assets/World/Location/_Home/source/inner_solid.tscn" id="1_ovru6"]
 [ext_resource type="PackedScene" uid="uid://dfmtp3c8wtlii" path="res://Resources/Object/Building/Window/SlidingWindow/Metal/window_scene.tscn" id="2_qgx3k"]
 [ext_resource type="PackedScene" uid="uid://donuwqtg3w83f" path="res://Resources/Object/Building/Door/FrontDoor/frame_scene.tscn" id="3_sagjl"]
 [ext_resource type="Material" uid="uid://dvhli2ihhy2nx" path="res://Resources/Material/BrownMaterial.tres" id="4_hxcpd"]
@@ -23,7 +23,7 @@
 [ext_resource type="PackedScene" uid="uid://loox8pt3yy0b" path="res://Resources/Object/Building/Light/WoodenCeilingLamp/light_scene_2.tscn" id="20_7mp2m"]
 [ext_resource type="PackedScene" uid="uid://bgt17ft12aj8t" path="res://Resources/Object/Building/Light/GeometryLamp/light_scene.tscn" id="21_w8jmi"]
 [ext_resource type="PackedScene" uid="uid://c8rdniten0l2h" path="res://Resources/Object/Building/Light/MetalCeilingLamp/light_scene.tscn" id="22_bbgv2"]
-[ext_resource type="PackedScene" uid="uid://bw84t8iylhanf" path="res://Assets/World/Location/_Home/Reality/outwall_solid.tscn" id="23_xwjmf"]
+[ext_resource type="PackedScene" uid="uid://bw84t8iylhanf" path="res://Assets/World/Location/_Home/source/outwall_solid.tscn" id="23_xwjmf"]
 [ext_resource type="ArrayMesh" uid="uid://35r3l2ggep57" path="res://Assets/World/Location/_Home/source/RoomView.obj" id="24_djm5n"]
 [ext_resource type="PackedScene" uid="uid://bgar67py461my" path="res://Resources/Object/Building/Fence/MetalFenceShort/fence_scene.tscn" id="24_jb1nh"]
 [ext_resource type="Material" uid="uid://rnxv6hl1w5ul" path="res://Resources/Material/DarkMaterial.tres" id="25_6wi2a"]

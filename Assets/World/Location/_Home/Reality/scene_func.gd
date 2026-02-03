@@ -2,7 +2,6 @@ extends Node
 
 @onready var computer_scene: AHL_Interactive = $"../Inner/ComputerScene"
 @onready var start_screen: Sprite2D = $"../StartScreen"
-var isStart: bool = false
 
 var player_is_falling: bool = false
 var current_pos: Vector3 = Vector3(0,0,0)
@@ -13,21 +12,23 @@ var current_vel: float = 0
 # Exit icon from: https://www.svgrepo.com/svg/509594/ja301-emergency-exit
 
 func _process(_delta: float) -> void:
-	if !isStart and Global.CurrentWorld.player0 != null:
-		isStart = true
+	if !Global.LaunchReady and Global.CurrentWorld.player0 != null:
+		Global.LaunchReady = true
 		Global.CurrentWorld.player0.set_meta("lock_hud_hidden",true)
 		Global.CurrentWorld.player0.set_meta("lock_menu",true)
+		start_screen.show()
 		computer_scene.interact(Global.CurrentWorld.player0)
+		var tween: Tween = create_tween().set_trans(Tween.TRANS_LINEAR)
+		var _p_tween: PropertyTweener = null
+		var _c_tween: CallbackTweener = null
 		if !Global.FastBoot or Global.oobe:
-			var tween = create_tween().set_trans(Tween.TRANS_LINEAR)
-			tween.tween_property(start_screen, "modulate:a", 0, 1).set_delay(1)
-			tween.tween_property(start_screen, "visible", false, 0)
+			_p_tween = tween.tween_property(start_screen, "modulate:a", 0, 1).set_delay(1)
+			_p_tween = tween.tween_property(start_screen, "visible", false, 0)
 		else:
-			var tween = create_tween().set_trans(Tween.TRANS_LINEAR)
-			tween.tween_property(start_screen, "modulate:a", 0, 0.1).set_delay(1)
-			tween.tween_property(start_screen, "visible", false, 0)
-			tween.tween_callback(func():Global.CurrentWorld.player0.remove_meta("lock_hud_hidden"))
-			tween.tween_callback(func():Global.CurrentWorld.player0.remove_meta("lock_menu"))
+			_p_tween = tween.tween_property(start_screen, "modulate:a", 0, 0.1).set_delay(1)
+			_p_tween = tween.tween_property(start_screen, "visible", false, 0)
+			_c_tween = tween.tween_callback(func()->void:Global.CurrentWorld.player0.remove_meta("lock_hud_hidden"))
+			_c_tween = tween.tween_callback(func()->void:Global.CurrentWorld.player0.remove_meta("lock_menu"))
 		
 	if player_is_falling:
 		current_vel = lerpf(current_vel, 0.005, 0.05)
@@ -36,22 +37,26 @@ func _process(_delta: float) -> void:
 
 func _on_drop_area_body_entered(body: Node3D) -> void:
 	if body is LocalPlayer:
+		var local_player: LocalPlayer = body
 		player_is_falling = true
-		current_pos = body.global_position
-		current_vel = abs(body.velocity.y) * 0.01
+		current_pos = local_player.global_position
+		current_vel = abs(local_player.velocity.y) * 0.01
 		
-		body.hide_hud(true)
-		body.set_meta("lock_hud_hidden",true)
+		local_player.hide_hud(true)
+		local_player.set_meta("lock_hud_hidden",true)
 
 func _on_exit_area_body_entered(body: Node3D) -> void:
 	if body is LocalPlayer:
-		body.current_menu = "exit"
-		body.hide_hud(true)
-		body.set_meta("lock_hud_hidden",true)
-		body.set_meta("lock_menu",true)
+		var local_player: LocalPlayer = body
+		local_player.current_menu = "exit"
+		local_player.hide_hud(true)
+		local_player.set_meta("lock_hud_hidden",true)
+		local_player.set_meta("lock_menu",true)
 
-		var tween = create_tween().set_trans(Tween.TRANS_LINEAR)
-		tween.tween_property(color_rect, "visible", true, 0)
-		tween.tween_property(color_rect, "color:a", 1, 1).set_delay(0.25)
-		tween.tween_property(exit_text, "modulate:a", 1, 2)
-		tween.tween_callback(func():get_tree().quit())
+		var tween: Tween = create_tween().set_trans(Tween.TRANS_LINEAR)
+		var _p_tween: PropertyTweener = null
+		var _c_tween: CallbackTweener = null
+		_p_tween = tween.tween_property(color_rect, "visible", true, 0)
+		_p_tween = tween.tween_property(color_rect, "color:a", 1, 1).set_delay(0.25)
+		_p_tween = tween.tween_property(exit_text, "modulate:a", 1, 2)
+		_c_tween = tween.tween_callback(func()->void:get_tree().quit())

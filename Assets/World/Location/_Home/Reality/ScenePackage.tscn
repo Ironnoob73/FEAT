@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://ryitjhnhr4hi"]
 
 [ext_resource type="Script" uid="uid://8h1wxcdqk41f" path="res://addons/abyss_history_lib/Class/World/ScenesPackageClass.gd" id="1_l8c88"]
-[ext_resource type="PackedScene" uid="uid://cyesacqu3i41p" path="res://Assets/World/Location/_Home/Reality/inner_solid.tscn" id="2_3lex0"]
+[ext_resource type="PackedScene" uid="uid://cyesacqu3i41p" path="res://Assets/World/Location/_Home/source/inner_solid.tscn" id="2_3lex0"]
 [ext_resource type="Script" uid="uid://cimdd8vkkv8w8" path="res://Assets/World/Location/_Home/Reality/scene_func.gd" id="2_4ge3f"]
 [ext_resource type="PackedScene" uid="uid://l5crfk031an5" path="res://Resources/Object/Function/SceneChanger/scene_changer_scene.tscn" id="3_aw5aa"]
 [ext_resource type="PackedScene" uid="uid://donuwqtg3w83f" path="res://Resources/Object/Building/Door/FrontDoor/frame_scene.tscn" id="3_yfurw"]
@@ -16,19 +16,23 @@
 [ext_resource type="PackedScene" uid="uid://coan3h6n6wobt" path="res://Resources/Object/Building/Light/FluorescentLamp/light_scene.tscn" id="9_wlm46"]
 [ext_resource type="PackedScene" uid="uid://drxt0mv3ci5ed" path="res://Resources/Object/Furniture/WoodenChair/chair_scene.tscn" id="10_88u2w"]
 [ext_resource type="PackedScene" uid="uid://big4v34tly2m8" path="res://Resources/Object/Furniture/WoodenTable/small_table_scene.tscn" id="10_u8ivk"]
+[ext_resource type="PackedScene" uid="uid://cr280da5kaqj4" path="res://Assets/World/Location/_Home/source/CorridorEnd.glb" id="11_4smbw"]
 [ext_resource type="PackedScene" uid="uid://bfnknq7q64y87" path="res://Resources/Object/Furniture/WoodenTable/long_table_scene.tscn" id="11_88u2w"]
 [ext_resource type="PackedScene" uid="uid://hqorbjiwa286" path="res://Resources/Object/Device/Computer/computer_scene.tscn" id="12_anj1l"]
+[ext_resource type="PackedScene" uid="uid://lixd4xll3bl0" path="res://Resources/Object/Building/Window/StaticGlass/glass_scene.tscn" id="12_brwdr"]
 [ext_resource type="PackedScene" uid="uid://cilrxiahcsdqu" path="res://Resources/Object/Building/Light/WoodenCeilingLamp/light_scene.tscn" id="13_36fuy"]
 [ext_resource type="PackedScene" uid="uid://ogtwuy5brc0t" path="res://Resources/Object/Building/Switch/Common/switch_scene.tscn" id="14_jhkpw"]
 [ext_resource type="Script" uid="uid://xi806lb1q3l3" path="res://addons/abyss_history_lib/Class/Interact/Behaviour/_BehaviorClass.gd" id="15_j4cn1"]
-[ext_resource type="PackedScene" uid="uid://bw84t8iylhanf" path="res://Assets/World/Location/_Home/Reality/outwall_solid.tscn" id="16_10fv7"]
+[ext_resource type="PackedScene" uid="uid://bw84t8iylhanf" path="res://Assets/World/Location/_Home/source/outwall_solid.tscn" id="16_10fv7"]
 [ext_resource type="Script" uid="uid://bcmxxhlef12pk" path="res://addons/abyss_history_lib/Class/Interact/Behaviour/SwitchBehaviorClass.gd" id="16_me8th"]
 [ext_resource type="PackedScene" uid="uid://bgar67py461my" path="res://Resources/Object/Building/Fence/MetalFenceShort/fence_scene.tscn" id="17_cpiu2"]
-[ext_resource type="PackedScene" uid="uid://cq0fptst1ma54" path="res://Assets/World/Location/_Home/Reality/corridor_solid.tscn" id="17_ovdeb"]
+[ext_resource type="PackedScene" uid="uid://cq0fptst1ma54" path="res://Assets/World/Location/_Home/source/corridor_solid.tscn" id="17_ovdeb"]
 [ext_resource type="Material" uid="uid://rnxv6hl1w5ul" path="res://Resources/Material/DarkMaterial.tres" id="18_tqptv"]
-[ext_resource type="PackedScene" uid="uid://b8dvqq3ll8sdr" path="res://Assets/World/Location/_Home/Reality/outwall_fake.tscn" id="21_4exlk"]
+[ext_resource type="PackedScene" uid="uid://b8dvqq3ll8sdr" path="res://Assets/World/Location/_Home/source/outwall_fake.tscn" id="21_4exlk"]
 [ext_resource type="Material" uid="uid://dcwav4237d0l3" path="res://Resources/Material/GrassGround.tres" id="22_jfaus"]
 [ext_resource type="PackedScene" uid="uid://er22co5l4pot" path="res://Assets/World/Location/_Home/source/ElevatorCorridor.glb" id="23_4exlk"]
+[ext_resource type="Script" uid="uid://4j2upwqk6ipe" path="res://Resources/Object/Device/Computer/InitScreenBehavior.gd" id="23_jk5bb"]
+[ext_resource type="PackedScene" uid="uid://epfvrhtul8sh" path="res://Resources/Object/Device/Computer/screen_container.tscn" id="23_pyug8"]
 [ext_resource type="PackedScene" uid="uid://n4mvu6pjwdnn" path="res://Assets/World/Location/_Home/source/StairWall.glb" id="25_g88dj"]
 [ext_resource type="PackedScene" uid="uid://loox8pt3yy0b" path="res://Resources/Object/Building/Light/WoodenCeilingLamp/light_scene_2.tscn" id="27_ejgib"]
 [ext_resource type="PackedScene" uid="uid://bgt17ft12aj8t" path="res://Resources/Object/Building/Light/GeometryLamp/light_scene.tscn" id="28_ilfl7"]
@@ -45,6 +49,23 @@
 script = ExtResource("7_7aooe")
 mesh_material = ExtResource("4_7aooe")
 metadata/_custom_type_script = "uid://bawnnel5w6hxg"
+
+[sub_resource type="Resource" id="Resource_xp221"]
+script = ExtResource("23_jk5bb")
+screen_path = NodePath("Screen")
+metadata/_custom_type_script = "uid://4j2upwqk6ipe"
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_qwgu1"]
+viewport_path = NodePath("ScreenViewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_gqj7s"]
+viewport_path = NodePath("ScreenViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_67guu"]
+resource_local_to_scene = true
+albedo_texture = SubResource("ViewportTexture_qwgu1")
+emission_enabled = true
+emission_texture = SubResource("ViewportTexture_gqj7s")
 
 [sub_resource type="Resource" id="Resource_tnxtw"]
 script = ExtResource("16_me8th")
@@ -116,7 +137,7 @@ metadata/_custom_type_script = "uid://8h1wxcdqk41f"
 [node name="SceneFunc" type="Node" parent="." unique_id=1625027979]
 script = ExtResource("2_4ge3f")
 
-[node name="Corridor0" parent="." unique_id=1004568968 instance=ExtResource("17_ovdeb")]
+[node name="Corridor0" parent="." unique_id=1453014514 instance=ExtResource("17_ovdeb")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 1, 0, -7)
 
 [node name="FrameScene0" parent="Corridor0" unique_id=1457914116 instance=ExtResource("3_yfurw")]
@@ -172,17 +193,29 @@ transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -47,
 [node name="FluorescentLampScene8" parent="Corridor0" unique_id=1858063618 instance=ExtResource("9_wlm46")]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 23, 3, -0.49999952)
 
-[node name="Corridor1" parent="Corridor0" unique_id=1010741470 instance=ExtResource("17_ovdeb")]
+[node name="Corridor1" parent="Corridor0" unique_id=8405001 instance=ExtResource("17_ovdeb")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 18, 0, -1)
 
-[node name="ElevatorCorridor2" parent="Corridor0" unique_id=263083081 instance=ExtResource("23_4exlk")]
+[node name="CorridorEnd" parent="Corridor0/Corridor1" unique_id=1250043029 instance=ExtResource("11_4smbw")]
+transform = Transform3D(-4.3711395e-08, 0, -1, 0, 1, 0, 1, 0, -4.3711395e-08, -8, 0, -0.5)
+
+[node name="StaticGlass" parent="Corridor0/Corridor1" unique_id=871910000 instance=ExtResource("12_brwdr")]
+transform = Transform3D(-2.1855693e-07, 0, -1, 0, 1, 0, 1, 0, -2.1855693e-07, -8.1, 1.5, -0.5)
+
+[node name="ElevatorCorridor2" parent="Corridor0" unique_id=605494700 instance=ExtResource("23_4exlk")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -12, 0, -1)
 
-[node name="Corridor3" parent="Corridor0" unique_id=867478046 instance=ExtResource("17_ovdeb")]
+[node name="Corridor3" parent="Corridor0" unique_id=79256836 instance=ExtResource("17_ovdeb")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -24, 0, -1.0000005)
 
-[node name="Corridor4" parent="Corridor0" unique_id=432198859 instance=ExtResource("17_ovdeb")]
+[node name="Corridor4" parent="Corridor0" unique_id=1198495968 instance=ExtResource("17_ovdeb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42, 0, 0)
+
+[node name="CorridorEnd" parent="Corridor0/Corridor4" unique_id=1059829326 instance=ExtResource("11_4smbw")]
+transform = Transform3D(-4.3711395e-08, 0, -1, 0, 1, 0, 1, 0, -4.3711395e-08, -8, 0, -0.5)
+
+[node name="StaticGlass" parent="Corridor0/Corridor4" unique_id=147802519 instance=ExtResource("12_brwdr")]
+transform = Transform3D(-2.1855693e-07, 0, -1, 0, 1, 0, 1, 0, -2.1855693e-07, -8.1, 1.5, -0.5)
 
 [node name="Outwall_fake0" parent="Corridor0" unique_id=960344475 instance=ExtResource("21_4exlk")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -41, 0, -7.000002)
@@ -427,6 +460,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 0, 7.5)
 
 [node name="ComputerScene" parent="Inner" unique_id=1682501872 instance=ExtResource("12_anj1l")]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -4.5, 1, 7.5)
+init_behavior = Array[ExtResource("15_j4cn1")]([SubResource("Resource_xp221")])
+
+[node name="Screen" parent="Inner/ComputerScene" unique_id=2089639586 instance=ExtResource("23_pyug8")]
+material_override = SubResource("StandardMaterial3D_67guu")
 
 [node name="WoodenCeilingLampScene" parent="Inner" unique_id=1004981330 instance=ExtResource("13_36fuy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 3, 5.5)
@@ -850,6 +887,7 @@ text = "reality.exit"
 horizontal_alignment = 1
 
 [node name="StartScreen" type="Sprite2D" parent="." unique_id=48348820]
+visible = false
 texture = ExtResource("37_4ge3f")
 centered = false
 

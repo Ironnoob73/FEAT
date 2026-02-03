@@ -1,9 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://3lvf15nrn1iy"]
+[gd_scene format=3 uid="uid://3lvf15nrn1iy"]
 
 [ext_resource type="Script" uid="uid://d0n5pkcl6t4uc" path="res://Resources/Object/Device/Computer/Sreen/window.gd" id="1_5c3pm"]
 [ext_resource type="Texture2D" uid="uid://tgauabrc2oa1" path="res://Resources/Image/missing.svg" id="2_5c3pm"]
 
-[node name="Window" type="Panel"]
+[node name="Window" type="Panel" unique_id=1180155851]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -18,7 +18,7 @@ grow_vertical = 2
 theme_type_variation = &"WindowBackground"
 script = ExtResource("1_5c3pm")
 
-[node name="VBox" type="VBoxContainer" parent="."]
+[node name="VBox" type="VBoxContainer" parent="." unique_id=782529192]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -26,31 +26,31 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="HBox" type="HBoxContainer" parent="VBox"]
+[node name="HBox" type="HBoxContainer" parent="VBox" unique_id=1593081428]
 layout_mode = 2
 
-[node name="Icon" type="TextureRect" parent="VBox/HBox"]
+[node name="Icon" type="TextureRect" parent="VBox/HBox" unique_id=1326067971]
 layout_mode = 2
 texture = ExtResource("2_5c3pm")
 expand_mode = 3
 
-[node name="Title" type="Label" parent="VBox/HBox"]
+[node name="Title" type="Label" parent="VBox/HBox" unique_id=1359416314]
 layout_mode = 2
 theme_type_variation = &"LargerLabel"
 text = "Title"
 
-[node name="ToRight" type="Control" parent="VBox/HBox"]
+[node name="ToRight" type="Control" parent="VBox/HBox" unique_id=954546774]
 layout_mode = 2
 size_flags_horizontal = 10
 
-[node name="MinimizeButton" type="Button" parent="VBox/HBox"]
+[node name="MinimizeButton" type="Button" parent="VBox/HBox" unique_id=89688487]
 visible = false
 custom_minimum_size = Vector2(32, 0)
 layout_mode = 2
 theme_type_variation = &"ButtonBlue"
 text = "🗕"
 
-[node name="MaximizeButton" type="Button" parent="VBox/HBox"]
+[node name="MaximizeButton" type="Button" parent="VBox/HBox" unique_id=1468291595]
 visible = false
 custom_minimum_size = Vector2(32, 0)
 layout_mode = 2
@@ -58,13 +58,13 @@ size_flags_horizontal = 8
 theme_type_variation = &"ButtonBlue"
 text = "🗖"
 
-[node name="CloseButton" type="Button" parent="VBox/HBox"]
+[node name="CloseButton" type="Button" parent="VBox/HBox" unique_id=1508704407]
 custom_minimum_size = Vector2(32, 0)
 layout_mode = 2
 theme_type_variation = &"ButtonRed"
 text = "🗙"
 
-[node name="WindowContainer" type="PanelContainer" parent="VBox"]
+[node name="WindowContainer" type="PanelContainer" parent="VBox" unique_id=214859893]
 layout_mode = 2
 size_flags_vertical = 3
 mouse_filter = 2

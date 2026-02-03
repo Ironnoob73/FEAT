@@ -6,7 +6,7 @@ extends TextureRect
 @onready var files_icon_name: Label = $DesktopIcons/FilesIcon/NameTag
 
 @onready var window_group: Control = $WindowGroup
-@onready var window_class = preload("res://Resources/Object/Device/Computer/Sreen/window.tscn")
+@onready var window_class: PackedScene = preload("res://Resources/Object/Device/Computer/Sreen/window.tscn")
 @onready var window_frame_anim: NinePatchRect = $WindowFrameAnim
 #@onready var windows_tab_bar: TabBar = $BottomTab/HBox/MarginContainer/TabBar
 
@@ -31,38 +31,42 @@ func _on_files_icon_pressed() -> void:
 	window_frame_anim.size = files_icon.size
 	window_frame_anim.position = files_icon.position
 	window_frame_anim.show()
-	var window = window_class.instantiate()
+	var window: ComputerWindow = window_class.instantiate()
 	window.hide()
 	window_group.add_child(window)
 	window.icon.texture = files_icon.icon
 	window.title.text = files_icon_name.text
-	var tween = create_tween()
-	tween.tween_property(window_frame_anim,"size",window.size,0.25)
-	tween.set_parallel().tween_property(window_frame_anim,"position",window.position,0.25)
-	tween.set_parallel(false).tween_callback(func():window_frame_anim.hide())
-	tween.tween_callback(func():window.show())
+	var tween: Tween = create_tween()
+	var _p_tween: PropertyTweener = null
+	var _c_tween: CallbackTweener = null
+	_p_tween = tween.tween_property(window_frame_anim,"size",window.size,0.25)
+	_p_tween = tween.set_parallel().tween_property(window_frame_anim,"position",window.position,0.25)
+	_c_tween = tween.set_parallel(false).tween_callback(func()->void:window_frame_anim.hide())
+	_c_tween = tween.tween_callback(func()->void:window.show())
 	#windows_tab_bar.add_tab(files_icon_name.text, files_icon.icon)
 
 func _on_start_button_toggled(toggled_on: bool) -> void:
-	if !get_parent().is_offing:
-		var tween = create_tween()
+	var main_screen: ComputerScreen = get_parent()
+	if !main_screen.is_offing:
+		var tween: Tween = create_tween()
+		var _p_tween: PropertyTweener = null
+		var _c_tween: CallbackTweener = null
 		isStartMenuOpen = toggled_on
 		if toggled_on:
-			tween.tween_callback(func():start_menu.show())
-			tween.tween_property(start_menu,"position:y",215,0.25)
+			_c_tween = tween.tween_callback(func()->void:start_menu.show())
+			_p_tween = tween.tween_property(start_menu,"position:y",215,0.25)
 			user_name.text = Global.playerName
 			user_duid.text = Global.duid
 			user_avatar.icon = Global.avatar
 		else:
-			tween.tween_property(start_menu,"position:y",768,0.25)
-			tween.tween_callback(func():start_menu.hide())
+			_p_tween = tween.tween_property(start_menu,"position:y",768,0.25)
+			_c_tween = tween.tween_callback(func()->void:start_menu.hide())
 		
 func _input(event: InputEvent) -> void:
-	if event is InputEventMouseButton\
-	and event.button_index == 1\
-	and event.is_pressed\
-	and isStartMenuOpen:
-		handle_mouse_click()
+	if event is InputEventMouseButton:
+		var mouse_event: InputEventMouseButton = event
+		if mouse_event.button_index == 1 and mouse_event.is_pressed and isStartMenuOpen:
+			handle_mouse_click()
 		
 func handle_mouse_click() -> void:
 	if !isStartMenuHover:

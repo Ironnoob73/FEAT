@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://epfvrhtul8sh"]
+
+[ext_resource type="Script" uid="uid://kvblvqmmderc" path="res://Resources/Object/Device/Computer/Sreen/ScreenInput.gd" id="1_8yuky"]
+[ext_resource type="PackedScene" uid="uid://ivqad25m6mqq" path="res://Resources/Object/Device/Computer/Sreen/computer_screen.tscn" id="2_kyaql"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_8yuky"]
+viewport_path = NodePath("ScreenViewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_kyaql"]
+viewport_path = NodePath("ScreenViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ihl0y"]
+resource_local_to_scene = true
+albedo_texture = SubResource("ViewportTexture_8yuky")
+emission_enabled = true
+emission_texture = SubResource("ViewportTexture_kyaql")
+
+[sub_resource type="QuadMesh" id="QuadMesh_ihl0y"]
+size = Vector2(0.7, 0.5)
+center_offset = Vector3(0, 0.5, 0.07)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6wpru"]
+size = Vector3(0.7, 0.5, 0.001)
+
+[node name="Screen" type="MeshInstance3D" unique_id=2089639586]
+material_override = SubResource("StandardMaterial3D_ihl0y")
+mesh = SubResource("QuadMesh_ihl0y")
+skeleton = NodePath("../Body/CollisionShape3D")
+script = ExtResource("1_8yuky")
+
+[node name="Body" type="StaticBody3D" parent="." unique_id=319053649]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0.07)
+collision_layer = 257
+
+[node name="CollisionShape" type="CollisionShape3D" parent="Body" unique_id=1411802297]
+shape = SubResource("BoxShape3D_6wpru")
+
+[node name="ScreenViewport" type="SubViewport" parent="." unique_id=1783447095]
+own_world_3d = true
+transparent_bg = true
+gui_embed_subwindows = true
+size = Vector2i(1080, 768)
+
+[node name="ComputerScreen" parent="ScreenViewport" unique_id=637908791 instance=ExtResource("2_kyaql")]
+
+[connection signal="offing" from="ScreenViewport/ComputerScreen" to="." method="_on_computer_screen_offing"]
+
+[editable path="ScreenViewport/ComputerScreen"]

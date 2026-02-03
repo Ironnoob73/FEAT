@@ -1,4 +1,5 @@
 extends Control
+class_name ComputerScreen
 
 @onready var desktop: TextureRect = $Desktop
 @onready var cursor: Sprite2D = $Cursor
@@ -26,12 +27,14 @@ func _ready() -> void:
 		desktop.process_mode = Node.PROCESS_MODE_DISABLED
 		start_screen.show()
 		var tween: Tween = create_tween().set_trans(Tween.TRANS_LINEAR)
-		tween.tween_callback(func()->void:start_screen.hide()).set_delay(5)
-		tween.tween_callback(func()->void:cursor.show()).set_delay(1)
+		var _c_tween: CallbackTweener = null
+		_c_tween = tween.tween_callback(func()->void:start_screen.hide()).set_delay(5)
+		_c_tween = tween.tween_callback(func()->void:cursor.show()).set_delay(1)
 		if !Global.oobe:
-			tween.tween_callback(func()->void:ready_desktop()).set_delay(1)
+			_c_tween = tween.tween_callback(func()->void:ready_desktop()).set_delay(1)
 		else:
-			tween.tween_callback(func()->void:add_child(load("res://Assets/UI/Computer/oobe.tscn").instantiate()))
+			var oobe_interface: PackedScene = load("res://Assets/UI/Computer/oobe.tscn")
+			_c_tween = tween.tween_callback(func()->void:add_child(oobe_interface.instantiate()))
 	else:
 		cursor.show()
 		desktop.show()
@@ -42,35 +45,37 @@ func ready_desktop() -> void:
 	bottom_tab.hide()
 	start_button.hide()
 	time.hide()
-	for i in desktop_icons.get_children():
+	for i: Button in desktop_icons.get_children():
 		i.hide()
 	desktop.show()
 	var tween: Tween = create_tween().set_trans(Tween.TRANS_LINEAR)
-	tween.tween_callback(func()->void:welcome_screen.hide()).set_delay(3)
-	tween.tween_callback(func()->void:desktop.show())
-	tween.tween_callback(func():desktop.process_mode = Node.PROCESS_MODE_INHERIT)
-	tween.tween_callback(func():Global.CurrentWorld.player0.remove_meta("lock_hud_hidden"))
-	tween.tween_callback(func():Global.CurrentWorld.player0.remove_meta("lock_menu"))
-	tween.tween_callback(func():bottom_tab.show()).set_delay(0.5)
-	tween.tween_callback(func():start_button.show()).set_delay(0.5)
-	tween.tween_callback(func():time.show()).set_delay(0.1)
-	for i in desktop_icons.get_children():
-		tween.tween_callback(func():i.show()).set_delay(0.1)
+	var _c_tween: CallbackTweener = null
+	_c_tween = tween.tween_callback(func()->void:welcome_screen.hide()).set_delay(3)
+	_c_tween = tween.tween_callback(func()->void:desktop.show())
+	_c_tween = tween.tween_callback(func()->void:desktop.process_mode = Node.PROCESS_MODE_INHERIT)
+	_c_tween = tween.tween_callback(func()->void:Global.CurrentWorld.player0.remove_meta("lock_hud_hidden"))
+	_c_tween = tween.tween_callback(func()->void:Global.CurrentWorld.player0.remove_meta("lock_menu"))
+	_c_tween = tween.tween_callback(func()->void:bottom_tab.show()).set_delay(0.5)
+	_c_tween = tween.tween_callback(func()->void:start_button.show()).set_delay(0.5)
+	_c_tween = tween.tween_callback(func()->void:time.show()).set_delay(0.1)
+	for i: Button in desktop_icons.get_children():
+		_c_tween = tween.tween_callback(func()->void:i.show()).set_delay(0.1)
 
 func _on_off_button_pressed() -> void:
 	if !is_offing:
-		Global.CurrentWorld.player0.remove_meta("lock_hud_hidden")
-		Global.CurrentWorld.player0.remove_meta("lock_menu")
+		Global.CurrentWorld.player0.set_meta("lock_hud_hidden",true)
+		Global.CurrentWorld.player0.set_meta("lock_menu",true)
 		start_button.button_pressed = false
 		is_offing = true
-		var tween = create_tween().set_trans(Tween.TRANS_LINEAR)
-		tween.tween_callback(func():offing.emit())
-		tween.tween_callback(func():desktop_icons.hide()).set_delay(1)
-		tween.tween_callback(func():window_group.hide()).set_delay(1)
-		tween.tween_callback(func():start_button.hide()).set_delay(1)
-		tween.tween_callback(func():time.hide()).set_delay(0.1)
-		tween.tween_callback(func():bottom_tab.hide()).set_delay(0.5)
-		tween.tween_callback(func():cursor.hide()).set_delay(0.5)
-		tween.tween_callback(func():off_screen.show()).set_delay(1)
-		tween.tween_callback(func():hide()).set_delay(5)
-		tween.tween_callback(func():get_tree().quit()).set_delay(0.5)
+		var tween: Tween = create_tween().set_trans(Tween.TRANS_LINEAR)
+		var _c_tween: CallbackTweener = null
+		_c_tween = tween.tween_callback(func()->void:offing.emit())
+		_c_tween = tween.tween_callback(func()->void:desktop_icons.hide()).set_delay(1)
+		_c_tween = tween.tween_callback(func()->void:window_group.hide()).set_delay(1)
+		_c_tween = tween.tween_callback(func()->void:start_button.hide()).set_delay(1)
+		_c_tween = tween.tween_callback(func()->void:time.hide()).set_delay(0.1)
+		_c_tween = tween.tween_callback(func()->void:bottom_tab.hide()).set_delay(0.5)
+		_c_tween = tween.tween_callback(func()->void:cursor.hide()).set_delay(0.5)
+		_c_tween = tween.tween_callback(func()->void:off_screen.show()).set_delay(1)
+		_c_tween = tween.tween_callback(func()->void:hide()).set_delay(5)
+		_c_tween = tween.tween_callback(func()->void:get_tree().quit()).set_delay(0.5)

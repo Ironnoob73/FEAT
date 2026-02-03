@@ -12,6 +12,8 @@ var oobe: bool = true
 # But now will load from the Main World
 # var THE_PLAYER: LocalPlayer = null
 var CurrentWorld: World = null
+# Gameflow Control
+var LaunchReady: bool = false
 
 # Load options
 var load_use_sub_threads : bool = false

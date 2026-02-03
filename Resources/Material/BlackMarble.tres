@@ -1,0 +1,9 @@
+[gd_resource type="ORMMaterial3D" format=3 uid="uid://bt5e1r453jqg3"]
+
+[ext_resource type="Texture2D" uid="uid://kbcwysbyvpds" path="res://Resources/Material/Sources/BlackMarble_albedo.png" id="1_gikh6"]
+[ext_resource type="Texture2D" uid="uid://dsbg2k5lqpopb" path="res://Resources/Material/Sources/BlackMarble_orm.png" id="2_rboxw"]
+
+[resource]
+albedo_texture = ExtResource("1_gikh6")
+orm_texture = ExtResource("2_rboxw")
+texture_filter = 0
