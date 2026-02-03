@@ -56,7 +56,7 @@ func _ready() -> void:
 		i.do(self,null)
 	init_behavior_signal.emit()
 
-func interact(sender):
+func interact(sender:Node) -> void:
 	if Switchable:
 		state = !state
 		
@@ -65,7 +65,7 @@ func interact(sender):
 	
 	interact_signal.emit(self,sender)
 	
-func receive_attack(damage_res:AHL_DamageResClass,sender):
+func receive_attack(damage_res:AHL_DamageResClass,sender:Node) -> void:
 	if Hurtable:
 		if current_health >= 0:
 			current_health -= damage_res.damage_point

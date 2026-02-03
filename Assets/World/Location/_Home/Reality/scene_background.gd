@@ -9,6 +9,8 @@ var cloud_1_noise: FastNoiseLite = null
 @onready var star: MeshInstance3D = $Star
 var star_material: StandardMaterial3D = null
 var star_noise: FastNoiseLite = null
+@onready var sun: MeshInstance3D = $SunAxisZ/SunAxisY/Sun
+var sun_material: StandardMaterial3D = null
 
 @onready var sun_axis_z: Node3D = $SunAxisZ
 @onready var sun_axis_y: Marker3D = $SunAxisZ/SunAxisY
@@ -31,26 +33,34 @@ func _ready() -> void:
 	star_noise = star_texture.get_noise()
 	star_noise.seed = time_seed
 	
+	sun_material = sun.get_surface_override_material(0)
+	
 func _process(delta: float) -> void:
 	if Global.CurrentWorld != null:
 		cloud_0_noise.offset += Vector3(delta,delta,delta)
 		cloud_1_noise.offset += Vector3(delta/8,delta/8,delta/8)
 		star_noise.offset.z += delta / 32
 		var day_percent: float = Global.CurrentWorld.day_percent
+		
 		if day_percent < 0.5:
 			star_material.albedo_color.a = 0
 		elif day_percent >= 0.5 and day_percent < 0.6:
 			star_material.albedo_color.a = (day_percent - 0.5) / 0.1
 		elif day_percent >= 0.6 and day_percent < 0.9:
 			star_material.albedo_color.a = 1
-			cloud_0_material.albedo_color.r = 0
-			cloud_0_material.albedo_color.g = 0
-			cloud_0_material.albedo_color.b = 0.5
 		elif day_percent >= 0.9:
 			star_material.albedo_color.a = 1 - ((day_percent - 0.9) / 0.1)
 	
 		cloud_0_material.albedo_color = Global.CurrentWorld.ambient_color
 		cloud_1_material.albedo_color = cloud_0_material.albedo_color
+		
+		if day_percent >= 0.3 and day_percent < 0.5:
+			sun_material.albedo_color.g = 1 - ((day_percent - 0.3) / 0.2 * 0.25)
+			sun_material.albedo_color.b = 1 - ((day_percent - 0.3) / 0.2)
+		elif day_percent >= 0.5 and day_percent < 0.6:
+			sun_material.albedo_color = Color(1,0.75,0)
+		else:
+			sun_material.albedo_color = Color(1,1,1)
 		
 	star.rotate_x(deg_to_rad(0.01))
 	star.rotate_y(deg_to_rad(0.01))

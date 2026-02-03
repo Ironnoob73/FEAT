@@ -94,11 +94,10 @@ func _process(_delta: float) -> void:
 		sun.visible = false
 	# Ambient Color
 	var day_offset: float = 0
-	if day_percent >= 0.2:
-		day_offset = day_percent - 0.2
+	if day_percent >= 0.25:
+		day_offset = day_percent - 0.25
 	else:
-		day_offset = day_percent + 0.8
-	print(day_offset)
+		day_offset = day_percent + 0.75
 	if day_offset <= 0.25:
 		ambient_color.r = 0.63 + (0.37 * day_offset * 4)
 		ambient_color.g = 0.64 - (0.02 * day_offset * 4)
@@ -116,7 +115,7 @@ func _process(_delta: float) -> void:
 	
 	var current_env: Environment = env.get_environment()
 	var current_sky: Sky = current_env.get_sky()
-	if current_sky.get_material() is ProceduralSkyMaterial:
+	if current_sky.get_material() is ProceduralSkyMaterial and real_time:
 		var current_sky_material: ProceduralSkyMaterial = current_sky.get_material()
 		current_sky_material.ground_horizon_color = current_sky_material.sky_horizon_color
 		current_sky_material.ground_bottom_color = ambient_color

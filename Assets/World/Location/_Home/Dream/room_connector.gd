@@ -12,4 +12,5 @@ func _on_door_plate_interact_signal(_interactor: Variant, sender: Variant) -> vo
 	open_door.emit(sender)
 
 func _open_door(sender: Variant) -> void:
-	door_plate.interact(sender)
+	var p_sender: Variant = sender
+	door_plate.interact(p_sender)

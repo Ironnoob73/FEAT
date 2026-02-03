@@ -8,7 +8,7 @@
 
 [node name="World" type="Node3D" unique_id=1038144871]
 script = ExtResource("1_4lhai")
-time_speed = 100
+global_time = 46500
 metadata/Dim = "Overworld"
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1079999843]
