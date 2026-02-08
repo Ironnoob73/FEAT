@@ -3,8 +3,8 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dt5hmkqjqacb0"
-path.s3tc="res://.godot/imported/WhiteMetal_normal.png-3b0d85e48de509184fbb0d9434383431.s3tc.ctex"
-path.etc2="res://.godot/imported/WhiteMetal_normal.png-3b0d85e48de509184fbb0d9434383431.etc2.ctex"
+path.s3tc="res://.godot/imported/WhiteMetal_normal.png-adce0b985f6bc161679fe4289796ea64.s3tc.ctex"
+path.etc2="res://.godot/imported/WhiteMetal_normal.png-adce0b985f6bc161679fe4289796ea64.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,14 +12,16 @@ metadata={
 
 [deps]
 
-source_file="res://Resources/Material/Sources/WhiteMetal_normal.png"
-dest_files=["res://.godot/imported/WhiteMetal_normal.png-3b0d85e48de509184fbb0d9434383431.s3tc.ctex", "res://.godot/imported/WhiteMetal_normal.png-3b0d85e48de509184fbb0d9434383431.etc2.ctex"]
+source_file="res://Resources/Material/sources/WhiteMetal_normal.png"
+dest_files=["res://.godot/imported/WhiteMetal_normal.png-adce0b985f6bc161679fe4289796ea64.s3tc.ctex", "res://.godot/imported/WhiteMetal_normal.png-adce0b985f6bc161679fe4289796ea64.etc2.ctex"]
 
 [params]
 
 compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
+compress/uastc_level=0
+compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
 compress/normal_map=1
 compress/channel_pack=0
@@ -27,6 +29,10 @@ mipmaps/generate=true
 mipmaps/limit=-1
 roughness/mode=1
 roughness/src_normal="res://Resources/Material/WhiteMetal_normal.png"
+process/channel_remap/red=0
+process/channel_remap/green=1
+process/channel_remap/blue=2
+process/channel_remap/alpha=3
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/normal_map_invert_y=false

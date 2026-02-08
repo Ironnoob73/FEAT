@@ -12,7 +12,7 @@ var open : bool = false
 		mesh_material = material
 		if Engine.is_editor_hint():
 			material_setter()
-var lock = func () : return get_parent().get_meta('lock_int',0)
+var lock: Callable = func()->void : return get_parent().get_meta('lock_int',0)
 
 @onready var mesh = $Mesh
 @onready var lock_tip_f = $LockTipF
@@ -67,7 +67,7 @@ func get_c_material() -> Material:
 func get_c_color() -> Color:
 	return get_parent().get_meta('c_color',mesh_color)
 	
-func _state_change():
+func _state_change() -> void:
 	if get_parent() is AHL_Interactive && !get_lock():
 		if get_parent().state:
 			get_parent().interact_text = "interact.close"

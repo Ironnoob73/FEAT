@@ -3,8 +3,8 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ct8p6tpd62ira"
-path.s3tc="res://.godot/imported/SmoothCotton_normal.png-ea042b6db55226137a5faa7e54c8a527.s3tc.ctex"
-path.etc2="res://.godot/imported/SmoothCotton_normal.png-ea042b6db55226137a5faa7e54c8a527.etc2.ctex"
+path.s3tc="res://.godot/imported/SmoothCotton_normal.png-397ff50d4d4c10bf83c2a0f19988a279.s3tc.ctex"
+path.etc2="res://.godot/imported/SmoothCotton_normal.png-397ff50d4d4c10bf83c2a0f19988a279.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://Resources/Material/Sources/SmoothCotton_normal.png"
-dest_files=["res://.godot/imported/SmoothCotton_normal.png-ea042b6db55226137a5faa7e54c8a527.s3tc.ctex", "res://.godot/imported/SmoothCotton_normal.png-ea042b6db55226137a5faa7e54c8a527.etc2.ctex"]
+source_file="res://Resources/Material/sources/SmoothCotton_normal.png"
+dest_files=["res://.godot/imported/SmoothCotton_normal.png-397ff50d4d4c10bf83c2a0f19988a279.s3tc.ctex", "res://.godot/imported/SmoothCotton_normal.png-397ff50d4d4c10bf83c2a0f19988a279.etc2.ctex"]
 
 [params]
 

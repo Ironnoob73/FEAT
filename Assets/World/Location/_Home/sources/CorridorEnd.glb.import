@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cqi0rbp5vmcr0"
-path="res://.godot/imported/Outwall.glb-713a732bb1f97c6ffc85733e022641c6.scn"
+uid="uid://cr280da5kaqj4"
+path="res://.godot/imported/CorridorEnd.glb-8c8316e4281161c8ecb1731128e0fc7c.scn"
 
 [deps]
 
-source_file="res://Assets/World/Location/_Home/source/Outwall.glb"
-dest_files=["res://.godot/imported/Outwall.glb-713a732bb1f97c6ffc85733e022641c6.scn"]
+source_file="res://Assets/World/Location/_Home/sources/CorridorEnd.glb"
+dest_files=["res://.godot/imported/CorridorEnd.glb-8c8316e4281161c8ecb1731128e0fc7c.scn"]
 
 [params]
 

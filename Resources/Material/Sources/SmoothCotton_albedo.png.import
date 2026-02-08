@@ -3,8 +3,8 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bwbw200xoxanj"
-path.s3tc="res://.godot/imported/SmoothCotton_albedo.png-6e4203f407dc0ed93ec28475b2188ea6.s3tc.ctex"
-path.etc2="res://.godot/imported/SmoothCotton_albedo.png-6e4203f407dc0ed93ec28475b2188ea6.etc2.ctex"
+path.s3tc="res://.godot/imported/SmoothCotton_albedo.png-962fb3d6a77ae1cf12c7e071134e9474.s3tc.ctex"
+path.etc2="res://.godot/imported/SmoothCotton_albedo.png-962fb3d6a77ae1cf12c7e071134e9474.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://Resources/Material/Sources/SmoothCotton_albedo.png"
-dest_files=["res://.godot/imported/SmoothCotton_albedo.png-6e4203f407dc0ed93ec28475b2188ea6.s3tc.ctex", "res://.godot/imported/SmoothCotton_albedo.png-6e4203f407dc0ed93ec28475b2188ea6.etc2.ctex"]
+source_file="res://Resources/Material/sources/SmoothCotton_albedo.png"
+dest_files=["res://.godot/imported/SmoothCotton_albedo.png-962fb3d6a77ae1cf12c7e071134e9474.s3tc.ctex", "res://.godot/imported/SmoothCotton_albedo.png-962fb3d6a77ae1cf12c7e071134e9474.etc2.ctex"]
 
 [params]
 

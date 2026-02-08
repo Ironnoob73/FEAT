@@ -1,19 +1,19 @@
 [gd_scene format=3 uid="uid://deue8e3ut26s4"]
 
-[ext_resource type="PackedScene" uid="uid://cq0fptst1ma54" path="res://Assets/World/Location/_Home/source/corridor_solid.tscn" id="1_khq8m"]
+[ext_resource type="PackedScene" uid="uid://cq0fptst1ma54" path="res://Assets/World/Location/_Home/sources/corridor_solid.tscn" id="1_khq8m"]
 [ext_resource type="Script" uid="uid://ilybs8hyghla" path="res://Assets/World/Location/_Home/Dream/room_connector.gd" id="1_xhdx5"]
-[ext_resource type="PackedScene" uid="uid://o7ycdpol2i7h" path="res://Assets/World/Location/_Home/source/elevator_corridor_solid.tscn" id="2_xhdx5"]
+[ext_resource type="PackedScene" uid="uid://o7ycdpol2i7h" path="res://Assets/World/Location/_Home/sources/elevator_corridor_solid.tscn" id="2_xhdx5"]
 [ext_resource type="PackedScene" uid="uid://donuwqtg3w83f" path="res://Resources/Object/Building/Door/FrontDoor/frame_scene.tscn" id="3_65yf4"]
-[ext_resource type="PackedScene" uid="uid://dw2bb58uuqtoo" path="res://Assets/World/Location/_Home/source/corridor_end.tscn" id="3_mh8nc"]
+[ext_resource type="PackedScene" uid="uid://dw2bb58uuqtoo" path="res://Assets/World/Location/_Home/sources/corridor_end.tscn" id="3_mh8nc"]
 [ext_resource type="PackedScene" uid="uid://lixd4xll3bl0" path="res://Resources/Object/Building/Window/StaticGlass/glass_scene.tscn" id="4_11pt0"]
 [ext_resource type="PackedScene" uid="uid://coan3h6n6wobt" path="res://Resources/Object/Building/Light/FluorescentLamp/light_scene.tscn" id="4_65yf4"]
 [ext_resource type="Material" uid="uid://dvhli2ihhy2nx" path="res://Resources/Material/BrownMaterial.tres" id="4_mh8nc"]
 [ext_resource type="PackedScene" uid="uid://ds1bb3oh6akpf" path="res://Resources/Object/Building/Door/PlainDoor/door_scene.tscn" id="5_11pt0"]
+[ext_resource type="PackedScene" uid="uid://cmwntv1ors126" path="res://Assets/World/Location/_Home/sources/stair_corridor_solid.tscn" id="6_bdjbn"]
 [ext_resource type="Script" uid="uid://xi806lb1q3l3" path="res://addons/abyss_history_lib/Class/Interact/Behaviour/_BehaviorClass.gd" id="6_shdyq"]
 [ext_resource type="Script" uid="uid://bawnnel5w6hxg" path="res://addons/abyss_history_lib/Class/Interact/Behaviour/ChangeMaterialBehaviorClass.gd" id="7_bdjbn"]
-[ext_resource type="ArrayMesh" uid="uid://35r3l2ggep57" path="res://Assets/World/Location/_Home/source/RoomView.obj" id="8_8lytu"]
-[ext_resource type="Shader" uid="uid://cyxv26lgbbfge" path="res://Assets/World/Environments/background_shader.gdshader" id="9_jn1r0"]
-[ext_resource type="PackedScene" uid="uid://2jr0tjnjphjq" path="res://Assets/World/Location/_ZhuShan/Sources/DowntownBuildings/TravelAgencySideStairPart.tscn" id="10_kslcc"]
+[ext_resource type="ArrayMesh" uid="uid://35r3l2ggep57" path="res://Assets/World/Location/_Home/sources/RoomView.obj" id="8_8lytu"]
+[ext_resource type="Shader" uid="uid://cyxv26lgbbfge" path="res://Assets/World/Environments/sources/background_shader.gdshader" id="9_jn1r0"]
 
 [sub_resource type="Resource" id="Resource_e7spv"]
 script = ExtResource("7_bdjbn")
@@ -33,10 +33,10 @@ size = Vector3(2, 0.1, 1)
 [node name="TheCorridor" type="Node3D" unique_id=215228121]
 script = ExtResource("1_xhdx5")
 
-[node name="Corridor0" parent="." unique_id=382883822 instance=ExtResource("1_khq8m")]
+[node name="Corridor0" parent="." unique_id=1835768 instance=ExtResource("1_khq8m")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 13, 0, 0)
 
-[node name="Corridor1" parent="Corridor0" unique_id=1284800297 instance=ExtResource("1_khq8m")]
+[node name="Corridor1" parent="Corridor0" unique_id=1458496395 instance=ExtResource("1_khq8m")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 18, 0, -0.99999994)
 
 [node name="CorridorEnd" parent="Corridor0/Corridor1" unique_id=1250043029 instance=ExtResource("3_mh8nc")]
@@ -45,16 +45,25 @@ transform = Transform3D(-4.3711395e-08, 0, -1, 0, 1, 0, 1, 0, -4.3711395e-08, -8
 [node name="StaticGlass" parent="Corridor0/Corridor1" unique_id=149899061 instance=ExtResource("4_11pt0")]
 transform = Transform3D(-2.1855693e-07, 0, -1, 0, 1, 0, 1, 0, -2.1855693e-07, -8.1, 1.5, -0.5)
 
-[node name="ElevatorCorridorSolid" parent="Corridor0" unique_id=567454598 instance=ExtResource("2_xhdx5")]
+[node name="ElevatorCorridorSolid" parent="Corridor0" unique_id=39811513 instance=ExtResource("2_xhdx5")]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -12, 0, -0.99999994)
 
-[node name="Corridor2" parent="Corridor0" unique_id=1351213511 instance=ExtResource("1_khq8m")]
+[node name="StairCorridor0" parent="Corridor0/ElevatorCorridorSolid" unique_id=21606448 instance=ExtResource("6_bdjbn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 7)
+
+[node name="StairCorridor1" parent="Corridor0/ElevatorCorridorSolid" unique_id=796979045 instance=ExtResource("6_bdjbn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4, 7)
+
+[node name="StairCorridor2" parent="Corridor0/ElevatorCorridorSolid" unique_id=430424266 instance=ExtResource("6_bdjbn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 7)
+
+[node name="Corridor2" parent="Corridor0" unique_id=1266449722 instance=ExtResource("1_khq8m")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -24, 0, -1)
 
-[node name="Corridor3" parent="Corridor0" unique_id=1324690561 instance=ExtResource("1_khq8m")]
+[node name="Corridor3" parent="Corridor0" unique_id=1438150762 instance=ExtResource("1_khq8m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42, 0, 0)
 
-[node name="CorridorEnd" parent="Corridor0/Corridor3" unique_id=1884164318 instance=ExtResource("3_mh8nc")]
+[node name="CorridorEnd" parent="Corridor0/Corridor3" unique_id=331003577 instance=ExtResource("3_mh8nc")]
 transform = Transform3D(-4.3711395e-08, 0, -1, 0, 1, 0, 1, 0, -4.3711395e-08, -8, 0, -0.5)
 
 [node name="StaticGlass" parent="Corridor0/Corridor3" unique_id=1637747330 instance=ExtResource("4_11pt0")]
@@ -86,15 +95,6 @@ transform = Transform3D(1, 0, -1.7484555e-07, 0, 1, 0, 1.7484555e-07, 0, 1, 23, 
 
 [node name="FluorescentLampScene8" parent="Corridor0" unique_id=451680261 instance=ExtResource("4_65yf4")]
 transform = Transform3D(1, 0, -1.7484555e-07, 0, 1, 0, 1.7484555e-07, 0, 1, -47, 3, -0.5000046)
-
-[node name="TravelAgencySideStairPart0" parent="Corridor0" unique_id=116452541 instance=ExtResource("10_kslcc")]
-transform = Transform3D(-1.27, 0, 8.742278e-08, 0, 1, 0, -1.1102693e-07, 0, -1, -12, -4, -3.000001)
-
-[node name="TravelAgencySideStairPart1" parent="Corridor0" unique_id=204814938 instance=ExtResource("10_kslcc")]
-transform = Transform3D(-1.27, 0, 8.742278e-08, 0, 1, 0, -1.1102693e-07, 0, -1, -12, -8, -3.000001)
-
-[node name="TravelAgencySideStairPart2" parent="Corridor0" unique_id=1339633784 instance=ExtResource("10_kslcc")]
-transform = Transform3D(-1.27, 0, 8.742278e-08, 0, 1, 0, -1.1102693e-07, 0, -1, -12, 0, -3.000001)
 
 [node name="FrameScene0" parent="." unique_id=285703112 instance=ExtResource("3_65yf4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, 3.0000002)

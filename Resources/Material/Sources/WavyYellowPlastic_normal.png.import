@@ -3,8 +3,8 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://rwfc34k3a7uv"
-path.s3tc="res://.godot/imported/WavyYellowPlastic_normal.png-4fd97f16bf5c7d7fccd74fe1e5ecb355.s3tc.ctex"
-path.etc2="res://.godot/imported/WavyYellowPlastic_normal.png-4fd97f16bf5c7d7fccd74fe1e5ecb355.etc2.ctex"
+path.s3tc="res://.godot/imported/WavyYellowPlastic_normal.png-ffef2ec8ed17a06d20234f2c2524ec53.s3tc.ctex"
+path.etc2="res://.godot/imported/WavyYellowPlastic_normal.png-ffef2ec8ed17a06d20234f2c2524ec53.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://Resources/Material/Sources/WavyYellowPlastic_normal.png"
-dest_files=["res://.godot/imported/WavyYellowPlastic_normal.png-4fd97f16bf5c7d7fccd74fe1e5ecb355.s3tc.ctex", "res://.godot/imported/WavyYellowPlastic_normal.png-4fd97f16bf5c7d7fccd74fe1e5ecb355.etc2.ctex"]
+source_file="res://Resources/Material/sources/WavyYellowPlastic_normal.png"
+dest_files=["res://.godot/imported/WavyYellowPlastic_normal.png-ffef2ec8ed17a06d20234f2c2524ec53.s3tc.ctex", "res://.godot/imported/WavyYellowPlastic_normal.png-ffef2ec8ed17a06d20234f2c2524ec53.etc2.ctex"]
 
 [params]
 

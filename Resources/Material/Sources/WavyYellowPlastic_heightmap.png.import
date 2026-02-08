@@ -3,8 +3,8 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://d1g61obdnc2gh"
-path.s3tc="res://.godot/imported/WavyYellowPlastic_heightmap.png-325f7e1fbab666a1197e67e4ee7bb448.s3tc.ctex"
-path.etc2="res://.godot/imported/WavyYellowPlastic_heightmap.png-325f7e1fbab666a1197e67e4ee7bb448.etc2.ctex"
+path.s3tc="res://.godot/imported/WavyYellowPlastic_heightmap.png-a09302bc861bc67461c9628ab4d37806.s3tc.ctex"
+path.etc2="res://.godot/imported/WavyYellowPlastic_heightmap.png-a09302bc861bc67461c9628ab4d37806.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://Resources/Material/Sources/WavyYellowPlastic_heightmap.png"
-dest_files=["res://.godot/imported/WavyYellowPlastic_heightmap.png-325f7e1fbab666a1197e67e4ee7bb448.s3tc.ctex", "res://.godot/imported/WavyYellowPlastic_heightmap.png-325f7e1fbab666a1197e67e4ee7bb448.etc2.ctex"]
+source_file="res://Resources/Material/sources/WavyYellowPlastic_heightmap.png"
+dest_files=["res://.godot/imported/WavyYellowPlastic_heightmap.png-a09302bc861bc67461c9628ab4d37806.s3tc.ctex", "res://.godot/imported/WavyYellowPlastic_heightmap.png-a09302bc861bc67461c9628ab4d37806.etc2.ctex"]
 
 [params]
 

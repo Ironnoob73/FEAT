@@ -1,8 +1,8 @@
-[gd_resource type="StandardMaterial3D" load_steps=4 format=3 uid="uid://c2hs74g2f7lxv"]
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://c2hs74g2f7lxv"]
 
-[ext_resource type="Texture2D" uid="uid://c41snqlmwe26r" path="res://Resources/Material/Sources/RustedMetal_albedo.png" id="1_d1lcp"]
-[ext_resource type="Texture2D" uid="uid://c7kdcgfjph778" path="res://Resources/Material/Sources/RustedMetal_orm.png" id="2_es64s"]
-[ext_resource type="Texture2D" uid="uid://c2iko80ohlxpk" path="res://Resources/Material/Sources/RustedMetal_normal.png" id="3_krirx"]
+[ext_resource type="Texture2D" uid="uid://c41snqlmwe26r" path="res://Resources/Material/sources/RustedMetal_albedo.png" id="1_d1lcp"]
+[ext_resource type="Texture2D" uid="uid://c7kdcgfjph778" path="res://Resources/Material/sources/RustedMetal_orm.png" id="2_es64s"]
+[ext_resource type="Texture2D" uid="uid://c2iko80ohlxpk" path="res://Resources/Material/sources/RustedMetal_normal.png" id="3_krirx"]
 
 [resource]
 diffuse_mode = 3

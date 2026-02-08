@@ -3,8 +3,8 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://da68c0bcvcxhe"
-path.s3tc="res://.godot/imported/WavyYellowPlastic_albedo.png-58583095a9aa715cea4cd3e95aa43522.s3tc.ctex"
-path.etc2="res://.godot/imported/WavyYellowPlastic_albedo.png-58583095a9aa715cea4cd3e95aa43522.etc2.ctex"
+path.s3tc="res://.godot/imported/WavyYellowPlastic_albedo.png-ab8d19323320280a45d4cfb3abc04382.s3tc.ctex"
+path.etc2="res://.godot/imported/WavyYellowPlastic_albedo.png-ab8d19323320280a45d4cfb3abc04382.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://Resources/Material/Sources/WavyYellowPlastic_albedo.png"
-dest_files=["res://.godot/imported/WavyYellowPlastic_albedo.png-58583095a9aa715cea4cd3e95aa43522.s3tc.ctex", "res://.godot/imported/WavyYellowPlastic_albedo.png-58583095a9aa715cea4cd3e95aa43522.etc2.ctex"]
+source_file="res://Resources/Material/sources/WavyYellowPlastic_albedo.png"
+dest_files=["res://.godot/imported/WavyYellowPlastic_albedo.png-ab8d19323320280a45d4cfb3abc04382.s3tc.ctex", "res://.godot/imported/WavyYellowPlastic_albedo.png-ab8d19323320280a45d4cfb3abc04382.etc2.ctex"]
 
 [params]
 

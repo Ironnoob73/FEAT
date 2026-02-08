@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://er22co5l4pot"
-path="res://.godot/imported/ElevatorCorridor.glb-c9d2cfcdb47797bb439ca6e5c799ba47.scn"
+uid="uid://cchopbyiw6oa6"
+path="res://.godot/imported/StairCorridor.glb-b34ecd317f8e6179f7e6ac26936b4b3b.scn"
 
 [deps]
 
-source_file="res://Assets/World/Location/_Home/source/ElevatorCorridor.glb"
-dest_files=["res://.godot/imported/ElevatorCorridor.glb-c9d2cfcdb47797bb439ca6e5c799ba47.scn"]
+source_file="res://Assets/World/Location/_Home/sources/StairCorridor.glb"
+dest_files=["res://.godot/imported/StairCorridor.glb-b34ecd317f8e6179f7e6ac26936b4b3b.scn"]
 
 [params]
 

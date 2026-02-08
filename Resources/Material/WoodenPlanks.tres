@@ -1,8 +1,8 @@
-[gd_resource type="StandardMaterial3D" load_steps=4 format=3 uid="uid://cdyrlyuwq01tq"]
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://cdyrlyuwq01tq"]
 
-[ext_resource type="Texture2D" uid="uid://bp0j8tiw474mc" path="res://Resources/Material/Sources/WoodenPlanks_albedo.png" id="1_j55xk"]
-[ext_resource type="Texture2D" uid="uid://cnsyns667eptq" path="res://Resources/Material/Sources/WoodenPlanks_orm.png" id="2_tegfw"]
-[ext_resource type="Texture2D" uid="uid://vddp3jd7r32m" path="res://Resources/Material/Sources/WoodenPlanks_normal.png" id="3_0d53s"]
+[ext_resource type="Texture2D" uid="uid://bp0j8tiw474mc" path="res://Resources/Material/sources/WoodenPlanks_albedo.png" id="1_j55xk"]
+[ext_resource type="Texture2D" uid="uid://cnsyns667eptq" path="res://Resources/Material/sources/WoodenPlanks_orm.png" id="2_tegfw"]
+[ext_resource type="Texture2D" uid="uid://vddp3jd7r32m" path="res://Resources/Material/sources/WoodenPlanks_normal.png" id="3_0d53s"]
 
 [resource]
 diffuse_mode = 3

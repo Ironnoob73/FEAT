@@ -1,8 +1,8 @@
-[gd_resource type="StandardMaterial3D" load_steps=4 format=3 uid="uid://x5vcyhky3fx8"]
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://x5vcyhky3fx8"]
 
-[ext_resource type="Texture2D" uid="uid://ceyiiidk488j5" path="res://Resources/Material/Sources/WaterproofFabric_albedo.png" id="1_32in7"]
-[ext_resource type="Texture2D" uid="uid://d3qyegwv5s5ri" path="res://Resources/Material/Sources/WaterproofFabric_orm.png" id="2_ohig1"]
-[ext_resource type="Texture2D" uid="uid://dvjn1mevbm3a5" path="res://Resources/Material/Sources/WaterproofFabric_normal.png" id="3_2irmg"]
+[ext_resource type="Texture2D" uid="uid://ceyiiidk488j5" path="res://Resources/Material/sources/WaterproofFabric_albedo.png" id="1_32in7"]
+[ext_resource type="Texture2D" uid="uid://d3qyegwv5s5ri" path="res://Resources/Material/sources/WaterproofFabric_orm.png" id="2_ohig1"]
+[ext_resource type="Texture2D" uid="uid://dvjn1mevbm3a5" path="res://Resources/Material/sources/WaterproofFabric_normal.png" id="3_2irmg"]
 
 [resource]
 albedo_texture = ExtResource("1_32in7")

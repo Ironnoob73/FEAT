@@ -3,8 +3,8 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://blu0hni1h1ylh"
-path.s3tc="res://.godot/imported/WhiteOutwallTiles_orm.png-c8ab3967359a25a39a0911f3e60037c4.s3tc.ctex"
-path.etc2="res://.godot/imported/WhiteOutwallTiles_orm.png-c8ab3967359a25a39a0911f3e60037c4.etc2.ctex"
+path.s3tc="res://.godot/imported/WhiteOutwallTiles_orm.png-cb70d640a0a5e5a8cd803cf90305d957.s3tc.ctex"
+path.etc2="res://.godot/imported/WhiteOutwallTiles_orm.png-cb70d640a0a5e5a8cd803cf90305d957.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://Resources/Material/Sources/WhiteOutwallTiles_orm.png"
-dest_files=["res://.godot/imported/WhiteOutwallTiles_orm.png-c8ab3967359a25a39a0911f3e60037c4.s3tc.ctex", "res://.godot/imported/WhiteOutwallTiles_orm.png-c8ab3967359a25a39a0911f3e60037c4.etc2.ctex"]
+source_file="res://Resources/Material/sources/WhiteOutwallTiles_orm.png"
+dest_files=["res://.godot/imported/WhiteOutwallTiles_orm.png-cb70d640a0a5e5a8cd803cf90305d957.s3tc.ctex", "res://.godot/imported/WhiteOutwallTiles_orm.png-cb70d640a0a5e5a8cd803cf90305d957.etc2.ctex"]
 
 [params]
 

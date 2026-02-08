@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://clms4qge8y6le"
-path="res://.godot/imported/OutwallFakeDeco.glb-2b2ce21b4b58650d70a942cdb96f2b92.scn"
+uid="uid://n4mvu6pjwdnn"
+path="res://.godot/imported/StairWall.glb-98e20d162f807ad50f9284143c441b79.scn"
 
 [deps]
 
-source_file="res://Assets/World/Location/_Home/source/OutwallFakeDeco.glb"
-dest_files=["res://.godot/imported/OutwallFakeDeco.glb-2b2ce21b4b58650d70a942cdb96f2b92.scn"]
+source_file="res://Assets/World/Location/_Home/sources/StairWall.glb"
+dest_files=["res://.godot/imported/StairWall.glb-98e20d162f807ad50f9284143c441b79.scn"]
 
 [params]
 

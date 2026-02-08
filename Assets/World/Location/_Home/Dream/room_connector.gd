@@ -9,8 +9,9 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
 		to_room.emit.call_deferred()
 
 func _on_door_plate_interact_signal(_interactor: Variant, sender: Variant) -> void:
-	open_door.emit(sender)
+	if get_parent() is not SubViewport:
+		open_door.emit(sender)
 
 func _open_door(sender: Variant) -> void:
-	var p_sender: Variant = sender
+	var p_sender: Node = sender
 	door_plate.interact(p_sender)

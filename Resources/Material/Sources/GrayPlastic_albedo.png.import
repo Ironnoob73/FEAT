@@ -3,8 +3,8 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dkk54cr14m45c"
-path.s3tc="res://.godot/imported/GrayPlastic_albedo.png-d36b840cb339d432d2078c4711578ec5.s3tc.ctex"
-path.etc2="res://.godot/imported/GrayPlastic_albedo.png-d36b840cb339d432d2078c4711578ec5.etc2.ctex"
+path.s3tc="res://.godot/imported/GrayPlastic_albedo.png-29fefb06a241b2401dbf25ba62b73763.s3tc.ctex"
+path.etc2="res://.godot/imported/GrayPlastic_albedo.png-29fefb06a241b2401dbf25ba62b73763.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://Resources/Material/Sources/GrayPlastic_albedo.png"
-dest_files=["res://.godot/imported/GrayPlastic_albedo.png-d36b840cb339d432d2078c4711578ec5.s3tc.ctex", "res://.godot/imported/GrayPlastic_albedo.png-d36b840cb339d432d2078c4711578ec5.etc2.ctex"]
+source_file="res://Resources/Material/sources/GrayPlastic_albedo.png"
+dest_files=["res://.godot/imported/GrayPlastic_albedo.png-29fefb06a241b2401dbf25ba62b73763.s3tc.ctex", "res://.godot/imported/GrayPlastic_albedo.png-29fefb06a241b2401dbf25ba62b73763.etc2.ctex"]
 
 [params]
 

@@ -3,8 +3,8 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cd5trjxnxae43"
-path.s3tc="res://.godot/imported/WavyYellowPlastic_orm.png-84bff0b6c0ce5b84596dcb2cf619c655.s3tc.ctex"
-path.etc2="res://.godot/imported/WavyYellowPlastic_orm.png-84bff0b6c0ce5b84596dcb2cf619c655.etc2.ctex"
+path.s3tc="res://.godot/imported/WavyYellowPlastic_orm.png-39b694b15f9c29b2d16928f947878d3e.s3tc.ctex"
+path.etc2="res://.godot/imported/WavyYellowPlastic_orm.png-39b694b15f9c29b2d16928f947878d3e.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://Resources/Material/Sources/WavyYellowPlastic_orm.png"
-dest_files=["res://.godot/imported/WavyYellowPlastic_orm.png-84bff0b6c0ce5b84596dcb2cf619c655.s3tc.ctex", "res://.godot/imported/WavyYellowPlastic_orm.png-84bff0b6c0ce5b84596dcb2cf619c655.etc2.ctex"]
+source_file="res://Resources/Material/sources/WavyYellowPlastic_orm.png"
+dest_files=["res://.godot/imported/WavyYellowPlastic_orm.png-39b694b15f9c29b2d16928f947878d3e.s3tc.ctex", "res://.godot/imported/WavyYellowPlastic_orm.png-39b694b15f9c29b2d16928f947878d3e.etc2.ctex"]
 
 [params]
 

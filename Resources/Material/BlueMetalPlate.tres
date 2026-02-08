@@ -1,9 +1,9 @@
-[gd_resource type="StandardMaterial3D" load_steps=5 format=3 uid="uid://c2bf4nk8dtp88"]
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://c2bf4nk8dtp88"]
 
-[ext_resource type="Texture2D" uid="uid://ba4k0xefxk23k" path="res://Resources/Material/Sources/BlueMetalPlate_albedo.png" id="1_mb8w5"]
-[ext_resource type="Texture2D" uid="uid://lcmgsd2lw52q" path="res://Resources/Material/Sources/BlueMetalPlate_heightmap.png" id="2_6ntcl"]
-[ext_resource type="Texture2D" uid="uid://cv8w2efpmnpaj" path="res://Resources/Material/Sources/BlueMetalPlate_orm.png" id="3_lgiw7"]
-[ext_resource type="Texture2D" uid="uid://bgipcjavkn16c" path="res://Resources/Material/Sources/BlueMetalPlate_normal.png" id="4_xeckh"]
+[ext_resource type="Texture2D" uid="uid://ba4k0xefxk23k" path="res://Resources/Material/sources/BlueMetalPlate_albedo.png" id="1_mb8w5"]
+[ext_resource type="Texture2D" uid="uid://lcmgsd2lw52q" path="res://Resources/Material/sources/BlueMetalPlate_heightmap.png" id="2_6ntcl"]
+[ext_resource type="Texture2D" uid="uid://cv8w2efpmnpaj" path="res://Resources/Material/sources/BlueMetalPlate_orm.png" id="3_lgiw7"]
+[ext_resource type="Texture2D" uid="uid://bgipcjavkn16c" path="res://Resources/Material/sources/BlueMetalPlate_normal.png" id="4_xeckh"]
 
 [resource]
 diffuse_mode = 3

@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dp6fvdef6pacd"
-path="res://.godot/imported/Corridor.glb-94d4156db9938d7b73c86a531c7a0b00.scn"
+uid="uid://er22co5l4pot"
+path="res://.godot/imported/ElevatorCorridor.glb-85c2e116456916aaf32cbf8a97d06c09.scn"
 
 [deps]
 
-source_file="res://Assets/World/Location/_Home/source/Corridor.glb"
-dest_files=["res://.godot/imported/Corridor.glb-94d4156db9938d7b73c86a531c7a0b00.scn"]
+source_file="res://Assets/World/Location/_Home/sources/ElevatorCorridor.glb"
+dest_files=["res://.godot/imported/ElevatorCorridor.glb-85c2e116456916aaf32cbf8a97d06c09.scn"]
 
 [params]
 

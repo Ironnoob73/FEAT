@@ -3,8 +3,8 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b51xqtioy7d54"
-path.s3tc="res://.godot/imported/ThickCotton_heightmap.png-0898e555c1f0264c70790a323cfd953e.s3tc.ctex"
-path.etc2="res://.godot/imported/ThickCotton_heightmap.png-0898e555c1f0264c70790a323cfd953e.etc2.ctex"
+path.s3tc="res://.godot/imported/ThickCotton_heightmap.png-d8bf773dfbdb5ffca97e84b75e2a88de.s3tc.ctex"
+path.etc2="res://.godot/imported/ThickCotton_heightmap.png-d8bf773dfbdb5ffca97e84b75e2a88de.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://Resources/Material/Sources/ThickCotton_heightmap.png"
-dest_files=["res://.godot/imported/ThickCotton_heightmap.png-0898e555c1f0264c70790a323cfd953e.s3tc.ctex", "res://.godot/imported/ThickCotton_heightmap.png-0898e555c1f0264c70790a323cfd953e.etc2.ctex"]
+source_file="res://Resources/Material/sources/ThickCotton_heightmap.png"
+dest_files=["res://.godot/imported/ThickCotton_heightmap.png-d8bf773dfbdb5ffca97e84b75e2a88de.s3tc.ctex", "res://.godot/imported/ThickCotton_heightmap.png-d8bf773dfbdb5ffca97e84b75e2a88de.etc2.ctex"]
 
 [params]
 

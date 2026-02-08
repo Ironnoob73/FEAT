@@ -3,8 +3,8 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cqduegsfhafkp"
-path.s3tc="res://.godot/imported/ThickCotton_normal.png-69e6866dac50923a8d8e83aaed5320ab.s3tc.ctex"
-path.etc2="res://.godot/imported/ThickCotton_normal.png-69e6866dac50923a8d8e83aaed5320ab.etc2.ctex"
+path.s3tc="res://.godot/imported/ThickCotton_normal.png-344835eb402618670cc0c8345e24786b.s3tc.ctex"
+path.etc2="res://.godot/imported/ThickCotton_normal.png-344835eb402618670cc0c8345e24786b.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://Resources/Material/Sources/ThickCotton_normal.png"
-dest_files=["res://.godot/imported/ThickCotton_normal.png-69e6866dac50923a8d8e83aaed5320ab.s3tc.ctex", "res://.godot/imported/ThickCotton_normal.png-69e6866dac50923a8d8e83aaed5320ab.etc2.ctex"]
+source_file="res://Resources/Material/sources/ThickCotton_normal.png"
+dest_files=["res://.godot/imported/ThickCotton_normal.png-344835eb402618670cc0c8345e24786b.s3tc.ctex", "res://.godot/imported/ThickCotton_normal.png-344835eb402618670cc0c8345e24786b.etc2.ctex"]
 
 [params]
 

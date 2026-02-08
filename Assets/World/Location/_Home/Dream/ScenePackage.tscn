@@ -1,39 +1,39 @@
-[gd_scene load_steps=9 format=3 uid="uid://bt2o31b4bxe48"]
+[gd_scene format=3 uid="uid://bt2o31b4bxe48"]
 
 [ext_resource type="Script" uid="uid://8h1wxcdqk41f" path="res://addons/abyss_history_lib/Class/World/ScenesPackageClass.gd" id="1_8d6gw"]
 [ext_resource type="Script" uid="uid://bc8n7468se2im" path="res://Assets/World/Location/_Home/Dream/ready_func.gd" id="2_62m8d"]
 [ext_resource type="Environment" uid="uid://bj0yndyb432ki" path="res://Assets/World/Environments/DreamWorldDefaultEnv.tres" id="2_tkejd"]
+[ext_resource type="Environment" uid="uid://dmu5yc7ra1vof" path="res://Assets/World/Environments/TutorialEnv.tres" id="2_wcnku"]
 [ext_resource type="PackedScene" uid="uid://cq8yj4ire6bd" path="res://Assets/World/Location/_Home/Dream/DefaultRoom.tscn" id="3_4ed7q"]
-[ext_resource type="Environment" uid="uid://ns2gq60t8sp1" path="res://Assets/World/Environments/DefaultRealityEnv.tres" id="4_31aoj"]
 [ext_resource type="Script" uid="uid://tf3tkep6w0wr" path="res://Assets/World/Location/_Home/Dream/sub_viewport.gd" id="6_8d6gw"]
 [ext_resource type="PackedScene" uid="uid://deue8e3ut26s4" path="res://Assets/World/Location/_Home/Dream/TheCorridor.tscn" id="7_wcnku"]
 
 [sub_resource type="World3D" id="World3D_8d6gw"]
 environment = ExtResource("2_tkejd")
 
-[node name="Packed" type="Node3D"]
+[node name="Packed" type="Node3D" unique_id=432926006]
 script = ExtResource("1_8d6gw")
-environment = ExtResource("4_31aoj")
+environment = ExtResource("2_wcnku")
 metadata/_custom_type_script = "uid://8h1wxcdqk41f"
 
-[node name="ReadyFunc" type="Node" parent="."]
+[node name="ReadyFunc" type="Node" parent="." unique_id=240494930]
 script = ExtResource("2_62m8d")
 
-[node name="SubScene" type="SubViewport" parent="."]
+[node name="SubScene" type="SubViewport" parent="." unique_id=552130395]
 own_world_3d = true
 world_3d = SubResource("World3D_8d6gw")
 script = ExtResource("6_8d6gw")
 
-[node name="Camera3D" type="Camera3D" parent="SubScene"]
+[node name="Camera3D" type="Camera3D" parent="SubScene" unique_id=1225486773]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 1, 9)
 current = true
 
-[node name="Room0" parent="SubScene" instance=ExtResource("3_4ed7q")]
+[node name="Room0" parent="SubScene" unique_id=1945280578 instance=ExtResource("3_4ed7q")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 7)
 
-[node name="TheCorridor" parent="." instance=ExtResource("7_wcnku")]
+[node name="TheCorridor" parent="." unique_id=215228121 instance=ExtResource("7_wcnku")]
 
 [connection signal="open_door" from="SubScene/Room0" to="TheCorridor" method="_open_door"]
 [connection signal="to_room" from="SubScene/Room0" to="ReadyFunc" method="exit_room_to_corridor"]
-[connection signal="open_door" from="TheCorridor" to="SubScene/Room0" method="_on_the_corridor_open_door"]
+[connection signal="open_door" from="TheCorridor" to="SubScene/Room0" method="_open_door"]
 [connection signal="to_room" from="TheCorridor" to="ReadyFunc" method="change_room"]

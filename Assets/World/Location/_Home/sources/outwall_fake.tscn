@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://b8dvqq3ll8sdr"]
+
+[ext_resource type="PackedScene" uid="uid://cqi0rbp5vmcr0" path="res://Assets/World/Location/_Home/sources/Outwall.glb" id="1_n74ht"]
+[ext_resource type="PackedScene" uid="uid://clms4qge8y6le" path="res://Assets/World/Location/_Home/sources/OutwallFakeDeco.glb" id="2_cvr20"]
+
+[node name="Outwall_fake" instance=ExtResource("1_n74ht")]
+
+[node name="OutwallGlass" parent="." index="1" instance=ExtResource("2_cvr20")]

@@ -1,9 +1,9 @@
-[gd_resource type="StandardMaterial3D" load_steps=5 format=3 uid="uid://bxkwhw83meqji"]
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://bxkwhw83meqji"]
 
-[ext_resource type="Texture2D" uid="uid://da68c0bcvcxhe" path="res://Resources/Material/Sources/WavyYellowPlastic_albedo.png" id="1"]
-[ext_resource type="Texture2D" uid="uid://cd5trjxnxae43" path="res://Resources/Material/Sources/WavyYellowPlastic_orm.png" id="2"]
-[ext_resource type="Texture2D" uid="uid://rwfc34k3a7uv" path="res://Resources/Material/Sources/WavyYellowPlastic_normal.png" id="3"]
-[ext_resource type="Texture2D" uid="uid://d1g61obdnc2gh" path="res://Resources/Material/Sources/WavyYellowPlastic_heightmap.png" id="4"]
+[ext_resource type="Texture2D" uid="uid://da68c0bcvcxhe" path="res://Resources/Material/sources/WavyYellowPlastic_albedo.png" id="1"]
+[ext_resource type="Texture2D" uid="uid://cd5trjxnxae43" path="res://Resources/Material/sources/WavyYellowPlastic_orm.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://rwfc34k3a7uv" path="res://Resources/Material/sources/WavyYellowPlastic_normal.png" id="3"]
+[ext_resource type="Texture2D" uid="uid://d1g61obdnc2gh" path="res://Resources/Material/sources/WavyYellowPlastic_heightmap.png" id="4"]
 
 [resource]
 albedo_texture = ExtResource("1")

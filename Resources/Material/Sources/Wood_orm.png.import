@@ -3,8 +3,8 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dnika8snvaw8x"
-path.s3tc="res://.godot/imported/Wood_orm.png-50b870d0032341491c6272bd4b701061.s3tc.ctex"
-path.etc2="res://.godot/imported/Wood_orm.png-50b870d0032341491c6272bd4b701061.etc2.ctex"
+path.s3tc="res://.godot/imported/Wood_orm.png-f428b36c583170f22a25135de429a41a.s3tc.ctex"
+path.etc2="res://.godot/imported/Wood_orm.png-f428b36c583170f22a25135de429a41a.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,14 +12,16 @@ metadata={
 
 [deps]
 
-source_file="res://Resources/Material/Sources/Wood_orm.png"
-dest_files=["res://.godot/imported/Wood_orm.png-50b870d0032341491c6272bd4b701061.s3tc.ctex", "res://.godot/imported/Wood_orm.png-50b870d0032341491c6272bd4b701061.etc2.ctex"]
+source_file="res://Resources/Material/sources/Wood_orm.png"
+dest_files=["res://.godot/imported/Wood_orm.png-f428b36c583170f22a25135de429a41a.s3tc.ctex", "res://.godot/imported/Wood_orm.png-f428b36c583170f22a25135de429a41a.etc2.ctex"]
 
 [params]
 
 compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
+compress/uastc_level=0
+compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
@@ -27,6 +29,10 @@ mipmaps/generate=true
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
+process/channel_remap/red=0
+process/channel_remap/green=1
+process/channel_remap/blue=2
+process/channel_remap/alpha=3
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/normal_map_invert_y=false

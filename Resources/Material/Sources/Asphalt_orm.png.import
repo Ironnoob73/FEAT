@@ -3,8 +3,8 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bdnuvui4d1pah"
-path.s3tc="res://.godot/imported/Asphalt_orm.png-ada55159cab94343749a2718e1dbdb4f.s3tc.ctex"
-path.etc2="res://.godot/imported/Asphalt_orm.png-ada55159cab94343749a2718e1dbdb4f.etc2.ctex"
+path.s3tc="res://.godot/imported/Asphalt_orm.png-7771e8c208d75c34599a8b86bde68940.s3tc.ctex"
+path.etc2="res://.godot/imported/Asphalt_orm.png-7771e8c208d75c34599a8b86bde68940.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,14 +12,16 @@ metadata={
 
 [deps]
 
-source_file="res://Resources/Material/Sources/Asphalt_orm.png"
-dest_files=["res://.godot/imported/Asphalt_orm.png-ada55159cab94343749a2718e1dbdb4f.s3tc.ctex", "res://.godot/imported/Asphalt_orm.png-ada55159cab94343749a2718e1dbdb4f.etc2.ctex"]
+source_file="res://Resources/Material/sources/Asphalt_orm.png"
+dest_files=["res://.godot/imported/Asphalt_orm.png-7771e8c208d75c34599a8b86bde68940.s3tc.ctex", "res://.godot/imported/Asphalt_orm.png-7771e8c208d75c34599a8b86bde68940.etc2.ctex"]
 
 [params]
 
 compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
+compress/uastc_level=0
+compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
@@ -27,6 +29,10 @@ mipmaps/generate=true
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
+process/channel_remap/red=0
+process/channel_remap/green=1
+process/channel_remap/blue=2
+process/channel_remap/alpha=3
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/normal_map_invert_y=false

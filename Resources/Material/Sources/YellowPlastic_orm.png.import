@@ -3,8 +3,8 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c8kb7agbh1a66"
-path.s3tc="res://.godot/imported/YellowPlastic_orm.png-92351dad5a6577af63baaacaa4596ef0.s3tc.ctex"
-path.etc2="res://.godot/imported/YellowPlastic_orm.png-92351dad5a6577af63baaacaa4596ef0.etc2.ctex"
+path.s3tc="res://.godot/imported/YellowPlastic_orm.png-48dd289301fdd6dd7b0a502fd7c2661c.s3tc.ctex"
+path.etc2="res://.godot/imported/YellowPlastic_orm.png-48dd289301fdd6dd7b0a502fd7c2661c.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://Resources/Material/Sources/YellowPlastic_orm.png"
-dest_files=["res://.godot/imported/YellowPlastic_orm.png-92351dad5a6577af63baaacaa4596ef0.s3tc.ctex", "res://.godot/imported/YellowPlastic_orm.png-92351dad5a6577af63baaacaa4596ef0.etc2.ctex"]
+source_file="res://Resources/Material/sources/YellowPlastic_orm.png"
+dest_files=["res://.godot/imported/YellowPlastic_orm.png-48dd289301fdd6dd7b0a502fd7c2661c.s3tc.ctex", "res://.godot/imported/YellowPlastic_orm.png-48dd289301fdd6dd7b0a502fd7c2661c.etc2.ctex"]
 
 [params]
 

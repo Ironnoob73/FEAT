@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://b5ra3ei6fag3h"
-path="res://.godot/imported/Inner.glb-c19cb99f93317fea9040597689409f4b.scn"
+uid="uid://dp6fvdef6pacd"
+path="res://.godot/imported/Corridor.glb-e7802bf08a6f983c8c6125f333cfb0df.scn"
 
 [deps]
 
-source_file="res://Assets/World/Location/_Home/source/Inner.glb"
-dest_files=["res://.godot/imported/Inner.glb-c19cb99f93317fea9040597689409f4b.scn"]
+source_file="res://Assets/World/Location/_Home/sources/Corridor.glb"
+dest_files=["res://.godot/imported/Corridor.glb-e7802bf08a6f983c8c6125f333cfb0df.scn"]
 
 [params]
 
@@ -38,5 +38,5 @@ materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
 _subresources={}
-gltf/naming_version=1
+gltf/naming_version=2
 gltf/embedded_image_handling=0

@@ -3,8 +3,8 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cmuasgdkx87nh"
-path.s3tc="res://.godot/imported/ThickCotton_albedo.png-60c8a2c48a72b861a3da4f7287a3c8c5.s3tc.ctex"
-path.etc2="res://.godot/imported/ThickCotton_albedo.png-60c8a2c48a72b861a3da4f7287a3c8c5.etc2.ctex"
+path.s3tc="res://.godot/imported/ThickCotton_albedo.png-60f368380081b8f131c92af58835a6bd.s3tc.ctex"
+path.etc2="res://.godot/imported/ThickCotton_albedo.png-60f368380081b8f131c92af58835a6bd.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://Resources/Material/Sources/ThickCotton_albedo.png"
-dest_files=["res://.godot/imported/ThickCotton_albedo.png-60c8a2c48a72b861a3da4f7287a3c8c5.s3tc.ctex", "res://.godot/imported/ThickCotton_albedo.png-60c8a2c48a72b861a3da4f7287a3c8c5.etc2.ctex"]
+source_file="res://Resources/Material/sources/ThickCotton_albedo.png"
+dest_files=["res://.godot/imported/ThickCotton_albedo.png-60f368380081b8f131c92af58835a6bd.s3tc.ctex", "res://.godot/imported/ThickCotton_albedo.png-60f368380081b8f131c92af58835a6bd.etc2.ctex"]
 
 [params]
 

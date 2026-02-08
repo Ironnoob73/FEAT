@@ -3,8 +3,8 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://d2qxuaf0hkk0a"
-path.s3tc="res://.godot/imported/WhiteOutwallTiles_albedo.png-990ac4ccf42aabd81281cc9f26b636cb.s3tc.ctex"
-path.etc2="res://.godot/imported/WhiteOutwallTiles_albedo.png-990ac4ccf42aabd81281cc9f26b636cb.etc2.ctex"
+path.s3tc="res://.godot/imported/WhiteOutwallTiles_albedo.png-91d6cc45eec0aef44d93934fbc597082.s3tc.ctex"
+path.etc2="res://.godot/imported/WhiteOutwallTiles_albedo.png-91d6cc45eec0aef44d93934fbc597082.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://Resources/Material/Sources/WhiteOutwallTiles_albedo.png"
-dest_files=["res://.godot/imported/WhiteOutwallTiles_albedo.png-990ac4ccf42aabd81281cc9f26b636cb.s3tc.ctex", "res://.godot/imported/WhiteOutwallTiles_albedo.png-990ac4ccf42aabd81281cc9f26b636cb.etc2.ctex"]
+source_file="res://Resources/Material/sources/WhiteOutwallTiles_albedo.png"
+dest_files=["res://.godot/imported/WhiteOutwallTiles_albedo.png-91d6cc45eec0aef44d93934fbc597082.s3tc.ctex", "res://.godot/imported/WhiteOutwallTiles_albedo.png-91d6cc45eec0aef44d93934fbc597082.etc2.ctex"]
 
 [params]
 
