@@ -32,7 +32,7 @@ var playerName: String = "Anonymous":
 		if CurrentWorld != null and CurrentWorld.player0 != null:
 			CurrentWorld.player0.player_name = name_string
 var duid: String = "00000000-0000-9000-0000-000000000000"
-var avatar: Texture2D = preload("res://Resources/Image/avatar/default.png")
+var portrait: Texture2D = preload("res://Resources/Image/Portrait/default.png")
 var isInGame: bool = false
 var isMultiplayer: bool = false
 var playerTeleported: bool = true
@@ -73,7 +73,7 @@ func save_config() -> void:
 	file.set_value("control","auto_pickup",auto_pickup)
 	file.set_value("profile","user_name",playerName)
 	file.set_value("profile","user_duid",duid)
-	file.set_value("profile","user_avatar",avatar)
+	file.set_value("profile","user_portrait",portrait)
 	file.set_value("computer","fast_boot",FastBoot)
 	file.set_value("computer","oobe",oobe)
 	var err: Error = file.save(CONFIG_PATH)
@@ -100,7 +100,7 @@ func load_config() -> void:
 		auto_pickup = file.get_value("control","auto_pickup",true)
 		playerName = file.get_value("profile","user_name","Anonymous")
 		duid = file.get_value("profile","user_duid","00000000-0000-9000-0000-000000000000")
-		avatar = file.get_value("profile","user_avatar",preload("res://Resources/Image/avatar/default.png"))
+		portrait = file.get_value("profile","user_portrait",preload("res://Resources/Image/Portrait/default.png"))
 		FastBoot = file.get_value("computer","fast_boot",false)
 		oobe = file.get_value("computer","oobe",true)
 	else:

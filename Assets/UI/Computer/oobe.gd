@@ -17,9 +17,9 @@ var isLanguagePanelFocused: bool = false
 @onready var name_edit: LineEdit = $VBoxContainer/Contents/NamePage/LineEdit
 @onready var uid: Label = $VBoxContainer/Contents/NamePage/UID
 
-@onready var avatar_page: VBoxContainer = $VBoxContainer/Contents/AvatarPage
-@onready var main_avatar: Button = $VBoxContainer/Contents/AvatarPage/HBoxContainer/MainAvatar
-@onready var avatar_list: HFlowContainer = $VBoxContainer/Contents/AvatarPage/HBoxContainer/ScrollContainer/AvatarList
+@onready var portrait_page: VBoxContainer = $VBoxContainer/Contents/PortraitPage
+@onready var main_portrait: Button = $VBoxContainer/Contents/PortraitPage/HBoxContainer/MainPortrait
+@onready var portrait_list: HFlowContainer = $VBoxContainer/Contents/PortraitPage/HBoxContainer/ScrollContainer/PortraitList
 
 @onready var fb_yes_check_box: CheckBox = $VBoxContainer/Contents/FastBootPage/YesButton/HBoxContainer/CheckBox
 @onready var fb_no_check_box: CheckBox = $VBoxContainer/Contents/FastBootPage/NoButton/HBoxContainer/CheckBox
@@ -47,7 +47,7 @@ func _ready() -> void:
 	ready_animation.call_deferred()
 	match_language()
 	Global.duid = Global.generate_duid()
-	avatar_init()
+	portrait_init()
 	
 func ready_animation() -> void:
 	var tween = create_tween().set_trans(Tween.TRANS_LINEAR)
@@ -144,21 +144,21 @@ func _on_user_name_text_changed(new_text: String) -> void:
 	else:
 		Global.playerName = "Anonymous"
 
-# Avatar
-func _on_avatar_page_visibility_changed() -> void:
-	if avatar_page != null and avatar_page.visible:
+# Portrait
+func _on_portrait_page_visibility_changed() -> void:
+	if portrait_page != null and portrait_page.visible:
 		var tween = create_tween().set_trans(Tween.TRANS_LINEAR)
-		for i in avatar_list.get_children():
+		for i in portrait_list.get_children():
 			tween.tween_callback(func():i.show()).set_delay(0.1)
 
-func avatar_init() -> void:
-	for i in avatar_list.get_children():
+func portrait_init() -> void:
+	for i in portrait_list.get_children():
 		if i is Button:
-			i.connect("pressed", func():change_avatar(i.icon))
+			i.connect("pressed", func():change_portrait(i.icon))
 			i.hide()
-func change_avatar(image: Texture2D) -> void:
-	main_avatar.icon = image
-	Global.avatar = image
+func change_portrait(image: Texture2D) -> void:
+	main_portrait.icon = image
+	Global.portrait = image
 # Dog: https://pixabay.com/zh/photos/labrador-dog-animal-brown-fur-5762115/
 # Cat: https://pixabay.com/zh/photos/cat-grace-animals-kitten-house-cat-5001517/
 # Mountain: https://pixabay.com/zh/photos/cholatse-nepal-mountain-2875106/

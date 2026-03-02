@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://823eyu8tp6lb"
-path="res://.godot/imported/dog.png-26de5e232ce5a3ce106df54cf640fdb9.ctex"
+uid="uid://dyc0pu15y7dmf"
+path="res://.godot/imported/circle.png-7462f7a7eb88f35de0e74f7f7760ec3a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Resources/Image/avatar/dog.png"
-dest_files=["res://.godot/imported/dog.png-26de5e232ce5a3ce106df54cf640fdb9.ctex"]
+source_file="res://Resources/Image/Portrait/circle.png"
+dest_files=["res://.godot/imported/circle.png-7462f7a7eb88f35de0e74f7f7760ec3a.ctex"]
 
 [params]
 

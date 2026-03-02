@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cy8e25gqqmvtq"
-path="res://.godot/imported/mountain.png-ee0f5d3943f2b79f4110967ceea1f9b6.ctex"
+uid="uid://c7txxn60ct2kb"
+path="res://.godot/imported/line.png-7a0105240a4a66ce215e09b3aaf97955.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Resources/Image/avatar/mountain.png"
-dest_files=["res://.godot/imported/mountain.png-ee0f5d3943f2b79f4110967ceea1f9b6.ctex"]
+source_file="res://Resources/Image/Portrait/line.png"
+dest_files=["res://.godot/imported/line.png-7a0105240a4a66ce215e09b3aaf97955.ctex"]
 
 [params]
 

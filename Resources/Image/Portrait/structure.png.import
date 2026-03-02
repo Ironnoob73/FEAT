@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bfygcjaaiu7nl"
-path="res://.godot/imported/piano.png-8e66de59d43d3191035ea7e41904a5a4.ctex"
+uid="uid://dbh2yd8w7npfc"
+path="res://.godot/imported/structure.png-7fc4f401bf565a4b1fcfe0d1cff1fde8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Resources/Image/avatar/piano.png"
-dest_files=["res://.godot/imported/piano.png-8e66de59d43d3191035ea7e41904a5a4.ctex"]
+source_file="res://Resources/Image/Portrait/structure.png"
+dest_files=["res://.godot/imported/structure.png-7fc4f401bf565a4b1fcfe0d1cff1fde8.ctex"]
 
 [params]
 

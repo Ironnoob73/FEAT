@@ -11,8 +11,12 @@
 [ext_resource type="Shader" uid="uid://hnsab2jm617a" path="res://Resources/Shader/TwoDim/invert.gdshader" id="7_wjw8o"]
 [ext_resource type="Texture2D" uid="uid://dfmnyruyxkv0p" path="res://Resources/Image/off.svg" id="8_njps7"]
 [ext_resource type="Texture2D" uid="uid://bwqh4njdknstt" path="res://Resources/Image/Icon/gallery.svg" id="8_p748u"]
-[ext_resource type="Texture2D" uid="uid://cnlb1synj0mmp" path="res://Resources/Image/avatar/default.png" id="9_fhfra"]
+[ext_resource type="Texture2D" uid="uid://cnlb1synj0mmp" path="res://Resources/Image/Portrait/default.png" id="9_fhfra"]
 [ext_resource type="Texture2D" uid="uid://itleu3ibe7cv" path="res://Title/present.png" id="11_ypevc"]
+[ext_resource type="Texture2D" uid="uid://tgauabrc2oa1" path="res://Resources/Image/missing.svg" id="12_s1us0"]
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_s1us0"]
+allow_unpress = true
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6ra4b"]
 shader = ExtResource("7_wjw8o")
@@ -240,7 +244,7 @@ grow_vertical = 2
 [node name="Title" type="HBoxContainer" parent="Desktop/StartMenu/VBoxContainer" unique_id=104846691]
 layout_mode = 2
 
-[node name="Avatar" type="Button" parent="Desktop/StartMenu/VBoxContainer/Title" unique_id=942726750]
+[node name="Portrait" type="Button" parent="Desktop/StartMenu/VBoxContainer/Title" unique_id=942726750]
 custom_minimum_size = Vector2(55, 55)
 layout_mode = 2
 mouse_filter = 1
@@ -299,11 +303,124 @@ theme_type_variation = &"StartButton"
 toggle_mode = true
 text = "💠"
 
-[node name="MarginContainer" type="MarginContainer" parent="Desktop/BottomTab/HBox" unique_id=1361053366]
+[node name="WindowsTab" type="MarginContainer" parent="Desktop/BottomTab/HBox" unique_id=1361053366]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/margin_top = 5
 theme_override_constants/margin_bottom = 5
+
+[node name="HBox" type="HBoxContainer" parent="Desktop/BottomTab/HBox/WindowsTab" unique_id=886919690]
+layout_mode = 2
+
+[node name="Button0" type="Button" parent="Desktop/BottomTab/HBox/WindowsTab/HBox" unique_id=1948252893]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"ButtonBlue"
+toggle_mode = true
+button_group = SubResource("ButtonGroup_s1us0")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Desktop/BottomTab/HBox/WindowsTab/HBox/Button0" unique_id=190277105]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/separation = 0
+
+[node name="TextureRect" type="TextureRect" parent="Desktop/BottomTab/HBox/WindowsTab/HBox/Button0/HBoxContainer" unique_id=1613436110]
+layout_mode = 2
+texture = ExtResource("12_s1us0")
+expand_mode = 2
+
+[node name="Label" type="Label" parent="Desktop/BottomTab/HBox/WindowsTab/HBox/Button0/HBoxContainer" unique_id=652628873]
+layout_mode = 2
+text = "Window"
+
+[node name="Button1" type="Button" parent="Desktop/BottomTab/HBox/WindowsTab/HBox" unique_id=1790432131]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"ButtonBlue"
+toggle_mode = true
+button_group = SubResource("ButtonGroup_s1us0")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Desktop/BottomTab/HBox/WindowsTab/HBox/Button1" unique_id=2055724542]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/separation = 0
+
+[node name="TextureRect" type="TextureRect" parent="Desktop/BottomTab/HBox/WindowsTab/HBox/Button1/HBoxContainer" unique_id=277849121]
+layout_mode = 2
+texture = ExtResource("12_s1us0")
+expand_mode = 2
+
+[node name="Label" type="Label" parent="Desktop/BottomTab/HBox/WindowsTab/HBox/Button1/HBoxContainer" unique_id=1058463802]
+layout_mode = 2
+text = "Window"
+
+[node name="Button2" type="Button" parent="Desktop/BottomTab/HBox/WindowsTab/HBox" unique_id=1052072969]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"ButtonBlue"
+toggle_mode = true
+button_group = SubResource("ButtonGroup_s1us0")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Desktop/BottomTab/HBox/WindowsTab/HBox/Button2" unique_id=1457634258]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/separation = 0
+
+[node name="TextureRect" type="TextureRect" parent="Desktop/BottomTab/HBox/WindowsTab/HBox/Button2/HBoxContainer" unique_id=2089894626]
+layout_mode = 2
+texture = ExtResource("12_s1us0")
+expand_mode = 2
+
+[node name="Label" type="Label" parent="Desktop/BottomTab/HBox/WindowsTab/HBox/Button2/HBoxContainer" unique_id=1358011828]
+layout_mode = 2
+text = "Window"
+
+[node name="Button3" type="Button" parent="Desktop/BottomTab/HBox/WindowsTab/HBox" unique_id=1115593554]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"ButtonBlue"
+toggle_mode = true
+button_group = SubResource("ButtonGroup_s1us0")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Desktop/BottomTab/HBox/WindowsTab/HBox/Button3" unique_id=189873006]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/separation = 0
+
+[node name="TextureRect" type="TextureRect" parent="Desktop/BottomTab/HBox/WindowsTab/HBox/Button3/HBoxContainer" unique_id=533220880]
+layout_mode = 2
+texture = ExtResource("12_s1us0")
+expand_mode = 2
+
+[node name="Label" type="Label" parent="Desktop/BottomTab/HBox/WindowsTab/HBox/Button3/HBoxContainer" unique_id=118205711]
+layout_mode = 2
+text = "Window"
+
+[node name="Button4" type="Button" parent="Desktop/BottomTab/HBox/WindowsTab/HBox" unique_id=926069703]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"ButtonBlue"
+toggle_mode = true
+button_group = SubResource("ButtonGroup_s1us0")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Desktop/BottomTab/HBox/WindowsTab/HBox/Button4" unique_id=1224959498]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/separation = 0
+
+[node name="TextureRect" type="TextureRect" parent="Desktop/BottomTab/HBox/WindowsTab/HBox/Button4/HBoxContainer" unique_id=853214342]
+layout_mode = 2
+texture = ExtResource("12_s1us0")
+expand_mode = 2
+
+[node name="Label" type="Label" parent="Desktop/BottomTab/HBox/WindowsTab/HBox/Button4/HBoxContainer" unique_id=1613466316]
+layout_mode = 2
+text = "Window"
 
 [node name="Time" type="Label" parent="Desktop/BottomTab/HBox" unique_id=810009385]
 layout_mode = 2

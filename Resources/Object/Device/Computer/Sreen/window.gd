@@ -23,29 +23,33 @@ func _process(_delta: float) -> void:
 		theme_type_variation = "WindowBackgroundUnf"
 
 func _on_title_gui_input(event: InputEvent) -> void:
-	if event is InputEventMouseButton and event.button_index == 1:
-		if event.is_pressed():
-			on_focus()
-			is_dragging = true
-			start_drag_position = global_position
-			mouse_start_drag_position = get_global_mouse_position()
-		else:
-			is_dragging = false
-			if position.y > 687:
-				position.y = 687
-			if position.y < 0:
-				position.y = 0
-			if position.x > 1049:
-				position.x = 1049
-			if position.x < 63 - size.x:
-				position.x = 63 - size.x
+	if event is InputEventMouseButton:
+		var mouse_event: InputEventMouseButton = event
+		if mouse_event.button_index == 1: 
+			if event.is_pressed():
+				on_focus()
+				is_dragging = true
+				start_drag_position = global_position
+				mouse_start_drag_position = get_global_mouse_position()
+			else:
+				is_dragging = false
+				if position.y > 687:
+					position.y = 687
+				if position.y < 0:
+					position.y = 0
+				if position.x > 1049:
+					position.x = 1049
+				if position.x < 63 - size.x:
+					position.x = 63 - size.x
 
 func _on_window_gui_input(event: InputEvent) -> void:
-	if event is InputEventMouseButton and event.button_index == 1 and event.is_pressed():
-		on_focus()
+	if event is InputEventMouseButton:
+		var mouse_event: InputEventMouseButton = event
+		if mouse_event.button_index == 1 and mouse_event.is_pressed():
+			on_focus()
 	
 func _on_close_button_pressed() -> void:
 	queue_free()
 
-func on_focus():
+func on_focus() -> void:
 	get_parent().move_child(self,-1)

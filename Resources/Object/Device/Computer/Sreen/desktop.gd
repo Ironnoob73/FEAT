@@ -14,7 +14,7 @@ extends TextureRect
 var isStartMenuOpen: bool = false
 var isStartMenuHover: bool = false
 @onready var start_menu: Panel = $StartMenu
-@onready var user_avatar: Button = $StartMenu/VBoxContainer/Title/Avatar
+@onready var user_portrait: Button = $StartMenu/VBoxContainer/Title/Portrait
 @onready var user_name: Label = $StartMenu/VBoxContainer/Title/VBoxContainer/Name
 @onready var user_duid: Label = $StartMenu/VBoxContainer/Title/VBoxContainer/DUID
 # Off icon from: https://www.svgrepo.com/svg/391925/off
@@ -57,7 +57,7 @@ func _on_start_button_toggled(toggled_on: bool) -> void:
 			_p_tween = tween.tween_property(start_menu,"position:y",215,0.25)
 			user_name.text = Global.playerName
 			user_duid.text = Global.duid
-			user_avatar.icon = Global.avatar
+			user_portrait.icon = Global.portrait
 		else:
 			_p_tween = tween.tween_property(start_menu,"position:y",768,0.25)
 			_c_tween = tween.tween_callback(func()->void:start_menu.hide())

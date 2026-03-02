@@ -138,15 +138,15 @@ content_margin_left = 0.0
 content_margin_top = 0.0
 content_margin_right = 0.0
 content_margin_bottom = 0.0
-bg_color = Color(0, 0.49803922, 0.7490196, 1)
+bg_color = Color(0, 0.24705882, 0.7490196, 1)
 border_width_top = 16
-border_color = Color(0, 0.7490196, 1, 1)
+border_color = Color(0, 0.49803922, 1, 1)
 border_blend = true
 corner_radius_top_left = 5
 corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
-shadow_color = Color(0, 0.7490196, 1, 0.6)
+shadow_color = Color(0, 0.0627451, 0.24705882, 0.6)
 shadow_size = 2
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_35loj"]
@@ -175,6 +175,22 @@ content_margin_left = 3.0
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2ay4a"]
 content_margin_left = 3.0
 bg_color = Color(0, 0, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fxs70"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0, 0.62352943, 0.8745098, 1)
+border_width_top = 16
+border_color = Color(0, 0.7490196, 1, 1)
+border_blend = true
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+shadow_color = Color(0, 0.7490196, 1, 0.6)
+shadow_size = 2
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_utw0c"]
 content_margin_left = 0.0
@@ -523,7 +539,13 @@ Button/styles/focus = SubResource("StyleBoxFlat_eetw0")
 Button/styles/hover = SubResource("StyleBoxFlat_qg1fx")
 Button/styles/normal = SubResource("StyleBoxFlat_8gqxo")
 Button/styles/pressed = SubResource("StyleBoxFlat_5x7oh")
-ButtonAvatarBase/base_type = &"ButtonBlue"
+ButtonAvatarBase/base_type = &"Button"
+ButtonAvatarBase/colors/icon_disabled_color = Color(0.49803922, 0.49803922, 0.49803922, 1)
+ButtonAvatarBase/colors/icon_focus_color = Color(1, 1, 1, 1)
+ButtonAvatarBase/colors/icon_hover_color = Color(1, 1, 1, 1)
+ButtonAvatarBase/colors/icon_hover_pressed_color = Color(1, 1, 1, 1)
+ButtonAvatarBase/colors/icon_normal_color = Color(1, 1, 1, 1)
+ButtonAvatarBase/colors/icon_pressed_color = Color(1, 1, 1, 1)
 ButtonAvatarBase/styles/hover = SubResource("StyleBoxFlat_j5l3d")
 ButtonAvatarBase/styles/normal = SubResource("StyleBoxFlat_payto")
 ButtonAvatarBase/styles/pressed = SubResource("StyleBoxFlat_f7mcu")
@@ -554,6 +576,10 @@ ButtonForListMenu/font_sizes/font_size = 16
 ButtonForListMenu/styles/hover = SubResource("StyleBoxFlat_bg63j")
 ButtonForListMenu/styles/normal = SubResource("StyleBoxEmpty_j5l3d")
 ButtonForListMenu/styles/pressed = SubResource("StyleBoxFlat_2ay4a")
+ButtonForWindowsTab/base_type = &"Button"
+ButtonForWindowsTab/styles/hover = SubResource("StyleBoxFlat_fxs70")
+ButtonForWindowsTab/styles/normal = SubResource("StyleBoxFlat_7mb6s")
+ButtonForWindowsTab/styles/pressed = SubResource("StyleBoxFlat_7mb6s")
 ButtonGreen/base_type = &"ButtonBlue"
 ButtonGreen/styles/hover = SubResource("StyleBoxFlat_utw0c")
 ButtonGreen/styles/normal = SubResource("StyleBoxFlat_4eks1")
@@ -585,7 +611,7 @@ PanelContainer/styles/panel = SubResource("StyleBoxFlat_e0cyg")
 PanelLittleMenu/base_type = &"PanelContainer"
 PanelLittleMenu/styles/panel = SubResource("StyleBoxFlat_fp2fm")
 ScrollContainer/styles/panel = SubResource("StyleBoxEmpty_utw0c")
-StartButton/base_type = &"ButtonForListMenu"
+StartButton/base_type = &"Button"
 StartButton/font_sizes/font_size = 32
 StartButton/styles/hover = SubResource("StyleBoxTexture_nlfed")
 StartButton/styles/normal = SubResource("StyleBoxTexture_e0cyg")

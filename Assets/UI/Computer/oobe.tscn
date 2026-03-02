@@ -1,24 +1,24 @@
-[gd_scene load_steps=32 format=3 uid="uid://henk88t1h8y2"]
+[gd_scene format=3 uid="uid://henk88t1h8y2"]
 
 [ext_resource type="Theme" uid="uid://bv3atmtrqii4a" path="res://Resources/Theme/luna.tres" id="1_1jk3b"]
 [ext_resource type="Texture2D" uid="uid://6aal2onumy7s" path="res://Resources/Image/Desktop/default.tres" id="2_deyrj"]
 [ext_resource type="Script" uid="uid://b2680156src04" path="res://Assets/UI/Computer/oobe.gd" id="3_deyrj"]
 [ext_resource type="Texture2D" uid="uid://cd10lecgpielv" path="res://Resources/Image/UI/DownArrow.svg" id="4_b1gv2"]
-[ext_resource type="Texture2D" uid="uid://cnlb1synj0mmp" path="res://Resources/Image/avatar/default.png" id="5_fl8u4"]
+[ext_resource type="Texture2D" uid="uid://cnlb1synj0mmp" path="res://Resources/Image/Portrait/default.png" id="5_fl8u4"]
 [ext_resource type="Texture2D" uid="uid://7yqunet0nhxt" path="res://Resources/Image/UI/Restore.svg" id="5_j1vce"]
-[ext_resource type="Texture2D" uid="uid://cthrhf37hsxfd" path="res://Resources/Image/avatar/nonsense.png" id="6_i122j"]
-[ext_resource type="Texture2D" uid="uid://b42cpv7543en7" path="res://Resources/Image/avatar/square.png" id="6_voeh1"]
-[ext_resource type="Texture2D" uid="uid://dyc0pu15y7dmf" path="res://Resources/Image/avatar/circle.png" id="7_umv6y"]
-[ext_resource type="Texture2D" uid="uid://b57r5ai30vq7u" path="res://Resources/Image/avatar/fall.png" id="7_voeh1"]
-[ext_resource type="Texture2D" uid="uid://c7txxn60ct2kb" path="res://Resources/Image/avatar/line.png" id="8_8yh57"]
-[ext_resource type="Texture2D" uid="uid://cn7nf82dmrt0k" path="res://Resources/Image/avatar/dream.png" id="8_umv6y"]
-[ext_resource type="Texture2D" uid="uid://823eyu8tp6lb" path="res://Resources/Image/avatar/dog.png" id="9_ypwgg"]
-[ext_resource type="Texture2D" uid="uid://bfygcjaaiu7nl" path="res://Resources/Image/avatar/piano.png" id="10_pd63v"]
-[ext_resource type="Texture2D" uid="uid://b8aottue8k0p4" path="res://Resources/Image/avatar/keyboard.png" id="11_05lbc"]
-[ext_resource type="Texture2D" uid="uid://dtcm2quadbvsh" path="res://Resources/Image/avatar/pen.png" id="12_qocph"]
-[ext_resource type="Texture2D" uid="uid://cy8e25gqqmvtq" path="res://Resources/Image/avatar/mountain.png" id="13_05lbc"]
-[ext_resource type="Texture2D" uid="uid://bm0dm4yref7uq" path="res://Resources/Image/avatar/cat.png" id="13_qocph"]
-[ext_resource type="Texture2D" uid="uid://dbh2yd8w7npfc" path="res://Resources/Image/avatar/structure.png" id="15_hug7m"]
+[ext_resource type="Texture2D" uid="uid://cthrhf37hsxfd" path="res://Resources/Image/Portrait/nonsense.png" id="6_i122j"]
+[ext_resource type="Texture2D" uid="uid://b42cpv7543en7" path="res://Resources/Image/Portrait/square.png" id="6_voeh1"]
+[ext_resource type="Texture2D" uid="uid://dyc0pu15y7dmf" path="res://Resources/Image/Portrait/circle.png" id="7_umv6y"]
+[ext_resource type="Texture2D" uid="uid://b57r5ai30vq7u" path="res://Resources/Image/Portrait/fall.png" id="7_voeh1"]
+[ext_resource type="Texture2D" uid="uid://c7txxn60ct2kb" path="res://Resources/Image/Portrait/line.png" id="8_8yh57"]
+[ext_resource type="Texture2D" uid="uid://cn7nf82dmrt0k" path="res://Resources/Image/Portrait/dream.png" id="8_umv6y"]
+[ext_resource type="Texture2D" uid="uid://823eyu8tp6lb" path="res://Resources/Image/Portrait/dog.png" id="9_ypwgg"]
+[ext_resource type="Texture2D" uid="uid://bfygcjaaiu7nl" path="res://Resources/Image/Portrait/piano.png" id="10_pd63v"]
+[ext_resource type="Texture2D" uid="uid://b8aottue8k0p4" path="res://Resources/Image/Portrait/keyboard.png" id="11_05lbc"]
+[ext_resource type="Texture2D" uid="uid://dtcm2quadbvsh" path="res://Resources/Image/Portrait/pen.png" id="12_qocph"]
+[ext_resource type="Texture2D" uid="uid://cy8e25gqqmvtq" path="res://Resources/Image/Portrait/mountain.png" id="13_05lbc"]
+[ext_resource type="Texture2D" uid="uid://bm0dm4yref7uq" path="res://Resources/Image/Portrait/cat.png" id="13_qocph"]
+[ext_resource type="Texture2D" uid="uid://dbh2yd8w7npfc" path="res://Resources/Image/Portrait/structure.png" id="15_hug7m"]
 
 [sub_resource type="FontVariation" id="FontVariation_s1us0"]
 
@@ -68,14 +68,14 @@ action = &"tab_right"
 [sub_resource type="Shortcut" id="Shortcut_kylj4"]
 events = [SubResource("InputEventAction_fl8u4")]
 
-[node name="OOBE" type="TextureRect"]
+[node name="OOBE" type="TextureRect" unique_id=1381087175]
 offset_right = 1080.0
 offset_bottom = 768.0
 theme = ExtResource("1_1jk3b")
 texture = ExtResource("2_deyrj")
 script = ExtResource("3_deyrj")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1036350527]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -84,12 +84,12 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 0
 
-[node name="UpBoard" type="ColorRect" parent="VBoxContainer"]
+[node name="UpBoard" type="ColorRect" parent="VBoxContainer" unique_id=1266443043]
 custom_minimum_size = Vector2(0, 75)
 layout_mode = 2
 color = Color(0, 0, 1, 1)
 
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/UpBoard"]
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/UpBoard" unique_id=1471697172]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -99,7 +99,7 @@ grow_vertical = 2
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 0
 
-[node name="OS" type="RichTextLabel" parent="VBoxContainer/UpBoard/MarginContainer"]
+[node name="OS" type="RichTextLabel" parent="VBoxContainer/UpBoard/MarginContainer" unique_id=1047015915]
 layout_mode = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_fonts/normal_font = SubResource("SystemFont_ypevc")
@@ -113,12 +113,12 @@ scroll_active = false
 autowrap_mode = 0
 vertical_alignment = 1
 
-[node name="UpLine" type="TextureRect" parent="VBoxContainer"]
+[node name="UpLine" type="TextureRect" parent="VBoxContainer" unique_id=940708715]
 custom_minimum_size = Vector2(0, 5)
 layout_mode = 2
 texture = SubResource("GradientTexture1D_p748u")
 
-[node name="Contents" type="MarginContainer" parent="VBoxContainer"]
+[node name="Contents" type="MarginContainer" parent="VBoxContainer" unique_id=1221639038]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/margin_left = 20
@@ -126,11 +126,11 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 10
 
-[node name="WelocmePage" type="VBoxContainer" parent="VBoxContainer/Contents"]
+[node name="WelocmePage" type="VBoxContainer" parent="VBoxContainer/Contents" unique_id=220061788]
 visible = false
 layout_mode = 2
 
-[node name="Title" type="Label" parent="VBoxContainer/Contents/WelocmePage"]
+[node name="Title" type="Label" parent="VBoxContainer/Contents/WelocmePage" unique_id=2016371426]
 layout_mode = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 1, 0.49803922)
 theme_override_constants/shadow_offset_x = 3
@@ -138,15 +138,15 @@ theme_override_constants/shadow_offset_y = 3
 theme_override_font_sizes/font_size = 50
 text = "oobe.welcome"
 
-[node name="SubText0" type="Label" parent="VBoxContainer/Contents/WelocmePage"]
+[node name="SubText0" type="Label" parent="VBoxContainer/Contents/WelocmePage" unique_id=7803108]
 layout_mode = 2
 text = "oobe.welcome.0"
 
-[node name="SubText1" type="Label" parent="VBoxContainer/Contents/WelocmePage"]
+[node name="SubText1" type="Label" parent="VBoxContainer/Contents/WelocmePage" unique_id=418528981]
 layout_mode = 2
 text = "oobe.welcome.1"
 
-[node name="OptionButton" type="Button" parent="VBoxContainer/Contents/WelocmePage"]
+[node name="OptionButton" type="Button" parent="VBoxContainer/Contents/WelocmePage" unique_id=369851272]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 size_flags_horizontal = 0
@@ -157,7 +157,7 @@ alignment = 0
 icon_alignment = 2
 expand_icon = true
 
-[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/Contents/WelocmePage/OptionButton"]
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/Contents/WelocmePage/OptionButton" unique_id=748797849]
 visible = false
 show_behind_parent = true
 layout_mode = 1
@@ -169,36 +169,36 @@ offset_bottom = -3589.0
 grow_horizontal = 2
 theme_type_variation = &"PanelLittleMenu"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/Contents/WelocmePage/OptionButton/PanelContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/Contents/WelocmePage/OptionButton/PanelContainer" unique_id=248865726]
 layout_mode = 2
 size_flags_vertical = 8
 theme_override_constants/separation = 0
 alignment = 2
 
-[node name="EnglishButton" type="Button" parent="VBoxContainer/Contents/WelocmePage/OptionButton/PanelContainer/VBoxContainer"]
+[node name="EnglishButton" type="Button" parent="VBoxContainer/Contents/WelocmePage/OptionButton/PanelContainer/VBoxContainer" unique_id=2134632235]
 layout_mode = 2
 mouse_filter = 1
 theme_type_variation = &"ButtonForListMenu"
 text = "English"
 alignment = 0
 
-[node name="MandarinButton" type="Button" parent="VBoxContainer/Contents/WelocmePage/OptionButton/PanelContainer/VBoxContainer"]
+[node name="MandarinButton" type="Button" parent="VBoxContainer/Contents/WelocmePage/OptionButton/PanelContainer/VBoxContainer" unique_id=7494772]
 layout_mode = 2
 mouse_filter = 1
 theme_type_variation = &"ButtonForListMenu"
 text = "中文"
 alignment = 0
 
-[node name="NextStepHint" type="Label" parent="VBoxContainer/Contents/WelocmePage"]
+[node name="NextStepHint" type="Label" parent="VBoxContainer/Contents/WelocmePage" unique_id=1581984847]
 layout_mode = 2
 size_flags_vertical = 10
 text = "oobe.next_hint"
 
-[node name="LocationPage" type="VBoxContainer" parent="VBoxContainer/Contents"]
+[node name="LocationPage" type="VBoxContainer" parent="VBoxContainer/Contents" unique_id=708048467]
 visible = false
 layout_mode = 2
 
-[node name="Title" type="Label" parent="VBoxContainer/Contents/LocationPage"]
+[node name="Title" type="Label" parent="VBoxContainer/Contents/LocationPage" unique_id=1106480858]
 layout_mode = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 1, 0.49803922)
 theme_override_constants/shadow_offset_x = 3
@@ -206,24 +206,24 @@ theme_override_constants/shadow_offset_y = 3
 theme_override_font_sizes/font_size = 50
 text = "oobe.location"
 
-[node name="SubText0" type="Label" parent="VBoxContainer/Contents/LocationPage"]
+[node name="SubText0" type="Label" parent="VBoxContainer/Contents/LocationPage" unique_id=33140192]
 layout_mode = 2
 text = "oobe.location.0"
 
-[node name="SubText1" type="Label" parent="VBoxContainer/Contents/LocationPage"]
+[node name="SubText1" type="Label" parent="VBoxContainer/Contents/LocationPage" unique_id=376951607]
 layout_mode = 2
 text = "oobe.location.1"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Contents/LocationPage"]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Contents/LocationPage" unique_id=1011216876]
 layout_mode = 2
 
-[node name="SavesLocation" type="Button" parent="VBoxContainer/Contents/LocationPage/HBoxContainer"]
+[node name="SavesLocation" type="Button" parent="VBoxContainer/Contents/LocationPage/HBoxContainer" unique_id=13775537]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "C"
 alignment = 0
 
-[node name="FileDialog" type="FileDialog" parent="VBoxContainer/Contents/LocationPage/HBoxContainer/SavesLocation"]
+[node name="FileDialog" type="FileDialog" parent="VBoxContainer/Contents/LocationPage/HBoxContainer/SavesLocation" unique_id=2139985897]
 oversampling_override = 1.0
 title = "Open a Directory"
 initial_position = 2
@@ -233,21 +233,21 @@ file_mode = 2
 access = 2
 use_native_dialog = true
 
-[node name="RestoreButton" type="Button" parent="VBoxContainer/Contents/LocationPage/HBoxContainer"]
+[node name="RestoreButton" type="Button" parent="VBoxContainer/Contents/LocationPage/HBoxContainer" unique_id=1133872816]
 custom_minimum_size = Vector2(35, 0)
 layout_mode = 2
 icon = ExtResource("5_j1vce")
 expand_icon = true
 
-[node name="SubText2" type="Label" parent="VBoxContainer/Contents/LocationPage"]
+[node name="SubText2" type="Label" parent="VBoxContainer/Contents/LocationPage" unique_id=321556659]
 layout_mode = 2
 text = "oobe.location.2"
 
-[node name="NamePage" type="VBoxContainer" parent="VBoxContainer/Contents"]
+[node name="NamePage" type="VBoxContainer" parent="VBoxContainer/Contents" unique_id=78403162]
 visible = false
 layout_mode = 2
 
-[node name="Title" type="Label" parent="VBoxContainer/Contents/NamePage"]
+[node name="Title" type="Label" parent="VBoxContainer/Contents/NamePage" unique_id=964579203]
 layout_mode = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 1, 0.49803922)
 theme_override_constants/shadow_offset_x = 3
@@ -255,30 +255,30 @@ theme_override_constants/shadow_offset_y = 3
 theme_override_font_sizes/font_size = 50
 text = "oobe.name"
 
-[node name="SubText0" type="Label" parent="VBoxContainer/Contents/NamePage"]
+[node name="SubText0" type="Label" parent="VBoxContainer/Contents/NamePage" unique_id=1153791661]
 layout_mode = 2
 text = "oobe.name.0"
 
-[node name="LineEdit" type="LineEdit" parent="VBoxContainer/Contents/NamePage"]
+[node name="LineEdit" type="LineEdit" parent="VBoxContainer/Contents/NamePage" unique_id=1947624893]
 custom_minimum_size = Vector2(350, 0)
 layout_mode = 2
 size_flags_horizontal = 0
 placeholder_text = "Anonymous"
 
-[node name="SubText1" type="Label" parent="VBoxContainer/Contents/NamePage"]
+[node name="SubText1" type="Label" parent="VBoxContainer/Contents/NamePage" unique_id=1887685641]
 layout_mode = 2
 text = "oobe.name.1"
 
-[node name="UID" type="Label" parent="VBoxContainer/Contents/NamePage"]
+[node name="UID" type="Label" parent="VBoxContainer/Contents/NamePage" unique_id=475061340]
 layout_mode = 2
 size_flags_vertical = 10
 text = "oobe.name.uid"
 
-[node name="AvatarPage" type="VBoxContainer" parent="VBoxContainer/Contents"]
+[node name="PortraitPage" type="VBoxContainer" parent="VBoxContainer/Contents" unique_id=1370518652]
 visible = false
 layout_mode = 2
 
-[node name="Title" type="Label" parent="VBoxContainer/Contents/AvatarPage"]
+[node name="Title" type="Label" parent="VBoxContainer/Contents/PortraitPage" unique_id=362182139]
 layout_mode = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 1, 0.49803922)
 theme_override_constants/shadow_offset_x = 3
@@ -286,36 +286,36 @@ theme_override_constants/shadow_offset_y = 3
 theme_override_font_sizes/font_size = 50
 text = "oobe.avatar"
 
-[node name="SubText0" type="Label" parent="VBoxContainer/Contents/AvatarPage"]
+[node name="SubText0" type="Label" parent="VBoxContainer/Contents/PortraitPage" unique_id=612195103]
 layout_mode = 2
 text = "oobe.avatar.0"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Contents/AvatarPage"]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Contents/PortraitPage" unique_id=1512297856]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/separation = 16
 
-[node name="MainAvatar" type="Button" parent="VBoxContainer/Contents/AvatarPage/HBoxContainer"]
+[node name="MainPortrait" type="Button" parent="VBoxContainer/Contents/PortraitPage/HBoxContainer" unique_id=196164902]
 layout_mode = 2
 size_flags_vertical = 0
 theme_type_variation = &"ButtonAvatarBase"
 icon = ExtResource("5_fl8u4")
 
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer/Contents/AvatarPage/HBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/Contents/PortraitPage/HBoxContainer" unique_id=538368369]
 layout_mode = 2
 texture = SubResource("GradientTexture2D_3scdh")
 
-[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/Contents/AvatarPage/HBoxContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/Contents/PortraitPage/HBoxContainer" unique_id=1399903753]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="AvatarList" type="HFlowContainer" parent="VBoxContainer/Contents/AvatarPage/HBoxContainer/ScrollContainer"]
+[node name="PortraitList" type="HFlowContainer" parent="VBoxContainer/Contents/PortraitPage/HBoxContainer/ScrollContainer" unique_id=800845878]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/h_separation = 10
 theme_override_constants/v_separation = 10
 
-[node name="Default" type="Button" parent="VBoxContainer/Contents/AvatarPage/HBoxContainer/ScrollContainer/AvatarList"]
+[node name="Default" type="Button" parent="VBoxContainer/Contents/PortraitPage/HBoxContainer/ScrollContainer/PortraitList" unique_id=1830656012]
 custom_minimum_size = Vector2(55, 55)
 layout_mode = 2
 size_flags_vertical = 0
@@ -323,7 +323,7 @@ theme_type_variation = &"ButtonAvatarBase"
 icon = ExtResource("5_fl8u4")
 expand_icon = true
 
-[node name="Square" type="Button" parent="VBoxContainer/Contents/AvatarPage/HBoxContainer/ScrollContainer/AvatarList"]
+[node name="Square" type="Button" parent="VBoxContainer/Contents/PortraitPage/HBoxContainer/ScrollContainer/PortraitList" unique_id=2009993678]
 custom_minimum_size = Vector2(55, 55)
 layout_mode = 2
 size_flags_vertical = 0
@@ -331,7 +331,7 @@ theme_type_variation = &"ButtonAvatarBase"
 icon = ExtResource("6_voeh1")
 expand_icon = true
 
-[node name="Circle" type="Button" parent="VBoxContainer/Contents/AvatarPage/HBoxContainer/ScrollContainer/AvatarList"]
+[node name="Circle" type="Button" parent="VBoxContainer/Contents/PortraitPage/HBoxContainer/ScrollContainer/PortraitList" unique_id=1053359979]
 custom_minimum_size = Vector2(55, 55)
 layout_mode = 2
 size_flags_vertical = 0
@@ -339,7 +339,7 @@ theme_type_variation = &"ButtonAvatarBase"
 icon = ExtResource("7_umv6y")
 expand_icon = true
 
-[node name="Line" type="Button" parent="VBoxContainer/Contents/AvatarPage/HBoxContainer/ScrollContainer/AvatarList"]
+[node name="Line" type="Button" parent="VBoxContainer/Contents/PortraitPage/HBoxContainer/ScrollContainer/PortraitList" unique_id=932249933]
 custom_minimum_size = Vector2(55, 55)
 layout_mode = 2
 size_flags_vertical = 0
@@ -347,7 +347,7 @@ theme_type_variation = &"ButtonAvatarBase"
 icon = ExtResource("8_8yh57")
 expand_icon = true
 
-[node name="Piano" type="Button" parent="VBoxContainer/Contents/AvatarPage/HBoxContainer/ScrollContainer/AvatarList"]
+[node name="Piano" type="Button" parent="VBoxContainer/Contents/PortraitPage/HBoxContainer/ScrollContainer/PortraitList" unique_id=345615220]
 custom_minimum_size = Vector2(55, 55)
 layout_mode = 2
 size_flags_vertical = 0
@@ -355,7 +355,7 @@ theme_type_variation = &"ButtonAvatarBase"
 icon = ExtResource("10_pd63v")
 expand_icon = true
 
-[node name="Keyboard" type="Button" parent="VBoxContainer/Contents/AvatarPage/HBoxContainer/ScrollContainer/AvatarList"]
+[node name="Keyboard" type="Button" parent="VBoxContainer/Contents/PortraitPage/HBoxContainer/ScrollContainer/PortraitList" unique_id=501289649]
 custom_minimum_size = Vector2(55, 55)
 layout_mode = 2
 size_flags_vertical = 0
@@ -363,7 +363,7 @@ theme_type_variation = &"ButtonAvatarBase"
 icon = ExtResource("11_05lbc")
 expand_icon = true
 
-[node name="Pen" type="Button" parent="VBoxContainer/Contents/AvatarPage/HBoxContainer/ScrollContainer/AvatarList"]
+[node name="Pen" type="Button" parent="VBoxContainer/Contents/PortraitPage/HBoxContainer/ScrollContainer/PortraitList" unique_id=1707646081]
 custom_minimum_size = Vector2(55, 55)
 layout_mode = 2
 size_flags_vertical = 0
@@ -371,7 +371,7 @@ theme_type_variation = &"ButtonAvatarBase"
 icon = ExtResource("12_qocph")
 expand_icon = true
 
-[node name="Dog" type="Button" parent="VBoxContainer/Contents/AvatarPage/HBoxContainer/ScrollContainer/AvatarList"]
+[node name="Dog" type="Button" parent="VBoxContainer/Contents/PortraitPage/HBoxContainer/ScrollContainer/PortraitList" unique_id=174646366]
 custom_minimum_size = Vector2(55, 55)
 layout_mode = 2
 size_flags_vertical = 0
@@ -379,7 +379,7 @@ theme_type_variation = &"ButtonAvatarBase"
 icon = ExtResource("9_ypwgg")
 expand_icon = true
 
-[node name="Cat" type="Button" parent="VBoxContainer/Contents/AvatarPage/HBoxContainer/ScrollContainer/AvatarList"]
+[node name="Cat" type="Button" parent="VBoxContainer/Contents/PortraitPage/HBoxContainer/ScrollContainer/PortraitList" unique_id=1035648892]
 custom_minimum_size = Vector2(55, 55)
 layout_mode = 2
 size_flags_vertical = 0
@@ -387,7 +387,7 @@ theme_type_variation = &"ButtonAvatarBase"
 icon = ExtResource("13_qocph")
 expand_icon = true
 
-[node name="Mountain" type="Button" parent="VBoxContainer/Contents/AvatarPage/HBoxContainer/ScrollContainer/AvatarList"]
+[node name="Mountain" type="Button" parent="VBoxContainer/Contents/PortraitPage/HBoxContainer/ScrollContainer/PortraitList" unique_id=1504599283]
 custom_minimum_size = Vector2(55, 55)
 layout_mode = 2
 size_flags_vertical = 0
@@ -395,7 +395,7 @@ theme_type_variation = &"ButtonAvatarBase"
 icon = ExtResource("13_05lbc")
 expand_icon = true
 
-[node name="Structure" type="Button" parent="VBoxContainer/Contents/AvatarPage/HBoxContainer/ScrollContainer/AvatarList"]
+[node name="Structure" type="Button" parent="VBoxContainer/Contents/PortraitPage/HBoxContainer/ScrollContainer/PortraitList" unique_id=194647190]
 custom_minimum_size = Vector2(55, 55)
 layout_mode = 2
 size_flags_vertical = 0
@@ -403,7 +403,7 @@ theme_type_variation = &"ButtonAvatarBase"
 icon = ExtResource("15_hug7m")
 expand_icon = true
 
-[node name="Nonsense" type="Button" parent="VBoxContainer/Contents/AvatarPage/HBoxContainer/ScrollContainer/AvatarList"]
+[node name="Nonsense" type="Button" parent="VBoxContainer/Contents/PortraitPage/HBoxContainer/ScrollContainer/PortraitList" unique_id=2077987573]
 custom_minimum_size = Vector2(55, 55)
 layout_mode = 2
 size_flags_vertical = 0
@@ -411,7 +411,7 @@ theme_type_variation = &"ButtonAvatarBase"
 icon = ExtResource("6_i122j")
 expand_icon = true
 
-[node name="Fall" type="Button" parent="VBoxContainer/Contents/AvatarPage/HBoxContainer/ScrollContainer/AvatarList"]
+[node name="Fall" type="Button" parent="VBoxContainer/Contents/PortraitPage/HBoxContainer/ScrollContainer/PortraitList" unique_id=1219562993]
 custom_minimum_size = Vector2(55, 55)
 layout_mode = 2
 size_flags_vertical = 0
@@ -419,7 +419,7 @@ theme_type_variation = &"ButtonAvatarBase"
 icon = ExtResource("7_voeh1")
 expand_icon = true
 
-[node name="Dream" type="Button" parent="VBoxContainer/Contents/AvatarPage/HBoxContainer/ScrollContainer/AvatarList"]
+[node name="Dream" type="Button" parent="VBoxContainer/Contents/PortraitPage/HBoxContainer/ScrollContainer/PortraitList" unique_id=181610118]
 custom_minimum_size = Vector2(55, 55)
 layout_mode = 2
 size_flags_vertical = 0
@@ -427,11 +427,11 @@ theme_type_variation = &"ButtonAvatarBase"
 icon = ExtResource("8_umv6y")
 expand_icon = true
 
-[node name="FastBootPage" type="VBoxContainer" parent="VBoxContainer/Contents"]
+[node name="FastBootPage" type="VBoxContainer" parent="VBoxContainer/Contents" unique_id=498315990]
 visible = false
 layout_mode = 2
 
-[node name="Title" type="Label" parent="VBoxContainer/Contents/FastBootPage"]
+[node name="Title" type="Label" parent="VBoxContainer/Contents/FastBootPage" unique_id=776377670]
 layout_mode = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 1, 0.49803922)
 theme_override_constants/shadow_offset_x = 3
@@ -439,16 +439,16 @@ theme_override_constants/shadow_offset_y = 3
 theme_override_font_sizes/font_size = 50
 text = "oobe.fast_boot"
 
-[node name="SubText0" type="Label" parent="VBoxContainer/Contents/FastBootPage"]
+[node name="SubText0" type="Label" parent="VBoxContainer/Contents/FastBootPage" unique_id=2008108100]
 layout_mode = 2
 text = "oobe.fast_boot.0"
 
-[node name="YesButton" type="Button" parent="VBoxContainer/Contents/FastBootPage"]
+[node name="YesButton" type="Button" parent="VBoxContainer/Contents/FastBootPage" unique_id=1897090387]
 custom_minimum_size = Vector2(0, 75)
 layout_mode = 2
 flat = true
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Contents/FastBootPage/YesButton"]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Contents/FastBootPage/YesButton" unique_id=200153652]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -456,23 +456,23 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Icon" type="Label" parent="VBoxContainer/Contents/FastBootPage/YesButton/HBoxContainer"]
+[node name="Icon" type="Label" parent="VBoxContainer/Contents/FastBootPage/YesButton/HBoxContainer" unique_id=84517509]
 layout_mode = 2
 theme_override_font_sizes/font_size = 50
 text = "🐇"
 
-[node name="CheckBox" type="CheckBox" parent="VBoxContainer/Contents/FastBootPage/YesButton/HBoxContainer"]
+[node name="CheckBox" type="CheckBox" parent="VBoxContainer/Contents/FastBootPage/YesButton/HBoxContainer" unique_id=273008256]
 layout_mode = 2
 mouse_filter = 2
 text = "oobe.fast_boot.yes"
 flat = true
 
-[node name="NoButton" type="Button" parent="VBoxContainer/Contents/FastBootPage"]
+[node name="NoButton" type="Button" parent="VBoxContainer/Contents/FastBootPage" unique_id=277577192]
 custom_minimum_size = Vector2(0, 75)
 layout_mode = 2
 flat = true
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Contents/FastBootPage/NoButton"]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Contents/FastBootPage/NoButton" unique_id=950478011]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -480,22 +480,22 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Icon" type="Label" parent="VBoxContainer/Contents/FastBootPage/NoButton/HBoxContainer"]
+[node name="Icon" type="Label" parent="VBoxContainer/Contents/FastBootPage/NoButton/HBoxContainer" unique_id=1082109730]
 layout_mode = 2
 theme_override_font_sizes/font_size = 50
 text = "🐌"
 
-[node name="CheckBox" type="CheckBox" parent="VBoxContainer/Contents/FastBootPage/NoButton/HBoxContainer"]
+[node name="CheckBox" type="CheckBox" parent="VBoxContainer/Contents/FastBootPage/NoButton/HBoxContainer" unique_id=777288325]
 layout_mode = 2
 mouse_filter = 2
 text = "oobe.fast_boot.no"
 flat = true
 
-[node name="ReadyPage" type="VBoxContainer" parent="VBoxContainer/Contents"]
+[node name="ReadyPage" type="VBoxContainer" parent="VBoxContainer/Contents" unique_id=1514376151]
 visible = false
 layout_mode = 2
 
-[node name="Title" type="Label" parent="VBoxContainer/Contents/ReadyPage"]
+[node name="Title" type="Label" parent="VBoxContainer/Contents/ReadyPage" unique_id=571397194]
 layout_mode = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 1, 0.49803922)
 theme_override_constants/shadow_offset_x = 3
@@ -503,34 +503,34 @@ theme_override_constants/shadow_offset_y = 3
 theme_override_font_sizes/font_size = 50
 text = "oobe.ready"
 
-[node name="SubText0" type="Label" parent="VBoxContainer/Contents/ReadyPage"]
+[node name="SubText0" type="Label" parent="VBoxContainer/Contents/ReadyPage" unique_id=1318598887]
 layout_mode = 2
 size_flags_vertical = 3
 text = "oobe.ready.0"
 
-[node name="SubText1" type="Label" parent="VBoxContainer/Contents/ReadyPage"]
+[node name="SubText1" type="Label" parent="VBoxContainer/Contents/ReadyPage" unique_id=2029364733]
 layout_mode = 2
 text = "oobe.ready.1"
 
-[node name="SubText2" type="Label" parent="VBoxContainer/Contents/ReadyPage"]
+[node name="SubText2" type="Label" parent="VBoxContainer/Contents/ReadyPage" unique_id=142098079]
 layout_mode = 2
 text = "oobe.ready.2"
 
-[node name="SubText3" type="Label" parent="VBoxContainer/Contents/ReadyPage"]
+[node name="SubText3" type="Label" parent="VBoxContainer/Contents/ReadyPage" unique_id=1603297938]
 layout_mode = 2
 text = "oobe.ready.3"
 
-[node name="DownLine" type="TextureRect" parent="VBoxContainer"]
+[node name="DownLine" type="TextureRect" parent="VBoxContainer" unique_id=1528568460]
 custom_minimum_size = Vector2(0, 5)
 layout_mode = 2
 texture = SubResource("GradientTexture1D_p748u")
 
-[node name="DownBoard" type="ColorRect" parent="VBoxContainer"]
+[node name="DownBoard" type="ColorRect" parent="VBoxContainer" unique_id=514604437]
 custom_minimum_size = Vector2(0, 75)
 layout_mode = 2
 color = Color(0, 0, 1, 1)
 
-[node name="PageButton" type="MarginContainer" parent="VBoxContainer/DownBoard"]
+[node name="PageButton" type="MarginContainer" parent="VBoxContainer/DownBoard" unique_id=1732760257]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -542,10 +542,10 @@ theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 50
 theme_override_constants/margin_bottom = 20
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/DownBoard/PageButton"]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/DownBoard/PageButton" unique_id=703234725]
 layout_mode = 2
 
-[node name="PreviousIcon" type="Button" parent="VBoxContainer/DownBoard/PageButton/HBoxContainer"]
+[node name="PreviousIcon" type="Button" parent="VBoxContainer/DownBoard/PageButton/HBoxContainer" unique_id=1546507471]
 visible = false
 custom_minimum_size = Vector2(35, 35)
 layout_mode = 2
@@ -553,31 +553,31 @@ theme_type_variation = &"ButtonRed"
 shortcut = SubResource("Shortcut_b1gv2")
 text = "🢀"
 
-[node name="PreviousText" type="LinkButton" parent="VBoxContainer/DownBoard/PageButton/HBoxContainer"]
+[node name="PreviousText" type="LinkButton" parent="VBoxContainer/DownBoard/PageButton/HBoxContainer" unique_id=1515008073]
 visible = false
 layout_mode = 2
 size_flags_vertical = 4
 text = "button.previous_step"
 underline = 1
 
-[node name="Control" type="Control" parent="VBoxContainer/DownBoard/PageButton/HBoxContainer"]
+[node name="Control" type="Control" parent="VBoxContainer/DownBoard/PageButton/HBoxContainer" unique_id=1957143895]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="NextText" type="LinkButton" parent="VBoxContainer/DownBoard/PageButton/HBoxContainer"]
+[node name="NextText" type="LinkButton" parent="VBoxContainer/DownBoard/PageButton/HBoxContainer" unique_id=1225373886]
 layout_mode = 2
 size_flags_vertical = 4
 text = "button.next_step"
 underline = 1
 
-[node name="NextIcon" type="Button" parent="VBoxContainer/DownBoard/PageButton/HBoxContainer"]
+[node name="NextIcon" type="Button" parent="VBoxContainer/DownBoard/PageButton/HBoxContainer" unique_id=1038477188]
 custom_minimum_size = Vector2(35, 35)
 layout_mode = 2
 theme_type_variation = &"ButtonGreen"
 shortcut = SubResource("Shortcut_kylj4")
 text = "🡺"
 
-[node name="PauseScreen" type="ColorRect" parent="."]
+[node name="PauseScreen" type="ColorRect" parent="." unique_id=2115879962]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -586,7 +586,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.49803922)
 
-[node name="Label" type="Label" parent="PauseScreen"]
+[node name="Label" type="Label" parent="PauseScreen" unique_id=1384433960]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -610,7 +610,7 @@ vertical_alignment = 1
 [connection signal="pressed" from="VBoxContainer/Contents/LocationPage/HBoxContainer/RestoreButton" to="." method="_on_file_path_restore_button_pressed"]
 [connection signal="visibility_changed" from="VBoxContainer/Contents/NamePage" to="." method="_on_name_page_visibility_changed"]
 [connection signal="text_changed" from="VBoxContainer/Contents/NamePage/LineEdit" to="." method="_on_user_name_text_changed"]
-[connection signal="visibility_changed" from="VBoxContainer/Contents/AvatarPage" to="." method="_on_avatar_page_visibility_changed"]
+[connection signal="visibility_changed" from="VBoxContainer/Contents/PortraitPage" to="." method="_on_avatar_page_visibility_changed"]
 [connection signal="visibility_changed" from="VBoxContainer/Contents/FastBootPage" to="." method="_on_fast_boot_page_visibility_changed"]
 [connection signal="pressed" from="VBoxContainer/Contents/FastBootPage/YesButton" to="." method="_on_fast_boot_yes_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/Contents/FastBootPage/NoButton" to="." method="_on_fast_boot_no_button_pressed"]

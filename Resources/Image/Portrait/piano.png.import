@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cthrhf37hsxfd"
-path="res://.godot/imported/nonsense.png-14a41638eb969e80d0542cc6cb57fd41.ctex"
+uid="uid://bfygcjaaiu7nl"
+path="res://.godot/imported/piano.png-3361aff6002b2d9772c858b37b9f541f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Resources/Image/avatar/nonsense.png"
-dest_files=["res://.godot/imported/nonsense.png-14a41638eb969e80d0542cc6cb57fd41.ctex"]
+source_file="res://Resources/Image/Portrait/piano.png"
+dest_files=["res://.godot/imported/piano.png-3361aff6002b2d9772c858b37b9f541f.ctex"]
 
 [params]
 

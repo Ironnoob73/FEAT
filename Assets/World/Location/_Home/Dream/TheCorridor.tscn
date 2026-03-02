@@ -7,13 +7,31 @@
 [ext_resource type="PackedScene" uid="uid://dw2bb58uuqtoo" path="res://Assets/World/Location/_Home/sources/corridor_end.tscn" id="3_mh8nc"]
 [ext_resource type="PackedScene" uid="uid://lixd4xll3bl0" path="res://Resources/Object/Building/Window/StaticGlass/glass_scene.tscn" id="4_11pt0"]
 [ext_resource type="PackedScene" uid="uid://coan3h6n6wobt" path="res://Resources/Object/Building/Light/FluorescentLamp/light_scene.tscn" id="4_65yf4"]
+[ext_resource type="PackedScene" uid="uid://er22co5l4pot" path="res://Assets/World/Location/_Home/sources/ElevatorCorridor.glb" id="4_bdjbn"]
 [ext_resource type="Material" uid="uid://dvhli2ihhy2nx" path="res://Resources/Material/BrownMaterial.tres" id="4_mh8nc"]
 [ext_resource type="PackedScene" uid="uid://ds1bb3oh6akpf" path="res://Resources/Object/Building/Door/PlainDoor/door_scene.tscn" id="5_11pt0"]
+[ext_resource type="PackedScene" uid="uid://dp6fvdef6pacd" path="res://Assets/World/Location/_Home/sources/Corridor.glb" id="6_8lytu"]
 [ext_resource type="PackedScene" uid="uid://cmwntv1ors126" path="res://Assets/World/Location/_Home/sources/stair_corridor_solid.tscn" id="6_bdjbn"]
 [ext_resource type="Script" uid="uid://xi806lb1q3l3" path="res://addons/abyss_history_lib/Class/Interact/Behaviour/_BehaviorClass.gd" id="6_shdyq"]
 [ext_resource type="Script" uid="uid://bawnnel5w6hxg" path="res://addons/abyss_history_lib/Class/Interact/Behaviour/ChangeMaterialBehaviorClass.gd" id="7_bdjbn"]
 [ext_resource type="ArrayMesh" uid="uid://35r3l2ggep57" path="res://Assets/World/Location/_Home/sources/RoomView.obj" id="8_8lytu"]
 [ext_resource type="Shader" uid="uid://cyxv26lgbbfge" path="res://Assets/World/Environments/sources/background_shader.gdshader" id="9_jn1r0"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_shdyq"]
+resource_local_to_scene = true
+render_priority = 1
+shader = ExtResource("9_jn1r0")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_11pt0"]
+size = Vector2(7, 10)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_11pt0"]
+resource_local_to_scene = true
+render_priority = 1
+shader = ExtResource("9_jn1r0")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_shdyq"]
+size = Vector2(20, 20)
 
 [sub_resource type="Resource" id="Resource_e7spv"]
 script = ExtResource("7_bdjbn")
@@ -33,8 +51,78 @@ size = Vector3(2, 0.1, 1)
 [node name="TheCorridor" type="Node3D" unique_id=215228121]
 script = ExtResource("1_xhdx5")
 
+[node name="ElevatorCorridorSolid" parent="." unique_id=39811513 instance=ExtResource("2_xhdx5")]
+
+[node name="StairCorridor0" parent="ElevatorCorridorSolid" unique_id=21606448 instance=ExtResource("6_bdjbn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 7)
+
+[node name="StaticGlass" parent="ElevatorCorridorSolid/StairCorridor0" unique_id=1503461664 instance=ExtResource("4_11pt0")]
+transform = Transform3D(1, 0, -1.7484555e-07, 0, 1, 0, 1.7484555e-07, 0, 1, 0, 1.5, 5)
+
+[node name="StairCorridor1" parent="ElevatorCorridorSolid" unique_id=796979045 instance=ExtResource("6_bdjbn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4, 7)
+
+[node name="ElevatorCorridor" parent="ElevatorCorridorSolid/StairCorridor1" unique_id=1005583315 instance=ExtResource("4_bdjbn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -7)
+
+[node name="FluorescentLampScene4" parent="ElevatorCorridorSolid/StairCorridor1/ElevatorCorridor" unique_id=1299003894 instance=ExtResource("4_65yf4")]
+transform = Transform3D(1, 0, -1.7484555e-07, 0, 1, 0, 1.7484555e-07, 0, 1, 0, 3, -0.49999917)
+
+[node name="Corridor" parent="ElevatorCorridorSolid/StairCorridor1" unique_id=1278186933 instance=ExtResource("6_8lytu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, -7)
+
+[node name="FluorescentLampScene5" parent="ElevatorCorridorSolid/StairCorridor1/Corridor" unique_id=1148476562 instance=ExtResource("4_65yf4")]
+transform = Transform3D(1, 0, -1.7484555e-07, 0, 1, 0, 1.7484555e-07, 0, 1, -4, 3, -0.5000003)
+
+[node name="StaticGlass" parent="ElevatorCorridorSolid/StairCorridor1" unique_id=1477100399 instance=ExtResource("4_11pt0")]
+transform = Transform3D(1, 0, -1.7484555e-07, 0, 1, 0, 1.7484555e-07, 0, 1, 0, 1.5, 5)
+
+[node name="StairCorridor2" parent="ElevatorCorridorSolid" unique_id=430424266 instance=ExtResource("6_bdjbn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 7)
+
+[node name="ElevatorCorridor" parent="ElevatorCorridorSolid/StairCorridor2" unique_id=60805832 instance=ExtResource("4_bdjbn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -7)
+
+[node name="FluorescentLampScene4" parent="ElevatorCorridorSolid/StairCorridor2/ElevatorCorridor" unique_id=1889545864 instance=ExtResource("4_65yf4")]
+transform = Transform3D(1, 0, -1.7484555e-07, 0, 1, 0, 1.7484555e-07, 0, 1, 0, 3, -0.49999917)
+
+[node name="Corridor" parent="ElevatorCorridorSolid/StairCorridor2" unique_id=1279242773 instance=ExtResource("6_8lytu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, -7)
+
+[node name="FluorescentLampScene5" parent="ElevatorCorridorSolid/StairCorridor2/Corridor" unique_id=453426390 instance=ExtResource("4_65yf4")]
+transform = Transform3D(1, 0, -1.7484555e-07, 0, 1, 0, 1.7484555e-07, 0, 1, -4, 3, -0.5000003)
+
+[node name="StaticGlass" parent="ElevatorCorridorSolid/StairCorridor2" unique_id=171340734 instance=ExtResource("4_11pt0")]
+transform = Transform3D(1, 0, -1.7484555e-07, 0, 1, 0, 1.7484555e-07, 0, 1, 0, 1.5, 5)
+
+[node name="DownStairView" type="MeshInstance3D" parent="ElevatorCorridorSolid" unique_id=477990772]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 7)
+material_override = SubResource("ShaderMaterial_shdyq")
+mesh = SubResource("PlaneMesh_11pt0")
+
+[node name="SubViewport" type="SubViewport" parent="ElevatorCorridorSolid/DownStairView" unique_id=564655141]
+transparent_bg = true
+
+[node name="Camera3D" type="Camera3D" parent="ElevatorCorridorSolid/DownStairView/SubViewport" unique_id=1654862349]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 8, 8)
+
+[node name="UpStairView" type="MeshInstance3D" parent="ElevatorCorridorSolid" unique_id=1450189058]
+transform = Transform3D(1, 0, 0, 0, -1, -8.742278e-08, 0, 8.742278e-08, -1, 0, 6, 7)
+material_override = SubResource("ShaderMaterial_11pt0")
+mesh = SubResource("PlaneMesh_11pt0")
+
+[node name="SubViewport" type="SubViewport" parent="ElevatorCorridorSolid/UpStairView" unique_id=971486857]
+transparent_bg = true
+
+[node name="Camera3D" type="Camera3D" parent="ElevatorCorridorSolid/UpStairView/SubViewport" unique_id=499665133]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, -2, 8)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="ElevatorCorridorSolid" unique_id=1095803743]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 16, 7)
+mesh = SubResource("PlaneMesh_shdyq")
+
 [node name="Corridor0" parent="." unique_id=1835768 instance=ExtResource("1_khq8m")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 13, 0, 0)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -12, 0, -1)
 
 [node name="Corridor1" parent="Corridor0" unique_id=1458496395 instance=ExtResource("1_khq8m")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 18, 0, -0.99999994)
@@ -44,18 +132,6 @@ transform = Transform3D(-4.3711395e-08, 0, -1, 0, 1, 0, 1, 0, -4.3711395e-08, -8
 
 [node name="StaticGlass" parent="Corridor0/Corridor1" unique_id=149899061 instance=ExtResource("4_11pt0")]
 transform = Transform3D(-2.1855693e-07, 0, -1, 0, 1, 0, 1, 0, -2.1855693e-07, -8.1, 1.5, -0.5)
-
-[node name="ElevatorCorridorSolid" parent="Corridor0" unique_id=39811513 instance=ExtResource("2_xhdx5")]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -12, 0, -0.99999994)
-
-[node name="StairCorridor0" parent="Corridor0/ElevatorCorridorSolid" unique_id=21606448 instance=ExtResource("6_bdjbn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 7)
-
-[node name="StairCorridor1" parent="Corridor0/ElevatorCorridorSolid" unique_id=796979045 instance=ExtResource("6_bdjbn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4, 7)
-
-[node name="StairCorridor2" parent="Corridor0/ElevatorCorridorSolid" unique_id=430424266 instance=ExtResource("6_bdjbn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 7)
 
 [node name="Corridor2" parent="Corridor0" unique_id=1266449722 instance=ExtResource("1_khq8m")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -24, 0, -1)
@@ -97,7 +173,7 @@ transform = Transform3D(1, 0, -1.7484555e-07, 0, 1, 0, 1.7484555e-07, 0, 1, 23, 
 transform = Transform3D(1, 0, -1.7484555e-07, 0, 1, 0, 1.7484555e-07, 0, 1, -47, 3, -0.5000046)
 
 [node name="FrameScene0" parent="." unique_id=285703112 instance=ExtResource("3_65yf4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, 3.0000002)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 0, 2)
 mesh_material = ExtResource("4_mh8nc")
 occlusion = "none"
 
@@ -114,7 +190,7 @@ size = Vector3(0.6, 2.4, 0.1)
 material = ExtResource("4_mh8nc")
 
 [node name="RoomView" type="MeshInstance3D" parent="." unique_id=1965730702]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 9, 0, 2.9999998)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -16, 0, 1.9999998)
 material_override = SubResource("ShaderMaterial_ktlp0")
 mesh = ExtResource("8_8lytu")
 skeleton = NodePath("")

@@ -1,8 +1,9 @@
 extends SubViewport
 
-func _ready() -> void:
-	size = get_window().size
+@onready var camera_3d: Camera3D = $Camera3D
 
 func _process(_delta: float) -> void:
-	$Camera3D.global_position = Global.CurrentWorld.player0.first_person_cam.global_position
-	$Camera3D.global_rotation = Global.CurrentWorld.player0.first_person_cam.global_rotation
+	size = get_window().size
+	var player_cam: Camera3D = Global.CurrentWorld.player0.first_person_cam
+	camera_3d.global_position = player_cam.global_position
+	camera_3d.global_rotation = player_cam.global_rotation

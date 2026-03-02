@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://cjb0tf34wgeui"]
+
+[ext_resource type="Shader" uid="uid://7qh3gn8qmng6" path="res://Resources/Shader/parallax.gdshader" id="1_6pjj2"]
+[ext_resource type="Texture2D" uid="uid://j1foggfte370" path="res://Resources/Parallax/template.png" id="2_hodku"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_ta33m"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fyf1j"]
+render_priority = 0
+shader = ExtResource("1_6pjj2")
+shader_parameter/room_atlas = ExtResource("2_hodku")
+shader_parameter/brightness = 1.0
+shader_parameter/face_offset = PackedVector2Array(0.667, 0.167, 0.667, 0.167, 0.833, 0.333, 0.833, 0.333, 0.834, 0.834, 0.166, 0.166)
+shader_parameter/face_size = PackedVector2Array(0.667, 0.667, 0.667, 0.667, -0.667, -0.667, -0.667, -0.667, 0.667, 0.667, 0.667, 0.667)
+shader_parameter/left_depth = 0.5
+shader_parameter/right_depth = 0.5
+shader_parameter/top_depth = 0.5
+shader_parameter/bottom_depth = 0.5
+shader_parameter/front_depth = 1.0
+shader_parameter/layer0_depth = 0.75
+shader_parameter/layer1_depth = 0.5
+shader_parameter/layer2_depth = 0.25
+
+[node name="MeshInstance3D" type="MeshInstance3D" unique_id=34696851]
+transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0)
+mesh = SubResource("QuadMesh_ta33m")
+surface_material_override/0 = SubResource("ShaderMaterial_fyf1j")

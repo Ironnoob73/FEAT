@@ -37,7 +37,7 @@ func do(interactor:Node,sender:Node) -> void:
 			_p_tween = tween.tween_property(sleeping_count, "modulate:a", 0, 0.25).set_delay(3)
 			_c_tween = tween.tween_callback(func()->void:
 				AHL_LoadManager.load_scene(LocationPreload.get_path_from_name("DreamApartment"),
-					true, Vector3(11,0,15), true, Vector3(0,deg_to_rad(180),0), false)
+					true, Vector3(-14,0,14), true, Vector3(0,deg_to_rad(180),0), false)
 				var getup_call: Callable = bed_int.get_meta("meta_getup_func")
 				player_sender.disconnect("on_menu_change",getup_call)
 				player_sender.isInDream = true
