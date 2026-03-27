@@ -450,7 +450,7 @@ func _forward_strength(value:float) -> float:
 	else:
 		return 0
 
-func refresh_handheld(index:int):
+func refresh_handheld(index:int) -> void:
 	super.refresh_handheld(index)
 	if index == current_hotbar:
 		for n in hand_held_group:
@@ -467,7 +467,7 @@ func refresh_handheld(index:int):
 		for i in hand_held_fp.get_children():
 			i.set_layer_mask_value(1,false)
 			
-func refresh_handheld_info():
+func refresh_handheld_info() -> void:
 	HUD_hotbar.set_info(current_hotbar,\
 		handheld_tool.equipment.name0,\
 		handheld_tool.equipment.icon,\
@@ -475,12 +475,12 @@ func refresh_handheld_info():
 	#if handheld_tool.equipment.send_type == "Range":
 	HUD_hotbar.set_ammo_info(handheld_tool.equipment.send_type == "Range", handheld_tool.equipment.ammo_total)
 		
-func refresh_player_mesh():
+func refresh_player_mesh() -> void:
 	super.refresh_player_mesh()
 	hand_held_group = [hand_held,hand_held_fp]
 	
 # Climb Detection & Teleport
-func _on_climb_area_area_entered(area: Area3D):
+func _on_climb_area_area_entered(area: Area3D) -> void:
 	if area.is_in_group("ClimbAble"):
 		isClimb = true
 	if area.is_in_group("Teleporter") and area.get_parent().ToLocation not in ["null",""]:
@@ -490,14 +490,14 @@ func _on_climb_area_area_entered(area: Area3D):
 		tween.tween_callback(func():get_node("/root/World").change_scene(area.get_parent().ToLocation,area.get_parent().ToLocationPos))
 		tween.tween_callback(func():isInTeleport=false)
 		tween.tween_property(transition, "color:a", 0, 0.25)
-func _on_climb_area_area_exited(area: Area3D):
+func _on_climb_area_area_exited(area: Area3D) -> void:
 	if area.is_in_group("ClimbAble"):
 		isClimb = false
 		for i in _climb_area.get_overlapping_areas():
 			if i.is_in_group("ClimbAble"):
 				isClimb = true
 # Motion Detection
-func _on_motion_area_area_entered(area: Area3D):
+func _on_motion_area_area_entered(area: Area3D) -> void:
 	if area.is_in_group("MotionSensing"):
 		area.detected_player = self
 	if area.gravity_space_override != 0:
@@ -505,7 +505,7 @@ func _on_motion_area_area_entered(area: Area3D):
 		self.gravity_dir = area.gravity_direction
 	if area.linear_damp_space_override != 0:
 		self.FRICTION = area.linear_damp
-func _on_motion_area_area_exited(area: Area3D):
+func _on_motion_area_area_exited(area: Area3D) -> void:
 	if area.is_in_group("MotionSensing"):
 		area.detected_player = null
 	self.gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -513,7 +513,7 @@ func _on_motion_area_area_exited(area: Area3D):
 	self.FRICTION = ProjectSettings.get_setting("physics/3d/default_linear_damp")
 
 # Sit
-func sit(chair_position, chair_rotation):
+func sit(chair_position, chair_rotation) -> void:
 	var tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUART).set_parallel(true)
 	if !isSit :
 		tween.tween_property(self, "position", chair_position, 0.5)
@@ -524,25 +524,25 @@ func sit(chair_position, chair_rotation):
 		#isSit = true
 	else :
 		_un_sit()
-func _un_sit():
+func _un_sit() -> void:
 	var tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUART).set_parallel(true)
 	tween.tween_property(mesh.animation_tree,"parameters/Sit/add_amount",0,0.5)
 	isSit.remove_meta("user")
 	isSit = null
 
 # Caption
-func add_caption(text_in:String):
+func add_caption(text_in:String) -> void:
 	for i in caption.get_child_count():
 		caption.get_child(i).update_pos()
 	var new_caption = load("res://Assets/Character/Caption/Caption.tscn").instantiate()
 	new_caption.text = text_in
 	caption.add_child(new_caption)
-func clear_caption():
+func clear_caption() -> void:
 	for i in caption.get_child_count():
 		caption.get_child(i)._on_timer_timeout()
 		
 # HUD Hidden
-func hide_hud(do_hide:bool):
+func hide_hud(do_hide:bool) -> void:
 	hud_hidden = do_hide
 	# 不希望在游戏刚开始时就显示血量
 	var state_hud_hide : bool = false

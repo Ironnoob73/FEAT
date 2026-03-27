@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://ogtwuy5brc0t"]
+[gd_scene format=3 uid="uid://ogtwuy5brc0t"]
 
 [ext_resource type="Script" uid="uid://cyyd70usjabx" path="res://Resources/Object/Building/Switch/Common/SwitchInteraction.gd" id="1_8njl6"]
 [ext_resource type="Script" uid="uid://c8ier7k2ohfsp" path="res://addons/abyss_history_lib/Class/Interact/InteractiveClass.gd" id="1_xx5fq"]
@@ -16,7 +16,7 @@ size = Vector3(0.1, 0.01, 0.01)
 [sub_resource type="BoxShape3D" id="BoxShape3D_upsxn"]
 size = Vector3(1, 1, 0.1)
 
-[node name="SwitchScene" type="Node3D"]
+[node name="SwitchScene" type="Node3D" unique_id=1112688243]
 script = ExtResource("1_xx5fq")
 DisplayName = "Switch"
 Interactable = true
@@ -25,29 +25,29 @@ interact_text = "interact.switch"
 Switchable = true
 current_health = 100.0
 
-[node name="Body" type="StaticBody3D" parent="."]
+[node name="Body" type="StaticBody3D" parent="." unique_id=218649567]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.1)
-collision_layer = 17
+collision_layer = 25
 script = ExtResource("1_8njl6")
 
-[node name="Base" type="MeshInstance3D" parent="Body"]
+[node name="Base" type="MeshInstance3D" parent="Body" unique_id=208025246]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.025)
 mesh = SubResource("BoxMesh_i6cr2")
 
-[node name="Button" type="MeshInstance3D" parent="Body"]
+[node name="Button" type="MeshInstance3D" parent="Body" unique_id=1000698851]
 transform = Transform3D(1, 0, 0, 0, 0.984808, 0.173648, 0, -0.173648, 0.984808, 0, 0, 0.05)
 mesh = SubResource("BoxMesh_0dj8r")
 
-[node name="Light" type="MeshInstance3D" parent="Body/Button"]
+[node name="Light" type="MeshInstance3D" parent="Body/Button" unique_id=1119609095]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0.03)
 material_override = ExtResource("2_rx144")
 mesh = SubResource("BoxMesh_8hndt")
 
-[node name="CollisionShape" type="CollisionShape3D" parent="Body"]
+[node name="CollisionShape" type="CollisionShape3D" parent="Body" unique_id=59170697]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.05)
 shape = SubResource("BoxShape3D_upsxn")
 
-[node name="VisibleOnScreenEnabler3D" type="VisibleOnScreenEnabler3D" parent="."]
+[node name="VisibleOnScreenEnabler3D" type="VisibleOnScreenEnabler3D" parent="." unique_id=1526330327]
 aabb = AABB(-0.1, -0.1, 0.1, 0.2, 0.2, 0.1)
 
 [connection signal="interact_signal" from="." to="Body" method="_interact_signal"]

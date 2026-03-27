@@ -223,21 +223,21 @@ script = ExtResource("2_ksjhd")
 isInDream = false
 metadata/FullReady = false
 
-[node name="ClimbArea" type="Area3D" parent="PlayerColl" index="0" unique_id=1073655030 groups=["PlayerMotion"]]
+[node name="ClimbArea" type="Area3D" parent="PlayerColl" parent_id_path=PackedInt32Array(559408119) index="0" unique_id=1073655030 groups=["PlayerMotion"]]
 collision_layer = 4
 collision_mask = 27
 
 [node name="Coll" type="CollisionShape3D" parent="PlayerColl/ClimbArea" index="0" unique_id=248731188]
 shape = SubResource("CapsuleShape3D_8e6h3")
 
-[node name="MotionArea" type="Area3D" parent="PlayerColl" index="1" unique_id=1057045897 groups=["PlayerMotion"]]
+[node name="MotionArea" type="Area3D" parent="PlayerColl" parent_id_path=PackedInt32Array(559408119) index="1" unique_id=1057045897 groups=["PlayerMotion"]]
 collision_layer = 4
 collision_mask = 27
 
 [node name="Coll" type="CollisionShape3D" parent="PlayerColl/MotionArea" index="0" unique_id=2100943710]
 shape = SubResource("CapsuleShape3D_wkhgt")
 
-[node name="AttackArea" type="Area3D" parent="PlayerColl" index="2" unique_id=1724935767]
+[node name="AttackArea" type="Area3D" parent="PlayerColl" parent_id_path=PackedInt32Array(559408119) index="2" unique_id=1724935767]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
 collision_layer = 0
 collision_mask = 31

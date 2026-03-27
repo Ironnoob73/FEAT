@@ -1,6 +1,8 @@
 extends SubViewport
+class_name sub_room_viewport
 
 @onready var camera_3d: Camera3D = $Camera3D
+@export var scene_node: sub_room
 
 func _process(_delta: float) -> void:
 	size = get_window().size

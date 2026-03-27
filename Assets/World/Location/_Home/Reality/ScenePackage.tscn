@@ -22,7 +22,6 @@
 [ext_resource type="PackedScene" uid="uid://lixd4xll3bl0" path="res://Resources/Object/Building/Window/StaticGlass/glass_scene.tscn" id="12_brwdr"]
 [ext_resource type="PackedScene" uid="uid://cilrxiahcsdqu" path="res://Resources/Object/Building/Light/WoodenCeilingLamp/light_scene.tscn" id="13_36fuy"]
 [ext_resource type="PackedScene" uid="uid://ogtwuy5brc0t" path="res://Resources/Object/Building/Switch/Common/switch_scene.tscn" id="14_jhkpw"]
-[ext_resource type="PackedScene" uid="uid://cjb0tf34wgeui" path="res://Resources/Object/Building/Parallax/parallax0.tscn" id="15_brwdr"]
 [ext_resource type="Script" uid="uid://xi806lb1q3l3" path="res://addons/abyss_history_lib/Class/Interact/Behaviour/_BehaviorClass.gd" id="15_j4cn1"]
 [ext_resource type="PackedScene" uid="uid://bw84t8iylhanf" path="res://Assets/World/Location/_Home/sources/outwall_solid.tscn" id="16_10fv7"]
 [ext_resource type="Script" uid="uid://bcmxxhlef12pk" path="res://addons/abyss_history_lib/Class/Interact/Behaviour/SwitchBehaviorClass.gd" id="16_me8th"]
@@ -56,17 +55,17 @@ script = ExtResource("23_jk5bb")
 screen_path = NodePath("Screen")
 metadata/_custom_type_script = "uid://4j2upwqk6ipe"
 
+[sub_resource type="ViewportTexture" id="ViewportTexture_4smbw"]
+viewport_path = NodePath("ScreenViewport")
+
 [sub_resource type="ViewportTexture" id="ViewportTexture_brwdr"]
 viewport_path = NodePath("ScreenViewport")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_qwgu1"]
-viewport_path = NodePath("ScreenViewport")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gqj7s"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qwgu1"]
 resource_local_to_scene = true
-albedo_texture = SubResource("ViewportTexture_brwdr")
+albedo_texture = SubResource("ViewportTexture_4smbw")
 emission_enabled = true
-emission_texture = SubResource("ViewportTexture_qwgu1")
+emission_texture = SubResource("ViewportTexture_brwdr")
 
 [sub_resource type="Resource" id="Resource_tnxtw"]
 script = ExtResource("16_me8th")
@@ -414,9 +413,6 @@ transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -41,
 [node name="Outwall_fake59" parent="Corridor0" unique_id=72128171 instance=ExtResource("21_4exlk")]
 transform = Transform3D(1, -7.642742e-15, -8.742278e-08, 0, 1, -8.742278e-08, -8.742278e-08, -8.742278e-08, -1, -25, 4, -6.9999986)
 
-[node name="MeshInstance3D" parent="Corridor0" unique_id=34696851 instance=ExtResource("15_brwdr")]
-transform = Transform3D(2.2649371e-07, 0, 3, 0, 3, 0, -3, 0, 2.2649371e-07, -7.9999995, 1.5, -14.500001)
-
 [node name="Inner" parent="." unique_id=1404259891 instance=ExtResource("2_3lex0")]
 
 [node name="SceneChangerScene" parent="Inner" unique_id=2141598680 instance=ExtResource("3_aw5aa")]
@@ -483,7 +479,7 @@ transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -4.5
 init_behavior = Array[ExtResource("15_j4cn1")]([SubResource("Resource_xp221")])
 
 [node name="Screen" parent="Inner/ComputerScene" unique_id=2089639586 instance=ExtResource("23_pyug8")]
-material_override = SubResource("StandardMaterial3D_gqj7s")
+material_override = SubResource("StandardMaterial3D_qwgu1")
 
 [node name="WoodenCeilingLampScene" parent="Inner" unique_id=1004981330 instance=ExtResource("13_36fuy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 3, 5.5)

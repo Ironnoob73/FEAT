@@ -1,13 +1,16 @@
 extends Node
 
-static func test(sender,num:String):
-	if sender is player:
-		sender.chat_menu.append_message("test pass" + num)
+static func test(sender:Node,num:String) -> Error:
+	if sender is LocalPlayer:
+		var player0: LocalPlayer = sender
+		player0.chat_menu.append_message("test pass" + num)
+		return Error.OK
+	return Error.ERR_INVALID_PARAMETER
 		
-static func host(sender,port:String):
-	if sender is player:
-		Global.host(int(port))
+static func host(_sender:Node,port:String) -> Error:
+	Global.host(int(port))
+	return Error.OK
 
-static func join(sender,address:String,port:String):
-	if sender is player:
-		Global.join(address,int(port))
+static func join(_sender:Node,address:String,port:String) -> Error:
+	Global.join(address,int(port))
+	return Error.OK

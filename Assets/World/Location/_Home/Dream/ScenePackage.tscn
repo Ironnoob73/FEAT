@@ -19,21 +19,34 @@ metadata/_custom_type_script = "uid://8h1wxcdqk41f"
 [node name="ReadyFunc" type="Node" parent="." unique_id=240494930]
 script = ExtResource("2_62m8d")
 
-[node name="SubScene" type="SubViewport" parent="." unique_id=552130395]
-own_world_3d = true
-world_3d = SubResource("World3D_8d6gw")
+[node name="CorridorScene" type="SubViewport" parent="." unique_id=873564104 node_paths=PackedStringArray("scene_node")]
 script = ExtResource("6_8d6gw")
+scene_node = NodePath("TheCorridor")
 
-[node name="Camera3D" type="Camera3D" parent="SubScene" unique_id=1225486773]
+[node name="Camera3D" type="Camera3D" parent="CorridorScene" unique_id=954769153]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 1, 9)
 current = true
 
-[node name="Room0" parent="SubScene" unique_id=1945280578 instance=ExtResource("3_4ed7q")]
+[node name="TheCorridor" parent="CorridorScene" unique_id=215228121 node_paths=PackedStringArray("to_room_scene") instance=ExtResource("7_wcnku")]
+to_room_scene = NodePath("../../RoomScene")
+
+[node name="RoomScene" type="SubViewport" parent="." unique_id=552130395 node_paths=PackedStringArray("scene_node")]
+own_world_3d = true
+world_3d = SubResource("World3D_8d6gw")
+script = ExtResource("6_8d6gw")
+scene_node = NodePath("Room0")
+
+[node name="Camera3D" type="Camera3D" parent="RoomScene" unique_id=1225486773]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 1, 9)
+current = true
+
+[node name="Room0" parent="RoomScene" unique_id=1945280578 node_paths=PackedStringArray("to_room_scene") instance=ExtResource("3_4ed7q")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13, 0, 6)
+to_room_scene = NodePath("../../CorridorScene")
 
-[node name="TheCorridor" parent="." unique_id=215228121 instance=ExtResource("7_wcnku")]
+[node name="ElevatorScene" type="SubViewport" parent="." unique_id=1610255090]
 
-[connection signal="open_door" from="SubScene/Room0" to="TheCorridor" method="_open_door"]
-[connection signal="to_room" from="SubScene/Room0" to="ReadyFunc" method="exit_room_to_corridor"]
-[connection signal="open_door" from="TheCorridor" to="SubScene/Room0" method="_open_door"]
-[connection signal="to_room" from="TheCorridor" to="ReadyFunc" method="change_room"]
+[connection signal="open_door" from="CorridorScene/TheCorridor" to="RoomScene/Room0" method="_open_door"]
+[connection signal="to_room" from="CorridorScene/TheCorridor" to="ReadyFunc" method="change_room"]
+[connection signal="open_door" from="RoomScene/Room0" to="CorridorScene/TheCorridor" method="_open_door"]
+[connection signal="to_room" from="RoomScene/Room0" to="ReadyFunc" method="change_room"]

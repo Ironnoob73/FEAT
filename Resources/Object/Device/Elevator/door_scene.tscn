@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://b8sgxkfnqbmei"]
+
+[ext_resource type="Script" uid="uid://d2ibg1ht3qte3" path="res://Resources/Object/Device/Elevator/ElevatorDoorInteraction.gd" id="1_2xgou"]
+[ext_resource type="PackedScene" uid="uid://c2i1te2meyfq7" path="res://Resources/Object/Device/Elevator/ElevatorDoor.glb" id="1_wxuti"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_e0qc8"]
+size = Vector3(1, 2.5, 0.1)
+
+[node name="ElevatorDoor" type="Node3D" unique_id=1729977416 groups=["Switchable"]]
+script = ExtResource("1_2xgou")
+
+[node name="ElevatorDoorL" parent="." unique_id=526055227 instance=ExtResource("1_wxuti")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.005, 0, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="ElevatorDoorL" unique_id=233629926]
+collision_layer = 9
+
+[node name="Coll" type="CollisionShape3D" parent="ElevatorDoorL/StaticBody3D" unique_id=374657882]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 1.25, -0.05)
+shape = SubResource("BoxShape3D_e0qc8")
+
+[node name="ElevatorDoorR" parent="." unique_id=1852471516 instance=ExtResource("1_wxuti")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0.005, 0, -0.1)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="ElevatorDoorR" unique_id=1460474243]
+collision_layer = 9
+
+[node name="Coll" type="CollisionShape3D" parent="ElevatorDoorR/StaticBody3D" unique_id=1614311959]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 1.25, -0.05)
+shape = SubResource("BoxShape3D_e0qc8")

@@ -14,11 +14,11 @@ var open : bool = false
 			material_setter()
 var lock: Callable = func()->void : return get_parent().get_meta('lock_int',0)
 
-@onready var mesh = $Mesh
-@onready var lock_tip_f = $LockTipF
-@onready var lock_tip_b = $LockTipB
+@onready var mesh: MeshInstance3D = $Mesh
+@onready var lock_tip_f: Label3D = $LockTipF
+@onready var lock_tip_b: Label3D = $LockTipB
 
-func init():
+func init() -> void:
 	if get_c_color() != Color(0,0,0,0) :	MaterialUtil.recolor(mesh,get_c_color())
 	#if mesh_color != Color(0,0,0,0) :	MaterialUtil.recolor(mesh,mesh_color)
 	if get_c_material(): MaterialUtil.change_material(mesh,get_c_material())
@@ -27,21 +27,21 @@ func init():
 		await get_parent().ready
 		_state_change()
 	
-func color_setter():
+func color_setter() -> void:
 	MaterialUtil.recolor(mesh,mesh_color)
-func material_setter():
+func material_setter() -> void:
 	MaterialUtil.change_material(mesh,mesh_material)
 
-func interact(_sender):
+func interact(_sender:Node) -> void:
 	if !open and get_lock():
-		var tween_f = create_tween().set_trans(Tween.TRANS_LINEAR)
-		var tween_b = create_tween().set_trans(Tween.TRANS_LINEAR)
-		tween_f.tween_property(lock_tip_f, "modulate:a", 1, 0)
-		tween_b.tween_property(lock_tip_b, "modulate:a", 1, 0)
-		tween_f.tween_property(lock_tip_f, "modulate:a", 0, 1)
-		tween_b.tween_property(lock_tip_b, "modulate:a", 0, 1)
+		var tween_f: Tween = create_tween().set_trans(Tween.TRANS_LINEAR)
+		var tween_b: Tween = create_tween().set_trans(Tween.TRANS_LINEAR)
+		var _p_tween: PropertyTweener = tween_f.tween_property(lock_tip_f, "modulate:a", 1, 0)
+		_p_tween = tween_b.tween_property(lock_tip_b, "modulate:a", 1, 0)
+		_p_tween = tween_f.tween_property(lock_tip_f, "modulate:a", 0, 1)
+		_p_tween = tween_b.tween_property(lock_tip_b, "modulate:a", 0, 1)
 
-func _interact_signal(_i,_s) -> void:
+func _interact_signal(_i:Node,_s:Node) -> void:
 	if is_node_ready():
 		_state_change()
 		
@@ -69,13 +69,14 @@ func get_c_color() -> Color:
 	
 func _state_change() -> void:
 	if get_parent() is AHL_Interactive && !get_lock():
-		if get_parent().state:
-			get_parent().interact_text = "interact.close"
+		var parent: AHL_Interactive = get_parent()
+		if parent.state:
+			parent.interact_text = "interact.close"
 			open = true
-			var tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUART)
-			tween.tween_property(self, "rotation:y", deg_to_rad(90), 0.5)
+			var tween: Tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUART)
+			var _p_tween: PropertyTweener = tween.tween_property(self, "rotation:y", deg_to_rad(90), 0.5)
 		else :
-			get_parent().interact_text = "interact.open"
+			parent.interact_text = "interact.open"
 			open = false
-			var tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUART)
-			tween.tween_property(self, "rotation:y", 0, 0.5)
+			var tween: Tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUART)
+			var _p_tween: PropertyTweener = tween.tween_property(self, "rotation:y", 0, 0.5)

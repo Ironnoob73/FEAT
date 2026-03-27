@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://o7ycdpol2i7h" path="res://Assets/World/Location/_Home/sources/elevator_corridor_solid.tscn" id="2_xhdx5"]
 [ext_resource type="PackedScene" uid="uid://donuwqtg3w83f" path="res://Resources/Object/Building/Door/FrontDoor/frame_scene.tscn" id="3_65yf4"]
 [ext_resource type="PackedScene" uid="uid://dw2bb58uuqtoo" path="res://Assets/World/Location/_Home/sources/corridor_end.tscn" id="3_mh8nc"]
+[ext_resource type="Script" uid="uid://diil2t5q5qv3e" path="res://Assets/World/Location/_Home/Dream/stair_corridor_repeat.gd" id="4_1aved"]
 [ext_resource type="PackedScene" uid="uid://lixd4xll3bl0" path="res://Resources/Object/Building/Window/StaticGlass/glass_scene.tscn" id="4_11pt0"]
 [ext_resource type="PackedScene" uid="uid://coan3h6n6wobt" path="res://Resources/Object/Building/Light/FluorescentLamp/light_scene.tscn" id="4_65yf4"]
 [ext_resource type="PackedScene" uid="uid://er22co5l4pot" path="res://Assets/World/Location/_Home/sources/ElevatorCorridor.glb" id="4_bdjbn"]
@@ -15,11 +16,14 @@
 [ext_resource type="Script" uid="uid://xi806lb1q3l3" path="res://addons/abyss_history_lib/Class/Interact/Behaviour/_BehaviorClass.gd" id="6_shdyq"]
 [ext_resource type="Script" uid="uid://bawnnel5w6hxg" path="res://addons/abyss_history_lib/Class/Interact/Behaviour/ChangeMaterialBehaviorClass.gd" id="7_bdjbn"]
 [ext_resource type="ArrayMesh" uid="uid://35r3l2ggep57" path="res://Assets/World/Location/_Home/sources/RoomView.obj" id="8_8lytu"]
+[ext_resource type="PackedScene" uid="uid://b8sgxkfnqbmei" path="res://Resources/Object/Device/Elevator/door_scene.tscn" id="9_8lytu"]
 [ext_resource type="Shader" uid="uid://cyxv26lgbbfge" path="res://Assets/World/Environments/sources/background_shader.gdshader" id="9_jn1r0"]
+[ext_resource type="PackedScene" uid="uid://ogtwuy5brc0t" path="res://Resources/Object/Building/Switch/Common/switch_scene.tscn" id="10_kslcc"]
+[ext_resource type="Script" uid="uid://bcmxxhlef12pk" path="res://addons/abyss_history_lib/Class/Interact/Behaviour/SwitchBehaviorClass.gd" id="12_1aved"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_shdyq"]
 resource_local_to_scene = true
-render_priority = 1
+render_priority = 0
 shader = ExtResource("9_jn1r0")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_11pt0"]
@@ -27,11 +31,16 @@ size = Vector2(7, 10)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_11pt0"]
 resource_local_to_scene = true
-render_priority = 1
+render_priority = 0
 shader = ExtResource("9_jn1r0")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_shdyq"]
 size = Vector2(20, 20)
+
+[sub_resource type="Resource" id="Resource_5yw2n"]
+script = ExtResource("12_1aved")
+connected_node = Array[NodePath]([NodePath("../FirstElevatorDoor")])
+metadata/_custom_type_script = "uid://bcmxxhlef12pk"
 
 [sub_resource type="Resource" id="Resource_e7spv"]
 script = ExtResource("7_bdjbn")
@@ -48,13 +57,16 @@ size = Vector3(2, 0.1, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_65yf4"]
 
-[node name="TheCorridor" type="Node3D" unique_id=215228121]
+[node name="TheCorridor" type="Node3D" unique_id=215228121 node_paths=PackedStringArray("door_plate", "to_room_view")]
 script = ExtResource("1_xhdx5")
+door_plate = NodePath("FrameScene0/DoorPlate")
+to_room_view = NodePath("RoomView")
 
 [node name="ElevatorCorridorSolid" parent="." unique_id=39811513 instance=ExtResource("2_xhdx5")]
 
 [node name="StairCorridor0" parent="ElevatorCorridorSolid" unique_id=21606448 instance=ExtResource("6_bdjbn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 7)
+script = ExtResource("4_1aved")
 
 [node name="StaticGlass" parent="ElevatorCorridorSolid/StairCorridor0" unique_id=1503461664 instance=ExtResource("4_11pt0")]
 transform = Transform3D(1, 0, -1.7484555e-07, 0, 1, 0, 1.7484555e-07, 0, 1, 0, 1.5, 5)
@@ -96,7 +108,7 @@ transform = Transform3D(1, 0, -1.7484555e-07, 0, 1, 0, 1.7484555e-07, 0, 1, -4, 
 transform = Transform3D(1, 0, -1.7484555e-07, 0, 1, 0, 1.7484555e-07, 0, 1, 0, 1.5, 5)
 
 [node name="DownStairView" type="MeshInstance3D" parent="ElevatorCorridorSolid" unique_id=477990772]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 7)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4, 7)
 material_override = SubResource("ShaderMaterial_shdyq")
 mesh = SubResource("PlaneMesh_11pt0")
 
@@ -107,7 +119,7 @@ transparent_bg = true
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 8, 8)
 
 [node name="UpStairView" type="MeshInstance3D" parent="ElevatorCorridorSolid" unique_id=1450189058]
-transform = Transform3D(1, 0, 0, 0, -1, -8.742278e-08, 0, 8.742278e-08, -1, 0, 6, 7)
+transform = Transform3D(1, 0, 0, 0, -1, -8.742278e-08, 0, 8.742278e-08, -1, 0, 8, 7)
 material_override = SubResource("ShaderMaterial_11pt0")
 mesh = SubResource("PlaneMesh_11pt0")
 
@@ -120,6 +132,16 @@ transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, -
 [node name="MeshInstance3D" type="MeshInstance3D" parent="ElevatorCorridorSolid" unique_id=1095803743]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 16, 7)
 mesh = SubResource("PlaneMesh_shdyq")
+
+[node name="FirstElevatorDoor" parent="ElevatorCorridorSolid" unique_id=1729977416 instance=ExtResource("9_8lytu")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -2, 0, -3)
+
+[node name="FakeElevatorDoor" parent="ElevatorCorridorSolid" unique_id=418828826 instance=ExtResource("9_8lytu")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 2, 0, -3)
+
+[node name="SwitchScene" parent="ElevatorCorridorSolid" unique_id=1080986340 instance=ExtResource("10_kslcc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, -3)
+interact_behavior = Array[ExtResource("6_shdyq")]([SubResource("Resource_5yw2n")])
 
 [node name="Corridor0" parent="." unique_id=1835768 instance=ExtResource("1_khq8m")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -12, 0, -1)
@@ -209,6 +231,10 @@ collision_mask = 4
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RoomView/Area3D" unique_id=1386378420]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -1)
 shape = SubResource("BoxShape3D_65yf4")
+
+[node name="ElevatorView" type="MeshInstance3D" parent="." unique_id=1256142607]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -3)
+mesh = ExtResource("8_8lytu")
 
 [connection signal="interact_signal" from="FrameScene0/DoorPlate" to="." method="_on_door_plate_interact_signal"]
 [connection signal="body_entered" from="RoomView/Area3D" to="." method="_on_area_3d_body_entered"]
