@@ -113,24 +113,25 @@ func _process(_delta: float) -> void:
 		ambient_color.g = 0.1 + (0.54 * (day_offset - 0.75) * 4)
 		ambient_color.b = 0.17 + (0.5 * (day_offset - 0.75) * 4)
 	
-	var current_env: Environment = env.get_environment()
-	var current_sky: Sky = current_env.get_sky()
-	if current_sky.get_material() is ProceduralSkyMaterial and real_time:
-		var current_sky_material: ProceduralSkyMaterial = current_sky.get_material()
-		current_sky_material.ground_horizon_color = current_sky_material.sky_horizon_color
-		current_sky_material.ground_bottom_color = ambient_color
-		if day_offset <= 0.25:
-			current_sky_material.sky_top_color = day_top_color + ((sunset_top_color - day_top_color) * (day_offset / 0.25))
-			current_sky_material.sky_horizon_color = day_bottom_color + ((sunset_bottom_color - day_bottom_color) * (day_offset / 0.25))
-		elif day_offset > 0.25 and day_offset <= 0.3:
-			current_sky_material.sky_top_color = sunset_top_color + ((night_top_color - sunset_top_color) * ((day_offset - 0.25) / 0.05))
-			current_sky_material.sky_horizon_color = sunset_bottom_color + ((night_bottom_color - sunset_bottom_color) * ((day_offset - 0.25) / 0.05))
-		elif day_offset > 0.3 and day_offset <= 0.75:
-			current_sky_material.sky_top_color = night_top_color
-			current_sky_material.sky_horizon_color = night_bottom_color
-		elif day_offset > 0.75:
-			current_sky_material.sky_top_color = night_top_color + ((day_top_color - night_top_color) * ((day_offset - 0.75) / 0.25))
-			current_sky_material.sky_horizon_color = night_bottom_color + ((day_bottom_color - night_bottom_color) * ((day_offset - 0.75) / 0.25))
+	if real_time:
+		var current_env: Environment = env.get_environment()
+		var current_sky: Sky = current_env.get_sky()
+		if current_sky.get_material() is ProceduralSkyMaterial:
+			var current_sky_material: ProceduralSkyMaterial = current_sky.get_material()
+			current_sky_material.ground_horizon_color = current_sky_material.sky_horizon_color
+			current_sky_material.ground_bottom_color = ambient_color
+			if day_offset <= 0.25:
+				current_sky_material.sky_top_color = day_top_color + ((sunset_top_color - day_top_color) * (day_offset / 0.25))
+				current_sky_material.sky_horizon_color = day_bottom_color + ((sunset_bottom_color - day_bottom_color) * (day_offset / 0.25))
+			elif day_offset > 0.25 and day_offset <= 0.3:
+				current_sky_material.sky_top_color = sunset_top_color + ((night_top_color - sunset_top_color) * ((day_offset - 0.25) / 0.05))
+				current_sky_material.sky_horizon_color = sunset_bottom_color + ((night_bottom_color - sunset_bottom_color) * ((day_offset - 0.25) / 0.05))
+			elif day_offset > 0.3 and day_offset <= 0.75:
+				current_sky_material.sky_top_color = night_top_color
+				current_sky_material.sky_horizon_color = night_bottom_color
+			elif day_offset > 0.75:
+				current_sky_material.sky_top_color = night_top_color + ((day_top_color - night_top_color) * ((day_offset - 0.75) / 0.25))
+				current_sky_material.sky_horizon_color = night_bottom_color + ((day_bottom_color - night_bottom_color) * ((day_offset - 0.75) / 0.25))
 			
 func change_scene(location:String,pos:Vector3) -> void:
 	match location :

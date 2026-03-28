@@ -132,7 +132,7 @@ func switch_perspectives() -> void:
 	third_perosn_cam.current = isThirdPerson
 	player_camera.current = !isThirdPerson
 	mesh.change_visible(mesh,isThirdPerson)
-	caption.get_mouse_pos()
+	var _vec2_tbd: Vector2 = caption.get_mouse_pos()
 	
 func _unhandled_input(event: InputEvent) -> void:
 	# Pause.
@@ -147,7 +147,8 @@ func _unhandled_input(event: InputEvent) -> void:
 				inventory_menu.close_inventory()
 			"ToolSetting":
 				current_menu = "HUD"
-				hand_held.get_child(0).setting_off()
+				# TODO: Item with setting
+				#hand_held.get_child(0).setting_off()
 			"Chat":
 				current_menu = "HUD"
 				mouse_mode(false)
@@ -175,7 +176,8 @@ func _unhandled_input(event: InputEvent) -> void:
 			"Inventory":
 				inventory_menu.close_inventory()
 			"ToolSetting":
-				hand_held.get_child(0).setting_off()
+				# TODO: Item with setting
+				#hand_held.get_child(0).setting_off()
 				current_menu = "Inventory"
 				mouse_mode(true)
 				inventory_menu.open_inventory()
@@ -215,17 +217,18 @@ func _unhandled_input(event: InputEvent) -> void:
 ## From : https://github.com/majikayogames/godot-character-controller-stairs/blob/main/entities/Player/Player.gd
 func _snap_down_to_stairs_check() -> void:
 	var did_snap: bool = false
-	$StairsBelowRayCast3D.force_raycast_update()
-	var floor_below : bool = $StairsBelowRayCast3D.is_colliding() and not is_surface_too_steep($StairsBelowRayCast3D.get_collision_normal())
+	var StairsBelow: RayCast3D = $StairsBelowRayCast3D
+	StairsBelow.force_raycast_update()
+	var floor_below : bool = StairsBelow.is_colliding() and not is_surface_too_steep(StairsBelow.get_collision_normal())
 	_was_on_floor_last_frame = Engine.get_physics_frames() == _last_frame_was_on_floor
 	if not ( is_on_floor() or isClimb ) and velocity.y <= 0 and (_was_on_floor_last_frame or _snapped_to_stairs_last_frame) and floor_below:
-		var body_test_result = PhysicsTestMotionResult3D.new()
-		var params = PhysicsTestMotionParameters3D.new()
-		var max_step_down = -0.5
+		var body_test_result: PhysicsTestMotionResult3D = PhysicsTestMotionResult3D.new()
+		var params: PhysicsTestMotionParameters3D = PhysicsTestMotionParameters3D.new()
+		var max_step_down: float = -0.5
 		params.from = self.global_transform
 		params.motion = Vector3(0,max_step_down,0)
 		if PhysicsServer3D.body_test_motion(self.get_rid(), params, body_test_result):
-			var translate_y = body_test_result.get_travel().y
+			var translate_y: float = body_test_result.get_travel().y
 			self.position.y += translate_y
 			apply_floor_snap()
 			did_snap = true
@@ -240,7 +243,7 @@ func _snap_down_to_stairs_check() -> void:
 ## From : https://github.com/majikayogames/SimpleFPSController/blob/main/FPSController/FPSController.gd
 func _push_away_rigid_bodies() -> void:
 	for i in get_slide_collision_count():
-		var c := get_slide_collision(i)
+		var c = get_slide_collision(i)
 		if c.get_collider() is RigidBody3D:
 			var push_dir = -c.get_normal()
 			# How much velocity the object needs to increase to match player velocity in the push direction
@@ -552,8 +555,8 @@ func hide_hud(do_hide:bool) -> void:
 		state_hud_hide = do_hide
 	HUD_hider.play("HideHUD", -1, 1 if state_hud_hide else -1, !state_hud_hide)
 	
-	var tween = create_tween()
-	tween.tween_property($CrossHair, "modulate",
+	var tween: Tween = create_tween()
+	var _p_tween: PropertyTweener = tween.tween_property($CrossHair, "modulate",
 		Color(1,1,1,0) if do_hide else Color(1,1,1,1), 0.1)
 
 func mouse_mode(isVisible:bool)->void:
@@ -566,14 +569,14 @@ func mouse_mode(isVisible:bool)->void:
 ## 主要（左键）攻击。根据装备的[enum AHL_EToolClass.send_type]判断近远程类型。
 ## 如果是近战武器，将手持武器的伤害数据（空手伤害+武器伤害，若未持有任何武器则只发送空手伤害）发送至[method player.attack]。
 ## 如果是远程武器，则不发送伤害数据，而是发射子弹。
-func main_attack(press:bool):
+func main_attack(press:bool) -> void:
 	if press == true && att_idle == true && att_sec == false:
 		att_idle = false
 		mesh.animation_tree["parameters/AttackStateMachine/conditions/left"] = att_order
 		mesh.animation_tree["parameters/AttackStateMachine/conditions/right"] = !att_order
 		att_order = !att_order
 		mesh.animation_tree["parameters/MainAttack/request"] = 1
-		var tween = create_tween().set_trans(Tween.TRANS_CUBIC)
+		var tween: Tween = create_tween().set_trans(Tween.TRANS_CUBIC)
 		if handheld_tool:
 			hand_held_fp.MainAttack(handheld_tool.equipment.attack_type,handheld_tool.equipment.delay)
 			tween.tween_property(self, "att_idle", true, 0).set_delay(handheld_tool.equipment.delay)

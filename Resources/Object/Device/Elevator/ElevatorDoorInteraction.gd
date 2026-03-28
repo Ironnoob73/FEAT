@@ -1,8 +1,8 @@
 @tool
-extends Node3D
+extends Node
 
-@onready var door_l: Node3D = $ElevatorDoorL
-@onready var door_r: Node3D = $ElevatorDoorR
+@onready var door_l: Node3D = $"../ElevatorDoorL"
+@onready var door_r: Node3D = $"../ElevatorDoorR"
 
 @export var open : bool = false:
 	set(state):
@@ -33,3 +33,6 @@ func open_setter() -> void:
 		else:
 			door_l.position.x = -0.005
 			door_r.position.x = 0.005
+			
+func _on_elevator_door_interact_signal(interactor: AHL_Interactive, _s: Variant) -> void:
+	switch(interactor.state)

@@ -80,10 +80,7 @@ size = Vector3(2, 0.1, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_q26k1"]
 
-[node name="Room" type="Node3D" unique_id=980259170 node_paths=PackedStringArray("door_plate", "to_room_view")]
-script = ExtResource("1_hxcpd")
-door_plate = NodePath("FrameScene0/DoorPlate")
-to_room_view = NodePath("CorridorView")
+[node name="Room" type="Node3D" unique_id=980259170]
 
 [node name="Inner" parent="." unique_id=1587251193 instance=ExtResource("1_ovru6")]
 
@@ -287,12 +284,12 @@ collision_layer = 3
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, 0.5)
 shape = SubResource("BoxShape3D_sagjl")
 
-[node name="Area3D" type="Area3D" parent="CorridorView" unique_id=783796307]
+[node name="Area3D" type="Area3D" parent="CorridorView" unique_id=783796307 node_paths=PackedStringArray("door_plate", "to_room_view")]
 collision_mask = 4
+script = ExtResource("1_hxcpd")
+door_plate = NodePath("../../FrameScene0/DoorPlate")
+to_room_view = NodePath("..")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CorridorView/Area3D" unique_id=689939000]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -1)
 shape = SubResource("BoxShape3D_q26k1")
-
-[connection signal="interact_signal" from="FrameScene0/DoorPlate" to="." method="_on_door_plate_interact_signal"]
-[connection signal="body_entered" from="CorridorView/Area3D" to="." method="_on_area_3d_body_entered"]

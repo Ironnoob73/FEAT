@@ -9,4 +9,8 @@ func do(interactor:Node,sender:Node) -> void:
 		var Ni = interactor.get_node(i)
 		if Ni.is_in_group("Switchable") :
 			Ni.switch(interactor.state)
+		if Ni is AHL_Interactive:
+			var INi: AHL_Interactive = Ni
+			if INi.Switchable:
+				INi.interact(sender)
 		else : push_warning("This connected node can't be switched.")

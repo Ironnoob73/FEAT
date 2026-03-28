@@ -18,6 +18,7 @@
 [ext_resource type="ArrayMesh" uid="uid://35r3l2ggep57" path="res://Assets/World/Location/_Home/sources/RoomView.obj" id="8_8lytu"]
 [ext_resource type="PackedScene" uid="uid://b8sgxkfnqbmei" path="res://Resources/Object/Device/Elevator/door_scene.tscn" id="9_8lytu"]
 [ext_resource type="Shader" uid="uid://cyxv26lgbbfge" path="res://Assets/World/Environments/sources/background_shader.gdshader" id="9_jn1r0"]
+[ext_resource type="PackedScene" uid="uid://c13q5mtiplruc" path="res://Assets/World/Location/_Home/sources/ElevatorOutwall.glb" id="10_533pw"]
 [ext_resource type="PackedScene" uid="uid://ogtwuy5brc0t" path="res://Resources/Object/Building/Switch/Common/switch_scene.tscn" id="10_kslcc"]
 [ext_resource type="Script" uid="uid://bcmxxhlef12pk" path="res://addons/abyss_history_lib/Class/Interact/Behaviour/SwitchBehaviorClass.gd" id="12_1aved"]
 
@@ -57,12 +58,45 @@ size = Vector3(2, 0.1, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_65yf4"]
 
-[node name="TheCorridor" type="Node3D" unique_id=215228121 node_paths=PackedStringArray("door_plate", "to_room_view")]
-script = ExtResource("1_xhdx5")
-door_plate = NodePath("FrameScene0/DoorPlate")
-to_room_view = NodePath("RoomView")
+[sub_resource type="Shader" id="Shader_1aved"]
+code = "//from: https://godotshaders.com/shader/n64-style-skybox/
+shader_type spatial;
+render_mode depth_draw_opaque, unshaded;
 
-[node name="ElevatorCorridorSolid" parent="." unique_id=39811513 instance=ExtResource("2_xhdx5")]
+uniform sampler2D sky_texture : source_color;
+
+varying vec4 BG_COORDS;
+
+void vertex() {
+	//Camera YX rotation per Basis.get_euler source code
+	float y = atan(VIEW_MATRIX[0][3], VIEW_MATRIX[0][3]);
+	float x = asin(VIEW_MATRIX[0][3]);
+	
+	//Map rotation to screen space
+	BG_COORDS.xy = vec2(y * -0.5, x) / PI;
+	BG_COORDS.y += 0.5;
+	
+	BG_COORDS.w = 1.0;
+	BG_COORDS.z = 1.0;
+	
+	//Keep background centered vertically when FOV changes
+	BG_COORDS.y = 0.0;
+}
+
+void fragment() {
+	vec2 uv = SCREEN_UV * BG_COORDS.zw + BG_COORDS.xy;
+	ALBEDO = texture(sky_texture, uv).rgb;
+	ALPHA = texture(sky_texture, uv).a;
+}"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5yw2n"]
+resource_local_to_scene = true
+render_priority = 0
+shader = SubResource("Shader_1aved")
+
+[node name="TheCorridor" type="Node3D" unique_id=215228121]
+
+[node name="ElevatorCorridorSolid" parent="." unique_id=2085821326 instance=ExtResource("2_xhdx5")]
 
 [node name="StairCorridor0" parent="ElevatorCorridorSolid" unique_id=21606448 instance=ExtResource("6_bdjbn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 7)
@@ -74,7 +108,7 @@ transform = Transform3D(1, 0, -1.7484555e-07, 0, 1, 0, 1.7484555e-07, 0, 1, 0, 1
 [node name="StairCorridor1" parent="ElevatorCorridorSolid" unique_id=796979045 instance=ExtResource("6_bdjbn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4, 7)
 
-[node name="ElevatorCorridor" parent="ElevatorCorridorSolid/StairCorridor1" unique_id=1005583315 instance=ExtResource("4_bdjbn")]
+[node name="ElevatorCorridor" parent="ElevatorCorridorSolid/StairCorridor1" unique_id=38121692 instance=ExtResource("4_bdjbn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -7)
 
 [node name="FluorescentLampScene4" parent="ElevatorCorridorSolid/StairCorridor1/ElevatorCorridor" unique_id=1299003894 instance=ExtResource("4_65yf4")]
@@ -92,7 +126,7 @@ transform = Transform3D(1, 0, -1.7484555e-07, 0, 1, 0, 1.7484555e-07, 0, 1, 0, 1
 [node name="StairCorridor2" parent="ElevatorCorridorSolid" unique_id=430424266 instance=ExtResource("6_bdjbn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 7)
 
-[node name="ElevatorCorridor" parent="ElevatorCorridorSolid/StairCorridor2" unique_id=60805832 instance=ExtResource("4_bdjbn")]
+[node name="ElevatorCorridor" parent="ElevatorCorridorSolid/StairCorridor2" unique_id=1736719734 instance=ExtResource("4_bdjbn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -7)
 
 [node name="FluorescentLampScene4" parent="ElevatorCorridorSolid/StairCorridor2/ElevatorCorridor" unique_id=1889545864 instance=ExtResource("4_65yf4")]
@@ -136,8 +170,12 @@ mesh = SubResource("PlaneMesh_shdyq")
 [node name="FirstElevatorDoor" parent="ElevatorCorridorSolid" unique_id=1729977416 instance=ExtResource("9_8lytu")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -2, 0, -3)
 
-[node name="FakeElevatorDoor" parent="ElevatorCorridorSolid" unique_id=418828826 instance=ExtResource("9_8lytu")]
+[node name="ElevatorOutwall" parent="ElevatorCorridorSolid/FirstElevatorDoor" unique_id=1093845651 instance=ExtResource("10_533pw")]
+
+[node name="LockedElevatorDoor" parent="ElevatorCorridorSolid" unique_id=418828826 instance=ExtResource("9_8lytu")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 2, 0, -3)
+
+[node name="ElevatorOutwall" parent="ElevatorCorridorSolid/LockedElevatorDoor" unique_id=1624683438 instance=ExtResource("10_533pw")]
 
 [node name="SwitchScene" parent="ElevatorCorridorSolid" unique_id=1080986340 instance=ExtResource("10_kslcc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, -3)
@@ -225,8 +263,11 @@ collision_layer = 3
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, -0.05, -3.4999917)
 shape = SubResource("BoxShape3D_ktlp0")
 
-[node name="Area3D" type="Area3D" parent="RoomView" unique_id=1526368672]
+[node name="Area3D" type="Area3D" parent="RoomView" unique_id=1526368672 node_paths=PackedStringArray("door_plate", "to_room_view")]
 collision_mask = 4
+script = ExtResource("1_xhdx5")
+door_plate = NodePath("../../FrameScene0/DoorPlate")
+to_room_view = NodePath("..")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RoomView/Area3D" unique_id=1386378420]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -1)
@@ -234,7 +275,23 @@ shape = SubResource("BoxShape3D_65yf4")
 
 [node name="ElevatorView" type="MeshInstance3D" parent="." unique_id=1256142607]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -3)
+material_override = SubResource("ShaderMaterial_5yw2n")
 mesh = ExtResource("8_8lytu")
 
-[connection signal="interact_signal" from="FrameScene0/DoorPlate" to="." method="_on_door_plate_interact_signal"]
-[connection signal="body_entered" from="RoomView/Area3D" to="." method="_on_area_3d_body_entered"]
+[node name="StaticBody3D" type="StaticBody3D" parent="ElevatorView" unique_id=1977802932]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 2.9999993)
+collision_layer = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ElevatorView/StaticBody3D" unique_id=336260073]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, -0.05, -3.4999917)
+shape = SubResource("BoxShape3D_ktlp0")
+
+[node name="Area3D" type="Area3D" parent="ElevatorView" unique_id=841606446 node_paths=PackedStringArray("door_plate", "to_room_view")]
+collision_mask = 4
+script = ExtResource("1_xhdx5")
+door_plate = NodePath("../../ElevatorCorridorSolid/FirstElevatorDoor")
+to_room_view = NodePath("..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ElevatorView/Area3D" unique_id=2061211190]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -1)
+shape = SubResource("BoxShape3D_65yf4")

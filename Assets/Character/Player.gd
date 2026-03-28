@@ -29,12 +29,12 @@ var isInTeleport: bool = false
 @onready var mesh: PlayerMesh = $BodyScene
 @onready var motion_area: Area3D = $PlayerColl/MotionArea
 
-@onready var hand_held : Node
-var hand_held_group : Array[Node]
+@onready var hand_held: Node
+var hand_held_group: Array[Node]
 
-@export var Inventory : CInventoryClass
-var current_hotbar : int = 0
-var handheld_tool : AHL_EqMetaClass
+@export var Inventory: CInventoryClass
+var current_hotbar: int = 0
+var handheld_tool: AHL_EqMetaClass
 
 @export var MaxHealth : float = 100
 @export var current_health : float = 100
