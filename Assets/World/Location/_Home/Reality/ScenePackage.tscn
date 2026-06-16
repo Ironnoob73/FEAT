@@ -537,6 +537,11 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5, 1
 interact_behavior = Array[ExtResource("15_j4cn1")]([SubResource("Resource_mjqdt")])
 state = true
 
+[node name="SceneChangerScene2" parent="Inner" unique_id=1283554336 instance=ExtResource("3_aw5aa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 0)
+next_scene = "Cloud"
+pos = Vector3(16, 1, 29)
+
 [node name="Outwall" parent="." unique_id=329658909 instance=ExtResource("16_10fv7")]
 
 [node name="FenceScene0" parent="Outwall" unique_id=1597774641 instance=ExtResource("17_cpiu2")]

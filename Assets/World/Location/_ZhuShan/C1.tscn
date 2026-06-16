@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://ct20o7uc280r3"]
+[gd_scene format=3 uid="uid://ct20o7uc280r3"]
 
 [ext_resource type="Material" uid="uid://b7eqico61xad7" path="res://Resources/Material/StoneBricksRoad.tres" id="1_ofik3"]
 [ext_resource type="Material" uid="uid://dk5pls0f7nbf4" path="res://Resources/Material/SoilGround.tres" id="2_3t27r"]
@@ -17,9 +17,9 @@ size = Vector3(100, 0.01, 100)
 [sub_resource type="PlaneMesh" id="PlaneMesh_h4bhm"]
 size = Vector2(14, 104)
 
-[node name="West(-1,0)" type="Node3D"]
+[node name="West(-1,0)" type="Node3D" unique_id=639650647]
 
-[node name="Wroad" type="CSGPolygon3D" parent="."]
+[node name="Wroad" type="CSGPolygon3D" parent="." unique_id=885750184]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.15, 0)
 use_collision = true
 collision_layer = 3
@@ -27,382 +27,382 @@ polygon = PackedVector2Array(-52, 16, -48, 32, -41, 49, -31, 64, -55, 64, -59, 5
 depth = 0.25
 material = ExtResource("1_ofik3")
 
-[node name="FarmLand" type="CSGMesh3D" parent="."]
+[node name="FarmLand" type="CSGMesh3D" parent="." unique_id=495109361]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, -0.025, 14)
 use_collision = true
 collision_layer = 3
 mesh = SubResource("BoxMesh_o2kng")
 material = ExtResource("2_3t27r")
 
-[node name="FarmBoard" type="CSGBox3D" parent="."]
+[node name="FarmBoard" type="CSGBox3D" parent="." unique_id=1162416056]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, -38)
 use_collision = true
 collision_layer = 3
 size = Vector3(100, 0.1, 4)
 material = ExtResource("2_y47w3")
 
-[node name="WestBoard" type="CSGBox3D" parent="FarmBoard"]
+[node name="WestBoard" type="CSGBox3D" parent="FarmBoard" unique_id=778066372]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -52, 0, 50)
 use_collision = true
 collision_layer = 3
 size = Vector3(4, 0.1, 104)
 material = ExtResource("2_y47w3")
 
-[node name="NorthFenceBase" type="CSGBox3D" parent="FarmBoard"]
+[node name="NorthFenceBase" type="CSGBox3D" parent="FarmBoard" unique_id=270474363]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0.8, -1.75)
 size = Vector3(104, 1.5, 0.5)
 material = ExtResource("3_clafs")
 
-[node name="FenceScene0" parent="FarmBoard/NorthFenceBase" instance=ExtResource("4_qp4ji")]
+[node name="FenceScene0" parent="FarmBoard/NorthFenceBase" unique_id=1105017461 instance=ExtResource("4_qp4ji")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50, 2.75, 0)
 
-[node name="FenceConnecter0" parent="FarmBoard/NorthFenceBase/FenceScene0" instance=ExtResource("5_mu2f0")]
+[node name="FenceConnecter0" parent="FarmBoard/NorthFenceBase/FenceScene0" unique_id=716431392 instance=ExtResource("5_mu2f0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.75, 1.5, 0)
 
-[node name="FenceConnecter1" parent="FarmBoard/NorthFenceBase/FenceScene0" instance=ExtResource("5_mu2f0")]
+[node name="FenceConnecter1" parent="FarmBoard/NorthFenceBase/FenceScene0" unique_id=1625663024 instance=ExtResource("5_mu2f0")]
 transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1.5, 0)
 
-[node name="FenceScene1" parent="FarmBoard/NorthFenceBase" instance=ExtResource("4_qp4ji")]
+[node name="FenceScene1" parent="FarmBoard/NorthFenceBase" unique_id=1490518996 instance=ExtResource("4_qp4ji")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46, 2.75, 0)
 
-[node name="FenceConnecter" parent="FarmBoard/NorthFenceBase/FenceScene1" instance=ExtResource("5_mu2f0")]
+[node name="FenceConnecter" parent="FarmBoard/NorthFenceBase/FenceScene1" unique_id=2039013101 instance=ExtResource("5_mu2f0")]
 transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1.5, 0)
 
-[node name="FenceScene2" parent="FarmBoard/NorthFenceBase" instance=ExtResource("4_qp4ji")]
+[node name="FenceScene2" parent="FarmBoard/NorthFenceBase" unique_id=43268247 instance=ExtResource("4_qp4ji")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42, 2.75, 0)
 
-[node name="FenceConnecter" parent="FarmBoard/NorthFenceBase/FenceScene2" instance=ExtResource("5_mu2f0")]
+[node name="FenceConnecter" parent="FarmBoard/NorthFenceBase/FenceScene2" unique_id=1277338652 instance=ExtResource("5_mu2f0")]
 transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1.5, 0)
 
-[node name="FenceScene3" parent="FarmBoard/NorthFenceBase" instance=ExtResource("4_qp4ji")]
+[node name="FenceScene3" parent="FarmBoard/NorthFenceBase" unique_id=2104910378 instance=ExtResource("4_qp4ji")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38, 2.75, 0)
 
-[node name="FenceConnecter" parent="FarmBoard/NorthFenceBase/FenceScene3" instance=ExtResource("5_mu2f0")]
+[node name="FenceConnecter" parent="FarmBoard/NorthFenceBase/FenceScene3" unique_id=195332982 instance=ExtResource("5_mu2f0")]
 transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1.5, 0)
 
-[node name="FenceScene4" parent="FarmBoard/NorthFenceBase" instance=ExtResource("4_qp4ji")]
+[node name="FenceScene4" parent="FarmBoard/NorthFenceBase" unique_id=2030712624 instance=ExtResource("4_qp4ji")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34, 2.75, 0)
 
-[node name="FenceConnecter" parent="FarmBoard/NorthFenceBase/FenceScene4" instance=ExtResource("5_mu2f0")]
+[node name="FenceConnecter" parent="FarmBoard/NorthFenceBase/FenceScene4" unique_id=1624657858 instance=ExtResource("5_mu2f0")]
 transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1.5, 0)
 
-[node name="FenceScene5" parent="FarmBoard/NorthFenceBase" instance=ExtResource("4_qp4ji")]
+[node name="FenceScene5" parent="FarmBoard/NorthFenceBase" unique_id=1574979917 instance=ExtResource("4_qp4ji")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 2.75, 0)
 
-[node name="FenceConnecter" parent="FarmBoard/NorthFenceBase/FenceScene5" instance=ExtResource("5_mu2f0")]
+[node name="FenceConnecter" parent="FarmBoard/NorthFenceBase/FenceScene5" unique_id=68755803 instance=ExtResource("5_mu2f0")]
 transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1.5, 0)
 
-[node name="FenceScene6" parent="FarmBoard/NorthFenceBase" instance=ExtResource("4_qp4ji")]
+[node name="FenceScene6" parent="FarmBoard/NorthFenceBase" unique_id=2030483004 instance=ExtResource("4_qp4ji")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26, 2.75, 0)
 
-[node name="FenceConnecter" parent="FarmBoard/NorthFenceBase/FenceScene6" instance=ExtResource("5_mu2f0")]
+[node name="FenceConnecter" parent="FarmBoard/NorthFenceBase/FenceScene6" unique_id=59815943 instance=ExtResource("5_mu2f0")]
 transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1.5, 0)
 
-[node name="FenceScene7" parent="FarmBoard/NorthFenceBase" instance=ExtResource("4_qp4ji")]
+[node name="FenceScene7" parent="FarmBoard/NorthFenceBase" unique_id=1171431611 instance=ExtResource("4_qp4ji")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22, 2.75, 0)
 
-[node name="FenceConnecter" parent="FarmBoard/NorthFenceBase/FenceScene7" instance=ExtResource("5_mu2f0")]
+[node name="FenceConnecter" parent="FarmBoard/NorthFenceBase/FenceScene7" unique_id=716524908 instance=ExtResource("5_mu2f0")]
 transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1.5, 0)
 
-[node name="FenceScene8" parent="FarmBoard/NorthFenceBase" instance=ExtResource("4_qp4ji")]
+[node name="FenceScene8" parent="FarmBoard/NorthFenceBase" unique_id=1654762587 instance=ExtResource("4_qp4ji")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 2.75, 0)
 
-[node name="FenceConnecter" parent="FarmBoard/NorthFenceBase/FenceScene8" instance=ExtResource("5_mu2f0")]
+[node name="FenceConnecter" parent="FarmBoard/NorthFenceBase/FenceScene8" unique_id=1342469024 instance=ExtResource("5_mu2f0")]
 transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1.5, 0)
 
-[node name="FenceScene9" parent="FarmBoard/NorthFenceBase" instance=ExtResource("4_qp4ji")]
+[node name="FenceScene9" parent="FarmBoard/NorthFenceBase" unique_id=517898559 instance=ExtResource("4_qp4ji")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 2.75, 0)
 
-[node name="FenceConnecter" parent="FarmBoard/NorthFenceBase/FenceScene9" instance=ExtResource("5_mu2f0")]
+[node name="FenceConnecter" parent="FarmBoard/NorthFenceBase/FenceScene9" unique_id=1835350425 instance=ExtResource("5_mu2f0")]
 transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1.5, 0)
 
-[node name="FenceScene10" parent="FarmBoard/NorthFenceBase" instance=ExtResource("4_qp4ji")]
+[node name="FenceScene10" parent="FarmBoard/NorthFenceBase" unique_id=803122080 instance=ExtResource("4_qp4ji")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 2.75, 0)
 
-[node name="FenceConnecter" parent="FarmBoard/NorthFenceBase/FenceScene10" instance=ExtResource("5_mu2f0")]
+[node name="FenceConnecter" parent="FarmBoard/NorthFenceBase/FenceScene10" unique_id=2120564627 instance=ExtResource("5_mu2f0")]
 transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1.5, 0)
 
-[node name="FenceScene11" parent="FarmBoard/NorthFenceBase" instance=ExtResource("4_qp4ji")]
+[node name="FenceScene11" parent="FarmBoard/NorthFenceBase" unique_id=781169883 instance=ExtResource("4_qp4ji")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 2.75, 0)
 
-[node name="FenceConnecter" parent="FarmBoard/NorthFenceBase/FenceScene11" instance=ExtResource("5_mu2f0")]
+[node name="FenceConnecter" parent="FarmBoard/NorthFenceBase/FenceScene11" unique_id=2059029349 instance=ExtResource("5_mu2f0")]
 transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1.5, 0)
 
-[node name="FenceScene12" parent="FarmBoard/NorthFenceBase" instance=ExtResource("4_qp4ji")]
+[node name="FenceScene12" parent="FarmBoard/NorthFenceBase" unique_id=993675509 instance=ExtResource("4_qp4ji")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 2.75, 0)
 
-[node name="FenceConnecter" parent="FarmBoard/NorthFenceBase/FenceScene12" instance=ExtResource("5_mu2f0")]
+[node name="FenceConnecter" parent="FarmBoard/NorthFenceBase/FenceScene12" unique_id=1457492693 instance=ExtResource("5_mu2f0")]
 transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1.5, 0)
 
-[node name="FenceScene13" parent="FarmBoard/NorthFenceBase" instance=ExtResource("4_qp4ji")]
+[node name="FenceScene13" parent="FarmBoard/NorthFenceBase" unique_id=2107384654 instance=ExtResource("4_qp4ji")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 2.75, 0)
 
-[node name="FenceConnecter" parent="FarmBoard/NorthFenceBase/FenceScene13" instance=ExtResource("5_mu2f0")]
+[node name="FenceConnecter" parent="FarmBoard/NorthFenceBase/FenceScene13" unique_id=971462960 instance=ExtResource("5_mu2f0")]
 transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1.5, 0)
 
-[node name="FenceScene14" parent="FarmBoard/NorthFenceBase" instance=ExtResource("4_qp4ji")]
+[node name="FenceScene14" parent="FarmBoard/NorthFenceBase" unique_id=1290124456 instance=ExtResource("4_qp4ji")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 2.75, 0)
 
-[node name="FenceConnecter" parent="FarmBoard/NorthFenceBase/FenceScene14" instance=ExtResource("5_mu2f0")]
+[node name="FenceConnecter" parent="FarmBoard/NorthFenceBase/FenceScene14" unique_id=558005609 instance=ExtResource("5_mu2f0")]
 transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1.5, 0)
 
-[node name="FenceScene15" parent="FarmBoard/NorthFenceBase" instance=ExtResource("4_qp4ji")]
+[node name="FenceScene15" parent="FarmBoard/NorthFenceBase" unique_id=1889912641 instance=ExtResource("4_qp4ji")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 2.75, 0)
 
-[node name="FenceConnecter" parent="FarmBoard/NorthFenceBase/FenceScene15" instance=ExtResource("5_mu2f0")]
+[node name="FenceConnecter" parent="FarmBoard/NorthFenceBase/FenceScene15" unique_id=475047230 instance=ExtResource("5_mu2f0")]
 transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1.5, 0)
 
-[node name="FenceScene16" parent="FarmBoard/NorthFenceBase" instance=ExtResource("4_qp4ji")]
+[node name="FenceScene16" parent="FarmBoard/NorthFenceBase" unique_id=993242910 instance=ExtResource("4_qp4ji")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 2.75, 0)
 
-[node name="FenceConnecter" parent="FarmBoard/NorthFenceBase/FenceScene16" instance=ExtResource("5_mu2f0")]
+[node name="FenceConnecter" parent="FarmBoard/NorthFenceBase/FenceScene16" unique_id=861987998 instance=ExtResource("5_mu2f0")]
 transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1.5, 0)
 
-[node name="FenceScene17" parent="FarmBoard/NorthFenceBase" instance=ExtResource("4_qp4ji")]
+[node name="FenceScene17" parent="FarmBoard/NorthFenceBase" unique_id=727658829 instance=ExtResource("4_qp4ji")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 2.75, 0)
 
-[node name="FenceConnecter" parent="FarmBoard/NorthFenceBase/FenceScene17" instance=ExtResource("5_mu2f0")]
+[node name="FenceConnecter" parent="FarmBoard/NorthFenceBase/FenceScene17" unique_id=1062681702 instance=ExtResource("5_mu2f0")]
 transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1.5, 0)
 
-[node name="FenceScene18" parent="FarmBoard/NorthFenceBase" instance=ExtResource("4_qp4ji")]
+[node name="FenceScene18" parent="FarmBoard/NorthFenceBase" unique_id=548797917 instance=ExtResource("4_qp4ji")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22, 2.75, 0)
 
-[node name="FenceConnecter" parent="FarmBoard/NorthFenceBase/FenceScene18" instance=ExtResource("5_mu2f0")]
+[node name="FenceConnecter" parent="FarmBoard/NorthFenceBase/FenceScene18" unique_id=1843488509 instance=ExtResource("5_mu2f0")]
 transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1.5, 0)
 
-[node name="FenceScene19" parent="FarmBoard/NorthFenceBase" instance=ExtResource("4_qp4ji")]
+[node name="FenceScene19" parent="FarmBoard/NorthFenceBase" unique_id=210219855 instance=ExtResource("4_qp4ji")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26, 2.75, 0)
 
-[node name="FenceConnecter" parent="FarmBoard/NorthFenceBase/FenceScene19" instance=ExtResource("5_mu2f0")]
+[node name="FenceConnecter" parent="FarmBoard/NorthFenceBase/FenceScene19" unique_id=62117527 instance=ExtResource("5_mu2f0")]
 transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1.5, 0)
 
-[node name="FenceScene20" parent="FarmBoard/NorthFenceBase" instance=ExtResource("4_qp4ji")]
+[node name="FenceScene20" parent="FarmBoard/NorthFenceBase" unique_id=740565145 instance=ExtResource("4_qp4ji")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 2.75, 0)
 
-[node name="FenceConnecter" parent="FarmBoard/NorthFenceBase/FenceScene20" instance=ExtResource("5_mu2f0")]
+[node name="FenceConnecter" parent="FarmBoard/NorthFenceBase/FenceScene20" unique_id=760900653 instance=ExtResource("5_mu2f0")]
 transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1.5, 0)
 
-[node name="FenceScene21" parent="FarmBoard/NorthFenceBase" instance=ExtResource("4_qp4ji")]
+[node name="FenceScene21" parent="FarmBoard/NorthFenceBase" unique_id=945646896 instance=ExtResource("4_qp4ji")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34, 2.75, 0)
 
-[node name="FenceConnecter" parent="FarmBoard/NorthFenceBase/FenceScene21" instance=ExtResource("5_mu2f0")]
+[node name="FenceConnecter" parent="FarmBoard/NorthFenceBase/FenceScene21" unique_id=283150833 instance=ExtResource("5_mu2f0")]
 transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1.5, 0)
 
-[node name="FenceScene22" parent="FarmBoard/NorthFenceBase" instance=ExtResource("4_qp4ji")]
+[node name="FenceScene22" parent="FarmBoard/NorthFenceBase" unique_id=1498619 instance=ExtResource("4_qp4ji")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38, 2.75, 0)
 
-[node name="FenceConnecter" parent="FarmBoard/NorthFenceBase/FenceScene22" instance=ExtResource("5_mu2f0")]
+[node name="FenceConnecter" parent="FarmBoard/NorthFenceBase/FenceScene22" unique_id=1040656337 instance=ExtResource("5_mu2f0")]
 transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1.5, 0)
 
-[node name="FenceScene23" parent="FarmBoard/NorthFenceBase" instance=ExtResource("4_qp4ji")]
+[node name="FenceScene23" parent="FarmBoard/NorthFenceBase" unique_id=777626106 instance=ExtResource("4_qp4ji")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42, 2.75, 0)
 
-[node name="FenceConnecter" parent="FarmBoard/NorthFenceBase/FenceScene23" instance=ExtResource("5_mu2f0")]
+[node name="FenceConnecter" parent="FarmBoard/NorthFenceBase/FenceScene23" unique_id=1121212850 instance=ExtResource("5_mu2f0")]
 transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1.5, 0)
 
-[node name="FenceScene24" parent="FarmBoard/NorthFenceBase" instance=ExtResource("4_qp4ji")]
+[node name="FenceScene24" parent="FarmBoard/NorthFenceBase" unique_id=468138031 instance=ExtResource("4_qp4ji")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -46, 2.75, 0)
 
-[node name="FenceConnecter" parent="FarmBoard/NorthFenceBase/FenceScene24" instance=ExtResource("5_mu2f0")]
+[node name="FenceConnecter" parent="FarmBoard/NorthFenceBase/FenceScene24" unique_id=346796692 instance=ExtResource("5_mu2f0")]
 transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1.5, 0)
 
-[node name="FenceScene25" parent="FarmBoard/NorthFenceBase" instance=ExtResource("4_qp4ji")]
+[node name="FenceScene25" parent="FarmBoard/NorthFenceBase" unique_id=476535015 instance=ExtResource("4_qp4ji")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50, 2.75, 0)
 
-[node name="WestFenceBase" type="CSGBox3D" parent="FarmBoard"]
+[node name="WestFenceBase" type="CSGBox3D" parent="FarmBoard" unique_id=1598266751]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -53.75, 0.8, 50)
 size = Vector3(104, 1.5, 0.5)
 material = ExtResource("3_clafs")
 
-[node name="FenceScene0" parent="FarmBoard/WestFenceBase" instance=ExtResource("4_qp4ji")]
+[node name="FenceScene0" parent="FarmBoard/WestFenceBase" unique_id=494832097 instance=ExtResource("4_qp4ji")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50, 2.75, 0)
 
-[node name="FenceConnecter1" parent="FarmBoard/WestFenceBase/FenceScene0" instance=ExtResource("5_mu2f0")]
+[node name="FenceConnecter1" parent="FarmBoard/WestFenceBase/FenceScene0" unique_id=1482025822 instance=ExtResource("5_mu2f0")]
 transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1.5, 0)
 
-[node name="FenceScene1" parent="FarmBoard/WestFenceBase" instance=ExtResource("4_qp4ji")]
+[node name="FenceScene1" parent="FarmBoard/WestFenceBase" unique_id=331514383 instance=ExtResource("4_qp4ji")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46, 2.75, 0)
 
-[node name="FenceConnecter" parent="FarmBoard/WestFenceBase/FenceScene1" instance=ExtResource("5_mu2f0")]
+[node name="FenceConnecter" parent="FarmBoard/WestFenceBase/FenceScene1" unique_id=1304319795 instance=ExtResource("5_mu2f0")]
 transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1.5, 0)
 
-[node name="FenceScene2" parent="FarmBoard/WestFenceBase" instance=ExtResource("4_qp4ji")]
+[node name="FenceScene2" parent="FarmBoard/WestFenceBase" unique_id=2100612056 instance=ExtResource("4_qp4ji")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42, 2.75, 0)
 
-[node name="FenceConnecter" parent="FarmBoard/WestFenceBase/FenceScene2" instance=ExtResource("5_mu2f0")]
+[node name="FenceConnecter" parent="FarmBoard/WestFenceBase/FenceScene2" unique_id=1478096709 instance=ExtResource("5_mu2f0")]
 transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1.5, 0)
 
-[node name="FenceScene3" parent="FarmBoard/WestFenceBase" instance=ExtResource("4_qp4ji")]
+[node name="FenceScene3" parent="FarmBoard/WestFenceBase" unique_id=351654187 instance=ExtResource("4_qp4ji")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38, 2.75, 0)
 
-[node name="FenceConnecter" parent="FarmBoard/WestFenceBase/FenceScene3" instance=ExtResource("5_mu2f0")]
+[node name="FenceConnecter" parent="FarmBoard/WestFenceBase/FenceScene3" unique_id=95331233 instance=ExtResource("5_mu2f0")]
 transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1.5, 0)
 
-[node name="FenceScene4" parent="FarmBoard/WestFenceBase" instance=ExtResource("4_qp4ji")]
+[node name="FenceScene4" parent="FarmBoard/WestFenceBase" unique_id=1489797551 instance=ExtResource("4_qp4ji")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34, 2.75, 0)
 
-[node name="FenceConnecter" parent="FarmBoard/WestFenceBase/FenceScene4" instance=ExtResource("5_mu2f0")]
+[node name="FenceConnecter" parent="FarmBoard/WestFenceBase/FenceScene4" unique_id=1067304075 instance=ExtResource("5_mu2f0")]
 transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1.5, 0)
 
-[node name="FenceScene5" parent="FarmBoard/WestFenceBase" instance=ExtResource("4_qp4ji")]
+[node name="FenceScene5" parent="FarmBoard/WestFenceBase" unique_id=1011741842 instance=ExtResource("4_qp4ji")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 2.75, 0)
 
-[node name="FenceConnecter" parent="FarmBoard/WestFenceBase/FenceScene5" instance=ExtResource("5_mu2f0")]
+[node name="FenceConnecter" parent="FarmBoard/WestFenceBase/FenceScene5" unique_id=1746302613 instance=ExtResource("5_mu2f0")]
 transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1.5, 0)
 
-[node name="FenceScene6" parent="FarmBoard/WestFenceBase" instance=ExtResource("4_qp4ji")]
+[node name="FenceScene6" parent="FarmBoard/WestFenceBase" unique_id=1043648973 instance=ExtResource("4_qp4ji")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26, 2.75, 0)
 
-[node name="FenceConnecter" parent="FarmBoard/WestFenceBase/FenceScene6" instance=ExtResource("5_mu2f0")]
+[node name="FenceConnecter" parent="FarmBoard/WestFenceBase/FenceScene6" unique_id=286410611 instance=ExtResource("5_mu2f0")]
 transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1.5, 0)
 
-[node name="FenceScene7" parent="FarmBoard/WestFenceBase" instance=ExtResource("4_qp4ji")]
+[node name="FenceScene7" parent="FarmBoard/WestFenceBase" unique_id=1689625556 instance=ExtResource("4_qp4ji")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22, 2.75, 0)
 
-[node name="FenceConnecter" parent="FarmBoard/WestFenceBase/FenceScene7" instance=ExtResource("5_mu2f0")]
+[node name="FenceConnecter" parent="FarmBoard/WestFenceBase/FenceScene7" unique_id=1428577807 instance=ExtResource("5_mu2f0")]
 transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1.5, 0)
 
-[node name="FenceScene8" parent="FarmBoard/WestFenceBase" instance=ExtResource("4_qp4ji")]
+[node name="FenceScene8" parent="FarmBoard/WestFenceBase" unique_id=1055219105 instance=ExtResource("4_qp4ji")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 2.75, 0)
 
-[node name="FenceConnecter" parent="FarmBoard/WestFenceBase/FenceScene8" instance=ExtResource("5_mu2f0")]
+[node name="FenceConnecter" parent="FarmBoard/WestFenceBase/FenceScene8" unique_id=541141654 instance=ExtResource("5_mu2f0")]
 transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1.5, 0)
 
-[node name="FenceScene9" parent="FarmBoard/WestFenceBase" instance=ExtResource("4_qp4ji")]
+[node name="FenceScene9" parent="FarmBoard/WestFenceBase" unique_id=1303964507 instance=ExtResource("4_qp4ji")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 2.75, 0)
 
-[node name="FenceConnecter" parent="FarmBoard/WestFenceBase/FenceScene9" instance=ExtResource("5_mu2f0")]
+[node name="FenceConnecter" parent="FarmBoard/WestFenceBase/FenceScene9" unique_id=641837549 instance=ExtResource("5_mu2f0")]
 transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1.5, 0)
 
-[node name="FenceScene10" parent="FarmBoard/WestFenceBase" instance=ExtResource("4_qp4ji")]
+[node name="FenceScene10" parent="FarmBoard/WestFenceBase" unique_id=1504006428 instance=ExtResource("4_qp4ji")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 2.75, 0)
 
-[node name="FenceConnecter" parent="FarmBoard/WestFenceBase/FenceScene10" instance=ExtResource("5_mu2f0")]
+[node name="FenceConnecter" parent="FarmBoard/WestFenceBase/FenceScene10" unique_id=1073437814 instance=ExtResource("5_mu2f0")]
 transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1.5, 0)
 
-[node name="FenceScene11" parent="FarmBoard/WestFenceBase" instance=ExtResource("4_qp4ji")]
+[node name="FenceScene11" parent="FarmBoard/WestFenceBase" unique_id=365251777 instance=ExtResource("4_qp4ji")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 2.75, 0)
 
-[node name="FenceConnecter" parent="FarmBoard/WestFenceBase/FenceScene11" instance=ExtResource("5_mu2f0")]
+[node name="FenceConnecter" parent="FarmBoard/WestFenceBase/FenceScene11" unique_id=1112301473 instance=ExtResource("5_mu2f0")]
 transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1.5, 0)
 
-[node name="FenceScene12" parent="FarmBoard/WestFenceBase" instance=ExtResource("4_qp4ji")]
+[node name="FenceScene12" parent="FarmBoard/WestFenceBase" unique_id=1630097920 instance=ExtResource("4_qp4ji")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 2.75, 0)
 
-[node name="FenceConnecter" parent="FarmBoard/WestFenceBase/FenceScene12" instance=ExtResource("5_mu2f0")]
+[node name="FenceConnecter" parent="FarmBoard/WestFenceBase/FenceScene12" unique_id=1869021520 instance=ExtResource("5_mu2f0")]
 transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1.5, 0)
 
-[node name="FenceScene13" parent="FarmBoard/WestFenceBase" instance=ExtResource("4_qp4ji")]
+[node name="FenceScene13" parent="FarmBoard/WestFenceBase" unique_id=829739055 instance=ExtResource("4_qp4ji")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 2.75, 0)
 
-[node name="FenceConnecter" parent="FarmBoard/WestFenceBase/FenceScene13" instance=ExtResource("5_mu2f0")]
+[node name="FenceConnecter" parent="FarmBoard/WestFenceBase/FenceScene13" unique_id=668252203 instance=ExtResource("5_mu2f0")]
 transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1.5, 0)
 
-[node name="FenceScene14" parent="FarmBoard/WestFenceBase" instance=ExtResource("4_qp4ji")]
+[node name="FenceScene14" parent="FarmBoard/WestFenceBase" unique_id=1558996067 instance=ExtResource("4_qp4ji")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 2.75, 0)
 
-[node name="FenceConnecter" parent="FarmBoard/WestFenceBase/FenceScene14" instance=ExtResource("5_mu2f0")]
+[node name="FenceConnecter" parent="FarmBoard/WestFenceBase/FenceScene14" unique_id=219122341 instance=ExtResource("5_mu2f0")]
 transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1.5, 0)
 
-[node name="FenceScene15" parent="FarmBoard/WestFenceBase" instance=ExtResource("4_qp4ji")]
+[node name="FenceScene15" parent="FarmBoard/WestFenceBase" unique_id=414616077 instance=ExtResource("4_qp4ji")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 2.75, 0)
 
-[node name="FenceConnecter" parent="FarmBoard/WestFenceBase/FenceScene15" instance=ExtResource("5_mu2f0")]
+[node name="FenceConnecter" parent="FarmBoard/WestFenceBase/FenceScene15" unique_id=1979532072 instance=ExtResource("5_mu2f0")]
 transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1.5, 0)
 
-[node name="FenceScene16" parent="FarmBoard/WestFenceBase" instance=ExtResource("4_qp4ji")]
+[node name="FenceScene16" parent="FarmBoard/WestFenceBase" unique_id=1233204987 instance=ExtResource("4_qp4ji")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 2.75, 0)
 
-[node name="FenceConnecter" parent="FarmBoard/WestFenceBase/FenceScene16" instance=ExtResource("5_mu2f0")]
+[node name="FenceConnecter" parent="FarmBoard/WestFenceBase/FenceScene16" unique_id=874081062 instance=ExtResource("5_mu2f0")]
 transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1.5, 0)
 
-[node name="FenceScene17" parent="FarmBoard/WestFenceBase" instance=ExtResource("4_qp4ji")]
+[node name="FenceScene17" parent="FarmBoard/WestFenceBase" unique_id=894148278 instance=ExtResource("4_qp4ji")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 2.75, 0)
 
-[node name="FenceConnecter" parent="FarmBoard/WestFenceBase/FenceScene17" instance=ExtResource("5_mu2f0")]
+[node name="FenceConnecter" parent="FarmBoard/WestFenceBase/FenceScene17" unique_id=854560808 instance=ExtResource("5_mu2f0")]
 transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1.5, 0)
 
-[node name="FenceScene18" parent="FarmBoard/WestFenceBase" instance=ExtResource("4_qp4ji")]
+[node name="FenceScene18" parent="FarmBoard/WestFenceBase" unique_id=1282425101 instance=ExtResource("4_qp4ji")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22, 2.75, 0)
 
-[node name="FenceConnecter" parent="FarmBoard/WestFenceBase/FenceScene18" instance=ExtResource("5_mu2f0")]
+[node name="FenceConnecter" parent="FarmBoard/WestFenceBase/FenceScene18" unique_id=1386134561 instance=ExtResource("5_mu2f0")]
 transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1.5, 0)
 
-[node name="FenceScene19" parent="FarmBoard/WestFenceBase" instance=ExtResource("4_qp4ji")]
+[node name="FenceScene19" parent="FarmBoard/WestFenceBase" unique_id=218305771 instance=ExtResource("4_qp4ji")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26, 2.75, 0)
 
-[node name="FenceConnecter" parent="FarmBoard/WestFenceBase/FenceScene19" instance=ExtResource("5_mu2f0")]
+[node name="FenceConnecter" parent="FarmBoard/WestFenceBase/FenceScene19" unique_id=1399667243 instance=ExtResource("5_mu2f0")]
 transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1.5, 0)
 
-[node name="FenceScene20" parent="FarmBoard/WestFenceBase" instance=ExtResource("4_qp4ji")]
+[node name="FenceScene20" parent="FarmBoard/WestFenceBase" unique_id=380708637 instance=ExtResource("4_qp4ji")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 2.75, 0)
 
-[node name="FenceConnecter" parent="FarmBoard/WestFenceBase/FenceScene20" instance=ExtResource("5_mu2f0")]
+[node name="FenceConnecter" parent="FarmBoard/WestFenceBase/FenceScene20" unique_id=1540563315 instance=ExtResource("5_mu2f0")]
 transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1.5, 0)
 
-[node name="FenceScene21" parent="FarmBoard/WestFenceBase" instance=ExtResource("4_qp4ji")]
+[node name="FenceScene21" parent="FarmBoard/WestFenceBase" unique_id=2112646055 instance=ExtResource("4_qp4ji")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34, 2.75, 0)
 
-[node name="FenceConnecter" parent="FarmBoard/WestFenceBase/FenceScene21" instance=ExtResource("5_mu2f0")]
+[node name="FenceConnecter" parent="FarmBoard/WestFenceBase/FenceScene21" unique_id=167708580 instance=ExtResource("5_mu2f0")]
 transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1.5, 0)
 
-[node name="FenceScene22" parent="FarmBoard/WestFenceBase" instance=ExtResource("4_qp4ji")]
+[node name="FenceScene22" parent="FarmBoard/WestFenceBase" unique_id=1250209551 instance=ExtResource("4_qp4ji")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38, 2.75, 0)
 
-[node name="FenceConnecter" parent="FarmBoard/WestFenceBase/FenceScene22" instance=ExtResource("5_mu2f0")]
+[node name="FenceConnecter" parent="FarmBoard/WestFenceBase/FenceScene22" unique_id=1327570818 instance=ExtResource("5_mu2f0")]
 transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1.5, 0)
 
-[node name="FenceScene23" parent="FarmBoard/WestFenceBase" instance=ExtResource("4_qp4ji")]
+[node name="FenceScene23" parent="FarmBoard/WestFenceBase" unique_id=336813786 instance=ExtResource("4_qp4ji")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42, 2.75, 0)
 
-[node name="FenceConnecter" parent="FarmBoard/WestFenceBase/FenceScene23" instance=ExtResource("5_mu2f0")]
+[node name="FenceConnecter" parent="FarmBoard/WestFenceBase/FenceScene23" unique_id=1584601647 instance=ExtResource("5_mu2f0")]
 transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1.5, 0)
 
-[node name="FenceScene24" parent="FarmBoard/WestFenceBase" instance=ExtResource("4_qp4ji")]
+[node name="FenceScene24" parent="FarmBoard/WestFenceBase" unique_id=226261504 instance=ExtResource("4_qp4ji")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -46, 2.75, 0)
 
-[node name="FenceConnecter" parent="FarmBoard/WestFenceBase/FenceScene24" instance=ExtResource("5_mu2f0")]
+[node name="FenceConnecter" parent="FarmBoard/WestFenceBase/FenceScene24" unique_id=540023209 instance=ExtResource("5_mu2f0")]
 transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1.5, 0)
 
-[node name="FenceScene25" parent="FarmBoard/WestFenceBase" instance=ExtResource("4_qp4ji")]
+[node name="FenceScene25" parent="FarmBoard/WestFenceBase" unique_id=1118117306 instance=ExtResource("4_qp4ji")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50, 2.75, 0)
 
-[node name="FenceConnecter" parent="FarmBoard/WestFenceBase/FenceScene25" instance=ExtResource("5_mu2f0")]
+[node name="FenceConnecter" parent="FarmBoard/WestFenceBase/FenceScene25" unique_id=926659311 instance=ExtResource("5_mu2f0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.75, 1.5, 0)
 
-[node name="BasePillar" type="CSGBox3D" parent="FarmBoard"]
+[node name="BasePillar" type="CSGBox3D" parent="FarmBoard" unique_id=125086977]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -53.75, 3.55, -1.75)
 size = Vector3(0.5, 4, 0.5)
 material = ExtResource("3_clafs")
 
-[node name="Nroad" type="Node3D" parent="."]
+[node name="Nroad" type="Node3D" parent="." unique_id=1584359577]
 
-[node name="Nroad" type="CSGBox3D" parent="Nroad"]
+[node name="Nroad" type="CSGBox3D" parent="Nroad" unique_id=1163172792]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5, 0, -56.5)
 use_collision = true
 collision_layer = 3
 size = Vector3(105, 0.25, 15)
 material = ExtResource("9_2lkbl")
 
-[node name="NSidewalk" type="CSGBox3D" parent="Nroad/Nroad"]
+[node name="NSidewalk" type="CSGBox3D" parent="Nroad/Nroad" unique_id=1934340069]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25, 0, 12)
 use_collision = true
 collision_layer = 3
 size = Vector3(104.5, 1, 8)
 material = ExtResource("7_7loa4")
 
-[node name="NsideWalk_SFill" type="CSGBox3D" parent="Nroad/Nroad"]
+[node name="NsideWalk_SFill" type="CSGBox3D" parent="Nroad/Nroad" unique_id=440361731]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 16.25)
 size = Vector3(104, 1, 0.5)
 material = ExtResource("8_2kh68")
 
-[node name="NsidewalkT" type="CSGPolygon3D" parent="Nroad/Nroad"]
+[node name="NsidewalkT" type="CSGPolygon3D" parent="Nroad/Nroad" unique_id=1105272471]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -54.75, 0.5, 12)
 use_collision = true
 polygon = PackedVector2Array(2.75, -4, -0.715, -4, 2.582, 4, 2.75, 4)
 material = ExtResource("7_7loa4")
 
-[node name="Nsidewalk_Ncurb" type="CSGPolygon3D" parent="Nroad"]
+[node name="Nsidewalk_Ncurb" type="CSGPolygon3D" parent="Nroad" unique_id=470094284]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 64, -0.5, -48.5)
 use_collision = true
 collision_layer = 3
@@ -411,12 +411,12 @@ depth = 105.25
 smooth_faces = true
 material = ExtResource("8_2kh68")
 
-[node name="Negative" type="CSGPolygon3D" parent="Nroad/Nsidewalk_Ncurb"]
+[node name="Negative" type="CSGPolygon3D" parent="Nroad/Nsidewalk_Ncurb" unique_id=621832940]
 transform = Transform3D(0.830011, 0, 0.557744, 0, 1, 0, -0.557744, 0, 0.830011, 0.501, 1.1, -105.004)
 operation = 2
 polygon = PackedVector2Array(0.2, 0, 0.2, -1, -1, -1, -1, 0)
 
-[node name="Nsidewalk_SWcurb" type="CSGPolygon3D" parent="Nroad"]
+[node name="Nsidewalk_SWcurb" type="CSGPolygon3D" parent="Nroad" unique_id=874448552]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -44.705, -0.5, -40.5)
 use_collision = true
 collision_layer = 3
@@ -425,12 +425,12 @@ depth = 4.71
 smooth_faces = true
 material = ExtResource("8_2kh68")
 
-[node name="Negative" type="CSGPolygon3D" parent="Nroad/Nsidewalk_SWcurb"]
+[node name="Negative" type="CSGPolygon3D" parent="Nroad/Nsidewalk_SWcurb" unique_id=470610331]
 transform = Transform3D(0.830011, 0, 0.557744, 0, 1, 0, -0.557744, 0, 0.830011, 0.5, 1, 0.00543976)
 operation = 2
 polygon = PackedVector2Array(0, 0, 0, -1, -1, -1, -1, 0)
 
-[node name="Nsidewalk_Wcurb" type="CSGPolygon3D" parent="Nroad"]
+[node name="Nsidewalk_Wcurb" type="CSGPolygon3D" parent="Nroad" unique_id=1584575246]
 transform = Transform3D(-0.924546, 0, 0.38107, 0, 1, 0, -0.38107, 0, -0.924546, -40.5395, -0.5, -48.8111)
 use_collision = true
 collision_layer = 3
@@ -439,17 +439,17 @@ depth = 9.74
 smooth_faces = true
 material = ExtResource("8_2kh68")
 
-[node name="Negative0" type="CSGPolygon3D" parent="Nroad/Nsidewalk_Wcurb"]
+[node name="Negative0" type="CSGPolygon3D" parent="Nroad/Nsidewalk_Wcurb" unique_id=1601312090]
 transform = Transform3D(0.556295, 0, 0.830984, 0, 1, 0, -0.830984, 0, 0.556295, 0.503796, 1, -9.74337)
 operation = 2
 polygon = PackedVector2Array(0, 0, 0, -1, -1, -1, -1, 0)
 
-[node name="Negative1" type="CSGPolygon3D" parent="Nroad/Nsidewalk_Wcurb"]
+[node name="Negative1" type="CSGPolygon3D" parent="Nroad/Nsidewalk_Wcurb" unique_id=1303364654]
 transform = Transform3D(0.554843, 0, 0.831952, 0, 1, 0, -0.831952, 0, 0.554843, 0.502, 1, -0.001)
 operation = 2
 polygon = PackedVector2Array(0, 0, 0, -1, -1, -1, -1, 0)
 
-[node name="WGrassground" type="CSGMesh3D" parent="."]
+[node name="WGrassground" type="CSGMesh3D" parent="." unique_id=967597194]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -47, -0.025, 12)
 use_collision = true
 collision_layer = 3

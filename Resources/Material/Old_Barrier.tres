@@ -7,20 +7,21 @@ interpolation_mode = 1
 offsets = PackedFloat32Array(0, 0.2, 0.75)
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 1)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_tovjk"]
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_5f2re"]
 gradient = SubResource("Gradient_rd8a7")
-width = 32
-height = 32
+width = 512
+height = 512
 fill_from = Vector2(0, 1)
 fill_to = Vector2(0.5, 0.5)
-repeat = 2
+repeat = 1
 
 [resource]
 render_priority = 0
 shader = ExtResource("1_1je8o")
 shader_parameter/albedo = Color(1, 1, 1, 1)
-shader_parameter/texture_albedo = SubResource("GradientTexture2D_tovjk")
-shader_parameter/distance_fade_min = 5.0
-shader_parameter/distance_fade_max = 2.5
+shader_parameter/texture_albedo = SubResource("GradientTexture2D_5f2re")
+shader_parameter/distance_fade_min = 2.0
+shader_parameter/distance_fade_max = 1.0
+shader_parameter/animation_speed = 1.0
 shader_parameter/uv1_scale = Vector3(1, 1, 1)
 shader_parameter/uv1_offset = Vector3(0, 0, 0)

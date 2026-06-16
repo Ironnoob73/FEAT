@@ -121,10 +121,16 @@ current = true
 
 [node name="TheCorridor" parent="CorridorScene" unique_id=215228121 instance=ExtResource("7_wcnku")]
 
-[node name="DownStairView" parent="CorridorScene/TheCorridor/ElevatorCorridorSolid" parent_id_path=PackedInt32Array(215228121, 39811513) index="4" unique_id=477990772]
+[node name="DownStairView" parent="CorridorScene/TheCorridor/ElevatorCorridorSolid" parent_id_path=PackedInt32Array(215228121, 2085821326) index="4" unique_id=477990772]
 material_override = SubResource("ShaderMaterial_4ed7q")
 
-[node name="UpStairView" parent="CorridorScene/TheCorridor/ElevatorCorridorSolid" parent_id_path=PackedInt32Array(215228121, 39811513) index="5" unique_id=1450189058]
+[node name="DownDoorView" parent="CorridorScene/TheCorridor/ElevatorCorridorSolid/DownStairView" index="1" unique_id=1716180243]
+material_override = SubResource("ShaderMaterial_4ed7q")
+
+[node name="UpStairView" parent="CorridorScene/TheCorridor/ElevatorCorridorSolid" parent_id_path=PackedInt32Array(215228121, 2085821326) index="5" unique_id=1450189058]
+material_override = SubResource("ShaderMaterial_gf3a5")
+
+[node name="UpDoorView" parent="CorridorScene/TheCorridor/ElevatorCorridorSolid/UpStairView" index="1" unique_id=843836567]
 material_override = SubResource("ShaderMaterial_gf3a5")
 
 [node name="RoomView" parent="CorridorScene/TheCorridor" index="3" unique_id=1965730702]
@@ -154,7 +160,7 @@ current = true
 [node name="Room0" parent="RoomScene" unique_id=1945280578 instance=ExtResource("3_4ed7q")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13, 0, 6)
 
-[node name="CorridorView" parent="RoomScene/Room0" index="10" unique_id=1711748137]
+[node name="CorridorView" parent="RoomScene/Room0" index="3" unique_id=1711748137]
 material_override = SubResource("ShaderMaterial_og3y8")
 
 [node name="Area3D" parent="RoomScene/Room0/CorridorView" index="1" unique_id=783796307 node_paths=PackedStringArray("from_viewport", "to_room_area")]

@@ -4,6 +4,7 @@ uniform vec4 albedo : source_color = vec4(1.0,1.0,1.0,1.0);
 uniform sampler2D texture_albedo : source_color,filter_nearest_mipmap,repeat_enable;
 uniform float distance_fade_min = 5.0;
 uniform float distance_fade_max = 2.5;
+uniform float animation_speed = 1.0;
 
 varying vec3 uv1_triplanar_pos;
 varying vec3 uv1_power_normal;
@@ -21,7 +22,8 @@ void vertex() {
 	BINORMAL+= vec3(0.0,1.0,0.0) * abs(normal.z);
 	BINORMAL = normalize(BINORMAL);
 	uv1_power_normal=abs(NORMAL);
-	vec3 uv1_offset_time = vec3(uv1_offset.x + TIME,uv1_offset.y + TIME,uv1_offset.z - TIME);
+	float asmt = TIME * animation_speed;
+	vec3 uv1_offset_time = vec3(uv1_offset.x + asmt,uv1_offset.y + asmt,uv1_offset.z - asmt);
 	uv1_triplanar_pos = VERTEX * uv1_scale + uv1_offset_time;
 	uv1_power_normal/=dot(uv1_power_normal,vec3(1.0));
 	uv1_triplanar_pos *= vec3(1.0,-1.0, 1.0);

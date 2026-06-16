@@ -16,8 +16,8 @@ size = Vector3(2, 0.1, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_18m6j"]
 
-[sub_resource type="QuadMesh" id="QuadMesh_18m6j"]
-size = Vector2(20, 20)
+[sub_resource type="BoxMesh" id="BoxMesh_18m6j"]
+size = Vector3(4, 5, 1)
 
 [node name="TheElevator" type="Node3D" unique_id=385804628]
 
@@ -49,5 +49,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -1)
 shape = SubResource("BoxShape3D_18m6j")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1419339839]
-transform = Transform3D(0.70710677, -0.68301266, 0.18301272, 0, 0.25881907, 0.9659258, -0.70710677, -0.68301266, 0.18301272, 0, 10, 7)
-mesh = SubResource("QuadMesh_18m6j")
+transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 1, 2.55)
+cast_shadow = 3
+mesh = SubResource("BoxMesh_18m6j")

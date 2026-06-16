@@ -30,6 +30,9 @@ shader = ExtResource("9_jn1r0")
 [sub_resource type="PlaneMesh" id="PlaneMesh_11pt0"]
 size = Vector2(7, 10)
 
+[sub_resource type="QuadMesh" id="QuadMesh_5yw2n"]
+size = Vector2(2, 2.5)
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_11pt0"]
 resource_local_to_scene = true
 render_priority = 0
@@ -152,6 +155,11 @@ transparent_bg = true
 [node name="Camera3D" type="Camera3D" parent="ElevatorCorridorSolid/DownStairView/SubViewport" unique_id=1654862349]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 8, 8)
 
+[node name="DownDoorView" type="MeshInstance3D" parent="ElevatorCorridorSolid/DownStairView" unique_id=1716180243]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1.2, -5)
+material_override = SubResource("ShaderMaterial_shdyq")
+mesh = SubResource("QuadMesh_5yw2n")
+
 [node name="UpStairView" type="MeshInstance3D" parent="ElevatorCorridorSolid" unique_id=1450189058]
 transform = Transform3D(1, 0, 0, 0, -1, -8.742278e-08, 0, 8.742278e-08, -1, 0, 8, 7)
 material_override = SubResource("ShaderMaterial_11pt0")
@@ -162,6 +170,11 @@ transparent_bg = true
 
 [node name="Camera3D" type="Camera3D" parent="ElevatorCorridorSolid/UpStairView/SubViewport" unique_id=499665133]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, -2, 8)
+
+[node name="UpDoorView" type="MeshInstance3D" parent="ElevatorCorridorSolid/UpStairView" unique_id=843836567]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 2, 2.8, 5)
+material_override = SubResource("ShaderMaterial_11pt0")
+mesh = SubResource("QuadMesh_5yw2n")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="ElevatorCorridorSolid" unique_id=1095803743]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 16, 7)

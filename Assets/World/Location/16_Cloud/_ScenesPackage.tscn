@@ -1,0 +1,78 @@
+[gd_scene format=3 uid="uid://b0amcmins8ic7"]
+
+[ext_resource type="Shader" uid="uid://cd6f4fuevjkxi" path="res://Resources/Shader/cloud.gdshader" id="1_27orl"]
+[ext_resource type="Script" uid="uid://8h1wxcdqk41f" path="res://addons/abyss_history_lib/Class/World/ScenesPackageClass.gd" id="1_l0isb"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_l0isb"]
+frequency = 0.25
+fractal_type = 2
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_pp1kj"]
+noise = SubResource("FastNoiseLite_l0isb")
+seamless = true
+
+[sub_resource type="Gradient" id="Gradient_l0isb"]
+colors = PackedColorArray(0, 0, 0, 1, 0.49803922, 0.49803922, 0.49803922, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_tpecx"]
+noise_type = 4
+frequency = 1.0
+fractal_type = 0
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_kwbwa"]
+width = 8
+height = 8
+noise = SubResource("FastNoiseLite_tpecx")
+color_ramp = SubResource("Gradient_l0isb")
+seamless = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_u6fpm"]
+render_priority = 0
+shader = ExtResource("1_27orl")
+shader_parameter/Speed_1 = Vector2(-0.001, 0.002)
+shader_parameter/Cloud_Noise_1 = SubResource("NoiseTexture2D_pp1kj")
+shader_parameter/noise_multiplier = 1.50000007055148
+shader_parameter/Speed_2 = Vector2(0.01, -0.01)
+shader_parameter/Cloud_Noise_2 = SubResource("NoiseTexture2D_kwbwa")
+shader_parameter/scatter_color = Color(0.62569815, 0.8320315, 1, 1)
+shader_parameter/base_color = Color(1, 1, 1, 1)
+shader_parameter/cloud_transparency_threshold = 1.0
+shader_parameter/transparency_multiplier = 1.0
+shader_parameter/cloud_thickness = 100.0
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_l0isb"]
+size = Vector2(1024, 1024)
+subdivide_width = 512
+subdivide_depth = 512
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_27orl"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_l0isb"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pp1kj"]
+
+[node name="ScenePackage" type="Node3D" unique_id=216067526]
+script = ExtResource("1_l0isb")
+metadata/_custom_type_script = "uid://8h1wxcdqk41f"
+
+[node name="Ground" type="StaticBody3D" parent="." unique_id=1229666115]
+collision_layer = 3
+
+[node name="Mesh" type="MeshInstance3D" parent="Ground" unique_id=1722677169]
+material_override = SubResource("ShaderMaterial_u6fpm")
+mesh = SubResource("PlaneMesh_l0isb")
+skeleton = NodePath("../..")
+
+[node name="Col" type="CollisionShape3D" parent="Ground" unique_id=304708926]
+shape = SubResource("WorldBoundaryShape3D_27orl")
+
+[node name="RigidBody3D" type="RigidBody3D" parent="." unique_id=1580613005]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 2, 0)
+collision_layer = 9
+collision_mask = 79
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D" unique_id=687324246]
+mesh = SubResource("BoxMesh_l0isb")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D" unique_id=1985912608]
+shape = SubResource("BoxShape3D_pp1kj")

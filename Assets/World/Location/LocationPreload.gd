@@ -1,11 +1,14 @@
 extends Node
 
-var ZhuShan = "res://Assets/World/Location/_ZhuShan/_ScenesPackage.tscn"
-var Apartment0 = "res://Assets/World/Location/_Home/Reality/ScenePackage.tscn"
-var DreamApartment = "res://Assets/World/Location/_Home/Dream/ScenePackage.tscn"
+var ZhuShan: String = "res://Assets/World/Location/_ZhuShan/_ScenesPackage.tscn"
+var Apartment0: String = "res://Assets/World/Location/_Home/Reality/ScenePackage.tscn"
+var DreamApartment: String = "res://Assets/World/Location/_Home/Dream/ScenePackage.tscn"
 
-func get_location_from_name(location_name:String):
-	return load(get(location_name))
+var Cloud: String = "res://Assets/World/Location/16_Cloud/_ScenesPackage.tscn"
+
+func get_location_from_name(location_name:String) -> Resource:
+	var path: String = get(location_name)
+	return load(path)
 
 func get_path_from_name(location_name:String) -> String:
 	return get(location_name)

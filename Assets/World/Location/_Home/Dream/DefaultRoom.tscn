@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://cq8yj4ire6bd"]
+[gd_scene format=4 uid="uid://cq8yj4ire6bd"]
 
 [ext_resource type="Script" uid="uid://ilybs8hyghla" path="res://Assets/World/Location/_Home/Dream/room_connector.gd" id="1_hxcpd"]
 [ext_resource type="PackedScene" uid="uid://cyesacqu3i41p" path="res://Assets/World/Location/_Home/sources/inner_solid.tscn" id="1_ovru6"]
@@ -28,7 +28,7 @@
 [ext_resource type="PackedScene" uid="uid://bgar67py461my" path="res://Resources/Object/Building/Fence/MetalFenceShort/fence_scene.tscn" id="24_jb1nh"]
 [ext_resource type="Material" uid="uid://rnxv6hl1w5ul" path="res://Resources/Material/DarkMaterial.tres" id="25_6wi2a"]
 [ext_resource type="Shader" uid="uid://cyxv26lgbbfge" path="res://Assets/World/Environments/sources/background_shader.gdshader" id="25_ovru6"]
-[ext_resource type="PackedScene" uid="uid://cn0vdsnev3254" path="res://Resources/Object/Function/BarrierWall/barrier_fade_wall_scene.tscn" id="26_5qyi1"]
+[ext_resource type="Material" uid="uid://bxspvesneuvnj" path="res://Resources/Material/Old_Barrier.tres" id="29_hxcpd"]
 
 [sub_resource type="Resource" id="Resource_tnxtw"]
 script = ExtResource("17_50uoi")
@@ -65,10 +65,40 @@ script = ExtResource("17_50uoi")
 connected_node = Array[NodePath]([NodePath("../MetalCeilingLampScene1")])
 metadata/_custom_type_script = "uid://bcmxxhlef12pk"
 
+[sub_resource type="ArrayMesh" id="ArrayMesh_hxcpd"]
+_surfaces = [{
+"aabb": AABB(-0.0625, -0.5, -0.0625, 0.125, 1, 0.125),
+"attribute_data": PackedByteArray("AACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/"),
+"format": 34359738391,
+"material": ExtResource("25_6wi2a"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 36,
+"vertex_data": PackedByteArray("AACAvQAAAL8AAIA9AACAvQAAAL8AAIC9AACAvQAAAD8AAIC9AACAPQAAAL8AAIC9AACAvQAAAL8AAIC9AACAvQAAAL8AAIA9AACAvQAAAD8AAIC9AACAvQAAAL8AAIC9AACAPQAAAL8AAIC9AACAvQAAAD8AAIC9AACAvQAAAD8AAIA9AACAvQAAAL8AAIA9AACAvQAAAL8AAIA9AACAvQAAAD8AAIA9AACAPQAAAD8AAIA9AACAPQAAAD8AAIA9AACAvQAAAD8AAIA9AACAvQAAAD8AAIC9AACAvQAAAL8AAIA9AACAPQAAAL8AAIA9AACAPQAAAL8AAIC9AACAPQAAAD8AAIA9AACAPQAAAL8AAIA9AACAvQAAAL8AAIA9AACAPQAAAL8AAIC9AACAPQAAAL8AAIA9AACAPQAAAD8AAIA9AACAPQAAAL8AAIC9AACAPQAAAD8AAIC9AACAvQAAAD8AAIC9AACAvQAAAD8AAIC9AACAPQAAAD8AAIC9AACAPQAAAD8AAIA9AACAPQAAAD8AAIA9AACAPQAAAD8AAIC9AACAPQAAAL8AAIC9AAD/f/9//n8AAP9//3/+fwAA/3//f/5//38AAP//AAD/fwAA//8AAP9/AAD//wAA/////wAA/z//////AAD/P/////8AAP8/AAD/f/9//n8AAP9//3/+fwAA/3//f/5//3//fwAA/z//f/9/AAD/P/9//38AAP8//3//////AAD/f/////8AAP9//////wAA/38AAP//AAD/fwAA//8AAP9/AAD//wAA/3//fwAA/z//f/9/AAD/P/9//38AAP8/////f/9//n////9//3/+f////3//f/5//////wAA/z//////AAD/P/////8AAP8//3//////AAD/f/////8AAP9//////wAA////f/9//n////9//3/+f////3//f/5/")
+}]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_q26k1"]
+data = PackedVector3Array(-0.0625, -0.5, 0.0625, -0.0625, -0.5, -0.0625, -0.0625, 0.5, -0.0625, 0.0625, -0.5, -0.0625, -0.0625, -0.5, -0.0625, -0.0625, -0.5, 0.0625, -0.0625, 0.5, -0.0625, -0.0625, -0.5, -0.0625, 0.0625, -0.5, -0.0625, -0.0625, 0.5, -0.0625, -0.0625, 0.5, 0.0625, -0.0625, -0.5, 0.0625, -0.0625, -0.5, 0.0625, -0.0625, 0.5, 0.0625, 0.0625, 0.5, 0.0625, 0.0625, 0.5, 0.0625, -0.0625, 0.5, 0.0625, -0.0625, 0.5, -0.0625, -0.0625, -0.5, 0.0625, 0.0625, -0.5, 0.0625, 0.0625, -0.5, -0.0625, 0.0625, 0.5, 0.0625, 0.0625, -0.5, 0.0625, -0.0625, -0.5, 0.0625, 0.0625, -0.5, -0.0625, 0.0625, -0.5, 0.0625, 0.0625, 0.5, 0.0625, 0.0625, -0.5, -0.0625, 0.0625, 0.5, -0.0625, -0.0625, 0.5, -0.0625, -0.0625, 0.5, -0.0625, 0.0625, 0.5, -0.0625, 0.0625, 0.5, 0.0625, 0.0625, 0.5, 0.0625, 0.0625, 0.5, -0.0625, 0.0625, -0.5, -0.0625)
+
 [sub_resource type="Resource" id="Resource_e7spv"]
 script = ExtResource("7_bhp7s")
 mesh_material = ExtResource("4_hxcpd")
 metadata/_custom_type_script = "uid://bawnnel5w6hxg"
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_er7tl"]
+_surfaces = [{
+"aabb": AABB(-0.3, -1.2, -0.05, 0.6, 2.4, 0.1),
+"attribute_data": PackedByteArray("AACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/"),
+"format": 34359738391,
+"material": ExtResource("4_hxcpd"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 36,
+"vertex_data": PackedByteArray("mpmZvpqZmb/NzEw9mpmZvpqZmb/NzEy9mpmZvpqZmT/NzEy9mpmZPpqZmb/NzEy9mpmZvpqZmb/NzEy9mpmZvpqZmb/NzEw9mpmZvpqZmT/NzEy9mpmZvpqZmb/NzEy9mpmZPpqZmb/NzEy9mpmZvpqZmT/NzEy9mpmZvpqZmT/NzEw9mpmZvpqZmb/NzEw9mpmZvpqZmb/NzEw9mpmZvpqZmT/NzEw9mpmZPpqZmT/NzEw9mpmZPpqZmT/NzEw9mpmZvpqZmT/NzEw9mpmZvpqZmT/NzEy9mpmZvpqZmb/NzEw9mpmZPpqZmb/NzEw9mpmZPpqZmb/NzEy9mpmZPpqZmT/NzEw9mpmZPpqZmb/NzEw9mpmZvpqZmb/NzEw9mpmZPpqZmb/NzEy9mpmZPpqZmb/NzEw9mpmZPpqZmT/NzEw9mpmZPpqZmb/NzEy9mpmZPpqZmT/NzEy9mpmZvpqZmT/NzEy9mpmZvpqZmT/NzEy9mpmZPpqZmT/NzEy9mpmZPpqZmT/NzEw9mpmZPpqZmT/NzEw9mpmZPpqZmT/NzEy9mpmZPpqZmb/NzEy9AAD/f/9//n8AAP9//3/+fwAA/3//f/5//38AAP//AAD/fwAA//8AAP9/AAD//wAA/////wAA/z//////AAD/P/////8AAP8/AAD/f/9//n8AAP9//3/+fwAA/3//f/5//3//fwAA/z//f/9/AAD/P/9//38AAP8//3//////AAD/f/////8AAP9//////wAA/38AAP//AAD/fwAA//8AAP9/AAD//wAA/3//fwAA/z//f/9/AAD/P/9//38AAP8/////f/9//n////9//3/+f////3//f/5//////wAA/z//////AAD/P/////8AAP8//3//////AAD/f/////8AAP9//////wAA////f/9//n////9//3/+f////3//f/5/")
+}]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_bhp7s"]
+data = PackedVector3Array(-0.29999998, -1.1999999, 0.049999997, -0.29999998, -1.1999999, -0.049999997, -0.29999998, 1.1999999, -0.049999997, 0.29999998, -1.1999999, -0.049999997, -0.29999998, -1.1999999, -0.049999997, -0.29999998, -1.1999999, 0.049999997, -0.29999998, 1.1999999, -0.049999997, -0.29999998, -1.1999999, -0.049999997, 0.29999998, -1.1999999, -0.049999997, -0.29999998, 1.1999999, -0.049999997, -0.29999998, 1.1999999, 0.049999997, -0.29999998, -1.1999999, 0.049999997, -0.29999998, -1.1999999, 0.049999997, -0.29999998, 1.1999999, 0.049999997, 0.29999998, 1.1999999, 0.049999997, 0.29999998, 1.1999999, 0.049999997, -0.29999998, 1.1999999, 0.049999997, -0.29999998, 1.1999999, -0.049999997, -0.29999998, -1.1999999, 0.049999997, 0.29999998, -1.1999999, 0.049999997, 0.29999998, -1.1999999, -0.049999997, 0.29999998, 1.1999999, 0.049999997, 0.29999998, -1.1999999, 0.049999997, -0.29999998, -1.1999999, 0.049999997, 0.29999998, -1.1999999, -0.049999997, 0.29999998, -1.1999999, 0.049999997, 0.29999998, 1.1999999, 0.049999997, 0.29999998, -1.1999999, -0.049999997, 0.29999998, 1.1999999, -0.049999997, -0.29999998, 1.1999999, -0.049999997, -0.29999998, 1.1999999, -0.049999997, 0.29999998, 1.1999999, -0.049999997, 0.29999998, 1.1999999, 0.049999997, 0.29999998, 1.1999999, 0.049999997, 0.29999998, 1.1999999, -0.049999997, 0.29999998, -1.1999999, -0.049999997)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_djm5n"]
 resource_local_to_scene = true
@@ -79,6 +109,14 @@ shader = ExtResource("25_ovru6")
 size = Vector3(2, 0.1, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_q26k1"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_q26k1"]
+material = ExtResource("29_hxcpd")
+flip_faces = true
+size = Vector3(18, 8, 16)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_er7tl"]
+data = PackedVector3Array(9, 4, 8, -9, 4, 8, -9, -4, 8, 9, -4, 8, 9, 4, 8, -9, -4, 8, -9, 4, -8, 9, 4, -8, 9, -4, -8, -9, -4, -8, -9, 4, -8, 9, -4, -8, 9, 4, -8, 9, 4, 8, 9, -4, 8, 9, -4, -8, 9, 4, -8, 9, -4, 8, -9, 4, 8, -9, 4, -8, -9, -4, -8, -9, -4, 8, -9, 4, 8, -9, -4, -8, -9, 4, 8, 9, 4, 8, 9, 4, -8, -9, 4, -8, -9, 4, 8, 9, 4, -8, 9, -4, 8, -9, -4, 8, -9, -4, -8, 9, -4, -8, 9, -4, 8, -9, -4, -8)
 
 [node name="Room" type="Node3D" unique_id=980259170]
 
@@ -224,34 +262,15 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 9, 0
 [node name="FenceScene6" parent="Outwall0" unique_id=1691850787 instance=ExtResource("24_jb1nh")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 9, 0, 6.5)
 
-[node name="FencePole" type="CSGBox3D" parent="Outwall0" unique_id=627345901]
+[node name="FencePole" type="MeshInstance3D" parent="Outwall0" unique_id=1319853577]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0.5, 9)
-layers = 3
-use_collision = true
+mesh = SubResource("ArrayMesh_hxcpd")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Outwall0/FencePole" unique_id=872021063]
 collision_layer = 3
-size = Vector3(0.125, 1, 0.125)
-material = ExtResource("25_6wi2a")
 
-[node name="Barrier0" parent="." unique_id=1383704337 instance=ExtResource("26_5qyi1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 0, 9)
-
-[node name="Barrier1" parent="." unique_id=1806778536 instance=ExtResource("26_5qyi1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5, 0, 9)
-
-[node name="Barrier2" parent="." unique_id=1025646374 instance=ExtResource("26_5qyi1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0, 9)
-
-[node name="Barrier3" parent="." unique_id=766271549 instance=ExtResource("26_5qyi1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.5, 0, 9)
-
-[node name="Barrier4" parent="." unique_id=1649069543 instance=ExtResource("26_5qyi1")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 9, 0, 8.5)
-
-[node name="Barrier5" parent="." unique_id=993609082 instance=ExtResource("26_5qyi1")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 9, 0, 7.5)
-
-[node name="Barrier6" parent="." unique_id=535978360 instance=ExtResource("26_5qyi1")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 9, 0, 6.5)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Outwall0/FencePole/StaticBody3D" unique_id=861902696]
+shape = SubResource("ConcavePolygonShape3D_q26k1")
 
 [node name="FrameScene0" parent="." unique_id=75975394 instance=ExtResource("3_sagjl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, -3.9999998)
@@ -262,13 +281,15 @@ occlusion = "none"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.29999995, 0, 0)
 init_behavior = Array[ExtResource("6_er7tl")]([SubResource("Resource_e7spv")])
 
-[node name="CSGBox3D" type="CSGBox3D" parent="FrameScene0" unique_id=1498910633]
+[node name="DoorSide" type="MeshInstance3D" parent="FrameScene0" unique_id=846223234]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6, 1.2, 0)
-layers = 3
-use_collision = true
+mesh = SubResource("ArrayMesh_er7tl")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="FrameScene0/DoorSide" unique_id=39730962]
 collision_layer = 3
-size = Vector3(0.6, 2.4, 0.1)
-material = ExtResource("4_hxcpd")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="FrameScene0/DoorSide/StaticBody3D" unique_id=1154664588]
+shape = SubResource("ConcavePolygonShape3D_bhp7s")
 
 [node name="CorridorView" type="MeshInstance3D" parent="." unique_id=1711748137]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, -3.9999995)
@@ -293,3 +314,15 @@ to_room_view = NodePath("..")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CorridorView/Area3D" unique_id=689939000]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -1)
 shape = SubResource("BoxShape3D_q26k1")
+
+[node name="OutBarrier" type="MeshInstance3D" parent="." unique_id=409400028]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 3, 2)
+cast_shadow = 0
+mesh = SubResource("BoxMesh_q26k1")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="OutBarrier" unique_id=1878991542]
+collision_layer = 129
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="OutBarrier/StaticBody3D" unique_id=715747968]
+shape = SubResource("ConcavePolygonShape3D_er7tl")
