@@ -7,6 +7,7 @@ An opensource godot project.<br>
 
 The goal of this project is to implement as much functionality as possible in Godot for all the features required for an open-world game and to open-source them to learn from each other.
 
-需要额外安装[gdfxr](https://github.com/timothyqiu/gdfxr/tree/godot-4/addons/gdfxr)插件。
-
-You need to install the [gdfxr](https://github.com/timothyqiu/gdfxr/tree/godot-4/addons/gdfxr) plugin additionally.
+需要额外安装以下插件：<br>
+You need to install the plugins below additionally:
+- [gdfxr](https://github.com/timothyqiu/gdfxr/tree/godot-4/addons/gdfxr)
+- [terrain 3d](https://github.com/TokisanGames/Terrain3D)

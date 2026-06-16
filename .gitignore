@@ -2,5 +2,6 @@
 .godot/
 addons/godot-jolt/
 addons/gdfxr/
+addons/terrain_3d/
 
 Resources/EXCLUDED
