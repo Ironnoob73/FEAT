@@ -26,6 +26,7 @@ var sunset_bottom_color: Color = Color("ff9e8c")
 var night_top_color: Color = Color("001c2b")
 var night_bottom_color: Color = Color("030508")
 
+
 func _ready() -> void:
 	Global.CurrentWorld = self
 	
@@ -38,6 +39,8 @@ func _ready() -> void:
 			player0.rotation = Global.get_meta("to_rot")
 			Global.remove_meta("to_rot")
 		Global.playerTeleported = true
+		
+	Global.make_world_ready()
 
 func _on_options_set_sdfgi(value : bool) -> void:
 	if Global.isInGame:

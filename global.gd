@@ -46,9 +46,14 @@ var printDebugInfo: bool = false
 var catchPElemIssue: bool = false
 var alwaysShowCursor: bool = false
 
+signal world_ready
+
 func _ready() -> void:
 	load_config()
 	window_min_limit()
+	
+func make_world_ready() -> void:
+	world_ready.emit()
 	
 ## Limit min window size.
 func window_min_limit() -> void:

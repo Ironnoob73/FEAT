@@ -12,6 +12,11 @@ func _ready() -> void:
 	var ready_pos : InputEventMouseMotion = InputEventMouseMotion.new()
 	ready_pos.position = Vector2(viewport.size) / 2
 	viewport.push_input(ready_pos)
+	start_anim()
+	#var _start_anim_int: int = Global.world_ready.connect(start_anim)
+
+func start_anim() -> void:
+	#camera_3d = Global.CurrentWorld.player0.lerp_cam
 	var tween: Tween = create_tween().set_trans(Tween.TRANS_SINE)
 	if !Global.FastBoot or Global.oobe:
 		camera_3d.fov = 61.5

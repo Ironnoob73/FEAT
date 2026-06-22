@@ -10,10 +10,10 @@ func do(interactor:Node,sender:Node) -> void:
 		player_sender.current_menu = "Computer"
 		player_sender.hide_hud(true)
 		var camera_pos: Marker3D = comp_int.get_node("%CameraPose")
-		var camera : Camera3D = interactor.get_node("%CameraPose/Camera3D")
+		var camera: Camera3D = interactor.get_node("%CameraPose/Camera3D")
 		camera.global_position = player_sender.player_camera.global_position
 		camera.global_rotation = player_sender.player_camera.global_rotation
-		camera.current = true
+		player_sender.lerp_cam.make_current()
 		var tween: Tween = interactor.create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUART).set_parallel(true)
 		var _p_tween: PropertyTweener = null
 		_p_tween = tween.tween_property(camera, "global_position",  camera_pos.global_position, 0.5)

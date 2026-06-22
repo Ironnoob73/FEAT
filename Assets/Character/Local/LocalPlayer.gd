@@ -11,6 +11,7 @@ class_name LocalPlayer
 @onready var world_actual_cam: Camera3D = $PlayerCam/WorldActual/SubViewport/WorldActualCam
 @onready var hand_held_fp: Marker3D = $PlayerCam/FirstPersonHandled/SubViewport/FirstPersonCam/HandHeldRight
 @onready var lerp_cam: Camera3D = $PlayerCam/LerpCam
+var lerp_cam_back: bool = false
 @onready var attack_area: Area3D = $PlayerColl/AttackArea
 @onready var hitbox: CollisionShape3D = $PlayerColl/AttackArea/Coll
 @onready var hitbox_debug: MeshInstance3D = $PlayerColl/AttackArea/MeshInstance3D
@@ -405,12 +406,13 @@ func _process(_delta):
 	
 	# Lerp Camera Animation
 	Global.p_elem_debug("# LERP CAMERA #")
-	if lerp_cam.current:
+	if lerp_cam.current and lerp_cam_back:
 		if lerp_cam.global_position.distance_to(player_camera.global_position) < 0.01 \
 		and abs(lerp_cam.global_rotation.x - player_camera.global_rotation.x) < 0.01 \
 		and abs(lerp_cam.global_rotation.y - player_camera.global_rotation.y) < 0.01 \
 		and abs(lerp_cam.global_rotation.z - player_camera.global_rotation.z) < 0.01 :
 			player_camera.make_current()
+			lerp_cam_back = false
 		lerp_cam.global_position = lerp_cam.position.lerp(player_camera.global_position,0.25)
 		lerp_cam.global_rotation.x = lerp_angle(lerp_cam.rotation.x,player_camera.global_rotation.x,0.25)
 		lerp_cam.global_rotation.y = lerp_angle(lerp_cam.rotation.y,player_camera.global_rotation.y,0.25)
@@ -617,6 +619,7 @@ func get_player_name() -> String:
 # Visual
 ## 从给定位置移动到玩家相机的实际位置的相机动画。
 func lerp_camera(pos:Vector3,rot:Vector3) -> void:
+	lerp_cam_back = true
 	lerp_cam.global_position = pos
 	lerp_cam.global_rotation = rot
 	lerp_cam.make_current()
