@@ -6,7 +6,7 @@ extends Area3D
 @export var change_rot : bool = false
 @export var rot : Vector3
 
-func _on_body_entered(_body):
-	if next_scene:
+func _on_body_entered(body: Node3D) -> void:
+	if next_scene and body is LocalPlayer:
 		AHL_LoadManager.load_scene(LocationPreload.get_path_from_name(next_scene),
 			change_pos, pos, change_rot, rot, false)

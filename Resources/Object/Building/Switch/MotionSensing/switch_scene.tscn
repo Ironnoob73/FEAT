@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://daqmxa7nkfs61"]
+[gd_scene format=3 uid="uid://daqmxa7nkfs61"]
 
 [ext_resource type="Script" uid="uid://debb20r6jol1c" path="res://Resources/Object/Building/Switch/MotionSensing/MotionDetection.gd" id="1_qsvbg"]
 [ext_resource type="Material" uid="uid://rnxv6hl1w5ul" path="res://Resources/Material/DarkMaterial.tres" id="2_escc1"]
@@ -16,33 +16,33 @@ size = Vector3(0.2, 0.05, 0.2)
 [sub_resource type="BoxMesh" id="BoxMesh_mfsmj"]
 size = Vector3(0.15, 0.05, 0.15)
 
-[node name="SwitchScene" type="Area3D" groups=["MotionSensing"]]
+[node name="SwitchScene" type="Area3D" unique_id=70185060 groups=["MotionSensing"]]
 collision_layer = 9
 script = ExtResource("1_qsvbg")
 
-[node name="CollisionShape" type="CollisionShape3D" parent="."]
+[node name="CollisionShape" type="CollisionShape3D" parent="." unique_id=1057568139]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
 shape = SubResource("CapsuleShape3D_ak1up")
 
-[node name="Collision" type="StaticBody3D" parent="."]
+[node name="Collision" type="StaticBody3D" parent="." unique_id=179133998]
 collision_layer = 9
 
-[node name="CollisionShape" type="CollisionShape3D" parent="Collision"]
+[node name="CollisionShape" type="CollisionShape3D" parent="Collision" unique_id=1628047128]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.025, 0)
 shape = SubResource("BoxShape3D_80b7b")
 
-[node name="Base" type="MeshInstance3D" parent="."]
+[node name="Base" type="MeshInstance3D" parent="." unique_id=643681759]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.025, 0)
 mesh = SubResource("BoxMesh_vhojb")
 skeleton = NodePath("../Collision")
 
-[node name="Detector" type="MeshInstance3D" parent="."]
+[node name="Detector" type="MeshInstance3D" parent="." unique_id=273926598]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.03, 0)
 material_override = ExtResource("2_escc1")
 mesh = SubResource("BoxMesh_mfsmj")
 skeleton = NodePath("../Collision")
 
-[node name="Timer" type="Timer" parent="."]
+[node name="Timer" type="Timer" parent="." unique_id=1787216034]
 process_callback = 0
 wait_time = 5.0
 one_shot = true

@@ -1,8 +1,8 @@
 @tool
 extends StaticBody3D
 
-@onready var mesh = $DoorFrame
-@onready var bottom_mesh = $Bottom
+@onready var mesh: MeshInstance3D = $DoorFrame
+@onready var bottom_mesh: MeshInstance3D = $Bottom
 @export var mesh_color : Color = Color(0,0,0,0):
 	set(color):
 		mesh_color = color
@@ -26,12 +26,12 @@ extends StaticBody3D
 @onready var occlusion_obj: MeshInstance3D = $Occlusion
 @onready var occlusion_light_obj: MeshInstance3D = $Occlusion_light
 
-func _ready():
+func _ready() -> void:
 	if mesh_color != Color(0,0,0,0) :	MaterialUtil.recolor(mesh,mesh_color)
 	if mesh_material : MaterialUtil.change_material(mesh,mesh_material)
 	OcclusionLogic.occlusion_setter(self)
 	
-func color_setter():
+func color_setter() -> void:
 	MaterialUtil.recolor(mesh,mesh_color)
-func material_setter():
+func material_setter() -> void:
 	MaterialUtil.change_material(mesh,mesh_material)

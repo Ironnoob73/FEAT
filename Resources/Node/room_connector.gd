@@ -1,10 +1,11 @@
 extends Node3D
 class_name room_connector
+## Connect two rooms defined by [sub_room_viewport], most of the time for Area3D.
 
 signal to_room(from: SubViewport, to: SubViewport)
 
 @export var door_plate: AHL_Interactive
-@export var from_viewport: SubViewport
+@export var from_viewport: sub_room_viewport
 @export var to_room_view: MeshInstance3D
 @export var to_room_area: room_connector
 
@@ -19,7 +20,7 @@ func _ready() -> void:
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	if body is LocalPlayer:
-		to_room.emit.call_deferred(from_viewport, to_room_area.from_viewport)
+		change_room(from_viewport, to_room_area.from_viewport)
 
 func _on_door_plate_interact_signal(_interactor: Variant, sender: Variant) -> void:
 	if sender is LocalPlayer:
@@ -28,3 +29,16 @@ func _on_door_plate_interact_signal(_interactor: Variant, sender: Variant) -> vo
 func _open_door(sender: Variant) -> void:
 	var p_sender: Node = sender
 	door_plate.interact(p_sender)
+	
+static func change_room(from: sub_room_viewport, to: sub_room_viewport) -> void:
+	from.set_use_own_world_3d(true)
+	from.world_3d = World3D.new()
+	from.world_3d.environment = from.environment
+	to.set_use_own_world_3d(false)
+	if to.world_3d and to.world_3d.environment:
+		Global.CurrentWorld.env.environment = to.world_3d.environment.duplicate(true)
+	else:
+		Global.CurrentWorld.env.environment = null
+	to.world_3d = null
+	Global.CurrentWorld.player0.player_camera.set_current(true)
+	from.camera_3d.set_current(true)

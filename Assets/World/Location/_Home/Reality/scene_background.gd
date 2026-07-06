@@ -67,4 +67,4 @@ func _process(delta: float) -> void:
 	star.rotate_z(deg_to_rad(0.01))
 
 	sun_axis_z.rotation.z = Global.CurrentWorld.sun_axis.rotation.z
-	sun_axis_y.rotation.y = Global.CurrentWorld.sun.rotation.y
+	sun_axis_y.rotation.y = Global.CurrentWorld.sun_axis.sun_light.rotation.y

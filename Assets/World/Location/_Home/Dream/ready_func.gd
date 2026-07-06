@@ -14,17 +14,8 @@ func _ready() -> void:
 	Global.CurrentWorld.player0.rotation.x = 0
 	Global.CurrentWorld.player0.current_menu = "HUD"
 	
-	change_room.call_deferred(corridor_scene,room_scene)
-	
-func change_room(from: sub_room_viewport, to: sub_room_viewport) -> void:
-	from.set_use_own_world_3d(true)
-	from.world_3d = World3D.new()
-	from.world_3d.environment = from.environment
-	to.set_use_own_world_3d(false)
-	if to.world_3d and to.world_3d.environment:
-		Global.CurrentWorld.env.environment = to.world_3d.environment.duplicate(true)
-	else:
-		Global.CurrentWorld.env.environment = null
-	to.world_3d = null
-	Global.CurrentWorld.player0.player_camera.set_current(true)
-	from.camera_3d.set_current(true)
+	room_connector.change_room.call_deferred(corridor_scene,room_scene)
+
+func _switch_to_cloud(_interactor: Variant, _sender: Variant) -> void:
+	Global.set_meta("wrap_from", "DreamApartment")
+	AHL_LoadManager.load_scene("res://Assets/World/Location/16_Cloud/_ScenesPackage.tscn", false, Vector3(0,0,0), false, Vector3(0,0,0), false)

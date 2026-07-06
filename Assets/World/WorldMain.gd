@@ -13,9 +13,7 @@ var day_percent: float = 0
 @onready var next_scene: Node3D = null
 
 @onready var env: WorldEnvironment = $WorldEnvironment
-@onready var sun_axis: Node3D = $WorldEnvironment/SunAxis
-@onready var sun: DirectionalLight3D = $WorldEnvironment/SunAxis/SunLight
-@onready var sun_visual: DirectionalLight3D = $WorldEnvironment/SunAxis/SunVisual
+@onready var sun_axis: sun_axis_class = $WorldEnvironment/SunAxis
 
 var ambient_color: Color = Color(0,0,0)
 
@@ -78,23 +76,22 @@ func _process(_delta: float) -> void:
 	var sunlight: float = day_percent * PI
 	# Sun
 	sun_axis.rotation.z = deg_to_rad(day_percent * 360.0)
-	sun.rotation.y = deg_to_rad(80 - sin(sunlight * 2) * 30)
-	sun_visual.rotation.y = sun.rotation.y
+	sun_axis.rotation_y = deg_to_rad(80 - sin(sunlight * 2) * 30)
 	if sin(sunlight * 2) >= 0 :
-		sun.visible = true
-		sun.light_energy = sin(sunlight * 2) * 2
-		sun.light_color.g = sin(sunlight + PI / 2) * 0.5 + 0.5
-		sun.light_color.b = sin(sunlight + PI / 2) * 0.8 + 0.15
-		sun_visual.light_color = sun.light_color
-		sun.shadow_blur = sin(sunlight) * 5
-		sun_visual.light_angular_distance = sin(sunlight) * 5
+		sun_axis.sun_light.visible = true
+		sun_axis.sun_light.light_energy = sin(sunlight * 2) * 2
+		sun_axis.sun_light.light_color.g = sin(sunlight + PI / 2) * 0.5 + 0.5
+		sun_axis.sun_light.light_color.b = sin(sunlight + PI / 2) * 0.8 + 0.15
+		sun_axis.sun_visual.light_color = sun_axis.sun_light.light_color
+		sun_axis.sun_light.shadow_blur = sin(sunlight) * 5
+		sun_axis.sun_visual.light_angular_distance = sin(sunlight) * 5
 	elif day_percent == 0.75 :
-		sun_visual.light_energy = 1
-		sun_visual.light_color.g = sin(PI / 2) * 0.5 + 0.5
-		sun_visual.light_color.b = sin(PI / 2) * 0.8 + 0.15
-		sun_visual.light_angular_distance = 0
+		sun_axis.sun_visual.light_energy = 1
+		sun_axis.sun_visual.light_color.g = sin(PI / 2) * 0.5 + 0.5
+		sun_axis.sun_visual.light_color.b = sin(PI / 2) * 0.8 + 0.15
+		sun_axis.sun_visual.light_angular_distance = 0
 	else :
-		sun.visible = false
+		sun_axis.sun_light.visible = false
 	# Ambient Color
 	var day_offset: float = 0
 	if day_percent >= 0.25:

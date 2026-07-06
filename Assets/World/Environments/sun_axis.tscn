@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://bjdfnweqp44ej"]
+
+[ext_resource type="Script" uid="uid://cjff4emfmil0e" path="res://Assets/World/Environments/sun_axis.gd" id="1_jk2p1"]
+
+[node name="SunAxis" type="Node3D" unique_id=1057328111]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, 0, 0)
+script = ExtResource("1_jk2p1")
+
+[node name="SunVisual" type="DirectionalLight3D" parent="." unique_id=1107800725]
+transform = Transform3D(-0.8660249, 0, 0.5, 0, 1, 0, -0.5, 0, -0.8660249, 0, 0, 0)
+visible = false
+shadow_enabled = true
+shadow_bias = 0.0
+directional_shadow_blend_splits = true
+sky_mode = 2
+
+[node name="SunLight" type="DirectionalLight3D" parent="." unique_id=1221560565]
+transform = Transform3D(-0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, -0.866025, 0, 0, 0)
+light_color = Color(1, 1, 0.937255, 1)
+shadow_enabled = true
+shadow_bias = 0.01
+shadow_normal_bias = 0.01
+directional_shadow_mode = 1
+directional_shadow_blend_splits = true
+sky_mode = 1

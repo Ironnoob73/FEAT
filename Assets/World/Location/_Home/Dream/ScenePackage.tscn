@@ -5,7 +5,7 @@
 [ext_resource type="Environment" uid="uid://bj0yndyb432ki" path="res://Assets/World/Environments/DreamWorldDefaultEnv.tres" id="2_tkejd"]
 [ext_resource type="Environment" uid="uid://dmu5yc7ra1vof" path="res://Assets/World/Environments/TutorialEnv.tres" id="2_wcnku"]
 [ext_resource type="PackedScene" uid="uid://cq8yj4ire6bd" path="res://Assets/World/Location/_Home/Dream/DefaultRoom.tscn" id="3_4ed7q"]
-[ext_resource type="Script" uid="uid://tf3tkep6w0wr" path="res://Assets/World/Location/_Home/Dream/sub_viewport.gd" id="6_8d6gw"]
+[ext_resource type="Script" uid="uid://tf3tkep6w0wr" path="res://Resources/Node/sub_room_viewport.gd" id="6_8d6gw"]
 [ext_resource type="Shader" uid="uid://cyxv26lgbbfge" path="res://Assets/World/Environments/sources/background_shader.gdshader" id="6_ymggu"]
 [ext_resource type="PackedScene" uid="uid://deue8e3ut26s4" path="res://Assets/World/Location/_Home/Dream/TheCorridor.tscn" id="7_wcnku"]
 [ext_resource type="PackedScene" uid="uid://dl78y6uj7yjy7" path="res://Assets/World/Location/_Home/Dream/TheElevator.tscn" id="9_4ed7q"]
@@ -145,7 +145,7 @@ material_override = SubResource("ShaderMaterial_jm2i2")
 
 [node name="Area3D" parent="CorridorScene/TheCorridor/ElevatorView" index="1" unique_id=841606446 node_paths=PackedStringArray("from_viewport", "to_room_area")]
 from_viewport = NodePath("../../..")
-to_room_area = NodePath("../../../../ElevatorScene/TheElevator/CorridorView/Area3D")
+to_room_area = NodePath("../../../../ElevatorScene/TheElevator/OutsideView/Area3D")
 
 [node name="RoomScene" type="SubViewport" parent="." unique_id=552130395]
 own_world_3d = true
@@ -179,17 +179,18 @@ current = true
 [node name="TheElevator" parent="ElevatorScene" unique_id=385804628 instance=ExtResource("9_4ed7q")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -5)
 
-[node name="CorridorView" parent="ElevatorScene/TheElevator" index="2" unique_id=1466580679]
+[node name="OutsideView" parent="ElevatorScene/TheElevator" index="2" unique_id=1466580679]
 material_override = SubResource("ShaderMaterial_vjecu")
 
-[node name="Area3D" parent="ElevatorScene/TheElevator/CorridorView" index="1" unique_id=1091376933 node_paths=PackedStringArray("from_viewport", "to_room_area")]
+[node name="Area3D" parent="ElevatorScene/TheElevator/OutsideView" index="1" unique_id=1091376933 node_paths=PackedStringArray("from_viewport", "to_room_area")]
 from_viewport = NodePath("../../..")
 to_room_area = NodePath("../../../../CorridorScene/TheCorridor/ElevatorView/Area3D")
 
 [connection signal="to_room" from="CorridorScene/TheCorridor/RoomView/Area3D" to="ReadyFunc" method="change_room"]
 [connection signal="to_room" from="CorridorScene/TheCorridor/ElevatorView/Area3D" to="ReadyFunc" method="change_room"]
 [connection signal="to_room" from="RoomScene/Room0/CorridorView/Area3D" to="ReadyFunc" method="change_room"]
-[connection signal="to_room" from="ElevatorScene/TheElevator/CorridorView/Area3D" to="ReadyFunc" method="change_room"]
+[connection signal="to_room" from="ElevatorScene/TheElevator/OutsideView/Area3D" to="ReadyFunc" method="change_room"]
+[connection signal="interact_signal" from="ElevatorScene/TheElevator/SwitchScene" to="ReadyFunc" method="_switch_to_cloud"]
 
 [editable path="CorridorScene/TheCorridor"]
 [editable path="RoomScene/Room0"]

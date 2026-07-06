@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://deue8e3ut26s4"]
 
 [ext_resource type="PackedScene" uid="uid://cq0fptst1ma54" path="res://Assets/World/Location/_Home/sources/corridor_solid.tscn" id="1_khq8m"]
-[ext_resource type="Script" uid="uid://ilybs8hyghla" path="res://Assets/World/Location/_Home/Dream/room_connector.gd" id="1_xhdx5"]
+[ext_resource type="Script" uid="uid://ilybs8hyghla" path="res://Resources/Node/room_connector.gd" id="1_xhdx5"]
 [ext_resource type="PackedScene" uid="uid://o7ycdpol2i7h" path="res://Assets/World/Location/_Home/sources/elevator_corridor_solid.tscn" id="2_xhdx5"]
 [ext_resource type="PackedScene" uid="uid://donuwqtg3w83f" path="res://Resources/Object/Building/Door/FrontDoor/frame_scene.tscn" id="3_65yf4"]
 [ext_resource type="PackedScene" uid="uid://dw2bb58uuqtoo" path="res://Assets/World/Location/_Home/sources/corridor_end.tscn" id="3_mh8nc"]

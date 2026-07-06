@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://cq8yj4ire6bd"]
 
-[ext_resource type="Script" uid="uid://ilybs8hyghla" path="res://Assets/World/Location/_Home/Dream/room_connector.gd" id="1_hxcpd"]
+[ext_resource type="Script" uid="uid://ilybs8hyghla" path="res://Resources/Node/room_connector.gd" id="1_hxcpd"]
 [ext_resource type="PackedScene" uid="uid://cyesacqu3i41p" path="res://Assets/World/Location/_Home/sources/inner_solid.tscn" id="1_ovru6"]
 [ext_resource type="PackedScene" uid="uid://dfmtp3c8wtlii" path="res://Resources/Object/Building/Window/SlidingWindow/Metal/window_scene.tscn" id="2_qgx3k"]
 [ext_resource type="PackedScene" uid="uid://donuwqtg3w83f" path="res://Resources/Object/Building/Door/FrontDoor/frame_scene.tscn" id="3_sagjl"]
