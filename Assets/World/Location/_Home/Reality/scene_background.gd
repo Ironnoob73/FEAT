@@ -1,5 +1,7 @@
 extends Node3D
 
+@onready var scene_func: Node = $"../../../SceneFunc"
+
 @onready var cloud_0: MeshInstance3D = $Cloud0
 var cloud_0_material: StandardMaterial3D = null
 var cloud_0_noise: FastNoiseLite = null
@@ -51,7 +53,7 @@ func _process(delta: float) -> void:
 		elif day_percent >= 0.9:
 			star_material.albedo_color.a = 1 - ((day_percent - 0.9) / 0.1)
 	
-		cloud_0_material.albedo_color = Global.CurrentWorld.ambient_color
+		cloud_0_material.albedo_color = scene_func.ambient_color
 		cloud_1_material.albedo_color = cloud_0_material.albedo_color
 		
 		if day_percent >= 0.3 and day_percent < 0.5:
@@ -66,5 +68,5 @@ func _process(delta: float) -> void:
 	star.rotate_y(deg_to_rad(0.01))
 	star.rotate_z(deg_to_rad(0.01))
 
-	sun_axis_z.rotation.z = Global.CurrentWorld.sun_axis.rotation.z
-	sun_axis_y.rotation.y = Global.CurrentWorld.sun_axis.sun_light.rotation.y
+	sun_axis_z.rotation.z = scene_func.sun_axis.rotation.z
+	sun_axis_y.rotation.y = scene_func.sun_axis.sun_light.rotation.y

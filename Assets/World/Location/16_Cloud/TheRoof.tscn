@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://cb5pyvpu83sfw"]
 
+[ext_resource type="Environment" uid="uid://bj0yndyb432ki" path="res://Assets/World/Environments/DreamWorldDefaultEnv.tres" id="1_0s4or"]
 [ext_resource type="Shader" uid="uid://cd6f4fuevjkxi" path="res://Resources/Shader/cloud.gdshader" id="1_dlwmo"]
 [ext_resource type="ArrayMesh" uid="uid://35r3l2ggep57" path="res://Assets/World/Location/_Home/sources/RoomView.obj" id="2_h6k3y"]
 [ext_resource type="Script" uid="uid://ilybs8hyghla" path="res://Resources/Node/room_connector.gd" id="3_kug8r"]
@@ -94,6 +95,18 @@ size = Vector3(2, 0.1, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_104aj"]
 
 [node name="TheRoof" type="Node3D" unique_id=615224266]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1404847668]
+environment = ExtResource("1_0s4or")
+
+[node name="SunLight" type="DirectionalLight3D" parent="WorldEnvironment" unique_id=1584841007]
+transform = Transform3D(-0.86602503, -0.3535534, 0.35355327, 0, 0.70710677, 0.7071065, -0.49999985, 0.6123724, -0.61237216, 0, 0, 0)
+light_color = Color(1, 1, 0.937255, 1)
+shadow_enabled = true
+shadow_bias = 0.01
+shadow_normal_bias = 0.01
+directional_shadow_mode = 1
+directional_shadow_blend_splits = true
 
 [node name="Ground" type="StaticBody3D" parent="." unique_id=2069228087]
 collision_layer = 3

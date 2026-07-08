@@ -1,5 +1,6 @@
 [gd_scene format=4 uid="uid://cq8yj4ire6bd"]
 
+[ext_resource type="Environment" uid="uid://bj0yndyb432ki" path="res://Assets/World/Environments/DreamWorldDefaultEnv.tres" id="1_er7tl"]
 [ext_resource type="Script" uid="uid://ilybs8hyghla" path="res://Resources/Node/room_connector.gd" id="1_hxcpd"]
 [ext_resource type="PackedScene" uid="uid://cyesacqu3i41p" path="res://Assets/World/Location/_Home/sources/inner_solid.tscn" id="1_ovru6"]
 [ext_resource type="PackedScene" uid="uid://dfmtp3c8wtlii" path="res://Resources/Object/Building/Window/SlidingWindow/Metal/window_scene.tscn" id="2_qgx3k"]
@@ -119,6 +120,18 @@ size = Vector3(18, 8, 16)
 data = PackedVector3Array(9, 4, 8, -9, 4, 8, -9, -4, 8, 9, -4, 8, 9, 4, 8, -9, -4, 8, -9, 4, -8, 9, 4, -8, 9, -4, -8, -9, -4, -8, -9, 4, -8, 9, -4, -8, 9, 4, -8, 9, 4, 8, 9, -4, 8, 9, -4, -8, 9, 4, -8, 9, -4, 8, -9, 4, 8, -9, 4, -8, -9, -4, -8, -9, -4, 8, -9, 4, 8, -9, -4, -8, -9, 4, 8, 9, 4, 8, 9, 4, -8, -9, 4, -8, -9, 4, 8, 9, 4, -8, 9, -4, 8, -9, -4, 8, -9, -4, -8, 9, -4, -8, 9, -4, 8, -9, -4, -8)
 
 [node name="Room" type="Node3D" unique_id=980259170]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=795052733]
+environment = ExtResource("1_er7tl")
+
+[node name="SunLight" type="DirectionalLight3D" parent="WorldEnvironment" unique_id=2003955633]
+transform = Transform3D(0.9999996, 0, 0, 0, 0.49999994, 0.8660251, 0, -0.8660254, 0.49999976, 0, 0, 0)
+light_color = Color(1, 1, 0.937255, 1)
+shadow_enabled = true
+shadow_bias = 0.01
+shadow_normal_bias = 0.01
+directional_shadow_mode = 1
+directional_shadow_blend_splits = true
 
 [node name="Inner" parent="." unique_id=1587251193 instance=ExtResource("1_ovru6")]
 

@@ -1,0 +1,26 @@
+[gd_resource type="Environment" format=3 uid="uid://c4pk6d7nmd1q1"]
+
+[sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_jqbeh"]
+
+[sub_resource type="Sky" id="Sky_yfmm3"]
+sky_material = SubResource("PhysicalSkyMaterial_jqbeh")
+
+[resource]
+background_mode = 2
+sky = SubResource("Sky_yfmm3")
+ambient_light_source = 3
+reflected_light_source = 2
+ssr_enabled = true
+ssr_max_steps = 32
+ssr_depth_tolerance = 128.0
+ssao_enabled = true
+ssil_enabled = true
+sdfgi_use_occlusion = true
+glow_enabled = true
+glow_levels/1 = 16.0
+fog_light_energy = 1.5
+fog_density = 0.0005
+fog_sky_affect = 0.0
+volumetric_fog_density = 0.0
+adjustment_enabled = true
+adjustment_saturation = 0.5

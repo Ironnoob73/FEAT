@@ -12,19 +12,6 @@ var day_percent: float = 0
 @onready var SCENES_PACKAGE: AHL_ScenePackage = $ScenesPackage
 @onready var next_scene: Node3D = null
 
-@onready var env: WorldEnvironment = $WorldEnvironment
-@onready var sun_axis: sun_axis_class = $WorldEnvironment/SunAxis
-
-var ambient_color: Color = Color(0,0,0)
-
-var day_top_color: Color = Color("61738c")
-var day_bottom_color: Color = Color("a3a6ab")
-var sunset_top_color: Color = Color("bd7d1a")
-var sunset_bottom_color: Color = Color("ff9e8c")
-var night_top_color: Color = Color("001c2b")
-var night_bottom_color: Color = Color("030508")
-
-
 func _ready() -> void:
 	Global.CurrentWorld = self
 	
@@ -41,8 +28,9 @@ func _ready() -> void:
 	Global.make_world_ready()
 
 func _on_options_set_sdfgi(value : bool) -> void:
-	if Global.isInGame:
-		env.environment.set_sdfgi_enabled(value)
+	#if Global.isInGame:
+	#	env.environment.set_sdfgi_enabled(value)
+	pass
 
 func _physics_process(_delta: float) -> void:
 	if Global.has_meta("next_scene"):
@@ -51,8 +39,8 @@ func _physics_process(_delta: float) -> void:
 			var next_scene_ins: PackedScene = Global.get_meta("next_scene")
 			SCENES_PACKAGE = next_scene_ins.instantiate()
 			add_child(SCENES_PACKAGE)
-			if SCENES_PACKAGE.environment != null:
-				env.environment = SCENES_PACKAGE.environment
+			#if SCENES_PACKAGE.environment != null:
+			#	env.environment = SCENES_PACKAGE.environment
 			Global.remove_meta("next_scene")
 		load_scene.call_deferred()
 		_ready()
@@ -72,67 +60,6 @@ func _physics_process(_delta: float) -> void:
 			time_dict.get("minute") * 60 + 
 			time_dict.get("second")) / 86400.0
 		
-func _process(_delta: float) -> void:
-	var sunlight: float = day_percent * PI
-	# Sun
-	sun_axis.rotation.z = deg_to_rad(day_percent * 360.0)
-	sun_axis.rotation_y = deg_to_rad(80 - sin(sunlight * 2) * 30)
-	if sin(sunlight * 2) >= 0 :
-		sun_axis.sun_light.visible = true
-		sun_axis.sun_light.light_energy = sin(sunlight * 2) * 2
-		sun_axis.sun_light.light_color.g = sin(sunlight + PI / 2) * 0.5 + 0.5
-		sun_axis.sun_light.light_color.b = sin(sunlight + PI / 2) * 0.8 + 0.15
-		sun_axis.sun_visual.light_color = sun_axis.sun_light.light_color
-		sun_axis.sun_light.shadow_blur = sin(sunlight) * 5
-		sun_axis.sun_visual.light_angular_distance = sin(sunlight) * 5
-	elif day_percent == 0.75 :
-		sun_axis.sun_visual.light_energy = 1
-		sun_axis.sun_visual.light_color.g = sin(PI / 2) * 0.5 + 0.5
-		sun_axis.sun_visual.light_color.b = sin(PI / 2) * 0.8 + 0.15
-		sun_axis.sun_visual.light_angular_distance = 0
-	else :
-		sun_axis.sun_light.visible = false
-	# Ambient Color
-	var day_offset: float = 0
-	if day_percent >= 0.25:
-		day_offset = day_percent - 0.25
-	else:
-		day_offset = day_percent + 0.75
-	if day_offset <= 0.25:
-		ambient_color.r = 0.63 + (0.37 * day_offset * 4)
-		ambient_color.g = 0.64 - (0.02 * day_offset * 4)
-		ambient_color.b = 0.67 - (0.12 * day_offset * 4)
-	elif day_offset > 0.25 and day_offset <= 0.3:
-		ambient_color.r = 1 - (1 * (day_offset - 0.25) * 20)
-		ambient_color.g = 0.62 - (0.52 * (day_offset - 0.25) * 20)
-		ambient_color.b = 0.55 - (0.38 * (day_offset - 0.25) * 20)
-	elif day_offset > 0.3 and day_offset <= 0.75:
-		ambient_color = Color(0,0.1,0.17)
-	elif day_offset > 0.75:
-		ambient_color.r = 0.63 * (day_offset - 0.75) * 4
-		ambient_color.g = 0.1 + (0.54 * (day_offset - 0.75) * 4)
-		ambient_color.b = 0.17 + (0.5 * (day_offset - 0.75) * 4)
-	
-	if real_time:
-		var current_env: Environment = env.get_environment()
-		var current_sky: Sky = current_env.get_sky()
-		if current_sky.get_material() is ProceduralSkyMaterial:
-			var current_sky_material: ProceduralSkyMaterial = current_sky.get_material()
-			current_sky_material.ground_horizon_color = current_sky_material.sky_horizon_color
-			current_sky_material.ground_bottom_color = ambient_color
-			if day_offset <= 0.25:
-				current_sky_material.sky_top_color = day_top_color + ((sunset_top_color - day_top_color) * (day_offset / 0.25))
-				current_sky_material.sky_horizon_color = day_bottom_color + ((sunset_bottom_color - day_bottom_color) * (day_offset / 0.25))
-			elif day_offset > 0.25 and day_offset <= 0.3:
-				current_sky_material.sky_top_color = sunset_top_color + ((night_top_color - sunset_top_color) * ((day_offset - 0.25) / 0.05))
-				current_sky_material.sky_horizon_color = sunset_bottom_color + ((night_bottom_color - sunset_bottom_color) * ((day_offset - 0.25) / 0.05))
-			elif day_offset > 0.3 and day_offset <= 0.75:
-				current_sky_material.sky_top_color = night_top_color
-				current_sky_material.sky_horizon_color = night_bottom_color
-			elif day_offset > 0.75:
-				current_sky_material.sky_top_color = night_top_color + ((day_top_color - night_top_color) * ((day_offset - 0.75) / 0.25))
-				current_sky_material.sky_horizon_color = night_bottom_color + ((day_bottom_color - night_bottom_color) * ((day_offset - 0.75) / 0.25))
-			
 func change_scene(location:String,pos:Vector3) -> void:
 	match location :
 		"":	return

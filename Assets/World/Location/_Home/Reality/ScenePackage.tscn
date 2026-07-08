@@ -4,6 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://cyesacqu3i41p" path="res://Assets/World/Location/_Home/sources/inner_solid.tscn" id="2_3lex0"]
 [ext_resource type="Script" uid="uid://cimdd8vkkv8w8" path="res://Assets/World/Location/_Home/Reality/scene_func.gd" id="2_4ge3f"]
 [ext_resource type="PackedScene" uid="uid://l5crfk031an5" path="res://Resources/Object/Function/SceneChanger/scene_changer_scene.tscn" id="3_aw5aa"]
+[ext_resource type="PackedScene" uid="uid://bjdfnweqp44ej" path="res://Assets/World/Environments/sun_axis.tscn" id="3_brwdr"]
+[ext_resource type="Environment" uid="uid://c4pk6d7nmd1q1" path="res://Assets/World/Environments/NewRealityEnv.tres" id="3_qwgu1"]
 [ext_resource type="PackedScene" uid="uid://donuwqtg3w83f" path="res://Resources/Object/Building/Door/FrontDoor/frame_scene.tscn" id="3_yfurw"]
 [ext_resource type="Material" uid="uid://dvhli2ihhy2nx" path="res://Resources/Material/BrownMaterial.tres" id="4_7aooe"]
 [ext_resource type="PackedScene" uid="uid://dfmtp3c8wtlii" path="res://Resources/Object/Building/Window/SlidingWindow/Metal/window_scene.tscn" id="4_cpiu2"]
@@ -55,17 +57,17 @@ script = ExtResource("23_jk5bb")
 screen_path = NodePath("Screen")
 metadata/_custom_type_script = "uid://4j2upwqk6ipe"
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_4smbw"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_qwgu1"]
 viewport_path = NodePath("ScreenViewport")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_brwdr"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_gqj7s"]
 viewport_path = NodePath("ScreenViewport")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qwgu1"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_67guu"]
 resource_local_to_scene = true
-albedo_texture = SubResource("ViewportTexture_4smbw")
+albedo_texture = SubResource("ViewportTexture_qwgu1")
 emission_enabled = true
-emission_texture = SubResource("ViewportTexture_brwdr")
+emission_texture = SubResource("ViewportTexture_gqj7s")
 
 [sub_resource type="Resource" id="Resource_tnxtw"]
 script = ExtResource("16_me8th")
@@ -136,6 +138,14 @@ metadata/_custom_type_script = "uid://8h1wxcdqk41f"
 
 [node name="SceneFunc" type="Node" parent="." unique_id=1625027979]
 script = ExtResource("2_4ge3f")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=607008739]
+environment = ExtResource("3_qwgu1")
+
+[node name="SunAxis" parent="WorldEnvironment" unique_id=1057328111 instance=ExtResource("3_brwdr")]
+
+[node name="SunVisual" parent="WorldEnvironment/SunAxis" index="0" unique_id=1107800725]
+visible = true
 
 [node name="Corridor0" parent="." unique_id=1835768 instance=ExtResource("17_ovdeb")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 1, 0, -7)
@@ -479,7 +489,7 @@ transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -4.5
 init_behavior = Array[ExtResource("15_j4cn1")]([SubResource("Resource_xp221")])
 
 [node name="Screen" parent="Inner/ComputerScene" unique_id=2089639586 instance=ExtResource("23_pyug8")]
-material_override = SubResource("StandardMaterial3D_qwgu1")
+material_override = SubResource("StandardMaterial3D_67guu")
 
 [node name="WoodenCeilingLampScene" parent="Inner" unique_id=1004981330 instance=ExtResource("13_36fuy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 3, 5.5)
@@ -932,3 +942,5 @@ current = true
 [connection signal="body_entered" from="DropArea" to="SceneFunc" method="_on_drop_area_body_entered"]
 [connection signal="body_entered" from="ExitArea" to="SceneFunc" method="_on_exit_area_body_entered"]
 [connection signal="body_entered" from="ExitArea" to="ExitArea" method="_on_body_entered"]
+
+[editable path="WorldEnvironment/SunAxis"]
