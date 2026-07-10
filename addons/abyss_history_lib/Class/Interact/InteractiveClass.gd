@@ -4,6 +4,7 @@ class_name AHL_Interactive
 
 signal interact_signal(interactor,sender)
 signal init_behavior_signal
+signal state_change_signal(state)
 signal killed_signal(interactor,sender)
 signal touch_signal
 signal on_user_change
@@ -26,8 +27,10 @@ signal on_user_leave(user)
 @export var state : bool = false:
 	set(state_in):
 		state = state_in
-		if Engine.is_editor_hint():
+		if Engine.is_editor_hint() and Switchable:
 			interact_signal.emit(self,null)
+		else:
+			state_change_signal.emit(state_in)
 @export_group("Hurtable")
 ## 该节点是否可以被攻击
 @export var Hurtable : bool = false
@@ -64,6 +67,9 @@ func interact(sender:Node) -> void:
 		i.do(self,sender)
 	
 	interact_signal.emit(self,sender)
+	
+func switch(value : bool) -> void:
+	pass
 	
 func receive_attack(damage_res:AHL_DamageResClass,sender:Node) -> void:
 	if Hurtable:

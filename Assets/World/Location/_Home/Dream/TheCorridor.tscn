@@ -20,8 +20,8 @@
 [ext_resource type="PackedScene" uid="uid://b8sgxkfnqbmei" path="res://Resources/Object/Device/Elevator/door_scene.tscn" id="9_8lytu"]
 [ext_resource type="Shader" uid="uid://cyxv26lgbbfge" path="res://Assets/World/Environments/sources/background_shader.gdshader" id="9_jn1r0"]
 [ext_resource type="PackedScene" uid="uid://c13q5mtiplruc" path="res://Assets/World/Location/_Home/sources/ElevatorOutwall.glb" id="10_533pw"]
-[ext_resource type="PackedScene" uid="uid://ogtwuy5brc0t" path="res://Resources/Object/Building/Switch/Common/switch_scene.tscn" id="10_kslcc"]
 [ext_resource type="Script" uid="uid://bcmxxhlef12pk" path="res://addons/abyss_history_lib/Class/Interact/Behaviour/SwitchBehaviorClass.gd" id="12_1aved"]
+[ext_resource type="PackedScene" uid="uid://bx4tpf7a72o74" path="res://Resources/Object/Device/Elevator/control_pad_scene.tscn" id="12_5yw2n"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_shdyq"]
 resource_local_to_scene = true
@@ -42,9 +42,9 @@ shader = ExtResource("9_jn1r0")
 [sub_resource type="PlaneMesh" id="PlaneMesh_shdyq"]
 size = Vector2(20, 20)
 
-[sub_resource type="Resource" id="Resource_5yw2n"]
+[sub_resource type="Resource" id="Resource_533pw"]
 script = ExtResource("12_1aved")
-connected_node = Array[NodePath]([NodePath("../FirstElevatorDoor")])
+connected_node = Array[NodePath]([NodePath("../../FirstElevatorDoor")])
 metadata/_custom_type_script = "uid://bcmxxhlef12pk"
 
 [sub_resource type="Resource" id="Resource_e7spv"]
@@ -186,17 +186,21 @@ mesh = SubResource("PlaneMesh_shdyq")
 
 [node name="FirstElevatorDoor" parent="ElevatorCorridorSolid" unique_id=1729977416 instance=ExtResource("9_8lytu")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -2, 0, -3)
+current_health = 100.0
 
 [node name="ElevatorOutwall" parent="ElevatorCorridorSolid/FirstElevatorDoor" unique_id=1093845651 instance=ExtResource("10_533pw")]
 
 [node name="LockedElevatorDoor" parent="ElevatorCorridorSolid" unique_id=418828826 instance=ExtResource("9_8lytu")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 2, 0, -3)
+current_health = 100.0
 
 [node name="ElevatorOutwall" parent="ElevatorCorridorSolid/LockedElevatorDoor" unique_id=1624683438 instance=ExtResource("10_533pw")]
 
-[node name="SwitchScene" parent="ElevatorCorridorSolid" unique_id=1080986340 instance=ExtResource("10_kslcc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, -3)
-interact_behavior = Array[ExtResource("6_shdyq")]([SubResource("Resource_5yw2n")])
+[node name="ElevatorControlPadScene" parent="ElevatorCorridorSolid" unique_id=1964182302 instance=ExtResource("12_5yw2n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -3)
+
+[node name="UpButton" parent="ElevatorCorridorSolid/ElevatorControlPadScene" index="1" unique_id=30922935]
+interact_behavior = Array[ExtResource("6_shdyq")]([SubResource("Resource_533pw")])
 
 [node name="Corridor0" parent="." unique_id=1835768 instance=ExtResource("1_khq8m")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -12, 0, -1)
@@ -312,3 +316,5 @@ to_room_view = NodePath("..")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ElevatorView/Area3D" unique_id=2061211190]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -1)
 shape = SubResource("BoxShape3D_65yf4")
+
+[editable path="ElevatorCorridorSolid/ElevatorControlPadScene"]

@@ -4,6 +4,9 @@
 [ext_resource type="Shader" uid="uid://cd6f4fuevjkxi" path="res://Resources/Shader/cloud.gdshader" id="1_dlwmo"]
 [ext_resource type="ArrayMesh" uid="uid://35r3l2ggep57" path="res://Assets/World/Location/_Home/sources/RoomView.obj" id="2_h6k3y"]
 [ext_resource type="Script" uid="uid://ilybs8hyghla" path="res://Resources/Node/room_connector.gd" id="3_kug8r"]
+[ext_resource type="PackedScene" uid="uid://dnwc1pwjk84j8" path="res://Assets/World/Location/_Home/sources/elevator_room_solid.tscn" id="5_s1q76"]
+[ext_resource type="PackedScene" uid="uid://b8sgxkfnqbmei" path="res://Resources/Object/Device/Elevator/door_scene.tscn" id="6_104aj"]
+[ext_resource type="PackedScene" uid="uid://c13q5mtiplruc" path="res://Assets/World/Location/_Home/sources/ElevatorOutwall.glb" id="7_p7ukq"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_6dv5q"]
 frequency = 0.25
@@ -40,7 +43,7 @@ shader_parameter/scatter_color = Color(0.62569815, 0.8320315, 1, 1)
 shader_parameter/base_color = Color(1, 1, 1, 1)
 shader_parameter/cloud_transparency_threshold = 1.0
 shader_parameter/transparency_multiplier = 1.0
-shader_parameter/cloud_thickness = 100.0
+shader_parameter/cloud_thickness = 0.10000000149012
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_hv8b6"]
 size = Vector2(1024, 1024)
@@ -151,3 +154,13 @@ to_room_view = NodePath("..")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ElevatorView/Area3D" unique_id=755536354]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -1)
 shape = SubResource("BoxShape3D_104aj")
+
+[node name="ElevatorRoom" parent="." unique_id=1109470599 instance=ExtResource("5_s1q76")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -5)
+
+[node name="ElevatorDoor" parent="ElevatorRoom" unique_id=833384578 instance=ExtResource("6_104aj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.1)
+state = true
+
+[node name="ElevatorOutwall2" parent="ElevatorRoom/ElevatorDoor" unique_id=1093845651 instance=ExtResource("7_p7ukq")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0, -0.1)

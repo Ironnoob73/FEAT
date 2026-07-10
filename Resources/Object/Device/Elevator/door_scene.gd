@@ -1,8 +1,8 @@
 @tool
-extends Node
+extends AHL_Interactive
 
-@onready var door_l: Node3D = $"../ElevatorDoorL"
-@onready var door_r: Node3D = $"../ElevatorDoorR"
+@onready var door_l: Node3D = $ElevatorDoorL
+@onready var door_r: Node3D = $ElevatorDoorR
 
 @export var open : bool = false:
 	set(state):
@@ -11,6 +11,7 @@ extends Node
 			open_setter()
 
 func _ready() -> void:
+	super._ready()
 	open_setter()
 
 func switch(value : bool) -> void:

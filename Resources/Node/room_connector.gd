@@ -33,12 +33,7 @@ func _open_door(sender: Variant) -> void:
 static func change_room(from: sub_room_viewport, to: sub_room_viewport) -> void:
 	from.set_use_own_world_3d(true)
 	from.world_3d = World3D.new()
-	#from.world_3d.environment = from.environment
 	to.set_use_own_world_3d(false)
-	#if to.world_3d and to.world_3d.environment:
-	#	Global.CurrentWorld.env.environment = to.world_3d.environment.duplicate(true)
-	#else:
-	#	Global.CurrentWorld.env.environment = null
 	to.world_3d = null
 	Global.CurrentWorld.player0.player_camera.set_current(true)
 	from.camera_3d.set_current(true)

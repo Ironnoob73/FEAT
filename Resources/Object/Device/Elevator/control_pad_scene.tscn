@@ -1,0 +1,78 @@
+[gd_scene format=3 uid="uid://bx4tpf7a72o74"]
+
+[ext_resource type="Script" uid="uid://c8ier7k2ohfsp" path="res://addons/abyss_history_lib/Class/Interact/InteractiveClass.gd" id="1_lm85k"]
+[ext_resource type="Material" uid="uid://rnxv6hl1w5ul" path="res://Resources/Material/DarkMaterial.tres" id="2_7q4dv"]
+[ext_resource type="Material" uid="uid://b860lbxbd3ed6" path="res://Resources/Material/GrayMaterial.tres" id="3_fg1si"]
+[ext_resource type="PackedScene" uid="uid://b6da6wb457mbg" path="res://Resources/Object/Building/Switch/WithText/switch_scene.tscn" id="4_6jix5"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_3xd07"]
+size = Vector3(0.5, 0.5, 0.1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3xd07"]
+size = Vector3(0.5, 1, 0.1)
+
+[node name="ElevatorControlPadScene" type="Node3D" unique_id=1964182302]
+script = ExtResource("1_lm85k")
+current_health = 100.0
+metadata/_custom_type_script = "uid://c8ier7k2ohfsp"
+
+[node name="Body" type="StaticBody3D" parent="." unique_id=1280145375]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.1)
+
+[node name="Screen" type="MeshInstance3D" parent="Body" unique_id=1207933284]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
+material_override = ExtResource("2_7q4dv")
+mesh = SubResource("BoxMesh_3xd07")
+
+[node name="LeftNumber" type="Label3D" parent="Body/Screen" unique_id=1575131683]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1, -0.05, 0.06)
+alpha_cut = 1
+texture_filter = 0
+modulate = Color(1, 0, 0, 1)
+text = "5"
+outline_size = 0
+
+[node name="LeftArrow" type="Label3D" parent="Body/Screen" unique_id=1778700465]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1, 0.1, 0.06)
+visible = false
+alpha_cut = 1
+texture_filter = 0
+modulate = Color(1, 0, 0, 1)
+text = "▲"
+outline_size = 0
+
+[node name="RightNumber" type="Label3D" parent="Body/Screen" unique_id=1602727869]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, -0.05, 0.06)
+alpha_cut = 1
+texture_filter = 0
+modulate = Color(1, 0, 0, 1)
+text = "-1"
+outline_size = 0
+
+[node name="RightArrow" type="Label3D" parent="Body/Screen" unique_id=1048153804]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, 0.1, 0.06)
+visible = false
+alpha_cut = 1
+texture_filter = 0
+modulate = Color(1, 0, 0, 1)
+text = "▼"
+outline_size = 0
+
+[node name="Base" type="MeshInstance3D" parent="Body" unique_id=73177028]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
+material_override = ExtResource("3_fg1si")
+mesh = SubResource("BoxMesh_3xd07")
+
+[node name="Col" type="CollisionShape3D" parent="Body" unique_id=414211427]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_3xd07")
+
+[node name="UpButton" parent="." unique_id=30922935 instance=ExtResource("4_6jix5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.35, 0)
+text = "▲"
+current_health = 100.0
+
+[node name="DownButton" parent="." unique_id=199337971 instance=ExtResource("4_6jix5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15, 0)
+text = "▼"
+current_health = 100.0
