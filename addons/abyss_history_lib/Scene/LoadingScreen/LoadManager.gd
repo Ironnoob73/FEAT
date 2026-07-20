@@ -2,9 +2,9 @@ extends Node
 ## @tutorial(From0): https://forum.godotengine.org/t/how-to-keep-surface-material-override-didnt-change/59110
 ## @tutorial(From1): https://www.youtube.com/watch?v=Wnkc_qUXYWs
 
-signal progress_changed(progress)
+signal progress_changed(progress: float)
 signal load_done
-signal load_failed(info)
+signal load_failed(info: int)
 
 var _load_screen =  preload("loading_scene.tscn")
 var _replace_main = true
@@ -41,7 +41,8 @@ func _process(_delta) -> void:
 	match load_status:
 		ResourceLoader.THREAD_LOAD_INVALID_RESOURCE,ResourceLoader.THREAD_LOAD_FAILED:
 			set_process(false)
-			load_failed.emit(str(load_status))
+			if load_status != OK:
+				load_failed.emit(str(load_status))
 			return
 		ResourceLoader.THREAD_LOAD_IN_PROGRESS:
 			progress_changed.emit(_progress[0])

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dgryi4o5pkshw"]
+[gd_scene format=3 uid="uid://dgryi4o5pkshw"]
 
 [ext_resource type="Script" uid="uid://n1ibgp4rtwnm" path="res://addons/abyss_history_lib/Scene/LoadingScreen/loading_scene.gd" id="1_ev2b1"]
 
@@ -272,11 +272,11 @@ _data = {
 &"RESET": SubResource("Animation_kd3px")
 }
 
-[node name="LoadingScreen" type="CanvasLayer"]
+[node name="LoadingScreen" type="CanvasLayer" unique_id=1819033674]
 follow_viewport_enabled = true
 script = ExtResource("1_ev2b1")
 
-[node name="Background" type="Panel" parent="."]
+[node name="Background" type="Panel" parent="." unique_id=608506567]
 clip_contents = true
 anchors_preset = 15
 anchor_right = 1.0
@@ -285,7 +285,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_1i3ra")
 
-[node name="ProgressBar" type="ProgressBar" parent="Background"]
+[node name="ProgressBar" type="ProgressBar" parent="Background" unique_id=322827593]
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 1.0
@@ -299,7 +299,7 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_tv7c5")
 max_value = 1.0
 show_percentage = false
 
-[node name="ProgressNumber" type="Label" parent="Background"]
+[node name="ProgressNumber" type="Label" parent="Background" unique_id=359298178]
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 1.0
@@ -309,7 +309,7 @@ offset_top = -40.0
 grow_vertical = 0
 text = "0%"
 
-[node name="LoadingAnimation" type="Control" parent="Background"]
+[node name="LoadingAnimation" type="Control" parent="Background" unique_id=18608999]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -321,29 +321,25 @@ offset_top = -50.0
 grow_horizontal = 0
 grow_vertical = 0
 
-[node name="P0" type="Polygon2D" parent="Background/LoadingAnimation"]
+[node name="P0" type="Polygon2D" parent="Background/LoadingAnimation" unique_id=349497263]
 polygon = PackedVector2Array(-5, -5, 5, -5, 5, 5, -5, 5)
 
-[node name="P1" type="Polygon2D" parent="Background/LoadingAnimation"]
+[node name="P1" type="Polygon2D" parent="Background/LoadingAnimation" unique_id=393678480]
 position = Vector2(25, 0)
 polygon = PackedVector2Array(-5, -5, 5, -5, 5, 5, -5, 5)
 
-[node name="P2" type="Polygon2D" parent="Background/LoadingAnimation"]
+[node name="P2" type="Polygon2D" parent="Background/LoadingAnimation" unique_id=1644978075]
 position = Vector2(25, 25)
 polygon = PackedVector2Array(-5, -5, 5, -5, 5, 5, -5, 5)
 
-[node name="P3" type="Polygon2D" parent="Background/LoadingAnimation"]
+[node name="P3" type="Polygon2D" parent="Background/LoadingAnimation" unique_id=424586519]
 position = Vector2(0, 25)
 polygon = PackedVector2Array(-5, -5, 5, -5, 5, 5, -5, 5)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Background/LoadingAnimation"]
-libraries = {
-&"": SubResource("AnimationLibrary_p7g76")
-}
-autoplay = "Normal"
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Background/LoadingAnimation" unique_id=1208163399]
+libraries/ = SubResource("AnimationLibrary_p7g76")
+autoplay = &"Normal"
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_u2w4k")
-}
-autoplay = "Intro"
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1069340853]
+libraries/ = SubResource("AnimationLibrary_u2w4k")
+autoplay = &"Intro"

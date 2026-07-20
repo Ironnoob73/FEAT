@@ -244,6 +244,9 @@ hide_hud={
 
 [internationalization]
 
+locale/translation_remaps={
+"res://Resources/Object/Furniture/Sign/Advertisement/Levels/image.png": PackedStringArray("res://Resources/Object/Furniture/Sign/Advertisement/Levels/image_zh-cn.png:zh_CN")
+}
 locale/translations=PackedStringArray("res://Language/Main_en_US.po", "res://Language/Main_zh_CN.po", "res://Language/Long_en_US.po", "res://Language/Long_zh_CN.po", "res://Language/Item_en_US.po", "res://Language/Item_zh_CN.po")
 
 [layer_names]

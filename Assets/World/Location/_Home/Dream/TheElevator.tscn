@@ -9,6 +9,9 @@
 [ext_resource type="Material" uid="uid://rnxv6hl1w5ul" path="res://Resources/Material/DarkMaterial.tres" id="6_kcks2"]
 [ext_resource type="Material" uid="uid://b860lbxbd3ed6" path="res://Resources/Material/GrayMaterial.tres" id="7_52ux1"]
 [ext_resource type="PackedScene" uid="uid://b6da6wb457mbg" path="res://Resources/Object/Building/Switch/WithText/switch_scene.tscn" id="8_gj2cr"]
+[ext_resource type="AudioStream" uid="uid://34f4d4ca2ego" path="res://Resources/Sound/telephone_ring.mp3" id="10_cmqrt"]
+[ext_resource type="PackedScene" uid="uid://bx6d2uqbrolho" path="res://Resources/Object/Furniture/Sign/Advertisement/frame_scene.tscn" id="10_fvvn5"]
+[ext_resource type="PackedScene" uid="uid://6pttkdqtend6" path="res://Resources/Object/Furniture/Sign/Advertisement/Levels/scene.tscn" id="11_cmqrt"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_5libq"]
 resource_local_to_scene = true
@@ -151,13 +154,29 @@ current_health = 100.0
 
 [node name="Open" parent="NumberPad/Pad" unique_id=1741547461 instance=ExtResource("8_gj2cr")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0.25, -0.1, 0.125)
-text = "<|>"
+text = "⯇ⵏ⯈"
+current_health = 100.0
+
+[node name="Alert" parent="NumberPad/Pad" unique_id=1798277733 instance=ExtResource("8_gj2cr")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, -0.1, 0.125)
+text = "🔔"
 current_health = 100.0
 
 [node name="Close" parent="NumberPad/Pad" unique_id=1843525996 instance=ExtResource("8_gj2cr")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -0.25, -0.1, 0.125)
-text = ">|<"
+text = "⯈ⵏ⯇"
 current_health = 100.0
 
+[node name="AlertSound" type="AudioStreamPlayer3D" parent="NumberPad/Pad" unique_id=857979856]
+stream = ExtResource("10_cmqrt")
+pitch_scale = 2.0
+
+[node name="FrameScene" parent="." unique_id=1329299672 instance=ExtResource("10_fvvn5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -1.9)
+
+[node name="Scene" parent="FrameScene" unique_id=708351630 instance=ExtResource("11_cmqrt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0.05)
+
 [connection signal="interact_signal" from="NumberPad/Pad/Open" to="NumberPad" method="_on_open_interact_signal"]
+[connection signal="interact_signal" from="NumberPad/Pad/Alert" to="NumberPad" method="_on_alert_interact_signal"]
 [connection signal="interact_signal" from="NumberPad/Pad/Close" to="NumberPad" method="_on_close_interact_signal"]

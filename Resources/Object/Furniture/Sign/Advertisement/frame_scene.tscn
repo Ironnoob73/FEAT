@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://bx6d2uqbrolho"]
+
+[ext_resource type="ArrayMesh" uid="uid://uexnijgvyjo4" path="res://Resources/Object/Furniture/Sign/Advertisement/frame.obj" id="1_2fqnf"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3xd07"]
+size = Vector3(1.2, 1.7, 0.1)
+
+[node name="FrameScene" type="MeshInstance3D" unique_id=1329299672]
+mesh = ExtResource("1_2fqnf")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=291103462]
+collision_layer = 9
+
+[node name="Col" type="CollisionShape3D" parent="StaticBody3D" unique_id=1770148712]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0.05)
+shape = SubResource("BoxShape3D_3xd07")

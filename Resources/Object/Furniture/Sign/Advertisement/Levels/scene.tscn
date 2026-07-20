@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://6pttkdqtend6"]
+
+[ext_resource type="Texture2D" uid="uid://biulk7l7so5me" path="res://Resources/Object/Furniture/Sign/Advertisement/Levels/image.png" id="1_6hl6s"]
+
+[sub_resource type="Gradient" id="Gradient_dso8k"]
+colors = PackedColorArray(0, 0, 0.49803922, 1, 1, 1, 0.49803922, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_fvvn5"]
+noise_type = 0
+frequency = 0.05
+fractal_weighted_strength = 1.0
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_gj2cr"]
+width = 128
+height = 192
+noise = SubResource("FastNoiseLite_fvvn5")
+color_ramp = SubResource("Gradient_dso8k")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_47lar"]
+albedo_texture = ExtResource("1_6hl6s")
+roughness = 0.25
+normal_enabled = true
+normal_scale = 0.1
+normal_texture = SubResource("NoiseTexture2D_gj2cr")
+heightmap_enabled = true
+heightmap_scale = 1.0
+heightmap_texture = SubResource("NoiseTexture2D_gj2cr")
+texture_filter = 0
+grow_amount = 0.305
+stencil_flags = 1
+stencil_reference = 212
+stencil_color = Color(0.63375676, 0.6337568, 0.63375676, 1)
+stencil_outline_thickness = 0.153
+
+[sub_resource type="QuadMesh" id="QuadMesh_2fqnf"]
+size = Vector2(1, 1.5)
+
+[node name="Scene" type="MeshInstance3D" unique_id=708351630]
+material_override = SubResource("StandardMaterial3D_47lar")
+mesh = SubResource("QuadMesh_2fqnf")
