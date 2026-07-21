@@ -5,9 +5,9 @@ extends Area3D
 
 var detected_player : Node = null
 
-@onready var timer = $Timer
+@onready var timer : Timer = $Timer
 	
-func _physics_process(_delta):
+func _physics_process(_delta) -> void:
 	if detected_player :
 		if !detected_player.isCrouch and \
 		detected_player.velocity.distance_squared_to(Vector3(0,0,0)) >= 10.0**-6 :
@@ -15,11 +15,11 @@ func _physics_process(_delta):
 			_switch()
 			timer.start()
 
-func _on_timer_timeout():
+func _on_timer_timeout() -> void:
 	state = false
 	_switch()
 	
-func _switch():
+func _switch() -> void:
 	for i in connected_node :
 		var Ni = get_node(i)
 		if Ni.is_in_group("Switchable") :

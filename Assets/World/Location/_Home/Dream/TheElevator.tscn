@@ -11,7 +11,10 @@
 [ext_resource type="PackedScene" uid="uid://b6da6wb457mbg" path="res://Resources/Object/Building/Switch/WithText/switch_scene.tscn" id="8_gj2cr"]
 [ext_resource type="AudioStream" uid="uid://34f4d4ca2ego" path="res://Resources/Sound/telephone_ring.mp3" id="10_cmqrt"]
 [ext_resource type="PackedScene" uid="uid://bx6d2uqbrolho" path="res://Resources/Object/Furniture/Sign/Advertisement/frame_scene.tscn" id="10_fvvn5"]
+[ext_resource type="Script" uid="uid://xi806lb1q3l3" path="res://addons/abyss_history_lib/Class/Interact/Behaviour/_BehaviorClass.gd" id="10_pd4f6"]
 [ext_resource type="PackedScene" uid="uid://6pttkdqtend6" path="res://Resources/Object/Furniture/Sign/Advertisement/Levels/scene.tscn" id="11_cmqrt"]
+[ext_resource type="Script" uid="uid://bcmxxhlef12pk" path="res://addons/abyss_history_lib/Class/Interact/Behaviour/SwitchBehaviorClass.gd" id="11_lv01s"]
+[ext_resource type="AudioStream" uid="uid://lenlyfssyh2f" path="res://Assets/World/Location/_Home/sources/elevator_music.ogg" id="13_36ro1"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_5libq"]
 resource_local_to_scene = true
@@ -35,13 +38,24 @@ size = Vector3(0.75, 1, 0.05)
 [sub_resource type="BoxMesh" id="BoxMesh_3xd07"]
 size = Vector3(0.75, 2, 0.05)
 
+[sub_resource type="Resource" id="Resource_pd4f6"]
+script = ExtResource("11_lv01s")
+connected_node = Array[NodePath]([NodePath("../../../ElevatorDoor")])
+switch_to = "On"
+metadata/_custom_type_script = "uid://bcmxxhlef12pk"
+
+[sub_resource type="Resource" id="Resource_moam2"]
+script = ExtResource("11_lv01s")
+connected_node = Array[NodePath]([NodePath("../../../ElevatorDoor")])
+switch_to = "Off"
+metadata/_custom_type_script = "uid://bcmxxhlef12pk"
+
 [node name="TheElevator" type="Node3D" unique_id=385804628]
 
 [node name="Elevator" parent="." unique_id=550049645 instance=ExtResource("1_spq8a")]
 
 [node name="ElevatorDoor" parent="." unique_id=833384578 instance=ExtResource("2_ch7fr")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 2)
-current_health = 100.0
 
 [node name="OutsideView" type="MeshInstance3D" parent="." unique_id=1466580679]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 2)
@@ -94,6 +108,7 @@ outline_size = 0
 
 [node name="LeftArrow" type="Label3D" parent="NumberPad/Screen" unique_id=1025262556]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0.15, 0, -0.03)
+visible = false
 pixel_size = 0.01
 alpha_cut = 1
 texture_filter = 0
@@ -110,62 +125,53 @@ skeleton = NodePath("../..")
 [node name="Level7" parent="NumberPad/Pad" unique_id=30922935 instance=ExtResource("8_gj2cr")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0.25, 0.75, 0.125)
 text = "7"
-current_health = 100.0
 
 [node name="Level8" parent="NumberPad/Pad" unique_id=1588909824 instance=ExtResource("8_gj2cr")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0.75, 0.125)
 text = "8"
-current_health = 100.0
 
 [node name="Level9" parent="NumberPad/Pad" unique_id=2146637133 instance=ExtResource("8_gj2cr")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -0.25, 0.75, 0.125)
 text = "9"
-current_health = 100.0
+auto_unlit = false
 
 [node name="Level4" parent="NumberPad/Pad" unique_id=1676008365 instance=ExtResource("8_gj2cr")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0.25, 0.5, 0.125)
 text = "4"
-current_health = 100.0
 
 [node name="Level5" parent="NumberPad/Pad" unique_id=1367764477 instance=ExtResource("8_gj2cr")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0.5, 0.125)
 text = "5"
-current_health = 100.0
 
 [node name="Level6" parent="NumberPad/Pad" unique_id=736858564 instance=ExtResource("8_gj2cr")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -0.25, 0.5, 0.125)
 text = "6"
-current_health = 100.0
 
 [node name="Level1" parent="NumberPad/Pad" unique_id=523689391 instance=ExtResource("8_gj2cr")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0.25, 0.25, 0.125)
 text = "1"
-current_health = 100.0
 
 [node name="Level2" parent="NumberPad/Pad" unique_id=142063233 instance=ExtResource("8_gj2cr")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0.25, 0.125)
 text = "2"
-current_health = 100.0
 
 [node name="Level3" parent="NumberPad/Pad" unique_id=1476699311 instance=ExtResource("8_gj2cr")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -0.25, 0.25, 0.125)
 text = "3"
-current_health = 100.0
 
 [node name="Open" parent="NumberPad/Pad" unique_id=1741547461 instance=ExtResource("8_gj2cr")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0.25, -0.1, 0.125)
 text = "⯇ⵏ⯈"
-current_health = 100.0
+interact_behavior = Array[ExtResource("10_pd4f6")]([SubResource("Resource_pd4f6")])
 
 [node name="Alert" parent="NumberPad/Pad" unique_id=1798277733 instance=ExtResource("8_gj2cr")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, -0.1, 0.125)
 text = "🔔"
-current_health = 100.0
 
 [node name="Close" parent="NumberPad/Pad" unique_id=1843525996 instance=ExtResource("8_gj2cr")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -0.25, -0.1, 0.125)
 text = "⯈ⵏ⯇"
-current_health = 100.0
+interact_behavior = Array[ExtResource("10_pd4f6")]([SubResource("Resource_moam2")])
 
 [node name="AlertSound" type="AudioStreamPlayer3D" parent="NumberPad/Pad" unique_id=857979856]
 stream = ExtResource("10_cmqrt")
@@ -177,6 +183,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -1.9)
 [node name="Scene" parent="FrameScene" unique_id=708351630 instance=ExtResource("11_cmqrt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0.05)
 
-[connection signal="interact_signal" from="NumberPad/Pad/Open" to="NumberPad" method="_on_open_interact_signal"]
+[node name="Music" type="AudioStreamPlayer3D" parent="." unique_id=1613127392]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, -1)
+stream = ExtResource("13_36ro1")
+attenuation_model = 1
+volume_db = -5.0
+unit_size = 3.0
+autoplay = true
+
 [connection signal="interact_signal" from="NumberPad/Pad/Alert" to="NumberPad" method="_on_alert_interact_signal"]
-[connection signal="interact_signal" from="NumberPad/Pad/Close" to="NumberPad" method="_on_close_interact_signal"]

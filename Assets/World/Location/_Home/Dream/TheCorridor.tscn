@@ -22,6 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://c13q5mtiplruc" path="res://Assets/World/Location/_Home/sources/ElevatorOutwall.glb" id="10_533pw"]
 [ext_resource type="Script" uid="uid://bcmxxhlef12pk" path="res://addons/abyss_history_lib/Class/Interact/Behaviour/SwitchBehaviorClass.gd" id="12_1aved"]
 [ext_resource type="PackedScene" uid="uid://bx4tpf7a72o74" path="res://Resources/Object/Device/Elevator/control_pad_scene.tscn" id="12_5yw2n"]
+[ext_resource type="AudioStream" uid="uid://lenlyfssyh2f" path="res://Assets/World/Location/_Home/sources/elevator_music.ogg" id="23_c5jx2"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_shdyq"]
 resource_local_to_scene = true
@@ -45,6 +46,7 @@ size = Vector2(20, 20)
 [sub_resource type="Resource" id="Resource_533pw"]
 script = ExtResource("12_1aved")
 connected_node = Array[NodePath]([NodePath("../../FirstElevatorDoor")])
+switch_to = "On"
 metadata/_custom_type_script = "uid://bcmxxhlef12pk"
 
 [sub_resource type="Resource" id="Resource_e7spv"]
@@ -186,13 +188,11 @@ mesh = SubResource("PlaneMesh_shdyq")
 
 [node name="FirstElevatorDoor" parent="ElevatorCorridorSolid" unique_id=1729977416 instance=ExtResource("9_8lytu")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -2, 0, -3)
-current_health = 100.0
 
 [node name="ElevatorOutwall" parent="ElevatorCorridorSolid/FirstElevatorDoor" unique_id=1093845651 instance=ExtResource("10_533pw")]
 
 [node name="LockedElevatorDoor" parent="ElevatorCorridorSolid" unique_id=418828826 instance=ExtResource("9_8lytu")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 2, 0, -3)
-current_health = 100.0
 
 [node name="ElevatorOutwall" parent="ElevatorCorridorSolid/LockedElevatorDoor" unique_id=1624683438 instance=ExtResource("10_533pw")]
 
@@ -200,7 +200,11 @@ current_health = 100.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -3)
 
 [node name="UpButton" parent="ElevatorCorridorSolid/ElevatorControlPadScene" index="1" unique_id=30922935]
+auto_unlit = true
 interact_behavior = Array[ExtResource("6_shdyq")]([SubResource("Resource_533pw")])
+
+[node name="DownButton" parent="ElevatorCorridorSolid/ElevatorControlPadScene" index="2" unique_id=199337971]
+auto_unlit = true
 
 [node name="Corridor0" parent="." unique_id=1835768 instance=ExtResource("1_khq8m")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -12, 0, -1)
@@ -316,5 +320,13 @@ to_room_view = NodePath("..")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ElevatorView/Area3D" unique_id=2061211190]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -1)
 shape = SubResource("BoxShape3D_65yf4")
+
+[node name="ElevatorMusic" type="AudioStreamPlayer3D" parent="." unique_id=1231339729]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 3, -5)
+stream = ExtResource("23_c5jx2")
+attenuation_model = 1
+volume_db = -5.0
+unit_size = 3.0
+autoplay = true
 
 [editable path="ElevatorCorridorSolid/ElevatorControlPadScene"]

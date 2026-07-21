@@ -9,6 +9,7 @@ size = Vector3(1, 2.5, 0.1)
 [node name="ElevatorDoor" type="Node3D" unique_id=833384578]
 script = ExtResource("1_2xgou")
 Switchable = true
+current_health = 100.0
 metadata/_custom_type_script = "uid://c8ier7k2ohfsp"
 
 [node name="ElevatorDoorL" parent="." unique_id=526055227 instance=ExtResource("1_wxuti")]

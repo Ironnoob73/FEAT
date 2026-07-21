@@ -70,9 +70,11 @@ shape = SubResource("BoxShape3D_3xd07")
 [node name="UpButton" parent="." unique_id=30922935 instance=ExtResource("4_6jix5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.35, 0)
 text = "▲"
+auto_unlit = null
 current_health = 100.0
 
 [node name="DownButton" parent="." unique_id=199337971 instance=ExtResource("4_6jix5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15, 0)
 text = "▼"
+auto_unlit = null
 current_health = 100.0

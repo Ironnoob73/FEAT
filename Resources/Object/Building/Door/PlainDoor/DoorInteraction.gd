@@ -41,9 +41,8 @@ func interact(_sender:Node) -> void:
 		_p_tween = tween_f.tween_property(lock_tip_f, "modulate:a", 0, 1)
 		_p_tween = tween_b.tween_property(lock_tip_b, "modulate:a", 0, 1)
 
-func _interact_signal(_i:Node,_s:Node) -> void:
-	if is_node_ready():
-		_state_change()
+func _on_door_plate_state_change_signal(_state: Variant, _sender: Variant) -> void:
+	_state_change()
 		
 func _on_auto_open_area_area_entered(_area: Area3D) -> void:
 	pass

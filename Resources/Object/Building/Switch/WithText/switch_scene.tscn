@@ -13,6 +13,7 @@ size = Vector3(0.2, 0.15, 0.1)
 script = ExtResource("1_eqvaw")
 Interactable = true
 interact_icon = "👆"
+current_health = 100.0
 metadata/_custom_type_script = "uid://c8ier7k2ohfsp"
 
 [node name="Body" type="StaticBody3D" parent="." unique_id=114544671]

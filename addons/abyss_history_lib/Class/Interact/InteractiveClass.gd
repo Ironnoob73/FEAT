@@ -4,7 +4,7 @@ class_name AHL_Interactive
 
 signal interact_signal(interactor,sender)
 signal init_behavior_signal
-signal state_change_signal(state)
+signal state_change_signal(state, sender)
 signal killed_signal(interactor,sender)
 signal touch_signal
 signal on_user_change
@@ -24,13 +24,10 @@ signal on_user_leave(user)
 @export var Switchable : bool = false
 
 ## 当Switchable开启，该项用于控制可交互体的开启状态。
-@export var state : bool = false:
-	set(state_in):
-		state = state_in
-		if Engine.is_editor_hint() and Switchable:
-			interact_signal.emit(self,null)
-		else:
-			state_change_signal.emit(state_in)
+## !!!需要重新思考修改方式!!!
+## 目前直接修改该项没有任何作用，仅用于初始化时修改状态而保留。
+@export var state : bool = false
+	
 @export_group("Hurtable")
 ## 该节点是否可以被攻击
 @export var Hurtable : bool = false
@@ -61,15 +58,16 @@ func _ready() -> void:
 
 func interact(sender:Node) -> void:
 	if Switchable:
-		state = !state
+		switch(!state, sender)
 		
 	for i in interact_behavior:
 		i.do(self,sender)
 	
 	interact_signal.emit(self,sender)
 	
-func switch(value : bool) -> void:
-	pass
+func switch(value : bool, sender : Node) -> void:
+	state = value
+	state_change_signal.emit(value, sender)
 	
 func receive_attack(damage_res:AHL_DamageResClass,sender:Node) -> void:
 	if Hurtable:
