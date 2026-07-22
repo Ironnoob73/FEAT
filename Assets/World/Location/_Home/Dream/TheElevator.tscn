@@ -51,6 +51,7 @@ switch_to = "Off"
 metadata/_custom_type_script = "uid://bcmxxhlef12pk"
 
 [node name="TheElevator" type="Node3D" unique_id=385804628]
+script = ExtResource("6_52ux1")
 
 [node name="Elevator" parent="." unique_id=550049645 instance=ExtResource("1_spq8a")]
 
@@ -85,7 +86,6 @@ cast_shadow = 3
 mesh = SubResource("BoxMesh_18m6j")
 
 [node name="NumberPad" type="StaticBody3D" parent="." unique_id=1059757439]
-script = ExtResource("6_52ux1")
 
 [node name="Col" type="CollisionShape3D" parent="NumberPad" unique_id=794639372]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.455, 1.5, 1.9)
@@ -122,42 +122,59 @@ material_override = ExtResource("7_52ux1")
 mesh = SubResource("BoxMesh_3xd07")
 skeleton = NodePath("../..")
 
+[node name="Level9" parent="NumberPad/Pad" unique_id=2146637133 instance=ExtResource("8_gj2cr")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -0.25, 0.75, 0.12500012)
+text = "9"
+auto_unlit = false
+cancelable = true
+
+[node name="Level8" parent="NumberPad/Pad" unique_id=1588909824 instance=ExtResource("8_gj2cr")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0.75, 0.12500012)
+text = "8"
+auto_unlit = false
+cancelable = true
+
 [node name="Level7" parent="NumberPad/Pad" unique_id=30922935 instance=ExtResource("8_gj2cr")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0.25, 0.75, 0.125)
 text = "7"
-
-[node name="Level8" parent="NumberPad/Pad" unique_id=1588909824 instance=ExtResource("8_gj2cr")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0.75, 0.125)
-text = "8"
-
-[node name="Level9" parent="NumberPad/Pad" unique_id=2146637133 instance=ExtResource("8_gj2cr")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -0.25, 0.75, 0.125)
-text = "9"
 auto_unlit = false
+cancelable = true
 
-[node name="Level4" parent="NumberPad/Pad" unique_id=1676008365 instance=ExtResource("8_gj2cr")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0.25, 0.5, 0.125)
-text = "4"
+[node name="Level6" parent="NumberPad/Pad" unique_id=736858564 instance=ExtResource("8_gj2cr")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -0.25, 0.5, 0.12500012)
+text = "6"
+auto_unlit = false
+cancelable = true
 
 [node name="Level5" parent="NumberPad/Pad" unique_id=1367764477 instance=ExtResource("8_gj2cr")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0.5, 0.125)
 text = "5"
+auto_unlit = false
+cancelable = true
 
-[node name="Level6" parent="NumberPad/Pad" unique_id=736858564 instance=ExtResource("8_gj2cr")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -0.25, 0.5, 0.125)
-text = "6"
+[node name="Level4" parent="NumberPad/Pad" unique_id=1676008365 instance=ExtResource("8_gj2cr")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0.25, 0.5, 0.12500012)
+text = "4"
+auto_unlit = false
+cancelable = true
 
-[node name="Level1" parent="NumberPad/Pad" unique_id=523689391 instance=ExtResource("8_gj2cr")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0.25, 0.25, 0.125)
-text = "1"
+[node name="Level3" parent="NumberPad/Pad" unique_id=1476699311 instance=ExtResource("8_gj2cr")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -0.25, 0.25, 0.12500012)
+text = "3"
+auto_unlit = false
+cancelable = true
 
 [node name="Level2" parent="NumberPad/Pad" unique_id=142063233 instance=ExtResource("8_gj2cr")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0.25, 0.125)
 text = "2"
+auto_unlit = false
+cancelable = true
 
-[node name="Level3" parent="NumberPad/Pad" unique_id=1476699311 instance=ExtResource("8_gj2cr")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -0.25, 0.25, 0.125)
-text = "3"
+[node name="Level1" parent="NumberPad/Pad" unique_id=523689391 instance=ExtResource("8_gj2cr")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0.25, 0.25, 0.12500012)
+text = "1"
+auto_unlit = false
+cancelable = true
 
 [node name="Open" parent="NumberPad/Pad" unique_id=1741547461 instance=ExtResource("8_gj2cr")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0.25, -0.1, 0.125)
@@ -191,4 +208,22 @@ volume_db = -5.0
 unit_size = 3.0
 autoplay = true
 
-[connection signal="interact_signal" from="NumberPad/Pad/Alert" to="NumberPad" method="_on_alert_interact_signal"]
+[connection signal="cancel" from="NumberPad/Pad/Level9" to="." method="_request_cancel"]
+[connection signal="interact_signal" from="NumberPad/Pad/Level9" to="." method="_request_level"]
+[connection signal="cancel" from="NumberPad/Pad/Level8" to="." method="_request_cancel"]
+[connection signal="interact_signal" from="NumberPad/Pad/Level8" to="." method="_request_level"]
+[connection signal="cancel" from="NumberPad/Pad/Level7" to="." method="_request_cancel"]
+[connection signal="interact_signal" from="NumberPad/Pad/Level7" to="." method="_request_level"]
+[connection signal="cancel" from="NumberPad/Pad/Level6" to="." method="_request_cancel"]
+[connection signal="interact_signal" from="NumberPad/Pad/Level6" to="." method="_request_level"]
+[connection signal="cancel" from="NumberPad/Pad/Level5" to="." method="_request_cancel"]
+[connection signal="interact_signal" from="NumberPad/Pad/Level5" to="." method="_request_level"]
+[connection signal="cancel" from="NumberPad/Pad/Level4" to="." method="_request_cancel"]
+[connection signal="interact_signal" from="NumberPad/Pad/Level4" to="." method="_request_level"]
+[connection signal="cancel" from="NumberPad/Pad/Level3" to="." method="_request_cancel"]
+[connection signal="interact_signal" from="NumberPad/Pad/Level3" to="." method="_request_level"]
+[connection signal="cancel" from="NumberPad/Pad/Level2" to="." method="_request_cancel"]
+[connection signal="interact_signal" from="NumberPad/Pad/Level2" to="." method="_request_level"]
+[connection signal="cancel" from="NumberPad/Pad/Level1" to="." method="_request_cancel"]
+[connection signal="interact_signal" from="NumberPad/Pad/Level1" to="." method="_request_level"]
+[connection signal="interact_signal" from="NumberPad/Pad/Alert" to="." method="_on_alert_interact_signal"]

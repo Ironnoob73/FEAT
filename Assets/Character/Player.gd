@@ -61,28 +61,31 @@ func refresh_handheld(index:int) -> void:
 				n.get_child(0).queue_free()
 				n.get_child(0).free()
 			if handheld_tool:
-				if handheld_tool.equipment.scene:
-					n.add_child(handheld_tool.equipment.scene.instantiate())
-					n.get_child(0)._tool_init()
-				else :
-					var handheld_model = MeshInstance3D.new()
-					handheld_model.mesh = handheld_tool.equipment.model
-					handheld_model.material_override = handheld_tool.equipment.material
-					handheld_model.position = handheld_tool.equipment.pos_offset
-					handheld_model.rotation = handheld_tool.equipment.pos_rotation_rad()
-					handheld_model.scale = handheld_tool.equipment.pos_scale
-					handheld_model.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
-					handheld_model.set_layer_mask_value(5,true)
-					if handheld_tool.equipment.the_script :
-						handheld_model.set_script(handheld_tool.equipment.the_script)
-					n.add_child(handheld_model)
-				set_attack_animation(handheld_tool.equipment.attack_type)
-				if handheld_tool.equipment.attack_type == "Aimable":
-					mesh.animation_tree["parameters/MainAttack/request"] = 1
+				if handheld_tool.equipment is AHL_EToolClass:
+					var current_equipment: AHL_EToolClass = handheld_tool.equipment
+					if current_equipment.scene:
+						var instanted_equipment_scene: Node = current_equipment.scene.instantiate()
+						n.add_child(instanted_equipment_scene)
+						#instanted_equipment_scene._tool_init()
+					else :
+						var handheld_model: MeshInstance3D = MeshInstance3D.new()
+						handheld_model.mesh = handheld_tool.equipment.model
+						handheld_model.material_override = handheld_tool.equipment.material
+						handheld_model.position = handheld_tool.equipment.pos_offset
+						handheld_model.rotation = handheld_tool.equipment.pos_rotation_rad()
+						handheld_model.scale = handheld_tool.equipment.pos_scale
+						handheld_model.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+						handheld_model.set_layer_mask_value(5,true)
+						if current_equipment.the_script :
+							handheld_model.set_script(current_equipment.the_script)
+						n.add_child(handheld_model)
+					set_attack_animation(current_equipment.attack_type)
+					if current_equipment.attack_type == "Aimable":
+						mesh.animation_tree["parameters/MainAttack/request"] = 1
 			else :
 				set_attack_animation("DoubleHand")
 	if hand_held.get_children():
-		for i: Node in hand_held.get_children():
+		for i: GeometryInstance3D in hand_held.get_children():
 			if isThirdPerson:
 				i.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_ON
 			else:

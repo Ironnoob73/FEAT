@@ -1,5 +1,5 @@
-extends player
 class_name LocalPlayer
+extends player
 
 @onready var player_camera: Camera3D = $PlayerCam
 @onready var standing_detected: ShapeCast3D = $StandingDetected
@@ -60,8 +60,8 @@ var current_menu: String = "HUD":
 		if error != OK:
 			push_warning("Signal \"on_menu_change\" caused an error: ", error)
 signal on_menu_change
-var hud_hidden : bool = false
-@export var isInDream : bool = false
+var hud_hidden: bool = false
+@export var isInDream: bool = false
 
 @onready var HUD_hotbar: Control = $HudHotbar
 @onready var HUD_states_bar: Control = $HudStatesBar
@@ -106,8 +106,8 @@ func _input(event: InputEvent) -> void:
 func tird_person_setup(is_rotate:bool,not_init:bool = true) -> void:
 	interact_ray_tp.global_position = third_perosn_cam.project_position(caption.get_global_mouse_position(),0)
 	interact_ray_tp.set_collision_mask_value(6,!interact_ray_tp_test.is_colliding())
-	var pos : Vector2 = caption.get_mouse_pos()
-	var offset_pos : Vector3 = interact_ray_tp.get_collision_point() - global_position
+	var pos: Vector2 = caption.get_mouse_pos()
+	var offset_pos: Vector3 = interact_ray_tp.get_collision_point() - global_position
 	player_camera.rotation.y = - atan2(offset_pos.z,offset_pos.x) - PI/2 - self.global_rotation.y
 	mesh.rotation.y = player_camera.rotation.y + PI
 	attack_area.rotation.y = player_camera.rotation.y
@@ -243,10 +243,10 @@ func _snap_down_to_stairs_check() -> void:
 ## 将其他物体推开。
 ## From : https://github.com/majikayogames/SimpleFPSController/blob/main/FPSController/FPSController.gd
 func _push_away_rigid_bodies() -> void:
-	for i in get_slide_collision_count():
-		var c = get_slide_collision(i)
+	for i: int in get_slide_collision_count():
+		var c: KinematicCollision3D = get_slide_collision(i)
 		if c.get_collider() is RigidBody3D:
-			var push_dir = -c.get_normal()
+			var push_dir: Vector3 = -c.get_normal()
 			# How much velocity the object needs to increase to match player velocity in the push direction
 			var velocity_diff_in_push_dir = self.velocity.dot(push_dir) - c.get_collider().linear_velocity.dot(push_dir)
 			# Only count velocity towards push dir, away from character
@@ -292,7 +292,7 @@ func _snap_up_stairs_check(delta) -> bool:
 			return true
 	return false
 
-func _physics_process(delta) -> void:
+func _physics_process(delta: float) -> void:
 	Global.p_elem_debug("### PP START ###")
 	# Record Inerita & Add the gravity.
 	Global.p_elem_debug("# GRAVITY #")
@@ -306,7 +306,7 @@ func _physics_process(delta) -> void:
 	
 	# Move Input.
 	Global.p_elem_debug("# MOVE INPUT #")
-	var input_vec = Vector3.ZERO
+	var input_vec: Vector3 = Vector3.ZERO
 	if current_menu == "HUD":
 		input_vec.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
 		input_vec.z = Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
@@ -380,7 +380,7 @@ func _physics_process(delta) -> void:
 
 	Global.p_elem_debug("### PP END ###")
 	
-func _process(_delta):
+func _process(_delta: float) -> void:
 	Global.p_elem_debug("### P START ###")
 	Global.p_elem_debug("# LOAD STEP #")
 	match load_step :
@@ -489,7 +489,7 @@ func _on_climb_area_area_entered(area: Area3D) -> void:
 	if area.is_in_group("ClimbAble"):
 		isClimb = true
 	if area.is_in_group("Teleporter") and area.get_parent().ToLocation not in ["null",""]:
-		var tween = create_tween().set_trans(Tween.TRANS_LINEAR)
+		var tween : Tween = create_tween().set_trans(Tween.TRANS_LINEAR)
 		tween.tween_callback(func():isInTeleport=true)
 		tween.tween_property(transition, "color:a", 1, 0.25)
 		tween.tween_callback(func():get_node("/root/World").change_scene(area.get_parent().ToLocation,area.get_parent().ToLocationPos))
@@ -518,8 +518,8 @@ func _on_motion_area_area_exited(area: Area3D) -> void:
 	self.FRICTION = ProjectSettings.get_setting("physics/3d/default_linear_damp")
 
 # Sit
-func sit(chair_position, chair_rotation) -> void:
-	var tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUART).set_parallel(true)
+func sit(chair_position : Vector3, chair_rotation : Vector3) -> void:
+	var tween : Tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUART).set_parallel(true)
 	if !isSit :
 		tween.tween_property(self, "position", chair_position, 0.5)
 		tween.tween_property(mesh.animation_tree,"parameters/Sit/add_amount",1,0.5)
@@ -530,7 +530,7 @@ func sit(chair_position, chair_rotation) -> void:
 	else :
 		_un_sit()
 func _un_sit() -> void:
-	var tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUART).set_parallel(true)
+	var tween : Tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUART).set_parallel(true)
 	tween.tween_property(mesh.animation_tree,"parameters/Sit/add_amount",0,0.5)
 	isSit.remove_meta("user")
 	isSit = null
@@ -571,7 +571,7 @@ func mouse_mode(isVisible:bool)->void:
 ## 主要（左键）攻击。根据装备的[enum AHL_EToolClass.send_type]判断近远程类型。
 ## 如果是近战武器，将手持武器的伤害数据（空手伤害+武器伤害，若未持有任何武器则只发送空手伤害）发送至[method player.attack]。
 ## 如果是远程武器，则不发送伤害数据，而是发射子弹。
-func main_attack(press:bool) -> void:
+func main_attack(press: bool) -> void:
 	if press == true && att_idle == true && att_sec == false:
 		att_idle = false
 		mesh.animation_tree["parameters/AttackStateMachine/conditions/left"] = att_order
@@ -581,30 +581,33 @@ func main_attack(press:bool) -> void:
 		var tween: Tween = create_tween().set_trans(Tween.TRANS_CUBIC)
 		if handheld_tool:
 			hand_held_fp.MainAttack(handheld_tool.equipment.attack_type,handheld_tool.equipment.delay)
-			tween.tween_property(self, "att_idle", true, 0).set_delay(handheld_tool.equipment.delay)
+			var _p_tween: PropertyTweener = tween.tween_property(self, "att_idle", true, 0).set_delay(handheld_tool.equipment.delay)
 			match handheld_tool.equipment.send_type:
 				"Melee":
-					attack(1+handheld_tool.equipment.performance,handheld_tool.equipment.damage_type)
+					var damage_type: String = handheld_tool.equipment.damage_type
+					attack(1 + handheld_tool.equipment.performance, damage_type)
 				"Range":
 					pass
-			for i in handheld_tool.equipment.main_behavior:
+			for i: AHL_BehaviorClass in handheld_tool.equipment.main_behavior:
 				i.do(hand_held_fp.get_child(0),self)
 		else:
-			tween.tween_property(self, "att_idle", true, 0).set_delay(0.5)
+			var _p_tween: PropertyTweener = tween.tween_property(self, "att_idle", true, 0).set_delay(0.5)
 			attack(1)
 ## 次要（右键）攻击，预期用法和[method player.main_attack]相同但主要用于瞄准或防御，还没做。
-func secondary_attack(_press:bool):
+func secondary_attack(_press:bool) -> void:
 	pass
 ## 将从[method player.main_attack]接收到的攻击数据发送给攻击范围内的受击者。
-func attack(damage_point:float,attack_type:String = "Normal"):
-	for i in attack_area.get_overlapping_bodies():
-		if i.get_parent() is AHL_Interactive and i.get_parent().Hurtable == true:
-			var damage_res = AHL_DamageResClass.new()
-			damage_res.sender = self
-			damage_res.damage_point = damage_point
-			damage_res.attack_type = attack_type
-			i.get_parent().receive_attack(damage_res,self)
-func receive_attack(damage_res:AHL_DamageResClass,_sender):
+func attack(damage_point:float, attack_type:String = "Normal") -> void:
+	for i: Node3D in attack_area.get_overlapping_bodies():
+		if i.get_parent() is AHL_Interactive:
+			var iP: AHL_Interactive = i.get_parent()
+			if iP.Hurtable:
+				var damage_res: AHL_DamageResClass = AHL_DamageResClass.new()
+				damage_res.sender = self
+				damage_res.damage_point = damage_point
+				damage_res.attack_type = attack_type
+				iP.receive_attack(damage_res, self)
+func receive_attack(damage_res:AHL_DamageResClass, _sender: Node) -> void:
 	if current_health >= 0:
 		current_health -= damage_res.damage_point
 	

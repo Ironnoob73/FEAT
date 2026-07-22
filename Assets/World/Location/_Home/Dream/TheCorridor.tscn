@@ -20,7 +20,6 @@
 [ext_resource type="PackedScene" uid="uid://b8sgxkfnqbmei" path="res://Resources/Object/Device/Elevator/door_scene.tscn" id="9_8lytu"]
 [ext_resource type="Shader" uid="uid://cyxv26lgbbfge" path="res://Assets/World/Environments/sources/background_shader.gdshader" id="9_jn1r0"]
 [ext_resource type="PackedScene" uid="uid://c13q5mtiplruc" path="res://Assets/World/Location/_Home/sources/ElevatorOutwall.glb" id="10_533pw"]
-[ext_resource type="Script" uid="uid://bcmxxhlef12pk" path="res://addons/abyss_history_lib/Class/Interact/Behaviour/SwitchBehaviorClass.gd" id="12_1aved"]
 [ext_resource type="PackedScene" uid="uid://bx4tpf7a72o74" path="res://Resources/Object/Device/Elevator/control_pad_scene.tscn" id="12_5yw2n"]
 [ext_resource type="AudioStream" uid="uid://lenlyfssyh2f" path="res://Assets/World/Location/_Home/sources/elevator_music.ogg" id="23_c5jx2"]
 
@@ -42,12 +41,6 @@ shader = ExtResource("9_jn1r0")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_shdyq"]
 size = Vector2(20, 20)
-
-[sub_resource type="Resource" id="Resource_533pw"]
-script = ExtResource("12_1aved")
-connected_node = Array[NodePath]([NodePath("../../FirstElevatorDoor")])
-switch_to = "On"
-metadata/_custom_type_script = "uid://bcmxxhlef12pk"
 
 [sub_resource type="Resource" id="Resource_e7spv"]
 script = ExtResource("7_bdjbn")
@@ -198,13 +191,6 @@ transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 2, 0
 
 [node name="ElevatorControlPadScene" parent="ElevatorCorridorSolid" unique_id=1964182302 instance=ExtResource("12_5yw2n")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -3)
-
-[node name="UpButton" parent="ElevatorCorridorSolid/ElevatorControlPadScene" index="1" unique_id=30922935]
-auto_unlit = true
-interact_behavior = Array[ExtResource("6_shdyq")]([SubResource("Resource_533pw")])
-
-[node name="DownButton" parent="ElevatorCorridorSolid/ElevatorControlPadScene" index="2" unique_id=199337971]
-auto_unlit = true
 
 [node name="Corridor0" parent="." unique_id=1835768 instance=ExtResource("1_khq8m")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -12, 0, -1)

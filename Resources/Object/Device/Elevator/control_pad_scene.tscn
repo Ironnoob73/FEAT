@@ -1,12 +1,49 @@
 [gd_scene format=3 uid="uid://bx4tpf7a72o74"]
 
-[ext_resource type="Script" uid="uid://c8ier7k2ohfsp" path="res://addons/abyss_history_lib/Class/Interact/InteractiveClass.gd" id="1_lm85k"]
+[ext_resource type="Script" uid="uid://c8ier7k2ohfsp" path="res://addons/abyss_history_lib/Class/Interact/interactive_class.gd" id="1_lm85k"]
 [ext_resource type="Material" uid="uid://rnxv6hl1w5ul" path="res://Resources/Material/DarkMaterial.tres" id="2_7q4dv"]
 [ext_resource type="Material" uid="uid://b860lbxbd3ed6" path="res://Resources/Material/GrayMaterial.tres" id="3_fg1si"]
 [ext_resource type="PackedScene" uid="uid://b6da6wb457mbg" path="res://Resources/Object/Building/Switch/WithText/switch_scene.tscn" id="4_6jix5"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_3xd07"]
 size = Vector3(0.5, 0.5, 0.1)
+
+[sub_resource type="Animation" id="Animation_6jix5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Body/Screen/LeftArrow:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_6etmm"]
+resource_name = "running"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Body/Screen/LeftArrow:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fsq0v"]
+_data = {
+&"RESET": SubResource("Animation_6jix5"),
+&"running": SubResource("Animation_6etmm")
+}
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_3xd07"]
 size = Vector3(0.5, 1, 0.1)
@@ -34,12 +71,15 @@ outline_size = 0
 
 [node name="LeftArrow" type="Label3D" parent="Body/Screen" unique_id=1778700465]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1, 0.1, 0.06)
-visible = false
 alpha_cut = 1
 texture_filter = 0
 modulate = Color(1, 0, 0, 1)
 text = "▲"
 outline_size = 0
+
+[node name="LeftArrowRunningAnim" type="AnimationPlayer" parent="Body/Screen/LeftArrow" unique_id=1349164891]
+root_node = NodePath("../../../..")
+libraries/ = SubResource("AnimationLibrary_fsq0v")
 
 [node name="RightNumber" type="Label3D" parent="Body/Screen" unique_id=1602727869]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, -0.05, 0.06)
@@ -70,11 +110,9 @@ shape = SubResource("BoxShape3D_3xd07")
 [node name="UpButton" parent="." unique_id=30922935 instance=ExtResource("4_6jix5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.35, 0)
 text = "▲"
-auto_unlit = null
-current_health = 100.0
+auto_unlit = false
 
 [node name="DownButton" parent="." unique_id=199337971 instance=ExtResource("4_6jix5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15, 0)
 text = "▼"
-auto_unlit = null
-current_health = 100.0
+auto_unlit = false

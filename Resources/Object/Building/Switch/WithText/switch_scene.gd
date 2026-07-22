@@ -1,5 +1,6 @@
 @tool
 extends AHL_Interactive
+class_name TextedButton3d
 
 @onready var mesh: MeshInstance3D = $Body/Mesh
 @onready var label: Label3D = $Body/Mesh/Label
@@ -11,6 +12,9 @@ extends AHL_Interactive
 			label.text = text_in
 			
 @export var auto_unlit : bool = true
+@export var cancelable : bool = false
+
+signal cancel(interactor: TextedButton3d, sender: Node)
 
 func _ready() -> void:
 	super._ready()
@@ -22,9 +26,20 @@ func _button_interact_signal(interactor: AHL_Interactive, sender: Node) -> void:
 		
 	if !state:
 		switch(true, sender)
+	elif cancelable:
+		var timer : SceneTreeTimer
+		if has_meta("cancel_timer"):
+			remove_meta("cancel_timer")
+			cancel.emit(interactor, sender)
+			await timeout_unlit()
+		else:
+			timer = get_tree().create_timer(0.5,false,true,false)
+			set_meta("cancel_timer", timer)
+			await timer.timeout
+			remove_meta("cancel_timer")
 		
 	if auto_unlit:
-		await _timeout_unlit(interactor)
+		await timeout_unlit()
 		
 func _press() -> void:
 	var tween: Tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUART)
@@ -39,14 +54,14 @@ func _on_state_change(state_in: bool, _s: Node) -> void:
 		else:
 			label.modulate = Color(1.0, 1.0, 1.0, 1.0)
 			
-func _timeout_unlit(interactor: AHL_Interactive) -> void:
+func timeout_unlit() -> void:
 	var timer : SceneTreeTimer
-	if interactor.has_meta("timer"):
-		timer = interactor.get_meta("timer")
+	if has_meta("unlit_timer"):
+		timer = get_meta("unlit_timer")
 		timer.set_time_left(0.5)
 	else:
 		timer = get_tree().create_timer(0.5,false,true,false)
-	interactor.set_meta("timer", timer)
+	set_meta("unlit_timer", timer)
 	await timer.timeout
-	interactor.remove_meta("timer")
-	interactor.switch(false, self)
+	remove_meta("unlit_timer")
+	switch(false, self)

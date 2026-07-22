@@ -1,6 +1,6 @@
-[gd_scene load_steps=11 format=3 uid="uid://bt7knoovenvbk"]
+[gd_scene format=3 uid="uid://bt7knoovenvbk"]
 
-[ext_resource type="Script" uid="uid://c8ier7k2ohfsp" path="res://addons/abyss_history_lib/Class/Interact/InteractiveClass.gd" id="1_1eg30"]
+[ext_resource type="Script" uid="uid://c8ier7k2ohfsp" path="res://addons/abyss_history_lib/Class/Interact/interactive_class.gd" id="1_1eg30"]
 [ext_resource type="Script" uid="uid://chgmi26fjwqth" path="res://Resources/Object/Function/Pickable/PickableThingsInfo.gd" id="1_4u8fc"]
 [ext_resource type="Material" uid="uid://b70uhgp32byqb" path="res://Resources/Object/Function/Pickable/DefaultMaterial.tres" id="2_ga5f3"]
 [ext_resource type="Script" uid="uid://xi806lb1q3l3" path="res://addons/abyss_history_lib/Class/Interact/Behaviour/_BehaviorClass.gd" id="2_r1chq"]

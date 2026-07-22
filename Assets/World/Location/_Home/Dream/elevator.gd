@@ -1,17 +1,4 @@
-extends StaticBody3D
-
-@onready var elevator_door: AHL_Interactive = $"../ElevatorDoor"
-@onready var alert_sound: AudioStreamPlayer3D = $Pad/AlertSound
-
-
-func _on_open_interact_signal(_i: AHL_Interactive, sender: Node) -> void:
-	elevator_door.switch(true, sender)
-
-func _on_close_interact_signal(_i: AHL_Interactive, sender: Node) -> void:
-	elevator_door.switch(false, sender)
-
-func _on_alert_interact_signal(_i: AHL_Interactive, _s: Node) -> void:
-	alert_sound.play(0.08)
+extends Node3D
 
 ## Icons:
 ## https://www.svgrepo.com/svg/520959/snow
@@ -26,3 +13,22 @@ func _on_alert_interact_signal(_i: AHL_Interactive, _s: Node) -> void:
 ##
 ## Sounds:
 ## https://pixabay.com/sound-effects/household-telephone-ring-old-german-w48-83246/
+
+@onready var elevator_door : AHL_Interactive = $ElevatorDoor
+@onready var alert_sound : AudioStreamPlayer3D = $NumberPad/Pad/AlertSound
+
+@export var current_level : int = 5
+var requested_level : Array[int]
+
+func _on_alert_interact_signal(_i: AHL_Interactive, _s: Node) -> void:
+	alert_sound.play(0.08)
+
+func _request_level(interactor: TextedButton3d, _sender: Node) -> void:
+	if interactor.text.to_int() != current_level:
+		if !requested_level.has(interactor.text.to_int()):
+			requested_level.append(interactor.text.to_int())
+	else:
+		await interactor.timeout_unlit()
+
+func _request_cancel(interactor: TextedButton3d, _sender: Node) -> void:
+	requested_level.erase(interactor.text.to_int())

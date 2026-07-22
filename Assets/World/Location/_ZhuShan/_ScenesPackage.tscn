@@ -18,7 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://ggr3biv5ly6l" path="res://Resources/Object/Function/Comment/comment_scene.tscn" id="11_48slv"]
 [ext_resource type="PackedScene" uid="uid://bt7knoovenvbk" path="res://Resources/Object/Function/Pickable/pickable_scene.tscn" id="12_7rje5"]
 [ext_resource type="Resource" uid="uid://bjj8yywrbxut0" path="res://Resources/Item/weapon/melee/sword/tutorial_sword.eq.tres" id="13_qk5mw"]
-[ext_resource type="Script" uid="uid://b2nq6c4qfofp8" path="res://addons/abyss_history_lib/Class/Inventory/Equipment/EqMetaClass.gd" id="14_acjhv"]
+[ext_resource type="Script" uid="uid://b2nq6c4qfofp8" path="res://addons/abyss_history_lib/Class/Inventory/Equipment/eq_meta_class.gd" id="14_acjhv"]
 [ext_resource type="PackedScene" uid="uid://cdhmfgttd6yfu" path="res://Resources/Object/Furniture/Target/target_scene.tscn" id="15_jcahf"]
 [ext_resource type="Script" uid="uid://xi806lb1q3l3" path="res://addons/abyss_history_lib/Class/Interact/Behaviour/_BehaviorClass.gd" id="18_dhv8b"]
 [ext_resource type="Script" uid="uid://cwwk0uwuayl41" path="res://addons/abyss_history_lib/Class/Interact/Behaviour/CaptionBehaviorClass.gd" id="18_mwpqd"]

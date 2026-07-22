@@ -7,8 +7,8 @@ func _enter_tree() -> void:
 	add_custom_type("AHL_ChunkPath","Resource",preload("Class/World/ChunkClass.gd"),preload("Class/World/ChunkPathIcon.svg"))
 	add_custom_type("AHL_RoomInstance","Resource",preload("Class/World/RoomClass.gd"),preload("Class/World/RoomInstanceIcon.svg"))
 	# Interact
-	add_custom_type("AHL_Interactive","Node3D",preload("Class/Interact/InteractiveClass.gd"),preload("Class/Interact/InteractiveIcon.svg"))
-	#	Attack
+	add_custom_type("AHL_Interactive","Node3D",preload("Class/Interact/interactive_class.gd"),preload("Class/Interact/interactive_icon.svg"))
+	# Attack
 	#add_custom_type("Hurtable","AHL_Interactive",preload("Class/Interact/Attack/HurtableClass.gd"),preload("Class/Interact/Attack/HurtableIcon.svg"))
 
 	# Load

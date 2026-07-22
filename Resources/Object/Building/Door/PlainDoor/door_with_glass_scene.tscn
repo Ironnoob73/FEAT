@@ -1,6 +1,6 @@
-[gd_scene load_steps=11 format=3 uid="uid://dolx4mc7cel7q"]
+[gd_scene format=3 uid="uid://dolx4mc7cel7q"]
 
-[ext_resource type="Script" uid="uid://c8ier7k2ohfsp" path="res://addons/abyss_history_lib/Class/Interact/InteractiveClass.gd" id="1_1fqkp"]
+[ext_resource type="Script" uid="uid://c8ier7k2ohfsp" path="res://addons/abyss_history_lib/Class/Interact/interactive_class.gd" id="1_1fqkp"]
 [ext_resource type="Script" uid="uid://7sv6f5llxudh" path="res://Resources/Object/Building/Door/PlainDoor/DoorInteraction.gd" id="3_cxbeg"]
 [ext_resource type="Material" uid="uid://do55163v32q4u" path="res://Resources/Material/Wood.tres" id="4_tfs5u"]
 [ext_resource type="ArrayMesh" uid="uid://b2qgmt5a5jnyp" path="res://Resources/Object/Building/Door/PlainDoor/Door0.obj" id="5_43774"]
@@ -19,7 +19,7 @@ size = Vector3(1.2, 2.4, 0.1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_olwkq"]
 size = Vector3(1.2, 2.4, 2)
 
-[node name="Door0Plate" type="Node3D"]
+[node name="Door0Plate" type="Node3D" unique_id=646217730]
 script = ExtResource("1_1fqkp")
 DisplayName = "Door"
 Interactable = true
@@ -27,53 +27,54 @@ interact_text = "interact.open"
 Switchable = true
 current_health = 100.0
 
-[node name="Body" type="StaticBody3D" parent="."]
+[node name="Body" type="AnimatableBody3D" parent="." unique_id=1084749109]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6, 0, 0)
 collision_layer = 24
 collision_mask = 15
 script = ExtResource("3_cxbeg")
 
-[node name="Mesh" type="MeshInstance3D" parent="Body"]
+[node name="Mesh" type="MeshInstance3D" parent="Body" unique_id=139376338]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6, 0, -0.05)
 material_override = ExtResource("4_tfs5u")
 mesh = ExtResource("5_43774")
 
-[node name="Handle" type="MeshInstance3D" parent="Body"]
+[node name="Handle" type="MeshInstance3D" parent="Body" unique_id=2095168821]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0.8, 0)
 material_override = ExtResource("5_hnrnm")
 mesh = SubResource("BoxMesh_pcbij")
 
-[node name="Glass" type="MeshInstance3D" parent="Body"]
+[node name="Glass" type="MeshInstance3D" parent="Body" unique_id=1352903453]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6, 1.7, 0)
 material_override = ExtResource("7_fxnoq")
 mesh = SubResource("BoxMesh_54wb5")
 
-[node name="LockTipF" type="Label3D" parent="Body"]
+[node name="LockTipF" type="Label3D" parent="Body" unique_id=905780421]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 0.11)
 modulate = Color(1, 1, 1, 0)
 text = "🔒"
 font_size = 50
 outline_size = 0
 
-[node name="LockTipB" type="Label3D" parent="Body"]
+[node name="LockTipB" type="Label3D" parent="Body" unique_id=1259407603]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, -0.11)
 modulate = Color(1, 1, 1, 0)
 text = "🔒"
 font_size = 50
 outline_size = 0
 
-[node name="CollisionShape" type="CollisionShape3D" parent="Body"]
+[node name="CollisionShape" type="CollisionShape3D" parent="Body" unique_id=1844917256]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6, 1.2, 0)
 shape = SubResource("BoxShape3D_byqrf")
 
-[node name="AutoOpenArea" type="Area3D" parent="."]
+[node name="AutoOpenArea" type="Area3D" parent="." unique_id=785584904]
 collision_layer = 16
 collision_mask = 4
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="AutoOpenArea"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AutoOpenArea" unique_id=258952399]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, 0)
 shape = SubResource("BoxShape3D_olwkq")
 
-[connection signal="interact_signal" from="." to="Body" method="_interact_signal"]
+[connection signal="init_behavior_signal" from="." to="Body" method="init"]
+[connection signal="state_change_signal" from="." to="Body" method="_on_door_plate_state_change_signal"]
 [connection signal="area_entered" from="AutoOpenArea" to="Body" method="_on_auto_open_area_area_entered"]
 [connection signal="area_exited" from="AutoOpenArea" to="Body" method="_on_auto_open_area_area_exited"]

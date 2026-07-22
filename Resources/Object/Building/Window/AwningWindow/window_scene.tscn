@@ -1,8 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://bj6k2kwnojef7"]
+[gd_scene format=3 uid="uid://bj6k2kwnojef7"]
 
 [ext_resource type="Material" uid="uid://rnxv6hl1w5ul" path="res://Resources/Material/DarkMaterial.tres" id="1_o8jl8"]
 [ext_resource type="ArrayMesh" uid="uid://dv7fq1atyhl74" path="res://Resources/Object/Building/Window/AwningWindow/AwningWindowFrame.obj" id="2_iq4me"]
-[ext_resource type="Script" uid="uid://c8ier7k2ohfsp" path="res://addons/abyss_history_lib/Class/Interact/InteractiveClass.gd" id="3_1v8ox"]
+[ext_resource type="Script" uid="uid://c8ier7k2ohfsp" path="res://addons/abyss_history_lib/Class/Interact/interactive_class.gd" id="3_1v8ox"]
 [ext_resource type="Script" uid="uid://nq4a86i2toxm" path="res://Resources/Object/Building/Window/AwningWindow/WindowInteraction.gd" id="3_qg5mr"]
 [ext_resource type="Material" uid="uid://b860lbxbd3ed6" path="res://Resources/Material/GrayMaterial.tres" id="4_hnfnj"]
 [ext_resource type="ArrayMesh" uid="uid://ctvcf54ty3uxv" path="res://Resources/Object/Building/Window/AwningWindow/AwningWindow.obj" id="5_u6gxv"]
