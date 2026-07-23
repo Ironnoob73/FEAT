@@ -1,6 +1,5 @@
 [gd_scene format=3 uid="uid://ryitjhnhr4hi"]
 
-[ext_resource type="Script" uid="uid://8h1wxcdqk41f" path="res://addons/abyss_history_lib/Class/World/ScenesPackageClass.gd" id="1_l8c88"]
 [ext_resource type="PackedScene" uid="uid://cyesacqu3i41p" path="res://Assets/World/Location/_Home/sources/inner_solid.tscn" id="2_3lex0"]
 [ext_resource type="Script" uid="uid://cimdd8vkkv8w8" path="res://Assets/World/Location/_Home/Reality/scene_func.gd" id="2_4ge3f"]
 [ext_resource type="PackedScene" uid="uid://l5crfk031an5" path="res://Resources/Object/Function/SceneChanger/scene_changer_scene.tscn" id="3_aw5aa"]
@@ -57,17 +56,17 @@ script = ExtResource("23_jk5bb")
 screen_path = NodePath("Screen")
 metadata/_custom_type_script = "uid://4j2upwqk6ipe"
 
+[sub_resource type="ViewportTexture" id="ViewportTexture_brwdr"]
+viewport_path = NodePath("ScreenViewport")
+
 [sub_resource type="ViewportTexture" id="ViewportTexture_qwgu1"]
 viewport_path = NodePath("ScreenViewport")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_gqj7s"]
-viewport_path = NodePath("ScreenViewport")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_67guu"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gqj7s"]
 resource_local_to_scene = true
-albedo_texture = SubResource("ViewportTexture_qwgu1")
+albedo_texture = SubResource("ViewportTexture_brwdr")
 emission_enabled = true
-emission_texture = SubResource("ViewportTexture_gqj7s")
+emission_texture = SubResource("ViewportTexture_qwgu1")
 
 [sub_resource type="Resource" id="Resource_tnxtw"]
 script = ExtResource("16_me8th")
@@ -133,11 +132,8 @@ ambient_light_source = 2
 environment = SubResource("Environment_tsstw")
 
 [node name="Packed" type="Node3D" unique_id=600272063]
-script = ExtResource("1_l8c88")
-metadata/_custom_type_script = "uid://8h1wxcdqk41f"
-
-[node name="SceneFunc" type="Node" parent="." unique_id=1625027979]
 script = ExtResource("2_4ge3f")
+metadata/_custom_type_script = "uid://8h1wxcdqk41f"
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=607008739]
 environment = ExtResource("3_qwgu1")
@@ -153,7 +149,6 @@ transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 1, 0
 [node name="FrameScene0" parent="Corridor0" unique_id=1457914116 instance=ExtResource("3_yfurw")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 4.0000005, 0, -2.9999995)
 mesh_material = ExtResource("4_7aooe")
-occlusion = "none"
 
 [node name="DoorPlate" parent="Corridor0/FrameScene0" unique_id=1066364409 instance=ExtResource("6_aw5aa")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.29999995, 0, 0)
@@ -211,6 +206,7 @@ transform = Transform3D(-4.3711395e-08, 0, -1, 0, 1, 0, 1, 0, -4.3711395e-08, -8
 
 [node name="StaticGlass" parent="Corridor0/Corridor1" unique_id=871910000 instance=ExtResource("12_brwdr")]
 transform = Transform3D(-2.1855693e-07, 0, -1, 0, 1, 0, 1, 0, -2.1855693e-07, -8.1, 1.5, -0.5)
+occlusion = "dark"
 
 [node name="ElevatorCorridor2" parent="Corridor0" unique_id=1005583315 instance=ExtResource("23_4exlk")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -12, 0, -1)
@@ -234,6 +230,7 @@ transform = Transform3D(-4.3711395e-08, 0, -1, 0, 1, 0, 1, 0, -4.3711395e-08, -8
 
 [node name="StaticGlass" parent="Corridor0/Corridor4" unique_id=147802519 instance=ExtResource("12_brwdr")]
 transform = Transform3D(-2.1855693e-07, 0, -1, 0, 1, 0, 1, 0, -2.1855693e-07, -8.1, 1.5, -0.5)
+occlusion = "dark"
 
 [node name="FakeFrontDoorScene1" parent="Corridor0/Corridor4" unique_id=103474609 instance=ExtResource("8_e7spv")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 4, 0, -3.0000005)
@@ -432,42 +429,38 @@ pos = Vector3(16, 1, 29)
 
 [node name="SlidingWindowScene0" parent="Inner" unique_id=1549984385 instance=ExtResource("4_cpiu2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0.5, 8)
-occlusion = "none"
 
 [node name="SlidingWindowScene1" parent="Inner" unique_id=1859834099 instance=ExtResource("4_cpiu2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 9)
-occlusion = "none"
 
 [node name="SlidingWindowScene2" parent="Inner" unique_id=443332285 instance=ExtResource("4_cpiu2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0.5, 9)
-occlusion = "none"
 
 [node name="SlidingWindowScene3" parent="Inner" unique_id=224342090 instance=ExtResource("4_cpiu2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0.5, 6)
-occlusion = "none"
 
 [node name="FrameScene0" parent="Inner" unique_id=878168761 instance=ExtResource("5_ema15")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 5, 0, -2.5)
-occlusion = "none"
+occlusion = "dark"
 
 [node name="DoorPlate" parent="Inner/FrameScene0" unique_id=282024836 instance=ExtResource("6_aw5aa")]
 
 [node name="FrameScene1" parent="Inner" unique_id=690172883 instance=ExtResource("5_ema15")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -1, 0, 0.5)
-occlusion = "none"
+occlusion = "dark"
 
 [node name="DoorPlate" parent="Inner/FrameScene1" unique_id=938837592 instance=ExtResource("6_aw5aa")]
 
 [node name="FrameScene2" parent="Inner" unique_id=1300718565 instance=ExtResource("5_ema15")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -2, 0, 4.5)
-occlusion = "none"
+occlusion = "dark"
 
 [node name="DoorPlate" parent="Inner/FrameScene2" unique_id=1394653128 instance=ExtResource("6_aw5aa")]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0, 0)
 
 [node name="FrameScene3" parent="Inner" unique_id=1617667051 instance=ExtResource("5_ema15")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5, 0, 7.5)
-occlusion = "none"
+occlusion = "dark"
 
 [node name="Door0Plate" parent="Inner/FrameScene3" unique_id=1743687431 instance=ExtResource("7_cpiu2")]
 transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
@@ -489,7 +482,7 @@ transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -4.5
 init_behavior = Array[ExtResource("15_j4cn1")]([SubResource("Resource_xp221")])
 
 [node name="Screen" parent="Inner/ComputerScene" unique_id=2089639586 instance=ExtResource("23_pyug8")]
-material_override = SubResource("StandardMaterial3D_67guu")
+material_override = SubResource("StandardMaterial3D_gqj7s")
 
 [node name="WoodenCeilingLampScene" parent="Inner" unique_id=1004981330 instance=ExtResource("13_36fuy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 3, 5.5)
@@ -939,8 +932,6 @@ current = true
 
 [node name="SceneBackground" parent="ExtraSkybox/BackgroundTexture" unique_id=447745979 instance=ExtResource("40_jk5bb")]
 
-[connection signal="body_entered" from="DropArea" to="SceneFunc" method="_on_drop_area_body_entered"]
-[connection signal="body_entered" from="ExitArea" to="SceneFunc" method="_on_exit_area_body_entered"]
 [connection signal="body_entered" from="ExitArea" to="ExitArea" method="_on_body_entered"]
 
 [editable path="WorldEnvironment/SunAxis"]

@@ -8,15 +8,15 @@ func _on_body_shape_entered(_body_rid: RID, body: Node, _body_shape_index: int, 
 	if body.get_parent() is AHL_Interactive:
 		interactive_obj = body.get_parent()
 	if (interactive_obj and interactive_obj.Hurtable == true and interactive_obj.get_parent() != user)\
-	or (body is Player and body != user):
+	or (body is LocalPlayer and body != user):
 		var damage_res: AHL_DamageResClass = AHL_DamageResClass.new()
 		damage_res.sender = user
 		damage_res.damage_point = self.linear_velocity.length() / 25
 		damage_res.attack_type = "normal"
-		if body is not Player:
+		if body is not LocalPlayer:
 			interactive_obj.receive_attack(damage_res,user)
 		else:
-			var player_th: Player = body
+			var player_th: LocalPlayer = body
 			player_th.receive_attack(damage_res,user)
 		timer.start()
 

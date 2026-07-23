@@ -1,5 +1,5 @@
 @tool
-extends StaticBody3D
+extends OcclusionedStaticBody
 
 @onready var mesh: MeshInstance3D = $DoorFrame
 @onready var bottom_mesh: MeshInstance3D = $Bottom
@@ -13,18 +13,12 @@ extends StaticBody3D
 		mesh_material = material
 		if Engine.is_editor_hint():
 			material_setter()
-@export_enum("none","dark","light") var occlusion : String = "dark":
-	set(state):
-		occlusion = state
-		OcclusionLogic.occlusion_setter(self)
 @export var bottom : bool = false :
 	set(state):
 		bottom = state
 		bottom_mesh.visible = state
 @export var ToLocation : String = "null"
 @export var ToLocationPos : Vector3 = Vector3(0,0,0)
-@onready var occlusion_obj: MeshInstance3D = $Occlusion
-@onready var occlusion_light_obj: MeshInstance3D = $Occlusion_light
 
 func _ready() -> void:
 	if mesh_color != Color(0,0,0,0) :	MaterialUtil.recolor(mesh,mesh_color)

@@ -1,6 +1,6 @@
 extends VBoxContainer
 
-var _keybind_screen = preload("res://Assets/UI/Options/KeybindScene.tscn")
+var _keybind_screen: PackedScene = preload("res://Assets/UI/Options/keybind_scene.tscn")
 
 var action_group: Array[String] = [
 	"ui_up","ui_down","ui_left","ui_right",
@@ -8,9 +8,9 @@ var action_group: Array[String] = [
 	]
 
 func _ready() -> void:
-	for i in get_children():
+	for i: Control in get_children():
 		i.queue_free()
-	for i in action_group:
+	for i: String in action_group:
 		var container: HBoxContainer = HBoxContainer.new()
 		add_child(container)
 		container.name = i
@@ -23,20 +23,20 @@ func _ready() -> void:
 		restore.flat = true
 		restore.set_h_size_flags(SIZE_SHRINK_END + SIZE_EXPAND)
 		restore.theme = preload("res://Assets/UI/Options/restore_button_scene.tres")
-		restore.pressed.connect(keybingding_restore.bind(i))
+		var _connect: int = restore.pressed.connect(keybingding_restore.bind(i))
 		var button: Button = Button.new()
 		container.add_child(button)
 		button.alignment = HORIZONTAL_ALIGNMENT_LEFT
 		button.clip_text = true
 		button.custom_minimum_size.x = 200
-		button.pressed.connect(start_keybind.bind(i))
+		_connect = button.pressed.connect(start_keybind.bind(i))
 		
 		# Overwrite keybindings from custom settings
-		var event_array = Global.load_settings_from_file("keybindings",i,ProjectSettings.get_setting("input/"+i)["events"])
+		var event_array: Array = Global.load_settings_from_file("keybindings",i,ProjectSettings.get_setting("input/"+i)["events"])
 		#print(event_array, ProjectSettings.get_setting("input/"+i)["events"], event_array == ProjectSettings.get_setting("input/"+i)["events"])
 		if event_array != ProjectSettings.get_setting("input/"+i)["events"]:
 			InputMap.action_erase_events(i)
-			for j in event_array:
+			for j: InputEvent in event_array:
 				InputMap.action_add_event(i,j)
 		else:
 			restore.set_disabled(true)
@@ -45,24 +45,25 @@ func _ready() -> void:
 		button.set_theme(preload("res://addons/key_controls_translator/Keyboard&Mouse/km_font_theme.tres"))
 
 func key_array_to_string(action: String) -> String:
-	var result = ""
-	var array = Global.get_key_event_array(action)
-	for i in array:
+	var result: String = ""
+	var array: Array = Global.get_key_event_array(action)
+	for i: InputEvent in array:
 		var keyName: String = i.as_text()
-		var keyIcon = KCT_kmTranslator.get_key_from_name(keyName)
+		var keyIcon: Variant = KCT_kmTranslator.get_key_from_name(keyName)
 		if keyIcon or keyName.length() == 1:
 			result += keyName if keyIcon == null else keyIcon
 	return result
 	
 func keybingding_restore(action: String) -> void:
 	InputMap.action_erase_events(action)
-	for i in ProjectSettings.get_setting("input/"+action)["events"]:
+	for i: InputEvent in ProjectSettings.get_setting("input/"+action)["events"]:
 		InputMap.action_add_event(action,i)
 	Global.save_settings_to_file("keybindings",action,InputMap.action_get_events(action))
 	_ready()
 
 func start_keybind(action: String) -> void:
-	var keybind_screen = _keybind_screen.instantiate()
+	var keybind_screen: CanvasLayer = _keybind_screen.instantiate()
 	get_tree().get_root().add_child(keybind_screen)
-	keybind_screen.get_child(0).get_child(0).setup_keybind(action)
-	keybind_screen.tree_exited.connect(_ready)
+	var keybind_window: KeybindWindow = keybind_screen.get_child(0).get_child(0)
+	keybind_window.setup_keybind(action)
+	var _connect: int = keybind_screen.tree_exited.connect(_ready)

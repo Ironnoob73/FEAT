@@ -708,6 +708,9 @@ render_target_update_mode = 0
 
 [node name="MeshView2d" parent="ItemInv/Preview/View/Viewport" unique_id=1655687544 instance=ExtResource("4_uebq1")]
 
+[node name="AnimationPlayer" parent="ItemInv/Preview/View/Viewport/MeshView2d" index="2"]
+autoplay = &"rotation"
+
 [node name="Description" type="RichTextLabel" parent="ItemInv/Preview" unique_id=100232225]
 layout_mode = 2
 size_flags_vertical = 3
@@ -886,3 +889,5 @@ libraries/ = SubResource("AnimationLibrary_q4uqo")
 [connection signal="column_title_clicked" from="EquipmentInv/EquipmentList" to="." method="_on_equipment_list_column_title_clicked"]
 [connection signal="item_selected" from="EquipmentInv/EquipmentList" to="." method="_on_equipment_list_item_selected"]
 [connection signal="on_item_select" from="Hotbar/ItemChooseWindow" to="." method="_on_item_choose_window_on_item_select"]
+
+[editable path="ItemInv/Preview/View/Viewport/MeshView2d"]

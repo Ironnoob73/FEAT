@@ -1,3 +1,4 @@
+class_name KeybindWindow
 extends Window
 
 var _action: String = ""
@@ -25,11 +26,11 @@ func setup_keybind(action: String) -> void:
 	refresh_list()
 	
 func refresh_list() -> void:
-	for i in v_list.get_children():
+	for i: Control in v_list.get_children():
 		if i is HBoxContainer and i.name != "HBox":
 			i.queue_free()
 	var previous_node: Node = action_name
-	for i in Global.get_key_event_array(_action):
+	for i: InputEvent in Global.get_key_event_array(_action):
 		var HBox: HBoxContainer = HBoxContainer.new()
 		previous_node.add_sibling(HBox)
 		previous_node = HBox
@@ -37,7 +38,7 @@ func refresh_list() -> void:
 		var KeyLabel: Label = Label.new()
 		previous_node.add_child(KeyLabel)
 		var keyName: String = i.as_text()
-		var keyIcon = KCT_kmTranslator.get_key_from_name(keyName)
+		var keyIcon: String = KCT_kmTranslator.get_key_from_name(keyName)
 		KeyLabel.text = keyName if keyIcon == null else keyIcon
 		if keyIcon or keyName.length() == 1:
 			KeyLabel.set_theme(preload("res://addons/key_controls_translator/Keyboard&Mouse/km_font_theme.tres"))
@@ -48,7 +49,7 @@ func refresh_list() -> void:
 		previous_node.add_child(UnbindButton)
 		UnbindButton.text = "-"
 		UnbindButton.custom_minimum_size.x = 35
-		UnbindButton.pressed.connect(_on_remove_event.bind(i))
+		var _connect: int = UnbindButton.pressed.connect(_on_remove_event.bind(i))
 	Global.save_settings_to_file("keybindings",_action,InputMap.action_get_events(_action))
 	
 func _unhandled_input(event: InputEvent) -> void:

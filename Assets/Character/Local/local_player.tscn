@@ -15,7 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://cgea2weecephm" path="res://Assets/UI/Chat/Chat.tscn" id="13_b0yok"]
 [ext_resource type="PackedScene" uid="uid://tnlamai5w4yx" path="res://Assets/UI/VirtualJoypad/VirtualJoypad.tscn" id="14_wotnq"]
 [ext_resource type="PackedScene" uid="uid://dtcknsjsvxg38" path="res://Assets/Inventory/inventory.tscn" id="15_t4eqd"]
-[ext_resource type="PackedScene" uid="uid://bledb03vcydda" path="res://Assets/UI/Pause_menu.tscn" id="16_j51lb"]
+[ext_resource type="PackedScene" uid="uid://bledb03vcydda" path="res://Assets/UI/pause_menu.tscn" id="16_j51lb"]
 [ext_resource type="Shader" uid="uid://bqra68olqj7u5" path="res://Assets/Character/Local/cursor.gdshader" id="17_mkf4v"]
 [ext_resource type="PackedScene" uid="uid://dnof7wcs0plpt" path="res://addons/abyss_history_lib/Scene/DynamicTooltip/tooltip_scene.tscn" id="18_060vc"]
 

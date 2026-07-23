@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dfmtp3c8wtlii"]
 
-[ext_resource type="Script" uid="uid://cp3i1mvdjv4k8" path="res://Resources/Object/Building/OcclusionSetup.gd" id="1_rtj1e"]
+[ext_resource type="Script" uid="uid://cp3i1mvdjv4k8" path="res://Resources/Object/Building/occlusion_static_body.gd" id="1_rtj1e"]
 [ext_resource type="ArrayMesh" uid="uid://cr666vlwdrkv4" path="res://Resources/Object/Building/Window/SlidingWindow/SlidingWindowFrame.obj" id="3_bm2hi"]
 [ext_resource type="Script" uid="uid://c8ier7k2ohfsp" path="res://addons/abyss_history_lib/Class/Interact/interactive_class.gd" id="4_hung4"]
 [ext_resource type="Script" uid="uid://1e151u0twqch" path="res://Resources/Object/Building/Window/SlidingWindow/WindowInteraction.gd" id="5_32h3m"]

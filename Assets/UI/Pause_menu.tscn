@@ -1,7 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://bledb03vcydda"]
+[gd_scene format=3 uid="uid://bledb03vcydda"]
 
-[ext_resource type="Script" uid="uid://bmr6xec2jjrgt" path="res://Assets/UI/Pause_menu.gd" id="1_dd1d4"]
-[ext_resource type="PackedScene" uid="uid://cnl53v0lrb1mv" path="res://Assets/UI/Options/Options.tscn" id="2_unk1s"]
+[ext_resource type="Script" uid="uid://bmr6xec2jjrgt" path="res://Assets/UI/pause_menu.gd" id="1_dd1d4"]
+[ext_resource type="PackedScene" uid="uid://cnl53v0lrb1mv" path="res://Assets/UI/Options/options.tscn" id="2_unk1s"]
 
 [sub_resource type="InputEventAction" id="InputEventAction_qotme"]
 action = &"ui_cancel"
@@ -389,9 +389,8 @@ _data = {
 &"RESET": SubResource("Animation_pfqdl")
 }
 
-[node name="Pause_menu" type="ColorRect"]
+[node name="Pause_menu" type="ColorRect" unique_id=1482141763]
 process_mode = 3
-anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
@@ -399,14 +398,14 @@ grow_vertical = 2
 color = Color(0, 0, 0, 0.498039)
 script = ExtResource("1_dd1d4")
 
-[node name="Main" type="VBoxContainer" parent="."]
+[node name="Main" type="VBoxContainer" parent="." unique_id=827571197]
 layout_mode = 1
 anchors_preset = -1
 offset_left = 25.0
 offset_top = 25.0
 offset_right = 534.0
 
-[node name="pause_title" type="Label" parent="Main"]
+[node name="pause_title" type="Label" parent="Main" unique_id=493042900]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
@@ -415,7 +414,7 @@ theme_override_constants/outline_size = 5
 theme_override_font_sizes/font_size = 100
 text = "pause.title"
 
-[node name="ResumeButton" type="Button" parent="Main"]
+[node name="ResumeButton" type="Button" parent="Main" unique_id=1350168855]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.74902, 0.74902, 0.74902, 1)
 theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
@@ -426,7 +425,7 @@ text = "pause.resume"
 flat = true
 alignment = 0
 
-[node name="OptionsButton" type="Button" parent="Main"]
+[node name="OptionsButton" type="Button" parent="Main" unique_id=654390928]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.74902, 0.74902, 0.74902, 1)
 theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
@@ -437,7 +436,7 @@ text = "title.menu.options"
 flat = true
 alignment = 0
 
-[node name="ExitButton" type="Button" parent="Main"]
+[node name="ExitButton" type="Button" parent="Main" unique_id=180879790]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.74902, 0.74902, 0.74902, 1)
 theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
@@ -448,7 +447,7 @@ text = "title.menu.exit"
 flat = true
 alignment = 0
 
-[node name="MultiPlayerList" type="Tree" parent="."]
+[node name="MultiPlayerList" type="Tree" parent="." unique_id=2068878846]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 1.0
@@ -459,7 +458,7 @@ grow_horizontal = 0
 grow_vertical = 2
 allow_search = false
 
-[node name="Options" parent="." instance=ExtResource("2_unk1s")]
+[node name="Options" parent="." unique_id=1803248000 instance=ExtResource("2_unk1s")]
 visible = false
 layout_mode = 1
 anchors_preset = -1
@@ -472,13 +471,13 @@ offset_top = 0.0
 offset_right = 0.0
 offset_bottom = 0.0
 
-[node name="DataPath" parent="Options/#options_game#/GameSetting/VSplit" index="1"]
+[node name="DataPath" parent="Options/#options_game#/GameSetting/VSplit" parent_id_path=PackedInt32Array(1803248000, 1308970388) index="1" unique_id=146]
 visible = false
 
-[node name="keyDebugScene" parent="Options/#options_game#/GameSetting/VSplit/DebugOptContainer" index="3"]
+[node name="keyDebugScene" parent="Options/#options_game#/GameSetting/VSplit/DebugOptContainer" parent_id_path=PackedInt32Array(1803248000, 1640122404) index="3" unique_id=70302996]
 visible = false
 
-[node name="BackButton" type="Button" parent="."]
+[node name="BackButton" type="Button" parent="." unique_id=378518916]
 visible = false
 layout_mode = 1
 anchors_preset = -1
@@ -491,7 +490,7 @@ grow_vertical = 0
 shortcut = SubResource("Shortcut_0jaa1")
 text = "button.back"
 
-[node name="ExitBox" type="VBoxContainer" parent="."]
+[node name="ExitBox" type="VBoxContainer" parent="." unique_id=837618118]
 visible = false
 layout_mode = 1
 anchors_preset = -1
@@ -502,23 +501,23 @@ anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="exit_text0" type="Label" parent="ExitBox"]
+[node name="exit_text0" type="Label" parent="ExitBox" unique_id=410840045]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 35
 text = "exit.ask"
 
-[node name="exit_text1" type="Label" parent="ExitBox"]
+[node name="exit_text1" type="Label" parent="ExitBox" unique_id=741974384]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 35
 text = "exit.save"
 
-[node name="HBox" type="HBoxContainer" parent="ExitBox"]
+[node name="HBox" type="HBoxContainer" parent="ExitBox" unique_id=1378838730]
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="ConfirmButton" type="Button" parent="ExitBox/HBox"]
+[node name="ConfirmButton" type="Button" parent="ExitBox/HBox" unique_id=703711016]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.74902, 0.74902, 0.74902, 1)
@@ -527,7 +526,7 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 30
 text = "button.confirm"
 
-[node name="CancelButton" type="Button" parent="ExitBox/HBox"]
+[node name="CancelButton" type="Button" parent="ExitBox/HBox" unique_id=811396880]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.74902, 0.74902, 0.74902, 1)
@@ -537,10 +536,8 @@ theme_override_font_sizes/font_size = 30
 shortcut = SubResource("Shortcut_0jaa1")
 text = "button.cancel"
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_x1qir")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=574159292]
+libraries/ = SubResource("AnimationLibrary_x1qir")
 
 [connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
 [connection signal="pressed" from="Main/ResumeButton" to="." method="_on_resume_button_pressed"]

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bgelaund2s486"]
 
-[ext_resource type="Script" uid="uid://cp3i1mvdjv4k8" path="res://Resources/Object/Building/OcclusionSetup.gd" id="1_6unuo"]
+[ext_resource type="Script" uid="uid://cp3i1mvdjv4k8" path="res://Resources/Object/Building/occlusion_static_body.gd" id="1_6unuo"]
 [ext_resource type="Material" uid="uid://bi2qrop8jfbsf" path="res://Resources/Material/Tree.tres" id="1_ruirv"]
 [ext_resource type="ArrayMesh" uid="uid://cj8yvtn7voah" path="res://Resources/Object/Building/Window/CasementWindow/CasementWindowFrame.obj" id="2_8ujlu"]
 [ext_resource type="Script" uid="uid://cuiwmk4g765at" path="res://Resources/Object/Building/Window/CasementWindow/WindowInteraction.gd" id="3_50q7s"]

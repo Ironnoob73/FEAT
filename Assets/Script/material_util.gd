@@ -1,0 +1,15 @@
+@tool
+class_name MaterialUtil
+
+static func recolor(obj: MeshInstance3D, color: Color) -> void:
+	if obj != null && obj.get_material_overlay() :
+		var mat_d: ShaderMaterial = obj.material_overlay.duplicate()
+		obj.material_overlay = mat_d
+		var material_o: ShaderMaterial = obj.material_overlay
+		material_o.set_shader_parameter("color",color)
+	
+static func change_material(obj: MeshInstance3D, material: Material) -> void:
+	if obj != null:
+		var mat_d: Material = obj.material_override.duplicate()
+		obj.material_override = mat_d
+		obj.material_override = material

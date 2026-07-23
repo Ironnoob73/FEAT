@@ -27,7 +27,7 @@ func _ready() -> void:
 		
 	Global.make_world_ready()
 
-func _on_options_set_sdfgi(value : bool) -> void:
+func _on_options_set_sdfgi(_value : bool) -> void:
 	#if Global.isInGame:
 	#	env.environment.set_sdfgi_enabled(value)
 	pass

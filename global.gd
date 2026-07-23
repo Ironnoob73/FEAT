@@ -89,18 +89,23 @@ func load_config() -> void:
 	var file: ConfigFile = ConfigFile.new()
 	var err: Error = file.load(CONFIG_PATH)
 	if err == OK:
-		TranslationServer.set_locale(file.get_value("game","language",TranslationServer.get_locale()))
+		var locate_value: String = file.get_value("game","language",TranslationServer.get_locale())
+		TranslationServer.set_locale(locate_value)
 		DATA_PATH = file.get_value("game","data_path","user://")
 		load_use_sub_threads = file.get_value("game","load_use_sub_threads",false)
 		printDebugInfo = file.get_value("game","print_debug_info",false)
 		catchPElemIssue = file.get_value("game","catch_p_null_issue",false)
 		alwaysShowCursor = file.get_value("game","always_show_cursor",false)
-		DisplayServer.window_set_mode(file.get_value("video","fullscreen",DisplayServer.window_get_mode()))
+		var window_mode: int = file.get_value("video","fullscreen",DisplayServer.window_get_mode())
+		DisplayServer.window_set_mode(window_mode)
 		get_window().content_scale_factor = file.get_value("video","scale",1)
 		Sdfgi = file.get_value("video","sdfgi",false)
-		AudioServer.set_bus_volume_db(0,file.get_value("audio","master",AudioServer.get_bus_volume_db(0)))
-		AudioServer.set_bus_volume_db(1,file.get_value("audio","bgm",AudioServer.get_bus_volume_db(1)))
-		AudioServer.set_bus_volume_db(2,file.get_value("audio","sfx",AudioServer.get_bus_volume_db(2)))
+		var master_volume: float = file.get_value("audio","master",AudioServer.get_bus_volume_db(0))
+		AudioServer.set_bus_volume_db(0, master_volume)
+		var bgm_volume: float = file.get_value("audio","bgm",AudioServer.get_bus_volume_db(1))
+		AudioServer.set_bus_volume_db(1, bgm_volume)
+		var sfx_volume: float = file.get_value("audio","sfx",AudioServer.get_bus_volume_db(2))
+		AudioServer.set_bus_volume_db(2, sfx_volume)
 		mouse_sens = file.get_value("control","mouse_sens",0.4)
 		auto_pickup = file.get_value("control","auto_pickup",true)
 		playerName = file.get_value("profile","user_name","Anonymous")
@@ -167,12 +172,14 @@ func is_os_language_supported() -> bool:
 	
 # Multiplayer
 func host(port:int) -> void:
-	if isInGame:
-		get_node("/root/World").host(port)
+	if isInGame and get_node("/root/World") is World:
+		var world: World = get_node("/root/World")
+		world.host(port)
 
 func join(address:String,port:int) -> void:
-	if isInGame:
-		get_node("/root/World").join(address,port)
+	if isInGame and get_node("/root/World") is World:
+		var world: World = get_node("/root/World")
+		world.join(address,port)
 
 # DUID
 ## Like UUID but not.

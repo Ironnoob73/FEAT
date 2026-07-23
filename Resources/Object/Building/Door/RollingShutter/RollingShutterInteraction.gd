@@ -1,5 +1,5 @@
 @tool
-extends StaticBody3D
+extends OcclusionedStaticBody
 
 @export var open : bool = false:
 	set(state):
@@ -11,10 +11,6 @@ extends StaticBody3D
 		inner = state
 		inner_setter()
 @export var lock : int = 0
-@export_enum("none","dark","light") var occlusion : String = "dark":
-	set(state):
-		occlusion = state
-		OcclusionLogic.occlusion_setter(self)
 @export var ToLocation : String = "null"
 @export var ToLocationPos : Vector3 = Vector3(0,1,0)
 
@@ -24,8 +20,6 @@ extends StaticBody3D
 @onready var p2: StaticBody3D = $DoorPlate2
 @onready var lock_tip_f: Label3D = $LockTipF
 @onready var lock_tip_b: Label3D = $LockTipB
-@onready var occlusion_obj: MeshInstance3D = $Occlusion
-@onready var occlusion_light_obj: MeshInstance3D = $Occlusion_light
 
 func _ready() -> void:
 	open_setter()

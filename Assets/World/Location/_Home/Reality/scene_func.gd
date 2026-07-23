@@ -1,19 +1,21 @@
-extends Node
+@tool
+class_name RealityRoomFunc
+extends AHL_ScenePackage
 
-@onready var computer_scene: AHL_Interactive = $"../Inner/ComputerScene"
-@onready var start_screen: Sprite2D = $"../StartScreen"
+@onready var computer_scene: AHL_Interactive = $Inner/ComputerScene
+@onready var start_screen: Sprite2D = $StartScreen
 
 var player_is_falling: bool = false
 var current_pos: Vector3 = Vector3(0,0,0)
 var current_vel: float = 0
 
-@onready var color_rect: ColorRect = $"../ExitArea/ColorRect"
-@onready var exit_text: VBoxContainer = $"../ExitArea/ColorRect/VBoxContainer"
+@onready var color_rect: ColorRect = $ExitArea/ColorRect
+@onready var exit_text: VBoxContainer = $ExitArea/ColorRect/VBoxContainer
 # Exit icon from: https://www.svgrepo.com/svg/509594/ja301-emergency-exit
 
 ## Move from WorldMain Scene
-@onready var env: WorldEnvironment = $"../WorldEnvironment"
-@onready var sun_axis: sun_axis_class = $"../WorldEnvironment/SunAxis"
+@onready var env: WorldEnvironment = $WorldEnvironment
+@onready var sun_axis: sun_axis_class = $WorldEnvironment/SunAxis
 
 var ambient_color: Color = Color(0,0,0)
 

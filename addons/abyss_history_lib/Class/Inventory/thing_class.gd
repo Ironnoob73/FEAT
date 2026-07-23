@@ -2,7 +2,7 @@ extends Resource
 class_name AHL_ThingClass
 
 @export var name0 : String
-@export var icon : Texture = preload("res://Resources/Image/missing.svg")
+@export var icon : Texture2D = preload("res://Resources/Image/missing.svg")
 @export var model : Mesh = preload("res://Resources/Object/Function/Pickable/missing.obj")
 @export var material : Material = preload("res://Resources/Object/Function/Pickable/DefaultMaterial.tres")
 @export var description : String = "item.no_des"

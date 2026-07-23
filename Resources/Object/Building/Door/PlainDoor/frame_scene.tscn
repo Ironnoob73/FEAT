@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://c5nkwuac4jut0"]
+[gd_scene format=3 uid="uid://c5nkwuac4jut0"]
 
 [ext_resource type="Script" uid="uid://8d7jpktk4f43" path="res://Resources/Object/Building/Door/PlainDoor/DoorFrameRecolor.gd" id="1_glgy1"]
 [ext_resource type="Material" uid="uid://bi2qrop8jfbsf" path="res://Resources/Material/Tree.tres" id="1_xa7w8"]
@@ -28,43 +28,43 @@ size = Vector3(1.2, 2.4, 0.1)
 [sub_resource type="PlaneMesh" id="PlaneMesh_8ckeh"]
 size = Vector2(1.2, 0.2)
 
-[node name="FrameScene" type="StaticBody3D"]
+[node name="FrameScene" type="StaticBody3D" unique_id=99777462]
 collision_layer = 3
 script = ExtResource("1_glgy1")
-occlusion = "light"
 ToLocationPos = Vector3(0, 1, 0)
 
-[node name="DoorFrame" type="MeshInstance3D" parent="."]
+[node name="DoorFrame" type="MeshInstance3D" parent="." unique_id=1557420754]
 material_override = ExtResource("1_xa7w8")
 material_overlay = SubResource("ShaderMaterial_rq84c")
 mesh = ExtResource("2_uio7l")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1177068097]
 shape = SubResource("ConcavePolygonShape3D_cyb54")
 
-[node name="Occlusion" type="MeshInstance3D" parent="."]
+[node name="Occlusion" type="MeshInstance3D" parent="." unique_id=1229653770]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 1.2, 0.1)
 visible = false
 material_override = ExtResource("5_cm3tb")
 mesh = SubResource("QuadMesh_63jro")
 
-[node name="Occlusion_light" type="MeshInstance3D" parent="."]
+[node name="Occlusion_light" type="MeshInstance3D" parent="." unique_id=1885683906]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 1.2, 0.1)
+visible = false
 material_override = ExtResource("6_4g2hj")
 mesh = SubResource("QuadMesh_cgvbv")
 
-[node name="OmniLight3D" type="OmniLight3D" parent="Occlusion_light"]
+[node name="OmniLight3D" type="OmniLight3D" parent="Occlusion_light" unique_id=2023612230]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -0.9)
 shadow_enabled = true
 shadow_normal_bias = 10.0
 
-[node name="Teleporter" type="Area3D" parent="." groups=["Teleporter"]]
+[node name="Teleporter" type="Area3D" parent="." unique_id=1766204682 groups=["Teleporter"]]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Teleporter"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Teleporter" unique_id=735625613]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, 0.15)
 shape = SubResource("BoxShape3D_vgq7w")
 
-[node name="Bottom" type="MeshInstance3D" parent="."]
+[node name="Bottom" type="MeshInstance3D" parent="." unique_id=781526303]
 visible = false
 material_override = ExtResource("7_i4j0n")
 mesh = SubResource("PlaneMesh_8ckeh")

@@ -21,16 +21,16 @@ var lock: Callable = func()->void : return get_parent().get_meta('lock_int',0)
 func init() -> void:
 	if get_c_color() != Color(0,0,0,0) :	MaterialUtil.recolor(mesh,get_c_color())
 	#if mesh_color != Color(0,0,0,0) :	MaterialUtil.recolor(mesh,mesh_color)
-	if get_c_material(): MaterialUtil.change_material(mesh,get_c_material())
-	#if mesh_material : MaterialUtil.change_material(mesh,mesh_material)
+	if get_c_material(): MaterialUtil.change_material(mesh, get_c_material())
+	#if mesh_material : MaterialUtil.change_material(mesh, mesh_material)
 	if !get_parent().is_node_ready():
 		await get_parent().ready
 		_state_change()
 	
 func color_setter() -> void:
-	MaterialUtil.recolor(mesh,mesh_color)
+	MaterialUtil.recolor(mesh, mesh_color)
 func material_setter() -> void:
-	MaterialUtil.change_material(mesh,mesh_material)
+	MaterialUtil.change_material(mesh, mesh_material)
 
 func interact(_sender:Node) -> void:
 	if !open and get_lock():

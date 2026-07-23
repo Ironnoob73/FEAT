@@ -1,6 +1,6 @@
-[gd_scene load_steps=12 format=3 uid="uid://cnl53v0lrb1mv"]
+[gd_scene format=3 uid="uid://cnl53v0lrb1mv"]
 
-[ext_resource type="Script" uid="uid://cmgyke5hcxe75" path="res://Assets/UI/Options/Options.gd" id="1_54q7r"]
+[ext_resource type="Script" uid="uid://cmgyke5hcxe75" path="res://Assets/UI/Options/options.gd" id="1_54q7r"]
 [ext_resource type="Theme" uid="uid://4vg46hb8hsti" path="res://Assets/UI/Options/restore_button_scene.tres" id="2_8vm80"]
 [ext_resource type="PackedScene" uid="uid://gqwcyi21yhlc" path="res://addons/abyss_history_lib/Scene/Notice/hint_button.tscn" id="2_hwb3r"]
 [ext_resource type="Texture2D" uid="uid://7yqunet0nhxt" path="res://Resources/Image/UI/Restore.svg" id="2_j0l55"]
@@ -37,7 +37,7 @@ title = "options.control.auto_pickup"
 bgColor = Color(0, 0.501961, 1, 1)
 content = "options.control.auto_pickup.disc"
 
-[node name="Options" type="TabContainer"]
+[node name="Options" type="TabContainer" unique_id=1452337572]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -52,7 +52,7 @@ grow_vertical = 2
 current_tab = 0
 script = ExtResource("1_54q7r")
 
-[node name="#options_game#" type="TabBar" parent="."]
+[node name="#options_game#" type="TabBar" parent="." unique_id=1724734054]
 layout_mode = 2
 focus_neighbor_left = NodePath("../#options_control#")
 focus_neighbor_top = NodePath(".")
@@ -62,7 +62,7 @@ focus_next = NodePath("../#options_video#")
 focus_previous = NodePath("../#options_control#")
 metadata/_tab_index = 0
 
-[node name="GameSetting" type="ScrollContainer" parent="#options_game#"]
+[node name="GameSetting" type="ScrollContainer" parent="#options_game#" unique_id=2129152101]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -70,26 +70,26 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VSplit" type="VBoxContainer" parent="#options_game#/GameSetting"]
+[node name="VSplit" type="VBoxContainer" parent="#options_game#/GameSetting" unique_id=1308970388]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Language" type="HBoxContainer" parent="#options_game#/GameSetting/VSplit"]
+[node name="Language" type="HBoxContainer" parent="#options_game#/GameSetting/VSplit" unique_id=1620433612]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="language_text" type="Label" parent="#options_game#/GameSetting/VSplit/Language"]
+[node name="language_text" type="Label" parent="#options_game#/GameSetting/VSplit/Language" unique_id=690478165]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "options.game.language"
 
-[node name="language_restore" type="Button" parent="#options_game#/GameSetting/VSplit/Language"]
+[node name="language_restore" type="Button" parent="#options_game#/GameSetting/VSplit/Language" unique_id=297623462]
 layout_mode = 2
 theme = ExtResource("2_8vm80")
 icon = ExtResource("2_j0l55")
 flat = true
 
-[node name="language_button" type="OptionButton" parent="#options_game#/GameSetting/VSplit/Language"]
+[node name="language_button" type="OptionButton" parent="#options_game#/GameSetting/VSplit/Language" unique_id=1471211597]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 size_flags_horizontal = 8
@@ -107,26 +107,26 @@ popup/item_0/id = 0
 popup/item_1/text = "中文"
 popup/item_1/id = 1
 
-[node name="DataPath" type="HBoxContainer" parent="#options_game#/GameSetting/VSplit"]
+[node name="DataPath" type="HBoxContainer" parent="#options_game#/GameSetting/VSplit" unique_id=146]
 layout_mode = 2
 
-[node name="datapath_text" type="Label" parent="#options_game#/GameSetting/VSplit/DataPath"]
+[node name="datapath_text" type="Label" parent="#options_game#/GameSetting/VSplit/DataPath" unique_id=1242956101]
 layout_mode = 2
 text = "options.game.data"
 
-[node name="HintButton" parent="#options_game#/GameSetting/VSplit/DataPath" instance=ExtResource("2_hwb3r")]
+[node name="HintButton" parent="#options_game#/GameSetting/VSplit/DataPath" unique_id=1095241185 instance=ExtResource("2_hwb3r")]
 layout_mode = 2
 text = "不要修改容器大小，这个改成填充会导致按钮太大。"
 notice = SubResource("Resource_wnie8")
 
-[node name="datapath_restore" type="Button" parent="#options_game#/GameSetting/VSplit/DataPath"]
+[node name="datapath_restore" type="Button" parent="#options_game#/GameSetting/VSplit/DataPath" unique_id=1296724741]
 layout_mode = 2
 size_flags_horizontal = 10
 theme = ExtResource("2_8vm80")
 icon = ExtResource("2_j0l55")
 flat = true
 
-[node name="datapath_button" type="Button" parent="#options_game#/GameSetting/VSplit/DataPath"]
+[node name="datapath_button" type="Button" parent="#options_game#/GameSetting/VSplit/DataPath" unique_id=587231769]
 custom_minimum_size = Vector2(200, 35)
 layout_mode = 2
 focus_neighbor_left = NodePath(".")
@@ -136,7 +136,7 @@ focus_neighbor_bottom = NodePath("../../Language/language_button")
 focus_next = NodePath("../../Language/language_button")
 focus_previous = NodePath("../../Language/language_button")
 
-[node name="path_choose" type="FileDialog" parent="#options_game#/GameSetting/VSplit/DataPath/datapath_button"]
+[node name="path_choose" type="FileDialog" parent="#options_game#/GameSetting/VSplit/DataPath/datapath_button" unique_id=1509055518]
 gui_embed_subwindows = true
 title = "file.open_directory"
 initial_position = 2
@@ -148,26 +148,26 @@ file_mode = 2
 access = 2
 use_native_dialog = true
 
-[node name="UseSubThreads" type="HBoxContainer" parent="#options_game#/GameSetting/VSplit"]
+[node name="UseSubThreads" type="HBoxContainer" parent="#options_game#/GameSetting/VSplit" unique_id=1287752506]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="ust_text" type="Label" parent="#options_game#/GameSetting/VSplit/UseSubThreads"]
+[node name="ust_text" type="Label" parent="#options_game#/GameSetting/VSplit/UseSubThreads" unique_id=1139171479]
 layout_mode = 2
 text = "options.game.use_sub_threads"
 
-[node name="HintButton" parent="#options_game#/GameSetting/VSplit/UseSubThreads" instance=ExtResource("2_hwb3r")]
+[node name="HintButton" parent="#options_game#/GameSetting/VSplit/UseSubThreads" unique_id=564826928 instance=ExtResource("2_hwb3r")]
 layout_mode = 2
 notice = SubResource("Resource_hwb3r")
 
-[node name="ust_restore" type="Button" parent="#options_game#/GameSetting/VSplit/UseSubThreads"]
+[node name="ust_restore" type="Button" parent="#options_game#/GameSetting/VSplit/UseSubThreads" unique_id=648274228]
 layout_mode = 2
 size_flags_horizontal = 10
 theme = ExtResource("2_8vm80")
 icon = ExtResource("2_j0l55")
 flat = true
 
-[node name="ust_button" type="CheckBox" parent="#options_game#/GameSetting/VSplit/UseSubThreads"]
+[node name="ust_checkbox" type="CheckBox" parent="#options_game#/GameSetting/VSplit/UseSubThreads" unique_id=2139057672]
 layout_mode = 2
 focus_neighbor_left = NodePath(".")
 focus_neighbor_top = NodePath("../../../..")
@@ -179,30 +179,30 @@ text = " "
 flat = true
 clip_text = true
 
-[node name="DebugOptGroup" type="Button" parent="#options_game#/GameSetting/VSplit"]
+[node name="DebugOptGroup" type="Button" parent="#options_game#/GameSetting/VSplit" unique_id=554726361]
 layout_mode = 2
 toggle_mode = true
 text = "options.game.debug.group"
 
-[node name="DebugOptContainer" type="VBoxContainer" parent="#options_game#/GameSetting/VSplit"]
+[node name="DebugOptContainer" type="VBoxContainer" parent="#options_game#/GameSetting/VSplit" unique_id=1640122404]
 layout_mode = 2
 
-[node name="PrintDebugInfo" type="HBoxContainer" parent="#options_game#/GameSetting/VSplit/DebugOptContainer"]
+[node name="PrintDebugInfo" type="HBoxContainer" parent="#options_game#/GameSetting/VSplit/DebugOptContainer" unique_id=661062770]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="pdi_text" type="Label" parent="#options_game#/GameSetting/VSplit/DebugOptContainer/PrintDebugInfo"]
+[node name="pdi_text" type="Label" parent="#options_game#/GameSetting/VSplit/DebugOptContainer/PrintDebugInfo" unique_id=395824560]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "options.game.print_debug_info"
 
-[node name="pdi_restore" type="Button" parent="#options_game#/GameSetting/VSplit/DebugOptContainer/PrintDebugInfo"]
+[node name="pdi_restore" type="Button" parent="#options_game#/GameSetting/VSplit/DebugOptContainer/PrintDebugInfo" unique_id=1972154863]
 layout_mode = 2
 theme = ExtResource("2_8vm80")
 icon = ExtResource("2_j0l55")
 flat = true
 
-[node name="pdi_button" type="CheckBox" parent="#options_game#/GameSetting/VSplit/DebugOptContainer/PrintDebugInfo"]
+[node name="pdi_checkbox" type="CheckBox" parent="#options_game#/GameSetting/VSplit/DebugOptContainer/PrintDebugInfo" unique_id=936172134]
 layout_mode = 2
 focus_neighbor_left = NodePath(".")
 focus_neighbor_top = NodePath("../../../../..")
@@ -214,26 +214,26 @@ text = " "
 flat = true
 clip_text = true
 
-[node name="catchPElemIssue" type="HBoxContainer" parent="#options_game#/GameSetting/VSplit/DebugOptContainer"]
+[node name="catchPElemIssue" type="HBoxContainer" parent="#options_game#/GameSetting/VSplit/DebugOptContainer" unique_id=878530676]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="cpei_text" type="Label" parent="#options_game#/GameSetting/VSplit/DebugOptContainer/catchPElemIssue"]
+[node name="cpei_text" type="Label" parent="#options_game#/GameSetting/VSplit/DebugOptContainer/catchPElemIssue" unique_id=1662426127]
 layout_mode = 2
 text = "options.game.catch_p_elem_issue"
 
-[node name="HintButton" parent="#options_game#/GameSetting/VSplit/DebugOptContainer/catchPElemIssue" instance=ExtResource("2_hwb3r")]
+[node name="HintButton" parent="#options_game#/GameSetting/VSplit/DebugOptContainer/catchPElemIssue" unique_id=393663515 instance=ExtResource("2_hwb3r")]
 layout_mode = 2
 notice = SubResource("Resource_g8qbb")
 
-[node name="cpei_restore" type="Button" parent="#options_game#/GameSetting/VSplit/DebugOptContainer/catchPElemIssue"]
+[node name="cpei_restore" type="Button" parent="#options_game#/GameSetting/VSplit/DebugOptContainer/catchPElemIssue" unique_id=1868940444]
 layout_mode = 2
 size_flags_horizontal = 10
 theme = ExtResource("2_8vm80")
 icon = ExtResource("2_j0l55")
 flat = true
 
-[node name="cpei_button" type="CheckBox" parent="#options_game#/GameSetting/VSplit/DebugOptContainer/catchPElemIssue"]
+[node name="cpei_checkbox" type="CheckBox" parent="#options_game#/GameSetting/VSplit/DebugOptContainer/catchPElemIssue" unique_id=1323102815]
 layout_mode = 2
 focus_neighbor_left = NodePath(".")
 focus_neighbor_top = NodePath("../../../../..")
@@ -245,22 +245,22 @@ text = " "
 flat = true
 clip_text = true
 
-[node name="alwaysShowCursor" type="HBoxContainer" parent="#options_game#/GameSetting/VSplit/DebugOptContainer"]
+[node name="alwaysShowCursor" type="HBoxContainer" parent="#options_game#/GameSetting/VSplit/DebugOptContainer" unique_id=1276439477]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="asc_text" type="Label" parent="#options_game#/GameSetting/VSplit/DebugOptContainer/alwaysShowCursor"]
+[node name="asc_text" type="Label" parent="#options_game#/GameSetting/VSplit/DebugOptContainer/alwaysShowCursor" unique_id=1435590041]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "options.game.always_show_cursor"
 
-[node name="asc_restore" type="Button" parent="#options_game#/GameSetting/VSplit/DebugOptContainer/alwaysShowCursor"]
+[node name="asc_restore" type="Button" parent="#options_game#/GameSetting/VSplit/DebugOptContainer/alwaysShowCursor" unique_id=899331861]
 layout_mode = 2
 theme = ExtResource("2_8vm80")
 icon = ExtResource("2_j0l55")
 flat = true
 
-[node name="asc_button" type="CheckBox" parent="#options_game#/GameSetting/VSplit/DebugOptContainer/alwaysShowCursor"]
+[node name="asc_checkbox" type="CheckBox" parent="#options_game#/GameSetting/VSplit/DebugOptContainer/alwaysShowCursor" unique_id=1513204396]
 layout_mode = 2
 focus_neighbor_left = NodePath(".")
 focus_neighbor_top = NodePath("../../../..")
@@ -272,36 +272,36 @@ text = " "
 flat = true
 clip_text = true
 
-[node name="keyDebugScene" type="HBoxContainer" parent="#options_game#/GameSetting/VSplit/DebugOptContainer"]
+[node name="keyDebugScene" type="HBoxContainer" parent="#options_game#/GameSetting/VSplit/DebugOptContainer" unique_id=70302996]
 layout_mode = 2
 metadata/_tab_index = 12
 
-[node name="kds_text" type="Label" parent="#options_game#/GameSetting/VSplit/DebugOptContainer/keyDebugScene"]
+[node name="kds_text" type="Label" parent="#options_game#/GameSetting/VSplit/DebugOptContainer/keyDebugScene" unique_id=1411193474]
 layout_mode = 2
 text = "options.game.key_debug_scene"
 
-[node name="kds_button" type="Button" parent="#options_game#/GameSetting/VSplit/DebugOptContainer/keyDebugScene"]
+[node name="kds_button" type="Button" parent="#options_game#/GameSetting/VSplit/DebugOptContainer/keyDebugScene" unique_id=1742582388]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 size_flags_horizontal = 10
 text = ">>>"
 
-[node name="FastBoot" type="HBoxContainer" parent="#options_game#/GameSetting/VSplit/DebugOptContainer"]
+[node name="FastBoot" type="HBoxContainer" parent="#options_game#/GameSetting/VSplit/DebugOptContainer" unique_id=1719480010]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="fb_text" type="Label" parent="#options_game#/GameSetting/VSplit/DebugOptContainer/FastBoot"]
+[node name="fb_text" type="Label" parent="#options_game#/GameSetting/VSplit/DebugOptContainer/FastBoot" unique_id=2016662635]
 layout_mode = 2
 text = "options.game.fast_boot"
 
-[node name="fb_restore" type="Button" parent="#options_game#/GameSetting/VSplit/DebugOptContainer/FastBoot"]
+[node name="fb_restore" type="Button" parent="#options_game#/GameSetting/VSplit/DebugOptContainer/FastBoot" unique_id=947112598]
 layout_mode = 2
 size_flags_horizontal = 10
 theme = ExtResource("2_8vm80")
 icon = ExtResource("2_j0l55")
 flat = true
 
-[node name="fb_button" type="CheckBox" parent="#options_game#/GameSetting/VSplit/DebugOptContainer/FastBoot"]
+[node name="fb_button" type="CheckBox" parent="#options_game#/GameSetting/VSplit/DebugOptContainer/FastBoot" unique_id=386661565]
 layout_mode = 2
 focus_neighbor_left = NodePath(".")
 focus_neighbor_top = NodePath("../../../../..")
@@ -313,22 +313,22 @@ text = " "
 flat = true
 clip_text = true
 
-[node name="OOBE" type="HBoxContainer" parent="#options_game#/GameSetting/VSplit/DebugOptContainer"]
+[node name="OOBE" type="HBoxContainer" parent="#options_game#/GameSetting/VSplit/DebugOptContainer" unique_id=301675074]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="oobe_text" type="Label" parent="#options_game#/GameSetting/VSplit/DebugOptContainer/OOBE"]
+[node name="oobe_text" type="Label" parent="#options_game#/GameSetting/VSplit/DebugOptContainer/OOBE" unique_id=1934359084]
 layout_mode = 2
 text = "options.game.oobe"
 
-[node name="oobe_restore" type="Button" parent="#options_game#/GameSetting/VSplit/DebugOptContainer/OOBE"]
+[node name="oobe_restore" type="Button" parent="#options_game#/GameSetting/VSplit/DebugOptContainer/OOBE" unique_id=647255763]
 layout_mode = 2
 size_flags_horizontal = 10
 theme = ExtResource("2_8vm80")
 icon = ExtResource("2_j0l55")
 flat = true
 
-[node name="oobe_button" type="CheckBox" parent="#options_game#/GameSetting/VSplit/DebugOptContainer/OOBE"]
+[node name="oobe_button" type="CheckBox" parent="#options_game#/GameSetting/VSplit/DebugOptContainer/OOBE" unique_id=20450323]
 layout_mode = 2
 focus_neighbor_left = NodePath(".")
 focus_neighbor_top = NodePath("../../../../..")
@@ -340,19 +340,19 @@ text = " "
 flat = true
 clip_text = true
 
-[node name="#options_video#" type="TabBar" parent="."]
+[node name="#options_video#" type="TabBar" parent="." unique_id=1334271185]
 visible = false
-layout_direction = 1
 layout_mode = 2
+layout_direction = 1
 focus_neighbor_left = NodePath("../#options_game#")
 focus_neighbor_top = NodePath(".")
 focus_neighbor_right = NodePath("../#options_audio#")
-focus_neighbor_bottom = NodePath("VideoSetting/VSpilt/Fullscreen/fullscreen_button")
+focus_neighbor_bottom = NodePath("VideoSetting/VSpilt/Fullscreen/fullscreen_checkbox")
 focus_next = NodePath("../#options_audio#")
 focus_previous = NodePath("../#options_game#")
 metadata/_tab_index = 1
 
-[node name="VideoSetting" type="ScrollContainer" parent="#options_video#"]
+[node name="VideoSetting" type="ScrollContainer" parent="#options_video#" unique_id=1586036111]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -360,26 +360,26 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VSpilt" type="VBoxContainer" parent="#options_video#/VideoSetting"]
+[node name="VSpilt" type="VBoxContainer" parent="#options_video#/VideoSetting" unique_id=1015270502]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Fullscreen" type="HBoxContainer" parent="#options_video#/VideoSetting/VSpilt"]
+[node name="Fullscreen" type="HBoxContainer" parent="#options_video#/VideoSetting/VSpilt" unique_id=114177684]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="fullscreen_text" type="Label" parent="#options_video#/VideoSetting/VSpilt/Fullscreen"]
+[node name="fullscreen_text" type="Label" parent="#options_video#/VideoSetting/VSpilt/Fullscreen" unique_id=1908253629]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "options.game.fullscreen"
 
-[node name="fullscreen_restore" type="Button" parent="#options_video#/VideoSetting/VSpilt/Fullscreen"]
+[node name="fullscreen_restore" type="Button" parent="#options_video#/VideoSetting/VSpilt/Fullscreen" unique_id=1213923876]
 layout_mode = 2
 theme = ExtResource("2_8vm80")
 icon = ExtResource("2_j0l55")
 flat = true
 
-[node name="fullscreen_button" type="CheckBox" parent="#options_video#/VideoSetting/VSpilt/Fullscreen"]
+[node name="fullscreen_checkbox" type="CheckBox" parent="#options_video#/VideoSetting/VSpilt/Fullscreen" unique_id=341991765]
 layout_mode = 2
 size_flags_horizontal = 8
 focus_neighbor_left = NodePath(".")
@@ -392,49 +392,49 @@ text = " "
 flat = true
 clip_text = true
 
-[node name="Scale" type="HBoxContainer" parent="#options_video#/VideoSetting/VSpilt"]
+[node name="Scale" type="HBoxContainer" parent="#options_video#/VideoSetting/VSpilt" unique_id=959107410]
 layout_mode = 2
 
-[node name="scale_text" type="Label" parent="#options_video#/VideoSetting/VSpilt/Scale"]
+[node name="scale_text" type="Label" parent="#options_video#/VideoSetting/VSpilt/Scale" unique_id=1928614930]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "options.game.scale"
 
-[node name="scale_restore" type="Button" parent="#options_video#/VideoSetting/VSpilt/Scale"]
+[node name="scale_restore" type="Button" parent="#options_video#/VideoSetting/VSpilt/Scale" unique_id=287130026]
 layout_mode = 2
 theme = ExtResource("2_8vm80")
 icon = ExtResource("2_j0l55")
 flat = true
 
-[node name="scale_button" type="SpinBox" parent="#options_video#/VideoSetting/VSpilt/Scale"]
+[node name="scale_spin" type="SpinBox" parent="#options_video#/VideoSetting/VSpilt/Scale" unique_id=71021064]
 custom_minimum_size = Vector2(200, 35)
 layout_mode = 2
-focus_neighbor_top = NodePath("../../Fullscreen/fullscreen_button")
-focus_previous = NodePath("../../Fullscreen/fullscreen_button")
+focus_neighbor_top = NodePath("../../Fullscreen/fullscreen_checkbox")
+focus_previous = NodePath("../../Fullscreen/fullscreen_checkbox")
 max_value = 5.0
 step = 0.01
 value = 1.0
 
-[node name="SDFGI" type="HBoxContainer" parent="#options_video#/VideoSetting/VSpilt"]
+[node name="SDFGI" type="HBoxContainer" parent="#options_video#/VideoSetting/VSpilt" unique_id=944782068]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="sdfgi_text" type="Label" parent="#options_video#/VideoSetting/VSpilt/SDFGI"]
+[node name="sdfgi_text" type="Label" parent="#options_video#/VideoSetting/VSpilt/SDFGI" unique_id=1659043146]
 layout_mode = 2
 text = "options.game.sdfgi"
 
-[node name="HintButton" parent="#options_video#/VideoSetting/VSpilt/SDFGI" instance=ExtResource("2_hwb3r")]
+[node name="HintButton" parent="#options_video#/VideoSetting/VSpilt/SDFGI" unique_id=1115113301 instance=ExtResource("2_hwb3r")]
 layout_mode = 2
 notice = SubResource("Resource_2vebq")
 
-[node name="sdfgi_restore" type="Button" parent="#options_video#/VideoSetting/VSpilt/SDFGI"]
+[node name="sdfgi_restore" type="Button" parent="#options_video#/VideoSetting/VSpilt/SDFGI" unique_id=1905718411]
 layout_mode = 2
 size_flags_horizontal = 10
 theme = ExtResource("2_8vm80")
 icon = ExtResource("2_j0l55")
 flat = true
 
-[node name="sdfgi_button" type="CheckBox" parent="#options_video#/VideoSetting/VSpilt/SDFGI"]
+[node name="sdfgi_checkbox" type="CheckBox" parent="#options_video#/VideoSetting/VSpilt/SDFGI" unique_id=1705070743]
 layout_mode = 2
 focus_neighbor_left = NodePath(".")
 focus_neighbor_top = NodePath("../../../..")
@@ -446,18 +446,18 @@ text = " "
 flat = true
 clip_text = true
 
-[node name="#options_audio#" type="TabBar" parent="."]
+[node name="#options_audio#" type="TabBar" parent="." unique_id=587700892]
 visible = false
 layout_mode = 2
 focus_neighbor_left = NodePath("../#options_video#")
 focus_neighbor_top = NodePath(".")
 focus_neighbor_right = NodePath("../#options_control#")
-focus_neighbor_bottom = NodePath("AudioSetting/VSpilt/Master/master_button")
+focus_neighbor_bottom = NodePath("AudioSetting/VSpilt/Master/master_slider")
 focus_next = NodePath("../#options_control#")
 focus_previous = NodePath("../#options_video#")
 metadata/_tab_index = 2
 
-[node name="AudioSetting" type="ScrollContainer" parent="#options_audio#"]
+[node name="AudioSetting" type="ScrollContainer" parent="#options_audio#" unique_id=460516462]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -465,111 +465,111 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VSpilt" type="VBoxContainer" parent="#options_audio#/AudioSetting"]
+[node name="VSpilt" type="VBoxContainer" parent="#options_audio#/AudioSetting" unique_id=1568817867]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Master" type="HBoxContainer" parent="#options_audio#/AudioSetting/VSpilt"]
+[node name="Master" type="HBoxContainer" parent="#options_audio#/AudioSetting/VSpilt" unique_id=403613546]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="master_text" type="Label" parent="#options_audio#/AudioSetting/VSpilt/Master"]
+[node name="master_text" type="Label" parent="#options_audio#/AudioSetting/VSpilt/Master" unique_id=1883785788]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "options.audio.master"
 
-[node name="master_restore" type="Button" parent="#options_audio#/AudioSetting/VSpilt/Master"]
+[node name="master_restore" type="Button" parent="#options_audio#/AudioSetting/VSpilt/Master" unique_id=918136]
 layout_mode = 2
 size_flags_horizontal = 10
 theme = ExtResource("2_8vm80")
 icon = ExtResource("2_j0l55")
 flat = true
 
-[node name="master_percent" type="Label" parent="#options_audio#/AudioSetting/VSpilt/Master"]
+[node name="master_percent" type="Label" parent="#options_audio#/AudioSetting/VSpilt/Master" unique_id=354318892]
 layout_mode = 2
 text = "100%"
 
-[node name="master_button" type="HSlider" parent="#options_audio#/AudioSetting/VSpilt/Master"]
+[node name="master_slider" type="HSlider" parent="#options_audio#/AudioSetting/VSpilt/Master" unique_id=1375091292]
 custom_minimum_size = Vector2(200, 35)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 focus_neighbor_top = NodePath("../../../..")
-focus_neighbor_bottom = NodePath("../../Music/bgm_button")
-focus_next = NodePath("../../Music/bgm_button")
-focus_previous = NodePath("../../SFX/sfx_button")
+focus_neighbor_bottom = NodePath("../../Music/bgm_slider")
+focus_next = NodePath("../../Music/bgm_slider")
+focus_previous = NodePath("../../SFX/sfx_slider")
 max_value = 1.0
 step = 0.01
 value = 1.0
 allow_greater = true
 
-[node name="Music" type="HBoxContainer" parent="#options_audio#/AudioSetting/VSpilt"]
+[node name="Music" type="HBoxContainer" parent="#options_audio#/AudioSetting/VSpilt" unique_id=1918321871]
 layout_mode = 2
 
-[node name="bgm_text" type="Label" parent="#options_audio#/AudioSetting/VSpilt/Music"]
+[node name="bgm_text" type="Label" parent="#options_audio#/AudioSetting/VSpilt/Music" unique_id=2120900296]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "options.audio.bgm"
 
-[node name="bgm_restore" type="Button" parent="#options_audio#/AudioSetting/VSpilt/Music"]
+[node name="bgm_restore" type="Button" parent="#options_audio#/AudioSetting/VSpilt/Music" unique_id=809933765]
 layout_mode = 2
 size_flags_horizontal = 10
 theme = ExtResource("2_8vm80")
 icon = ExtResource("2_j0l55")
 flat = true
 
-[node name="bgm_percent" type="Label" parent="#options_audio#/AudioSetting/VSpilt/Music"]
+[node name="bgm_percent" type="Label" parent="#options_audio#/AudioSetting/VSpilt/Music" unique_id=949797793]
 layout_mode = 2
 text = "100%"
 
-[node name="bgm_button" type="HSlider" parent="#options_audio#/AudioSetting/VSpilt/Music"]
+[node name="bgm_slider" type="HSlider" parent="#options_audio#/AudioSetting/VSpilt/Music" unique_id=861658632]
 custom_minimum_size = Vector2(200, 35)
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 4
-focus_neighbor_top = NodePath("../../Master/master_button")
-focus_neighbor_bottom = NodePath("../../SFX/sfx_button")
-focus_next = NodePath("../../SFX/sfx_button")
-focus_previous = NodePath("../../Master/master_button")
+focus_neighbor_top = NodePath("../../Master/master_slider")
+focus_neighbor_bottom = NodePath("../../SFX/sfx_slider")
+focus_next = NodePath("../../SFX/sfx_slider")
+focus_previous = NodePath("../../Master/master_slider")
 max_value = 1.0
 step = 0.01
 value = 1.0
 allow_greater = true
 
-[node name="SFX" type="HBoxContainer" parent="#options_audio#/AudioSetting/VSpilt"]
+[node name="SFX" type="HBoxContainer" parent="#options_audio#/AudioSetting/VSpilt" unique_id=821063561]
 layout_mode = 2
 
-[node name="sfx_text" type="Label" parent="#options_audio#/AudioSetting/VSpilt/SFX"]
+[node name="sfx_text" type="Label" parent="#options_audio#/AudioSetting/VSpilt/SFX" unique_id=1468968549]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "options.audio.sfx"
 
-[node name="sfx_restore" type="Button" parent="#options_audio#/AudioSetting/VSpilt/SFX"]
+[node name="sfx_restore" type="Button" parent="#options_audio#/AudioSetting/VSpilt/SFX" unique_id=1165921394]
 layout_mode = 2
 size_flags_horizontal = 10
 theme = ExtResource("2_8vm80")
 icon = ExtResource("2_j0l55")
 flat = true
 
-[node name="sfx_percent" type="Label" parent="#options_audio#/AudioSetting/VSpilt/SFX"]
+[node name="sfx_percent" type="Label" parent="#options_audio#/AudioSetting/VSpilt/SFX" unique_id=1429893408]
 layout_mode = 2
 text = "100%"
 
-[node name="sfx_button" type="HSlider" parent="#options_audio#/AudioSetting/VSpilt/SFX"]
+[node name="sfx_slider" type="HSlider" parent="#options_audio#/AudioSetting/VSpilt/SFX" unique_id=1538255249]
 custom_minimum_size = Vector2(200, 35)
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 4
-focus_neighbor_top = NodePath("../../Music/bgm_button")
-focus_neighbor_bottom = NodePath("../../Master/master_button")
-focus_next = NodePath("../../Master/master_button")
-focus_previous = NodePath("../../Music/bgm_button")
+focus_neighbor_top = NodePath("../../Music/bgm_slider")
+focus_neighbor_bottom = NodePath("../../Master/master_slider")
+focus_next = NodePath("../../Master/master_slider")
+focus_previous = NodePath("../../Music/bgm_slider")
 max_value = 1.0
 step = 0.01
 value = 1.0
 allow_greater = true
 
-[node name="#options_control#" type="TabBar" parent="."]
+[node name="#options_control#" type="TabBar" parent="." unique_id=620177817]
 visible = false
 layout_mode = 2
 focus_neighbor_left = NodePath("../#options_audio#")
@@ -580,7 +580,7 @@ focus_next = NodePath("../#options_game#")
 focus_previous = NodePath("../#options_audio#")
 metadata/_tab_index = 3
 
-[node name="ControlSetting" type="ScrollContainer" parent="#options_control#"]
+[node name="ControlSetting" type="ScrollContainer" parent="#options_control#" unique_id=293144867]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -588,30 +588,30 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VSpilt" type="VBoxContainer" parent="#options_control#/ControlSetting"]
+[node name="VSpilt" type="VBoxContainer" parent="#options_control#/ControlSetting" unique_id=209856505]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="MouseSen" type="HBoxContainer" parent="#options_control#/ControlSetting/VSpilt"]
+[node name="MouseSen" type="HBoxContainer" parent="#options_control#/ControlSetting/VSpilt" unique_id=1287783471]
 layout_mode = 2
 
-[node name="mouse_text" type="Label" parent="#options_control#/ControlSetting/VSpilt/MouseSen"]
+[node name="mouse_text" type="Label" parent="#options_control#/ControlSetting/VSpilt/MouseSen" unique_id=1062052104]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "options.control.mouse_sen"
 
-[node name="mouse_restore" type="Button" parent="#options_control#/ControlSetting/VSpilt/MouseSen"]
+[node name="mouse_restore" type="Button" parent="#options_control#/ControlSetting/VSpilt/MouseSen" unique_id=833789146]
 layout_mode = 2
 size_flags_horizontal = 10
 theme = ExtResource("2_8vm80")
 icon = ExtResource("2_j0l55")
 flat = true
 
-[node name="mouse_percent" type="Label" parent="#options_control#/ControlSetting/VSpilt/MouseSen"]
+[node name="mouse_percent" type="Label" parent="#options_control#/ControlSetting/VSpilt/MouseSen" unique_id=631533030]
 layout_mode = 2
 text = "40%"
 
-[node name="mouse_button" type="HSlider" parent="#options_control#/ControlSetting/VSpilt/MouseSen"]
+[node name="mouse_slider" type="HSlider" parent="#options_control#/ControlSetting/VSpilt/MouseSen" unique_id=1227839421]
 custom_minimum_size = Vector2(200, 35)
 layout_mode = 2
 size_flags_horizontal = 8
@@ -620,26 +620,26 @@ max_value = 1.0
 step = 0.1
 value = 0.4
 
-[node name="AutoPickup" type="HBoxContainer" parent="#options_control#/ControlSetting/VSpilt"]
+[node name="AutoPickup" type="HBoxContainer" parent="#options_control#/ControlSetting/VSpilt" unique_id=1086816440]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="auto_pickup_text" type="Label" parent="#options_control#/ControlSetting/VSpilt/AutoPickup"]
+[node name="auto_pickup_text" type="Label" parent="#options_control#/ControlSetting/VSpilt/AutoPickup" unique_id=1270506462]
 layout_mode = 2
 text = "options.control.auto_pickup"
 
-[node name="HintButton" parent="#options_control#/ControlSetting/VSpilt/AutoPickup" instance=ExtResource("2_hwb3r")]
+[node name="HintButton" parent="#options_control#/ControlSetting/VSpilt/AutoPickup" unique_id=1944768890 instance=ExtResource("2_hwb3r")]
 layout_mode = 2
 notice = SubResource("Resource_xu8jr")
 
-[node name="auto_pickup_restore" type="Button" parent="#options_control#/ControlSetting/VSpilt/AutoPickup"]
+[node name="auto_pickup_restore" type="Button" parent="#options_control#/ControlSetting/VSpilt/AutoPickup" unique_id=419683138]
 layout_mode = 2
 size_flags_horizontal = 10
 theme = ExtResource("2_8vm80")
 icon = ExtResource("2_j0l55")
 flat = true
 
-[node name="auto_pickup_button" type="CheckBox" parent="#options_control#/ControlSetting/VSpilt/AutoPickup"]
+[node name="auto_pickup_checkbox" type="CheckBox" parent="#options_control#/ControlSetting/VSpilt/AutoPickup" unique_id=181092241]
 layout_mode = 2
 focus_neighbor_left = NodePath(".")
 focus_neighbor_top = NodePath("../../../..")
@@ -651,12 +651,12 @@ text = " "
 flat = true
 clip_text = true
 
-[node name="KeybindingsGroup" type="Button" parent="#options_control#/ControlSetting/VSpilt"]
+[node name="KeybindingsGroup" type="Button" parent="#options_control#/ControlSetting/VSpilt" unique_id=1431078092]
 layout_mode = 2
 toggle_mode = true
 text = "options.control.keybindings.group"
 
-[node name="KeybindingsContainer" type="VBoxContainer" parent="#options_control#/ControlSetting/VSpilt"]
+[node name="KeybindingsContainer" type="VBoxContainer" parent="#options_control#/ControlSetting/VSpilt" unique_id=1720493323]
 layout_mode = 2
 script = ExtResource("5_ms344")
 
@@ -667,33 +667,33 @@ script = ExtResource("5_ms344")
 [connection signal="pressed" from="#options_game#/GameSetting/VSplit/DataPath/datapath_button" to="." method="_on_datapath_button_pressed"]
 [connection signal="dir_selected" from="#options_game#/GameSetting/VSplit/DataPath/datapath_button/path_choose" to="." method="_on_path_choose_dir_selected"]
 [connection signal="pressed" from="#options_game#/GameSetting/VSplit/UseSubThreads/ust_restore" to="." method="_on_ust_restore_pressed"]
-[connection signal="toggled" from="#options_game#/GameSetting/VSplit/UseSubThreads/ust_button" to="." method="_on_ust_button_toggled"]
+[connection signal="toggled" from="#options_game#/GameSetting/VSplit/UseSubThreads/ust_checkbox" to="." method="_on_ust_button_toggled"]
 [connection signal="toggled" from="#options_game#/GameSetting/VSplit/DebugOptGroup" to="." method="_on_debug_opt_group_toggled"]
 [connection signal="pressed" from="#options_game#/GameSetting/VSplit/DebugOptContainer/PrintDebugInfo/pdi_restore" to="." method="_on_pdi_restore_pressed"]
-[connection signal="toggled" from="#options_game#/GameSetting/VSplit/DebugOptContainer/PrintDebugInfo/pdi_button" to="." method="_on_pdi_button_toggled"]
+[connection signal="toggled" from="#options_game#/GameSetting/VSplit/DebugOptContainer/PrintDebugInfo/pdi_checkbox" to="." method="_on_pdi_button_toggled"]
 [connection signal="pressed" from="#options_game#/GameSetting/VSplit/DebugOptContainer/catchPElemIssue/cpei_restore" to="." method="_on_cpei_restore_pressed"]
-[connection signal="toggled" from="#options_game#/GameSetting/VSplit/DebugOptContainer/catchPElemIssue/cpei_button" to="." method="_on_cpei_button_toggled"]
+[connection signal="toggled" from="#options_game#/GameSetting/VSplit/DebugOptContainer/catchPElemIssue/cpei_checkbox" to="." method="_on_cpei_button_toggled"]
 [connection signal="pressed" from="#options_game#/GameSetting/VSplit/DebugOptContainer/alwaysShowCursor/asc_restore" to="." method="_on_asc_restore_pressed"]
-[connection signal="toggled" from="#options_game#/GameSetting/VSplit/DebugOptContainer/alwaysShowCursor/asc_button" to="." method="_on_asc_button_toggled"]
+[connection signal="toggled" from="#options_game#/GameSetting/VSplit/DebugOptContainer/alwaysShowCursor/asc_checkbox" to="." method="_on_asc_button_toggled"]
 [connection signal="pressed" from="#options_game#/GameSetting/VSplit/DebugOptContainer/keyDebugScene/kds_button" to="." method="_key_debug_scene"]
 [connection signal="pressed" from="#options_game#/GameSetting/VSplit/DebugOptContainer/FastBoot/fb_restore" to="." method="_on_fb_restore_pressed"]
 [connection signal="toggled" from="#options_game#/GameSetting/VSplit/DebugOptContainer/FastBoot/fb_button" to="." method="_on_fb_button_toggled"]
 [connection signal="pressed" from="#options_game#/GameSetting/VSplit/DebugOptContainer/OOBE/oobe_restore" to="." method="_on_oobe_restore_pressed"]
 [connection signal="toggled" from="#options_game#/GameSetting/VSplit/DebugOptContainer/OOBE/oobe_button" to="." method="_on_oobe_button_toggled"]
 [connection signal="pressed" from="#options_video#/VideoSetting/VSpilt/Fullscreen/fullscreen_restore" to="." method="_on_fullscreen_restore_pressed"]
-[connection signal="toggled" from="#options_video#/VideoSetting/VSpilt/Fullscreen/fullscreen_button" to="." method="_on_fullscreen_button_toggled"]
+[connection signal="toggled" from="#options_video#/VideoSetting/VSpilt/Fullscreen/fullscreen_checkbox" to="." method="_on_fullscreen_button_toggled"]
 [connection signal="pressed" from="#options_video#/VideoSetting/VSpilt/Scale/scale_restore" to="." method="_on_scale_restore_pressed"]
-[connection signal="value_changed" from="#options_video#/VideoSetting/VSpilt/Scale/scale_button" to="." method="_on_scale_button_value_changed"]
+[connection signal="value_changed" from="#options_video#/VideoSetting/VSpilt/Scale/scale_spin" to="." method="_on_scale_button_value_changed"]
 [connection signal="pressed" from="#options_video#/VideoSetting/VSpilt/SDFGI/sdfgi_restore" to="." method="_on_sdfgi_restore_pressed"]
-[connection signal="toggled" from="#options_video#/VideoSetting/VSpilt/SDFGI/sdfgi_button" to="." method="_on_sdfgi_button_toggled"]
+[connection signal="toggled" from="#options_video#/VideoSetting/VSpilt/SDFGI/sdfgi_checkbox" to="." method="_on_sdfgi_button_toggled"]
 [connection signal="pressed" from="#options_audio#/AudioSetting/VSpilt/Master/master_restore" to="." method="_on_master_restore_pressed"]
-[connection signal="value_changed" from="#options_audio#/AudioSetting/VSpilt/Master/master_button" to="." method="_on_master_button_value_changed"]
+[connection signal="value_changed" from="#options_audio#/AudioSetting/VSpilt/Master/master_slider" to="." method="_on_master_button_value_changed"]
 [connection signal="pressed" from="#options_audio#/AudioSetting/VSpilt/Music/bgm_restore" to="." method="_on_bgm_restore_pressed"]
-[connection signal="value_changed" from="#options_audio#/AudioSetting/VSpilt/Music/bgm_button" to="." method="_on_bgm_button_value_changed"]
+[connection signal="value_changed" from="#options_audio#/AudioSetting/VSpilt/Music/bgm_slider" to="." method="_on_bgm_button_value_changed"]
 [connection signal="pressed" from="#options_audio#/AudioSetting/VSpilt/SFX/sfx_restore" to="." method="_on_sfx_restore_pressed"]
-[connection signal="value_changed" from="#options_audio#/AudioSetting/VSpilt/SFX/sfx_button" to="." method="_on_sfx_button_value_changed"]
+[connection signal="value_changed" from="#options_audio#/AudioSetting/VSpilt/SFX/sfx_slider" to="." method="_on_sfx_button_value_changed"]
 [connection signal="pressed" from="#options_control#/ControlSetting/VSpilt/MouseSen/mouse_restore" to="." method="_on_mouse_restore_pressed"]
-[connection signal="value_changed" from="#options_control#/ControlSetting/VSpilt/MouseSen/mouse_button" to="." method="_on_mouse_button_value_changed"]
+[connection signal="value_changed" from="#options_control#/ControlSetting/VSpilt/MouseSen/mouse_slider" to="." method="_on_mouse_button_value_changed"]
 [connection signal="pressed" from="#options_control#/ControlSetting/VSpilt/AutoPickup/auto_pickup_restore" to="." method="_on_auto_pickup_restore_pressed"]
-[connection signal="toggled" from="#options_control#/ControlSetting/VSpilt/AutoPickup/auto_pickup_button" to="." method="_on_auto_pickup_button_toggled"]
+[connection signal="toggled" from="#options_control#/ControlSetting/VSpilt/AutoPickup/auto_pickup_checkbox" to="." method="_on_auto_pickup_button_toggled"]
 [connection signal="toggled" from="#options_control#/ControlSetting/VSpilt/KeybindingsGroup" to="." method="_on_keybindings_group_toggled"]

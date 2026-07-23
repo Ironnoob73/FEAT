@@ -5,7 +5,8 @@ extends Control
 @onready var progress: Label = $Background/HBox/Bar/Info/Progress
 
 func _process(_delta: float) -> void:
-	bar.max_value = get_parent().MaxHealth
-	bar.value = get_parent().current_health
-	remain.text = str(get_parent().current_health) + "/" + str(get_parent().MaxHealth)
-	progress.text = str((get_parent().current_health / get_parent().MaxHealth)*100) + "%"
+	var player: LocalPlayer = get_parent()
+	bar.max_value = player.MaxHealth
+	bar.value = player.current_health
+	remain.text = str(player.current_health) + "/" + str(player.MaxHealth)
+	progress.text = str((player.current_health / player.MaxHealth)*100) + "%"

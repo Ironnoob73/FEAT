@@ -9,7 +9,7 @@ class_name AHL_EToolClass
 ## 进行攻击时的动画
 @export_enum("Light","DoubleHand","Aimable") var attack_type : String = "Light"
 ## 分组，在背包内会被分类为工具还是武器
-@export_enum("tool","weapon") var group : String = "tool"
+@export_enum("tool","weapon") var group: String = "tool"
 ## 伤害的发送类型，可用的有 [code]None[/code] , [code]Melee[/code] , [code]Range[/code] 。
 @export_enum("None","Melee","Range") var send_type : String = "Melee"
 @export_group("Range Setting")
@@ -20,6 +20,7 @@ class_name AHL_EToolClass
 @export_enum("Normal","Sharp") var damage_type : String = "Normal"
 @export var the_script : GDScript
 
-func get_subname():
-	if name1 :	return name1
-	else :	return "tool.type." + tool_type
+func get_subname() -> String:
+	if name1:
+		return name1
+	return "tool.type." + tool_type

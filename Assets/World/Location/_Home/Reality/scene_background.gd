@@ -1,6 +1,6 @@
 extends Node3D
 
-@onready var scene_func: Node = $"../../../SceneFunc"
+@onready var scene_func: RealityRoomFunc = $"../../.."
 
 @onready var cloud_0: MeshInstance3D = $Cloud0
 var cloud_0_material: StandardMaterial3D = null

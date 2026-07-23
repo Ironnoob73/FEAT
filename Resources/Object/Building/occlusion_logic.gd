@@ -1,7 +1,7 @@
 @tool
 class_name OcclusionLogic
 
-static func occlusion_setter(obj:Node):
+static func occlusion_setter(obj: OcclusionedStaticBody) -> void:
 	if is_instance_valid(obj.occlusion_obj):
 		match obj.occlusion:
 			"none" :

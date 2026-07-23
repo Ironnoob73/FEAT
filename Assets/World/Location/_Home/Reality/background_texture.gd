@@ -1,7 +1,7 @@
 extends SubViewport
 
 @onready var bg_cam: Camera3D = $BgCam
-@onready var scene_background: Node3D = $ExtraSkybox/BackgroundTexture/SceneBackground
+#@onready var scene_background: Node3D = $ExtraSkybox/BackgroundTexture/SceneBackground
 @onready var world0: Node3D = $"../../../"
 
 func _process(_delta: float) -> void:

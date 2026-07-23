@@ -1,7 +1,8 @@
 @tool
+class_name OcclusionedStaticBody
 extends StaticBody3D
 
-@export_enum("none","dark","light") var occlusion : String = "dark":
+@export_enum("none","dark","light") var occlusion : String = "none":
 	set(state):
 		occlusion = state
 		OcclusionLogic.occlusion_setter(self)

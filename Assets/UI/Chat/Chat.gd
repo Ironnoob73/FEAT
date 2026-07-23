@@ -38,7 +38,7 @@ func send_message() -> void:
 	if edit.text != "":
 		if edit.text.begins_with("#"):
 			if Commands.has_method(edit.text.trim_prefix("#").get_slice("(",0)):
-				var command = Callable(Commands,edit.text.trim_prefix("#").get_slice("(",0))
+				var command: Callable = Callable(Commands,edit.text.trim_prefix("#").get_slice("(",0))
 				var argu_in:Array = [get_parent()]
 				if edit.text.contains("("):
 					argu_in.append_array(edit.text.trim_prefix("#").get_slice("(",1).trim_suffix(")").split(","))
@@ -49,8 +49,9 @@ func send_message() -> void:
 						% [str(command.get_argument_count()),argu_in])
 			else:
 				append_message("[i]No command called %s.[/i] " % edit.text.trim_prefix("#").get_slice("(",0))
-		elif get_parent() is Player and edit.text != "":
-			append_message(get_parent().get_player_name() + ": " + edit.text)
+		elif get_parent() is LocalPlayer and edit.text != "":
+			var player: LocalPlayer = get_parent()
+			append_message(player.get_player_name() + ": " + edit.text)
 		send_history.append(edit.text)
 	edit.text = ""
 	last_input = ""
