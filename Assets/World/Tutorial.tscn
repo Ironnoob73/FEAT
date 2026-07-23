@@ -2,7 +2,7 @@
 
 [ext_resource type="Material" uid="uid://lrbpaershnpm" path="res://Resources/Material/BlueGrid.tres" id="1_01kt7"]
 [ext_resource type="Script" uid="uid://dlj745qhxg47m" path="res://Assets/World/Tutorial.gd" id="1_3cq5v"]
-[ext_resource type="PackedScene" uid="uid://bk6ihg1vf71uf" path="res://Assets/Character/Player.tscn" id="2_oeg7p"]
+[ext_resource type="PackedScene" uid="uid://bk6ihg1vf71uf" path="res://Assets/Character/player.tscn" id="2_oeg7p"]
 [ext_resource type="Material" uid="uid://dpy1qjkamvh6q" path="res://Resources/Material/Blank.tres" id="2_ric70"]
 [ext_resource type="Material" uid="uid://bxspvesneuvnj" path="res://Resources/Material/Old_Barrier.tres" id="4_6ulxs"]
 [ext_resource type="PackedScene" uid="uid://dvw3hfru3s5m6" path="res://Resources/Object/Function/Waypoint/waypoint_scene.tscn" id="5_ibxfv"]

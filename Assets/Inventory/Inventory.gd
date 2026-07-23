@@ -1,7 +1,7 @@
 extends Control
 class_name PlayerInventory
 
-@onready var animation = $AnimationPlayer
+@onready var animation: AnimationPlayer = $AnimationPlayer
 @onready var title = $Panel_u/Title
 
 @onready var item_list = $ItemInv/ItemList
@@ -25,11 +25,11 @@ class_name PlayerInventory
 var current_hotbar_type : bool #false = tool , true = item
 var current_hotbar_index : int
 
-var current_inv = "Main"
+var current_inv: String = "Main"
 
 signal mouse_mode_signal(bool)
 
-func init():
+func init() -> void:
 	item_list.set_column_expand_ratio(0,7)
 	item_list.set_column_expand_ratio(1,1)
 	equipment_list.set_column_expand_ratio(0,7)
@@ -40,7 +40,7 @@ func init():
 	get_parent().Inventory.on_equipments_changed.connect(equipment_inv_update)
 	hotbar_button()
 
-func hotbar_button():
+func hotbar_button() -> void:
 	for child in tool_hotbar.get_children():
 		if child is Button :
 			child.pressed.connect(func():choose_tool(child.get_index()))
@@ -48,9 +48,9 @@ func hotbar_button():
 		if child is Button :
 			child.pressed.connect(func():choose_item(child.get_index()))
 
-func open_inventory():
+func open_inventory() -> void:
 	animation.play("Show")
-func close_inventory():
+func close_inventory() -> bool:
 	title.text = "inventory.title"
 	if !animation.is_playing():
 		match current_inv:
@@ -70,21 +70,21 @@ func close_inventory():
 		return true
 	else :	return false
 
-func _on_back_button_pressed():
+func _on_back_button_pressed() -> void:
 	close_inventory()
-func _on_item_button_pressed():
+func _on_item_button_pressed() -> void:
 	if current_inv == "Main":
 		title.text = "inventory.item.t"
 		animation.play("Item")
 		current_inv = "Item"
 	item_inv_update()
-func _on_equipment_button_pressed():
+func _on_equipment_button_pressed() -> void:
 	if current_inv == "Main":
 		title.text = "inventory.equipment.t"
 		animation.play("Equipment")
 		current_inv = "Equipment"
 	equipment_inv_update()
-func _on_status_button_pressed():
+func _on_status_button_pressed() -> void:
 	if current_inv == "Main":
 		title.text = "inventory.status.t"
 		animation.play("Status")
@@ -93,7 +93,7 @@ func _on_status_button_pressed():
 
 #Inventory
 #Item
-func item_inv_update():
+func item_inv_update() -> void:
 	item_list.set_column_title(0,tr("list.name"))
 	item_list.set_column_title(1,tr("list.count"))
 	item_list.clear()
@@ -119,7 +119,7 @@ func item_inv_update():
 		subitem.set_text_alignment(1,HORIZONTAL_ALIGNMENT_RIGHT)
 		subitem.set_metadata(0,get_parent().Inventory.itemStack.find(i))
 #View details
-func _on_item_list_item_selected():
+func _on_item_list_item_selected() -> void:
 	var index = item_list.get_selected().get_metadata(0)
 	if index != null:
 		item_name.text = get_parent().Inventory.itemStack[index].item.name0
@@ -128,11 +128,11 @@ func _on_item_list_item_selected():
 			item_model.material_override = get_parent().Inventory.itemStack[index].item.material
 		item_description.text = get_parent().Inventory.itemStack[index].item.get_description()
 #Sort
-func _on_item_list_column_title_clicked(column, mouse_button_index):
+func _on_item_list_column_title_clicked(column, mouse_button_index) -> void:
 	get_parent().Inventory.sort_item(bool(column),bool(mouse_button_index-1))
 
 #Equipment
-func equipment_inv_update():
+func equipment_inv_update() -> void:
 	equipment_list.set_column_title(0,tr("list.name"))
 	equipment_list.set_column_title(1,tr("list.performance"))
 	equipment_list.clear()
@@ -160,7 +160,7 @@ func equipment_inv_update():
 		subitem.set_text_alignment(1,HORIZONTAL_ALIGNMENT_RIGHT)
 		subitem.set_metadata(0,get_parent().Inventory.eqMeta.find(i))
 #View details
-func _on_equipment_list_item_selected():
+func _on_equipment_list_item_selected() -> void:
 	var index = equipment_list.get_selected().get_metadata(0)
 	if index != null:
 		equipment_name.text = get_parent().Inventory.eqMeta[index].equipment.name0
@@ -178,7 +178,7 @@ func _on_equipment_list_column_title_clicked(column, mouse_button_index):
 	get_parent().Inventory.sort_equipment(bool(column),bool(mouse_button_index-1))
 
 #Hotbar
-func hotbar_refresh():
+func hotbar_refresh() -> void:
 	for child in tool_hotbar.get_children():
 		if child is Button :
 			if get_parent().Inventory.ToolHotbar[child.get_index()]:
@@ -211,7 +211,7 @@ func hotbar_refresh():
 				child.icon = null
 				#child.set_tooltip_text("hotbar.empty")
 				child.set_meta("DTooltip","hotbar.empty")
-func choose_tool(index:int):
+func choose_tool(index:int) -> void:
 	current_hotbar_type = false
 	current_hotbar_index = index
 	hotbar_choose_window.show()
@@ -223,7 +223,7 @@ func choose_tool(index:int):
 				tr(i.equipment.name0) + "   [" + str(int(((i.equipment.durability - i.damage)/i.equipment.durability)*100)) + "%]" ,\
 				i.equipment.icon)
 			hotbar_choose_window.item_list.set_item_metadata(hotbar_choose_window.item_list.get_item_count()-1,get_parent().Inventory.eqMeta.find(i))
-func choose_item(index:int):
+func choose_item(index:int) -> void:
 	current_hotbar_type = true
 	current_hotbar_index = index
 	hotbar_choose_window.show()
@@ -236,7 +236,7 @@ func choose_item(index:int):
 				i.item.icon)
 			hotbar_choose_window.item_list.set_item_metadata(hotbar_choose_window.item_list.get_item_count()-1,get_parent().Inventory.itemStack.find(i))
 #Set hotbar
-func _on_item_choose_window_on_item_select(index):
+func _on_item_choose_window_on_item_select(index) -> void:
 	hotbar_choose_window.hide()
 	if !current_hotbar_type:
 		if get_parent().Inventory.ToolHotbar[current_hotbar_index]:

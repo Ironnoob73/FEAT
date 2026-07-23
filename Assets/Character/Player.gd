@@ -1,4 +1,4 @@
-class_name player
+class_name Player
 extends CharacterBody3D
 
 @export var player_name : String = 'Anonymous'

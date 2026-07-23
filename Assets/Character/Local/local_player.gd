@@ -1,5 +1,5 @@
 class_name LocalPlayer
-extends player
+extends Player
 
 @onready var player_camera: Camera3D = $PlayerCam
 @onready var standing_detected: ShapeCast3D = $StandingDetected
@@ -9,7 +9,7 @@ extends player
 
 @onready var first_person_cam: Camera3D = $PlayerCam/FirstPersonHandled/SubViewport/FirstPersonCam
 @onready var world_actual_cam: Camera3D = $PlayerCam/WorldActual/SubViewport/WorldActualCam
-@onready var hand_held_fp: Marker3D = $PlayerCam/FirstPersonHandled/SubViewport/FirstPersonCam/HandHeldRight
+@onready var hand_held_fp: HandHeldAnimation = $PlayerCam/FirstPersonHandled/SubViewport/FirstPersonCam/HandHeldRight
 @onready var lerp_cam: Camera3D = $PlayerCam/LerpCam
 var lerp_cam_back: bool = false
 @onready var attack_area: Area3D = $PlayerColl/AttackArea
@@ -28,7 +28,7 @@ var perspective_from: Vector2
 @onready var interact_ray_tp: RayCast3D = $ThirdPerosnCam/InteractRayTP
 @onready var interact_ray_tp_test: RayCast3D = $ThirdPerosnCam/InteractRayTP/InteractRayTPTest
 @onready var cursor3: MeshInstance3D = $Cursor3
-var isUsing: AHL_Interactive = null
+var is_using: AHL_Interactive = null
 # Environment interact
 @onready var _climb_area: Area3D = $PlayerColl/ClimbArea
 @onready var _ground_ray_cast: RayCast3D = $GroundRayCast
@@ -40,6 +40,7 @@ var _walk_length: float = 0
 var _last_frame_was_on_floor: float = -INF
 var _was_on_floor_last_frame: bool = false
 var _snapped_to_stairs_last_frame: bool = false
+@onready var stairs_ahead_ray_cast_3d: RayCast3D = $StairsAheadRayCast3D
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -58,12 +59,12 @@ var current_menu: String = "HUD":
 		current_menu = menu_name
 		var error: Error = emit_signal("on_menu_change")
 		if error != OK:
-			push_warning("Signal \"on_menu_change\" caused an error: ", error)
+			push_warning("Signal \"on_menu_change\" caused an error: ", error, ".", error_string(error))
 signal on_menu_change
 var hud_hidden: bool = false
 @export var isInDream: bool = false
 
-@onready var HUD_hotbar: Control = $HudHotbar
+@onready var HUD_hotbar: HudHotBar = $HudHotbar
 @onready var HUD_states_bar: Control = $HudStatesBar
 @onready var HUD_hider: AnimationPlayer = $HUDHider
 
@@ -145,7 +146,7 @@ func _unhandled_input(event: InputEvent) -> void:
 				mouse_mode(true)
 				pause_menu.show()
 			"Inventory":
-				inventory_menu.close_inventory()
+				var _b: bool = inventory_menu.close_inventory()
 			"ToolSetting":
 				current_menu = "HUD"
 				# TODO: Item with setting
@@ -175,7 +176,7 @@ func _unhandled_input(event: InputEvent) -> void:
 				mouse_mode(true)
 				inventory_menu.open_inventory()
 			"Inventory":
-				inventory_menu.close_inventory()
+				var _b: bool = inventory_menu.close_inventory()
 			"ToolSetting":
 				# TODO: Item with setting
 				#hand_held.get_child(0).setting_off()
@@ -246,45 +247,46 @@ func _push_away_rigid_bodies() -> void:
 	for i: int in get_slide_collision_count():
 		var c: KinematicCollision3D = get_slide_collision(i)
 		if c.get_collider() is RigidBody3D:
+			var c_col: RigidBody3D = c.get_collider()
 			var push_dir: Vector3 = -c.get_normal()
 			# How much velocity the object needs to increase to match player velocity in the push direction
-			var velocity_diff_in_push_dir = self.velocity.dot(push_dir) - c.get_collider().linear_velocity.dot(push_dir)
+			var velocity_diff_in_push_dir: float = self.velocity.dot(push_dir) - c_col.linear_velocity.dot(push_dir)
 			# Only count velocity towards push dir, away from character
 			velocity_diff_in_push_dir = max(0., velocity_diff_in_push_dir)
 			# Objects with more mass than us should be harder to push. But doesn't really make sense to push faster than we are going
-			const MY_APPROX_MASS_KG = 80.0
-			var mass_ratio = min(1., MY_APPROX_MASS_KG / c.get_collider().mass)
+			const MY_APPROX_MASS_KG: float = 80.0
+			var mass_ratio: float = min(1.0, MY_APPROX_MASS_KG / c_col.mass)
 			# Don't push object from above/below
 			push_dir.y = 0
 			# 5.0 is a magic number, adjust to your needs
-			var push_force = mass_ratio * 5.0
-			c.get_collider().apply_impulse(push_dir * velocity_diff_in_push_dir * push_force, c.get_position() - c.get_collider().global_position)
+			var push_force: float = mass_ratio * 5.0
+			c_col.apply_impulse(push_dir * velocity_diff_in_push_dir * push_force, c.get_position() - c_col.global_position)
 ## 站立表面是否太陡检测。
 ## From : https://github.com/majikayogames/SimpleFPSController/blob/main/FPSController/FPSController.gd
 func is_surface_too_steep(normal : Vector3) -> bool:
 	return normal.angle_to(Vector3.UP) > self.floor_max_angle
 ## 上楼梯检测
-func _snap_up_stairs_check(delta) -> bool:
+func _snap_up_stairs_check(delta: float) -> bool:
 	if not is_on_floor() and not _snapped_to_stairs_last_frame:
 		return false
-	var expected_move_motion = self.velocity * Vector3(1,0,1) * delta
-	var step_pos_with_clearance = self.global_transform.translated(expected_move_motion + Vector3(0, MAX_STEP_HEIGHT * 2, 0))
+	var expected_move_motion: Vector3 = self.velocity * Vector3(1,0,1) * delta
+	var step_pos_with_clearance: Transform3D = self.global_transform.translated(expected_move_motion + Vector3(0, MAX_STEP_HEIGHT * 2, 0))
 	# Run a body_test_motion slightly above the pos we expect to move to, towards the floor.
 	#  We give some clearance above to ensure there's ample room for the player.
 	#  If it hits a step <= MAX_STEP_HEIGHT, we can teleport the player on top of the step
 	#  along with their intended motion forward.
-	var down_check_result = KinematicCollision3D.new()
+	var down_check_result: KinematicCollision3D = KinematicCollision3D.new()
 	if (self.test_move(step_pos_with_clearance, Vector3(0,-MAX_STEP_HEIGHT*2,0), down_check_result)
 	and (down_check_result.get_collider().is_class("StaticBody3D") or down_check_result.get_collider().is_class("CSGShape3D"))):
-		var step_height = ((step_pos_with_clearance.origin + down_check_result.get_travel()) - self.global_position).y
+		var step_height: float = ((step_pos_with_clearance.origin + down_check_result.get_travel()) - self.global_position).y
 		# Note I put the step_height <= 0.01 in just because I noticed it prevented some physics glitchiness
 		# 0.02 was found with trial and error. Too much and sometimes get stuck on a stair. Too little and can jitter if running into a ceiling.
 		# The normal character controller (both jolt & default) seems to be able to handled steps up of 0.1 anyway
 		if step_height > MAX_STEP_HEIGHT or step_height <= 0.01 or (down_check_result.get_position() - self.global_position).y > MAX_STEP_HEIGHT:
 			return false
-		$StairsAheadRayCast3D.global_position = down_check_result.get_position() + Vector3(0,MAX_STEP_HEIGHT,0) + expected_move_motion.normalized() * 0.1
-		$StairsAheadRayCast3D.force_raycast_update()
-		if $StairsAheadRayCast3D.is_colliding() and not is_surface_too_steep($StairsAheadRayCast3D.get_collision_normal()):
+		stairs_ahead_ray_cast_3d.global_position = down_check_result.get_position() + Vector3(0,MAX_STEP_HEIGHT,0) + expected_move_motion.normalized() * 0.1
+		stairs_ahead_ray_cast_3d.force_raycast_update()
+		if stairs_ahead_ray_cast_3d.is_colliding() and not is_surface_too_steep(stairs_ahead_ray_cast_3d.get_collision_normal()):
 			#_save_camera_pos_for_smoothing()
 			self.global_position = step_pos_with_clearance.origin + down_check_result.get_travel()
 			apply_floor_snap()
@@ -335,13 +337,14 @@ func _physics_process(delta: float) -> void:
 	
 	# Crouch & Sit (Collision shape & Camera Pos)
 	Global.p_elem_debug("# CROUCH #")
-	player_collision.position.y = player_collision.shape.height * 0.5
+	var player_collision_shape: CapsuleShape3D = player_collision.shape
+	player_collision.position.y = player_collision_shape.height * 0.5
 	if !isSit:
 		if isCrouch and !isClimb and current_menu == "HUD":
-			player_collision.shape.height = lerp(player_collision.shape.height,1.8 * CROUCH_depth,0.5)
+			player_collision_shape.height = lerp(player_collision_shape.height,1.8 * CROUCH_depth,0.5)
 			player_camera.position.y = lerp(player_camera.position.y,1.8 * CROUCH_depth,0.5)
 		elif !standing_detected.is_colliding():
-			player_collision.shape.height = lerp(player_collision.shape.height,1.8,0.5)
+			player_collision_shape.height = lerp(player_collision_shape.height,1.8,0.5)
 			player_camera.position.y = lerp(player_camera.position.y,1.7,0.5)
 	else:
 		player_camera.position.y = 1.8 * SIT_depth
@@ -363,7 +366,7 @@ func _physics_process(delta: float) -> void:
 	if not _snap_up_stairs_check(delta):
 		_push_away_rigid_bodies()
 		if !isSit && !isInTeleport:
-			move_and_slide()
+			var _slide: bool = move_and_slide()
 		#_snap_down_to_stairs_check()
 
 	#Scroll hotbar
@@ -393,16 +396,20 @@ func _process(_delta: float) -> void:
 	
 	# Animation
 	Global.p_elem_debug("# ANIMATION #")
-	var _move_direct = (abs(Vector2(cos(mesh.global_rotation.y + PI/2),sin(mesh.global_rotation.y + PI/2)).angle_to(Vector2(-velocity.x , velocity.z))) /PI )
+	var _move_direct: float= (abs(Vector2(cos(mesh.global_rotation.y + PI/2),sin(mesh.global_rotation.y + PI/2)).angle_to(Vector2(-velocity.x , velocity.z))) /PI )
 	if !isSit:
 		mesh.animation_tree["parameters/Movement/blend_position"] = _forward_strength(_move_direct) * Vector2(velocity.x , velocity.z).length()
 		mesh.animation_tree["parameters/SideMix/add_amount"] = _move_direct * Vector2(velocity.x , velocity.z).length() / 10
-		mesh.animation_tree["parameters/CrouchMix/add_amount"] = lerpf(mesh.animation_tree["parameters/CrouchMix/add_amount"],(1.8 - player_collision.shape.height)*1.5,0.5)
+		var player_collision_shape: CapsuleShape3D = player_collision.shape
+		var add_amount: float = mesh.animation_tree["parameters/CrouchMix/add_amount"]
+		mesh.animation_tree["parameters/CrouchMix/add_amount"] = lerpf(add_amount, (1.8 - player_collision_shape.height) * 1.5, 0.5)
 		mesh.animation_tree["parameters/PitchMix/add_amount"] = - player_camera.rotation.x
+	var blend_amount: float = mesh.animation_tree["parameters/FallMix/blend_amount"]
 	if velocity.y < 0:
-		mesh.animation_tree["parameters/FallMix/blend_amount"] = lerpf(mesh.animation_tree["parameters/FallMix/blend_amount"],min(abs(velocity.y),0.8),0.1)
+		var min_velocity: float = min(abs(velocity.y), 0.8)
+		mesh.animation_tree["parameters/FallMix/blend_amount"] = lerpf(blend_amount, min_velocity, 0.1)
 	else:
-		mesh.animation_tree["parameters/FallMix/blend_amount"] = lerpf(mesh.animation_tree["parameters/FallMix/blend_amount"],0,0.1)
+		mesh.animation_tree["parameters/FallMix/blend_amount"] = lerpf(blend_amount, 0, 0.1)
 	
 	# Lerp Camera Animation
 	Global.p_elem_debug("# LERP CAMERA #")
@@ -421,7 +428,12 @@ func _process(_delta: float) -> void:
 	# Hitbox Debug
 	Global.p_elem_debug("# HITBOX DEBUG #")
 	hitbox_debug.position = hitbox.position
-	hitbox_debug.mesh.size = hitbox.shape.size
+	match hitbox.shape:
+		BoxShape3D:
+			var box_shape: BoxShape3D = hitbox.shape
+			hitbox_debug.mesh = BoxMesh.new()
+			var box_mesh: BoxMesh = hitbox_debug.mesh
+			box_mesh.size = box_shape.size
 	
 	# Play walk sound
 	Global.p_elem_debug("# WALK SOUND #")
@@ -429,16 +441,17 @@ func _process(_delta: float) -> void:
 		if _walk_length >= 200:
 			_walk_length = 0
 			if _ground_ray_cast.get_meta("SoundList","no") is Dictionary:
-				var soundPlayer: AudioStreamPlayer3D = AudioStreamPlayer3D.new()
-				get_tree().get_root().add_child(soundPlayer)
-				soundPlayer.global_position = global_position
-				soundPlayer.bus = "SFX"
-				if _ground_ray_cast.get_meta("SoundList","no").has(_ground_ray_cast.get_collider().get_meta("GroundMaterial","Stone")):
-					soundPlayer.stream = _ground_ray_cast.get_meta("SoundList","no").get(_ground_ray_cast.get_collider().get_meta("GroundMaterial","Stone"))
-					soundPlayer.play()
-					soundPlayer.connect("finished",func():soundPlayer.queue_free())
+				var sound_list: Dictionary = _ground_ray_cast.get_meta("SoundList","no")
+				var sound_player: AudioStreamPlayer3D = AudioStreamPlayer3D.new()
+				get_tree().get_root().add_child(sound_player)
+				sound_player.global_position = global_position
+				sound_player.bus = "SFX"
+				if sound_list.has(_ground_ray_cast.get_collider().get_meta("GroundMaterial","Stone")):
+					sound_player.stream = sound_list.get(_ground_ray_cast.get_collider().get_meta("GroundMaterial","Stone"))
+					sound_player.play()
+					var _connect: Error = sound_player.connect("finished",func()->void: sound_player.queue_free())
 				else:
-					soundPlayer.queue_free()
+					sound_player.queue_free()
 		else:
 			_walk_length += velocity.length()
 	else:
@@ -458,18 +471,20 @@ func _forward_strength(value:float) -> float:
 func refresh_handheld(index:int) -> void:
 	super.refresh_handheld(index)
 	if index == current_hotbar:
-		for n in hand_held_group:
-			if handheld_tool:
-				hitbox.shape.size = handheld_tool.equipment.hitbox
-				hitbox.position.z = -hitbox.shape.size.z/2
+		for n: Node in hand_held_group:
+			var hitbox_shape: BoxShape3D = hitbox.shape
+			if handheld_tool and handheld_tool.equipment is AHL_EToolClass:
+				var tool: AHL_EToolClass = handheld_tool.equipment
+				hitbox_shape.size = tool.hitbox
+				hitbox.position.z = - hitbox_shape.size.z/2
 				refresh_handheld_info()
 			else :
-				hitbox.shape.size = Vector3(0.25,0.25,1.5)
+				hitbox_shape.size = Vector3(0.25,0.25,1.5)
 				hitbox.position.z = -0.5
 				HUD_hotbar.set_info(current_hotbar)
 				HUD_hotbar.set_ammo_info(false)
 	if hand_held_fp.get_children():
-		for i in hand_held_fp.get_children():
+		for i: VisualInstance3D in hand_held_fp.get_children():
 			i.set_layer_mask_value(1,false)
 			
 func refresh_handheld_info() -> void:
@@ -478,7 +493,8 @@ func refresh_handheld_info() -> void:
 		handheld_tool.equipment.icon,\
 		((handheld_tool.equipment.durability - handheld_tool.damage)/handheld_tool.equipment.durability)*100)
 	#if handheld_tool.equipment.send_type == "Range":
-	HUD_hotbar.set_ammo_info(handheld_tool.equipment.send_type == "Range", handheld_tool.equipment.ammo_total)
+	var tool: AHL_EToolClass = handheld_tool.equipment
+	HUD_hotbar.set_ammo_info(tool.send_type == "Range", tool.ammo_total)
 		
 func refresh_player_mesh() -> void:
 	super.refresh_player_mesh()
@@ -488,31 +504,31 @@ func refresh_player_mesh() -> void:
 func _on_climb_area_area_entered(area: Area3D) -> void:
 	if area.is_in_group("ClimbAble"):
 		isClimb = true
+	@warning_ignore("unsafe_property_access")
 	if area.is_in_group("Teleporter") and area.get_parent().ToLocation not in ["null",""]:
 		var tween : Tween = create_tween().set_trans(Tween.TRANS_LINEAR)
-		tween.tween_callback(func():isInTeleport=true)
-		tween.tween_property(transition, "color:a", 1, 0.25)
-		tween.tween_callback(func():get_node("/root/World").change_scene(area.get_parent().ToLocation,area.get_parent().ToLocationPos))
-		tween.tween_callback(func():isInTeleport=false)
-		tween.tween_property(transition, "color:a", 0, 0.25)
+		var _c_tweener: CallbackTweener = tween.tween_callback(func()->void: isInTeleport=true)
+		var _p_tweener: PropertyTweener = tween.tween_property(transition, "color:a", 1, 0.25)
+		@warning_ignore("unsafe_property_access", "unsafe_method_access")
+		_c_tweener = tween.tween_callback(func()->void: get_node("/root/World").change_scene(area.get_parent().ToLocation,area.get_parent().ToLocationPos))
+		_c_tweener = tween.tween_callback(func()->void: isInTeleport=false)
+		_p_tweener = tween.tween_property(transition, "color:a", 0, 0.25)
 func _on_climb_area_area_exited(area: Area3D) -> void:
 	if area.is_in_group("ClimbAble"):
 		isClimb = false
-		for i in _climb_area.get_overlapping_areas():
+		for i: Area3D in _climb_area.get_overlapping_areas():
 			if i.is_in_group("ClimbAble"):
 				isClimb = true
 # Motion Detection
-func _on_motion_area_area_entered(area: Area3D) -> void:
-	if area.is_in_group("MotionSensing"):
-		area.detected_player = self
+func _on_motion_area_area_entered(area: MotionDetectionArea) -> void:
+	area.detected_player = self
 	if area.gravity_space_override != 0:
 		self.gravity = area.gravity
 		self.gravity_dir = area.gravity_direction
 	if area.linear_damp_space_override != 0:
 		self.FRICTION = area.linear_damp
-func _on_motion_area_area_exited(area: Area3D) -> void:
-	if area.is_in_group("MotionSensing"):
-		area.detected_player = null
+func _on_motion_area_area_exited(area: MotionDetectionArea) -> void:
+	area.detected_player = null
 	self.gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 	self.gravity_dir = ProjectSettings.get_setting("physics/3d/default_gravity_vector")
 	self.FRICTION = ProjectSettings.get_setting("physics/3d/default_linear_damp")
@@ -521,30 +537,35 @@ func _on_motion_area_area_exited(area: Area3D) -> void:
 func sit(chair_position : Vector3, chair_rotation : Vector3) -> void:
 	var tween : Tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUART).set_parallel(true)
 	if !isSit :
-		tween.tween_property(self, "position", chair_position, 0.5)
-		tween.tween_property(mesh.animation_tree,"parameters/Sit/add_amount",1,0.5)
+		var _p_tweener: PropertyTweener = tween.tween_property(self, "position", chair_position, 0.5)
+		_p_tweener = tween.tween_property(mesh.animation_tree,"parameters/Sit/add_amount",1,0.5)
 		if !isThirdPerson:
-			tween.tween_property(self, "rotation:y", MathUtil.smaller_rotate(rotation.y, chair_rotation.y - deg_to_rad(180)), 0.5)
-			tween.tween_property(player_camera, "rotation:x", chair_rotation.x, 0.5)
+			_p_tweener = tween.tween_property(self, "rotation:y", MathUtil.smaller_rotate(rotation.y, chair_rotation.y - deg_to_rad(180)), 0.5)
+			_p_tweener = tween.tween_property(player_camera, "rotation:x", chair_rotation.x, 0.5)
 		#isSit = true
 	else :
 		_un_sit()
 func _un_sit() -> void:
 	var tween : Tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUART).set_parallel(true)
-	tween.tween_property(mesh.animation_tree,"parameters/Sit/add_amount",0,0.5)
+	var _p_tweener: PropertyTweener = tween.tween_property(mesh.animation_tree,"parameters/Sit/add_amount",0,0.5)
 	isSit.remove_meta("user")
 	isSit = null
 
 # Caption
-func add_caption(text_in:String) -> void:
-	for i in caption.get_child_count():
-		caption.get_child(i).update_pos()
-	var new_caption = load("res://Assets/Character/Caption/Caption.tscn").instantiate()
+func add_caption(text_in: String) -> void:
+	for i: int in caption.get_child_count():
+		if caption.get_child(i) is Caption:
+			var caption_i: Caption = caption.get_child(i)
+			caption_i.update_pos()
+	var caption_scene: PackedScene = load("res://Assets/Character/Caption/Caption.tscn")
+	var new_caption: Caption = caption_scene.instantiate()
 	new_caption.text = text_in
 	caption.add_child(new_caption)
 func clear_caption() -> void:
-	for i in caption.get_child_count():
-		caption.get_child(i)._on_timer_timeout()
+	for i: int in caption.get_child_count():
+		if caption.get_child(i) is Caption:
+			var caption_i: Caption = caption.get_child(i)
+			caption_i._on_timer_timeout()
 		
 # HUD Hidden
 func hide_hud(do_hide:bool) -> void:
@@ -580,16 +601,18 @@ func main_attack(press: bool) -> void:
 		mesh.animation_tree["parameters/MainAttack/request"] = 1
 		var tween: Tween = create_tween().set_trans(Tween.TRANS_CUBIC)
 		if handheld_tool:
-			hand_held_fp.MainAttack(handheld_tool.equipment.attack_type,handheld_tool.equipment.delay)
-			var _p_tween: PropertyTweener = tween.tween_property(self, "att_idle", true, 0).set_delay(handheld_tool.equipment.delay)
-			match handheld_tool.equipment.send_type:
-				"Melee":
-					var damage_type: String = handheld_tool.equipment.damage_type
-					attack(1 + handheld_tool.equipment.performance, damage_type)
-				"Range":
-					pass
-			for i: AHL_BehaviorClass in handheld_tool.equipment.main_behavior:
-				i.do(hand_held_fp.get_child(0),self)
+			if handheld_tool.equipment is AHL_EToolClass:
+				var tool: AHL_EToolClass = handheld_tool.equipment
+				hand_held_fp.MainAttack(tool.attack_type, tool.delay)
+				var _p_tween: PropertyTweener = tween.tween_property(self, "att_idle", true, 0).set_delay(tool.delay)
+				match tool.send_type:
+					"Melee":
+						var damage_type: String = tool.damage_type
+						attack(1 + tool.performance, damage_type)
+					"Range":
+						pass
+				for i: AHL_BehaviorClass in tool.main_behavior:
+					i.do(hand_held_fp.get_child(0),self)
 		else:
 			var _p_tween: PropertyTweener = tween.tween_property(self, "att_idle", true, 0).set_delay(0.5)
 			attack(1)

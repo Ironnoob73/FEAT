@@ -1,5 +1,5 @@
-extends Control
 class_name PlayerHUDCaption
+extends Control
 
 @onready var cross_hair: TextureRect = $"../CrossHair"
 

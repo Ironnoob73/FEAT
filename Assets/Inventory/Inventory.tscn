@@ -1,9 +1,9 @@
-[gd_scene load_steps=18 format=3 uid="uid://dtcknsjsvxg38"]
+[gd_scene format=3 uid="uid://dtcknsjsvxg38"]
 
-[ext_resource type="Theme" uid="uid://cvtgnhbl452vj" path="res://Assets/Inventory/Inventory_theme.tres" id="1_gewfw"]
-[ext_resource type="Script" uid="uid://jeps2byaualt" path="res://Assets/Inventory/Inventory.gd" id="2_3naci"]
-[ext_resource type="Shader" uid="uid://cv75wolnqf00h" path="res://Assets/Inventory/Inventory_background.gdshader" id="3_qcbob"]
-[ext_resource type="PackedScene" uid="uid://nxxw5gbtnejd" path="res://Assets/Inventory/MeshView2d.tscn" id="4_uebq1"]
+[ext_resource type="Theme" uid="uid://cvtgnhbl452vj" path="res://Assets/Inventory/inventory_theme.tres" id="1_gewfw"]
+[ext_resource type="Script" uid="uid://jeps2byaualt" path="res://Assets/Inventory/inventory.gd" id="2_3naci"]
+[ext_resource type="Shader" uid="uid://cv75wolnqf00h" path="res://Assets/Inventory/inventory_background.gdshader" id="3_qcbob"]
+[ext_resource type="PackedScene" uid="uid://nxxw5gbtnejd" path="res://Assets/Inventory/mesh_view_2d.tscn" id="4_uebq1"]
 [ext_resource type="PackedScene" uid="uid://cwrhekn37toy4" path="res://Assets/Inventory/item_choose_window.tscn" id="5_bckn1"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_744bd"]
@@ -536,7 +536,7 @@ _data = {
 &"Status": SubResource("Animation_cajuj")
 }
 
-[node name="Inventory" type="Control"]
+[node name="Inventory" type="Control" unique_id=1214834425]
 visible = false
 layout_mode = 3
 anchors_preset = 15
@@ -547,7 +547,7 @@ grow_vertical = 2
 theme = ExtResource("1_gewfw")
 script = ExtResource("2_3naci")
 
-[node name="Background" type="TextureRect" parent="."]
+[node name="Background" type="TextureRect" parent="." unique_id=644051146]
 texture_repeat = 2
 material = SubResource("ShaderMaterial_744bd")
 layout_mode = 1
@@ -559,7 +559,7 @@ grow_vertical = 2
 texture = SubResource("GradientTexture2D_hcb5a")
 stretch_mode = 1
 
-[node name="Main" type="HBoxContainer" parent="."]
+[node name="Main" type="HBoxContainer" parent="." unique_id=1216343769]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = -1.0
@@ -570,55 +570,55 @@ offset_right = -45.0
 offset_bottom = -150.0
 grow_vertical = 2
 
-[node name="Scroll" type="ScrollContainer" parent="Main"]
-clip_contents = false
+[node name="Scroll" type="ScrollContainer" parent="Main" unique_id=1630718534]
 custom_minimum_size = Vector2(420, 0)
+clip_contents = false
 layout_mode = 2
 horizontal_scroll_mode = 0
 
-[node name="ButtonGroup" type="VBoxContainer" parent="Main/Scroll"]
+[node name="ButtonGroup" type="VBoxContainer" parent="Main/Scroll" unique_id=1965038239]
 layout_mode = 2
 
-[node name="HBox0" type="HBoxContainer" parent="Main/Scroll/ButtonGroup"]
+[node name="HBox0" type="HBoxContainer" parent="Main/Scroll/ButtonGroup" unique_id=225298315]
 layout_mode = 2
 
-[node name="ItemButton" type="Button" parent="Main/Scroll/ButtonGroup/HBox0"]
+[node name="ItemButton" type="Button" parent="Main/Scroll/ButtonGroup/HBox0" unique_id=1432711092]
 custom_minimum_size = Vector2(150, 100)
 layout_mode = 2
 text = "inventory.item"
 alignment = 0
 clip_text = true
 
-[node name="EquipmentButton" type="Button" parent="Main/Scroll/ButtonGroup/HBox0"]
+[node name="EquipmentButton" type="Button" parent="Main/Scroll/ButtonGroup/HBox0" unique_id=700470054]
 custom_minimum_size = Vector2(250, 100)
 layout_mode = 2
 text = "inventory.equipment"
 alignment = 0
 clip_text = true
 
-[node name="HBox1" type="HBoxContainer" parent="Main/Scroll/ButtonGroup"]
+[node name="HBox1" type="HBoxContainer" parent="Main/Scroll/ButtonGroup" unique_id=662155996]
 layout_mode = 2
 
-[node name="SpecialButton" type="Button" parent="Main/Scroll/ButtonGroup/HBox1"]
+[node name="SpecialButton" type="Button" parent="Main/Scroll/ButtonGroup/HBox1" unique_id=1861750368]
 custom_minimum_size = Vector2(250, 100)
 layout_mode = 2
 text = "inventory.special"
 alignment = 0
 clip_text = true
 
-[node name="CollectionButton" type="Button" parent="Main/Scroll/ButtonGroup/HBox1"]
+[node name="CollectionButton" type="Button" parent="Main/Scroll/ButtonGroup/HBox1" unique_id=1199061517]
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 text = "inventory.collection"
 alignment = 0
 clip_text = true
 
-[node name="HSeparator0" type="HSeparator" parent="Main/Scroll/ButtonGroup"]
+[node name="HSeparator0" type="HSeparator" parent="Main/Scroll/ButtonGroup" unique_id=1208953167]
 custom_minimum_size = Vector2(405, 10)
 layout_mode = 2
 size_flags_horizontal = 0
 
-[node name="StatusButton" type="Button" parent="Main/Scroll/ButtonGroup"]
+[node name="StatusButton" type="Button" parent="Main/Scroll/ButtonGroup" unique_id=841948343]
 custom_minimum_size = Vector2(405, 45)
 layout_mode = 2
 size_flags_horizontal = 0
@@ -627,7 +627,7 @@ theme_type_variation = &"BlueButton"
 text = "inventory.status.t"
 alignment = 0
 
-[node name="Panel_u" type="PanelContainer" parent="."]
+[node name="Panel_u" type="PanelContainer" parent="." unique_id=836383137]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
@@ -635,14 +635,14 @@ offset_top = -100.0
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="Title" type="Label" parent="Panel_u"]
+[node name="Title" type="Label" parent="Panel_u" unique_id=1612769972]
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 5
 theme_override_font_sizes/font_size = 35
 text = "inventory.title"
 
-[node name="Panel_d" type="PanelContainer" parent="."]
+[node name="Panel_d" type="PanelContainer" parent="." unique_id=1304758329]
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 1.0
@@ -652,7 +652,7 @@ offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="BackButton" type="Button" parent="."]
+[node name="BackButton" type="Button" parent="." unique_id=475646914]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 1
 anchors_preset = -1
@@ -665,7 +665,7 @@ grow_vertical = 0
 shortcut = SubResource("Shortcut_be5wd")
 text = "button.back"
 
-[node name="ItemInv" type="HBoxContainer" parent="."]
+[node name="ItemInv" type="HBoxContainer" parent="." unique_id=1046281369]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 1.0
@@ -676,7 +676,7 @@ offset_bottom = -125.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ItemList" type="Tree" parent="ItemInv"]
+[node name="ItemList" type="Tree" parent="ItemInv" unique_id=110773379]
 layout_mode = 2
 size_flags_horizontal = 3
 columns = 2
@@ -684,35 +684,35 @@ column_titles_visible = true
 hide_root = true
 select_mode = 1
 
-[node name="Preview" type="VBoxContainer" parent="ItemInv"]
+[node name="Preview" type="VBoxContainer" parent="ItemInv" unique_id=1303019357]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Name" type="Label" parent="ItemInv/Preview"]
+[node name="Name" type="Label" parent="ItemInv/Preview" unique_id=608058389]
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 2
 theme_override_font_sizes/font_size = 35
 
-[node name="View" type="SubViewportContainer" parent="ItemInv/Preview"]
+[node name="View" type="SubViewportContainer" parent="ItemInv/Preview" unique_id=1276471788]
 layout_mode = 2
 size_flags_vertical = 3
 stretch = true
 
-[node name="Viewport" type="SubViewport" parent="ItemInv/Preview/View"]
+[node name="Viewport" type="SubViewport" parent="ItemInv/Preview/View" unique_id=1019531460]
 own_world_3d = true
 transparent_bg = true
 handle_input_locally = false
 size = Vector2i(2, 2)
 render_target_update_mode = 0
 
-[node name="MeshView2d" parent="ItemInv/Preview/View/Viewport" instance=ExtResource("4_uebq1")]
+[node name="MeshView2d" parent="ItemInv/Preview/View/Viewport" unique_id=1655687544 instance=ExtResource("4_uebq1")]
 
-[node name="Description" type="RichTextLabel" parent="ItemInv/Preview"]
+[node name="Description" type="RichTextLabel" parent="ItemInv/Preview" unique_id=100232225]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="EquipmentInv" type="HBoxContainer" parent="."]
+[node name="EquipmentInv" type="HBoxContainer" parent="." unique_id=985373802]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 1.025
@@ -723,7 +723,7 @@ offset_bottom = -125.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="EquipmentList" type="Tree" parent="EquipmentInv"]
+[node name="EquipmentList" type="Tree" parent="EquipmentInv" unique_id=262594053]
 layout_mode = 2
 size_flags_horizontal = 3
 columns = 2
@@ -731,15 +731,15 @@ column_titles_visible = true
 hide_root = true
 select_mode = 1
 
-[node name="Preview" type="VBoxContainer" parent="EquipmentInv"]
+[node name="Preview" type="VBoxContainer" parent="EquipmentInv" unique_id=1759920276]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 0
 
-[node name="Container" type="Control" parent="EquipmentInv/Preview"]
+[node name="Container" type="Control" parent="EquipmentInv/Preview" unique_id=1512859305]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="EquipmentInv/Preview/Container"]
+[node name="VBoxContainer" type="VBoxContainer" parent="EquipmentInv/Preview/Container" unique_id=531402821]
 z_index = 1
 layout_mode = 1
 anchors_preset = 10
@@ -748,41 +748,41 @@ offset_bottom = 103.0
 grow_horizontal = 2
 theme_override_constants/separation = 0
 
-[node name="Name" type="Label" parent="EquipmentInv/Preview/Container/VBoxContainer"]
+[node name="Name" type="Label" parent="EquipmentInv/Preview/Container/VBoxContainer" unique_id=421609185]
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 2
 theme_override_font_sizes/font_size = 50
 
-[node name="Subname" type="Label" parent="EquipmentInv/Preview/Container/VBoxContainer"]
+[node name="Subname" type="Label" parent="EquipmentInv/Preview/Container/VBoxContainer" unique_id=1487740405]
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 1
 theme_override_font_sizes/font_size = 30
 
-[node name="Info" type="Label" parent="EquipmentInv/Preview/Container/VBoxContainer"]
+[node name="Info" type="Label" parent="EquipmentInv/Preview/Container/VBoxContainer" unique_id=1135155078]
 layout_mode = 2
 
-[node name="View" type="SubViewportContainer" parent="EquipmentInv/Preview"]
+[node name="View" type="SubViewportContainer" parent="EquipmentInv/Preview" unique_id=362523708]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 2.5
 stretch = true
 
-[node name="Viewport" type="SubViewport" parent="EquipmentInv/Preview/View"]
+[node name="Viewport" type="SubViewport" parent="EquipmentInv/Preview/View" unique_id=602715343]
 own_world_3d = true
 transparent_bg = true
 handle_input_locally = false
 size = Vector2i(2, 2)
 render_target_update_mode = 0
 
-[node name="MeshView2d" parent="EquipmentInv/Preview/View/Viewport" instance=ExtResource("4_uebq1")]
+[node name="MeshView2d" parent="EquipmentInv/Preview/View/Viewport" unique_id=1903566010 instance=ExtResource("4_uebq1")]
 
-[node name="Description" type="RichTextLabel" parent="EquipmentInv/Preview"]
+[node name="Description" type="RichTextLabel" parent="EquipmentInv/Preview" unique_id=1638336594]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Hotbar" type="PanelContainer" parent="."]
+[node name="Hotbar" type="PanelContainer" parent="." unique_id=986012389]
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 2.0
@@ -793,91 +793,89 @@ offset_right = 419.0
 offset_bottom = -125.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_ln0lj")
 
-[node name="VBox" type="VBoxContainer" parent="Hotbar"]
+[node name="VBox" type="VBoxContainer" parent="Hotbar" unique_id=1279681041]
 layout_mode = 2
 
-[node name="ToolHotBarTitle" type="Label" parent="Hotbar/VBox"]
+[node name="ToolHotBarTitle" type="Label" parent="Hotbar/VBox" unique_id=2057311376]
 layout_mode = 2
 text = "inventory.equipment.tool"
 
-[node name="ToolHBox" type="HBoxContainer" parent="Hotbar/VBox"]
+[node name="ToolHBox" type="HBoxContainer" parent="Hotbar/VBox" unique_id=1159249756]
 layout_mode = 2
 
-[node name="ToolHotbar0" type="Button" parent="Hotbar/VBox/ToolHBox"]
+[node name="ToolHotbar0" type="Button" parent="Hotbar/VBox/ToolHBox" unique_id=459958664]
 custom_minimum_size = Vector2(70, 70)
 layout_mode = 2
 icon_alignment = 1
 expand_icon = true
 
-[node name="ToolHotbar1" type="Button" parent="Hotbar/VBox/ToolHBox"]
+[node name="ToolHotbar1" type="Button" parent="Hotbar/VBox/ToolHBox" unique_id=1179480804]
 custom_minimum_size = Vector2(70, 70)
 layout_mode = 2
 icon_alignment = 1
 expand_icon = true
 
-[node name="ToolHotbar2" type="Button" parent="Hotbar/VBox/ToolHBox"]
+[node name="ToolHotbar2" type="Button" parent="Hotbar/VBox/ToolHBox" unique_id=257340174]
 custom_minimum_size = Vector2(70, 70)
 layout_mode = 2
 icon_alignment = 1
 expand_icon = true
 
-[node name="ToolHotbar3" type="Button" parent="Hotbar/VBox/ToolHBox"]
+[node name="ToolHotbar3" type="Button" parent="Hotbar/VBox/ToolHBox" unique_id=36197483]
 custom_minimum_size = Vector2(70, 70)
 layout_mode = 2
 icon_alignment = 1
 expand_icon = true
 
-[node name="ToolHotbar4" type="Button" parent="Hotbar/VBox/ToolHBox"]
+[node name="ToolHotbar4" type="Button" parent="Hotbar/VBox/ToolHBox" unique_id=1524819132]
 custom_minimum_size = Vector2(70, 70)
 layout_mode = 2
 icon_alignment = 1
 expand_icon = true
 
-[node name="ItemHotBarTitle" type="Label" parent="Hotbar/VBox"]
+[node name="ItemHotBarTitle" type="Label" parent="Hotbar/VBox" unique_id=1141523344]
 layout_mode = 2
 text = "inventory.item.item"
 
-[node name="ItemHBox" type="HBoxContainer" parent="Hotbar/VBox"]
+[node name="ItemHBox" type="HBoxContainer" parent="Hotbar/VBox" unique_id=366271771]
 layout_mode = 2
 
-[node name="ItemHotbar0" type="Button" parent="Hotbar/VBox/ItemHBox"]
+[node name="ItemHotbar0" type="Button" parent="Hotbar/VBox/ItemHBox" unique_id=1393175670]
 custom_minimum_size = Vector2(70, 70)
 layout_mode = 2
 icon_alignment = 1
 expand_icon = true
 
-[node name="ItemHotbar1" type="Button" parent="Hotbar/VBox/ItemHBox"]
+[node name="ItemHotbar1" type="Button" parent="Hotbar/VBox/ItemHBox" unique_id=764680652]
 custom_minimum_size = Vector2(70, 70)
 layout_mode = 2
 icon_alignment = 1
 expand_icon = true
 
-[node name="ItemHotbar2" type="Button" parent="Hotbar/VBox/ItemHBox"]
+[node name="ItemHotbar2" type="Button" parent="Hotbar/VBox/ItemHBox" unique_id=232624888]
 custom_minimum_size = Vector2(70, 70)
 layout_mode = 2
 icon_alignment = 1
 expand_icon = true
 
-[node name="ItemHotbar3" type="Button" parent="Hotbar/VBox/ItemHBox"]
+[node name="ItemHotbar3" type="Button" parent="Hotbar/VBox/ItemHBox" unique_id=1755372609]
 custom_minimum_size = Vector2(70, 70)
 layout_mode = 2
 icon_alignment = 1
 expand_icon = true
 
-[node name="ItemHotbar4" type="Button" parent="Hotbar/VBox/ItemHBox"]
+[node name="ItemHotbar4" type="Button" parent="Hotbar/VBox/ItemHBox" unique_id=1649186238]
 custom_minimum_size = Vector2(70, 70)
 layout_mode = 2
 icon_alignment = 1
 expand_icon = true
 
-[node name="ItemChooseWindow" parent="Hotbar" instance=ExtResource("5_bckn1")]
+[node name="ItemChooseWindow" parent="Hotbar" unique_id=1102824461 instance=ExtResource("5_bckn1")]
 transparent_bg = true
 visible = false
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_q4uqo")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1053113881]
+libraries/ = SubResource("AnimationLibrary_q4uqo")
 
 [connection signal="pressed" from="Main/Scroll/ButtonGroup/HBox0/ItemButton" to="." method="_on_item_button_pressed"]
 [connection signal="pressed" from="Main/Scroll/ButtonGroup/HBox0/EquipmentButton" to="." method="_on_equipment_button_pressed"]

@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://8h1wxcdqk41f" path="res://addons/abyss_history_lib/Class/World/ScenesPackageClass.gd" id="1_l0isb"]
 [ext_resource type="Script" uid="uid://tf3tkep6w0wr" path="res://Resources/Node/sub_room_viewport.gd" id="2_tpecx"]
-[ext_resource type="Script" uid="uid://cyg63trrnorlr" path="res://Assets/World/Location/16_Cloud/ready_func.gd" id="2_u6fpm"]
-[ext_resource type="PackedScene" uid="uid://cb5pyvpu83sfw" path="res://Assets/World/Location/16_Cloud/TheRoof.tscn" id="3_kwbwa"]
+[ext_resource type="Script" uid="uid://cyg63trrnorlr" path="res://Assets/World/Location/9_cloud/ready_func.gd" id="2_u6fpm"]
+[ext_resource type="PackedScene" uid="uid://cb5pyvpu83sfw" path="res://Assets/World/Location/9_cloud/TheRoof.tscn" id="3_kwbwa"]
 [ext_resource type="PackedScene" uid="uid://dl78y6uj7yjy7" path="res://Assets/World/Location/_Home/Dream/TheElevator.tscn" id="4_u6fpm"]
 
 [sub_resource type="Shader" id="Shader_1aved"]

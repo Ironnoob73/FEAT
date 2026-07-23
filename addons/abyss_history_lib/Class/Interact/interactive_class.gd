@@ -46,7 +46,7 @@ var user : Node3D:
 			leave(user)
 			user = new_user
 			if new_user is LocalPlayer:
-				new_user.isUsing = self
+				new_user.is_using = self
 ## 当使用者离开时执行的行为。
 @export var leave_behavior : Array[AHL_BehaviorClass]
 
@@ -92,7 +92,7 @@ func leave(sender):
 	if sender != null:
 		for i in leave_behavior:
 			i.do(self,sender)
-		sender.isUsing = null
+		sender.is_using = null
 		on_user_leave.emit(sender)
 		
 ## 强制移除使用者。

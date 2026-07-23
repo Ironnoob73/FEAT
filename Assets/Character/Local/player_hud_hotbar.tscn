@@ -1,6 +1,6 @@
-[gd_scene load_steps=11 format=3 uid="uid://cerd3suomf3u2"]
+[gd_scene format=3 uid="uid://cerd3suomf3u2"]
 
-[ext_resource type="Script" uid="uid://brhm5ra86y1dv" path="res://Assets/Character/Local/PlayerHUDHotbar.gd" id="1_n1xen"]
+[ext_resource type="Script" uid="uid://brhm5ra86y1dv" path="res://Assets/Character/Local/player_hud_hotbar.gd" id="1_n1xen"]
 [ext_resource type="Texture2D" uid="uid://b83wbfcan3w3n" path="res://Resources/Image/Default/ammo.svg" id="2_s3jgx"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r1otf"]
@@ -34,7 +34,7 @@ border_width_left = 2
 border_width_right = 2
 border_color = Color(0.8, 0.8, 0.8, 0)
 
-[node name="PlayerHud" type="Control"]
+[node name="PlayerHud" type="Control" unique_id=2110351800]
 layout_mode = 3
 anchors_preset = 3
 anchor_left = 1.0
@@ -45,8 +45,7 @@ grow_horizontal = 0
 grow_vertical = 0
 script = ExtResource("1_n1xen")
 
-[node name="HotBar" type="HBoxContainer" parent="."]
-layout_direction = 3
+[node name="HotBar" type="HBoxContainer" parent="." unique_id=870587838]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
@@ -54,35 +53,36 @@ anchor_bottom = 1.0
 offset_top = -70.0
 offset_right = 250.0
 grow_vertical = 0
+layout_direction = 3
 theme_override_constants/separation = 0
 
-[node name="IconBackground" type="PanelContainer" parent="HotBar"]
+[node name="IconBackground" type="PanelContainer" parent="HotBar" unique_id=2083048362]
 custom_minimum_size = Vector2(70, 0)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_r1otf")
 
-[node name="Margin" type="MarginContainer" parent="HotBar/IconBackground"]
+[node name="Margin" type="MarginContainer" parent="HotBar/IconBackground" unique_id=1470938150]
 layout_mode = 2
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
-[node name="Icon" type="TextureRect" parent="HotBar/IconBackground/Margin"]
+[node name="Icon" type="TextureRect" parent="HotBar/IconBackground/Margin" unique_id=1413831392]
 layout_mode = 2
 expand_mode = 5
 stretch_mode = 5
 
-[node name="HotbatInfo" type="VBoxContainer" parent="HotBar"]
+[node name="HotbatInfo" type="VBoxContainer" parent="HotBar" unique_id=632473870]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 0
 alignment = 2
 
-[node name="FreeName" type="Control" parent="HotBar/HotbatInfo"]
+[node name="FreeName" type="Control" parent="HotBar/HotbatInfo" unique_id=431186952]
 layout_mode = 2
 
-[node name="Name" type="Label" parent="HotBar/HotbatInfo/FreeName"]
+[node name="Name" type="Label" parent="HotBar/HotbatInfo/FreeName" unique_id=805672862]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
@@ -94,14 +94,14 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 2
 theme_override_font_sizes/font_size = 25
 
-[node name="Durability" type="ProgressBar" parent="HotBar/HotbatInfo"]
+[node name="Durability" type="ProgressBar" parent="HotBar/HotbatInfo" unique_id=1242396703]
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 2
 theme_override_styles/background = SubResource("StyleBoxFlat_hiod7")
 theme_override_styles/fill = SubResource("StyleBoxTexture_f7jpl")
 
-[node name="CurrentSlot" type="Label" parent="."]
+[node name="CurrentSlot" type="Label" parent="." unique_id=250299320]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -117,7 +117,7 @@ theme_override_constants/outline_size = 2
 text = "0"
 horizontal_alignment = 2
 
-[node name="AmmoBg" type="PanelContainer" parent="."]
+[node name="AmmoBg" type="PanelContainer" parent="." unique_id=749406311]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 1.0
@@ -131,23 +131,23 @@ grow_horizontal = 0
 grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_d4rs6")
 
-[node name="Ammo" type="HBoxContainer" parent="AmmoBg"]
+[node name="Ammo" type="HBoxContainer" parent="AmmoBg" unique_id=499206836]
 layout_mode = 2
 theme_override_constants/separation = 0
 alignment = 2
 
-[node name="AmmoInfo" type="VBoxContainer" parent="AmmoBg/Ammo"]
+[node name="AmmoInfo" type="VBoxContainer" parent="AmmoBg/Ammo" unique_id=1926268294]
 layout_mode = 2
 theme_override_constants/separation = 0
 alignment = 2
 
-[node name="Label" type="Label" parent="AmmoBg/Ammo/AmmoInfo"]
+[node name="Label" type="Label" parent="AmmoBg/Ammo/AmmoInfo" unique_id=122951979]
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "10/10"
 vertical_alignment = 1
 
-[node name="ProgressBar" type="ProgressBar" parent="AmmoBg/Ammo/AmmoInfo"]
+[node name="ProgressBar" type="ProgressBar" parent="AmmoBg/Ammo/AmmoInfo" unique_id=249303707]
 layout_mode = 2
 theme_override_styles/background = SubResource("StyleBoxFlat_xkmdl")
 theme_override_styles/fill = SubResource("StyleBoxFlat_y2ny2")
@@ -155,10 +155,10 @@ max_value = 1.0
 value = 1.0
 show_percentage = false
 
-[node name="Inf" type="Control" parent="AmmoBg/Ammo"]
+[node name="Inf" type="Control" parent="AmmoBg/Ammo" unique_id=453290274]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="AmmoBg/Ammo/Inf"]
+[node name="Label" type="Label" parent="AmmoBg/Ammo/Inf" unique_id=256924395]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -174,12 +174,12 @@ theme_override_font_sizes/font_size = 80
 text = "∞"
 vertical_alignment = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="AmmoBg/Ammo"]
+[node name="MarginContainer" type="MarginContainer" parent="AmmoBg/Ammo" unique_id=671148331]
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="AmmoBg/Ammo/MarginContainer"]
+[node name="TextureRect" type="TextureRect" parent="AmmoBg/Ammo/MarginContainer" unique_id=643168580]
 layout_mode = 2
 texture = ExtResource("2_s3jgx")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1718078355]

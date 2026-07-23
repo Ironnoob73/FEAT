@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://c0hvltjdip61f"]
 
 [ext_resource type="Script" uid="uid://c0181dcofga70" path="res://Assets/World/WorldMain.gd" id="1_4lhai"]
-[ext_resource type="PackedScene" uid="uid://bjtidvrl0deer" path="res://Assets/Character/Local/LocalPlayer.tscn" id="3_oiwhx"]
-[ext_resource type="Resource" uid="uid://dnyk7pm4cqskj" path="res://Assets/Inventory/Player_inventory.tres" id="4_m5iry"]
+[ext_resource type="PackedScene" uid="uid://bjtidvrl0deer" path="res://Assets/Character/Local/local_player.tscn" id="3_oiwhx"]
+[ext_resource type="Resource" uid="uid://dnyk7pm4cqskj" path="res://Assets/Inventory/player_inventory.tres" id="4_m5iry"]
 [ext_resource type="PackedScene" uid="uid://ryitjhnhr4hi" path="res://Assets/World/Location/_Home/Reality/ScenePackage.tscn" id="5_espus"]
 
 [node name="World" type="Node3D" unique_id=1038144871]

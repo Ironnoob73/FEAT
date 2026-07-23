@@ -39,7 +39,7 @@ general/text_to_speech=true
 
 Global="*res://global.gd"
 AllItems="*res://Resources/Item/AllItems.gd"
-LocationPreload="*res://Assets/World/Location/LocationPreload.gd"
+LocationPreload="*res://Assets/World/Location/location_preload.gd"
 Commands="*res://Assets/Script/Commands.gd"
 AHL_NoticeManager="*uid://lyuhdcccjj8g"
 AHL_LoadManager="*uid://v3dmelk2q7u5"

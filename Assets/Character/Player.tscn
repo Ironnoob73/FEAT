@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bk6ihg1vf71uf"]
 
-[ext_resource type="Script" uid="uid://cqshqrk45jc44" path="res://Assets/Character/Player.gd" id="1_twfth"]
+[ext_resource type="Script" uid="uid://cqshqrk45jc44" path="res://Assets/Character/player.gd" id="1_twfth"]
 [ext_resource type="PackedScene" uid="uid://c4pg4fa4c3vft" path="res://Resources/Character/MrPicto/body_scene.tscn" id="2_c5t80"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_a500n"]

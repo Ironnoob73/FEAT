@@ -6,7 +6,7 @@ class_name AHL_DebugPrintInfoBehaviorClass
 @export var tag : String = ''
 
 func do(interactor:Node,sender:Node) -> void:
-	if sender is player and tag != '':
+	if sender is Player and tag != '':
 		var result : String = ''
 		if !isSender:
 			if interactor.get(tag):

@@ -18,7 +18,7 @@ var isInput : bool = false:
 func _ready() -> void:
 	chat_state()
 	
-func chat_state():
+func chat_state() -> void:
 	if isInput:
 		self_modulate.a = 1
 		input_bar.show()
@@ -29,12 +29,12 @@ func chat_state():
 		chat_list.release_focus()
 		chat_list.set_focus_mode(FOCUS_NONE)
 
-func append_message(message:String):
+func append_message(message:String) -> void:
 	chat_list.append_text(message)
 	chat_list.pop_all()
 	chat_list.newline()
 
-func send_message():
+func send_message() -> void:
 	if edit.text != "":
 		if edit.text.begins_with("#"):
 			if Commands.has_method(edit.text.trim_prefix("#").get_slice("(",0)):
@@ -49,14 +49,14 @@ func send_message():
 						% [str(command.get_argument_count()),argu_in])
 			else:
 				append_message("[i]No command called %s.[/i] " % edit.text.trim_prefix("#").get_slice("(",0))
-		elif get_parent() is player and edit.text != "":
+		elif get_parent() is Player and edit.text != "":
 			append_message(get_parent().get_player_name() + ": " + edit.text)
 		send_history.append(edit.text)
 	edit.text = ""
 	last_input = ""
 	current_history = -1
 
-func append_history(up:bool = true):
+func append_history(up: bool = true) -> void:
 	if current_history == -1:
 		last_input = edit.text
 	if send_history.size() != 0:

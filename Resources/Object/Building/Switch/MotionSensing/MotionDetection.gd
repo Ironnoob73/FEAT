@@ -1,16 +1,16 @@
+class_name MotionDetectionArea
 extends Area3D
 
-@export var state : bool
-@export var connected_node : Array[NodePath]
+@export var state: bool
+@export var connected_node: Array[NodePath]
 
-var detected_player : Node = null
+var detected_player: Player = null
 
-@onready var timer : Timer = $Timer
+@onready var timer: Timer = $Timer
 	
-func _physics_process(_delta) -> void:
+func _physics_process(_delta: float) -> void:
 	if detected_player :
-		if !detected_player.isCrouch and \
-		detected_player.velocity.distance_squared_to(Vector3(0,0,0)) >= 10.0**-6 :
+		if !detected_player.isCrouch and detected_player.velocity.distance_squared_to(Vector3(0,0,0)) >= 10.0**-6 :
 			state = true
 			_switch()
 			timer.start()
@@ -20,8 +20,8 @@ func _on_timer_timeout() -> void:
 	_switch()
 	
 func _switch() -> void:
-	for i in connected_node :
-		var Ni = get_node(i)
+	for i: NodePath in connected_node :
+		var Ni: AHL_Interactive = get_node(i)
 		if Ni.is_in_group("Switchable") :
-			Ni.switch(state)
+			Ni.switch(state, self)
 		else : push_warning("This connected node can't be switched.")

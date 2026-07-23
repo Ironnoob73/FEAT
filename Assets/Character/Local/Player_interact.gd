@@ -10,7 +10,7 @@ var hit_point : Vector3
 
 @onready var inventory = preload("res://Assets/Inventory/Player_inventory.tres")
 @onready var HandHeldItem = $"../FirstPersonHandled/SubViewport/FirstPersonCam/HandHeldRight"
-@onready var Player = get_node("/root/World/Player")
+@onready var player = get_node("/root/World/Player")
 	
 func _physics_process(_delta):
 	# Get hit point & Change cursor color
@@ -32,7 +32,7 @@ func _physics_process(_delta):
 		if Global.alwaysShowCursor: _cursor.show()
 		_cursor.set_global_position(Vector3(hit_point)+Vector3(0.5,0.25,0.5))
 	# Interact
-	if Player.current_menu == "HUD" and is_colliding() and get_collider().get_parent() is AHL_Interactive:
+	if player.current_menu == "HUD" and is_colliding() and get_collider().get_parent() is AHL_Interactive:
 		tooltip_icon.text = get_collider().get_parent().interact_icon
 		var isInteractable: bool = get_collider().get_parent().Interactable
 		if isInteractable:
@@ -42,7 +42,7 @@ func _physics_process(_delta):
 			tooltip_text.text = str(key_array).replacen("\"","") + tr(get_collider().get_parent().interact_text)
 		else: tooltip_text.text = tr(get_collider().get_parent().interact_text)
 		if Input.is_action_just_pressed("interact") and isInteractable:
-			get_collider().get_parent().interact(Player)
+			get_collider().get_parent().interact(player)
 		if !get_collider().get_parent().Hidden:
 			tooltip.visible = true
 	else:	tooltip.visible = false
@@ -59,14 +59,14 @@ func can_place_voxel_at(pos: Vector3i):
 	return hits.size() == 0
 
 func _input(_event):
-	if Player.current_menu == "HUD":
+	if player.current_menu == "HUD":
 		if HandHeldItem.get_child_count():
 			if Input.is_action_just_pressed("main_attack"):
-				Player.main_attack(true)
+				player.main_attack(true)
 			if Input.is_action_just_pressed("secondary_attack"):
-				Player.secondary_attack(true)
+				player.secondary_attack(true)
 			if Input.is_action_just_released("secondary_attack"):
-				Player.secondary_attack(false)
+				player.secondary_attack(false)
 		else:
 			if Input.is_action_just_pressed("main_attack"):
-				Player.main_attack(true)
+				player.main_attack(true)
