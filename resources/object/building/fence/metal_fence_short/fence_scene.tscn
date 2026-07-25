@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://bgar67py461my"]
+
+[ext_resource type="ArrayMesh" uid="uid://cschbedswl60d" path="res://resources/object/building/fence/metal_fence_short/fence_short.obj" id="1_mkh8m"]
+[ext_resource type="Material" uid="uid://rnxv6hl1w5ul" path="res://resources/material/dark_material.tres" id="2_bipx6"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lon4e"]
+size = Vector3(1, 1, 0.1)
+
+[node name="FenceScene" type="StaticBody3D"]
+collision_layer = 10
+
+[node name="Collection" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+material_override = ExtResource("2_bipx6")
+mesh = ExtResource("1_mkh8m")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_lon4e")

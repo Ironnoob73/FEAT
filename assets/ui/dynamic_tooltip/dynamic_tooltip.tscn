@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://cx8atl2dbskhd"]
+
+[ext_resource type="Script" uid="uid://4yxv6sjvt8is" path="res://assets/ui/dynamic_tooltip/dynamic_tooltip.gd" id="1_n6751"]
+
+[node name="DynamicTooltip" type="Window"]
+transparent_bg = true
+gui_disable_input = true
+gui_embed_subwindows = true
+always_on_top = true
+transparent = true
+script = ExtResource("1_n6751")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+bbcode_enabled = true
+text = "TEST"

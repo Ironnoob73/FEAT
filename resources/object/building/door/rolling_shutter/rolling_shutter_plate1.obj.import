@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://c8ana7owqfsgm"
+path="res://.godot/imported/rolling_shutter_plate1.obj-0225a092a300fb2bd41a1a5d0f5a0d3e.mesh"
+
+[deps]
+
+files=["res://.godot/imported/rolling_shutter_plate1.obj-0225a092a300fb2bd41a1a5d0f5a0d3e.mesh"]
+
+source_file="res://resources/object/building/door/rolling_shutter/rolling_shutter_plate1.obj"
+dest_files=["res://.godot/imported/rolling_shutter_plate1.obj-0225a092a300fb2bd41a1a5d0f5a0d3e.mesh", "res://.godot/imported/rolling_shutter_plate1.obj-0225a092a300fb2bd41a1a5d0f5a0d3e.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

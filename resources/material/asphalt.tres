@@ -1,0 +1,14 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://lwjkvikmw3dm"]
+
+[ext_resource type="Texture2D" uid="uid://ccv41bvpr36j8" path="res://resources/material/sources/asphalt_albedo.png" id="1_c66xr"]
+[ext_resource type="Texture2D" uid="uid://cvbbqqwlg6oid" path="res://resources/material/sources/asphalt_normal.png" id="2_lf1ak"]
+[ext_resource type="Texture2D" uid="uid://bdnuvui4d1pah" path="res://resources/material/sources/asphalt_orm.png" id="3_c7iqn"]
+
+[resource]
+albedo_texture = ExtResource("1_c66xr")
+roughness_texture = ExtResource("3_c7iqn")
+roughness_texture_channel = 1
+normal_enabled = true
+normal_texture = ExtResource("2_lf1ak")
+uv1_world_triplanar = true
+texture_filter = 0

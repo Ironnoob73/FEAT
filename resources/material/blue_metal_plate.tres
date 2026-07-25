@@ -1,0 +1,22 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://c2bf4nk8dtp88"]
+
+[ext_resource type="Texture2D" uid="uid://ba4k0xefxk23k" path="res://resources/material/sources/blue_metal_plate_albedo.png" id="1_mb8w5"]
+[ext_resource type="Texture2D" uid="uid://lcmgsd2lw52q" path="res://resources/material/sources/blue_metal_plate_heightmap.png" id="2_6ntcl"]
+[ext_resource type="Texture2D" uid="uid://cv8w2efpmnpaj" path="res://resources/material/sources/blue_metal_plate_orm.png" id="3_lgiw7"]
+[ext_resource type="Texture2D" uid="uid://bgipcjavkn16c" path="res://resources/material/sources/blue_metal_plate_normal.png" id="4_xeckh"]
+
+[resource]
+diffuse_mode = 3
+specular_mode = 1
+albedo_texture = ExtResource("1_mb8w5")
+metallic = 1.0
+metallic_texture = ExtResource("3_lgiw7")
+metallic_texture_channel = 2
+roughness_texture = ExtResource("3_lgiw7")
+roughness_texture_channel = 1
+normal_enabled = true
+normal_texture = ExtResource("4_xeckh")
+heightmap_enabled = true
+heightmap_scale = 1.0
+heightmap_texture = ExtResource("2_6ntcl")
+texture_filter = 0

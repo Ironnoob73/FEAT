@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://c5nkwuac4jut0"]
+
+[ext_resource type="Script" uid="uid://8d7jpktk4f43" path="res://resources/object/building/door/plain_door/door_frame_recolor.gd" id="1_glgy1"]
+[ext_resource type="Material" uid="uid://bi2qrop8jfbsf" path="res://resources/material/tree.tres" id="1_xa7w8"]
+[ext_resource type="ArrayMesh" uid="uid://dutllpwyvnjjh" path="res://resources/object/building/door/plain_door/door_frame.obj" id="2_uio7l"]
+[ext_resource type="Shader" uid="uid://chmfx8vng2i2v" path="res://resources/shader/recolor.gdshader" id="3_fgf2p"]
+[ext_resource type="Material" uid="uid://rnxv6hl1w5ul" path="res://resources/material/dark_material.tres" id="5_cm3tb"]
+[ext_resource type="Material" uid="uid://cimr26thbt57t" path="res://resources/material/white_noshadow.tres" id="6_4g2hj"]
+[ext_resource type="Material" uid="uid://b860lbxbd3ed6" path="res://resources/material/gray_material.tres" id="7_i4j0n"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rq84c"]
+render_priority = 0
+shader = ExtResource("3_fgf2p")
+shader_parameter/color = Color(0, 0, 0, 0)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_cyb54"]
+data = PackedVector3Array(-0.7, 2.5, 0.1, -0.7, 0, 0.1, -0.7, 2.5, -0.1, -0.7, 2.5, -0.1, -0.7, 0, 0.1, -0.7, 0, -0.1, -0.7, 2.5, -0.1, -0.7, 0, -0.1, -0.6, 2.4, -0.1, -0.6, 2.4, -0.1, -0.7, 0, -0.1, -0.6, 0, -0.1, -0.6, 2.4, -0.1, -0.6, 0, -0.1, -0.6, 2.4, 0.1, -0.6, 2.4, 0.1, -0.6, 0, -0.1, -0.6, 0, 0.1, -0.6, 2.4, 0.1, -0.6, 0, 0.1, -0.7, 2.5, 0.1, -0.7, 2.5, 0.1, -0.6, 0, 0.1, -0.7, 0, 0.1, -0.6, 0, -0.1, -0.7, 0, -0.1, -0.6, 0, 0.1, -0.6, 0, 0.1, -0.7, 0, -0.1, -0.7, 0, 0.1, -0.6, 2.4, -0.1, -0.6, 2.4, 0.1, 0.6, 2.4, -0.1, 0.6, 2.4, -0.1, -0.6, 2.4, 0.1, 0.6, 2.4, 0.1, 0.6, 2.4, 0.1, 0.7, 2.5, 0.1, 0.6, 0, 0.1, 0.6, 0, 0.1, 0.7, 2.5, 0.1, 0.7, 0, 0.1, -0.7, 2.5, 0.1, -0.7, 2.5, -0.1, 0.7, 2.5, 0.1, 0.7, 2.5, 0.1, -0.7, 2.5, -0.1, 0.7, 2.5, -0.1, -0.6, 2.4, 0.1, -0.7, 2.5, 0.1, 0.6, 2.4, 0.1, 0.6, 2.4, 0.1, -0.7, 2.5, 0.1, 0.7, 2.5, 0.1, -0.7, 2.5, -0.1, -0.6, 2.4, -0.1, 0.7, 2.5, -0.1, 0.7, 2.5, -0.1, -0.6, 2.4, -0.1, 0.6, 2.4, -0.1, 0.7, 0, -0.1, 0.6, 0, -0.1, 0.7, 0, 0.1, 0.7, 0, 0.1, 0.6, 0, -0.1, 0.6, 0, 0.1, 0.7, 2.5, -0.1, 0.6, 2.4, -0.1, 0.7, 0, -0.1, 0.7, 0, -0.1, 0.6, 2.4, -0.1, 0.6, 0, -0.1, 0.6, 2.4, -0.1, 0.6, 2.4, 0.1, 0.6, 0, -0.1, 0.6, 0, -0.1, 0.6, 2.4, 0.1, 0.6, 0, 0.1, 0.7, 2.5, 0.1, 0.7, 2.5, -0.1, 0.7, 0, 0.1, 0.7, 0, 0.1, 0.7, 2.5, -0.1, 0.7, 0, -0.1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_63jro"]
+size = Vector2(1.2, 2.4)
+
+[sub_resource type="QuadMesh" id="QuadMesh_cgvbv"]
+size = Vector2(1.2, 2.4)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vgq7w"]
+size = Vector3(1.2, 2.4, 0.1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_8ckeh"]
+size = Vector2(1.2, 0.2)
+
+[node name="FrameScene" type="StaticBody3D" unique_id=99777462]
+collision_layer = 3
+script = ExtResource("1_glgy1")
+ToLocationPos = Vector3(0, 1, 0)
+
+[node name="DoorFrame" type="MeshInstance3D" parent="." unique_id=1557420754]
+material_override = ExtResource("1_xa7w8")
+material_overlay = SubResource("ShaderMaterial_rq84c")
+mesh = ExtResource("2_uio7l")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1177068097]
+shape = SubResource("ConcavePolygonShape3D_cyb54")
+
+[node name="Occlusion" type="MeshInstance3D" parent="." unique_id=1229653770]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 1.2, 0.1)
+visible = false
+material_override = ExtResource("5_cm3tb")
+mesh = SubResource("QuadMesh_63jro")
+
+[node name="Occlusion_light" type="MeshInstance3D" parent="." unique_id=1885683906]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 1.2, 0.1)
+visible = false
+material_override = ExtResource("6_4g2hj")
+mesh = SubResource("QuadMesh_cgvbv")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Occlusion_light" unique_id=2023612230]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -0.9)
+shadow_enabled = true
+shadow_normal_bias = 10.0
+
+[node name="Teleporter" type="Area3D" parent="." unique_id=1766204682 groups=["Teleporter"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Teleporter" unique_id=735625613]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, 0.15)
+shape = SubResource("BoxShape3D_vgq7w")
+
+[node name="Bottom" type="MeshInstance3D" parent="." unique_id=781526303]
+visible = false
+material_override = ExtResource("7_i4j0n")
+mesh = SubResource("PlaneMesh_8ckeh")

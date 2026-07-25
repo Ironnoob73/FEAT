@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://lixd4xll3bl0"]
+
+[ext_resource type="Script" uid="uid://cp3i1mvdjv4k8" path="res://resources/object/building/occlusion_static_body.gd" id="1_083ap"]
+[ext_resource type="Material" uid="uid://b860lbxbd3ed6" path="res://resources/material/gray_material.tres" id="1_fullj"]
+[ext_resource type="Material" uid="uid://d2kh2k5stcerf" path="res://resources/material/glass.tres" id="2_4v2hw"]
+[ext_resource type="ArrayMesh" uid="uid://6p1gb7kymho6" path="res://resources/object/building/window/static_glass/static_glass_frame.obj" id="2_b71qc"]
+[ext_resource type="Material" uid="uid://rnxv6hl1w5ul" path="res://resources/material/dark_material.tres" id="4_ipi4v"]
+[ext_resource type="Material" uid="uid://cimr26thbt57t" path="res://resources/material/white_noshadow.tres" id="6_dq6qf"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xnr1y"]
+size = Vector3(3, 2, 0.2)
+
+[sub_resource type="BoxMesh" id="BoxMesh_v2qb8"]
+size = Vector3(2.8, 1.8, 0.1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_pht77"]
+size = Vector2(2.8, 1.8)
+
+[node name="StaticGlass" type="StaticBody3D"]
+collision_layer = 2
+script = ExtResource("1_083ap")
+
+[node name="StaticGlassFrame" type="MeshInstance3D" parent="."]
+material_override = ExtResource("1_fullj")
+mesh = ExtResource("2_b71qc")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_xnr1y")
+
+[node name="Glass" type="MeshInstance3D" parent="."]
+material_override = ExtResource("2_4v2hw")
+mesh = SubResource("BoxMesh_v2qb8")
+
+[node name="Occlusion" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.1)
+material_override = ExtResource("4_ipi4v")
+mesh = SubResource("QuadMesh_pht77")
+
+[node name="Occlusion_light" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.1)
+visible = false
+material_override = ExtResource("6_dq6qf")
+mesh = SubResource("QuadMesh_pht77")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Occlusion_light"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -0.9)
+light_energy = 3.0
+shadow_enabled = true
+shadow_normal_bias = 10.0

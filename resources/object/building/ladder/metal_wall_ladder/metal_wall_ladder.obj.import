@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bdl2crqeu4kik"
+path="res://.godot/imported/metal_wall_ladder.obj-8976895ab193a3565574e504406e26cd.mesh"
+
+[deps]
+
+files=["res://.godot/imported/metal_wall_ladder.obj-8976895ab193a3565574e504406e26cd.mesh"]
+
+source_file="res://resources/object/building/ladder/metal_wall_ladder/metal_wall_ladder.obj"
+dest_files=["res://.godot/imported/metal_wall_ladder.obj-8976895ab193a3565574e504406e26cd.mesh", "res://.godot/imported/metal_wall_ladder.obj-8976895ab193a3565574e504406e26cd.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

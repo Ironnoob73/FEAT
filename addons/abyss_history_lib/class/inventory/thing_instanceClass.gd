@@ -1,0 +1,2 @@
+extends Resource
+class_name AHL_ThingInstanceClass

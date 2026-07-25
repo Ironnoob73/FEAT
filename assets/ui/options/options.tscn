@@ -1,0 +1,707 @@
+[gd_scene format=3 uid="uid://cnl53v0lrb1mv"]
+
+[ext_resource type="Script" uid="uid://cmgyke5hcxe75" path="res://assets/ui/options/options.gd" id="1_54q7r"]
+[ext_resource type="Theme" uid="uid://4vg46hb8hsti" path="res://assets/ui/options/restore_button_scene.tres" id="2_8vm80"]
+[ext_resource type="PackedScene" uid="uid://gqwcyi21yhlc" path="res://addons/abyss_history_lib/scene/notice/hint_button.tscn" id="2_hwb3r"]
+[ext_resource type="Texture2D" uid="uid://7yqunet0nhxt" path="res://resources/image/ui/restore.svg" id="2_j0l55"]
+[ext_resource type="Script" uid="uid://dhr8xpmf26e8v" path="res://addons/abyss_history_lib/class/notice/notice_info_class.gd" id="3_2vebq"]
+[ext_resource type="Script" uid="uid://xu6i6p3rtur6" path="res://assets/ui/options/keybindings.gd" id="5_ms344"]
+
+[sub_resource type="Resource" id="Resource_wnie8"]
+script = ExtResource("3_2vebq")
+title = "options.game.data"
+bgColor = Color(0, 0.501961, 1, 1)
+content = "options.game.data.disc"
+
+[sub_resource type="Resource" id="Resource_hwb3r"]
+script = ExtResource("3_2vebq")
+title = "options.game.use_sub_threads"
+bgColor = Color(0, 0.501961, 1, 1)
+content = "options.game.use_sub_threads.disc"
+
+[sub_resource type="Resource" id="Resource_g8qbb"]
+script = ExtResource("3_2vebq")
+title = "options.game.catch_p_elem_issue"
+bgColor = Color(0, 0.501961, 1, 1)
+content = "options.game.catch_p_elem_issue.disc"
+
+[sub_resource type="Resource" id="Resource_2vebq"]
+script = ExtResource("3_2vebq")
+title = "options.game.sdfgi"
+bgColor = Color(0, 0.501961, 1, 1)
+content = "options.game.sdfgi.disc"
+
+[sub_resource type="Resource" id="Resource_xu8jr"]
+script = ExtResource("3_2vebq")
+title = "options.control.auto_pickup"
+bgColor = Color(0, 0.501961, 1, 1)
+content = "options.control.auto_pickup.disc"
+
+[node name="Options" type="TabContainer" unique_id=1452337572]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -600.0
+offset_top = -375.0
+offset_right = 600.0
+offset_bottom = 375.0
+grow_horizontal = 2
+grow_vertical = 2
+current_tab = 0
+tab_0/title = "options.game"
+tab_1/title = "options.video"
+tab_2/title = "options.audio"
+tab_3/title = "options.control"
+script = ExtResource("1_54q7r")
+
+[node name="GameOptions" type="Control" parent="." unique_id=537732997]
+layout_mode = 2
+focus_neighbor_left = NodePath("../ControlOptions")
+focus_neighbor_top = NodePath(".")
+focus_neighbor_right = NodePath("../VideoOptions")
+focus_neighbor_bottom = NodePath("GameSetting/VSplit/Language/LanguageButton")
+focus_next = NodePath("../VideoOptions")
+focus_previous = NodePath("../ControlOptions")
+metadata/_tab_index = 0
+metadata/_tab_name = "options.game"
+
+[node name="GameSetting" type="ScrollContainer" parent="GameOptions" unique_id=2129152101]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VSplit" type="VBoxContainer" parent="GameOptions/GameSetting" unique_id=1308970388]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Language" type="HBoxContainer" parent="GameOptions/GameSetting/VSplit" unique_id=1620433612]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="LanguageText" type="Label" parent="GameOptions/GameSetting/VSplit/Language" unique_id=690478165]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "options.game.language"
+
+[node name="LanguageRestore" type="Button" parent="GameOptions/GameSetting/VSplit/Language" unique_id=297623462]
+layout_mode = 2
+theme = ExtResource("2_8vm80")
+icon = ExtResource("2_j0l55")
+flat = true
+
+[node name="LanguageButton" type="OptionButton" parent="GameOptions/GameSetting/VSplit/Language" unique_id=1471211597]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath("../../../..")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath("../../DataPath/DatapathButton")
+focus_next = NodePath("../../DataPath/DatapathButton")
+focus_previous = NodePath("../../DataPath/DatapathButton")
+alignment = 1
+selected = 0
+item_count = 2
+popup/item_0/text = "English"
+popup/item_0/id = 0
+popup/item_1/text = "中文"
+popup/item_1/id = 1
+
+[node name="DataPath" type="HBoxContainer" parent="GameOptions/GameSetting/VSplit" unique_id=146]
+layout_mode = 2
+
+[node name="DatapathText" type="Label" parent="GameOptions/GameSetting/VSplit/DataPath" unique_id=1242956101]
+layout_mode = 2
+text = "options.game.data"
+
+[node name="HintButton" parent="GameOptions/GameSetting/VSplit/DataPath" unique_id=1095241185 instance=ExtResource("2_hwb3r")]
+layout_mode = 2
+text = "不要修改容器大小，这个改成填充会导致按钮太大。"
+notice = SubResource("Resource_wnie8")
+
+[node name="DatapathRestore" type="Button" parent="GameOptions/GameSetting/VSplit/DataPath" unique_id=1296724741]
+layout_mode = 2
+size_flags_horizontal = 10
+theme = ExtResource("2_8vm80")
+icon = ExtResource("2_j0l55")
+flat = true
+
+[node name="DatapathButton" type="Button" parent="GameOptions/GameSetting/VSplit/DataPath" unique_id=587231769]
+custom_minimum_size = Vector2(200, 35)
+layout_mode = 2
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath("../../Language/LanguageButton")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath("../../Language/LanguageButton")
+focus_next = NodePath("../../Language/LanguageButton")
+focus_previous = NodePath("../../Language/LanguageButton")
+
+[node name="PathChoose" type="FileDialog" parent="GameOptions/GameSetting/VSplit/DataPath/DatapathButton" unique_id=1509055518]
+gui_embed_subwindows = true
+title = "file.open_directory"
+initial_position = 2
+size = Vector2i(750, 500)
+ok_button_text = "Select Current Folder"
+cancel_button_text = "button.cancel"
+mode_overrides_title = false
+file_mode = 2
+access = 2
+use_native_dialog = true
+
+[node name="UseSubThreads" type="HBoxContainer" parent="GameOptions/GameSetting/VSplit" unique_id=1287752506]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="UstText" type="Label" parent="GameOptions/GameSetting/VSplit/UseSubThreads" unique_id=1139171479]
+layout_mode = 2
+text = "options.game.use_sub_threads"
+
+[node name="HintButton" parent="GameOptions/GameSetting/VSplit/UseSubThreads" unique_id=564826928 instance=ExtResource("2_hwb3r")]
+layout_mode = 2
+notice = SubResource("Resource_hwb3r")
+
+[node name="UstRestore" type="Button" parent="GameOptions/GameSetting/VSplit/UseSubThreads" unique_id=648274228]
+layout_mode = 2
+size_flags_horizontal = 10
+theme = ExtResource("2_8vm80")
+icon = ExtResource("2_j0l55")
+flat = true
+
+[node name="UstCheckbox" type="CheckBox" parent="GameOptions/GameSetting/VSplit/UseSubThreads" unique_id=2139057672]
+layout_mode = 2
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath("../../../..")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath(".")
+focus_next = NodePath(".")
+focus_previous = NodePath(".")
+text = " "
+flat = true
+clip_text = true
+
+[node name="DebugOptGroup" type="Button" parent="GameOptions/GameSetting/VSplit" unique_id=554726361]
+layout_mode = 2
+toggle_mode = true
+text = "options.game.debug.group"
+
+[node name="DebugOptContainer" type="VBoxContainer" parent="GameOptions/GameSetting/VSplit" unique_id=1640122404]
+layout_mode = 2
+
+[node name="PrintDebugInfo" type="HBoxContainer" parent="GameOptions/GameSetting/VSplit/DebugOptContainer" unique_id=661062770]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PdiText" type="Label" parent="GameOptions/GameSetting/VSplit/DebugOptContainer/PrintDebugInfo" unique_id=395824560]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "options.game.print_debug_info"
+
+[node name="PdiRestore" type="Button" parent="GameOptions/GameSetting/VSplit/DebugOptContainer/PrintDebugInfo" unique_id=1972154863]
+layout_mode = 2
+theme = ExtResource("2_8vm80")
+icon = ExtResource("2_j0l55")
+flat = true
+
+[node name="PdiCheckbox" type="CheckBox" parent="GameOptions/GameSetting/VSplit/DebugOptContainer/PrintDebugInfo" unique_id=936172134]
+layout_mode = 2
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath("../../../../..")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath(".")
+focus_next = NodePath(".")
+focus_previous = NodePath(".")
+text = " "
+flat = true
+clip_text = true
+
+[node name="CatchPElemIssue" type="HBoxContainer" parent="GameOptions/GameSetting/VSplit/DebugOptContainer" unique_id=878530676]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CpeiText" type="Label" parent="GameOptions/GameSetting/VSplit/DebugOptContainer/CatchPElemIssue" unique_id=1662426127]
+layout_mode = 2
+text = "options.game.catch_p_elem_issue"
+
+[node name="HintButton" parent="GameOptions/GameSetting/VSplit/DebugOptContainer/CatchPElemIssue" unique_id=393663515 instance=ExtResource("2_hwb3r")]
+layout_mode = 2
+notice = SubResource("Resource_g8qbb")
+
+[node name="CpeiRestore" type="Button" parent="GameOptions/GameSetting/VSplit/DebugOptContainer/CatchPElemIssue" unique_id=1868940444]
+layout_mode = 2
+size_flags_horizontal = 10
+theme = ExtResource("2_8vm80")
+icon = ExtResource("2_j0l55")
+flat = true
+
+[node name="CpeiCheckbox" type="CheckBox" parent="GameOptions/GameSetting/VSplit/DebugOptContainer/CatchPElemIssue" unique_id=1323102815]
+layout_mode = 2
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath("../../../../..")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath(".")
+focus_next = NodePath(".")
+focus_previous = NodePath(".")
+text = " "
+flat = true
+clip_text = true
+
+[node name="AlwaysShowCursor" type="HBoxContainer" parent="GameOptions/GameSetting/VSplit/DebugOptContainer" unique_id=1276439477]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="AscText" type="Label" parent="GameOptions/GameSetting/VSplit/DebugOptContainer/AlwaysShowCursor" unique_id=1435590041]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "options.game.always_show_cursor"
+
+[node name="AscRestore" type="Button" parent="GameOptions/GameSetting/VSplit/DebugOptContainer/AlwaysShowCursor" unique_id=899331861]
+layout_mode = 2
+theme = ExtResource("2_8vm80")
+icon = ExtResource("2_j0l55")
+flat = true
+
+[node name="AscCheckbox" type="CheckBox" parent="GameOptions/GameSetting/VSplit/DebugOptContainer/AlwaysShowCursor" unique_id=1513204396]
+layout_mode = 2
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath("../../../..")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath(".")
+focus_next = NodePath(".")
+focus_previous = NodePath(".")
+text = " "
+flat = true
+clip_text = true
+
+[node name="KeyDebugScene" type="HBoxContainer" parent="GameOptions/GameSetting/VSplit/DebugOptContainer" unique_id=70302996]
+layout_mode = 2
+metadata/_tab_index = 12
+
+[node name="KdsText" type="Label" parent="GameOptions/GameSetting/VSplit/DebugOptContainer/KeyDebugScene" unique_id=1411193474]
+layout_mode = 2
+text = "options.game.key_debug_scene"
+
+[node name="KdsButton" type="Button" parent="GameOptions/GameSetting/VSplit/DebugOptContainer/KeyDebugScene" unique_id=1742582388]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 10
+text = ">>>"
+
+[node name="FastBoot" type="HBoxContainer" parent="GameOptions/GameSetting/VSplit/DebugOptContainer" unique_id=1719480010]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="FbText" type="Label" parent="GameOptions/GameSetting/VSplit/DebugOptContainer/FastBoot" unique_id=2016662635]
+layout_mode = 2
+text = "options.game.fast_boot"
+
+[node name="FbRestore" type="Button" parent="GameOptions/GameSetting/VSplit/DebugOptContainer/FastBoot" unique_id=947112598]
+layout_mode = 2
+size_flags_horizontal = 10
+theme = ExtResource("2_8vm80")
+icon = ExtResource("2_j0l55")
+flat = true
+
+[node name="FbCheckbox" type="CheckBox" parent="GameOptions/GameSetting/VSplit/DebugOptContainer/FastBoot" unique_id=386661565]
+layout_mode = 2
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath("../../../../..")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath(".")
+focus_next = NodePath(".")
+focus_previous = NodePath(".")
+text = " "
+flat = true
+clip_text = true
+
+[node name="OOBE" type="HBoxContainer" parent="GameOptions/GameSetting/VSplit/DebugOptContainer" unique_id=301675074]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="OobeText" type="Label" parent="GameOptions/GameSetting/VSplit/DebugOptContainer/OOBE" unique_id=1934359084]
+layout_mode = 2
+text = "options.game.oobe"
+
+[node name="OobeRestore" type="Button" parent="GameOptions/GameSetting/VSplit/DebugOptContainer/OOBE" unique_id=647255763]
+layout_mode = 2
+size_flags_horizontal = 10
+theme = ExtResource("2_8vm80")
+icon = ExtResource("2_j0l55")
+flat = true
+
+[node name="OobeCheckbox" type="CheckBox" parent="GameOptions/GameSetting/VSplit/DebugOptContainer/OOBE" unique_id=20450323]
+layout_mode = 2
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath("../../../../..")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath(".")
+focus_next = NodePath(".")
+focus_previous = NodePath(".")
+text = " "
+flat = true
+clip_text = true
+
+[node name="VideoOptions" type="Control" parent="." unique_id=494458229]
+visible = false
+layout_mode = 2
+layout_direction = 1
+focus_neighbor_left = NodePath("../GameOptions")
+focus_neighbor_top = NodePath(".")
+focus_neighbor_right = NodePath("../AudioOptions")
+focus_neighbor_bottom = NodePath("VideoSetting/VSpilt/Fullscreen/FullscreenCheckbox")
+focus_next = NodePath("../AudioOptions")
+focus_previous = NodePath("../GameOptions")
+metadata/_tab_index = 1
+metadata/_tab_name = "options.video"
+
+[node name="VideoSetting" type="ScrollContainer" parent="VideoOptions" unique_id=1586036111]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VSpilt" type="VBoxContainer" parent="VideoOptions/VideoSetting" unique_id=1015270502]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Fullscreen" type="HBoxContainer" parent="VideoOptions/VideoSetting/VSpilt" unique_id=114177684]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="FullscreenText" type="Label" parent="VideoOptions/VideoSetting/VSpilt/Fullscreen" unique_id=1908253629]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "options.game.fullscreen"
+
+[node name="FullscreenRestore" type="Button" parent="VideoOptions/VideoSetting/VSpilt/Fullscreen" unique_id=1213923876]
+layout_mode = 2
+theme = ExtResource("2_8vm80")
+icon = ExtResource("2_j0l55")
+flat = true
+
+[node name="FullscreenCheckbox" type="CheckBox" parent="VideoOptions/VideoSetting/VSpilt/Fullscreen" unique_id=341991765]
+layout_mode = 2
+size_flags_horizontal = 8
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath("../../../..")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath(".")
+focus_next = NodePath(".")
+focus_previous = NodePath(".")
+text = " "
+flat = true
+clip_text = true
+
+[node name="Scale" type="HBoxContainer" parent="VideoOptions/VideoSetting/VSpilt" unique_id=959107410]
+layout_mode = 2
+
+[node name="ScaleText" type="Label" parent="VideoOptions/VideoSetting/VSpilt/Scale" unique_id=1928614930]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "options.game.scale"
+
+[node name="ScaleRestore" type="Button" parent="VideoOptions/VideoSetting/VSpilt/Scale" unique_id=287130026]
+layout_mode = 2
+theme = ExtResource("2_8vm80")
+icon = ExtResource("2_j0l55")
+flat = true
+
+[node name="ScaleSpin" type="SpinBox" parent="VideoOptions/VideoSetting/VSpilt/Scale" unique_id=71021064]
+custom_minimum_size = Vector2(200, 35)
+layout_mode = 2
+focus_neighbor_top = NodePath("../../Fullscreen/FullscreenCheckbox")
+focus_previous = NodePath("../../Fullscreen/FullscreenCheckbox")
+max_value = 5.0
+step = 0.01
+value = 1.0
+
+[node name="SDFGI" type="HBoxContainer" parent="VideoOptions/VideoSetting/VSpilt" unique_id=944782068]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="SdfgiText" type="Label" parent="VideoOptions/VideoSetting/VSpilt/SDFGI" unique_id=1659043146]
+layout_mode = 2
+text = "options.game.sdfgi"
+
+[node name="HintButton" parent="VideoOptions/VideoSetting/VSpilt/SDFGI" unique_id=1115113301 instance=ExtResource("2_hwb3r")]
+layout_mode = 2
+notice = SubResource("Resource_2vebq")
+
+[node name="SdfgiRestore" type="Button" parent="VideoOptions/VideoSetting/VSpilt/SDFGI" unique_id=1905718411]
+layout_mode = 2
+size_flags_horizontal = 10
+theme = ExtResource("2_8vm80")
+icon = ExtResource("2_j0l55")
+flat = true
+
+[node name="SdfgiCheckbox" type="CheckBox" parent="VideoOptions/VideoSetting/VSpilt/SDFGI" unique_id=1705070743]
+layout_mode = 2
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath("../../../..")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath(".")
+focus_next = NodePath(".")
+focus_previous = NodePath(".")
+text = " "
+flat = true
+clip_text = true
+
+[node name="AudioOptions" type="Control" parent="." unique_id=1067021392]
+visible = false
+layout_mode = 2
+focus_neighbor_left = NodePath("../VideoOptions")
+focus_neighbor_top = NodePath(".")
+focus_neighbor_right = NodePath("../ControlOptions")
+focus_neighbor_bottom = NodePath("AudioSetting/VSpilt/Master/MasterSlider")
+focus_next = NodePath("../ControlOptions")
+focus_previous = NodePath("../VideoOptions")
+metadata/_tab_index = 2
+metadata/_tab_name = "options.audio"
+
+[node name="AudioSetting" type="ScrollContainer" parent="AudioOptions" unique_id=460516462]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VSpilt" type="VBoxContainer" parent="AudioOptions/AudioSetting" unique_id=1568817867]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Master" type="HBoxContainer" parent="AudioOptions/AudioSetting/VSpilt" unique_id=403613546]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MasterText" type="Label" parent="AudioOptions/AudioSetting/VSpilt/Master" unique_id=1883785788]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "options.audio.master"
+
+[node name="MasterRestore" type="Button" parent="AudioOptions/AudioSetting/VSpilt/Master" unique_id=918136]
+layout_mode = 2
+size_flags_horizontal = 10
+theme = ExtResource("2_8vm80")
+icon = ExtResource("2_j0l55")
+flat = true
+
+[node name="MasterPercent" type="Label" parent="AudioOptions/AudioSetting/VSpilt/Master" unique_id=354318892]
+layout_mode = 2
+text = "100%"
+
+[node name="MasterSlider" type="HSlider" parent="AudioOptions/AudioSetting/VSpilt/Master" unique_id=1375091292]
+custom_minimum_size = Vector2(200, 35)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_neighbor_top = NodePath("../../../..")
+focus_neighbor_bottom = NodePath("../../Music/BgmSlider")
+focus_next = NodePath("../../Music/BgmSlider")
+focus_previous = NodePath("../../SFX/SfxSlider")
+max_value = 1.0
+step = 0.01
+value = 1.0
+allow_greater = true
+
+[node name="Music" type="HBoxContainer" parent="AudioOptions/AudioSetting/VSpilt" unique_id=1918321871]
+layout_mode = 2
+
+[node name="BgmText" type="Label" parent="AudioOptions/AudioSetting/VSpilt/Music" unique_id=2120900296]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "options.audio.bgm"
+
+[node name="BgmRestore" type="Button" parent="AudioOptions/AudioSetting/VSpilt/Music" unique_id=809933765]
+layout_mode = 2
+size_flags_horizontal = 10
+theme = ExtResource("2_8vm80")
+icon = ExtResource("2_j0l55")
+flat = true
+
+[node name="BgmPercent" type="Label" parent="AudioOptions/AudioSetting/VSpilt/Music" unique_id=949797793]
+layout_mode = 2
+text = "100%"
+
+[node name="BgmSlider" type="HSlider" parent="AudioOptions/AudioSetting/VSpilt/Music" unique_id=861658632]
+custom_minimum_size = Vector2(200, 35)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+focus_neighbor_top = NodePath("../../Master/MasterSlider")
+focus_neighbor_bottom = NodePath("../../SFX/SfxSlider")
+focus_next = NodePath("../../SFX/SfxSlider")
+focus_previous = NodePath("../../Master/MasterSlider")
+max_value = 1.0
+step = 0.01
+value = 1.0
+allow_greater = true
+
+[node name="SFX" type="HBoxContainer" parent="AudioOptions/AudioSetting/VSpilt" unique_id=821063561]
+layout_mode = 2
+
+[node name="SfxText" type="Label" parent="AudioOptions/AudioSetting/VSpilt/SFX" unique_id=1468968549]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "options.audio.sfx"
+
+[node name="SfxRestore" type="Button" parent="AudioOptions/AudioSetting/VSpilt/SFX" unique_id=1165921394]
+layout_mode = 2
+size_flags_horizontal = 10
+theme = ExtResource("2_8vm80")
+icon = ExtResource("2_j0l55")
+flat = true
+
+[node name="SfxPercent" type="Label" parent="AudioOptions/AudioSetting/VSpilt/SFX" unique_id=1429893408]
+layout_mode = 2
+text = "100%"
+
+[node name="SfxSlider" type="HSlider" parent="AudioOptions/AudioSetting/VSpilt/SFX" unique_id=1538255249]
+custom_minimum_size = Vector2(200, 35)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+focus_neighbor_top = NodePath("../../Music/BgmSlider")
+focus_neighbor_bottom = NodePath("../../Master/MasterSlider")
+focus_next = NodePath("../../Master/MasterSlider")
+focus_previous = NodePath("../../Music/BgmSlider")
+max_value = 1.0
+step = 0.01
+value = 1.0
+allow_greater = true
+
+[node name="ControlOptions" type="Control" parent="." unique_id=1122571884]
+visible = false
+layout_mode = 2
+focus_neighbor_left = NodePath("../AudioOptions")
+focus_neighbor_top = NodePath(".")
+focus_neighbor_right = NodePath("../GameOptions")
+focus_neighbor_bottom = NodePath(".")
+focus_next = NodePath("../GameOptions")
+focus_previous = NodePath("../AudioOptions")
+metadata/_tab_index = 3
+metadata/_tab_name = "options.control"
+
+[node name="ControlSetting" type="ScrollContainer" parent="ControlOptions" unique_id=293144867]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VSpilt" type="VBoxContainer" parent="ControlOptions/ControlSetting" unique_id=209856505]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MouseSen" type="HBoxContainer" parent="ControlOptions/ControlSetting/VSpilt" unique_id=1287783471]
+layout_mode = 2
+
+[node name="MouseText" type="Label" parent="ControlOptions/ControlSetting/VSpilt/MouseSen" unique_id=1062052104]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "options.control.mouse_sen"
+
+[node name="MouseRestore" type="Button" parent="ControlOptions/ControlSetting/VSpilt/MouseSen" unique_id=833789146]
+layout_mode = 2
+size_flags_horizontal = 10
+theme = ExtResource("2_8vm80")
+icon = ExtResource("2_j0l55")
+flat = true
+
+[node name="MousePercent" type="Label" parent="ControlOptions/ControlSetting/VSpilt/MouseSen" unique_id=631533030]
+layout_mode = 2
+text = "40%"
+
+[node name="MouseSlider" type="HSlider" parent="ControlOptions/ControlSetting/VSpilt/MouseSen" unique_id=1227839421]
+custom_minimum_size = Vector2(200, 35)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.1
+value = 0.4
+
+[node name="AutoPickup" type="HBoxContainer" parent="ControlOptions/ControlSetting/VSpilt" unique_id=1086816440]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="AutoPickupText" type="Label" parent="ControlOptions/ControlSetting/VSpilt/AutoPickup" unique_id=1270506462]
+layout_mode = 2
+text = "options.control.auto_pickup"
+
+[node name="HintButton" parent="ControlOptions/ControlSetting/VSpilt/AutoPickup" unique_id=1944768890 instance=ExtResource("2_hwb3r")]
+layout_mode = 2
+notice = SubResource("Resource_xu8jr")
+
+[node name="AutoPickupRestore" type="Button" parent="ControlOptions/ControlSetting/VSpilt/AutoPickup" unique_id=419683138]
+layout_mode = 2
+size_flags_horizontal = 10
+theme = ExtResource("2_8vm80")
+icon = ExtResource("2_j0l55")
+flat = true
+
+[node name="AutoPickupCheckbox" type="CheckBox" parent="ControlOptions/ControlSetting/VSpilt/AutoPickup" unique_id=181092241]
+layout_mode = 2
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath("../../../..")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath(".")
+focus_next = NodePath(".")
+focus_previous = NodePath(".")
+text = " "
+flat = true
+clip_text = true
+
+[node name="KeybindingsGroup" type="Button" parent="ControlOptions/ControlSetting/VSpilt" unique_id=1431078092]
+layout_mode = 2
+toggle_mode = true
+text = "options.control.keybindings.group"
+
+[node name="KeybindingsContainer" type="VBoxContainer" parent="ControlOptions/ControlSetting/VSpilt" unique_id=1720493323]
+layout_mode = 2
+script = ExtResource("5_ms344")
+
+[connection signal="tab_changed" from="." to="." method="_on_tab_changed"]
+[connection signal="pressed" from="GameOptions/GameSetting/VSplit/Language/LanguageRestore" to="." method="_on_language_restore_pressed"]
+[connection signal="item_selected" from="GameOptions/GameSetting/VSplit/Language/LanguageButton" to="." method="_on_language_button_item_selected"]
+[connection signal="pressed" from="GameOptions/GameSetting/VSplit/DataPath/DatapathRestore" to="." method="_on_datapath_restore_pressed"]
+[connection signal="pressed" from="GameOptions/GameSetting/VSplit/DataPath/DatapathButton" to="." method="_on_datapath_button_pressed"]
+[connection signal="dir_selected" from="GameOptions/GameSetting/VSplit/DataPath/DatapathButton/PathChoose" to="." method="_on_path_choose_dir_selected"]
+[connection signal="pressed" from="GameOptions/GameSetting/VSplit/UseSubThreads/UstRestore" to="." method="_on_ust_restore_pressed"]
+[connection signal="toggled" from="GameOptions/GameSetting/VSplit/UseSubThreads/UstCheckbox" to="." method="_on_ust_button_toggled"]
+[connection signal="toggled" from="GameOptions/GameSetting/VSplit/DebugOptGroup" to="." method="_on_debug_opt_group_toggled"]
+[connection signal="pressed" from="GameOptions/GameSetting/VSplit/DebugOptContainer/PrintDebugInfo/PdiRestore" to="." method="_on_pdi_restore_pressed"]
+[connection signal="toggled" from="GameOptions/GameSetting/VSplit/DebugOptContainer/PrintDebugInfo/PdiCheckbox" to="." method="_on_pdi_button_toggled"]
+[connection signal="pressed" from="GameOptions/GameSetting/VSplit/DebugOptContainer/CatchPElemIssue/CpeiRestore" to="." method="_on_cpei_restore_pressed"]
+[connection signal="toggled" from="GameOptions/GameSetting/VSplit/DebugOptContainer/CatchPElemIssue/CpeiCheckbox" to="." method="_on_cpei_button_toggled"]
+[connection signal="pressed" from="GameOptions/GameSetting/VSplit/DebugOptContainer/AlwaysShowCursor/AscRestore" to="." method="_on_asc_restore_pressed"]
+[connection signal="toggled" from="GameOptions/GameSetting/VSplit/DebugOptContainer/AlwaysShowCursor/AscCheckbox" to="." method="_on_asc_button_toggled"]
+[connection signal="pressed" from="GameOptions/GameSetting/VSplit/DebugOptContainer/KeyDebugScene/KdsButton" to="." method="_key_debug_scene"]
+[connection signal="pressed" from="GameOptions/GameSetting/VSplit/DebugOptContainer/FastBoot/FbRestore" to="." method="_on_fb_restore_pressed"]
+[connection signal="toggled" from="GameOptions/GameSetting/VSplit/DebugOptContainer/FastBoot/FbCheckbox" to="." method="_on_fb_button_toggled"]
+[connection signal="pressed" from="GameOptions/GameSetting/VSplit/DebugOptContainer/OOBE/OobeRestore" to="." method="_on_oobe_restore_pressed"]
+[connection signal="toggled" from="GameOptions/GameSetting/VSplit/DebugOptContainer/OOBE/OobeCheckbox" to="." method="_on_oobe_button_toggled"]
+[connection signal="pressed" from="VideoOptions/VideoSetting/VSpilt/Fullscreen/FullscreenRestore" to="." method="_on_fullscreen_restore_pressed"]
+[connection signal="toggled" from="VideoOptions/VideoSetting/VSpilt/Fullscreen/FullscreenCheckbox" to="." method="_on_fullscreen_button_toggled"]
+[connection signal="pressed" from="VideoOptions/VideoSetting/VSpilt/Scale/ScaleRestore" to="." method="_on_scale_restore_pressed"]
+[connection signal="value_changed" from="VideoOptions/VideoSetting/VSpilt/Scale/ScaleSpin" to="." method="_on_scale_button_value_changed"]
+[connection signal="pressed" from="VideoOptions/VideoSetting/VSpilt/SDFGI/SdfgiRestore" to="." method="_on_sdfgi_restore_pressed"]
+[connection signal="toggled" from="VideoOptions/VideoSetting/VSpilt/SDFGI/SdfgiCheckbox" to="." method="_on_sdfgi_button_toggled"]
+[connection signal="pressed" from="AudioOptions/AudioSetting/VSpilt/Master/MasterRestore" to="." method="_on_master_restore_pressed"]
+[connection signal="value_changed" from="AudioOptions/AudioSetting/VSpilt/Master/MasterSlider" to="." method="_on_master_button_value_changed"]
+[connection signal="pressed" from="AudioOptions/AudioSetting/VSpilt/Music/BgmRestore" to="." method="_on_bgm_restore_pressed"]
+[connection signal="value_changed" from="AudioOptions/AudioSetting/VSpilt/Music/BgmSlider" to="." method="_on_bgm_button_value_changed"]
+[connection signal="pressed" from="AudioOptions/AudioSetting/VSpilt/SFX/SfxRestore" to="." method="_on_sfx_restore_pressed"]
+[connection signal="value_changed" from="AudioOptions/AudioSetting/VSpilt/SFX/SfxSlider" to="." method="_on_sfx_button_value_changed"]
+[connection signal="pressed" from="ControlOptions/ControlSetting/VSpilt/MouseSen/MouseRestore" to="." method="_on_mouse_restore_pressed"]
+[connection signal="value_changed" from="ControlOptions/ControlSetting/VSpilt/MouseSen/MouseSlider" to="." method="_on_mouse_button_value_changed"]
+[connection signal="pressed" from="ControlOptions/ControlSetting/VSpilt/AutoPickup/AutoPickupRestore" to="." method="_on_auto_pickup_restore_pressed"]
+[connection signal="toggled" from="ControlOptions/ControlSetting/VSpilt/AutoPickup/AutoPickupCheckbox" to="." method="_on_auto_pickup_button_toggled"]
+[connection signal="toggled" from="ControlOptions/ControlSetting/VSpilt/KeybindingsGroup" to="." method="_on_keybindings_group_toggled"]

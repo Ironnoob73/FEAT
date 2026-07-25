@@ -1,0 +1,82 @@
+[gd_resource type="Theme" load_steps=11 format=3 uid="uid://bitmw3ij7201m"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mtyc4"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+bg_color = Color(0, 0, 0, 1)
+border_width_top = 8
+border_color = Color(1, 0, 0, 1)
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vrny7"]
+bg_color = Color(0.74902, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w1nxf"]
+bg_color = Color(0, 0, 0, 0)
+border_width_bottom = 5
+border_color = Color(1, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uld20"]
+bg_color = Color(1, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i78fp"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3ngdk"]
+bg_color = Color(1, 0, 0, 1)
+
+[sub_resource type="Gradient" id="Gradient_us0m8"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.25)
+colors = PackedColorArray(1, 0, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_50n04"]
+gradient = SubResource("Gradient_us0m8")
+width = 40
+height = 30
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_lxeht"]
+gradient = SubResource("Gradient_us0m8")
+width = 40
+height = 30
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_321un"]
+content_margin_left = 10.0
+content_margin_top = 28.0
+content_margin_right = 10.0
+content_margin_bottom = 8.0
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(1, 0, 0, 1)
+corner_detail = 5
+expand_margin_left = 10.0
+expand_margin_top = 40.0
+expand_margin_right = 10.0
+expand_margin_bottom = 10.0
+
+[resource]
+AcceptDialog/styles/panel = SubResource("StyleBoxFlat_mtyc4")
+Button/colors/font_color = Color(1, 0, 0, 1)
+Button/colors/font_disabled_color = Color(0.498039, 0, 0, 1)
+Button/colors/font_focus_color = Color(1, 0, 0, 1)
+Button/colors/font_hover_color = Color(0, 0, 0, 1)
+Button/colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+Button/colors/font_pressed_color = Color(0, 0, 0, 1)
+Button/font_sizes/font_size = 25
+Button/styles/disabled = SubResource("StyleBoxFlat_vrny7")
+Button/styles/focus = SubResource("StyleBoxFlat_w1nxf")
+Button/styles/hover = SubResource("StyleBoxFlat_uld20")
+Button/styles/normal = SubResource("StyleBoxFlat_i78fp")
+Button/styles/pressed = SubResource("StyleBoxFlat_3ngdk")
+Label/colors/font_color = Color(1, 0, 0, 1)
+Label/font_sizes/font_size = 25
+Window/constants/close_h_offset = 40
+Window/constants/close_v_offset = 30
+Window/icons/close = SubResource("GradientTexture2D_50n04")
+Window/icons/close_pressed = SubResource("GradientTexture2D_lxeht")
+Window/styles/embedded_border = SubResource("StyleBoxFlat_321un")

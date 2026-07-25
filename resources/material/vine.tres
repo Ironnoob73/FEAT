@@ -1,0 +1,17 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://7peufrdrdfyt"]
+
+[ext_resource type="Shader" uid="uid://cvdl1g3drwh2e" path="res://resources/object/nature/tree/foliage.gdshader" id="1_adwww"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_adwww")
+shader_parameter/WindScale = 5.0
+shader_parameter/WindStrength = 5.0
+shader_parameter/WindDensity = 20.0
+shader_parameter/ClampTop = 1.0
+shader_parameter/ClampBtm = -1.0
+shader_parameter/MeshScale = 2.375e-07
+shader_parameter/DeactivateGlobalVariation = true
+shader_parameter/DistanceScale = 0.5
+shader_parameter/DistanceStart = 0.0
+shader_parameter/DistanceScaleRange = 70.0

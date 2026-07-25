@@ -1,0 +1,71 @@
+[gd_scene format=3 uid="uid://b4ymmrsi2t2s0"]
+
+[ext_resource type="Script" uid="uid://cfp7gchb0mnuk" path="res://title/debug/key_debug.gd" id="1_is2c1"]
+[ext_resource type="FontFile" uid="uid://cfd5huce8sylo" path="res://addons/key_controls_translator/keyboard_and_mouse/key_control_icon.ttf" id="2_rksoe"]
+
+[node name="KeyDebug" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_is2c1")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -34.5
+offset_bottom = 34.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="KeyString" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="KeyInnerArray" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -77.0
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 1
+
+[node name="DetectMouse" type="CheckBox" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="ExitButton" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "title.menu.exit"
+
+[node name="KeyboardExample" type="Label" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_fonts/font = ExtResource("2_rksoe")
+theme_override_font_sizes/font_size = 50
+text = "~||ÀÁÂÃ||ÄÅÆÇ||ÈÉÊË|pqr
+`1234567890-=!|ih{|n%*¯
+#QWERTYUIOP[]\\|dz}|yugÎ
+$ASDFGHJKL;'@||||||||||||||(?)Í
+&ZXCVBNM,./&|||||^|||||¹²³Ì
++wa\"awm+|<_>|ºxÏ"
+
+[connection signal="pressed" from="HBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]

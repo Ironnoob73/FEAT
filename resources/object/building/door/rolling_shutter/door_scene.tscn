@@ -1,0 +1,142 @@
+[gd_scene format=3 uid="uid://3yd06robq3f8"]
+
+[ext_resource type="Script" uid="uid://c5fy1xkbfugu5" path="res://resources/object/building/door/rolling_shutter/rolling_shutter_interaction.gd" id="1_bt7is"]
+[ext_resource type="PackedScene" uid="uid://cuvlmpiixjtym" path="res://resources/object/building/door/rolling_shutter/rolling_shutter_up.glb" id="2_kr47t"]
+[ext_resource type="Material" uid="uid://cyctsb4n7kcu6" path="res://resources/material/white_metal.tres" id="3_bk3ub"]
+[ext_resource type="ArrayMesh" uid="uid://cwit74o33j318" path="res://resources/object/building/door/rolling_shutter/rolling_shutter_down.obj" id="4_oidlr"]
+[ext_resource type="Material" uid="uid://cw2tppihttki3" path="res://resources/material/white_metal_plate.tres" id="5_yhqum"]
+[ext_resource type="ArrayMesh" uid="uid://456qbx1wjbfr" path="res://resources/object/building/door/rolling_shutter/rolling_shutter_plate2.obj" id="6_0vwgp"]
+[ext_resource type="ArrayMesh" uid="uid://c8ana7owqfsgm" path="res://resources/object/building/door/rolling_shutter/rolling_shutter_plate1.obj" id="7_8386a"]
+[ext_resource type="Script" uid="uid://co841gj3g4gso" path="res://resources/object/building/door/rolling_shutter/door_plate_interaction.gd" id="8_cr7o0"]
+[ext_resource type="ArrayMesh" uid="uid://bv6ktdr86p07n" path="res://resources/object/building/door/rolling_shutter/rolling_shutter_plate0.obj" id="9_oqjuf"]
+[ext_resource type="Material" uid="uid://rnxv6hl1w5ul" path="res://resources/material/dark_material.tres" id="10_bpsko"]
+[ext_resource type="Material" uid="uid://cimr26thbt57t" path="res://resources/material/white_noshadow.tres" id="11_xkd1t"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xuq0a"]
+size = Vector3(4, 1, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_otaob"]
+size = Vector3(4, 1, 0.1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_y0yog"]
+size = Vector2(3.8, 3)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_72uok"]
+size = Vector3(3.8, 3, 0.1)
+
+[node name="RollingShutterScene" type="StaticBody3D" unique_id=1088679056 groups=["Switchable"]]
+collision_layer = 3
+script = ExtResource("1_bt7is")
+
+[node name="RollingShutterUp" parent="." unique_id=1547812023 instance=ExtResource("2_kr47t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.05)
+
+[node name="RollingShutterDown" type="MeshInstance3D" parent="." unique_id=643634376]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.05)
+material_override = ExtResource("3_bk3ub")
+mesh = ExtResource("4_oidlr")
+
+[node name="CollisionShape" type="CollisionShape3D" parent="." unique_id=35710048]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.5, 0.55)
+shape = SubResource("BoxShape3D_xuq0a")
+
+[node name="DoorPlate2" type="StaticBody3D" parent="." unique_id=1955096415]
+collision_layer = 8
+
+[node name="MeshF" type="MeshInstance3D" parent="DoorPlate2" unique_id=342722212]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.05)
+material_override = ExtResource("5_yhqum")
+cast_shadow = 2
+mesh = ExtResource("6_0vwgp")
+skeleton = NodePath("../..")
+
+[node name="MeshB" type="MeshInstance3D" parent="DoorPlate2" unique_id=1584904516]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0.05)
+material_override = ExtResource("5_yhqum")
+cast_shadow = 2
+mesh = ExtResource("6_0vwgp")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape" type="CollisionShape3D" parent="DoorPlate2" unique_id=1722615271]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0.05)
+shape = SubResource("BoxShape3D_otaob")
+
+[node name="DoorPlate1" type="StaticBody3D" parent="." unique_id=528718000]
+collision_layer = 8
+
+[node name="MeshF" type="MeshInstance3D" parent="DoorPlate1" unique_id=1751369748]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.05)
+material_override = ExtResource("5_yhqum")
+cast_shadow = 2
+mesh = ExtResource("7_8386a")
+skeleton = NodePath("../..")
+
+[node name="MeshB" type="MeshInstance3D" parent="DoorPlate1" unique_id=476876842]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0.05)
+material_override = ExtResource("5_yhqum")
+cast_shadow = 2
+mesh = ExtResource("7_8386a")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape" type="CollisionShape3D" parent="DoorPlate1" unique_id=1931990753]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0.05)
+shape = SubResource("BoxShape3D_otaob")
+
+[node name="DoorPlate0" type="StaticBody3D" parent="." unique_id=1176936687 groups=["Interactive"]]
+collision_layer = 8
+script = ExtResource("8_cr7o0")
+
+[node name="MeshF" type="MeshInstance3D" parent="DoorPlate0" unique_id=585364052]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.05)
+material_override = ExtResource("5_yhqum")
+cast_shadow = 2
+mesh = ExtResource("9_oqjuf")
+skeleton = NodePath("../..")
+
+[node name="MeshB" type="MeshInstance3D" parent="DoorPlate0" unique_id=1628108750]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0.05)
+material_override = ExtResource("5_yhqum")
+cast_shadow = 2
+mesh = ExtResource("9_oqjuf")
+
+[node name="CollisionShape" type="CollisionShape3D" parent="DoorPlate0" unique_id=1648004184]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0.05)
+shape = SubResource("BoxShape3D_otaob")
+
+[node name="LockTipF" type="Label3D" parent="." unique_id=682958684]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0.1)
+modulate = Color(1, 1, 1, 0)
+text = "🔒"
+font_size = 100
+outline_size = 0
+
+[node name="LockTipB" type="Label3D" parent="." unique_id=2039002424]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -0.1)
+modulate = Color(1, 1, 1, 0)
+text = "🔒"
+font_size = 100
+outline_size = 0
+
+[node name="Occlusion" type="MeshInstance3D" parent="." unique_id=1845942042]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+visible = false
+material_override = ExtResource("10_bpsko")
+mesh = SubResource("QuadMesh_y0yog")
+
+[node name="Occlusion_light" type="MeshInstance3D" parent="." unique_id=868906011]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+visible = false
+material_override = ExtResource("11_xkd1t")
+mesh = SubResource("QuadMesh_y0yog")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Occlusion_light" unique_id=756020886]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -0.9)
+light_energy = 3.0
+shadow_enabled = true
+shadow_normal_bias = 10.0
+
+[node name="Teleporter" type="Area3D" parent="." unique_id=2097971545 groups=["Teleporter"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Teleporter" unique_id=432135983]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, -0.05)
+shape = SubResource("BoxShape3D_72uok")

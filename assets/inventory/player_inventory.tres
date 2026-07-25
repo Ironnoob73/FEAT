@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="CInventoryClass" format=3 uid="uid://dnyk7pm4cqskj"]
+
+[ext_resource type="Script" uid="uid://djtncwx8x0bit" path="res://assets/inventory/c_inventory_class.gd" id="1_aqmrr"]
+[ext_resource type="Script" uid="uid://di8ikl2vftkbv" path="res://addons/abyss_history_lib/class/inventory/item/item_class.gd" id="1_h3737"]
+[ext_resource type="Script" uid="uid://b2nq6c4qfofp8" path="res://addons/abyss_history_lib/class/inventory/equipment/eq_meta_class.gd" id="2_x5fyw"]
+[ext_resource type="Script" uid="uid://bumw1yp481hbr" path="res://addons/abyss_history_lib/class/inventory/item/item_stack_class.gd" id="3_wbsg1"]
+
+[resource]
+script = ExtResource("1_aqmrr")
+ToolHotbar = Array[ExtResource("2_x5fyw")]([null, null, null, null, null])
+ItemHotbar = Array[ExtResource("1_h3737")]([null, null, null, null, null])

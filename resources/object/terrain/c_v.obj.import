@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://ddr2vacvdcq5k"
+path="res://.godot/imported/c_v.obj-ebdb2e42571ffab1c372af03cad89b15.mesh"
+
+[deps]
+
+files=["res://.godot/imported/c_v.obj-ebdb2e42571ffab1c372af03cad89b15.mesh"]
+
+source_file="res://resources/object/terrain/c_v.obj"
+dest_files=["res://.godot/imported/c_v.obj-ebdb2e42571ffab1c372af03cad89b15.mesh", "res://.godot/imported/c_v.obj-ebdb2e42571ffab1c372af03cad89b15.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

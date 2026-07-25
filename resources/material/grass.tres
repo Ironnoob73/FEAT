@@ -1,0 +1,10 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://fmupa14licja"]
+
+[ext_resource type="Shader" uid="uid://b85u3cwsoyb7n" path="res://resources/object/nature/grass/grass.gdshader" id="1_kn4pr"]
+[ext_resource type="Texture2D" uid="uid://c2v4meklxdsi7" path="res://resources/object/nature/grass/grass_32x.png" id="4_wix6k"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_kn4pr")
+shader_parameter/billboard_y = true
+shader_parameter/texture_albedo = ExtResource("4_wix6k")

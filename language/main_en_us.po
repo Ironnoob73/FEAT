@@ -1,0 +1,339 @@
+# LD_Anvil, 2024.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: FEAT - Main Translation\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: en_US\n"
+
+#----------Title screen----------#
+#Main
+msgid "title.line0"
+msgstr "Falord Experiences: Adventurous Trails"
+
+msgid "title.press_to_start"
+msgstr "--Press any key to continue--"
+
+msgid "title.menu.start"
+msgstr "Start"
+
+msgid "title.menu.continue"
+msgstr "Continue"
+
+msgid "title.menu.online"
+msgstr "Online"
+
+msgid "title.menu.options"
+msgstr "Options"
+
+msgid "title.menu.exit"
+msgstr "Exit"
+
+#Options
+msgid "options.game"
+msgstr "Game"
+
+msgid "options.game.language"
+msgstr "Language"
+
+msgid "options.game.data"
+msgstr "Data Path"
+
+msgid "options.game.use_sub_threads"
+msgstr "Use sub threads to load scenes"
+
+msgid "options.game.debug.group"
+msgstr "Debug options..."
+
+msgid "options.game.print_debug_info"
+msgstr "Print debug info in debugger"
+
+msgid "options.game.catch_p_elem_issue"
+msgstr "Catch \"p_elem->_root != this\" issue"
+
+msgid "options.game.always_show_cursor"
+msgstr "Always show 3D cursor"
+
+msgid "options.game.key_debug_scene"
+msgstr "Keybinding debug scene"
+
+msgid "options.game.fast_boot"
+msgstr "Fast Boot"
+
+msgid "options.game.oobe"
+msgstr "Unboxing Experience"
+
+msgid "options.video"
+msgstr "Video"
+
+msgid "options.game.fullscreen"
+msgstr "Fullscreen"
+
+msgid "options.game.scale"
+msgstr "Scale"
+
+msgid "options.game.sdfgi"
+msgstr "SDFGI"
+
+msgid "options.audio"
+msgstr "Audio"
+
+msgid "options.audio.master"
+msgstr "Master Volume"
+
+msgid "options.audio.bgm"
+msgstr "Music Volume"
+
+msgid "options.audio.sfx"
+msgstr "SFX Volume"
+
+msgid "options.control"
+msgstr "Control"
+
+msgid "options.control.mouse_sen"
+msgstr "Mouse Sensitivity"
+
+msgid "options.control.auto_pickup"
+msgstr "Auto Pickup"
+
+msgid "options.control.keybindings.group"
+msgstr "Keybindings..."
+
+msgid "options.control.keybindings.listen"
+msgstr "Click here to monitor the key"
+
+msgid "options.control.keybindings.listening"
+msgstr "Press any key..."
+
+#Saves
+msgid "save.title"
+msgstr "Select save"
+
+msgid "save.refresh"
+msgstr "Refresh"
+
+msgid "save.unselect"
+msgstr "Please select a file"
+
+#Online(Not avaliable)
+msgid "online.na"
+msgstr "Coming s∞n"
+
+#Exit
+msgid "exit.ask"
+msgstr "Are you sure to exit?"
+
+msgid "exit.save"
+msgstr "Unsaved content will be lost!"
+
+msgid "exit.quit_vr"
+msgstr "This will take you out of VR."
+
+#----------In game----------#
+#Pause menu
+msgid "pause.title"
+msgstr "Game paused"
+
+msgid "pause.resume"
+msgstr "Resume"
+
+msgid "pause.quit"
+msgstr "Quit"
+
+#Chat
+msgid "chat.send"
+msgstr "Send"
+
+#Inventory
+msgid "inventory.title"
+msgstr " Inventory"
+
+msgid "inventory.item.t"
+msgstr " Items"
+
+msgid "inventory.item"
+msgstr "\n\n\nItems"
+
+msgid "inventory.item.item"
+msgstr "Item"
+
+msgid "inventory.item.block"
+msgstr "Block"
+
+msgid "inventory.item.left"
+msgstr "Left"
+
+msgid "inventory.equipment.t"
+msgstr " Equipments"
+
+msgid "inventory.equipment"
+msgstr "\n\n\nEquipments"
+
+msgid "inventory.equipment.tool"
+msgstr "Tool"
+
+msgid "inventory.equipment.weapon"
+msgstr "Weapon"
+
+msgid "inventory.equipment.armor"
+msgstr "Armor"
+
+msgid "inventory.special.t"
+msgstr " Special"
+
+msgid "inventory.special"
+msgstr "\n\n\nSpecial"
+
+msgid "inventory.collection.t"
+msgstr " Collections"
+
+msgid "inventory.collection"
+msgstr "\n\n\nCollections"
+
+msgid "inventory.status.t"
+msgstr " Status"
+
+#Item
+msgid "item.no_des"
+msgstr "This item has no description."
+
+####----------Commonly----------####
+#----------Option----------#
+msgid "button.back"
+msgstr "Back"
+
+msgid "button.confirm"
+msgstr "Confirm"
+
+msgid "button.cancel"
+msgstr "Cancel"
+
+msgid "list.name"
+msgstr "Name"
+
+msgid "button.done"
+msgstr "Done"
+
+msgid "file.open_directory"
+msgstr "Choose a folder"
+
+#----------Page----------#
+msgid "button.next_page"
+msgstr "Next Page"
+
+msgid "button.previous_page"
+msgstr "Previous Page"
+
+msgid "button.next_step"
+msgstr "Next"
+
+msgid "button.previous_step"
+msgstr "Back"
+
+#----------In game----------#
+
+msgid "list.count"
+msgstr "Count"
+
+msgid "list.performance"
+msgstr "Performance"
+
+msgid "equipment.durability"
+msgstr "Durability"
+
+msgid "hotbar.unequip"
+msgstr "Unequip"
+
+msgid "hotbar.empty"
+msgstr "Empty"
+
+#Terrain
+msgid "terrain.blocky"
+msgstr "Blocky"
+
+msgid "terrain.smooth"
+msgstr "Smooth"
+
+#Interact
+msgid "interact.interact"
+msgstr "Interact"
+
+msgid "interact.press"
+msgstr "Press"
+
+msgid "interact.no_interact"
+msgstr "No interaction required"
+
+msgid "interact.switch"
+msgstr "Switch"
+
+msgid "interact.open"
+msgstr "Open"
+
+msgid "interact.close"
+msgstr "Close"
+
+msgid "interact.locked"
+msgstr "Locked"
+
+msgid "interact.comment"
+msgstr "Comment"
+
+msgid "interact.pickup"
+msgstr "Pickup"
+
+####----------Notice----------####
+#----------Default----------#
+msgid "notice.title.default"
+msgstr "Notice"
+
+msgid "notice.content.empty"
+msgstr "[color=silver][i]No valid content provided.[/i][/color]"
+
+msgid "notice.choice.yep"
+msgstr "Yep"
+
+msgid "notice.choice.nope"
+msgstr "Nope"
+
+msgid "notice.choice.ok"
+msgstr "OK"
+
+msgid "notice.choice.no"
+msgstr "NO"
+
+#----------Title----------#
+msgid "notice.title.info"
+msgstr "Info"
+
+msgid "notice.title.hint"
+msgstr "Hint"
+
+msgid "notice.title.warning"
+msgstr "WARNING"
+
+msgid "notice.title.notice"
+msgstr "NOTICE"
+
+msgid "notice.title.error"
+msgstr "ERROR"
+
+msgid "notice.title.ban"
+msgstr "BAN"
+
+####----------Keybindings----------####
+msgid "keybind.ui_up"
+msgstr "Up \ Forward"
+
+msgid "keybind.ui_down"
+msgstr "Down \ Backward"
+
+msgid "keybind.ui_left"
+msgstr "Left"
+
+msgid "keybind.ui_right"
+msgstr "Right"
+
+msgid "keybind.ui_cancel"
+msgstr "Pause \ Back \ Escape \ Cancel"

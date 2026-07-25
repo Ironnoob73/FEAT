@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+
+<svg
+   width="100"
+   height="100"
+   viewBox="0 0 7.5751255 7.5751255"
+   version="1.1"
+   id="svg2"
+   sodipodi:docname="exit.svg"
+   inkscape:version="1.4.2 (f4327f4, 2025-05-13)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <sodipodi:namedview
+     id="namedview2"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="true"
+     inkscape:deskcolor="#d1d1d1"
+     showborder="true"
+     showgrid="true"
+     inkscape:zoom="8.25"
+     inkscape:cx="39.212121"
+     inkscape:cy="27.818182"
+     inkscape:current-layer="svg2">
+    <inkscape:grid
+       id="grid2"
+       units="px"
+       originx="0"
+       originy="0"
+       spacingx="0.075751255"
+       spacingy="0.075751255"
+       empcolor="#0099e5"
+       empopacity="0.30196078"
+       color="#0099e5"
+       opacity="0.14901961"
+       empspacing="5"
+       enabled="true"
+       visible="true" />
+  </sodipodi:namedview>
+  <defs
+     id="defs1" />
+  <metadata
+     id="metadata1">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title>非常口; Emergency exit</dc:title>
+        <dc:source>http://www.ecomo.or.jp/barrierfree/pictogram/data/zukigo_panfu_jis110.pdf</dc:source>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <path
+     d="M 3.323682,6.8932833 4.0042366,7.5751255 H 3.1802137 L 2.2899746,6.6944509 H 2.821543 c 0.1894517,0 0.3697067,0.075781 0.502139,0.1988324 z M 3.0864075,0.87110997 c 0.2924546,0 0.5389257,0.24628723 0.5389257,0.53966143 0,0.2935583 -0.2464711,0.5302809 -0.5389257,0.5302809 -0.2942939,0 -0.5297291,-0.2367226 -0.5297291,-0.5302809 0,-0.2933742 0.2354352,-0.53966143 0.5297291,-0.53966143 z M 6.6271312,5.7665054 6.4376795,5.2647343 C 6.35307,5.0563374 6.2971509,4.9341343 6.0601002,4.9238314 V 0.75751252 H 1.515025 l 0,2.19678628 0.7575126,0.075751 0.6152215,-0.8143849 C 3.0109947,2.0736685 3.2004464,1.9789427 3.4082915,1.9789427 h 1.3169653 c 0.207845,0 0.3881001,0.1134871 0.4819062,0.2935582 l 0.3881002,0.7384938 c 0.020233,0.02851 0.029429,0.0664 0.029429,0.113671 0,0.1326162 -0.1140388,0.2462872 -0.2464711,0.2462872 -0.1048422,0 -0.180255,-0.047455 -0.2280778,-0.1326162 L 4.8006696,2.566059 H 4.2323144 l 0.4359229,1.0888876 0.1324323,1.3920102 h 1.1256742 c 0.180255,0 0.321884,0.1134871 0.3881001,0.2650485 L 6.4376795,5.6340732 H 4.5063756 c -0.1416289,0 -0.2648645,-0.1042904 -0.2740612,-0.2462873 L 4.0998822,4.1662822 3.0569781,6.3251121 C 3.001798,6.4483477 2.8693657,6.533509 2.7167007,6.533509 H 2.2145617 L 3.492901,3.8916692 3.0956042,2.8975076 2.7167007,3.3613884 C 2.6228946,3.4846239 2.4427469,3.6530811 2.2725376,3.6360601 l -0.7575126,-0.075751 0,3.2573038 0.7575126,0.7575125 H 0.75751252 V 0 H 6.8176127 V 7.5751252 L 6.0601002,6.8176127 V 5.7570952 l 0.567031,0.00941"
+     style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.147147"
+     id="path2"
+     sodipodi:nodetypes="ccccscsssssccccccccssccsscccccsccscccsccccscccccccccc" />
+</svg>

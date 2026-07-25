@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://ctvcf54ty3uxv"
+path="res://.godot/imported/awning_window.obj-33ad3a70be4ad07ea4032a0fdcc276a3.mesh"
+
+[deps]
+
+files=["res://.godot/imported/awning_window.obj-33ad3a70be4ad07ea4032a0fdcc276a3.mesh"]
+
+source_file="res://resources/object/building/window/awning_window/awning_window.obj"
+dest_files=["res://.godot/imported/awning_window.obj-33ad3a70be4ad07ea4032a0fdcc276a3.mesh", "res://.godot/imported/awning_window.obj-33ad3a70be4ad07ea4032a0fdcc276a3.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

@@ -1,0 +1,2 @@
+extends AHL_ThingClass
+class_name AHL_ItemClass

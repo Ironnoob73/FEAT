@@ -1,19 +1,20 @@
+class_name GlobalNode
 extends Node
 
 const CONFIG_PATH: String = "user://settings.cfg"
-var LanguageList: Array[String] = ["en_US","zh_CN"]
-var DATA_PATH: String = "user://"
-var Sdfgi: bool = false
+var language_list: Array[String] = ["en_US","zh_CN"]
+var data_path: String = "user://"
+var sdfgi: bool = false
 
-var FastBoot: bool = false
+var fast_boot: bool = false
 var oobe: bool = true
 
 # Important objects
 # But now will load from the Main World
 # var THE_PLAYER: LocalPlayer = null
-var CurrentWorld: World = null
+var current_world: World = null
 # Gameflow Control
-var LaunchReady: bool = false
+var launch_ready: bool = false
 
 # Load options
 var load_use_sub_threads : bool = false
@@ -29,22 +30,22 @@ var auto_pickup: bool = true
 var playerName: String = "Anonymous":
 	set(name_string):
 		playerName = name_string
-		if CurrentWorld != null and CurrentWorld.player0 != null:
-			CurrentWorld.player0.player_name = name_string
+		if current_world != null and current_world.player0 != null:
+			current_world.player0.player_name = name_string
 var duid: String = "00000000-0000-9000-0000-000000000000"
-var portrait: Texture2D = preload("res://Resources/Image/Portrait/default.png")
-var isInGame: bool = false
-var isMultiplayer: bool = false
-var playerTeleported: bool = true
+var portrait: Texture2D = preload("res://resources/image/portrait/default.png")
+var is_in_game: bool = false
+var is_multiplayer: bool = false
+var player_teleported: bool = true
 
-var VRDim: String
-var VRPos: Vector3
-var VRRot: Vector3
+var vr_dim: String
+var vr_pos: Vector3
+var vr_rot: Vector3
 
 # Debug
-var printDebugInfo: bool = false
-var catchPElemIssue: bool = false
-var alwaysShowCursor: bool = false
+var print_debug_info: bool = false
+var catch_p_elem_issue: bool = false
+var always_show_cursor: bool = false
 
 signal world_ready
 
@@ -63,14 +64,14 @@ func window_min_limit() -> void:
 func save_config() -> void:
 	var file: ConfigFile = ConfigFile.new()
 	file.set_value("game","language",TranslationServer.get_locale())
-	file.set_value("game","data_path",DATA_PATH)
+	file.set_value("game","data_path",data_path)
 	file.set_value("game","load_use_sub_threads",load_use_sub_threads)
-	file.set_value("game","print_debug_info",printDebugInfo)
-	file.set_value("game","catch_p_null_issue",catchPElemIssue)
-	file.set_value("game","always_show_cursor",alwaysShowCursor)
+	file.set_value("game","print_debug_info",print_debug_info)
+	file.set_value("game","catch_p_null_issue",catch_p_elem_issue)
+	file.set_value("game","always_show_cursor",always_show_cursor)
 	file.set_value("video","fullscreen",DisplayServer.window_get_mode())
 	file.set_value("video","scale",get_window().content_scale_factor)
-	file.set_value("video","sdfgi",Sdfgi)
+	file.set_value("video","sdfgi",sdfgi)
 	file.set_value("audio","master",AudioServer.get_bus_volume_db(0))
 	file.set_value("audio","bgm",AudioServer.get_bus_volume_db(1))
 	file.set_value("audio","sfx",AudioServer.get_bus_volume_db(2))
@@ -79,7 +80,7 @@ func save_config() -> void:
 	file.set_value("profile","user_name",playerName)
 	file.set_value("profile","user_duid",duid)
 	file.set_value("profile","user_portrait",portrait)
-	file.set_value("computer","fast_boot",FastBoot)
+	file.set_value("computer","fast_boot",fast_boot)
 	file.set_value("computer","oobe",oobe)
 	var err: Error = file.save(CONFIG_PATH)
 	if err != OK:
@@ -91,15 +92,15 @@ func load_config() -> void:
 	if err == OK:
 		var locate_value: String = file.get_value("game","language",TranslationServer.get_locale())
 		TranslationServer.set_locale(locate_value)
-		DATA_PATH = file.get_value("game","data_path","user://")
+		data_path = file.get_value("game","data_path","user://")
 		load_use_sub_threads = file.get_value("game","load_use_sub_threads",false)
-		printDebugInfo = file.get_value("game","print_debug_info",false)
-		catchPElemIssue = file.get_value("game","catch_p_null_issue",false)
-		alwaysShowCursor = file.get_value("game","always_show_cursor",false)
+		print_debug_info = file.get_value("game","print_debug_info",false)
+		catch_p_elem_issue = file.get_value("game","catch_p_null_issue",false)
+		always_show_cursor = file.get_value("game","always_show_cursor",false)
 		var window_mode: int = file.get_value("video","fullscreen",DisplayServer.window_get_mode())
 		DisplayServer.window_set_mode(window_mode)
 		get_window().content_scale_factor = file.get_value("video","scale",1)
-		Sdfgi = file.get_value("video","sdfgi",false)
+		sdfgi = file.get_value("video","sdfgi",false)
 		var master_volume: float = file.get_value("audio","master",AudioServer.get_bus_volume_db(0))
 		AudioServer.set_bus_volume_db(0, master_volume)
 		var bgm_volume: float = file.get_value("audio","bgm",AudioServer.get_bus_volume_db(1))
@@ -110,8 +111,8 @@ func load_config() -> void:
 		auto_pickup = file.get_value("control","auto_pickup",true)
 		playerName = file.get_value("profile","user_name","Anonymous")
 		duid = file.get_value("profile","user_duid","00000000-0000-9000-0000-000000000000")
-		portrait = file.get_value("profile","user_portrait",preload("res://Resources/Image/Portrait/default.png"))
-		FastBoot = file.get_value("computer","fast_boot",false)
+		portrait = file.get_value("profile","user_portrait",preload("res://resources/image/portrait/default.png"))
+		fast_boot = file.get_value("computer","fast_boot",false)
 		oobe = file.get_value("computer","oobe",true)
 	else:
 		push_warning("Fail to load config: %d" % err)
@@ -153,31 +154,31 @@ func get_key_event_array(action: String) -> Array:
 	
 ## Back to title
 func back_to_title() -> void:
-	AHL_LoadManager.load_scene("res://Title/TitleScene.tscn")
-	isInGame = false
+	AHL_LoadManager.load_scene("res://title/title_scene.tscn")
+	is_in_game = false
 	
 ## Get World Path
 func get_world_path(dim : String) -> String:
 	match dim :
-		_:	return "res://Assets/World/WorldMain.tscn"
+		_:	return "res://assets/world/world_main.tscn"
 
 ## When "p->elem" issue happened, use this to print tons of text.
 func p_elem_debug(info : String) -> void:
-	if catchPElemIssue:
+	if catch_p_elem_issue:
 		push_warning(info)
 		
 ## If the OS Language is supported.
 func is_os_language_supported() -> bool:
-	return LanguageList.has(OS.get_locale())
+	return language_list.has(OS.get_locale())
 	
 # Multiplayer
 func host(port:int) -> void:
-	if isInGame and get_node("/root/World") is World:
+	if is_in_game and get_node("/root/World") is World:
 		var world: World = get_node("/root/World")
 		world.host(port)
 
 func join(address:String,port:int) -> void:
-	if isInGame and get_node("/root/World") is World:
+	if is_in_game and get_node("/root/World") is World:
 		var world: World = get_node("/root/World")
 		world.join(address,port)
 

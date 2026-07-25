@@ -1,0 +1,188 @@
+[gd_scene format=3 uid="uid://bt2o31b4bxe48"]
+
+[ext_resource type="Script" uid="uid://bc8n7468se2im" path="res://assets/world/location/_home/dream/ready_func.gd" id="2_62m8d"]
+[ext_resource type="Environment" uid="uid://dmu5yc7ra1vof" path="res://assets/world/environments/tutorial_env.tres" id="2_wcnku"]
+[ext_resource type="PackedScene" uid="uid://cq8yj4ire6bd" path="res://assets/world/location/_home/dream/default_room.tscn" id="3_4ed7q"]
+[ext_resource type="Script" uid="uid://tf3tkep6w0wr" path="res://resources/node/sub_room_viewport.gd" id="6_8d6gw"]
+[ext_resource type="Shader" uid="uid://cyxv26lgbbfge" path="res://assets/world/environments/sources/background_shader.gdshader" id="6_ymggu"]
+[ext_resource type="PackedScene" uid="uid://deue8e3ut26s4" path="res://assets/world/location/_home/dream/the_corridor.tscn" id="7_wcnku"]
+[ext_resource type="PackedScene" uid="uid://dl78y6uj7yjy7" path="res://assets/world/location/_home/dream/the_elevator.tscn" id="9_4ed7q"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wcnku"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("6_ymggu")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ymggu"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("6_ymggu")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4ed7q"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("6_ymggu")
+
+[sub_resource type="Shader" id="Shader_1aved"]
+code = "//from: https://godotshaders.com/shader/n64-style-skybox/
+shader_type spatial;
+render_mode depth_draw_opaque, unshaded;
+
+uniform sampler2D sky_texture : source_color;
+
+varying vec4 BG_COORDS;
+
+void vertex() {
+	//Camera YX rotation per Basis.get_euler source code
+	float y = atan(VIEW_MATRIX[0][3], VIEW_MATRIX[0][3]);
+	float x = asin(VIEW_MATRIX[0][3]);
+	
+	//Map rotation to screen space
+	BG_COORDS.xy = vec2(y * -0.5, x) / PI;
+	BG_COORDS.y += 0.5;
+	
+	BG_COORDS.w = 1.0;
+	BG_COORDS.z = 1.0;
+	
+	//Keep background centered vertically when FOV changes
+	BG_COORDS.y = 0.0;
+}
+
+void fragment() {
+	vec2 uv = SCREEN_UV * BG_COORDS.zw + BG_COORDS.xy;
+	ALBEDO = texture(sky_texture, uv).rgb;
+	ALPHA = texture(sky_texture, uv).a;
+}"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gf3a5"]
+resource_local_to_scene = true
+render_priority = 0
+shader = SubResource("Shader_1aved")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bpgs6"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("6_ymggu")
+
+[sub_resource type="Shader" id="Shader_ch7fr"]
+code = "//from: https://godotshaders.com/shader/n64-style-skybox/
+shader_type spatial;
+render_mode depth_draw_opaque, unshaded;
+
+uniform sampler2D sky_texture : source_color;
+
+varying vec4 BG_COORDS;
+
+void vertex() {
+	//Camera YX rotation per Basis.get_euler source code
+	float y = atan(VIEW_MATRIX[0][3], VIEW_MATRIX[0][3]);
+	float x = asin(VIEW_MATRIX[0][3]);
+	
+	//Map rotation to screen space
+	BG_COORDS.xy = vec2(y * -0.5, x) / PI;
+	BG_COORDS.y += 0.5;
+	
+	BG_COORDS.w = 1.0;
+	BG_COORDS.z = 1.0;
+	
+	//Keep background centered vertically when FOV changes
+	BG_COORDS.y = 0.0;
+}
+
+void fragment() {
+	vec2 uv = SCREEN_UV * BG_COORDS.zw + BG_COORDS.xy;
+	ALBEDO = texture(sky_texture, uv).rgb;
+	ALPHA = texture(sky_texture, uv).a;
+}"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jm2i2"]
+resource_local_to_scene = true
+render_priority = 0
+shader = SubResource("Shader_ch7fr")
+
+[node name="Packed" type="Node3D" unique_id=432926006]
+script = ExtResource("2_62m8d")
+environment = ExtResource("2_wcnku")
+metadata/_custom_type_script = "uid://8h1wxcdqk41f"
+
+[node name="CorridorScene" type="SubViewport" parent="." unique_id=873564104]
+script = ExtResource("6_8d6gw")
+
+[node name="Camera3D" type="Camera3D" parent="CorridorScene" unique_id=954769153]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 1, 9)
+cull_mask = 1048479
+current = true
+
+[node name="TheCorridor" parent="CorridorScene" unique_id=215228121 instance=ExtResource("7_wcnku")]
+
+[node name="DownStairView" parent="CorridorScene/TheCorridor/ElevatorCorridorSolid" parent_id_path=PackedInt32Array(215228121, 2085821326) index="4" unique_id=477990772]
+material_override = SubResource("ShaderMaterial_wcnku")
+
+[node name="DownDoorView" parent="CorridorScene/TheCorridor/ElevatorCorridorSolid/DownStairView" index="1" unique_id=1716180243]
+material_override = SubResource("ShaderMaterial_wcnku")
+
+[node name="UpStairView" parent="CorridorScene/TheCorridor/ElevatorCorridorSolid" parent_id_path=PackedInt32Array(215228121, 2085821326) index="5" unique_id=1450189058]
+material_override = SubResource("ShaderMaterial_ymggu")
+
+[node name="UpDoorView" parent="CorridorScene/TheCorridor/ElevatorCorridorSolid/UpStairView" index="1" unique_id=843836567]
+material_override = SubResource("ShaderMaterial_ymggu")
+
+[node name="RoomView" parent="CorridorScene/TheCorridor" index="4" unique_id=1965730702]
+material_override = SubResource("ShaderMaterial_4ed7q")
+
+[node name="Area3D" parent="CorridorScene/TheCorridor/RoomView" index="1" unique_id=1526368672 node_paths=PackedStringArray("from_viewport", "to_room_area")]
+from_viewport = NodePath("../../..")
+to_room_area = NodePath("../../../../RoomScene/Room0/CorridorView/Area3D")
+
+[node name="ElevatorView" parent="CorridorScene/TheCorridor" index="5" unique_id=1256142607]
+material_override = SubResource("ShaderMaterial_gf3a5")
+
+[node name="Area3D" parent="CorridorScene/TheCorridor/ElevatorView" index="1" unique_id=841606446 node_paths=PackedStringArray("from_viewport", "to_room_area")]
+from_viewport = NodePath("../../..")
+to_room_area = NodePath("../../../../ElevatorScene/TheElevator/OutsideView/Area3D")
+
+[node name="RoomScene" type="SubViewport" parent="." unique_id=552130395]
+own_world_3d = true
+script = ExtResource("6_8d6gw")
+
+[node name="Camera3D" type="Camera3D" parent="RoomScene" unique_id=1225486773]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 1, 9)
+cull_mask = 1048479
+current = true
+
+[node name="Room0" parent="RoomScene" unique_id=1945280578 instance=ExtResource("3_4ed7q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13, 0, 6)
+
+[node name="CorridorView" parent="RoomScene/Room0" index="4" unique_id=1711748137]
+material_override = SubResource("ShaderMaterial_bpgs6")
+
+[node name="Area3D" parent="RoomScene/Room0/CorridorView" index="1" unique_id=783796307 node_paths=PackedStringArray("from_viewport", "to_room_area")]
+from_viewport = NodePath("../../..")
+to_room_area = NodePath("../../../../CorridorScene/TheCorridor/RoomView/Area3D")
+
+[node name="ElevatorScene" type="SubViewport" parent="." unique_id=1610255090]
+own_world_3d = true
+script = ExtResource("6_8d6gw")
+
+[node name="Camera3D" type="Camera3D" parent="ElevatorScene" unique_id=2123726685]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 1, 9)
+cull_mask = 1048479
+current = true
+
+[node name="TheElevator" parent="ElevatorScene" unique_id=385804628 instance=ExtResource("9_4ed7q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -5)
+
+[node name="OutsideView" parent="ElevatorScene/TheElevator" index="2" unique_id=1466580679]
+material_override = SubResource("ShaderMaterial_jm2i2")
+
+[node name="Area3D" parent="ElevatorScene/TheElevator/OutsideView" index="1" unique_id=1091376933 node_paths=PackedStringArray("from_viewport", "to_room_area")]
+from_viewport = NodePath("../../..")
+to_room_area = NodePath("../../../../CorridorScene/TheCorridor/ElevatorView/Area3D")
+
+[connection signal="interact_signal" from="CorridorScene/TheCorridor/ElevatorCorridorSolid/ElevatorControlPadScene/UpButton" to="." method="_move_elevator"]
+[connection signal="interact_signal" from="CorridorScene/TheCorridor/ElevatorCorridorSolid/ElevatorControlPadScene/DownButton" to="." method="_move_elevator"]
+
+[editable path="CorridorScene/TheCorridor"]
+[editable path="CorridorScene/TheCorridor/ElevatorCorridorSolid/ElevatorControlPadScene"]
+[editable path="RoomScene/Room0"]
+[editable path="ElevatorScene/TheElevator"]

@@ -1,0 +1,7 @@
+[gd_resource type="Theme" format=3 uid="uid://mrlalr7e2nlc"]
+
+[ext_resource type="FontFile" uid="uid://cfd5huce8sylo" path="res://addons/key_controls_translator/keyboard_and_mouse/key_control_icon.ttf" id="2_yrmpd"]
+
+[resource]
+default_font = ExtResource("2_yrmpd")
+default_font_size = 32

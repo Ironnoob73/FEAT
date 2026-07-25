@@ -1,0 +1,126 @@
+[gd_scene format=3 uid="uid://b0amcmins8ic7"]
+
+[ext_resource type="Script" uid="uid://8h1wxcdqk41f" path="res://addons/abyss_history_lib/class/world/scenes_package_class.gd" id="1_l0isb"]
+[ext_resource type="Script" uid="uid://tf3tkep6w0wr" path="res://resources/node/sub_room_viewport.gd" id="2_tpecx"]
+[ext_resource type="Script" uid="uid://cyg63trrnorlr" path="res://assets/world/location/9_cloud/ready_func.gd" id="2_u6fpm"]
+[ext_resource type="PackedScene" uid="uid://cb5pyvpu83sfw" path="res://assets/world/location/9_cloud/the_roof.tscn" id="3_kwbwa"]
+[ext_resource type="PackedScene" uid="uid://dl78y6uj7yjy7" path="res://assets/world/location/_home/dream/the_elevator.tscn" id="4_u6fpm"]
+
+[sub_resource type="Shader" id="Shader_1aved"]
+code = "//from: https://godotshaders.com/shader/n64-style-skybox/
+shader_type spatial;
+render_mode depth_draw_opaque, unshaded;
+
+uniform sampler2D sky_texture : source_color;
+
+varying vec4 BG_COORDS;
+
+void vertex() {
+	//Camera YX rotation per Basis.get_euler source code
+	float y = atan(VIEW_MATRIX[0][3], VIEW_MATRIX[0][3]);
+	float x = asin(VIEW_MATRIX[0][3]);
+	
+	//Map rotation to screen space
+	BG_COORDS.xy = vec2(y * -0.5, x) / PI;
+	BG_COORDS.y += 0.5;
+	
+	BG_COORDS.w = 1.0;
+	BG_COORDS.z = 1.0;
+	
+	//Keep background centered vertically when FOV changes
+	BG_COORDS.y = 0.0;
+}
+
+void fragment() {
+	vec2 uv = SCREEN_UV * BG_COORDS.zw + BG_COORDS.xy;
+	ALBEDO = texture(sky_texture, uv).rgb;
+	ALPHA = texture(sky_texture, uv).a;
+}"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kwbwa"]
+resource_local_to_scene = true
+render_priority = 0
+shader = SubResource("Shader_1aved")
+
+[sub_resource type="Shader" id="Shader_ch7fr"]
+code = "//from: https://godotshaders.com/shader/n64-style-skybox/
+shader_type spatial;
+render_mode depth_draw_opaque, unshaded;
+
+uniform sampler2D sky_texture : source_color;
+
+varying vec4 BG_COORDS;
+
+void vertex() {
+	//Camera YX rotation per Basis.get_euler source code
+	float y = atan(VIEW_MATRIX[0][3], VIEW_MATRIX[0][3]);
+	float x = asin(VIEW_MATRIX[0][3]);
+	
+	//Map rotation to screen space
+	BG_COORDS.xy = vec2(y * -0.5, x) / PI;
+	BG_COORDS.y += 0.5;
+	
+	BG_COORDS.w = 1.0;
+	BG_COORDS.z = 1.0;
+	
+	//Keep background centered vertically when FOV changes
+	BG_COORDS.y = 0.0;
+}
+
+void fragment() {
+	vec2 uv = SCREEN_UV * BG_COORDS.zw + BG_COORDS.xy;
+	ALBEDO = texture(sky_texture, uv).rgb;
+	ALPHA = texture(sky_texture, uv).a;
+}"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_u6fpm"]
+resource_local_to_scene = true
+render_priority = 0
+shader = SubResource("Shader_ch7fr")
+
+[node name="ScenePackage" type="Node3D" unique_id=216067526]
+script = ExtResource("1_l0isb")
+metadata/_custom_type_script = "uid://8h1wxcdqk41f"
+
+[node name="ReadyFunc" type="Node" parent="." unique_id=174590612]
+script = ExtResource("2_u6fpm")
+
+[node name="RoofScene" type="SubViewport" parent="." unique_id=359620814]
+script = ExtResource("2_tpecx")
+
+[node name="Camera3D" type="Camera3D" parent="RoofScene" unique_id=1228107393]
+
+[node name="TheRoof" parent="RoofScene" unique_id=615224266 instance=ExtResource("3_kwbwa")]
+
+[node name="ElevatorView" parent="RoofScene/TheRoof" index="3" unique_id=1860943230]
+material_override = SubResource("ShaderMaterial_kwbwa")
+
+[node name="Area3D" parent="RoofScene/TheRoof/ElevatorView" index="1" unique_id=444575282 node_paths=PackedStringArray("door_plate", "from_viewport", "to_room_area")]
+door_plate = NodePath("../../ElevatorRoom/ElevatorDoor")
+from_viewport = NodePath("../../..")
+to_room_area = NodePath("../../../../ElevatorScene/TheElevator/OutsideView/Area3D")
+
+[node name="ElevatorDoor" parent="RoofScene/TheRoof/ElevatorRoom" parent_id_path=PackedInt32Array(615224266, 1109470599) index="1" unique_id=833384578]
+state = false
+
+[node name="ElevatorScene" type="SubViewport" parent="." unique_id=1339732744]
+own_world_3d = true
+script = ExtResource("2_tpecx")
+
+[node name="Camera3D" type="Camera3D" parent="ElevatorScene" unique_id=348708248]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 1, 9)
+cull_mask = 1048479
+current = true
+
+[node name="TheElevator" parent="ElevatorScene" unique_id=385804628 instance=ExtResource("4_u6fpm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -5)
+
+[node name="OutsideView" parent="ElevatorScene/TheElevator" index="2" unique_id=1466580679]
+material_override = SubResource("ShaderMaterial_u6fpm")
+
+[node name="Area3D" parent="ElevatorScene/TheElevator/OutsideView" index="1" unique_id=1091376933 node_paths=PackedStringArray("from_viewport", "to_room_area")]
+from_viewport = NodePath("../../..")
+to_room_area = NodePath("../../../../RoofScene/TheRoof/ElevatorView/Area3D")
+
+[editable path="RoofScene/TheRoof"]
+[editable path="ElevatorScene/TheElevator"]

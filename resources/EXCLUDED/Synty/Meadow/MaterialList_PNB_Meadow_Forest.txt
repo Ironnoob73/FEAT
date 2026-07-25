@@ -1,0 +1,964 @@
+-------------------
+Folder Name: Props
+-------------------
+Prefab Name: SM_Bld_Stone_Cabin_01
+    Mesh Name: SM_Bld_Stone_Cabin_01
+        Slot: PolygonNatureBiomesMeadow_Mat_01 (PolygonNatureBiomes_Meadow_Texture_01)
+
+Prefab Name: SM_Bld_Warpgate_01
+    Mesh Name: SM_Bld_Warpgate_01
+        Slot: NoWind_Mat_01 (Uses custom shader)
+    Mesh Name: SM_Bld_Warpgate_01_InnerRing_01
+        Slot: NoWind_Mat_01 (Uses custom shader)
+    Mesh Name: SM_Bld_Warpgate_01_OuterRing_01
+        Slot: NoWind_Mat_01 (Uses custom shader)
+
+Prefab Name: SM_Bld_Windmill_01
+    Mesh Name: SM_Bld_Windmill_01
+        Slot: PolygonNatureBiomesMeadow_Mat_01 (PolygonNatureBiomes_Meadow_Texture_01)
+    Mesh Name: SM_Bld_Windmill_01_Blades_01
+        Slot: PolygonNatureBiomesMeadow_Mat_01 (PolygonNatureBiomes_Meadow_Texture_01)
+
+Prefab Name: SM_Bld_Windmill_02
+    Mesh Name: SM_Bld_Windmill_02
+        Slot: PolygonNatureBiomesMeadow_Mat_01 (PolygonNatureBiomes_Meadow_Texture_01)
+    Mesh Name: SM_Bld_Windmill_02_Blades_01
+        Slot: PolygonNatureBiomesMeadow_Mat_01 (PolygonNatureBiomes_Meadow_Texture_01)
+
+Prefab Name: SM_Prop_Birdhouse_01
+    Mesh Name: SM_Prop_Birdhouse_01
+        Slot: PolygonNatureBiomesMeadow_Mat_01 (PolygonNatureBiomes_Meadow_Texture_01)
+
+Prefab Name: SM_Prop_Birdhouse_02
+    Mesh Name: SM_Prop_Birdhouse_02
+        Slot: PolygonNatureBiomesMeadow_Mat_01 (PolygonNatureBiomes_Meadow_Texture_01)
+
+Prefab Name: SM_Prop_Bridge_01
+    Mesh Name: SM_Prop_Bridge_01
+        Slot: PolygonNatureBiomesMeadow_Mat_01 (PolygonNatureBiomes_Meadow_Texture_01)
+
+Prefab Name: SM_Prop_Camp_Bucket_01
+    Mesh Name: SM_Prop_Camp_Bucket_01
+        Slot: PolygonNatureBiomesMeadow_Mat_01 (PolygonNatureBiomes_Meadow_Texture_01)
+
+Prefab Name: SM_Prop_Camp_Bucket_02
+    Mesh Name: SM_Prop_Camp_Bucket_02
+        Slot: PolygonNatureBiomesMeadow_Mat_01 (PolygonNatureBiomes_Meadow_Texture_01)
+
+Prefab Name: SM_Prop_Camp_Can_01
+    Mesh Name: SM_Prop_Camp_Can_01
+        Slot: PolygonNatureBiomesMeadow_Mat_01 (PolygonNatureBiomes_Meadow_Texture_01)
+
+Prefab Name: SM_Prop_Camp_Can_02
+    Mesh Name: SM_Prop_Camp_Can_02
+        Slot: PolygonNatureBiomesMeadow_Mat_01 (PolygonNatureBiomes_Meadow_Texture_01)
+
+Prefab Name: SM_Prop_Camp_Crate_01
+    Mesh Name: SM_Prop_Camp_Crate_01
+        Slot: PolygonNatureBiomesMeadow_Mat_01 (PolygonNatureBiomes_Meadow_Texture_01)
+
+Prefab Name: SM_Prop_Camp_Fireplace_01
+    Mesh Name: SM_Prop_Camp_Fireplace_01
+        Slot: PolygonNatureBiomesMeadow_Mat_01 (PolygonNatureBiomes_Meadow_Texture_01)
+
+Prefab Name: SM_Prop_Camp_Fireplace_02
+    Mesh Name: SM_Prop_Camp_Fireplace_02
+        Slot: PolygonNatureBiomesMeadow_Mat_01 (PolygonNatureBiomes_Meadow_Texture_01)
+
+Prefab Name: SM_Prop_Camp_Fireplace_Stones_01
+    Mesh Name: SM_Prop_Camp_Fireplace_Stones_01
+        Slot: PolygonNatureBiomesMeadow_Mat_01 (PolygonNatureBiomes_Meadow_Texture_01)
+
+Prefab Name: SM_Prop_Camp_Fire_Tripod_01
+    Mesh Name: SM_Prop_Camp_Fire_Tripod_01
+        Slot: PolygonNatureBiomesMeadow_Mat_01 (PolygonNatureBiomes_Meadow_Texture_01)
+
+Prefab Name: SM_Prop_Camp_Pouch_01
+    Mesh Name: SM_Prop_Camp_Pouch_01
+        Slot: PolygonNatureBiomesMeadow_Mat_01 (PolygonNatureBiomes_Meadow_Texture_01)
+
+Prefab Name: SM_Prop_Camp_Tanning_Rack_01
+    Mesh Name: SM_Prop_Camp_Tanning_Rack_01
+        Slot: PolygonNatureBiomesMeadow_Mat_01 (PolygonNatureBiomes_Meadow_Texture_01)
+
+Prefab Name: SM_Prop_Camp_Tent_01
+    Mesh Name: SM_Prop_Camp_Tent_01
+        Slot: PolygonNatureBiomesMeadow_Mat_01 (PolygonNatureBiomes_Meadow_Texture_01)
+
+Prefab Name: SM_Prop_Gate_Small_01
+    Mesh Name: SM_Prop_Gate_Small_01
+        Slot: NoWind_Mat_01 (Uses custom shader)
+    Mesh Name: SM_Prop_Gate_Small_Door_01
+        Slot: NoWind_Mat_01 (Uses custom shader)
+
+Prefab Name: SM_Prop_HandCart_01
+    Mesh Name: SM_Prop_HandCart_01
+        Slot: PolygonNatureBiomesMeadow_Mat_01 (PolygonNatureBiomes_Meadow_Texture_01)
+    Mesh Name: SM_Prop_HandCart_01_Wheel_l
+        Slot: PolygonNatureBiomesMeadow_Mat_01 (PolygonNatureBiomes_Meadow_Texture_01)
+    Mesh Name: SM_Prop_HandCart_01_Wheel_r
+        Slot: PolygonNatureBiomesMeadow_Mat_01 (PolygonNatureBiomes_Meadow_Texture_01)
+
+Prefab Name: SM_Prop_HorseHitch_01
+    Mesh Name: SM_Prop_HorseHitch_01
+        Slot: PolygonNatureBiomesMeadow_Mat_01 (PolygonNatureBiomes_Meadow_Texture_01)
+
+Prefab Name: SM_Prop_Kite_01
+    Mesh Name: SM_Prop_Kite_01
+        Slot: Kite_Mat_01 (Uses custom shader)
+
+Prefab Name: SM_Prop_Kite_02
+    Mesh Name: SM_Prop_Kite_02
+        Slot: Kite_Mat_01 (Uses custom shader)
+
+Prefab Name: SM_Prop_Kite_03
+    Mesh Name: SM_Prop_Kite_03
+        Slot: Kite_Mat_01 (Uses custom shader)
+
+Prefab Name: SM_Prop_Meadow_Fence_01
+    Mesh Name: SM_Prop_Meadow_Fence_01
+        Slot: PolygonNatureBiomesMeadow_Mat_01 (PolygonNatureBiomes_Meadow_Texture_01)
+
+Prefab Name: SM_Prop_Meadow_Fence_02
+    Mesh Name: SM_Prop_Meadow_Fence_02
+        Slot: PolygonNatureBiomesMeadow_Mat_01 (PolygonNatureBiomes_Meadow_Texture_01)
+
+Prefab Name: SM_Prop_Meadow_Fence_03
+    Mesh Name: SM_Prop_Meadow_Fence_03
+        Slot: PolygonNatureBiomesMeadow_Mat_01 (PolygonNatureBiomes_Meadow_Texture_01)
+
+Prefab Name: SM_Prop_Meadow_Fence_04
+    Mesh Name: SM_Prop_Meadow_Fence_04
+        Slot: PolygonNatureBiomesMeadow_Mat_01 (PolygonNatureBiomes_Meadow_Texture_01)
+
+Prefab Name: SM_Prop_Meadow_Fence_05
+    Mesh Name: SM_Prop_Meadow_Fence_05
+        Slot: PolygonNatureBiomesMeadow_Mat_01 (PolygonNatureBiomes_Meadow_Texture_01)
+
+Prefab Name: SM_Prop_Meadow_Fence_06
+    Mesh Name: SM_Prop_Meadow_Fence_06
+        Slot: PolygonNatureBiomesMeadow_Mat_01 (PolygonNatureBiomes_Meadow_Texture_01)
+
+Prefab Name: SM_Prop_Meadow_Fence_07
+    Mesh Name: SM_Prop_Meadow_Fence_07
+        Slot: PolygonNatureBiomesMeadow_Mat_01 (PolygonNatureBiomes_Meadow_Texture_01)
+
+Prefab Name: SM_Prop_Meadow_Fence_Gate_01
+    Mesh Name: SM_Prop_Meadow_Fence_Gate_01
+        Slot: PolygonNatureBiomesMeadow_Mat_01 (PolygonNatureBiomes_Meadow_Texture_01)
+
+Prefab Name: SM_Prop_Meadow_Fence_Gate_02
+    Mesh Name: SM_Prop_Meadow_Fence_Gate_02
+        Slot: PolygonNatureBiomesMeadow_Mat_01 (PolygonNatureBiomes_Meadow_Texture_01)
+
+Prefab Name: SM_Prop_Meadow_Fence_Gate_Set_01
+    Mesh Name: SM_Prop_Meadow_Fence_Gate_Set_01
+        Slot: PolygonNatureBiomesMeadow_Mat_01 (PolygonNatureBiomes_Meadow_Texture_01)
+    Mesh Name: SM_Prop_Meadow_Fence_Gate_Set_01_Gate_01
+        Slot: PolygonNatureBiomesMeadow_Mat_01 (PolygonNatureBiomes_Meadow_Texture_01)
+    Mesh Name: SM_Prop_Meadow_Fence_Gate_Set_01_Latch_01
+        Slot: PolygonNatureBiomesMeadow_Mat_01 (PolygonNatureBiomes_Meadow_Texture_01)
+
+Prefab Name: SM_Prop_Meadow_Fence_Gate_Set_02
+    Mesh Name: SM_Prop_Meadow_Fence_Gate_Set_02
+        Slot: PolygonNatureBiomesMeadow_Mat_01 (PolygonNatureBiomes_Meadow_Texture_01)
+    Mesh Name: SM_Prop_Meadow_Fence_Gate_Set_02_Gate_02
+        Slot: PolygonNatureBiomesMeadow_Mat_01 (PolygonNatureBiomes_Meadow_Texture_01)
+    Mesh Name: SM_Prop_Meadow_Fence_Gate_Set_02_Latch_01
+        Slot: PolygonNatureBiomesMeadow_Mat_01 (PolygonNatureBiomes_Meadow_Texture_01)
+
+Prefab Name: SM_Prop_Meadow_Fence_Post_01
+    Mesh Name: SM_Prop_Meadow_Fence_Post_01
+        Slot: PolygonNatureBiomesMeadow_Mat_01 (PolygonNatureBiomes_Meadow_Texture_01)
+
+Prefab Name: SM_Prop_Meadow_Fence_Post_02
+    Mesh Name: SM_Prop_Meadow_Fence_Post_02
+        Slot: PolygonNatureBiomesMeadow_Mat_01 (PolygonNatureBiomes_Meadow_Texture_01)
+
+Prefab Name: SM_Prop_Meadow_Fence_Post_03
+    Mesh Name: SM_Prop_Meadow_Fence_Post_03
+        Slot: PolygonNatureBiomesMeadow_Mat_01 (PolygonNatureBiomes_Meadow_Texture_01)
+    Mesh Name: SM_Prop_Meadow_Fence_Gate_02_Latch_01
+        Slot: PolygonNatureBiomesMeadow_Mat_01 (PolygonNatureBiomes_Meadow_Texture_01)
+
+Prefab Name: SM_Prop_Meadow_Fence_Railing_01
+    Mesh Name: SM_Prop_Meadow_Fence_Railing_01
+        Slot: PolygonNatureBiomesMeadow_Mat_01 (PolygonNatureBiomes_Meadow_Texture_01)
+
+Prefab Name: SM_Prop_MushroomHouse_01
+    Mesh Name: SM_Prop_MushroomHouse_01
+        Slot: PolygonNatureBiomesMeadow_Mat_01 (PolygonNatureBiomes_Meadow_Texture_01)
+
+Prefab Name: SM_Prop_MushroomHouse_02
+    Mesh Name: SM_Prop_MushroomHouse_02
+        Slot: PolygonNatureBiomesMeadow_Mat_01 (PolygonNatureBiomes_Meadow_Texture_01)
+
+Prefab Name: SM_Prop_Mushroom_01
+    Mesh Name: SM_Prop_Mushroom_01
+        Slot: PolygonNatureBiomesMeadow_Mat_01 (PolygonNatureBiomes_Meadow_Texture_01)
+
+Prefab Name: SM_Prop_Mushroom_02
+    Mesh Name: SM_Prop_Mushroom_02
+        Slot: PolygonNatureBiomesMeadow_Mat_01 (PolygonNatureBiomes_Meadow_Texture_01)
+
+Prefab Name: SM_Prop_Mushroom_03
+    Mesh Name: SM_Prop_Mushroom_03
+        Slot: PolygonNatureBiomesMeadow_Mat_01 (PolygonNatureBiomes_Meadow_Texture_01)
+
+Prefab Name: SM_Prop_Mushroom_04
+    Mesh Name: SM_Prop_Mushroom_04
+        Slot: PolygonNatureBiomesMeadow_Mat_01 (PolygonNatureBiomes_Meadow_Texture_01)
+
+Prefab Name: SM_Prop_Mushroom_05
+    Mesh Name: SM_Prop_Mushroom_05
+        Slot: PolygonNatureBiomesMeadow_Mat_01 (PolygonNatureBiomes_Meadow_Texture_01)
+
+Prefab Name: SM_Prop_Mushroom_06
+    Mesh Name: SM_Prop_Mushroom_06
+        Slot: PolygonNatureBiomesMeadow_Mat_01 (PolygonNatureBiomes_Meadow_Texture_01)
+
+Prefab Name: SM_Prop_Mushroom_Group_02
+    Mesh Name: SM_Prop_Mushroom_Group_02
+        Slot: PolygonNatureBiomesMeadow_Mat_01 (PolygonNatureBiomes_Meadow_Texture_01)
+
+Prefab Name: SM_Prop_Mushroom_Group_03
+    Mesh Name: SM_Prop_Mushroom_Group_03
+        Slot: PolygonNatureBiomesMeadow_Mat_01 (PolygonNatureBiomes_Meadow_Texture_01)
+
+Prefab Name: SM_Prop_Mushroom_Group_04
+    Mesh Name: SM_Prop_Mushroom_Group_04
+        Slot: PolygonNatureBiomesMeadow_Mat_01 (PolygonNatureBiomes_Meadow_Texture_01)
+
+Prefab Name: SM_Prop_Mushroom_Group_05
+    Mesh Name: SM_Prop_Mushroom_Group_05
+        Slot: PolygonNatureBiomesMeadow_Mat_01 (PolygonNatureBiomes_Meadow_Texture_01)
+
+Prefab Name: SM_Prop_Mushroom_Sparse_01
+    Mesh Name: SM_Prop_Mushroom_Sparse_01
+        Slot: PolygonNatureBiomesMeadow_Mat_01 (PolygonNatureBiomes_Meadow_Texture_01)
+
+Prefab Name: SM_Prop_Mushroom_Sparse_02
+    Mesh Name: SM_Prop_Mushroom_Sparse_02
+        Slot: PolygonNatureBiomesMeadow_Mat_01 (PolygonNatureBiomes_Meadow_Texture_01)
+
+Prefab Name: SM_Prop_Mushroom_Sparse_03
+    Mesh Name: SM_Prop_Mushroom_Sparse_03
+        Slot: PolygonNatureBiomesMeadow_Mat_01 (PolygonNatureBiomes_Meadow_Texture_01)
+
+Prefab Name: SM_Prop_Mushroom_Sparse_04
+    Mesh Name: SM_Prop_Mushroom_Sparse_04
+        Slot: PolygonNatureBiomesMeadow_Mat_01 (PolygonNatureBiomes_Meadow_Texture_01)
+
+Prefab Name: SM_Prop_Mushroom_Sparse_05
+    Mesh Name: SM_Prop_Mushroom_Sparse_05
+        Slot: PolygonNatureBiomesMeadow_Mat_01 (PolygonNatureBiomes_Meadow_Texture_01)
+
+Prefab Name: SM_Prop_ScareCrow_01
+    Mesh Name: SM_Prop_ScareCrow_01
+        Slot: PolygonNatureBiomesMeadow_Mat_01 (PolygonNatureBiomes_Meadow_Texture_01)
+
+Prefab Name: SM_Prop_SciFiCable_01
+    Mesh Name: SM_Prop_SciFiCable_01
+        Slot: PolygonNatureBiomesMeadow_Mat_01 (PolygonNatureBiomes_Meadow_Texture_01)
+
+Prefab Name: SM_Prop_SciFiCable_02
+    Mesh Name: SM_Prop_SciFiCable_02
+        Slot: PolygonNatureBiomesMeadow_Mat_01 (PolygonNatureBiomes_Meadow_Texture_01)
+
+Prefab Name: SM_Prop_SciFiCrate_01
+    Mesh Name: SM_Prop_SciFiCrate_01
+        Slot: PolygonNatureBiomesMeadow_Mat_01 (PolygonNatureBiomes_Meadow_Texture_01)
+
+Prefab Name: SM_Prop_SciFiCrate_02
+    Mesh Name: SM_Prop_SciFiCrate_02
+        Slot: PolygonNatureBiomesMeadow_Mat_01 (PolygonNatureBiomes_Meadow_Texture_01)
+
+Prefab Name: SM_Prop_Sign_01
+    Mesh Name: SM_Prop_Sign_01
+        Slot: PolygonNatureBiomesMeadow_Mat_01 (PolygonNatureBiomes_Meadow_Texture_01)
+
+Prefab Name: SM_Prop_Sign_02
+    Mesh Name: SM_Prop_Sign_02
+        Slot: PolygonNatureBiomesMeadow_Mat_01 (PolygonNatureBiomes_Meadow_Texture_01)
+
+Prefab Name: SM_Prop_Sign_03
+    Mesh Name: SM_Prop_Sign_03
+        Slot: PolygonNatureBiomesMeadow_Mat_01 (PolygonNatureBiomes_Meadow_Texture_01)
+
+Prefab Name: SM_Prop_StoneArch_01
+    Mesh Name: SM_Prop_StoneArch_01
+        Slot: PolygonNatureBiomesMeadow_Mat_01 (PolygonNatureBiomes_Meadow_Texture_01)
+
+Prefab Name: SM_Prop_StonePile_01
+    Mesh Name: SM_Prop_StonePile_01
+        Slot: PolygonNatureBiomesMeadow_Mat_01 (PolygonNatureBiomes_Meadow_Texture_01)
+
+Prefab Name: SM_Prop_StonePile_02
+    Mesh Name: SM_Prop_StonePile_02
+        Slot: PolygonNatureBiomesMeadow_Mat_01 (PolygonNatureBiomes_Meadow_Texture_01)
+
+Prefab Name: SM_Prop_StonePile_03
+    Mesh Name: SM_Prop_StonePile_03
+        Slot: PolygonNatureBiomesMeadow_Mat_01 (PolygonNatureBiomes_Meadow_Texture_01)
+
+Prefab Name: SM_Prop_StoneRunes_01
+    Mesh Name: SM_Prop_StoneRunes_01
+        Slot: PolygonNatureBiomesMeadow_Mat_01 (PolygonNatureBiomes_Meadow_Texture_01)
+
+Prefab Name: SM_Prop_StoneRunes_02
+    Mesh Name: SM_Prop_StoneRunes_02
+        Slot: PolygonNatureBiomesMeadow_Mat_01 (PolygonNatureBiomes_Meadow_Texture_01)
+
+Prefab Name: SM_Prop_StoneRunes_03
+    Mesh Name: SM_Prop_StoneRunes_03
+        Slot: PolygonNatureBiomesMeadow_Mat_01 (PolygonNatureBiomes_Meadow_Texture_01)
+
+Prefab Name: SM_Prop_StoneStack_01
+    Mesh Name: SM_Prop_StoneStack_01
+        Slot: PolygonNatureBiomesMeadow_Mat_01 (PolygonNatureBiomes_Meadow_Texture_01)
+
+Prefab Name: SM_Prop_StoneStack_02
+    Mesh Name: SM_Prop_StoneStack_02
+        Slot: PolygonNatureBiomesMeadow_Mat_01 (PolygonNatureBiomes_Meadow_Texture_01)
+
+Prefab Name: SM_Prop_Stone_Hole_01
+    Mesh Name: SM_Prop_Stone_Hole_01
+        Slot: PolygonNatureBiomesMeadow_Mat_01 (PolygonNatureBiomes_Meadow_Texture_01)
+
+Prefab Name: SM_Prop_Sword_Stone_01
+    Mesh Name: SM_Prop_Sword_Stone_01
+        Slot: PolygonNatureBiomesMeadow_Mat_01 (PolygonNatureBiomes_Meadow_Texture_01)
+    Mesh Name: SM_Prop_Sword_01
+        Slot: PolygonNatureBiomesMeadow_Mat_01 (PolygonNatureBiomes_Meadow_Texture_01)
+
+Prefab Name: SM_Prop_Wagon_Broken_01
+    Mesh Name: SM_Prop_Wagon_Broken_01
+        Slot: PolygonNatureBiomesMeadow_Mat_01 (PolygonNatureBiomes_Meadow_Texture_01)
+
+Prefab Name: SM_Prop_WaterWheel_01
+    Mesh Name: SM_Prop_WaterWheel_01
+        Slot: PolygonNatureBiomesMeadow_Mat_01 (PolygonNatureBiomes_Meadow_Texture_01)
+    Mesh Name: SM_Prop_WaterWheel_01_Cog_01
+        Slot: PolygonNatureBiomesMeadow_Mat_01 (PolygonNatureBiomes_Meadow_Texture_01)
+    Mesh Name: SM_Prop_WaterWheel_01_Wheel_01
+        Slot: PolygonNatureBiomesMeadow_Mat_01 (PolygonNatureBiomes_Meadow_Texture_01)
+
+Prefab Name: SM_Prop_Well_01
+    Mesh Name: SM_Prop_Well_01
+        Slot: PolygonNatureBiomesMeadow_Mat_01 (PolygonNatureBiomes_Meadow_Texture_01)
+
+Prefab Name: SM_Prop_WindChime_01
+    Mesh Name: SM_Prop_WindChime_01
+        Slot: PolygonNatureBiomesMeadow_Mat_01 (PolygonNatureBiomes_Meadow_Texture_01)
+
+Prefab Name: SM_Prop_WindChime_02
+    Mesh Name: SM_Prop_WindChime_02
+        Slot: PolygonNatureBiomesMeadow_Mat_01 (PolygonNatureBiomes_Meadow_Texture_01)
+
+-------------------
+Folder Name: Prefabs
+-------------------
+Prefab Name: SM_Env_Bush_01
+    Mesh Name: SM_Env_Bush_01_LOD0
+        Slot: Tree_Mat_01 (Uses custom shader)
+    Mesh Name: SM_Env_Bush_01_LOD1
+        Slot: Tree_Mat_01 (Uses custom shader)
+
+Prefab Name: SM_Env_Bush_02
+    Mesh Name: SM_Env_Bush_02_Branches_LOD0
+        Slot: Branches_01 (Uses custom shader)
+    Mesh Name: SM_Env_Bush_02_Leaves_LOD0
+        Slot: Tree_Mat_01 (Uses custom shader)
+    Mesh Name: SM_Env_Bush_02_Leaves_LOD1
+        Slot: Tree_Mat_01_Small (Uses custom shader)
+
+Prefab Name: SM_Env_Bush_03
+    Mesh Name: SM_Env_Bush_03_Branches_LOD0
+        Slot: Branches_01 (Uses custom shader)
+    Mesh Name: SM_Env_Bush_03_LOD0
+        Slot: Tree_Mat_03 (Uses custom shader)
+    Mesh Name: SM_Env_Bush_03_LOD1
+        Slot: Tree_Mat_03 (Uses custom shader)
+    Mesh Name: SM_Env_Bush_03_LOD2
+        Slot: Tree_Mat_03 (Uses custom shader)
+
+Prefab Name: SM_Env_CropField_Clump_01
+    Mesh Name: SM_Env_CropField_Clump_01_LOD0
+        Slot: CropField_01 (Uses custom shader)
+    Mesh Name: SM_Env_CropField_Clump_01_LOD1
+        Slot: CropField_01 (Uses custom shader)
+
+Prefab Name: SM_Env_CropField_Clump_02
+    Mesh Name: SM_Env_CropField_Clump_02_LOD0
+        Slot: CropField_01 (Uses custom shader)
+    Mesh Name: SM_Env_CropField_Clump_02_LOD1
+        Slot: CropField_01 (Uses custom shader)
+
+Prefab Name: SM_Env_Flowers_Flat_01
+    Mesh Name: SM_Env_Flowers_Flat_01
+        Slot: Flowers_Flat_Mat_01 (Uses custom shader)
+
+Prefab Name: SM_Env_Flowers_Flat_02
+    Mesh Name: SM_Env_Flowers_Flat_02
+        Slot: Flowers_Flat_Mat_01 (Uses custom shader)
+
+Prefab Name: SM_Env_Flowers_Flat_03
+    Mesh Name: SM_Env_Flowers_Flat_03
+        Slot: Flowers_Flat_Mat_01 (Uses custom shader)
+
+Prefab Name: SM_Env_Grass_Bush_01
+    Mesh Name: SM_Env_Grass_Bush_01_LOD0
+        Slot: Grass_Tall_Mat_01 (Uses custom shader)
+    Mesh Name: SM_Env_Grass_Bush_01_LOD1
+        Slot: Grass_Tall_Mat_01 (Uses custom shader)
+    Mesh Name: SM_Env_Grass_Bush_01_LOD2
+        Slot: Grass_Tall_Mat_01 (Uses custom shader)
+
+Prefab Name: SM_Env_Grass_Large_01
+    Mesh Name: SM_Env_Grass_Large_01_LOD0
+        Slot: Grass_Tall_Mat_01 (Uses custom shader)
+    Mesh Name: SM_Env_Grass_Large_01_LOD1
+        Slot: Grass_Tall_Mat_01 (Uses custom shader)
+    Mesh Name: SM_Env_Grass_Large_01_LOD2
+        Slot: Grass_Tall_Mat_01 (Uses custom shader)
+
+Prefab Name: SM_Env_Grass_Large_02
+    Mesh Name: SM_Env_Grass_Large_02_LOD0
+        Slot: Grass_Tall_Mat_01 (Uses custom shader)
+    Mesh Name: SM_Env_Grass_Large_02_LOD1
+        Slot: Grass_Tall_Mat_01 (Uses custom shader)
+    Mesh Name: SM_Env_Grass_Large_02_LOD2
+        Slot: Grass_Tall_Mat_01 (Uses custom shader)
+
+Prefab Name: SM_Env_Grass_Large_03
+    Mesh Name: SM_Env_Grass_Large_03_LOD0
+        Slot: Grass_Tall_Mat_01 (Uses custom shader)
+    Mesh Name: SM_Env_Grass_Large_03_LOD1
+        Slot: Grass_Tall_Mat_01 (Uses custom shader)
+    Mesh Name: SM_Env_Grass_Large_03_LOD2
+        Slot: Grass_Tall_Mat_01 (Uses custom shader)
+
+Prefab Name: SM_Env_Grass_Large_04
+    Mesh Name: SM_Env_Grass_Large_04_LOD0
+        Slot: Grass_Tall_Mat_01 (Uses custom shader)
+    Mesh Name: SM_Env_Grass_Large_04_LOD1
+        Slot: Grass_Tall_Mat_01 (Uses custom shader)
+    Mesh Name: SM_Env_Grass_Large_04_LOD2
+        Slot: Grass_Tall_Mat_01 (Uses custom shader)
+
+Prefab Name: SM_Env_Grass_Med_Clump_01
+    Mesh Name: SM_Env_Grass_Med_Clump_01_LOD0
+        Slot: Grass_Med_Mat_01 (Uses custom shader)
+    Mesh Name: SM_Env_Grass_Med_Clump_01_LOD1
+        Slot: Grass_Med_Mat_01 (Uses custom shader)
+
+Prefab Name: SM_Env_Grass_Med_Clump_02
+    Mesh Name: SM_Env_Grass_Med_Clump_02_LOD0
+        Slot: Grass_Med_Mat_01 (Uses custom shader)
+    Mesh Name: SM_Env_Grass_Med_Clump_02_LOD1
+        Slot: Grass_Med_Mat_01 (Uses custom shader)
+
+Prefab Name: SM_Env_Grass_Med_Clump_03
+    Mesh Name: SM_Env_Grass_Med_Clump_03_LOD0
+        Slot: Grass_Med_Mat_01 (Uses custom shader)
+    Mesh Name: SM_Env_Grass_Med_Clump_03_LOD1
+        Slot: Grass_Med_Mat_01 (Uses custom shader)
+    Mesh Name: SM_Env_Grass_Med_Clump_03_LOD2
+        Slot: Grass_Med_Mat_01 (Uses custom shader)
+
+Prefab Name: SM_Env_Grass_Med_Plane_01
+    Mesh Name: SM_Env_Grass_Med_Plane_01
+        Slot: Grass_Med_Mat_01 (Uses custom shader)
+
+Prefab Name: SM_Env_Grass_Short_Clump_01
+    Mesh Name: SM_Env_Grass_Short_Clump_01_LOD0
+        Slot: Grass_Short_Mat_01 (Uses custom shader)
+    Mesh Name: SM_Env_Grass_Short_Clump_01_LOD1
+        Slot: Grass_Short_Mat_01 (Uses custom shader)
+
+Prefab Name: SM_Env_Grass_Short_Clump_02
+    Mesh Name: SM_Env_Grass_Short_Clump_02_LOD0
+        Slot: Grass_Short_Mat_01 (Uses custom shader)
+    Mesh Name: SM_Env_Grass_Short_Clump_02_LOD1
+        Slot: Grass_Short_Mat_01 (Uses custom shader)
+
+Prefab Name: SM_Env_Grass_Short_Clump_03
+    Mesh Name: SM_Env_Grass_Short_Clump_03_LOD0
+        Slot: Grass_Short_Mat_01 (Uses custom shader)
+    Mesh Name: SM_Env_Grass_Short_Clump_03_LOD1
+        Slot: Grass_Short_Mat_01 (Uses custom shader)
+    Mesh Name: SM_Env_Grass_Short_Clump_03_LOD2
+        Slot: Grass_Short_Mat_01 (Uses custom shader)
+
+Prefab Name: SM_Env_Grass_Short_Plane_01
+    Mesh Name: SM_Env_Grass_Short_Plane_01
+        Slot: Grass_Short_Mat_01 (Uses custom shader)
+
+Prefab Name: SM_Env_Grass_Tall_Clump_01
+    Mesh Name: SM_Env_Grass_Tall_Clump_01_LOD0
+        Slot: Grass_Tall_Mat_01 (Uses custom shader)
+    Mesh Name: SM_Env_Grass_Tall_Clump_01_LOD1
+        Slot: Grass_Tall_Mat_01 (Uses custom shader)
+
+Prefab Name: SM_Env_Grass_Tall_Clump_02
+    Mesh Name: SM_Env_Grass_Tall_Clump_02_LOD0
+        Slot: Grass_Tall_Mat_01 (Uses custom shader)
+    Mesh Name: SM_Env_Grass_Tall_Clump_02_LOD1
+        Slot: Grass_Tall_Mat_01 (Uses custom shader)
+
+Prefab Name: SM_Env_Grass_Tall_Clump_03
+    Mesh Name: SM_Env_Grass_Tall_Clump_03_LOD0
+        Slot: Grass_Tall_Mat_01 (Uses custom shader)
+    Mesh Name: SM_Env_Grass_Tall_Clump_03_LOD1
+        Slot: Grass_Tall_Mat_01 (Uses custom shader)
+    Mesh Name: SM_Env_Grass_Tall_Clump_03_LOD2
+        Slot: Grass_Tall_Mat_01 (Uses custom shader)
+
+Prefab Name: SM_Env_Grass_Tall_Clump_04
+    Mesh Name: SM_Env_Grass_Tall_Clump_04_LOD0
+        Slot: Grass_Tall_Mat_01 (Uses custom shader)
+    Mesh Name: SM_Env_Grass_Tall_Clump_04_LOD1
+        Slot: Grass_Tall_Mat_01 (Uses custom shader)
+    Mesh Name: SM_Env_Grass_Tall_Clump_04_LOD2
+        Slot: Grass_Tall_Mat_01 (Uses custom shader)
+
+Prefab Name: SM_Env_Grass_Tall_Clump_05
+    Mesh Name: SM_Env_Grass_Tall_Clump_05_LOD0
+        Slot: Grass_Tall_Mat_01 (Uses custom shader)
+    Mesh Name: SM_Env_Grass_Tall_Clump_05_LOD1
+        Slot: Grass_Tall_Mat_01 (Uses custom shader)
+    Mesh Name: SM_Env_Grass_Tall_Clump_05_LOD2
+        Slot: Grass_Tall_Mat_01 (Uses custom shader)
+
+Prefab Name: SM_Env_Grass_Tall_Plane_01
+    Mesh Name: SM_Env_Grass_Tall_Plane_01
+        Slot: Grass_Tall_Mat_01 (Uses custom shader)
+
+Prefab Name: SM_Env_Ground_Cliff_Large_01
+    Mesh Name: SM_Env_Ground_Cliff_Large_01
+        Slot: Rock_Grass_Triplanar_Meadow_01 (Uses custom shader)
+
+Prefab Name: SM_Env_Ground_Cliff_Large_02
+    Mesh Name: SM_Env_Ground_Cliff_Large_02
+        Slot: Rock_Grass_Triplanar_Meadow_01 (Uses custom shader)
+
+Prefab Name: SM_Env_Ground_Cover_01
+    Mesh Name: SM_Env_Ground_Cover_01_LOD0
+        Slot: Ground_Cover_Mat_01 (Uses custom shader)
+    Mesh Name: SM_Env_Ground_Cover_01_LOD1
+        Slot: Ground_Cover_Mat_01 (Uses custom shader)
+
+Prefab Name: SM_Env_Ground_Cover_02
+    Mesh Name: SM_Env_Ground_Cover_02_LOD0
+        Slot: Ground_Cover_Mat_01 (Uses custom shader)
+    Mesh Name: SM_Env_Ground_Cover_02_LOD1
+        Slot: Ground_Cover_Mat_01 (Uses custom shader)
+    Mesh Name: SM_Env_Ground_Cover_02_LOD2
+        Slot: Ground_Cover_Mat_01 (Uses custom shader)
+
+Prefab Name: SM_Env_Ground_Cover_03
+    Mesh Name: SM_Env_Ground_Cover_03_LOD0
+        Slot: Ground_Cover_Mat_01 (Uses custom shader)
+    Mesh Name: SM_Env_Ground_Cover_03_LOD1
+        Slot: Ground_Cover_Mat_01 (Uses custom shader)
+    Mesh Name: SM_Env_Ground_Cover_03_LOD2
+        Slot: Ground_Cover_Mat_01 (Uses custom shader)
+
+Prefab Name: SM_Env_Ground_Mound_Large_01
+    Mesh Name: SM_Env_Ground_Mound_Large_01
+        Slot: Rock_Grass_Triplanar_Meadow_01 (Uses custom shader)
+
+Prefab Name: SM_Env_Ground_Mound_Large_02
+    Mesh Name: SM_Env_Ground_Mound_Large_02
+        Slot: Rock_Grass_Triplanar_Meadow_01 (Uses custom shader)
+
+Prefab Name: SM_Env_Ground_Mound_Large_03
+    Mesh Name: SM_Env_Ground_Mound_Large_03
+        Slot: Rock_Grass_Triplanar_Meadow_01 (Uses custom shader)
+
+Prefab Name: SM_Env_Ground_Mound_Large_04
+    Mesh Name: SM_Env_Ground_Mound_Large_04
+        Slot: Rock_Grass_Triplanar_Meadow_01 (Uses custom shader)
+
+Prefab Name: SM_Env_Lillies_01
+    Mesh Name: SM_Env_Lillies_01_LOD0
+        Slot: NoWind_Mat_01 (Uses custom shader)
+    Mesh Name: SM_Env_Lillies_01_LOD1
+        Slot: Mat_Lillies_01 (LillyPads_Medows_01)
+
+Prefab Name: SM_Env_Lillies_02
+    Mesh Name: SM_Env_Lillies_02_LOD0
+        Slot: NoWind_Mat_01 (Uses custom shader)
+    Mesh Name: SM_Env_Lillies_02_LOD1
+        Slot: Mat_Lillies_01 (LillyPads_Medows_01)
+
+Prefab Name: SM_Env_Lillies_03
+    Mesh Name: SM_Env_Lillies_03_LOD0
+        Slot: NoWind_Mat_01 (Uses custom shader)
+    Mesh Name: SM_Env_Lillies_03_LOD1
+        Slot: Mat_Lillies_01 (LillyPads_Medows_01)
+
+Prefab Name: SM_Env_Rock_01
+    Mesh Name: SM_Env_Rock_01
+        Slot: Rock_Grass_Triplanar_Meadow_01 (Uses custom shader)
+
+Prefab Name: SM_Env_Rock_02
+    Mesh Name: SM_Env_Rock_02
+        Slot: Rock_Grass_Triplanar_Meadow_01 (Uses custom shader)
+
+Prefab Name: SM_Env_Rock_03
+    Mesh Name: SM_Env_Rock_03
+        Slot: Rock_Grass_Triplanar_Meadow_01 (Uses custom shader)
+
+Prefab Name: SM_Env_Rock_04
+    Mesh Name: SM_Env_Rock_04
+        Slot: Rock_Grass_Triplanar_Meadow_01 (Uses custom shader)
+
+Prefab Name: SM_Env_Rock_05
+    Mesh Name: SM_Env_Rock_05
+        Slot: Rock_Grass_Triplanar_Meadow_01 (Uses custom shader)
+
+Prefab Name: SM_Env_Rock_06
+    Mesh Name: SM_Env_Rock_06
+        Slot: Rock_Grass_Triplanar_Meadow_01 (Uses custom shader)
+
+Prefab Name: SM_Env_Rock_Cliff_01
+    Mesh Name: SM_Env_Rock_Cliff_01
+        Slot: Rock_Grass_Triplanar_Meadow_01 (Uses custom shader)
+
+Prefab Name: SM_Env_Rock_Cliff_02
+    Mesh Name: SM_Env_Rock_Cliff_02
+        Slot: Rock_Grass_Triplanar_Meadow_01 (Uses custom shader)
+
+Prefab Name: SM_Env_Rock_Cliff_03
+    Mesh Name: SM_Env_Rock_Cliff_03
+        Slot: Rock_Grass_Triplanar_Meadow_01 (Uses custom shader)
+
+Prefab Name: SM_Env_Rock_Ground_01
+    Mesh Name: SM_Env_Rock_Ground_01
+        Slot: Rock_Grass_Triplanar_Meadow_01 (Uses custom shader)
+
+Prefab Name: SM_Env_Rock_Ground_02
+    Mesh Name: SM_Env_Rock_Ground_02
+        Slot: Rock_Grass_Triplanar_Meadow_01 (Uses custom shader)
+
+Prefab Name: SM_Env_Rock_Pile_01
+    Mesh Name: SM_Env_Rock_Pile_01
+        Slot: Rock_Grass_Triplanar_Meadow_01 (Uses custom shader)
+
+Prefab Name: SM_Env_Rock_Pile_02
+    Mesh Name: SM_Env_Rock_Pile_02
+        Slot: Rock_Grass_Triplanar_Meadow_01 (Uses custom shader)
+
+Prefab Name: SM_Env_Rock_Pile_03
+    Mesh Name: SM_Env_Rock_Pile_03
+        Slot: Rock_Grass_Triplanar_Meadow_01 (Uses custom shader)
+
+Prefab Name: SM_Env_Rock_Pile_04
+    Mesh Name: SM_Env_Rock_Pile_04
+        Slot: Rock_Grass_Triplanar_Meadow_01 (Uses custom shader)
+
+Prefab Name: SM_Env_Rock_Pile_05
+    Mesh Name: SM_Env_Rock_Pile_05
+        Slot: Rock_Grass_Triplanar_Meadow_01 (Uses custom shader)
+
+Prefab Name: SM_Env_Rock_Pile_06
+    Mesh Name: SM_Env_Rock_Pile_06
+        Slot: Rock_Grass_Triplanar_Meadow_01 (Uses custom shader)
+
+Prefab Name: SM_Env_Rock_Pile_07
+    Mesh Name: SM_Env_Rock_Pile_07
+        Slot: Rock_Grass_Triplanar_Meadow_01 (Uses custom shader)
+
+Prefab Name: SM_Env_Rock_Round_01
+    Mesh Name: SM_Env_Rock_Round_01
+        Slot: Rock_Grass_Triplanar_Meadow_01 (Uses custom shader)
+
+Prefab Name: SM_Env_Rock_Small_01
+    Mesh Name: SM_Env_Rock_Small_01
+        Slot: PolygonNatureBiomesMeadow_Mat_01 (PolygonNatureBiomes_Meadow_Texture_01)
+
+Prefab Name: SM_Env_Rock_Small_Pile_01
+    Mesh Name: SM_Env_Rock_Small_Pile_01
+        Slot: PolygonNatureBiomesMeadow_Mat_01 (PolygonNatureBiomes_Meadow_Texture_01)
+
+Prefab Name: SM_Env_Rock_Small_Pile_02
+    Mesh Name: SM_Env_Rock_Small_Pile_02
+        Slot: PolygonNatureBiomesMeadow_Mat_01 (PolygonNatureBiomes_Meadow_Texture_01)
+
+Prefab Name: SM_Env_Sunflower_01
+    Mesh Name: SM_Env_Sunflower_01_LOD0
+        Slot: Sunflowers_Mat_01 (Uses custom shader)
+    Mesh Name: SM_Env_Sunflower_01_LOD1
+        Slot: Sunflowers_Mat_01 (Uses custom shader)
+    Mesh Name: SM_Env_Sunflower_01_LOD2
+        Slot: Card_Sunflower_01 (Uses custom shader)
+
+Prefab Name: SM_Env_Tree_Birch_01
+    Mesh Name: SM_Env_Tree_Birch_01_Branches_LOD0
+        Slot: Branches_02 (Uses custom shader)
+    Mesh Name: SM_Env_Tree_Birch_01_Branches_LOD1
+        Slot: Branches_02 (Uses custom shader)
+    Mesh Name: SM_Env_Tree_Birch_01_Branches_LOD2
+        Slot: Branches_02 (Uses custom shader)
+    Mesh Name: SM_Env_Tree_Birch_01_LOD0
+        Slot: Tree_Birch_Mat_01 (Uses custom shader)
+    Mesh Name: SM_Env_Tree_Birch_01_LOD1
+        Slot: Tree_Birch_Mat_01 (Uses custom shader)
+    Mesh Name: SM_Env_Tree_Birch_01_LOD2
+        Slot: Tree_Birch_Mat_01 (Uses custom shader)
+    Mesh Name: SM_Env_Tree_Birch_01_LOD3
+        Slot: Card_Tree_Birch_01 (Uses custom shader)
+
+Prefab Name: SM_Env_Tree_Birch_02
+    Mesh Name: SM_Env_Tree_Birch_02_Branches_LOD0
+        Slot: Branches_02 (Uses custom shader)
+    Mesh Name: SM_Env_Tree_Birch_02_Branches_LOD1
+        Slot: Branches_02 (Uses custom shader)
+    Mesh Name: SM_Env_Tree_Birch_02_LOD0
+        Slot: Tree_Birch_Mat_01 (Uses custom shader)
+    Mesh Name: SM_Env_Tree_Birch_02_LOD1
+        Slot: Tree_Birch_Mat_01 (Uses custom shader)
+    Mesh Name: SM_Env_Tree_Birch_02_LOD2
+        Slot: Tree_Birch_Mat_01 (Uses custom shader)
+    Mesh Name: SM_Env_Tree_Birch_02_LOD3
+        Slot: Card_Tree_Birch_02 (Uses custom shader)
+
+Prefab Name: SM_Env_Tree_Birch_03
+    Mesh Name: SM_Env_Tree_Birch_03_Branches_LOD0
+        Slot: Branches_02 (Uses custom shader)
+    Mesh Name: SM_Env_Tree_Birch_03_Branches_LOD1
+        Slot: Branches_02 (Uses custom shader)
+    Mesh Name: SM_Env_Tree_Birch_03_LOD0
+        Slot: Tree_Birch_Mat_01 (Uses custom shader)
+    Mesh Name: SM_Env_Tree_Birch_03_LOD1
+        Slot: Tree_Birch_Mat_01 (Uses custom shader)
+    Mesh Name: SM_Env_Tree_Birch_03_LOD2
+        Slot: Tree_Birch_Mat_01 (Uses custom shader)
+    Mesh Name: SM_Env_Tree_Birch_03_LOD3
+        Slot: Card_Tree_Birch_03 (Uses custom shader)
+
+Prefab Name: SM_Env_Tree_Fruit_01
+    Mesh Name: SM_Env_Tree_Fruit_01_LOD0
+        Slot: Tree_Mat_01 (Uses custom shader)
+    Mesh Name: SM_Env_Tree_Fruit_01_LOD1
+        Slot: Tree_Mat_01 (Uses custom shader)
+    Mesh Name: SM_Env_Tree_Fruit_01_LOD2
+        Slot: Card_Tree_Fruit_01 (Uses custom shader)
+
+Prefab Name: SM_Env_Tree_Fruit_02
+    Mesh Name: SM_Env_Tree_Fruit_02_LOD0
+        Slot: Tree_Mat_01 (Uses custom shader)
+    Mesh Name: SM_Env_Tree_Fruit_02_LOD1
+        Slot: Tree_Mat_01 (Uses custom shader)
+    Mesh Name: SM_Env_Tree_Fruit_02_LOD2
+        Slot: Card_Tree_Fruit_02 (Uses custom shader)
+
+Prefab Name: SM_Env_Tree_Fruit_03
+    Mesh Name: SM_Env_Tree_Fruit_03_LOD0
+        Slot: Tree_Mat_01 (Uses custom shader)
+    Mesh Name: SM_Env_Tree_Fruit_03_LOD1
+        Slot: Tree_Mat_01 (Uses custom shader)
+    Mesh Name: SM_Env_Tree_Fruit_03_LOD2
+        Slot: Card_Tree_Fruit_03 (Uses custom shader)
+
+Prefab Name: SM_Env_Tree_Meadow_01
+    Mesh Name: SM_Env_Tree_Meadow_01_Branches_LOD0
+        Slot: Branches_01 (Uses custom shader)
+    Mesh Name: SM_Env_Tree_Meadow_01_Branches_LOD1
+        Slot: Branches_01 (Uses custom shader)
+    Mesh Name: SM_Env_Tree_Meadow_01_Branches_LOD2
+        Slot: Branches_01 (Uses custom shader)
+    Mesh Name: SM_Env_Tree_Meadow_01_LOD0
+        Slot: Tree_Mat_03 (Uses custom shader)
+    Mesh Name: SM_Env_Tree_Meadow_01_LOD1
+        Slot: Tree_Mat_03 (Uses custom shader)
+    Mesh Name: SM_Env_Tree_Meadow_01_LOD2
+        Slot: Tree_Mat_03 (Uses custom shader)
+    Mesh Name: SM_Env_Tree_Meadow_01_LOD3
+        Slot: Card_Tree_Meadow_01 (Uses custom shader)
+
+Prefab Name: SM_Env_Tree_Meadow_02
+    Mesh Name: SM_Env_Tree_Meadow_02_Branches_LOD0
+        Slot: Branches_01 (Uses custom shader)
+    Mesh Name: SM_Env_Tree_Meadow_02_Branches_LOD1
+        Slot: Branches_01 (Uses custom shader)
+    Mesh Name: SM_Env_Tree_Meadow_02_Branches_LOD2
+        Slot: Branches_01 (Uses custom shader)
+    Mesh Name: SM_Env_Tree_Meadow_02_LOD0
+        Slot: Tree_Mat_03 (Uses custom shader)
+    Mesh Name: SM_Env_Tree_Meadow_02_LOD1
+        Slot: Tree_Mat_03 (Uses custom shader)
+    Mesh Name: SM_Env_Tree_Meadow_02_LOD2
+        Slot: Tree_Mat_03 (Uses custom shader)
+    Mesh Name: SM_Env_Tree_Meadow_02_LOD3
+        Slot: Card_Tree_Meadow_02 (Uses custom shader)
+
+Prefab Name: SM_Env_Water_Plane_01
+    Mesh Name: SM_Env_Water_Plane_01
+        Slot: Water_River_01 (Uses custom shader)
+
+Prefab Name: SM_Env_Wildflowers_01
+    Mesh Name: SM_Env_Wildflowers_01_LOD0
+        Slot: BASEMat_02_Saturated (Uses custom shader)
+    Mesh Name: SM_Env_Wildflowers_01_LOD1
+        Slot: BASEMat_02_Saturated (Uses custom shader)
+    Mesh Name: SM_Env_Wildflowers_01_LOD2
+        Slot: WildFlowers_01 (Uses custom shader)
+
+Prefab Name: SM_Env_Wildflowers_02
+    Mesh Name: SM_Env_Wildflowers_02_LOD0
+        Slot: BASEMat_02_Saturated (Uses custom shader)
+    Mesh Name: SM_Env_Wildflowers_02_LOD1
+        Slot: BASEMat_02_Saturated (Uses custom shader)
+    Mesh Name: SM_Env_Wildflowers_02_LOD2
+        Slot: WildFlowers_02 (Uses custom shader)
+
+Prefab Name: SM_Env_Wildflowers_03
+    Mesh Name: SM_Env_Wildflowers_03_LOD0
+        Slot: Flowers_Field_Variation (Uses custom shader)
+    Mesh Name: SM_Env_Wildflowers_03_LOD1
+        Slot: Flowers_Field_Variation (Uses custom shader)
+    Mesh Name: SM_Env_Wildflowers_03_LOD2
+        Slot: WildFlowers_03 (Uses custom shader)
+
+Prefab Name: SM_Env_Wildflowers_Patch_01
+    Mesh Name: SM_Env_Wildflowers_Patch_01_LOD0
+        Slot: Flowers_Field_Variation (Uses custom shader)
+    Mesh Name: SM_Env_Wildflowers_Patch_01_LOD1
+        Slot: WildFlowers_01 (Uses custom shader)
+
+Prefab Name: SM_Env_Wildflowers_Patch_02
+    Mesh Name: SM_Env_Wildflowers_Patch_02_LOD0
+        Slot: BASEMat_02_Saturated (Uses custom shader)
+    Mesh Name: SM_Env_Wildflowers_Patch_02_LOD1
+        Slot: WildFlowers_02 (Uses custom shader)
+
+Prefab Name: SM_Env_Wildflowers_Patch_03
+    Mesh Name: SM_Env_Wildflowers_Patch_03_LOD0
+        Slot: Flowers_Field_Variation (Uses custom shader)
+    Mesh Name: SM_Env_Wildflowers_Patch_03_LOD1
+        Slot: WildFlowers_03 (Uses custom shader)
+
+Prefab Name: SM_Prop_Leaves_Branch_01
+    Mesh Name: SM_Prop_Leaves_Branch_01
+        Slot: PolygonNatureBiomesMeadow_Mat_01 (PolygonNatureBiomes_Meadow_Texture_01)
+
+Prefab Name: SM_Prop_Leaves_Pile_01
+    Mesh Name: SM_Prop_Leaves_Pile_01
+        Slot: PolygonNatureBiomesMeadow_Mat_01 (PolygonNatureBiomes_Meadow_Texture_01)
+
+Prefab Name: SM_Prop_Leaves_Pile_02
+    Mesh Name: SM_Prop_Leaves_Pile_02
+        Slot: PolygonNatureBiomesMeadow_Mat_01 (PolygonNatureBiomes_Meadow_Texture_01)
+
+Prefab Name: SM_Prop_Stonewall_End_01
+    Mesh Name: SM_Prop_Stonewall_End_01_LOD0
+        Slot: NoWind_Mat_01 (Uses custom shader)
+    Mesh Name: SM_Prop_Stonewall_End_01_LOD1
+        Slot: NoWind_Mat_01 (Uses custom shader)
+    Mesh Name: SM_Prop_Stonewall_End_01_LOD2
+        Slot: NoWind_Mat_01 (Uses custom shader)
+
+Prefab Name: SM_Prop_Stonewall_Long_01
+    Mesh Name: SM_Prop_Stonewall_Long_01_LOD0
+        Slot: NoWind_Mat_01 (Uses custom shader)
+    Mesh Name: SM_Prop_Stonewall_Long_01_LOD1
+        Slot: NoWind_Mat_01 (Uses custom shader)
+    Mesh Name: SM_Prop_Stonewall_Long_01_LOD2
+        Slot: NoWind_Mat_01 (Uses custom shader)
+
+Prefab Name: SM_Prop_Stonewall_Pillar_01
+    Mesh Name: SM_Prop_Stonewall_Pillar_01_LOD0
+        Slot: NoWind_Mat_01 (Uses custom shader)
+    Mesh Name: SM_Prop_Stonewall_Pillar_01_LOD1
+        Slot: NoWind_Mat_01 (Uses custom shader)
+    Mesh Name: SM_Prop_Stonewall_Pillar_01_LOD2
+        Slot: NoWind_Mat_01 (Uses custom shader)
+
+Prefab Name: SM_Prop_Stonewall_Pillar_02
+    Mesh Name: SM_Prop_Stonewall_Pillar_02_LOD0
+        Slot: NoWind_Mat_01 (Uses custom shader)
+    Mesh Name: SM_Prop_Stonewall_Pillar_02_LOD1
+        Slot: NoWind_Mat_01 (Uses custom shader)
+    Mesh Name: SM_Prop_Stonewall_Pillar_02_LOD2
+        Slot: NoWind_Mat_01 (Uses custom shader)
+
+Prefab Name: SM_Prop_Stonewall_Small_01
+    Mesh Name: SM_Prop_Stonewall_Small_01_LOD0
+        Slot: NoWind_Mat_01 (Uses custom shader)
+    Mesh Name: SM_Prop_Stonewall_Small_01_LOD1
+        Slot: NoWind_Mat_01 (Uses custom shader)
+    Mesh Name: SM_Prop_Stonewall_Small_01_LOD2
+        Slot: NoWind_Mat_01 (Uses custom shader)
+
+Prefab Name: SM_Prop_Stonewall_Small_02
+    Mesh Name: SM_Prop_Stonewall_Small_02_LOD0
+        Slot: NoWind_Mat_01 (Uses custom shader)
+    Mesh Name: SM_Prop_Stonewall_Small_02_LOD1
+        Slot: NoWind_Mat_01 (Uses custom shader)
+    Mesh Name: SM_Prop_Stonewall_Small_02_LOD2
+        Slot: NoWind_Mat_01 (Uses custom shader)
+
+Prefab Name: SM_Veh_Steam_Car_01
+    Mesh Name: SM_Veh_Steam_Car_01
+        Slot: PolygonNatureBiomesMeadow_Mat_01 (PolygonNatureBiomes_Meadow_Texture_01)
+    Mesh Name: SM_Veh_Steam_Car_01_Axel_Front_01
+        Slot: PolygonNatureBiomesMeadow_Mat_01 (PolygonNatureBiomes_Meadow_Texture_01)
+    Mesh Name: SM_Veh_Steam_Car_01_Wheel_Front_01
+        Slot: PolygonNatureBiomesMeadow_Mat_01 (PolygonNatureBiomes_Meadow_Texture_01)
+    Mesh Name: SM_Veh_Steam_Car_01_Wheel_Front_02
+        Slot: PolygonNatureBiomesMeadow_Mat_01 (PolygonNatureBiomes_Meadow_Texture_01)
+    Mesh Name: SM_Veh_Steam_Car_01_Axel_Rear_01
+        Slot: PolygonNatureBiomesMeadow_Mat_01 (PolygonNatureBiomes_Meadow_Texture_01)
+    Mesh Name: SM_Veh_Steam_Car_01_Wheel_Rear_01
+        Slot: PolygonNatureBiomesMeadow_Mat_01 (PolygonNatureBiomes_Meadow_Texture_01)
+    Mesh Name: SM_Veh_Steam_Car_01_Wheel_Rear_02
+        Slot: PolygonNatureBiomesMeadow_Mat_01 (PolygonNatureBiomes_Meadow_Texture_01)
+    Mesh Name: SM_Veh_Steam_Car_01_Steering_Wheel_01
+        Slot: PolygonNatureBiomesMeadow_Mat_01 (PolygonNatureBiomes_Meadow_Texture_01)
+
+-------------------
+Folder Name: Core_FX Prefabs
+-------------------
+Prefab Name: FX_Rain_01
+    Mesh Name: FX_Rain_01
+        Slot: Circle_Transparent_Mat_01 (Uses custom shader)
+
+Prefab Name: FX_Rain_Splash_01
+    Mesh Name: FX_Rain_Splash_01
+        Slot: Circle_Transparent_Mat_01 (Uses custom shader)
+
+Prefab Name: FX_Snow_01
+    Mesh Name: FX_Snow_01
+        Slot: Circle_Cutout_Mat (Uses custom shader)
+
+Prefab Name: SM_Env_Cloud_Ring_01
+    Mesh Name: SM_Env_Cloud_Ring_01
+        Slot: Cloud_Mat_01 (Uses custom shader)
+
+Prefab Name: SM_Env_Cloud_Ring_02
+    Mesh Name: SM_Env_Cloud_Ring_02
+        Slot: Cloud_Mat_01 (Uses custom shader)
+
+Prefab Name: SM_Env_Fog_Ring_01
+    Mesh Name: SM_Env_Fog_Ring_01
+        Slot: Fog_01 (Uses custom shader)
+
+Prefab Name: SM_Env_Grass_01
+    Mesh Name: SM_Env_Grass_01_LOD0
+        Slot: Grass_Mat_01 (Uses custom shader)
+    Mesh Name: SM_Env_Grass_01_LOD1
+        Slot: Grass_Mat_01 (Uses custom shader)
+    Mesh Name: SM_Env_Grass_01_LOD2
+        Slot: Grass_Mat_01 (Uses custom shader)
+
+Prefab Name: SM_Env_Skydome_01
+    Mesh Name: SM_Env_Skydome_01
+        Slot: Skybox_Mat_01 (Uses custom shader)
+
+Prefab Name: SM_Env_Water_Plane_01
+    Mesh Name: SM_Env_Water_Plane_01
+        Slot: Water_Mat_01 (Uses custom shader)
+
+

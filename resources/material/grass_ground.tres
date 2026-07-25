@@ -1,0 +1,18 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://dcwav4237d0l3"]
+
+[ext_resource type="Texture2D" uid="uid://c8jfo0h8hctjg" path="res://resources/material/sources/GrassGround_albedo.png" id="1_q3syl"]
+[ext_resource type="Texture2D" uid="uid://dkyrcjsyogc73" path="res://resources/material/sources/GrassGround_orm.png" id="2_ic3vf"]
+[ext_resource type="Texture2D" uid="uid://bbbf8jcp8ao1o" path="res://resources/material/sources/GrassGround_normal.png" id="3_nhnnl"]
+
+[resource]
+diffuse_mode = 3
+specular_mode = 1
+albedo_texture = ExtResource("1_q3syl")
+metallic_texture = ExtResource("2_ic3vf")
+metallic_texture_channel = 2
+roughness_texture = ExtResource("2_ic3vf")
+roughness_texture_channel = 1
+normal_enabled = true
+normal_texture = ExtResource("3_nhnnl")
+uv1_world_triplanar = true
+texture_filter = 0
