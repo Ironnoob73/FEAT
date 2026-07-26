@@ -8,7 +8,7 @@ extends OcclusionedStaticBody
 		mesh_color = color
 		if Engine.is_editor_hint():
 			color_setter()
-@export var mesh_material : Material = preload("res://Resources/Material/Tree.tres"):
+@export var mesh_material : Material = preload("res://resources/material/tree.tres"):
 	set(material):
 		mesh_material = material
 		if Engine.is_editor_hint():

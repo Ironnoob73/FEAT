@@ -15,13 +15,13 @@ class_name PlayerInventory
 @onready var equipment_info: Label = $EquipmentInv/Preview/Container/VBoxContainer/Info
 @onready var equipment_model: MeshInstance3D = $EquipmentInv/Preview/View/Viewport/MeshView2d/Mesh
 @onready var equipment_description: RichTextLabel = $EquipmentInv/Preview/Description
-@onready var equipped_star: Texture2D = preload("res://Resources/Image/blue_star.svg")
+@onready var equipped_star: Texture2D = preload("res://resources/image/blue_star.svg")
 
 @onready var hotbar: PanelContainer = $Hotbar
 @onready var tool_hotbar: HBoxContainer = $Hotbar/VBox/ToolHBox
 @onready var item_hotbar: HBoxContainer = $Hotbar/VBox/ItemHBox
 @onready var hotbar_choose_window: ItemChooseWindow = $Hotbar/ItemChooseWindow
-@onready var unequip_icon: Texture2D = preload("res://Resources/Image/ban.svg")
+@onready var unequip_icon: Texture2D = preload("res://resources/image/ban.svg")
 var current_hotbar_type : bool #false = tool , true = item
 var current_hotbar_index : int
 

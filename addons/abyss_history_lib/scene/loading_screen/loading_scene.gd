@@ -14,5 +14,5 @@ func _outro() -> void:
 	await Signal(animation, "animation_finished")
 	self.queue_free()
 
-func _fail(info : int) -> void:
-	progress_number.text = str("ERROR ", info, ": ", error_string(info))
+func _fail(info: String) -> void:
+	progress_number.text = str("ERROR: ", info)

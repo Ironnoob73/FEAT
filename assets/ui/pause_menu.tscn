@@ -3,6 +3,68 @@
 [ext_resource type="Script" uid="uid://bmr6xec2jjrgt" path="res://assets/ui/pause_menu.gd" id="1_dd1d4"]
 [ext_resource type="PackedScene" uid="uid://cnl53v0lrb1mv" path="res://assets/ui/options/options.tscn" id="2_unk1s"]
 
+[sub_resource type="Animation" id="Animation_b5ct2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Main/WakeupButton:theme_override_colors/font_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.875, 0.875, 0.875, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Main/WakeupButton:theme_override_colors/font_outline_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_7kgwe"]
+resource_name = "effect"
+length = 2.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Main/WakeupButton:theme_override_colors/font_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75, 1, 1.25, 1.5, 1.75, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(0.7490196, 0.7490196, 0.7490196, 1), Color(0.49803922, 0.7490196, 0.7490196, 1), Color(0.49803922, 0.7490196, 1, 1), Color(0.7490196, 0.49803922, 1, 1), Color(1, 0.49803922, 0.49803922, 1), Color(1, 0.7490196, 0.49803922, 1), Color(1, 0.7490196, 0.24705882, 1), Color(0.49803922, 0.7490196, 0.49803922, 1), Color(0.24705882, 1, 0.49803922, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Main/WakeupButton:theme_override_colors/font_outline_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(1, 1, 1, 1), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_q48fj"]
+_data = {
+&"RESET": SubResource("Animation_b5ct2"),
+&"effect": SubResource("Animation_7kgwe")
+}
+
 [sub_resource type="InputEventAction" id="InputEventAction_qotme"]
 action = &"ui_cancel"
 
@@ -437,6 +499,22 @@ text = "title.menu.options"
 flat = true
 alignment = 0
 
+[node name="WakeupButton" type="Button" parent="Main" unique_id=1962098818]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.875, 0.875, 0.875, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 30
+text = "pause.wakeup"
+flat = true
+alignment = 0
+
+[node name="RainbowEffect" type="AnimationPlayer" parent="Main/WakeupButton" unique_id=989946676]
+root_node = NodePath("../../..")
+libraries/ = SubResource("AnimationLibrary_q48fj")
+autoplay = &"effect"
+
 [node name="ExitButton" type="Button" parent="Main" unique_id=180879790]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.74902, 0.74902, 0.74902, 1)
@@ -543,6 +621,7 @@ libraries/ = SubResource("AnimationLibrary_x1qir")
 [connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
 [connection signal="pressed" from="Main/ResumeButton" to="." method="_on_resume_button_pressed"]
 [connection signal="pressed" from="Main/OptionsButton" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="Main/WakeupButton" to="." method="_on_wakeup_button_pressed"]
 [connection signal="pressed" from="Main/ExitButton" to="." method="_on_exit_button_pressed"]
 [connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
 [connection signal="pressed" from="ExitBox/HBox/ConfirmButton" to="." method="_on_confirm_button_pressed"]

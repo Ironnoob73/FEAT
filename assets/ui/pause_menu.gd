@@ -2,8 +2,7 @@ extends ColorRect
 
 var escape_released: bool = false
 @onready var animation: AnimationPlayer = $AnimationPlayer
-@onready var exit_button: Button = $Main/ExitButton
-@onready var exit_text1: Label = $ExitBox/exit_text1
+@onready var wakeup_button: Button = $Main/WakeupButton
 @onready var multi_player_list: Tree = $MultiPlayerList
 
 @onready var options: TabContainer = $Options
@@ -13,14 +12,13 @@ signal mouse_mode_signal(value: bool)
 func _ready() -> void:
 	#Global.current_menu = "Pause" # Don't know why I write this...
 	animation.play("RESET")
-	if get_user().isInDream :
-		exit_button.text = "pause.quit"
-		exit_text1.text = "exit.quit_vr"
 
 func _on_visibility_changed() -> void:
 	get_tree().paused = visible
 	if multi_player_list:
 		refresh_multiplayer_list()
+	if wakeup_button:
+		wakeup_button.visible = get_user().isInDream
 
 func _unhandled_input(_event: InputEvent) -> void:
 	if Input.is_action_just_released("ui_cancel") :
@@ -58,12 +56,7 @@ func _on_exit_button_pressed() -> void:
 	animation.play("Exit")
 func _on_confirm_button_pressed() -> void:
 	hide()
-	if !get_user().isInDream :
-		Global.back_to_title()
-	else :
-		AHL_LoadManager.load_scene("res://Assets/World/WorldMain.tscn",
-			true, Vector3(-5.5,0,5.5), true, Vector3(0,deg_to_rad(180),0))
-		get_user().isInDream = false
+	Global.back_to_title()
 func _on_cancel_button_pressed() -> void:
 	if Global.current_menu == "Exit":
 		Global.current_menu = "Pause"
@@ -71,3 +64,10 @@ func _on_cancel_button_pressed() -> void:
 
 func get_user() -> LocalPlayer:
 	return get_parent()
+
+
+func _on_wakeup_button_pressed() -> void:
+	hide()
+	AHL_LoadManager.load_scene("res://assets/world/world_main.tscn",
+			true, Vector3(-5.5,0,5.5), true, Vector3(0,deg_to_rad(180),0))
+	get_user().isInDream = false

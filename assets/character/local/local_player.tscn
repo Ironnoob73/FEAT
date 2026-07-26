@@ -477,7 +477,6 @@ visible = false
 [node name="Inventory" parent="." index="16" unique_id=1835655211 instance=ExtResource("15_5s8tl")]
 
 [node name="Pause_menu" parent="." index="17" unique_id=444832472 instance=ExtResource("16_qjxce")]
-anchors_preset = 15
 
 [node name="Cursor" type="CSGMesh3D" parent="." index="18" unique_id=434804944]
 top_level = true

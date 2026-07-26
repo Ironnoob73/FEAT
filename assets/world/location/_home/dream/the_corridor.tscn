@@ -20,7 +20,9 @@
 [ext_resource type="PackedScene" uid="uid://b8sgxkfnqbmei" path="res://resources/object/device/elevator/door_scene.tscn" id="9_8lytu"]
 [ext_resource type="Shader" uid="uid://cyxv26lgbbfge" path="res://assets/world/environments/sources/background_shader.gdshader" id="9_jn1r0"]
 [ext_resource type="PackedScene" uid="uid://c13q5mtiplruc" path="res://assets/world/location/_home/sources/elevator_outwall.glb" id="10_533pw"]
+[ext_resource type="PackedScene" uid="uid://b0ghrj115xi0p" path="res://assets/world/location/_home/sources/elevator_well.glb" id="12_2fiqf"]
 [ext_resource type="PackedScene" uid="uid://bx4tpf7a72o74" path="res://resources/object/device/elevator/control_pad_scene.tscn" id="12_5yw2n"]
+[ext_resource type="Material" uid="uid://cw5qxvyjmvrdc" path="res://resources/material/yellow_emissive.tres" id="13_k2j84"]
 [ext_resource type="AudioStream" uid="uid://lenlyfssyh2f" path="res://assets/world/location/_home/sources/elevator_music.ogg" id="23_c5jx2"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_shdyq"]
@@ -41,6 +43,10 @@ shader = ExtResource("9_jn1r0")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_shdyq"]
 size = Vector2(20, 20)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_3xd07"]
+material = ExtResource("13_k2j84")
+size = Vector2(4, 4)
 
 [sub_resource type="Resource" id="Resource_e7spv"]
 script = ExtResource("7_bdjbn")
@@ -184,10 +190,28 @@ transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -2, 
 
 [node name="ElevatorOutwall" parent="ElevatorCorridorSolid/FirstElevatorDoor" unique_id=1093845651 instance=ExtResource("10_533pw")]
 
+[node name="ElevatorWell" parent="ElevatorCorridorSolid/FirstElevatorDoor" unique_id=873846465 instance=ExtResource("12_2fiqf")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -2.3841858e-07, 0, 1.9999998)
+
 [node name="LockedElevatorDoor" parent="ElevatorCorridorSolid" unique_id=418828826 instance=ExtResource("9_8lytu")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 2, 0, -3)
 
 [node name="ElevatorOutwall" parent="ElevatorCorridorSolid/LockedElevatorDoor" unique_id=1624683438 instance=ExtResource("10_533pw")]
+
+[node name="ElevatorWell" parent="ElevatorCorridorSolid/LockedElevatorDoor" unique_id=1189448498 instance=ExtResource("12_2fiqf")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -2.3841858e-07, 0, 1.9999998)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="ElevatorCorridorSolid/LockedElevatorDoor/ElevatorWell" unique_id=1564167679]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.39, 0)
+mesh = SubResource("PlaneMesh_3xd07")
+skeleton = NodePath("OmniLight3D")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="ElevatorCorridorSolid/LockedElevatorDoor/ElevatorWell/MeshInstance3D" unique_id=1880222288]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.53999996, 2)
+light_color = Color(1, 1, 0, 1)
+light_energy = 16.0
+light_specular = 0.0
+shadow_enabled = true
 
 [node name="ElevatorControlPadScene" parent="ElevatorCorridorSolid" unique_id=1964182302 instance=ExtResource("12_5yw2n")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -3)

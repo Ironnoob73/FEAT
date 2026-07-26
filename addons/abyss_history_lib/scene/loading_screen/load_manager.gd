@@ -4,17 +4,17 @@ extends Node
 
 signal progress_changed(progress: float)
 signal load_done
-signal load_failed(info: int)
+signal load_failed(info: String)
 
-var _load_screen =  preload("loading_scene.tscn")
-var _replace_main = true
+var _load_screen: PackedScene =  preload("loading_scene.tscn")
+var _replace_main: bool = true
 var _loaded_resource : PackedScene
-var _scene_path : String
-var _progress : Array = []
+var _scene_path: String
+var _progress: Array = []
 
-func load_scene(scene_path : String,
-	change_pos = false, pos = Vector3(), change_rot = false, rot = Vector3(),
-	replace_main = true) -> void:
+func load_scene(scene_path: String,
+	change_pos: bool = false, pos: Vector3 = Vector3(), change_rot: bool = false, rot: Vector3 = Vector3(),
+	replace_main: bool = true) -> void:
 	_scene_path = scene_path
 	_replace_main = replace_main
 	if change_pos:
@@ -30,19 +30,21 @@ func load_scene(scene_path : String,
 	start_load()
 	
 func start_load() -> void:
-	var state = ResourceLoader.load_threaded_request(_scene_path, "PackedScene", Global.load_use_sub_threads)
+	var state: Error = ResourceLoader.load_threaded_request(_scene_path, "PackedScene", Global.load_use_sub_threads)
 	if state == OK:
 		set_process(true)
 	else:
-		load_failed.emit(state)
+		load_failed.emit(str(state, ".", error_string(state)))
 
-func _process(_delta) -> void:
-	var load_status = ResourceLoader.load_threaded_get_status(_scene_path, _progress)
+func _process(_delta: float) -> void:
+	var load_status: ResourceLoader.ThreadLoadStatus = ResourceLoader.load_threaded_get_status(_scene_path, _progress)
 	match load_status:
-		ResourceLoader.THREAD_LOAD_INVALID_RESOURCE,ResourceLoader.THREAD_LOAD_FAILED:
+		ResourceLoader.THREAD_LOAD_INVALID_RESOURCE, ResourceLoader.THREAD_LOAD_FAILED:
 			set_process(false)
-			if load_status != OK:
-				load_failed.emit(str(load_status))
+			if load_status == ResourceLoader.THREAD_LOAD_INVALID_RESOURCE:
+				load_failed.emit("THREAD_LOAD_INVALID_RESOURCE")
+			elif load_status == ResourceLoader.THREAD_LOAD_FAILED:
+				load_failed.emit("THREAD_LOAD_FAILED")
 			return
 		ResourceLoader.THREAD_LOAD_IN_PROGRESS:
 			progress_changed.emit(_progress[0])

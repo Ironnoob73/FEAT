@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dnwc1pwjk84j8" path="res://assets/world/location/_home/sources/elevator_room_solid.tscn" id="5_s1q76"]
 [ext_resource type="PackedScene" uid="uid://b8sgxkfnqbmei" path="res://resources/object/device/elevator/door_scene.tscn" id="6_104aj"]
 [ext_resource type="PackedScene" uid="uid://c13q5mtiplruc" path="res://assets/world/location/_home/sources/elevator_outwall.glb" id="7_p7ukq"]
+[ext_resource type="PackedScene" uid="uid://b0ghrj115xi0p" path="res://assets/world/location/_home/sources/elevator_well.glb" id="8_vn3vq"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_6dv5q"]
 frequency = 0.25
@@ -164,3 +165,5 @@ state = true
 
 [node name="ElevatorOutwall2" parent="ElevatorRoom/ElevatorDoor" unique_id=1093845651 instance=ExtResource("7_p7ukq")]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0, -0.1)
+
+[node name="ElevatorWell" parent="ElevatorRoom" unique_id=873846465 instance=ExtResource("8_vn3vq")]

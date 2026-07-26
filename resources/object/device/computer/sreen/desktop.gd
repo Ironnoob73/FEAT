@@ -6,7 +6,7 @@ extends TextureRect
 @onready var files_icon_name: Label = $DesktopIcons/FilesIcon/NameTag
 
 @onready var window_group: Control = $WindowGroup
-@onready var window_class: PackedScene = preload("res://Resources/Object/Device/Computer/Sreen/window.tscn")
+@onready var window_class: PackedScene = preload("res://resources/object/device/computer/sreen/window.tscn")
 @onready var window_frame_anim: NinePatchRect = $WindowFrameAnim
 #@onready var windows_tab_bar: TabBar = $BottomTab/HBox/MarginContainer/TabBar
 

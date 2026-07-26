@@ -1,14 +1,14 @@
 [gd_resource type="StandardMaterial3D" format=3 uid="uid://do55163v32q4u"]
 
-[ext_resource type="Texture2D" uid="uid://g4p1ccvtxgkj" path="res://resources/material/sources/Wood_albedo.png" id="1_ejp6q"]
-[ext_resource type="Texture2D" uid="uid://cyym13kiqxwgj" path="res://resources/material/sources/Wood_normal.png" id="2_536wg"]
-[ext_resource type="Texture2D" uid="uid://dnika8snvaw8x" path="res://resources/material/sources/Wood_orm.png" id="3_tmi5g"]
+[ext_resource type="Texture2D" uid="uid://bxbst10sqce60" path="res://resources/material/sources/wood_albedo.png" id="1_l4umw"]
+[ext_resource type="Texture2D" uid="uid://cpy5c5wddf1bc" path="res://resources/material/sources/wood_normal.png" id="2_dgve2"]
+[ext_resource type="Texture2D" uid="uid://bawp6bvkkwj4x" path="res://resources/material/sources/wood_orm.png" id="3_7ph7j"]
 
 [resource]
-albedo_texture = ExtResource("1_ejp6q")
+albedo_texture = ExtResource("1_l4umw")
 metallic = 0.5
-roughness_texture = ExtResource("3_tmi5g")
+roughness_texture = ExtResource("3_7ph7j")
 roughness_texture_channel = 1
 normal_enabled = true
-normal_texture = ExtResource("2_536wg")
+normal_texture = ExtResource("2_dgve2")
 texture_filter = 0

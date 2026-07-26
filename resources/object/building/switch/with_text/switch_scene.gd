@@ -27,11 +27,11 @@ func _button_interact_signal(interactor: AHL_Interactive, sender: Node) -> void:
 	if !state:
 		switch(true, sender)
 	elif cancelable:
-		var timer : SceneTreeTimer
+		var timer: SceneTreeTimer
 		if has_meta("cancel_timer"):
 			remove_meta("cancel_timer")
-			cancel.emit(interactor, sender)
 			await timeout_unlit()
+			cancel.emit(interactor, sender)
 		else:
 			timer = get_tree().create_timer(0.5,false,true,false)
 			set_meta("cancel_timer", timer)
@@ -55,7 +55,7 @@ func _on_state_change(state_in: bool, _s: Node) -> void:
 			label.modulate = Color(1.0, 1.0, 1.0, 1.0)
 			
 func timeout_unlit() -> void:
-	var timer : SceneTreeTimer
+	var timer: SceneTreeTimer
 	if has_meta("unlit_timer"):
 		timer = get_meta("unlit_timer")
 		timer.set_time_left(0.5)

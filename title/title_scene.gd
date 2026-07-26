@@ -43,7 +43,7 @@ func _on_confirm_button_pressed() -> void:
 
 # World
 func _on_start_button_pressed() -> void:
-	AHL_LoadManager.load_scene("res://Assets/World/WorldMain.tscn")
+	AHL_LoadManager.load_scene("res://assets/world/world_main.tscn")
 	Global.is_in_game = true
 
 # Uncomplete

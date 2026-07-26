@@ -19,7 +19,7 @@ func _ready() -> void:
 		text.text = "keybind." + i
 		var restore: Button = Button.new()
 		container.add_child(restore)
-		restore.icon = preload("res://Resources/Image/UI/Restore.svg")
+		restore.icon = preload("res://resources/image/ui/restore.svg")
 		restore.flat = true
 		restore.set_h_size_flags(SIZE_SHRINK_END + SIZE_EXPAND)
 		restore.theme = preload("res://assets/ui/options/restore_button_scene.tres")

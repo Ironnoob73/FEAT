@@ -14,6 +14,7 @@
 [ext_resource type="Script" uid="uid://xi806lb1q3l3" path="res://addons/abyss_history_lib/class/interact/behaviour/_behavior_class.gd" id="10_pd4f6"]
 [ext_resource type="PackedScene" uid="uid://6pttkdqtend6" path="res://resources/object/furniture/sign/advertisement/levels/scene.tscn" id="11_cmqrt"]
 [ext_resource type="Script" uid="uid://bcmxxhlef12pk" path="res://addons/abyss_history_lib/class/interact/behaviour/switch_behavior_class.gd" id="11_lv01s"]
+[ext_resource type="Script" uid="uid://dlk3dqw4yugrr" path="res://addons/abyss_history_lib/class/interact/behaviour/play_sound_behavior_class.gd" id="12_g2plu"]
 [ext_resource type="AudioStream" uid="uid://lenlyfssyh2f" path="res://assets/world/location/_home/sources/elevator_music.ogg" id="13_36ro1"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_5libq"]
@@ -43,6 +44,12 @@ script = ExtResource("11_lv01s")
 connected_node = Array[NodePath]([NodePath("../../../ElevatorDoor")])
 switch_to = "On"
 metadata/_custom_type_script = "uid://bcmxxhlef12pk"
+
+[sub_resource type="Resource" id="Resource_3xd07"]
+script = ExtResource("12_g2plu")
+sound = ExtResource("10_cmqrt")
+pitch = 2.0
+metadata/_custom_type_script = "uid://dlk3dqw4yugrr"
 
 [sub_resource type="Resource" id="Resource_moam2"]
 script = ExtResource("11_lv01s")
@@ -184,15 +191,12 @@ interact_behavior = Array[ExtResource("10_pd4f6")]([SubResource("Resource_pd4f6"
 [node name="Alert" parent="NumberPad/Pad" unique_id=1798277733 instance=ExtResource("8_gj2cr")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, -0.1, 0.125)
 text = "🔔"
+interact_behavior = Array[ExtResource("10_pd4f6")]([SubResource("Resource_3xd07")])
 
 [node name="Close" parent="NumberPad/Pad" unique_id=1843525996 instance=ExtResource("8_gj2cr")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -0.25, -0.1, 0.125)
 text = "⯈ⵏ⯇"
 interact_behavior = Array[ExtResource("10_pd4f6")]([SubResource("Resource_moam2")])
-
-[node name="AlertSound" type="AudioStreamPlayer3D" parent="NumberPad/Pad" unique_id=857979856]
-stream = ExtResource("10_cmqrt")
-pitch_scale = 2.0
 
 [node name="FrameScene" parent="." unique_id=1329299672 instance=ExtResource("10_fvvn5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -1.9)
@@ -208,6 +212,8 @@ volume_db = -5.0
 unit_size = 3.0
 autoplay = true
 
+[connection signal="request_arrow" from="." to="." method="_on_request_arrow"]
+[connection signal="opening_done" from="ElevatorDoor" to="." method="_just_closing_the_door"]
 [connection signal="cancel" from="NumberPad/Pad/Level9" to="." method="_request_cancel"]
 [connection signal="interact_signal" from="NumberPad/Pad/Level9" to="." method="_request_level"]
 [connection signal="cancel" from="NumberPad/Pad/Level8" to="." method="_request_cancel"]
@@ -226,4 +232,3 @@ autoplay = true
 [connection signal="interact_signal" from="NumberPad/Pad/Level2" to="." method="_request_level"]
 [connection signal="cancel" from="NumberPad/Pad/Level1" to="." method="_request_cancel"]
 [connection signal="interact_signal" from="NumberPad/Pad/Level1" to="." method="_request_level"]
-[connection signal="interact_signal" from="NumberPad/Pad/Alert" to="." method="_on_alert_interact_signal"]

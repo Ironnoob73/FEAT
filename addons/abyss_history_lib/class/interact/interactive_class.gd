@@ -61,9 +61,9 @@ func interact(sender:Node) -> void:
 		switch(!state, sender)
 		
 	for i in interact_behavior:
-		i.do(self,sender)
+		i.do(self, sender)
 	
-	interact_signal.emit(self,sender)
+	interact_signal.emit(self, sender)
 	
 func switch(value : bool, sender : Node) -> void:
 	state = value

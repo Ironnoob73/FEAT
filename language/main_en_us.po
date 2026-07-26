@@ -141,6 +141,9 @@ msgstr "Resume"
 msgid "pause.quit"
 msgstr "Quit"
 
+msgid "pause.wakeup"
+msgstr "Wake up"
+
 #Chat
 msgid "chat.send"
 msgstr "Send"

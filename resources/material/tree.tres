@@ -1,14 +1,14 @@
 [gd_resource type="StandardMaterial3D" format=3 uid="uid://bi2qrop8jfbsf"]
 
-[ext_resource type="Texture2D" uid="uid://b6p7vprwh5ppk" path="res://resources/material/sources/Tree_albedo.png" id="1_amec5"]
-[ext_resource type="Texture2D" uid="uid://cgvxjuj6gdct2" path="res://resources/material/sources/Tree_normal.png" id="2_8318a"]
-[ext_resource type="Texture2D" uid="uid://cvqevaih4603w" path="res://resources/material/sources/Tree_orm.png" id="3_2r5jd"]
+[ext_resource type="Texture2D" uid="uid://cy0embfcr2aha" path="res://resources/material/sources/tree_albedo.png" id="1_3uy4h"]
+[ext_resource type="Texture2D" uid="uid://b3by4kat4chcb" path="res://resources/material/sources/tree_normal.png" id="2_pckrp"]
+[ext_resource type="Texture2D" uid="uid://0ggdklpqql8" path="res://resources/material/sources/tree_orm.png" id="3_oeciw"]
 
 [resource]
-albedo_texture = ExtResource("1_amec5")
-roughness_texture = ExtResource("3_2r5jd")
+albedo_texture = ExtResource("1_3uy4h")
+roughness_texture = ExtResource("3_oeciw")
 roughness_texture_channel = 1
 normal_enabled = true
 normal_scale = 0.5
-normal_texture = ExtResource("2_8318a")
+normal_texture = ExtResource("2_pckrp")
 texture_filter = 0

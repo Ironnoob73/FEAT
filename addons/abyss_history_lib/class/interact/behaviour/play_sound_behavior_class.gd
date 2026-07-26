@@ -4,6 +4,8 @@ class_name AHL_PlaySoundBehaviorClass
 
 @export var sound: AudioStream = null
 @export_enum("Master", "Music", "SFX") var bus: String = "SFX"
+@export var from: float = 0.0
+@export var pitch: float = 1.0
 
 func do(interactor: Node, sender: Node) -> void:
 	var soundPlayer: AudioStreamPlayer3D = AudioStreamPlayer3D.new()
@@ -12,7 +14,8 @@ func do(interactor: Node, sender: Node) -> void:
 	soundPlayer.bus = bus
 	if sound:
 		soundPlayer.stream = sound
-		soundPlayer.play()
+		soundPlayer.pitch_scale = pitch
+		soundPlayer.play(from)
 		soundPlayer.connect("finished", func() -> void: soundPlayer.queue_free(), 1)
 	else:
 		soundPlayer.queue_free()

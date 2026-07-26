@@ -7,7 +7,7 @@ data = PackedVector3Array(3, 0, 1.9, 1, 0, -2.8, 3, 0, -2.8, 1, 0, -2.8999999, 3
 
 [node name="ElevatorCorridorSolid" unique_id=2085821326 instance=ExtResource("1_y45m3")]
 
-[node name="StaticBody3D" type="StaticBody3D" parent="ElevatorCorridor" parent_id_path=PackedInt32Array(2072181122) index="0" unique_id=1590075447]
+[node name="StaticBody3D" type="StaticBody3D" parent="ElevatorCorridor" parent_id_path=PackedInt32Array(31781870) index="0" unique_id=1590075447]
 collision_layer = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ElevatorCorridor/StaticBody3D" index="0" unique_id=2014114320]

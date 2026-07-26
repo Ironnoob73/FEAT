@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://clms4qge8y6le"
-path="res://.godot/imported/outwall_fake_deco.glb-b53d521cce0f1e6a5600ac350f8e9e9e.scn"
+uid="uid://b0ghrj115xi0p"
+path="res://.godot/imported/elevator_well.glb-5adb010280f116d1d6700357d879f388.scn"
 
 [deps]
 
-source_file="res://assets/world/location/_home/sources/outwall_fake_deco.glb"
-dest_files=["res://.godot/imported/outwall_fake_deco.glb-b53d521cce0f1e6a5600ac350f8e9e9e.scn"]
+source_file="res://assets/world/location/_home/sources/elevator_well.glb"
+dest_files=["res://.godot/imported/elevator_well.glb-5adb010280f116d1d6700357d879f388.scn"]
 
 [params]
 
@@ -42,4 +42,4 @@ materials/extract_path=""
 _subresources={}
 gltf/naming_version=2
 gltf/embedded_image_handling=0
-gltf/texture_map_mode=0
+gltf/texture_map_mode=1
