@@ -193,6 +193,24 @@ transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -2, 
 [node name="ElevatorWell" parent="ElevatorCorridorSolid/FirstElevatorDoor" unique_id=873846465 instance=ExtResource("12_2fiqf")]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -2.3841858e-07, 0, 1.9999998)
 
+[node name="FakeShadowDown" type="AreaLight3D" parent="ElevatorCorridorSolid/FirstElevatorDoor/ElevatorWell" unique_id=1040593937]
+transform = Transform3D(1, 0, 0, 0, 0.34202015, 0.9396926, 0, -0.9396926, 0.34202015, 0, 1, -1)
+light_energy = 0.5
+light_negative = true
+shadow_enabled = true
+shadow_bias = 0.0
+area_range = 2.5
+area_attenuation = -2.5
+
+[node name="FakeShadowUp" type="AreaLight3D" parent="ElevatorCorridorSolid/FirstElevatorDoor/ElevatorWell" unique_id=1149730723]
+transform = Transform3D(1, 0, 0, 0, 0.34202015, -0.9396926, 0, 0.9396926, 0.34202015, 0, 2, -1)
+light_energy = 0.5
+light_negative = true
+shadow_enabled = true
+shadow_bias = 0.0
+area_range = 2.5
+area_attenuation = -2.5
+
 [node name="LockedElevatorDoor" parent="ElevatorCorridorSolid" unique_id=418828826 instance=ExtResource("9_8lytu")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 2, 0, -3)
 
@@ -212,6 +230,24 @@ light_color = Color(1, 1, 0, 1)
 light_energy = 16.0
 light_specular = 0.0
 shadow_enabled = true
+
+[node name="AreaLight3D" type="AreaLight3D" parent="ElevatorCorridorSolid/LockedElevatorDoor/ElevatorWell/MeshInstance3D" unique_id=23493265]
+transform = Transform3D(1, 0, 0, 0, 0.34202015, 0.9396926, 0, -0.9396926, 0.34202015, 0, 0.89, -1)
+light_color = Color(1, 1, 0, 1)
+light_energy = 15.0
+shadow_enabled = true
+shadow_bias = 0.0
+area_range = 2.5
+area_attenuation = -2.5
+
+[node name="FakeShadowUp" type="AreaLight3D" parent="ElevatorCorridorSolid/LockedElevatorDoor/ElevatorWell" unique_id=1587263057]
+transform = Transform3D(1, 0, 0, 0, 0.34202015, -0.9396926, 0, 0.9396926, 0.34202015, 0, 2, -1)
+light_energy = 0.5
+light_negative = true
+shadow_enabled = true
+shadow_bias = 0.0
+area_range = 2.5
+area_attenuation = -2.5
 
 [node name="ElevatorControlPadScene" parent="ElevatorCorridorSolid" unique_id=1964182302 instance=ExtResource("12_5yw2n")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -3)

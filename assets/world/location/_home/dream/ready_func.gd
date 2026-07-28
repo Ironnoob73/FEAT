@@ -9,8 +9,6 @@ var is_elevator_running: bool = false:
 		is_elevator_running = state
 		if !state:
 			elevator_run.emit()
-		
-var _request_to_current_level: Array[String] = []
 
 @onready var corridor_scene: SubViewport = $CorridorScene
 @onready var room_scene: SubViewport = $RoomScene
@@ -105,8 +103,7 @@ func _switch_to_cloud(_interactor: Variant, _sender: Variant) -> void:
 
 func _move_elevator_to_current_level(interactor: TextedButton3d, sender: Variant) -> void:
 	if is_elevator_running or (the_elevator.requested_level.size() and not the_elevator.elevator_door.is_closing):
-		if not _request_to_current_level.has(interactor.text):
-			_request_to_current_level.append(interactor.text)
+		return
 	elif the_elevator.elevator_door.is_closing:
 		the_elevator.elevator_door.switch(true, interactor)
 		await interactor.timeout_unlit()
@@ -118,16 +115,7 @@ func _on_the_elevator_request_arrow(arrow: String) -> void:
 	first_elevator_arrow.text = arrow
 
 func _request_to_current_level_request() -> void:
-	if _request_to_current_level.size():
-		var i: String = _request_to_current_level.get(0)
-		match i:
-			"▲":
-				@warning_ignore("missing_await")
-				_move_elevator_to_current_level(up_button, up_button)
-			"▼":
-				@warning_ignore("missing_await")
-				_move_elevator_to_current_level(down_button, down_button)
-			_:
-				push_warning(str(self, " Invalid request: ", i, ", why is this thing here?"))
-		_request_to_current_level.erase(i)
-		_request_to_current_level_request()
+	if up_button.state:
+		await _move_elevator_to_current_level(up_button, up_button)
+	if down_button.state:
+		await _move_elevator_to_current_level(down_button, down_button)
