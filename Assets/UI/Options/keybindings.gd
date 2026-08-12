@@ -49,7 +49,7 @@ func key_array_to_string(action: String) -> String:
 	var array: Array = Global.get_key_event_array(action)
 	for i: InputEvent in array:
 		var keyName: String = i.as_text()
-		var keyIcon: Variant = KCT_kmTranslator.get_key_from_name(keyName)
+		var keyIcon: Variant = KmTranslator.get_key_from_name(keyName)
 		if keyIcon or keyName.length() == 1:
 			result += keyName if keyIcon == null else keyIcon
 	return result

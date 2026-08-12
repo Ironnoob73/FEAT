@@ -342,4 +342,3 @@ autoplay = &"Normal"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1069340853]
 libraries/ = SubResource("AnimationLibrary_u2w4k")
-autoplay = &"Intro"

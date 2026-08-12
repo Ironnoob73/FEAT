@@ -1,6 +1,6 @@
 @tool
 extends EditorScenePostImport
-## @tutorial(From): https://forum.godotengine.org/t/how-to-keep-surface-material-override-didnt-change/59110
+## @tutorial(Godot forum post reference): https://forum.godotengine.org/t/how-to-keep-surface-material-override-didnt-change/59110
 
 func _post_import(scene: Node) -> Node:
 	iterate(scene)

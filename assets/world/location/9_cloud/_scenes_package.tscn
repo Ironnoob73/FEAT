@@ -1,6 +1,5 @@
 [gd_scene format=3 uid="uid://b0amcmins8ic7"]
 
-[ext_resource type="Script" uid="uid://8h1wxcdqk41f" path="res://addons/abyss_history_lib/class/world/scenes_package_class.gd" id="1_l0isb"]
 [ext_resource type="Script" uid="uid://tf3tkep6w0wr" path="res://resources/node/sub_room_viewport.gd" id="2_tpecx"]
 [ext_resource type="Script" uid="uid://cyg63trrnorlr" path="res://assets/world/location/9_cloud/ready_func.gd" id="2_u6fpm"]
 [ext_resource type="PackedScene" uid="uid://cb5pyvpu83sfw" path="res://assets/world/location/9_cloud/the_roof.tscn" id="3_kwbwa"]
@@ -37,7 +36,7 @@ void fragment() {
 	ALPHA = texture(sky_texture, uv).a;
 }"
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_kwbwa"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xhlak"]
 resource_local_to_scene = true
 render_priority = 0
 shader = SubResource("Shader_1aved")
@@ -73,17 +72,16 @@ void fragment() {
 	ALPHA = texture(sky_texture, uv).a;
 }"
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_u6fpm"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_uyf2s"]
 resource_local_to_scene = true
 render_priority = 0
 shader = SubResource("Shader_ch7fr")
 
 [node name="ScenePackage" type="Node3D" unique_id=216067526]
-script = ExtResource("1_l0isb")
-metadata/_custom_type_script = "uid://8h1wxcdqk41f"
-
-[node name="ReadyFunc" type="Node" parent="." unique_id=174590612]
 script = ExtResource("2_u6fpm")
+chunks = null
+rooms = null
+metadata/_custom_type_script = "uid://8h1wxcdqk41f"
 
 [node name="RoofScene" type="SubViewport" parent="." unique_id=359620814]
 script = ExtResource("2_tpecx")
@@ -93,7 +91,7 @@ script = ExtResource("2_tpecx")
 [node name="TheRoof" parent="RoofScene" unique_id=615224266 instance=ExtResource("3_kwbwa")]
 
 [node name="ElevatorView" parent="RoofScene/TheRoof" index="3" unique_id=1860943230]
-material_override = SubResource("ShaderMaterial_kwbwa")
+material_override = SubResource("ShaderMaterial_xhlak")
 
 [node name="Area3D" parent="RoofScene/TheRoof/ElevatorView" index="1" unique_id=444575282 node_paths=PackedStringArray("door_plate", "from_viewport", "to_room_area")]
 door_plate = NodePath("../../ElevatorRoom/ElevatorDoor")
@@ -116,7 +114,7 @@ current = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -5)
 
 [node name="OutsideView" parent="ElevatorScene/TheElevator" index="2" unique_id=1466580679]
-material_override = SubResource("ShaderMaterial_u6fpm")
+material_override = SubResource("ShaderMaterial_uyf2s")
 
 [node name="Area3D" parent="ElevatorScene/TheElevator/OutsideView" index="1" unique_id=1091376933 node_paths=PackedStringArray("from_viewport", "to_room_area")]
 from_viewport = NodePath("../../..")

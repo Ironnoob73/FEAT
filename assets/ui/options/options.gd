@@ -202,7 +202,7 @@ func _on_oobe_restore_pressed() -> void:
 	oobe.set_pressed(true)
 	
 func _key_debug_scene() -> void:
-	AHL_LoadManager.load_scene("res://Title/debug/KeyDebug.tscn")
+	AHL_LoadingScene.new_loader("res://Title/debug/KeyDebug.tscn").start_load()
 
 # Fullscreen
 func _on_fullscreen_button_toggled(toggled_on: bool) -> void:

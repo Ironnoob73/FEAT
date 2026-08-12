@@ -5,9 +5,8 @@ class_name AHL_LockBehaviorClass
 @export var unlock : bool = true
 @export var lock : int = 0
 
-func do(interactor:Node,sender:Node) -> void:
+func do(interactor: AHL_Interactive, _sender: Node) -> void:
 	interactor.set_meta('lock_int',lock)
-	if !unlock:
-		interactor.Interactable = false
-		interactor.interact_icon = "🔒"
-		interactor.interact_text = "interact.locked"
+	interactor.Interactable = false
+	interactor.interact_icon = "🔒"
+	interactor.interact_text = "interact.locked"

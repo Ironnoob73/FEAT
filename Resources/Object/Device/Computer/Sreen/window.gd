@@ -1,7 +1,7 @@
 extends Panel
 class_name ComputerWindow
 
-## @tutorial(From): https://github.com/popcar2/GodotOS/blob/main/Scenes/Window/window.gd
+## @tutorial(Other Godot project reference): https://github.com/popcar2/GodotOS/blob/main/Scenes/Window/window.gd
 
 @onready var icon: TextureRect = $VBox/HBox/Icon
 @onready var title: Label = $VBox/HBox/Title

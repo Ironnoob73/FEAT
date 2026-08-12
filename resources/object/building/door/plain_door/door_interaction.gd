@@ -7,7 +7,7 @@ var open : bool = false
 		mesh_color = color
 		if Engine.is_editor_hint():
 			color_setter()
-@export var mesh_material : Material = preload("res://Resources/material/wood.tres"):
+@export var mesh_material : Material = preload("res://resources/material/wood.tres"):
 	set(material):
 		mesh_material = material
 		if Engine.is_editor_hint():

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://1osqnxx1xccn"]
 
-[ext_resource type="Script" uid="uid://dnwa1lng6c04" path="res://resources/object/building/light/light_switchover.gd" id="1_grmmh"]
+[ext_resource type="Script" uid="uid://pmwaw0vcpsa0" path="res://resources/object/building/light/light_switchover.gd" id="1_grmmh"]
 [ext_resource type="Material" uid="uid://dccfefkmpm8o5" path="res://resources/material/white_emissive.tres" id="2_5lgr2"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_grmmh"]
@@ -9,26 +9,31 @@ size = Vector3(1, 0.05, 1)
 [sub_resource type="BoxMesh" id="BoxMesh_5lgr2"]
 size = Vector3(1, 0.05, 1)
 
-[node name="CeilingLampScene" type="StaticBody3D" groups=["Switchable"]]
+[node name="AHL_Interactive" type="Node3D" unique_id=1756402020]
 script = ExtResource("1_grmmh")
+current_health = 100.0
+metadata/_custom_type_script = "uid://c8ier7k2ohfsp"
 
-[node name="CollisionShape" type="CollisionShape3D" parent="."]
+[node name="CeilingLampScene" type="StaticBody3D" parent="." unique_id=730825894]
+
+[node name="CollisionShape" type="CollisionShape3D" parent="CeilingLampScene" unique_id=1819665945]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.02, 0)
 shape = SubResource("BoxShape3D_grmmh")
 
-[node name="On" type="Node3D" parent="."]
+[node name="On" type="Node3D" parent="." unique_id=271451603]
+visible = false
 
-[node name="OmniLight3D" type="OmniLight3D" parent="On"]
+[node name="OmniLight3D" type="OmniLight3D" parent="On" unique_id=1892213421]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
 shadow_enabled = true
 
-[node name="Mesh" type="MeshInstance3D" parent="On"]
+[node name="Mesh" type="MeshInstance3D" parent="On" unique_id=337585287]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.02, 0)
 material_override = ExtResource("2_5lgr2")
 mesh = SubResource("BoxMesh_5lgr2")
 
-[node name="Off" type="Node3D" parent="."]
+[node name="Off" type="Node3D" parent="." unique_id=709301776]
 
-[node name="Mesh" type="MeshInstance3D" parent="Off"]
+[node name="Mesh" type="MeshInstance3D" parent="Off" unique_id=2040662831]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.02, 0)
 mesh = SubResource("BoxMesh_5lgr2")

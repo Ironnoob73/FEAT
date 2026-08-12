@@ -23,8 +23,8 @@ var perspective_size: float = 10
 var perspective_from: Vector2
 # Interact
 @onready var interact_ray: RayCast3D = $PlayerCam/InteractRay
-@onready var Facing: RayCast3D = $PlayerCam/Facing
-@onready var FacingTarget: Node3D = $PlayerCam/Facing/FacingTarget
+@onready var facing: RayCast3D = $PlayerCam/Facing
+@onready var facing_target: Node3D = $PlayerCam/Facing/FacingTarget
 @onready var interact_ray_tp: RayCast3D = $ThirdPerosnCam/InteractRayTP
 @onready var interact_ray_tp_test: RayCast3D = $ThirdPerosnCam/InteractRayTP/InteractRayTPTest
 @onready var cursor3: MeshInstance3D = $Cursor3
@@ -612,7 +612,7 @@ func main_attack(press: bool) -> void:
 					"Range":
 						pass
 				for i: AHL_BehaviorClass in tool.main_behavior:
-					i.do(hand_held_fp.get_child(0),self)
+					i.do(hand_held_fp.get_child(0), self)
 		else:
 			var _p_tween: PropertyTweener = tween.tween_property(self, "att_idle", true, 0).set_delay(0.5)
 			attack(1)

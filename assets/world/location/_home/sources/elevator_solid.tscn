@@ -7,12 +7,13 @@ data = PackedVector3Array(-1.9, 0, -1.9, 1, 0, 1.9, -1, 0, 1.9, -1, 0, 1.9, -1.9
 
 [node name="Elevator2" unique_id=550049645 instance=ExtResource("1_c2ubj")]
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Elevator" parent_id_path=PackedInt32Array(788070163) index="0" unique_id=2053272587]
+[node name="StaticBody3D" type="AnimatableBody3D" parent="Elevator" parent_id_path=PackedInt32Array(1957985224) index="0" unique_id=1892260830]
 collision_layer = 9
+sync_to_physics = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Elevator/StaticBody3D" index="0" unique_id=722945066]
 shape = SubResource("ConcavePolygonShape3D_wyxbe")
 
-[node name="OmniLight3D" type="OmniLight3D" parent="Elevator" parent_id_path=PackedInt32Array(788070163) index="1" unique_id=139048475]
+[node name="OmniLight3D" type="OmniLight3D" parent="Elevator" parent_id_path=PackedInt32Array(1957985224) index="1" unique_id=139048475]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
 shadow_enabled = true

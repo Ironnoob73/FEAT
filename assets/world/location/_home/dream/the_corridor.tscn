@@ -23,6 +23,7 @@
 [ext_resource type="PackedScene" uid="uid://b0ghrj115xi0p" path="res://assets/world/location/_home/sources/elevator_well.glb" id="12_2fiqf"]
 [ext_resource type="PackedScene" uid="uid://bx4tpf7a72o74" path="res://resources/object/device/elevator/control_pad_scene.tscn" id="12_5yw2n"]
 [ext_resource type="Material" uid="uid://cw5qxvyjmvrdc" path="res://resources/material/yellow_emissive.tres" id="13_k2j84"]
+[ext_resource type="Resource" uid="uid://c4gjv663xmnww" path="res://resources/object/building/door/plain_door/metal_door_sound_behavior.tres" id="22_evlr4"]
 [ext_resource type="AudioStream" uid="uid://lenlyfssyh2f" path="res://assets/world/location/_home/sources/elevator_music.ogg" id="23_c5jx2"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_shdyq"]
@@ -311,6 +312,7 @@ occlusion = "none"
 [node name="DoorPlate" parent="FrameScene0" unique_id=1988189686 instance=ExtResource("5_11pt0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.29999995, 0, 0)
 init_behavior = Array[ExtResource("6_shdyq")]([SubResource("Resource_e7spv")])
+interact_behavior = Array[ExtResource("6_shdyq")]([ExtResource("22_evlr4")])
 
 [node name="CSGBox3D" type="CSGBox3D" parent="FrameScene0" unique_id=1241264700]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6, 1.2, 0)

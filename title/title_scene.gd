@@ -25,7 +25,7 @@ func _on_options_button_pressed() -> void:
 		animation.play("Options")
 		Global.current_menu = "Options"
 func _on_options_back_button_pressed() -> void:
-	if Global.current_menu == "Options" and !AHL_NoticeManager.is_notice_show and !Global.block_escape:
+	if Global.current_menu == "Options" and !Global.is_notice_shown and !Global.block_escape:
 		animation.play_backwards("Options")
 		Global.current_menu = "Main"
 
@@ -43,7 +43,7 @@ func _on_confirm_button_pressed() -> void:
 
 # World
 func _on_start_button_pressed() -> void:
-	AHL_LoadManager.load_scene("res://assets/world/world_main.tscn")
+	AHL_LoadingScene.new_loader("res://assets/world/world_main.tscn").start_load()
 	Global.is_in_game = true
 
 # Uncomplete

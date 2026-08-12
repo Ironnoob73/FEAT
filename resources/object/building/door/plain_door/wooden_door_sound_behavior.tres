@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="AHL_ConditionBehaviorClass" format=3 uid="uid://cfqw0f3120x2d"]
+
+[ext_resource type="Script" uid="uid://dlk3dqw4yugrr" path="res://addons/abyss_history_lib/class/interact/behaviour/play_sound_behavior_class.gd" id="1_ewvgo"]
+[ext_resource type="AudioStream" uid="uid://cqrsr0kccpsf0" path="res://resources/sound/wooden_door_close.ogg" id="2_jvvp6"]
+[ext_resource type="Script" uid="uid://feurcoo81jp5" path="res://addons/abyss_history_lib/class/interact/behaviour/condition_behavior_class.gd" id="3_2pyoc"]
+[ext_resource type="AudioStream" uid="uid://csy284sdkix2i" path="res://resources/sound/wooden_door_open.ogg" id="4_yl36p"]
+
+[sub_resource type="Resource" id="Resource_syj1f"]
+script = ExtResource("1_ewvgo")
+sound = ExtResource("2_jvvp6")
+metadata/_custom_type_script = "uid://dlk3dqw4yugrr"
+
+[sub_resource type="Resource" id="Resource_pn8wc"]
+script = ExtResource("1_ewvgo")
+sound = ExtResource("4_yl36p")
+metadata/_custom_type_script = "uid://dlk3dqw4yugrr"
+
+[resource]
+script = ExtResource("3_2pyoc")
+tag = "state"
+expected_value = true
+true_behavior = SubResource("Resource_pn8wc")
+false_behavior = SubResource("Resource_syj1f")
+metadata/_custom_type_script = "uid://feurcoo81jp5"

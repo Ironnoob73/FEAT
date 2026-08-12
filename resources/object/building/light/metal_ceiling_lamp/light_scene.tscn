@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c8rdniten0l2h"]
 
-[ext_resource type="Script" uid="uid://dnwa1lng6c04" path="res://resources/object/building/light/light_switchover.gd" id="1_5h4np"]
+[ext_resource type="Script" uid="uid://pmwaw0vcpsa0" path="res://resources/object/building/light/light_switchover.gd" id="1_5h4np"]
 [ext_resource type="Material" uid="uid://b860lbxbd3ed6" path="res://resources/material/gray_material.tres" id="2_5h4np"]
 [ext_resource type="Material" uid="uid://dccfefkmpm8o5" path="res://resources/material/white_emissive.tres" id="3_3xq5u"]
 
@@ -14,31 +14,38 @@ size = Vector3(1, 0.01, 1)
 flip_faces = true
 size = Vector2(0.9, 0.9)
 
-[node name="MetalCeilingLampScene" type="StaticBody3D" groups=["Switchable"]]
+[node name="AHL_Interactive" type="Node3D" unique_id=1580365944]
 script = ExtResource("1_5h4np")
+Switchable = true
+state = true
+current_health = 100.0
+metadata/_custom_type_script = "uid://c8ier7k2ohfsp"
 
-[node name="Mesh" type="MeshInstance3D" parent="."]
+[node name="MetalCeilingLampScene" type="StaticBody3D" parent="." unique_id=318413150]
+
+[node name="Mesh" type="MeshInstance3D" parent="MetalCeilingLampScene" unique_id=5927029]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.005, 0)
 material_override = ExtResource("2_5h4np")
 mesh = SubResource("BoxMesh_th8rf")
 
-[node name="CollisionShape" type="CollisionShape3D" parent="."]
+[node name="CollisionShape" type="CollisionShape3D" parent="MetalCeilingLampScene" unique_id=1721431486]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.005, 0)
 shape = SubResource("BoxShape3D_lfjtk")
 
-[node name="On" type="Node3D" parent="."]
+[node name="On" type="Node3D" parent="." unique_id=177008386]
+visible = false
 
-[node name="OmniLight3D" type="OmniLight3D" parent="On"]
+[node name="OmniLight3D" type="OmniLight3D" parent="On" unique_id=1412124651]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2, 0)
 shadow_enabled = true
 
-[node name="Mesh" type="MeshInstance3D" parent="On"]
+[node name="Mesh" type="MeshInstance3D" parent="On" unique_id=1666151995]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.011, 0)
 material_override = ExtResource("3_3xq5u")
 mesh = SubResource("PlaneMesh_1x1vd")
 
-[node name="Off" type="Node3D" parent="."]
+[node name="Off" type="Node3D" parent="." unique_id=233121629]
 
-[node name="Mesh" type="MeshInstance3D" parent="Off"]
+[node name="Mesh" type="MeshInstance3D" parent="Off" unique_id=1055044259]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.011, 0)
 mesh = SubResource("PlaneMesh_1x1vd")

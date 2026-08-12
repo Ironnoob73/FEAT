@@ -46,7 +46,7 @@ func _on_options_button_pressed() -> void:
 	animation.play("Options")
 	options._ready()
 func _on_back_button_pressed() -> void:
-	if Global.current_menu == "Options" and !AHL_NoticeManager.is_notice_show and !Global.block_escape:
+	if Global.current_menu == "Options" and !Global.is_notice_shown and !Global.block_escape:
 		Global.current_menu = "Pause"
 		animation.play_backwards("Options")
 	
@@ -68,6 +68,7 @@ func get_user() -> LocalPlayer:
 
 func _on_wakeup_button_pressed() -> void:
 	hide()
-	AHL_LoadManager.load_scene("res://assets/world/world_main.tscn",
-			true, Vector3(-5.5,0,5.5), true, Vector3(0,deg_to_rad(180),0))
+	AHL_LoadingScene.new_loader("res://assets/world/world_main.tscn")\
+			.to_pos(Vector3(-5.5,0,5.5)).to_rot(Vector3(0,deg_to_rad(180),0))\
+			.start_load()
 	get_user().isInDream = false

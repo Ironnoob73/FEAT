@@ -2,7 +2,7 @@ extends Panel
 
 @onready var text: RichTextLabel = $RichTextLabel
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	self.position = get_viewport().get_mouse_position() + Vector2(10,10)
 	if get_viewport().gui_get_hovered_control() and get_viewport().gui_get_hovered_control().has_meta("DTooltip"):
 		if get_viewport().gui_get_hovered_control().get_meta("DTooltip") is String:

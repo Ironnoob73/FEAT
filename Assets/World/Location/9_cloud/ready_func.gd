@@ -1,9 +1,12 @@
-extends Node
+@tool
+extends AHL_ScenePackage
 
-@onready var roof_scene: sub_room_viewport = $"../RoofScene"
-@onready var elevator_scene: sub_room_viewport = $"../ElevatorScene"
+@onready var roof_scene: SubRoomViewport = $RoofScene
+@onready var elevator_scene: SubRoomViewport = $ElevatorScene
 
-@onready var elevator_door: AHL_Interactive = $"../ElevatorScene/TheElevator/ElevatorDoor"
+@onready var elevator_door: AHL_Interactive = $ElevatorScene/TheElevator/ElevatorDoor
+
+@onready var the_elevator: Elevator = $ElevatorScene/TheElevator
 
 func _ready() -> void:
 	if Global.has_meta("wrap_from"):
@@ -12,3 +15,6 @@ func _ready() -> void:
 			room_connector.change_room.call_deferred(roof_scene,elevator_scene)
 			elevator_door.interact(self)
 		Global.remove_meta("wrap_from")
+	if Global.has_meta("elevator_music_process"):
+		var play_pos: float = Global.get_meta("elevator_music_process")
+		the_elevator.music.play(play_pos)

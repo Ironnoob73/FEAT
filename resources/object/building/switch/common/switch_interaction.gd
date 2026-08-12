@@ -11,5 +11,7 @@ func _interact_signal(_i:Variant,_s:Variant) -> void:
 		
 func _state_change() -> void:
 	var parent_n: AHL_Interactive = get_parent()
-	if parent_n.state :	_button.rotation.x = deg_to_rad(10)
-	else :		_button.rotation.x = deg_to_rad(-10)
+	if parent_n.state:
+		_button.rotation.x = deg_to_rad(10)
+	else:
+		_button.rotation.x = deg_to_rad(-10)

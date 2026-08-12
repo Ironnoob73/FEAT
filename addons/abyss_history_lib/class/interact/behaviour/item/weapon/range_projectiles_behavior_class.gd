@@ -4,13 +4,15 @@ class_name AHL_RangeProjectilesBehaviorClass
 
 @export var projectiles : PackedScene
 
-func do(interactor,sender):
-	var ins_projectiles = projectiles.instantiate()
+func do(_interactor: AHL_Interactive, sender: Node) -> void:
+	var ins_projectiles: Projectile3D = projectiles.instantiate()
 	sender.get_parent().add_child(ins_projectiles)
-	ins_projectiles.global_position = sender.Facing.global_position
-	# 玩家向量+发射向量
-	ins_projectiles.linear_velocity = \
-		sender.get_real_velocity() + \
-		sender.Facing.global_position.direction_to(sender.FacingTarget.global_position)*50 #未来需要根据武器定义
-	ins_projectiles.rotation = sender.Facing.global_rotation
-	ins_projectiles.user = sender
+	if sender is LocalPlayer:
+		var player_sender: LocalPlayer = sender
+		ins_projectiles.global_position = player_sender.facing.global_position
+		# 玩家向量+发射向量
+		ins_projectiles.linear_velocity = \
+			player_sender.get_real_velocity() + \
+			player_sender.facing.global_position.direction_to(player_sender.facing_target.global_position)*50 #未来需要根据武器定义
+		ins_projectiles.rotation = player_sender.facing.global_rotation
+		ins_projectiles.user = player_sender

@@ -1,5 +1,5 @@
 extends SubViewport
-class_name sub_room_viewport
+class_name SubRoomViewport
 ## For a portal-like visual correction.
 
 @onready var camera_3d: Camera3D = $Camera3D

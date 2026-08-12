@@ -1,20 +1,14 @@
 @tool
-extends StaticBody3D
 class_name LightScene
+extends AHL_Interactive
 
-@export var lit : bool = true:
-	set(state):
-		lit = state
-		lit_setter(self)
 @onready var on: Node3D = $On
 @onready var off: Node3D = $Off
-	
-func _ready() -> void:
-	lit_setter(self)
-	
-func lit_setter(obj:LightScene) -> void:
-	if is_instance_valid(obj.on):
-		obj.on.visible = obj.lit
 		
-func switch(value : bool) -> void:
-	lit = value
+func _ready() -> void:
+	on.visible = state
+
+func switch(value: bool, sender: Node) -> void:
+	super.switch(value, sender)
+	if is_instance_valid(on):
+		on.visible = value

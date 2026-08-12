@@ -23,6 +23,8 @@ var load_use_sub_threads : bool = false
 var block_escape: bool = false
 var current_menu: String = "null"
 
+var is_notice_shown: bool = false
+
 # In game control
 var mouse_sens: float = 0.4
 var auto_pickup: bool = true
@@ -154,7 +156,7 @@ func get_key_event_array(action: String) -> Array:
 	
 ## Back to title
 func back_to_title() -> void:
-	AHL_LoadManager.load_scene("res://title/title_scene.tscn")
+	AHL_LoadingScene.new_loader("res://title/title_scene.tscn").start_load()
 	is_in_game = false
 	
 ## Get World Path

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cilrxiahcsdqu"]
 
-[ext_resource type="Script" uid="uid://dnwa1lng6c04" path="res://resources/object/building/light/light_switchover.gd" id="1_86i8x"]
+[ext_resource type="Script" uid="uid://pmwaw0vcpsa0" path="res://resources/object/building/light/light_switchover.gd" id="1_bxewl"]
 [ext_resource type="Material" uid="uid://do55163v32q4u" path="res://resources/material/wood.tres" id="2_6lxwr"]
 [ext_resource type="Material" uid="uid://dccfefkmpm8o5" path="res://resources/material/white_emissive.tres" id="3_8r6wi"]
 
@@ -13,15 +13,21 @@ size = Vector3(1, 0.2, 1)
 [sub_resource type="BoxMesh" id="BoxMesh_c8tkn"]
 size = Vector3(0.8, 0.1, 0.8)
 
-[node name="WoodenCeilingLampScene" type="StaticBody3D" unique_id=1157692582 groups=["Switchable"]]
-script = ExtResource("1_86i8x")
+[node name="AHL_Interactive" type="Node3D" unique_id=1302526221]
+script = ExtResource("1_bxewl")
+Switchable = true
+state = true
+current_health = 100.0
+metadata/_custom_type_script = "uid://c8ier7k2ohfsp"
 
-[node name="Mesh" type="MeshInstance3D" parent="." unique_id=2074836260]
+[node name="WoodenCeilingLampScene" type="StaticBody3D" parent="." unique_id=1157692582]
+
+[node name="Mesh" type="MeshInstance3D" parent="WoodenCeilingLampScene" unique_id=2074836260]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, 0)
 material_override = ExtResource("2_6lxwr")
 mesh = SubResource("BoxMesh_th8rf")
 
-[node name="CollisionShape" type="CollisionShape3D" parent="." unique_id=668041507]
+[node name="CollisionShape" type="CollisionShape3D" parent="WoodenCeilingLampScene" unique_id=668041507]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
 shape = SubResource("BoxShape3D_lfjtk")
 

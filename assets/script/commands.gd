@@ -1,4 +1,4 @@
-extends Node
+class_name Commands
 
 static func test(sender:Node,num:String) -> Error:
 	if sender is LocalPlayer:

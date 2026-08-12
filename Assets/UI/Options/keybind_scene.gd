@@ -38,7 +38,7 @@ func refresh_list() -> void:
 		var KeyLabel: Label = Label.new()
 		previous_node.add_child(KeyLabel)
 		var keyName: String = i.as_text()
-		var keyIcon: Variant = KCT_kmTranslator.get_key_from_name(keyName)
+		var keyIcon: Variant = KmTranslator.get_key_from_name(keyName)
 		KeyLabel.text = keyName if keyIcon == null else keyIcon
 		if keyIcon or keyName.length() == 1:
 			KeyLabel.set_theme(preload("res://addons/key_controls_translator/keyboard_and_mouse/km_font_theme.tres"))

@@ -1,5 +1,6 @@
-extends Resource
+@icon("info.svg")
 class_name AHL_NoticeInfo
+extends Resource
 
 @export var title : String = "notice.title.default"
 @export_enum("Info","Warning","Error") var type : String = "Info"

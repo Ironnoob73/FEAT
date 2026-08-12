@@ -1,4 +1,7 @@
+class_name AHL_Notice
 extends CanvasLayer
+
+signal choice(result: bool)
 
 @onready var title: Label = $Background/CenterContainer/Window/HBoxContainer/VBoxContainer/Title
 @onready var info: RichTextLabel = $Background/CenterContainer/Window/HBoxContainer/VBoxContainer/Info
@@ -12,6 +15,13 @@ extends CanvasLayer
 
 @onready var anim: AnimationPlayer = $AnimationPlayer
 
+static func show_notice(notice_info:AHL_NoticeInfo) -> void :
+	Global.is_notice_shown = true
+	var notice_screen: AHL_Notice = preload("notice_scene.tscn").instantiate()
+	var tree: SceneTree = Engine.get_main_loop()
+	tree.get_root().add_child(notice_screen)
+	notice_screen.get_notice_info(notice_info)
+	
 func get_notice_info(notice_info:AHL_NoticeInfo = AHL_NoticeInfo.new()) -> void:
 	title.text = notice_info.title
 	match notice_info.type:
@@ -40,13 +50,15 @@ func get_notice_info(notice_info:AHL_NoticeInfo = AHL_NoticeInfo.new()) -> void:
 func close() -> void:
 	yep.disabled = true
 	nope.disabled = true
-	AHL_NoticeManager.is_notice_show = false
+	Global.is_notice_shown = false
 	anim.play("Disappear")
 	await Signal(anim, "animation_finished")
 	self.queue_free()
 	
 func true_choice() -> void:
-	close()
+	choice.emit(true)
+	await close()
 	
 func false_choice() -> void:
-	close()
+	choice.emit(false)
+	await close()

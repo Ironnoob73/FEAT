@@ -38,17 +38,13 @@ general/text_to_speech=true
 [autoload]
 
 Global="*res://global.gd"
-AllItems="*res://resources/item/all_items.gd"
-LocationPreload="*res://assets/world/location/location_preload.gd"
-Commands="*res://assets/script/commands.gd"
-AHL_NoticeManager="*uid://lyuhdcccjj8g"
-AHL_LoadManager="*uid://v3dmelk2q7u5"
 KCT_kmTranslator="*uid://b57i8ga3qhv3y"
 
 [debug]
 
 settings/stdout/verbose_stdout=true
 file_logging/enable_file_logging=true
+gdscript/warnings/directory_rules={}
 gdscript/warnings/untyped_declaration=1
 gdscript/warnings/inferred_declaration=1
 gdscript/warnings/unsafe_property_access=1
@@ -78,10 +74,6 @@ folder_colors={
 "res://script_templates/": "orange",
 "res://title/": "gray"
 }
-
-[global_group]
-
-Switchable=""
 
 [importer_defaults]
 

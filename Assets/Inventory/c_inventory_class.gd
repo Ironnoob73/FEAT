@@ -1,11 +1,11 @@
-extends AHL_InventoryClass
 class_name CInventoryClass
+extends AHL_InventoryClass
 
 @export var ToolHotbar : Array[AHL_EqMetaClass]
 @export var ItemHotbar : Array[AHL_ItemClass]
 
 func get_tool(eq_name :String) -> int:
-	var eq: AHL_ThingClass = AllItems.get_item_from_name(eq_name)
+	var eq: AHL_ThingClass = DefinedItemList.get_item_from_name(eq_name)
 	var result: int = 0
 	for i: int in ToolHotbar.size():
 		if ToolHotbar[i] != null and ToolHotbar[i].equipment == eq :

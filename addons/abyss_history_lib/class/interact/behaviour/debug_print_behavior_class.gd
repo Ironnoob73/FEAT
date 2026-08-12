@@ -4,6 +4,7 @@ class_name AHL_DebugPrintBehaviorClass
 
 @export var text : String = ''
 
-func do(interactor:Node,sender:Node) -> void:
-	if sender is Player:
-		sender.chat_menu.append_message("[Debug: " + text + "]")
+func do(_interactor: AHL_Interactive, sender: Node) -> void:
+	if sender is LocalPlayer:
+		var player_sender: LocalPlayer = sender
+		player_sender.chat_menu.append_message("[Debug: " + text + "]")

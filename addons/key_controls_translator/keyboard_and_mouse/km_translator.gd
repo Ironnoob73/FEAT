@@ -1,81 +1,87 @@
 class_name KmTranslator
 extends Node
 
-var QuoteLeft = "`"
-var Minus = "-"
-var Equal = "="
-var BracketLeft = "["
-var BracketRight = "]"
-var BackSlash = "\\"
-var Semicolon = ";"
-var Apostrophe = "\'"
-var Comma = ","
-var Period = "."
-var Slash = "/"
+var QuoteLeft: String = "`"
+var Minus: String = "-"
+var Equal: String = "="
+var BracketLeft: String = "["
+var BracketRight: String = "]"
+var BackSlash: String = "\\"
+var Semicolon: String = ";"
+var Apostrophe: String = "\'"
+var Comma: String = ","
+var Period: String = "."
+var Slash: String = "/"
 
-var Up = "^"
-var Down = "_"
-var Left = "<"
-var Right = ">"
-var Space = ":"
+var Up: String = "^"
+var Down: String = "_"
+var Left: String = "<"
+var Right: String = ">"
+var Space: String = ":"
 
-var Alt = "a"
-var Backspace = "b"
-var Ctrl = "c"
-var Delete = "d"
-var Enter = "e"
-var KpEnter = "f"
-var Kp9 = "g"
-var Home = "h"
-var Insert = "i"
-var CapsLock = "l"
-var Menu = "m"
-var NumLock = "n"
-var Kp0 = "o"
-var Print = "p"
-var ScrollLock = "q"
-var Pause = "r"
-var Shift = "s"
-var Tab = "t"
-var Kp8 = "u"
-var Windows = "w"
-var KpPeriod = "x"
-var Kp7 = "y"
-var End = "z"
+var Alt: String = "a"
+var Backspace: String = "b"
+var Ctrl: String = "c"
+var Delete: String = "d"
+var Enter: String = "e"
+var KpEnter: String = "f"
+var Kp9: String = "g"
+var Home: String = "h"
+var Insert: String = "i"
+var CapsLock: String = "l"
+var Menu: String = "m"
+var NumLock: String = "n"
+var Kp0: String = "o"
+var Print: String = "p"
+var ScrollLock: String = "q"
+var Pause: String = "r"
+var Shift: String = "s"
+var Tab: String = "t"
+var Kp8: String = "u"
+var Windows: String = "w"
+var KpPeriod: String = "x"
+var Kp7: String = "y"
+var End: String = "z"
 
-var PageUp = "{"
-var PageDown = "}"
-var Escape = "~"
+var PageUp: String = "{"
+var PageDown: String = "}"
+var Escape: String = "~"
 
-var Kp1 = "\u00B9" # ¹
-var Kp2 = "\u00B2" # ²
-var Kp3 = "\u00B3" # ³
-var Kp4 = "("
-var Kp5 = "?"
-var Kp6 = ")"
-var KpDivide = "%"
-var KpMultiply = "*"
-var KpSubtract = "\u00AF" # ¯
-var KpAdd = "\u00B1" # ±
+var Kp1: String = "\u00B9" # ¹
+var Kp2: String = "\u00B2" # ²
+var Kp3: String = "\u00B3" # ³
+var Kp4: String = "("
+var Kp5: String = "?"
+var Kp6: String = ")"
+var KpDivide: String = "%"
+var KpMultiply: String = "*"
+var KpSubtract: String = "\u00AF" # ¯
+var KpAdd: String = "\u00B1" # ±
 
-var F1 = "\u00C0"
-var F2 = "\u00C1"
-var F3 = "\u00C2"
-var F4 = "\u00C3"
-var F5 = "\u00C4"
-var F6 = "\u00C5"
-var F7 = "\u00C6"
-var F8 = "\u00C7"
-var F9 = "\u00C8"
-var F10 = "\u00C9"
-var F11 = "\u00CA"
-var F12 = "\u00CB"
+var F1: String = "\u00C0"
+var F2: String = "\u00C1"
+var F3: String = "\u00C2"
+var F4: String = "\u00C3"
+var F5: String = "\u00C4"
+var F6: String = "\u00C5"
+var F7: String = "\u00C6"
+var F8: String = "\u00C7"
+var F9: String = "\u00C8"
+var F10: String = "\u00C9"
+var F11: String = "\u00CA"
+var F12: String = "\u00CB"
 
-func get_key_from_name(key_name:String):
-	return get(key_name.replace(" ",""))
+static func _get_translator() -> KmTranslator:
+	return KmTranslator.new()
 
-func get_key_from_event(event:InputEvent):
+static func get_key_from_name(key_name:String) -> String:
+	var result: Variant = _get_translator().get(key_name.replace(" ",""))
+	if result is String:
+		return _get_translator().get(key_name.replace(" ",""))
+	return ""
+
+static func get_key_from_event(event:InputEvent) -> String:
 	if event is InputEventKey:
 		return get_key_from_name(event.as_text())
 	else:
-		return null
+		return ""

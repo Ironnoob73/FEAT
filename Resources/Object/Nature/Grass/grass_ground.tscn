@@ -15,15 +15,15 @@ material = SubResource("ShaderMaterial_b6qkc")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_o3dce"]
 
-[node name="GrassGround" type="Area3D"]
+[node name="GrassGround" type="Area3D" unique_id=140446980]
 collision_layer = 9
 
-[node name="MultiMesh" type="MultiMeshInstance3D" parent="."]
+[node name="MultiMesh" type="MultiMeshInstance3D" parent="." unique_id=1879027076]
 script = ExtResource("1_bgcm0")
 
-[node name="Grass" type="MeshInstance3D" parent="MultiMesh"]
+[node name="Grass" type="MeshInstance3D" parent="MultiMesh" unique_id=1955595660]
 mesh = SubResource("QuadMesh_v7arj")
 
-[node name="CollisionShape" type="CollisionShape3D" parent="."]
+[node name="CollisionShape" type="CollisionShape3D" parent="." unique_id=62707738]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_o3dce")

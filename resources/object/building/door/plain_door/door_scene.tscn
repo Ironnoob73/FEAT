@@ -1,8 +1,10 @@
 [gd_scene format=3 uid="uid://ds1bb3oh6akpf"]
 
 [ext_resource type="Script" uid="uid://c8ier7k2ohfsp" path="res://addons/abyss_history_lib/class/interact/interactive_class.gd" id="1_pf086"]
-[ext_resource type="Material" uid="uid://do55163v32q4u" path="res://resources/material/wood.tres" id="3_r0cfm"]
+[ext_resource type="Script" uid="uid://xi806lb1q3l3" path="res://addons/abyss_history_lib/class/interact/behaviour/_behavior_class.gd" id="2_8xwxf"]
+[ext_resource type="Resource" uid="uid://cfqw0f3120x2d" path="res://resources/object/building/door/plain_door/wooden_door_sound_behavior.tres" id="3_gjuon"]
 [ext_resource type="Script" uid="uid://7sv6f5llxudh" path="res://resources/object/building/door/plain_door/door_interaction.gd" id="3_ug2ta"]
+[ext_resource type="Material" uid="uid://do55163v32q4u" path="res://resources/material/wood.tres" id="5_8xwxf"]
 [ext_resource type="Shader" uid="uid://chmfx8vng2i2v" path="res://resources/shader/recolor.gdshader" id="5_br3hc"]
 [ext_resource type="Material" uid="uid://b860lbxbd3ed6" path="res://resources/material/gray_material.tres" id="5_x7lst"]
 
@@ -28,6 +30,7 @@ script = ExtResource("1_pf086")
 DisplayName = "Door"
 Interactable = true
 interact_text = "interact.open"
+interact_behavior = Array[ExtResource("2_8xwxf")]([ExtResource("3_gjuon")])
 Switchable = true
 current_health = 100.0
 
@@ -39,7 +42,7 @@ script = ExtResource("3_ug2ta")
 
 [node name="Mesh" type="MeshInstance3D" parent="Body" unique_id=1231958837]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6, 1.2, 0)
-material_override = ExtResource("3_r0cfm")
+material_override = ExtResource("5_8xwxf")
 material_overlay = SubResource("ShaderMaterial_m5r1b")
 mesh = SubResource("BoxMesh_f3de0")
 

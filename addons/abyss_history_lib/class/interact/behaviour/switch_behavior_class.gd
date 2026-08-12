@@ -5,24 +5,29 @@ class_name AHL_SwitchBehaviorClass
 @export var connected_node : Array[NodePath]
 @export_enum("Interact", "Reversal", "On", "Off", "Sync", "AntiSync") var switch_to : String = "Interact"
 
-func do(interactor:Node,sender:Node) -> void:
-	for i in connected_node :
-		var Ni = interactor.get_node(i)
-		if Ni.is_in_group("Switchable") :
-			Ni.switch(interactor.state)
+func do(interactor: AHL_Interactive, sender: Node) -> void:
+	for i: NodePath in connected_node :
+		var Ni: Node = interactor.get_node(i)
 		if Ni is AHL_Interactive:
 			var INi: AHL_Interactive = Ni
 			if INi.Switchable:
 				match switch_to:
-					"Reversal": INi.switch(!interactor.state, sender)
-					"On": INi.switch(true, sender)
-					"Off": INi.switch(false, sender)
+					"Reversal": INi.switch(!interactor.state, interactor)
+					"On": INi.switch(true, interactor)
+					"Off": INi.switch(false, interactor)
 					"Sync":
-						if sender is AHL_Interactive or sender.is_in_group("Switchable"):
-							INi.switch(sender.state, sender)
+						if interactor is AHL_Interactive:
+							var int_sender: AHL_Interactive = interactor
+							INi.switch(int_sender.state, int_sender)
+						else:
+							push_error(sender, "is not Interactive.")
 					"AntiSync":
-						if sender is AHL_Interactive or sender.is_in_group("Switchable"):
-							INi.switch(!sender.state, sender)
+						if interactor is AHL_Interactive:
+							var int_sender: AHL_Interactive = interactor
+							INi.switch(!int_sender.state, int_sender)
+						else:
+							push_error(sender, "is not Interactive.")
 					"Interact", _:
-						INi.interact(sender)
-		else : push_warning("This connected node can't be switched.")
+						INi.interact(interactor)
+		else :
+			push_warning("This connected node can't be switched.")

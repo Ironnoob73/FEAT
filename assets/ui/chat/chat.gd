@@ -37,7 +37,8 @@ func append_message(message:String) -> void:
 func send_message() -> void:
 	if edit.text != "":
 		if edit.text.begins_with("#"):
-			if Commands.has_method(edit.text.trim_prefix("#").get_slice("(",0)):
+			var commander: Commands = Commands.new()
+			if commander.has_method(edit.text.trim_prefix("#").get_slice("(",0)):
 				var command: Callable = Callable(Commands,edit.text.trim_prefix("#").get_slice("(",0))
 				var argu_in:Array = [get_parent()]
 				if edit.text.contains("("):

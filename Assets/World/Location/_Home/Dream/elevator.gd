@@ -36,6 +36,8 @@ var is_waiting: bool = false
 @onready var level_2_button: TextedButton3d = $NumberPad/Pad/Level2
 @onready var level_1_button: TextedButton3d = $NumberPad/Pad/Level1
 
+@onready var music: AudioStreamPlayer3D = $Music
+
 func _request_level(interactor: TextedButton3d, sender: Node) -> void:
 	if interactor.text.to_int() != current_level and ((not requested_level.size()) or (
 			((requested_level.get(0) > current_level and interactor.text.to_int() > current_level)\
@@ -50,7 +52,7 @@ func _request_level(interactor: TextedButton3d, sender: Node) -> void:
 func _request_cancel(interactor: TextedButton3d, _sender: Node) -> void:
 	requested_level.erase(interactor.text.to_int())
 
-func go_to_level(_sender: Node) -> void:
+func go_to_level(sender: Node) -> void:
 	is_waiting = true
 	left_arrow.show()
 	request_arrow.emit("▲" if requested_level.get(0) > current_level else "▼")
@@ -58,9 +60,7 @@ func go_to_level(_sender: Node) -> void:
 	if requested_level.size():
 		elevator_door.switch(false, self)
 		await elevator_door.closing_done
-		var parent_scene: sub_room_viewport = get_parent()
-		if parent_scene.own_world_3d:
-			request_to_level.emit(null, self, requested_level.min() if requested_level.get(0) > current_level else requested_level.max())
+		request_to_level.emit(null, sender, requested_level.min() if requested_level.get(0) > current_level else requested_level.max())
 	else:
 		is_waiting = false
 		left_arrow.hide()
@@ -80,25 +80,9 @@ func _can_go_next_level() -> void:
 			is_waiting = false
 
 func _unlit_button_after_arrive(level: int) -> void:
-	match level:
-		1:
-			await level_1_button.timeout_unlit()
-		2:
-			await level_2_button.timeout_unlit()
-		3:
-			await level_3_button.timeout_unlit()
-		4:
-			await level_4_button.timeout_unlit()
-		5:
-			await level_5_button.timeout_unlit()
-		6:
-			await level_6_button.timeout_unlit()
-		7:
-			await level_7_button.timeout_unlit()
-		8:
-			await level_8_button.timeout_unlit()
-		9:
-			await level_9_button.timeout_unlit()
+	var level_button: TextedButton3d = get(str("level_", level, "_button"))
+	if level_button:
+		await level_button.timeout_unlit()
 
 func _just_closing_the_door() -> void:
 	if requested_level.size():

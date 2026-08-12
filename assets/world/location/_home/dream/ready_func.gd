@@ -12,6 +12,7 @@ var is_elevator_running: bool = false:
 
 @onready var corridor_scene: SubViewport = $CorridorScene
 @onready var room_scene: SubViewport = $RoomScene
+@onready var elevator_scene: SubRoomViewport = $ElevatorScene
 
 @onready var up_button: TextedButton3d = $CorridorScene/TheCorridor/ElevatorCorridorSolid/ElevatorControlPadScene/UpButton
 @onready var down_button: TextedButton3d = $CorridorScene/TheCorridor/ElevatorCorridorSolid/ElevatorControlPadScene/DownButton
@@ -34,7 +35,7 @@ func _ready() -> void:
 	Global.current_world.player0.rotation.x = 0
 	Global.current_world.player0.current_menu = "HUD"
 	
-	room_connector.change_room.call_deferred(corridor_scene,room_scene)
+	room_connector.change_room.call_deferred(corridor_scene, room_scene)
 	
 	first_elevator_arrow.hide()
 	first_elevator_level = randi_range(1, 9)
@@ -83,23 +84,31 @@ func move_elevator(interactor: TextedButton3d, sender: Variant, to_level: int) -
 				await get_tree().create_timer(1.5,false,true,false).timeout
 			if not first_arrow_running_anim.is_playing():
 				first_arrow_running_anim.play("running")
-			var tween : Tween = create_tween().set_trans(Tween.TRANS_LINEAR).set_parallel()
-			var prop_time: float = abs(to_level - first_elevator_level) * 1.5 # 电梯需要经过楼层的时间
+			var tween: Tween = create_tween().set_trans(Tween.TRANS_CUBIC).set_parallel()
 			var _p_tween: PropertyTweener = null
-			_p_tween = tween.tween_property(the_elevator, "position:y", - (5 - to_level) * 3, prop_time)
-			_p_tween = tween.tween_property(elevator_view, "position:y", - (5 - to_level) * 3, prop_time)
-			_p_tween = tween.tween_property(elevator_music, "position:y", - (5 - to_level) * 3 + 3, prop_time)
+			if elevator_scene.own_world_3d: # 玩家处于电梯内时，电梯场景不具有独立世界。
+				var prop_time: float = abs(to_level - first_elevator_level) * 1.5 # 电梯需要经过楼层的时间
+				_p_tween = tween.tween_property(the_elevator, "position:y", - (5 - to_level) * 3, prop_time)
+				_p_tween = tween.tween_property(elevator_view, "position:y", - (5 - to_level) * 3, prop_time)
+				_p_tween = tween.tween_property(elevator_music, "position:y", - (5 - to_level) * 3 + 3, prop_time)
+			else:
+				tween = tween.set_ease(Tween.EASE_IN) # 处于电梯内时只需移动一层
+				_p_tween = tween.tween_property(the_elevator, "position:y", (-1 if to_level < 5 else 1) * 3, 1.5)
+				match to_level:
+					9:	await _switch_to_9_cloud()
 		await get_tree().create_timer(1.5,false,true,false).timeout
 		first_elevator_level += 1 if first_elevator_level < to_level else -1
 		first_elevator_level_text.text = str(first_elevator_level)
 		await move_elevator(interactor, self, to_level)
 
-func _switch_to_cloud(_interactor: Variant, _sender: Variant) -> void:
+func _switch_to_9_cloud() -> void:
 	Global.set_meta("wrap_from", "DreamApartment")
-	AHL_LoadManager.load_scene(
-			"res://assets/world/location/9_cloud/_scenes_package.tscn",
-			false, Vector3(0,0,0), false, Vector3(0,0,0), false
-	)
+	var loading_scene: AHL_LoadingScene =\
+			AHL_LoadingScene.new_loader("res://assets/world/location/9_cloud/_scenes_package.tscn")\
+					.replace_main(false).cover(false)
+	loading_scene.start_load()
+	await loading_scene.load_done
+	Global.set_meta("elevator_music_process", the_elevator.music.get_playback_position())
 
 func _move_elevator_to_current_level(interactor: TextedButton3d, sender: Variant) -> void:
 	if is_elevator_running or (the_elevator.requested_level.size() and not the_elevator.elevator_door.is_closing):
