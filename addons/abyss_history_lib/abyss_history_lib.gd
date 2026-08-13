@@ -1,9 +1,8 @@
 @tool
-class_name AbyssHistoryLibCore
 extends EditorPlugin
 
 func _enter_tree() -> void:
-	pass
+	add_autoload_singleton("AHL_Core", "abyss_history_lib_core.gd")
 	
 func _exit_tree() -> void:
-	pass
+	remove_autoload_singleton("AHL_Core")

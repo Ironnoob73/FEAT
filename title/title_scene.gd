@@ -25,7 +25,7 @@ func _on_options_button_pressed() -> void:
 		animation.play("Options")
 		Global.current_menu = "Options"
 func _on_options_back_button_pressed() -> void:
-	if Global.current_menu == "Options" and !Global.is_notice_shown and !Global.block_escape:
+	if Global.current_menu == "Options" and !AHL_Core.is_notice_shown and !Global.block_escape:
 		animation.play_backwards("Options")
 		Global.current_menu = "Main"
 

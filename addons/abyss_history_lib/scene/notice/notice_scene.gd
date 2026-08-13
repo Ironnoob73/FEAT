@@ -16,7 +16,7 @@ signal choice(result: bool)
 @onready var anim: AnimationPlayer = $AnimationPlayer
 
 static func show_notice(notice_info:AHL_NoticeInfo) -> void :
-	Global.is_notice_shown = true
+	AHL_Core.is_notice_shown = true
 	var notice_screen: AHL_Notice = preload("notice_scene.tscn").instantiate()
 	var tree: SceneTree = Engine.get_main_loop()
 	tree.get_root().add_child(notice_screen)
@@ -50,7 +50,7 @@ func get_notice_info(notice_info:AHL_NoticeInfo = AHL_NoticeInfo.new()) -> void:
 func close() -> void:
 	yep.disabled = true
 	nope.disabled = true
-	Global.is_notice_shown = false
+	AHL_Core.is_notice_shown = false
 	anim.play("Disappear")
 	await Signal(anim, "animation_finished")
 	self.queue_free()

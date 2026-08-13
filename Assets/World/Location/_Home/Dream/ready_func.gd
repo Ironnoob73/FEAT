@@ -35,7 +35,7 @@ func _ready() -> void:
 	Global.current_world.player0.rotation.x = 0
 	Global.current_world.player0.current_menu = "HUD"
 	
-	room_connector.change_room.call_deferred(corridor_scene, room_scene)
+	RoomConnector.change_room.call_deferred(corridor_scene, room_scene)
 	
 	first_elevator_arrow.hide()
 	first_elevator_level = randi_range(1, 9)

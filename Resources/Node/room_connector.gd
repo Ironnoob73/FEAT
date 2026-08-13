@@ -1,13 +1,11 @@
 extends Node3D
-class_name room_connector
+class_name RoomConnector
 ## Connect two rooms defined by [SubRoomViewport], most of the time for Area3D.
-
-#signal to_room(from: SubViewport, to: SubViewport)
 
 @export var door_plate: AHL_Interactive
 @export var from_viewport: SubRoomViewport
 @export var to_room_view: MeshInstance3D
-@export var to_room_area: room_connector
+@export var to_room_area: RoomConnector
 
 func _ready() -> void:
 	var _self_connect: int = connect("body_entered", _on_area_3d_body_entered, 1)
@@ -24,11 +22,11 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
 		change_room(from_viewport, to_room_area.from_viewport)
 
 func _on_door_plate_interact_signal(_interactor: Variant, sender: Variant) -> void:
-	if not sender is room_connector:
+	if sender is not RoomConnector:
 		to_room_area.door_plate.interact(self)
 	
 func _on_door_plate_switch_signal(state: bool, sender: Variant) -> void:
-	if not sender is room_connector:
+	if sender is not RoomConnector:
 		to_room_area.door_plate.switch(state, self)
 	
 static func change_room(from: SubRoomViewport, to: SubRoomViewport) -> void:

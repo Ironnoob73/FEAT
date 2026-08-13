@@ -55,7 +55,7 @@ func _process(_delta: float) -> void:
 			if _replace_main:
 				var _change: Error = get_tree().change_scene_to_packed(_loaded_resource)
 			else:
-				Global.set_meta("next_scene",_loaded_resource)
+				AHL_Core.set_meta("next_scene",_loaded_resource)
 
 func _update_progress(value: float) -> void:
 	progress_bar.set_value_no_signal(value)
@@ -72,15 +72,17 @@ func _fail(info: String) -> void:
 	
 	
 func start_load() -> void:
-	Global.player_teleported = false
+	AHL_Core.player_teleported = false
 	if _change_pos:
-		Global.set_meta("to_pos", _to_pos)
+		AHL_Core.tp_change_pos = true
+		AHL_Core.tp_to_pos = _to_pos
 	if _change_rot:
-		Global.set_meta("to_rot", _to_rot)
+		AHL_Core.tp_change_rot = true
+		AHL_Core.tp_to_rot = _to_rot
 	var tree: SceneTree = Engine.get_main_loop()
 	tree.get_root().add_child(self)
 	
-	var state: Error = ResourceLoader.load_threaded_request(_scene_path, "PackedScene", Global.load_use_sub_threads)
+	var state: Error = ResourceLoader.load_threaded_request(_scene_path, "PackedScene", AHL_Core.load_use_sub_threads)
 	if state == OK:
 		set_process(true)
 	else:

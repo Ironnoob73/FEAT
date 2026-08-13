@@ -63,8 +63,8 @@ func _ready() -> void:
 	data_path.text = Global.data_path
 	data_path_restore.set_disabled(Global.data_path == "user://")
 	# Use sub threads
-	use_sub_threads.set_pressed_no_signal(Global.load_use_sub_threads)
-	use_sub_threadsRestore.set_disabled(Global.load_use_sub_threads == false)
+	use_sub_threads.set_pressed_no_signal(AHL_Core.load_use_sub_threads)
+	use_sub_threadsRestore.set_disabled(AHL_Core.load_use_sub_threads == false)
 	# Debug
 	if !debug_options_group.button_pressed:
 		debug_options_container.hide()
@@ -158,9 +158,9 @@ func _on_datapath_restore_pressed() -> void:
 	Global.save_settings_to_file("game","data_path","user://")
 # Use sub threads to load scene
 func _on_ust_button_toggled(toggled_on: bool) -> void:
-	Global.load_use_sub_threads = toggled_on
+	AHL_Core.load_use_sub_threads = toggled_on
 	Global.save_settings_to_file("game","load_use_sub_threads",toggled_on)
-	use_sub_threadsRestore.set_disabled(Global.load_use_sub_threads == false)
+	use_sub_threadsRestore.set_disabled(AHL_Core.load_use_sub_threads == false)
 func _on_ust_restore_pressed() -> void:
 	use_sub_threads.set_pressed(false)
 # Debug

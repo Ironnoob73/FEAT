@@ -79,8 +79,6 @@ shader = SubResource("Shader_ch7fr")
 
 [node name="ScenePackage" type="Node3D" unique_id=216067526]
 script = ExtResource("2_u6fpm")
-chunks = null
-rooms = null
 metadata/_custom_type_script = "uid://8h1wxcdqk41f"
 
 [node name="RoofScene" type="SubViewport" parent="." unique_id=359620814]

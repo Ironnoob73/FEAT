@@ -12,7 +12,7 @@ func _ready() -> void:
 	if Global.has_meta("wrap_from"):
 		var from: String = Global.get_meta("wrap_from")
 		if from == "DreamApartment":
-			room_connector.change_room.call_deferred(roof_scene,elevator_scene)
+			RoomConnector.change_room.call_deferred(roof_scene,elevator_scene)
 			elevator_door.interact(self)
 		Global.remove_meta("wrap_from")
 	if Global.has_meta("elevator_music_process"):

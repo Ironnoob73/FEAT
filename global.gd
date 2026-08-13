@@ -16,14 +16,9 @@ var current_world: World = null
 # Gameflow Control
 var launch_ready: bool = false
 
-# Load options
-var load_use_sub_threads : bool = false
-
 # UI Control
 var block_escape: bool = false
 var current_menu: String = "null"
-
-var is_notice_shown: bool = false
 
 # In game control
 var mouse_sens: float = 0.4
@@ -38,7 +33,6 @@ var duid: String = "00000000-0000-9000-0000-000000000000"
 var portrait: Texture2D = preload("res://resources/image/portrait/default.png")
 var is_in_game: bool = false
 var is_multiplayer: bool = false
-var player_teleported: bool = true
 
 var vr_dim: String
 var vr_pos: Vector3
@@ -67,7 +61,7 @@ func save_config() -> void:
 	var file: ConfigFile = ConfigFile.new()
 	file.set_value("game","language",TranslationServer.get_locale())
 	file.set_value("game","data_path",data_path)
-	file.set_value("game","load_use_sub_threads",load_use_sub_threads)
+	file.set_value("game","load_use_sub_threads",AHL_Core.load_use_sub_threads)
 	file.set_value("game","print_debug_info",print_debug_info)
 	file.set_value("game","catch_p_null_issue",catch_p_elem_issue)
 	file.set_value("game","always_show_cursor",always_show_cursor)
@@ -95,7 +89,7 @@ func load_config() -> void:
 		var locate_value: String = file.get_value("game","language",TranslationServer.get_locale())
 		TranslationServer.set_locale(locate_value)
 		data_path = file.get_value("game","data_path","user://")
-		load_use_sub_threads = file.get_value("game","load_use_sub_threads",false)
+		AHL_Core.load_use_sub_threads = file.get_value("game","load_use_sub_threads",false)
 		print_debug_info = file.get_value("game","print_debug_info",false)
 		catch_p_elem_issue = file.get_value("game","catch_p_null_issue",false)
 		always_show_cursor = file.get_value("game","always_show_cursor",false)

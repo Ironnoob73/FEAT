@@ -38,7 +38,7 @@ general/text_to_speech=true
 [autoload]
 
 Global="*res://global.gd"
-KCT_kmTranslator="*uid://b57i8ga3qhv3y"
+AHL_Core="*uid://cfgnv7n6q28uh"
 
 [debug]
 
@@ -59,6 +59,11 @@ gdscript/warnings/missing_await=1
 window/size/viewport_width=1600
 window/size/viewport_height=900
 window/size/sharp_corners=true
+
+[editor]
+
+version_control/plugin_name="GitPlugin"
+version_control/autoload_on_startup=true
 
 [editor_plugins]
 

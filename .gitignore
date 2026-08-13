@@ -3,5 +3,6 @@
 addons/godot-jolt/
 addons/gdfxr/
 addons/terrain_3d/
+addons/godot-git-plugin/
 
 Resources/EXCLUDED
