@@ -1,5 +1,6 @@
+@tool
 class_name HandHeldAnimation
-extends Marker3D
+extends AHL_Interactive
 
 var tween: Tween
 

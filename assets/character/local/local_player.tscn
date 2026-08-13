@@ -307,9 +307,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
 cull_mask = 16
 script = ExtResource("4_uio4s")
 
-[node name="HandHeldRight" type="Marker3D" parent="PlayerCam/FirstPersonHandled/SubViewport/FirstPersonCam" index="0" unique_id=1204889045]
+[node name="HandHeldRight" type="Node3D" parent="PlayerCam/FirstPersonHandled/SubViewport/FirstPersonCam" index="0" unique_id=1794564036]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.45, -0.35, -0.5)
 script = ExtResource("5_orfe8")
+metadata/_custom_type_script = "uid://c8ier7k2ohfsp"
 
 [node name="WorldActual" type="SubViewportContainer" parent="PlayerCam" index="2" unique_id=1463047049]
 visible = false

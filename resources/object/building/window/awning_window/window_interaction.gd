@@ -11,7 +11,7 @@ func _interact_signal(_i: Variant, _s: Variant) -> void:
 	if is_node_ready():
 		_state_change()
 
-func _state_change():
+func _state_change() -> void:
 	if get_parent() is AHL_Interactive:
 		if get_parent().state:
 			get_parent().interact_text = "interact.close"

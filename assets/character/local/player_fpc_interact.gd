@@ -29,6 +29,5 @@ func get_selection() -> void:
 	#var ray = PhysicsRayQueryParameters3D.create(start,end)
 	#ray.collision_mask = 64
 	#var result = worldspace.intersect_ray(ray)
-	@warning_ignore("unsafe_method_access")
 	hand_held.get_child(0).click_event(end)
 	

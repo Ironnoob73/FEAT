@@ -1,6 +1,44 @@
 class_name LocalPlayer
 extends Player
 
+signal on_menu_change
+
+@export var isInDream: bool = false
+#@export var _jump_frame_grace: int = 5
+
+var lerp_cam_back: bool = false
+
+var perspective_in_rotate: bool = false
+var perspective_rad: float = 0
+var perspective_size: float = 10
+var perspective_from: Vector2
+# Interact
+var is_using: AHL_Interactive = null
+# Environment interact
+var _walk_length: float = 0
+
+#var _cur_frame: int = 0
+#var _last_frame_was_on_floor: int = -_jump_frame_grace - 1
+var _last_frame_was_on_floor: float = -INF
+var _was_on_floor_last_frame: bool = false
+var _snapped_to_stairs_last_frame: bool = false
+
+# Get the gravity from the project settings to be synced with RigidBody nodes.
+var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
+var gravity_dir: Vector3 = ProjectSettings.get_setting("physics/3d/default_gravity_vector")
+
+var DEBUG_LAST_STEP: String
+
+var INERTIA: Vector2 = Vector2.ZERO
+
+var current_menu: String = "HUD":
+	set(menu_name):
+		current_menu = menu_name
+		var error: Error = emit_signal("on_menu_change")
+		if error != OK:
+			push_warning("Signal \"on_menu_change\" caused an error: ", error, ".", error_string(error))
+var hud_hidden: bool = false
+
 @onready var player_camera: Camera3D = $PlayerCam
 @onready var standing_detected: ShapeCast3D = $StandingDetected
 @onready var pause_menu: ColorRect = $Pause_menu
@@ -11,58 +49,26 @@ extends Player
 @onready var world_actual_cam: Camera3D = $PlayerCam/WorldActual/SubViewport/WorldActualCam
 @onready var hand_held_fp: HandHeldAnimation = $PlayerCam/FirstPersonHandled/SubViewport/FirstPersonCam/HandHeldRight
 @onready var lerp_cam: Camera3D = $PlayerCam/LerpCam
-var lerp_cam_back: bool = false
 @onready var attack_area: Area3D = $PlayerColl/AttackArea
 @onready var hitbox: CollisionShape3D = $PlayerColl/AttackArea/Coll
 @onready var hitbox_debug: MeshInstance3D = $PlayerColl/AttackArea/MeshInstance3D
 @onready var third_perosn_cam: Camera3D = $ThirdPerosnCam
 
-var perspective_in_rotate: bool = false
-var perspective_rad: float = 0
-var perspective_size: float = 10
-var perspective_from: Vector2
-# Interact
 @onready var interact_ray: RayCast3D = $PlayerCam/InteractRay
 @onready var facing: RayCast3D = $PlayerCam/Facing
 @onready var facing_target: Node3D = $PlayerCam/Facing/FacingTarget
 @onready var interact_ray_tp: RayCast3D = $ThirdPerosnCam/InteractRayTP
 @onready var interact_ray_tp_test: RayCast3D = $ThirdPerosnCam/InteractRayTP/InteractRayTPTest
 @onready var cursor3: MeshInstance3D = $Cursor3
-var is_using: AHL_Interactive = null
-# Environment interact
+
 @onready var _climb_area: Area3D = $PlayerColl/ClimbArea
 @onready var _ground_ray_cast: RayCast3D = $GroundRayCast
-var _walk_length: float = 0
 
-#var _cur_frame: int = 0
-#@export var _jump_frame_grace: int = 5
-#var _last_frame_was_on_floor: int = -_jump_frame_grace - 1
-var _last_frame_was_on_floor: float = -INF
-var _was_on_floor_last_frame: bool = false
-var _snapped_to_stairs_last_frame: bool = false
 @onready var stairs_ahead_ray_cast_3d: RayCast3D = $StairsAheadRayCast3D
-
-# Get the gravity from the project settings to be synced with RigidBody nodes.
-var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
-var gravity_dir: Vector3 = ProjectSettings.get_setting("physics/3d/default_gravity_vector")
-
-var DEBUG_LAST_STEP: String
 
 @onready var transition: ColorRect = $Transition
 @onready var caption: PlayerHUDCaption = $Caption
 @onready var gradient_background: MeshInstance3D = $ThirdPerosnCam/Background
-
-var INERTIA: Vector2 = Vector2.ZERO
-
-var current_menu: String = "HUD":
-	set(menu_name):
-		current_menu = menu_name
-		var error: Error = emit_signal("on_menu_change")
-		if error != OK:
-			push_warning("Signal \"on_menu_change\" caused an error: ", error, ".", error_string(error))
-signal on_menu_change
-var hud_hidden: bool = false
-@export var isInDream: bool = false
 
 @onready var HUD_hotbar: HudHotBar = $HudHotbar
 @onready var HUD_states_bar: Control = $HudStatesBar
@@ -104,6 +110,13 @@ func _input(event: InputEvent) -> void:
 			player_camera.rotation.x = clamp(player_camera.rotation.x,deg_to_rad(-90),deg_to_rad(90))
 		attack_area.rotation.x = player_camera.rotation.x
 	
+# IPlayer
+func get_shoot_pos() -> Vector3:
+	return facing.global_position
+	
+func get_shoot_target_pos() -> Vector3:
+	return facing_target.global_position
+
 func tird_person_setup(is_rotate:bool,not_init:bool = true) -> void:
 	interact_ray_tp.global_position = third_perosn_cam.project_position(caption.get_global_mouse_position(),0)
 	interact_ray_tp.set_collision_mask_value(6,!interact_ray_tp_test.is_colliding())
@@ -612,7 +625,7 @@ func main_attack(press: bool) -> void:
 					"Range":
 						pass
 				for i: AHL_BehaviorClass in tool.main_behavior:
-					i.do(hand_held_fp.get_child(0), self)
+					i.do(hand_held_fp, self)
 		else:
 			var _p_tween: PropertyTweener = tween.tween_property(self, "att_idle", true, 0).set_delay(0.5)
 			attack(1)
