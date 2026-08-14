@@ -5,6 +5,7 @@ class_name AHL_DebugPrintBehaviorClass
 @export var text : String = ''
 
 func do(_interactor: AHL_Interactive, sender: Node) -> void:
-	if sender is LocalPlayer:
-		var player_sender: LocalPlayer = sender
-		player_sender.chat_menu.append_message("[Debug: " + text + "]")
+	if sender is CharacterBody3D and sender.has_method("append_message"):
+		var player_sender: CharacterBody3D = sender
+		@warning_ignore("unsafe_method_access")
+		player_sender.append_message("[Debug: " + text + "]")

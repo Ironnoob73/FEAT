@@ -9,7 +9,7 @@ func do(interactor:Node,sender:Node) -> void:
 		var player_sender: LocalPlayer = sender
 		# Can't sleep when in dream world.
 		var sleeping_count: Label = bed_int.get_node("SleepingCount")
-		if player_sender.isInDream:
+		if player_sender.is_in_dream:
 			can_sleep = false
 		var use_time : int = 3 if can_sleep else 1
 		player_sender.current_menu = "Sleep"
@@ -41,7 +41,7 @@ func do(interactor:Node,sender:Node) -> void:
 						.replace_main(false).start_load()
 				var getup_call: Callable = bed_int.get_meta("meta_getup_func")
 				player_sender.disconnect("on_menu_change",getup_call)
-				player_sender.isInDream = true
+				player_sender.is_in_dream = true
 					).set_delay(3.25)
 		# Get up
 		var getup_func : Callable = func()->void:

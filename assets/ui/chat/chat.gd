@@ -29,7 +29,7 @@ func chat_state() -> void:
 		chat_list.release_focus()
 		chat_list.set_focus_mode(FOCUS_NONE)
 
-func append_message(message:String) -> void:
+func append_message(message: String) -> void:
 	chat_list.append_text(message)
 	chat_list.pop_all()
 	chat_list.newline()

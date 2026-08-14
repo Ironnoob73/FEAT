@@ -3,7 +3,7 @@ extends Player
 
 signal on_menu_change
 
-@export var isInDream: bool = false
+@export var is_in_dream: bool = false
 #@export var _jump_frame_grace: int = 5
 
 var lerp_cam_back: bool = false
@@ -14,14 +14,6 @@ var perspective_size: float = 10
 var perspective_from: Vector2
 # Interact
 var is_using: AHL_Interactive = null
-# Environment interact
-var _walk_length: float = 0
-
-#var _cur_frame: int = 0
-#var _last_frame_was_on_floor: int = -_jump_frame_grace - 1
-var _last_frame_was_on_floor: float = -INF
-var _was_on_floor_last_frame: bool = false
-var _snapped_to_stairs_last_frame: bool = false
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -38,6 +30,15 @@ var current_menu: String = "HUD":
 		if error != OK:
 			push_warning("Signal \"on_menu_change\" caused an error: ", error, ".", error_string(error))
 var hud_hidden: bool = false
+
+# Environment interact
+var _walk_length: float = 0
+
+#var _cur_frame: int = 0
+#var _last_frame_was_on_floor: int = -_jump_frame_grace - 1
+var _last_frame_was_on_floor: float = -INF
+var _was_on_floor_last_frame: bool = false
+var _snapped_to_stairs_last_frame: bool = false
 
 @onready var player_camera: Camera3D = $PlayerCam
 @onready var standing_detected: ShapeCast3D = $StandingDetected
@@ -91,7 +92,7 @@ func _ready() -> void:
 
 func _input(event: InputEvent) -> void:
 	# Perspective
-	if isThirdPerson:
+	if is_third_person:
 		if Input.is_action_just_pressed("perspective"):
 			perspective_from = caption.get_mouse_pos()
 			perspective_in_rotate = true
@@ -101,7 +102,7 @@ func _input(event: InputEvent) -> void:
 	# Player camera.
 	if event is InputEventMouseMotion and current_menu in ["HUD"]:
 		var mouse_motion_event: InputEventMouseMotion = event
-		if isThirdPerson :
+		if is_third_person:
 			tird_person_setup(perspective_in_rotate)
 		else :
 			var mouse_motion: Vector2 = mouse_motion_event.relative * Global.mouse_sens
@@ -116,6 +117,9 @@ func get_shoot_pos() -> Vector3:
 	
 func get_shoot_target_pos() -> Vector3:
 	return facing_target.global_position
+	
+func append_message(message: String) -> void:
+	chat_menu.append_message(message)
 
 func tird_person_setup(is_rotate:bool,not_init:bool = true) -> void:
 	interact_ray_tp.global_position = third_perosn_cam.project_position(caption.get_global_mouse_position(),0)
@@ -143,10 +147,10 @@ func switch_perspectives() -> void:
 	attack_area.rotation.y = 0
 	player_camera.rotation.y = 0
 	player_camera.rotation.x = 0
-	mouse_mode(isThirdPerson)
-	third_perosn_cam.current = isThirdPerson
-	player_camera.current = !isThirdPerson
-	mesh.change_visible(mesh,isThirdPerson)
+	mouse_mode(is_third_person)
+	third_perosn_cam.current = is_third_person
+	player_camera.current = !is_third_person
+	mesh.change_visible(mesh, is_third_person)
 	var _vec2_tbd: Vector2 = caption.get_mouse_pos()
 	
 func _unhandled_input(event: InputEvent) -> void:
@@ -219,12 +223,12 @@ func _unhandled_input(event: InputEvent) -> void:
 			current_hotbar = 4
 			refresh_handheld(current_hotbar)
 	# UnSit
-	if isSit and (event.is_action_pressed("jump") or event.is_action_pressed("crouch")) :
-		_un_sit()
+	if is_sit and (event.is_action_pressed("jump") or event.is_action_pressed("crouch")) :
+		un_sit()
 		
 	# Switch perspectives
 	if event.is_action_pressed("switch_perspectives") and current_menu == "HUD":
-		isThirdPerson = !isThirdPerson
+		is_third_person = !is_third_person
 		switch_perspectives()
 
 ## 下楼梯检测。
@@ -236,7 +240,7 @@ func _snap_down_to_stairs_check() -> void:
 	StairsBelow.force_raycast_update()
 	var floor_below : bool = StairsBelow.is_colliding() and not is_surface_too_steep(StairsBelow.get_collision_normal())
 	_was_on_floor_last_frame = Engine.get_physics_frames() == _last_frame_was_on_floor
-	if not ( is_on_floor() or isClimb ) and velocity.y <= 0 and (_was_on_floor_last_frame or _snapped_to_stairs_last_frame) and floor_below:
+	if not (is_on_floor() or is_climb) and velocity.y <= 0 and (_was_on_floor_last_frame or _snapped_to_stairs_last_frame) and floor_below:
 		var body_test_result: PhysicsTestMotionResult3D = PhysicsTestMotionResult3D.new()
 		var params: PhysicsTestMotionParameters3D = PhysicsTestMotionParameters3D.new()
 		var max_step_down: float = -0.5
@@ -311,12 +315,12 @@ func _physics_process(delta: float) -> void:
 	Global.p_elem_debug("### PP START ###")
 	# Record Inerita & Add the gravity.
 	Global.p_elem_debug("# GRAVITY #")
-	if is_on_floor() or isClimb:
+	if is_on_floor() or is_climb:
 		_last_frame_was_on_floor = Engine.get_physics_frames()
 		INERTIA.x = velocity.x
 		INERTIA.y = velocity.z
 	else:
-		#velocity *= (1.1 - FRICTION) 
+		#velocity *= (1.1 - friction) 
 		velocity += gravity * 0.05 * gravity_dir
 	
 	# Move Input.
@@ -326,34 +330,34 @@ func _physics_process(delta: float) -> void:
 		input_vec.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
 		input_vec.z = Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
 	
-		isDash = Input.get_action_strength("shift")
-		isCrouch = Input.get_action_strength("crouch")
+		is_dash = Input.get_action_strength("shift")
+		is_crouch = Input.get_action_strength("crouch")
 		
 	input_vec = (transform.basis * Vector3(input_vec.x,0,input_vec.z)).normalized()
 	
 	# Move.
 	Global.p_elem_debug("# MOVE #")
-	velocity.x = lerp(velocity.x,input_vec.x * (SPEED + isDash * DASH * (1 - isCrouch) - isCrouch * CROUCH ) , ACCELERATION)
-	velocity.z = lerp(velocity.z,input_vec.z * (SPEED + isDash * DASH * (1 - isCrouch) - isCrouch * CROUCH ) , ACCELERATION)
+	velocity.x = lerp(velocity.x,input_vec.x * (SPEED + is_dash * DASH * (1 - is_crouch) - is_crouch * CROUCH ) , ACCELERATION)
+	velocity.z = lerp(velocity.z,input_vec.z * (SPEED + is_dash * DASH * (1 - is_crouch) - is_crouch * CROUCH ) , ACCELERATION)
 	# Stop.
 	Global.p_elem_debug("# STOP #")
 	if velocity.x * input_vec.x <= 0 and velocity.x!=0:
-		if is_on_floor() or isClimb:
-			velocity.x = lerp(velocity.x,0.0,FRICTION)
+		if is_on_floor() or is_climb:
+			velocity.x = lerp(velocity.x,0.0,friction)
 		else:
-			velocity.x = lerp(INERTIA.x,0.0,FRICTION)
+			velocity.x = lerp(INERTIA.x,0.0,friction)
 	if velocity.z * input_vec.z <= 0 and velocity.z!=0:
-		if is_on_floor() or isClimb:
-			velocity.z = lerp(velocity.z,0.0,FRICTION)
+		if is_on_floor() or is_climb:
+			velocity.z = lerp(velocity.z,0.0,friction)
 		else:
-			velocity.z = lerp(INERTIA.y,0.0,FRICTION)
+			velocity.z = lerp(INERTIA.y,0.0,friction)
 	
 	# Crouch & Sit (Collision shape & Camera Pos)
 	Global.p_elem_debug("# CROUCH #")
 	var player_collision_shape: CapsuleShape3D = player_collision.shape
 	player_collision.position.y = player_collision_shape.height * 0.5
-	if !isSit:
-		if isCrouch and !isClimb and current_menu == "HUD":
+	if !is_sit:
+		if is_crouch and !is_climb and current_menu == "HUD":
 			player_collision_shape.height = lerp(player_collision_shape.height,1.8 * CROUCH_depth,0.5)
 			player_camera.position.y = lerp(player_camera.position.y,1.8 * CROUCH_depth,0.5)
 		elif !standing_detected.is_colliding():
@@ -363,12 +367,12 @@ func _physics_process(delta: float) -> void:
 		player_camera.position.y = 1.8 * SIT_depth
 	# Climb
 	Global.p_elem_debug("# CLIMB #")
-	if isClimb:
+	if is_climb:
 		if current_menu == "HUD":
 			input_vec.y = Input.get_action_strength("jump") - Input.get_action_strength("crouch")
 		velocity.y = lerp(velocity.y,input_vec.y * SPEED , ACCELERATION)
-	if velocity.y * input_vec.y <= 0 and velocity.y!=0 and isClimb:
-		velocity.y = lerp(velocity.y,0.0,FRICTION)
+	if velocity.y * input_vec.y <= 0 and velocity.y!=0 and is_climb:
+		velocity.y = lerp(velocity.y,0.0,friction)
 	# Handle Jump.
 	Global.p_elem_debug("# JUMP #")
 	if is_on_floor() or _snapped_to_stairs_last_frame:
@@ -378,7 +382,7 @@ func _physics_process(delta: float) -> void:
 	Global.p_elem_debug("#! MAS !#")
 	if not _snap_up_stairs_check(delta):
 		_push_away_rigid_bodies()
-		if !isSit && !isInTeleport:
+		if !is_sit && !is_in_teleport:
 			var _slide: bool = move_and_slide()
 		#_snap_down_to_stairs_check()
 
@@ -410,7 +414,7 @@ func _process(_delta: float) -> void:
 	# Animation
 	Global.p_elem_debug("# ANIMATION #")
 	var _move_direct: float= (abs(Vector2(cos(mesh.global_rotation.y + PI/2),sin(mesh.global_rotation.y + PI/2)).angle_to(Vector2(-velocity.x , velocity.z))) /PI )
-	if !isSit:
+	if !is_sit:
 		mesh.animation_tree["parameters/Movement/blend_position"] = _forward_strength(_move_direct) * Vector2(velocity.x , velocity.z).length()
 		mesh.animation_tree["parameters/SideMix/add_amount"] = _move_direct * Vector2(velocity.x , velocity.z).length() / 10
 		var player_collision_shape: CapsuleShape3D = player_collision.shape
@@ -450,7 +454,7 @@ func _process(_delta: float) -> void:
 	
 	# Play walk sound
 	Global.p_elem_debug("# WALK SOUND #")
-	if _ground_ray_cast.is_colliding() and velocity.length() > 0 and !isSit:
+	if _ground_ray_cast.is_colliding() and velocity.length() > 0 and !is_sit:
 		if _walk_length >= 200:
 			_walk_length = 0
 			if _ground_ray_cast.get_meta("SoundList","no") is Dictionary:
@@ -516,22 +520,22 @@ func refresh_player_mesh() -> void:
 # Climb Detection & Teleport
 func _on_climb_area_area_entered(area: Area3D) -> void:
 	if area.is_in_group("ClimbAble"):
-		isClimb = true
+		is_climb = true
 	@warning_ignore("unsafe_property_access")
 	if area.is_in_group("Teleporter") and area.get_parent().ToLocation not in ["null",""]:
 		var tween : Tween = create_tween().set_trans(Tween.TRANS_LINEAR)
-		var _c_tweener: CallbackTweener = tween.tween_callback(func()->void: isInTeleport=true)
+		var _c_tweener: CallbackTweener = tween.tween_callback(func()->void: is_in_teleport=true)
 		var _p_tweener: PropertyTweener = tween.tween_property(transition, "color:a", 1, 0.25)
 		@warning_ignore("unsafe_property_access", "unsafe_method_access")
 		_c_tweener = tween.tween_callback(func()->void: get_node("/root/World").change_scene(area.get_parent().ToLocation,area.get_parent().ToLocationPos))
-		_c_tweener = tween.tween_callback(func()->void: isInTeleport=false)
+		_c_tweener = tween.tween_callback(func()->void: is_in_teleport=false)
 		_p_tweener = tween.tween_property(transition, "color:a", 0, 0.25)
 func _on_climb_area_area_exited(area: Area3D) -> void:
 	if area.is_in_group("ClimbAble"):
-		isClimb = false
+		is_climb = false
 		for i: Area3D in _climb_area.get_overlapping_areas():
 			if i.is_in_group("ClimbAble"):
-				isClimb = true
+				is_climb = true
 # Motion Detection
 func _on_motion_area_area_entered(area: MotionDetectionArea) -> void:
 	area.detected_player = self
@@ -539,30 +543,34 @@ func _on_motion_area_area_entered(area: MotionDetectionArea) -> void:
 		self.gravity = area.gravity
 		self.gravity_dir = area.gravity_direction
 	if area.linear_damp_space_override != 0:
-		self.FRICTION = area.linear_damp
+		self.friction = area.linear_damp
 func _on_motion_area_area_exited(area: MotionDetectionArea) -> void:
 	area.detected_player = null
 	self.gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 	self.gravity_dir = ProjectSettings.get_setting("physics/3d/default_gravity_vector")
-	self.FRICTION = ProjectSettings.get_setting("physics/3d/default_linear_damp")
+	self.friction = ProjectSettings.get_setting("physics/3d/default_linear_damp")
 
 # Sit
+func get_is_sit() -> Node:
+	return is_sit
+
 func sit(chair_position : Vector3, chair_rotation : Vector3) -> void:
 	var tween : Tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUART).set_parallel(true)
-	if !isSit :
+	if !is_sit :
 		var _p_tweener: PropertyTweener = tween.tween_property(self, "position", chair_position, 0.5)
 		_p_tweener = tween.tween_property(mesh.animation_tree,"parameters/Sit/add_amount",1,0.5)
-		if !isThirdPerson:
+		if !is_third_person:
 			_p_tweener = tween.tween_property(self, "rotation:y", MathUtil.smaller_rotate(rotation.y, chair_rotation.y - deg_to_rad(180)), 0.5)
 			_p_tweener = tween.tween_property(player_camera, "rotation:x", chair_rotation.x, 0.5)
-		#isSit = true
+		#is_sit = true
 	else :
-		_un_sit()
-func _un_sit() -> void:
+		un_sit()
+		
+func un_sit() -> void:
 	var tween : Tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUART).set_parallel(true)
 	var _p_tweener: PropertyTweener = tween.tween_property(mesh.animation_tree,"parameters/Sit/add_amount",0,0.5)
-	isSit.remove_meta("user")
-	isSit = null
+	is_sit.remove_meta("user")
+	is_sit = null
 
 # Caption
 func add_caption(text_in: String) -> void:
@@ -596,7 +604,7 @@ func hide_hud(do_hide:bool) -> void:
 		Color(1,1,1,0) if do_hide else Color(1,1,1,1), 0.1)
 
 func mouse_mode(isVisible:bool)->void:
-	if !isThirdPerson :
+	if !is_third_person :
 		if isVisible :	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		else :	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	else :	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)

@@ -9,4 +9,4 @@ func do(interactor: AHL_Interactive, sender: Node) -> void:
 		ThingInstance = interactor.get_meta('thing_instance',null)
 	if sender is LocalPlayer:
 		var player_sender: LocalPlayer = sender
-		player_sender.Inventory.add_instance(ThingInstance)
+		player_sender.inventory.add_instance(ThingInstance)

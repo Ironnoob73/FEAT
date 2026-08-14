@@ -13,17 +13,17 @@ const JUMP_VELOCITY: int = 8
 const SIT_depth: float = 0.75
 
 const ACCELERATION: float = 0.1
-var FRICTION: float = ProjectSettings.get_setting("physics/3d/default_linear_damp")
+var friction: float = ProjectSettings.get_setting("physics/3d/default_linear_damp")
 
 const MAX_STEP_HEIGHT: float = 0.5
 
-var isDash: float = 0
-var isCrouch: float = 0
-var isClimb: bool = false
-var isGravityOverrided: bool = false
-var isSit: Node = null
-var isThirdPerson: bool = false
-var isInTeleport: bool = false
+var is_dash: float = 0
+var is_crouch: float = 0
+var is_climb: bool = false
+var is_gravity_overrided: bool = false
+var is_sit: Node = null
+var is_third_person: bool = false
+var is_in_teleport: bool = false
 
 @onready var player_collision: CollisionShape3D = $PlayerColl
 @onready var mesh: PlayerMesh = $BodyScene
@@ -32,11 +32,11 @@ var isInTeleport: bool = false
 @onready var hand_held: Node
 var hand_held_group: Array[Node]
 
-@export var Inventory: CInventoryClass
+@export var inventory: CInventoryClass
 var current_hotbar: int = 0
 var handheld_tool: AHL_EqMetaClass
 
-@export var MaxHealth : float = 100
+@export var max_health : float = 100
 @export var current_health : float = 100
 
 var att_idle : bool = true
@@ -44,17 +44,17 @@ var att_sec : bool = false
 var att_order : bool = false
 
 func _ready() -> void:
-	if !Inventory:
-		Inventory = CInventoryClass.new()
-		Inventory.ItemHotbar.append_array([null,null,null,null,null])
-		Inventory.ToolHotbar.append_array([null,null,null,null,null])
+	if !inventory:
+		inventory = CInventoryClass.new()
+		inventory.ItemHotbar.append_array([null,null,null,null,null])
+		inventory.ToolHotbar.append_array([null,null,null,null,null])
 	
 	refresh_player_mesh()
 	refresh_handheld(current_hotbar)
 	
 func refresh_handheld(index:int) -> void:
 	mesh.animation_tree["parameters/MainAttack/request"] = 3
-	handheld_tool = Inventory.ToolHotbar[current_hotbar]
+	handheld_tool = inventory.ToolHotbar[current_hotbar]
 	if index == current_hotbar:
 		for n: Node in hand_held_group:
 			if n and n.get_children():
@@ -86,7 +86,7 @@ func refresh_handheld(index:int) -> void:
 				set_attack_animation("DoubleHand")
 	if hand_held.get_children():
 		for i: GeometryInstance3D in hand_held.get_children():
-			if isThirdPerson:
+			if is_third_person:
 				i.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_ON
 			else:
 				i.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_SHADOWS_ONLY

@@ -18,7 +18,7 @@ func _on_visibility_changed() -> void:
 	if multi_player_list:
 		refresh_multiplayer_list()
 	if wakeup_button:
-		wakeup_button.visible = get_user().isInDream
+		wakeup_button.visible = get_user().is_in_dream
 
 func _unhandled_input(_event: InputEvent) -> void:
 	if Input.is_action_just_released("ui_cancel") :
@@ -71,4 +71,4 @@ func _on_wakeup_button_pressed() -> void:
 	AHL_LoadingScene.new_loader("res://assets/world/world_main.tscn")\
 			.to_pos(Vector3(-5.5,0,5.5)).to_rot(Vector3(0,deg_to_rad(180),0))\
 			.start_load()
-	get_user().isInDream = false
+	get_user().is_in_dream = false
