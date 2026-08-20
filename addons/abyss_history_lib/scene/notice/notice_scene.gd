@@ -38,7 +38,8 @@ func get_notice_info(notice_info:AHL_NoticeInfo = AHL_NoticeInfo.new()) -> void:
 			warning_img.visible = false
 			error_img.visible = true
 	
-	window.material.set_shader_parameter("color",notice_info.bgColor)
+	var window_material: ShaderMaterial = window.material
+	window_material.set_shader_parameter("color",notice_info.bgColor)
 	info.text = notice_info.content
 	
 	yep.text = notice_info.yep

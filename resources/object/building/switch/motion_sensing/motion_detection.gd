@@ -10,7 +10,7 @@ var detected_player: Player = null
 	
 func _physics_process(_delta: float) -> void:
 	if detected_player :
-		if !detected_player.isCrouch and detected_player.velocity.distance_squared_to(Vector3(0,0,0)) >= 10.0**-6 :
+		if !detected_player.is_crouch and detected_player.velocity.distance_squared_to(Vector3(0,0,0)) >= 10.0**-6 :
 			state = true
 			_switch()
 			timer.start()

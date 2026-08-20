@@ -42,12 +42,18 @@
 [ext_resource type="PackedScene" uid="uid://bgt17ft12aj8t" path="res://resources/object/building/light/geometry_lamp/light_scene.tscn" id="28_ilfl7"]
 [ext_resource type="PackedScene" uid="uid://c8rdniten0l2h" path="res://resources/object/building/light/metal_ceiling_lamp/light_scene.tscn" id="29_ilfl7"]
 [ext_resource type="PackedScene" uid="uid://cjhgr5ycp14um" path="res://resources/object/building/light/wooden_ceiling_lamp/light_scene_1.tscn" id="31_3me75"]
+[ext_resource type="AudioStream" uid="uid://dkg8fhxlvp1ny" path="res://resources/sound/ambient/computer_noise.ogg" id="31_sm6nv"]
 [ext_resource type="PackedScene" uid="uid://cjacr4clrjwvl" path="res://resources/object/building/light/wooden_ceiling_lamp/light_scene_0.tscn" id="32_g8j5q"]
+[ext_resource type="Resource" uid="uid://b6442ws4haslg" path="res://resources/object/building/switch/common/switch_sound.tres" id="33_e6n6y"]
 [ext_resource type="Texture2D" uid="uid://itleu3ibe7cv" path="res://title/present.png" id="37_4ge3f"]
 [ext_resource type="Texture2D" uid="uid://ddhij21bol48p" path="res://assets/world/location/_home/reality/exit.svg" id="37_lqy43"]
 [ext_resource type="Shader" uid="uid://cyxv26lgbbfge" path="res://assets/world/environments/sources/background_shader.gdshader" id="38_mjqdt"]
 [ext_resource type="Script" uid="uid://bmbai0jkixg8w" path="res://assets/world/location/_home/reality/background_texture.gd" id="39_pyug8"]
 [ext_resource type="PackedScene" uid="uid://cfc8jgatk5nvc" path="res://assets/world/location/_home/reality/fake_sky_box.tscn" id="40_jk5bb"]
+[ext_resource type="PackedScene" uid="uid://b2qrwyulrn3jr" path="res://resources/object/building/switch/big_red/switch_scene.tscn" id="40_qj0mm"]
+[ext_resource type="Script" uid="uid://dlk3dqw4yugrr" path="res://addons/abyss_history_lib/class/interact/behaviour/play_sound_behavior_class.gd" id="41_sm6nv"]
+[ext_resource type="AudioStream" uid="uid://betiko76o1roh" path="res://resources/sound/toilet.ogg" id="42_2oyq1"]
+[ext_resource type="AudioStream" uid="uid://d0otp18rsyjyj" path="res://resources/sound/ambient/summer.ogg" id="47_qj0mm"]
 
 [sub_resource type="Resource" id="Resource_e7spv"]
 script = ExtResource("7_7aooe")
@@ -59,17 +65,17 @@ script = ExtResource("23_jk5bb")
 screen_path = NodePath("Screen")
 metadata/_custom_type_script = "uid://4j2upwqk6ipe"
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_02kf6"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_ef1nh"]
 viewport_path = NodePath("ScreenViewport")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_0wg0v"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_r32ja"]
 viewport_path = NodePath("ScreenViewport")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2gm06"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2cswc"]
 resource_local_to_scene = true
-albedo_texture = SubResource("ViewportTexture_02kf6")
+albedo_texture = SubResource("ViewportTexture_ef1nh")
 emission_enabled = true
-emission_texture = SubResource("ViewportTexture_0wg0v")
+emission_texture = SubResource("ViewportTexture_r32ja")
 
 [sub_resource type="Resource" id="Resource_tnxtw"]
 script = ExtResource("16_me8th")
@@ -106,6 +112,11 @@ metadata/_custom_type_script = "uid://bcmxxhlef12pk"
 script = ExtResource("16_me8th")
 connected_node = Array[NodePath]([NodePath("../MetalCeilingLampScene1")])
 metadata/_custom_type_script = "uid://bcmxxhlef12pk"
+
+[sub_resource type="Resource" id="Resource_mu5da"]
+script = ExtResource("41_sm6nv")
+sound = ExtResource("42_2oyq1")
+metadata/_custom_type_script = "uid://dlk3dqw4yugrr"
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_g88dj"]
 size = Vector3(8, 12, 1)
@@ -179,39 +190,30 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, -2.999999)
 
 [node name="FluorescentLampScene0" parent="Corridor0" unique_id=1329139065 instance=ExtResource("9_wlm46")]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 4, 3, -0.5000005)
-current_health = 100.0
 
 [node name="FluorescentLampScene1" parent="Corridor0" unique_id=1074542109 instance=ExtResource("9_wlm46")]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 14, 3, -0.5000005)
-current_health = 100.0
 
 [node name="FluorescentLampScene2" parent="Corridor0" unique_id=161408037 instance=ExtResource("9_wlm46")]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -38, 3, -0.5000038)
-current_health = 100.0
 
 [node name="FluorescentLampScene3" parent="Corridor0" unique_id=579645911 instance=ExtResource("9_wlm46")]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -28, 3, -0.50000334)
-current_health = 100.0
 
 [node name="FluorescentLampScene4" parent="Corridor0" unique_id=239585692 instance=ExtResource("9_wlm46")]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -12, 3, -0.5000019)
-current_health = 100.0
 
 [node name="FluorescentLampScene5" parent="Corridor0" unique_id=726699179 instance=ExtResource("9_wlm46")]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -4, 3, -0.50000143)
-current_health = 100.0
 
 [node name="FluorescentLampScene6" parent="Corridor0" unique_id=792711590 instance=ExtResource("9_wlm46")]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -20, 3, -0.50000334)
-current_health = 100.0
 
 [node name="FluorescentLampScene7" parent="Corridor0" unique_id=1665017127 instance=ExtResource("9_wlm46")]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -47, 3, -0.5000062)
-current_health = 100.0
 
 [node name="FluorescentLampScene8" parent="Corridor0" unique_id=1858063618 instance=ExtResource("9_wlm46")]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 23, 3, -0.49999952)
-current_health = 100.0
 
 [node name="Corridor1" parent="Corridor0" unique_id=216654092 instance=ExtResource("17_ovdeb")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 18, 0, -1)
@@ -502,14 +504,23 @@ transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -4.5
 init_behavior = Array[ExtResource("15_j4cn1")]([SubResource("Resource_xp221")])
 
 [node name="Screen" parent="Inner/ComputerScene" unique_id=2089639586 instance=ExtResource("23_pyug8")]
-material_override = SubResource("StandardMaterial3D_2gm06")
+material_override = SubResource("StandardMaterial3D_2cswc")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Inner/ComputerScene" unique_id=1475466485]
+stream = ExtResource("31_sm6nv")
+volume_db = -5.0
+unit_size = 2.5
+max_db = 0.0
+pitch_scale = 2.0
+autoplay = true
+bus = &"SFX"
 
 [node name="WoodenCeilingLampScene" parent="Inner" unique_id=1004981330 instance=ExtResource("13_36fuy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 3, 5.5)
 
 [node name="SwitchScene0" parent="Inner" unique_id=371864870 instance=ExtResource("14_jhkpw")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -2, 1.5, 5.5)
-interact_behavior = Array[ExtResource("15_j4cn1")]([SubResource("Resource_tnxtw")])
+interact_behavior = Array[ExtResource("15_j4cn1")]([ExtResource("33_e6n6y"), SubResource("Resource_tnxtw")])
 state = true
 
 [node name="WoodenCeilingLampScene2" parent="Inner" unique_id=842705434 instance=ExtResource("31_3me75")]
@@ -517,7 +528,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 3, -0.5)
 
 [node name="SwitchScene1" parent="Inner" unique_id=1291540817 instance=ExtResource("14_jhkpw")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -1.5, 1.5, -1)
-interact_behavior = Array[ExtResource("15_j4cn1")]([SubResource("Resource_ilfl7")])
+interact_behavior = Array[ExtResource("15_j4cn1")]([ExtResource("33_e6n6y"), SubResource("Resource_ilfl7")])
 state = true
 
 [node name="WoodenCeilingLampScene3" parent="Inner" unique_id=257436309 instance=ExtResource("32_g8j5q")]
@@ -525,7 +536,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 3, -2.5)
 
 [node name="SwitchScene2" parent="Inner" unique_id=1052279984 instance=ExtResource("14_jhkpw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 1.5, -4)
-interact_behavior = Array[ExtResource("15_j4cn1")]([SubResource("Resource_fjltd")])
+interact_behavior = Array[ExtResource("15_j4cn1")]([ExtResource("33_e6n6y"), SubResource("Resource_fjltd")])
 state = true
 
 [node name="WoodenCeilingLampScene4" parent="Inner" unique_id=2049131415 instance=ExtResource("27_ejgib")]
@@ -533,40 +544,41 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 3, 6.5)
 
 [node name="SwitchScene3" parent="Inner" unique_id=494033894 instance=ExtResource("14_jhkpw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.75, 1.5, 3)
-interact_behavior = Array[ExtResource("15_j4cn1")]([SubResource("Resource_lqy43")])
+interact_behavior = Array[ExtResource("15_j4cn1")]([ExtResource("33_e6n6y"), SubResource("Resource_lqy43")])
 state = true
 
 [node name="CeilingLampScene" parent="Inner" unique_id=1406775691 instance=ExtResource("28_ilfl7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 3.5, 7.5)
-current_health = 100.0
 
 [node name="SwitchScene4" parent="Inner" unique_id=1641026796 instance=ExtResource("14_jhkpw")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 5, 1.5, 6.5)
-interact_behavior = Array[ExtResource("15_j4cn1")]([SubResource("Resource_4ge3f")])
+interact_behavior = Array[ExtResource("15_j4cn1")]([ExtResource("33_e6n6y"), SubResource("Resource_4ge3f")])
 state = true
 
 [node name="MetalCeilingLampScene0" parent="Inner" unique_id=970303378 instance=ExtResource("29_ilfl7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5, 3, 0.5)
-current_health = 100.0
 
 [node name="SwitchScene5" parent="Inner" unique_id=26731091 instance=ExtResource("14_jhkpw")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -1, 1.5, 1.5)
-interact_behavior = Array[ExtResource("15_j4cn1")]([SubResource("Resource_b0idw")])
+interact_behavior = Array[ExtResource("15_j4cn1")]([ExtResource("33_e6n6y"), SubResource("Resource_b0idw")])
 state = true
 
 [node name="MetalCeilingLampScene1" parent="Inner" unique_id=618615850 instance=ExtResource("29_ilfl7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 3, 2.5)
-current_health = 100.0
 
 [node name="SwitchScene6" parent="Inner" unique_id=264335090 instance=ExtResource("14_jhkpw")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5, 1.5, 2.75)
-interact_behavior = Array[ExtResource("15_j4cn1")]([SubResource("Resource_mjqdt")])
+interact_behavior = Array[ExtResource("15_j4cn1")]([ExtResource("33_e6n6y"), SubResource("Resource_mjqdt")])
 state = true
 
 [node name="SceneChangerScene2" parent="Inner" unique_id=1283554336 instance=ExtResource("3_aw5aa")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 0)
 next_scene = "Cloud"
 pos = Vector3(16, 1, 29)
+
+[node name="ToiletButton" parent="Inner" unique_id=243793507 instance=ExtResource("40_qj0mm")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -4, 1.5, 3)
+interact_behavior = Array[ExtResource("15_j4cn1")]([SubResource("Resource_mu5da")])
 
 [node name="Outwall" parent="." unique_id=329658909 instance=ExtResource("16_10fv7")]
 
@@ -874,6 +886,13 @@ collision_layer = 3
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -0.4)
 shape = SubResource("BoxShape3D_g88dj")
 
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Outwall" unique_id=1026319188]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 30)
+stream = ExtResource("47_qj0mm")
+attenuation_model = 2
+autoplay = true
+bus = &"SFX"
+
 [node name="Ground" type="CSGBox3D" parent="." unique_id=1626557726]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -69, 0)
 size = Vector3(100, 1, 100)
@@ -954,6 +973,7 @@ cull_mask = 32
 current = true
 
 [node name="SceneBackground" parent="ExtraSkybox/BackgroundTexture" unique_id=447745979 instance=ExtResource("40_jk5bb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0092225075, 0.01264143, -0.00258255)
 
 [connection signal="body_entered" from="DropArea" to="." method="_on_drop_area_body_entered"]
 [connection signal="body_entered" from="ExitArea" to="." method="_on_exit_area_body_entered"]

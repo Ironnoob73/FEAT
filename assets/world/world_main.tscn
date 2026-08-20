@@ -12,5 +12,6 @@ metadata/Dim = "Overworld"
 [node name="Player" parent="." unique_id=1959358014 instance=ExtResource("3_oiwhx")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -4.5, 0, 6.5)
 collision_mask = 143
+is_in_dream = false
 
 [node name="ScenesPackage" parent="." unique_id=2027734777 instance=ExtResource("5_espus")]

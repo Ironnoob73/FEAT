@@ -8,10 +8,10 @@ extends Area3D
 
 func _on_body_entered(body: Node3D) -> void:
 	if next_scene and body is LocalPlayer:
-		var loading_scene: AHL_LoadingScene =\
-			AHL_LoadingScene.new_loader(LocationList.get_path_from_name(next_scene)).replace_main(false)
+		var load_request: AHL_LoadRequest =\
+				AHL_LoadRequest.new_loader(LocationList.get_path_from_name(next_scene))
 		if change_pos:
-			loading_scene = loading_scene.to_pos(pos)
+			load_request = load_request.to_pos(pos)
 		if change_rot:
-			loading_scene = loading_scene.to_rot(rot)
-		loading_scene.start_load()
+			load_request = load_request.to_rot(rot)
+		var _loading_scene: AHL_LoadingScene = load_request.start_load()

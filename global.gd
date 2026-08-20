@@ -150,7 +150,8 @@ func get_key_event_array(action: String) -> Array:
 	
 ## Back to title
 func back_to_title() -> void:
-	AHL_LoadingScene.new_loader("res://title/title_scene.tscn").start_load()
+	var _loading_scene: AHL_LoadingScene =\
+			AHL_LoadRequest.new_loader("res://title/title_scene.tscn").replace_main().start_load()
 	is_in_game = false
 	
 ## Get World Path

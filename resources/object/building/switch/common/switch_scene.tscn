@@ -2,7 +2,9 @@
 
 [ext_resource type="Script" uid="uid://cyyd70usjabx" path="res://resources/object/building/switch/common/switch_interaction.gd" id="1_8njl6"]
 [ext_resource type="Script" uid="uid://c8ier7k2ohfsp" path="res://addons/abyss_history_lib/class/interact/interactive_class.gd" id="1_xx5fq"]
+[ext_resource type="Script" uid="uid://xi806lb1q3l3" path="res://addons/abyss_history_lib/class/interact/behaviour/_behavior_class.gd" id="2_85vs5"]
 [ext_resource type="Material" uid="uid://v4eof5jjlhmn" path="res://resources/material/red_emissive.tres" id="2_rx144"]
+[ext_resource type="Resource" uid="uid://b6442ws4haslg" path="res://resources/object/building/switch/common/switch_sound.tres" id="3_wnfby"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_i6cr2"]
 size = Vector3(0.2, 0.2, 0.05)
@@ -22,6 +24,7 @@ DisplayName = "Switch"
 Interactable = true
 interact_icon = "👆"
 interact_text = "interact.switch"
+interact_behavior = Array[ExtResource("2_85vs5")]([ExtResource("3_wnfby")])
 Switchable = true
 current_health = 100.0
 

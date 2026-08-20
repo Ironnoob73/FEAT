@@ -68,7 +68,8 @@ func get_user() -> LocalPlayer:
 
 func _on_wakeup_button_pressed() -> void:
 	hide()
-	AHL_LoadingScene.new_loader("res://assets/world/world_main.tscn")\
-			.to_pos(Vector3(-5.5,0,5.5)).to_rot(Vector3(0,deg_to_rad(180),0))\
-			.start_load()
+	var _loading_scene: AHL_LoadingScene =\
+			AHL_LoadRequest.new_loader("res://assets/world/world_main.tscn")\
+					.to_pos(Vector3(-5.5,0,5.5)).to_rot(Vector3(0,deg_to_rad(180),0))\
+					.replace_main().start_load()
 	get_user().is_in_dream = false

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cn0vdsnev3254"]
 
 [ext_resource type="PackedScene" uid="uid://bn7io11r2qhyi" path="res://resources/object/function/barrier_wall/barrier_wall_scene.tscn" id="1_0tuj7"]
-[ext_resource type="Script" uid="uid://b3131mk2qi23j" path="res://barrier_fade.gd" id="2_dwst4"]
+[ext_resource type="Script" uid="uid://b3131mk2qi23j" path="res://resources/object/function/barrier_wall/barrier_fade.gd" id="2_dwst4"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_0tuj7"]
 height = 7.0

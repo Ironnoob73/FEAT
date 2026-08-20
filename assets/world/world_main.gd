@@ -16,14 +16,15 @@ func _ready() -> void:
 	Global.current_world = self
 	
 	_on_options_set_sdfgi(Global.sdfgi)
-	if !AHL_Core.player_teleported :
-		if AHL_Core.tp_change_pos:
-			player0.position = AHL_Core.tp_to_pos
-			AHL_Core.tp_change_pos = false
-		if AHL_Core.tp_change_rot:
-			player0.rotation = AHL_Core.tp_to_rot
-			AHL_Core.tp_change_rot = false
-		AHL_Core.player_teleported = true
+	var load_request: AHL_LoadRequest = AHL_Core.load_request
+	if load_request != null:
+		if load_request.tp_change_pos:
+			player0.position = load_request.tp_to_pos
+			load_request.tp_change_pos = false
+		if load_request.tp_change_rot:
+			player0.rotation = load_request.tp_to_rot
+			load_request.tp_change_rot = false
+		AHL_Core.load_request = null
 		
 	Global.make_world_ready()
 
@@ -33,15 +34,16 @@ func _on_options_set_sdfgi(_value : bool) -> void:
 	pass
 
 func _physics_process(_delta: float) -> void:
-	if AHL_Core.has_meta("next_scene"):
+	var load_request: AHL_LoadRequest = AHL_Core.load_request
+	if load_request != null and load_request.next_scene:
 		scenes_package.queue_free()
 		var load_scene: Callable = func() -> void:
-			var next_scene_ins: PackedScene = AHL_Core.get_meta("next_scene")
+			var next_scene_ins: PackedScene = load_request.next_scene
 			scenes_package = next_scene_ins.instantiate()
 			add_child(scenes_package)
 			#if scenes_package.environment != null:
 			#	env.environment = scenes_package.environment
-			AHL_Core.remove_meta("next_scene")
+			AHL_Core.load_request = null
 		load_scene.call_deferred()
 		_ready()
 	if !real_time:

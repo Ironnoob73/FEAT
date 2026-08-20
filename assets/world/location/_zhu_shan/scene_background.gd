@@ -1,7 +1,7 @@
 extends SubViewport
 
 @onready var bg_cam: Camera3D = $BgCam
-@onready var world0: Node3D = $"../../../"
+#@onready var world0: Node3D = $"../../../"
 @onready var falord_map: MeshInstance3D = $FalordMap
 
 func _ready() -> void:

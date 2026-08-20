@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="AHL_ConditionBehaviorClass" format=3 uid="uid://b6442ws4haslg"]
+
+[ext_resource type="Script" uid="uid://dlk3dqw4yugrr" path="res://addons/abyss_history_lib/class/interact/behaviour/play_sound_behavior_class.gd" id="1_x6rqv"]
+[ext_resource type="AudioStream" uid="uid://b7nkngro5a5wr" path="res://resources/sound/switch_off.ogg" id="2_dfedr"]
+[ext_resource type="Script" uid="uid://feurcoo81jp5" path="res://addons/abyss_history_lib/class/interact/behaviour/condition_behavior_class.gd" id="3_fujc2"]
+[ext_resource type="AudioStream" uid="uid://ccagt7awxwlqf" path="res://resources/sound/switch_on.ogg" id="4_d6spg"]
+
+[sub_resource type="Resource" id="Resource_5uyse"]
+script = ExtResource("1_x6rqv")
+sound = ExtResource("2_dfedr")
+metadata/_custom_type_script = "uid://dlk3dqw4yugrr"
+
+[sub_resource type="Resource" id="Resource_8ckur"]
+script = ExtResource("1_x6rqv")
+sound = ExtResource("4_d6spg")
+metadata/_custom_type_script = "uid://dlk3dqw4yugrr"
+
+[resource]
+script = ExtResource("3_fujc2")
+tag = "state"
+expected_value = true
+true_behavior = SubResource("Resource_8ckur")
+false_behavior = SubResource("Resource_5uyse")
+metadata/_custom_type_script = "uid://feurcoo81jp5"

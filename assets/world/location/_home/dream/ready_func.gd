@@ -103,10 +103,10 @@ func move_elevator(interactor: TextedButton3d, sender: Variant, to_level: int) -
 
 func _switch_to_9_cloud() -> void:
 	Global.set_meta("wrap_from", "DreamApartment")
-	var loading_scene: AHL_LoadingScene =\
-			AHL_LoadingScene.new_loader("res://assets/world/location/9_cloud/_scenes_package.tscn")\
-					.replace_main(false).cover(false)
-	loading_scene.start_load()
+	var load_request: AHL_LoadRequest =\
+			AHL_LoadRequest.new_loader("res://assets/world/location/9_cloud/_scenes_package.tscn")\
+					.cover(false)
+	var loading_scene: AHL_LoadingScene = load_request.start_load()
 	await loading_scene.load_done
 	Global.set_meta("elevator_music_process", the_elevator.music.get_playback_position())
 
